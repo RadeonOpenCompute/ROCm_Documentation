@@ -1,17 +1,5 @@
-# ROCm_Documentation
-Here are the two style of documentation formatting we look at:
 
-- https://stripe.com/docs/api/php#retrieve_balance
-- http://docs.trackjs.com
- 
-The tools we need to look at are: 
-
-- http://daux.io
-- http://mtmacdonald.github.io/docgen/docs/index.html
-- http://gohugo.io
-- https://github.com/lord/slate
- 
-## ROCm Documentation Outline
+ ## ROCm Documentation Outline
 
 ### Current Release Notes
  
