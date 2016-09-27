@@ -16,119 +16,119 @@ Programing Guides
 
 1.      HC Programing Guide
 
-a.      Programing Model
-i.      Kernels
-ii.     Thread Hierarchy
-iii.    Memory Hierarchy
-iv.     Heterogeneous Programing
-v.      Compute Capability
+ a.      Programing Model
+  i.      Kernels
+  ii.     Thread Hierarchy
+  iii.    Memory Hierarchy
+  iv.     Heterogeneous Programing
+  v.      Compute Capability
 
-b.      Programing Interface
-i.      Compilation with HCC
-ii.     HC C++ Runtime
+ b.      Programing Interface
+  i.      Compilation with HCC
+  ii.     HC C++ Runtime
 
-c.      Hardware Implementation
+ c.      Hardware Implementation
 
-d.      Performance Guidelines
+ d.      Performance Guidelines
 
-e.      Language Extensions 
+ e.      Language Extensions 
 
-f.      Mathematical Functions
+ f.      Mathematical Functions
 
-g.      Textures
+ g.      Textures
 
-h.      Environment Variables
+ h.      Environment Variables
 
 2.      HC Best Practices
 
-a.      Assessing Your Application
+ a.      Assessing Your Application
 
-b.      Heterogeneous Computing
+ b.      Heterogeneous Computing
 
-c.      Application Profiling
+ c.      Application Profiling
 
-d.      Parallelizing your Application
+ d.      Parallelizing your Application
 
-e.      Getting Started with your First Application
+ e.      Getting Started with your First Application
 
-f.      Driving Application Correctness
+ f.      Driving Application Correctness
 
-g.      Optimizing your Application
+ g.      Optimizing your Application
 
-h.      Performance Metrics
+ h.      Performance Metrics
 
-i.      Memory Optimizations
+ i.      Memory Optimizations
 
-j.      GPU Device Architecture Software Optimizations
+ j.      GPU Device Architecture Software Optimizations
 
-k.      Instruction Level Optimizations
+ k.      Instruction Level Optimizations
 
-l.      Control Flow
+ l.      Control Flow
 
-m.    Deploying HCC Application
+ m.    Deploying HCC Application
 
-n.      Recommended Best Practices
+ n.      Recommended Best Practices
 
-o.      HCC compiler switches
+ o.      HCC compiler switches
 
 3.      HIP Programing Guide
 
-a.      Programing Model
+ a.      Programing Model
 
-i.      Kernels
-ii.      Thread Hierarchy
-iii.      Memory Hierarchy
-iv.      Heterogeneous Programing
-v.      Compute Capability
+  i.      Kernels
+  ii.      Thread Hierarchy
+  iii.      Memory Hierarchy
+  iv.      Heterogeneous Programing
+  v.      Compute Capability
 
-b.      Programing Interface
+ b.      Programing Interface
 
-i.      Compilation with HCC
-ii.      HC C++ Runtime
+  i.      Compilation with HCC
+  ii.      HC C++ Runtime
 
-c.       Hardware Implementation
+ c.       Hardware Implementation
 
-d.      Performance Guidelines
+ d.      Performance Guidelines
 
-e.      Language Extensions 
+ e.      Language Extensions 
 
-f.        Mathematical Functions
+ f.        Mathematical Functions
 
-g.      Textures
+ g.      Textures
 
-h.      Environment Variables 
+ h.      Environment Variables 
 
 4.      HIP Best Practices
 
-a.      Assessing Your Application
+ a.      Assessing Your Application
 
-b.      Heterogeneous Computing
+ b.      Heterogeneous Computing
 
-c.       Application Profiling
+ c.       Application Profiling
 
-d.      Parallelizing your Application
+ d.      Parallelizing your Application
 
-e.      Getting Started with your First application
+ e.      Getting Started with your First application
 
-f.        Driving Application Correctness
+ f.        Driving Application Correctness
 
-g.      Optimizing your Application
+ g.      Optimizing your Application
 
-h.      Performance Metrics
+ h.      Performance Metrics
 
-i.        Memory Optimizations
+ i.        Memory Optimizations
 
-j.        GPU Device Architecture Software Optimizations
+ j.        GPU Device Architecture Software Optimizations
 
-k.       Instruction Level Optimizations
+ k.       Instruction Level Optimizations
 
-l.        Control Flow
+ l.        Control Flow
 
-m.    Deploying HIP Application
+ m.    Deploying HIP Application
 
-n.      Recommended Best Practices
+ n.      Recommended Best Practices
 
-o.      HCC compiler switches
+ o.      HCC compiler switches
 
 5.      OpenCL Programing Guide
 
@@ -157,11 +157,11 @@ ROCm API References
 7.      rocFFT
 8.      hcRAND
 9.      hsSPARSE
-10.  mlOpen
-11.  clBLAS
-12.  clFFT
-13.  clSPARSE
-14.  clRAND
+10.     mlOpen
+11.     clBLAS
+12.     clFFT
+13.     clSPARSE
+14.     clRAND
 
 Tools
 -----
@@ -182,25 +182,25 @@ Compiler SDK
 1.      GCN Native ISA LLVM Code Generator
 2.      ROCm Code Object Format
 3.      ROC Device Library
-a.      OCML
-b.      OKML
+ a.      OCML
+ b.      OKML
 4.      ROCr Runtime
-a.      Introduction
-b.      Programing Model
-i.      Initialization and agent discovery
-ii.      Queues and AQL Packets
-iii.      Signals and packet launch
-c.       Programing Guide
- i.      Initialization and shut down
-ii.      Runtime Notifications
-iii.      System and agent information
-iv.      Signals
-v.      Queues
-vi.      Architected Queuing Language Packets
-vii.      Memory
-viii.      Code Object Loading
-ix.      Common definitions  
-d.      Best Practices Mapping Programing Language to ROCr runtime
+ a.      Introduction
+ b.      Programing Model
+  i.      Initialization and agent discovery
+  ii.      Queues and AQL Packets
+  iii.      Signals and packet launch
+ c.       Programing Guide
+  i.      Initialization and shut down
+  ii.      Runtime Notifications
+  iii.      System and agent information
+  iv.      Signals
+  v.      Queues
+  vi.      Architected Queuing Language Packets
+  vii.      Memory
+  viii.      Code Object Loading
+  ix.      Common definitions  
+ d.      Best Practices Mapping Programing Language to ROCr runtime
 
 Other Solutions
 ---------------
