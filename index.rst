@@ -138,11 +138,9 @@ Programing Guides
 
 8.      GFX8 Tuning Guide
 
-9.      GF9 Tuning Guide
+9.  GCN ISA
 
-10.  GCN ISA
-
-11.  Inline GCN ISA Assembly
+10.  Inline GCN ISA Assembly
 
  
 ROCm API References
