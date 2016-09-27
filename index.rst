@@ -2,6 +2,9 @@
 ROCm Documentation 
 ******************
 
+.. toctree::
+   :maxdepth: 2
+   
 Welcome to ROCm
 ================
 .. _ROCm website: http://radeonopencompute.github.io
