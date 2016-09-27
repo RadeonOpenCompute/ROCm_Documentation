@@ -20,22 +20,19 @@ unless otherwise specified. Consult .
 .. _ROCm_Release_Notes:
 
   
-Current Release Notes
+1.0 Current Release Notes
 ==========================
-.. toctree::
-   :maxdepth: 2
 
 
 .. _ROCm_Install_Guide:
-Installation Guide
+2.0 Installation Guide
 ======================
-.. toctree::
-   :maxdepth: 2
-Quick Start Guide
+
+2.1 Quick Start Guide
 ---------------------
-Installation Guide Ubuntu
+2.2 Installation Guide Ubuntu
 -----------------------------
-Installation Guide Fedora
+2.3 Installation Guide Fedora
 -----------------------------
 
 
@@ -44,8 +41,7 @@ Installation Guide Fedora
 
 3.0 Programing Guides
 ======================
-.. toctree::
-   :maxdepth: 2
+
 3.1 HC Programing Guide
 ---------------------
 
@@ -290,8 +286,7 @@ Installation Guide Fedora
 
 4.0 ROCm GPU Tunning Guides 
 ============================
-.. toctree::
-   :maxdepth: 2
+
 4.1 GFX7 Tuning Guide
 ---------------------
 
@@ -304,8 +299,7 @@ Installation Guide Fedora
 
 5.0 GCN ISA Manuals 
 ====================
-.. toctree::
-   :maxdepth: 2
+
 5.1 GCN 1.1
 ----------------
 
@@ -321,8 +315,7 @@ Installation Guide Fedora
 
 6.0 ROCm API References
 ========================
-.. toctree::
-   :maxdepth: 2
+
 6.1 ROCr System Runtime API
 ----------------------------
 6.2 HCC Language Runtime API
@@ -373,8 +366,7 @@ Installation Guide Fedora
 
 7.0 ROCm Tools
 ===============
-.. toctree::
-   :maxdepth: 2
+
 7.1 HCC
 --------
 
