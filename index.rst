@@ -14,13 +14,16 @@ Welcome to ROCm
 All of the documentation and source code is available under the MIT license,
 unless otherwise specified. Consult .
 
+
+.. toctree::
+  :maxdepth: 1
 .. _ROCm_Release_Notes:
+
   
 1.0 Current Release Notes
 ==========================
 
-.. toctree::
-  :maxdepth: 1
+
 
 .. _ROCm_Install_Guide:
 2.0 Installation Guide
@@ -33,8 +36,8 @@ unless otherwise specified. Consult .
 2.3 Installation Guide Fedora
 -----------------------------
 
-.. toctree::
-  :maxdepth: 1
+
+ 
 .. _ROCm_Programing_Guide:
 
 3.0 Programing Guides
@@ -278,8 +281,7 @@ unless otherwise specified. Consult .
 3.6.15 OpenCL compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. toctree::
-  :maxdepth: 1
+
 .. _ROCm_Hardware_Tunning_Guides:
 
 
@@ -292,8 +294,8 @@ unless otherwise specified. Consult .
 4.2 GFX8 Tuning Guide
 ---------------------
 
-.. toctree::
-  :maxdepth: 1
+
+
 .. _GCN_ISA_Manuals:
 
 5.0 GCN ISA Manuals 
@@ -308,8 +310,8 @@ unless otherwise specified. Consult .
 5.3 Inline GCN ISA Assembly Guide
 -----------------------------------
 
-.. toctree::
-  :maxdepth: 1
+
+
 .. _ROCm_API_Refernces:
 
 6.0 ROCm API References
@@ -359,8 +361,8 @@ unless otherwise specified. Consult .
 6.7.1 mlOpen
 ~~~~~~~~~~~~~~~~~~
 
-.. toctree::
-  :maxdepth: 1
+
+
 .. _ROCm_Programing_Guide:
 
 7.0 ROCm Tools
@@ -393,8 +395,8 @@ unless otherwise specified. Consult .
 7.9 ROCm Binary Utilities
 -------------------------
 
-.. toctree::
-  :maxdepth: 1
+
+
 .. _ROCm_Compiler_SDK:
 
 8.0 ROCm Compiler SDK
@@ -439,8 +441,8 @@ unless otherwise specified. Consult .
 8.4.4 Best Practices Mapping Programing Language to ROCr runtime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. toctree::
-  :maxdepth: 1
+
+
 .. _ROCm_System_Managment:
 
 9.0 ROCM System Managment
@@ -455,8 +457,7 @@ unless otherwise specified. Consult .
 9.3 SYSFS Interface 
 -----------------------
 
-.. toctree::
-  :maxdepth: 1
+
 .. _ROCm_Virtualization_Guide:
 
 10 ROCm Virtualization & Containers  
@@ -468,8 +469,7 @@ unless otherwise specified. Consult .
 10.2 ROCm-Docker
 -----------------
 
-.. toctree::
-  :maxdepth: 1
+
 .. _ROCm_Remote_Device_Programing:
 
 11 Remote Device Programing 
@@ -487,8 +487,7 @@ unless otherwise specified. Consult .
 11.4 IPC
 ---------
 
-.. toctree::
-  :maxdepth: 1
+
 .. _ROCm_Other_Guide:
 
 12 Other Solutions
@@ -497,8 +496,7 @@ unless otherwise specified. Consult .
 12.1 ROCr Error Codes
 ----------------------
 
-.. toctree::
-  :maxdepth: 1
+
 .. _ROCm_Virtualization_Guide:
 
 13 ROCm Glossary
