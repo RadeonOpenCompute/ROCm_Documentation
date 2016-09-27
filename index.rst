@@ -12,8 +12,7 @@ Welcome to ROCm
 
 All of the documentation and source code is available under the MIT license,
 unless otherwise specified. Consult :source:`LICENSE`.
-.. toctree::
-  :maxdepth: 1
+
 1.0 Current Release Notes
 ==========================
 .. toctree::
