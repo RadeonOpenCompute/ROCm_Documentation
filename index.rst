@@ -9,11 +9,11 @@ Installation Guide
 ##################
 
 Quick Start Guide
-*****************
+-----------------
 Installation Guide Ubuntu
-*************************
+-------------------------
 Installation Guide Fedora
-*************************
+-------------------------
  
 Programing Guides
 #################
@@ -47,8 +47,9 @@ Textures
 -----------------------
 Environment Variables
 -----------------------
+
 HC Best Practices
-*****************
+*********************
 
 Assessing Your Application
 -----------------------
@@ -80,8 +81,9 @@ Recommended Best Practices
 -----------------------
 HCC compiler switches
 -----------------------
+
 HIP Programing Guide
-********************
+####################
 
 Programing Model
 -------------------
@@ -108,8 +110,9 @@ Textures
 -----------------------
 Environment Variables 
 -----------------------
+
 HIP Best Practices
-******************
+*********************
 
 Assessing Your Application
 --------------------------
@@ -141,20 +144,75 @@ Recommended Best Practices
 ---------------------------
 HCC compiler switches
 ----------------------
+
 OpenCL Programing Guide
-***********************
+#######################
+Programing Model
+-------------------
+  i.      Kernels
+  ii.     Thread Hierarchy
+  iii.    Memory Hierarchy
+  iv.     Heterogeneous Programing
+  v.      Compute Capability
+
+Programing Interface
+---------------------
+  i.      Compilation with OpenCL
+  ii.     OpenCL Runtime
+
+Hardware Implementation
+------------------------
+Performance Guidelines
+-----------------------
+Language Extensions 
+-----------------------
+Mathematical Functions
+-----------------------
+Textures
+-----------------------
+Environment Variables 
 
 OpenCL Best Practices
 *********************
+Assessing Your Application
+--------------------------
+Heterogeneous Computing
+-----------------------
+Application Profiling
+-----------------------
+Parallelizing your Application
+-------------------------------
+Getting Started with your First application
+-------------------------------------------
+Driving Application Correctness
+-------------------------------
+Optimizing your Application
+----------------------------
+Performance Metrics
+-----------------------
+Memory Optimizations
+-----------------------
+GPU Device Architecture Software Optimizations
+-----------------------------------------------
+Instruction Level Optimizations
+--------------------------------
+Control Flow
+-------------
+Deploying OpenCL Application
+--------------------------
+Recommended Best Practices
+---------------------------
+OpenCL compiler switches
+----------------------
 
 GFX7 Tuning Guide
-*****************
+#######################
 
 GFX8 Tuning Guide
-*****************
+#######################
 
 GCN ISA
-*******
+#######################
 
 Inline GCN ISA Assembly
 ***********************
