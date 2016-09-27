@@ -2,8 +2,6 @@
 ROCm Documentation 
 ******************
 
-.. toctree::
-   :maxdepth: 2
    
 Welcome to ROCm
 ================
@@ -24,13 +22,15 @@ unless otherwise specified. Consult .
   
 1.0 Current Release Notes
 ==========================
-
+.. toctree::
+   :maxdepth: 2
 
 
 .. _ROCm_Install_Guide:
 2.0 Installation Guide
 ======================
-
+.. toctree::
+   :maxdepth: 2
 2.1 Quick Start Guide
 ---------------------
 2.2 Installation Guide Ubuntu
@@ -44,7 +44,8 @@ unless otherwise specified. Consult .
 
 3.0 Programing Guides
 ======================
-
+.. toctree::
+   :maxdepth: 2
 3.1 HC Programing Guide
 ---------------------
 
@@ -289,7 +290,8 @@ unless otherwise specified. Consult .
 
 4.0 ROCm GPU Tunning Guides 
 ============================
-
+.. toctree::
+   :maxdepth: 2
 4.1 GFX7 Tuning Guide
 ---------------------
 
@@ -302,7 +304,8 @@ unless otherwise specified. Consult .
 
 5.0 GCN ISA Manuals 
 ====================
-
+.. toctree::
+   :maxdepth: 2
 5.1 GCN 1.1
 ----------------
 
@@ -318,7 +321,8 @@ unless otherwise specified. Consult .
 
 6.0 ROCm API References
 ========================
-
+.. toctree::
+   :maxdepth: 2
 6.1 ROCr System Runtime API
 ----------------------------
 6.2 HCC Language Runtime API
@@ -369,7 +373,8 @@ unless otherwise specified. Consult .
 
 7.0 ROCm Tools
 ===============
-
+.. toctree::
+   :maxdepth: 2
 7.1 HCC
 --------
 
@@ -403,7 +408,8 @@ unless otherwise specified. Consult .
 
 8.0 ROCm Compiler SDK
 =====================
-
+.. toctree::
+   :maxdepth: 2
 8.1 GCN Native ISA LLVM Code Generator
 ---------------------------------------
 
@@ -449,7 +455,8 @@ unless otherwise specified. Consult .
 
 9.0 ROCM System Managment
 ==========================
-
+.. toctree::
+   :maxdepth: 2
 9.1 ROCm-SMI
 ----------------
 
@@ -464,7 +471,8 @@ unless otherwise specified. Consult .
 
 10 ROCm Virtualization & Containers  
 ==========================================
-
+.. toctree::
+   :maxdepth: 2
 10.1 KVM Passthrough
 --------------------
 
@@ -476,7 +484,8 @@ unless otherwise specified. Consult .
 
 11 Remote Device Programing 
 ===========================
-
+.. toctree::
+   :maxdepth: 2
 11.1 ROCnRDMA
 ---------
 
@@ -494,7 +503,8 @@ unless otherwise specified. Consult .
 
 12 Other Solutions
 ====================
-
+.. toctree::
+   :maxdepth: 2
 12.1 ROCr Error Codes
 ----------------------
 
@@ -503,5 +513,6 @@ unless otherwise specified. Consult .
 
 13 ROCm Glossary
 =================
- 
+.. toctree::
+   :maxdepth: 2 
 
