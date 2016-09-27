@@ -5,18 +5,23 @@ ROCm Documentation
 Welcome to ROCm 
 .. _ROCm website: http://radeonopencompute.github.io
 
-* If you're interested in trying ROCm out, check out the :doc:`installation instructions <install>`.
+* If you're interested in trying ROCm out, check out the .
 
-* If you want to help develop ROCm, please have a look at :doc:`how to contribute <how-to-contribute>`
-  and get in touch (:ref:`contact`)!
+* If you want to help develop ROCm, please have a look at 
+  and get in touch !
 
 All of the documentation and source code is available under the MIT license,
-unless otherwise specified. Consult :source:`LICENSE`.
+unless otherwise specified. Consult .
 
-1.0 Current Release Notes
-==========================
 .. toctree::
   :maxdepth: 1
+  
+1.0 Current Release Notes
+==========================
+
+.. toctree::
+  :maxdepth: 1
+  
 2.0 Installation Guide
 ======================
 
@@ -26,8 +31,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 -----------------------------
 2.3 Installation Guide Fedora
 -----------------------------
+
 .. toctree::
-  :maxdepth: 1 
+  :maxdepth: 1
+  
 3.0 Programing Guides
 ======================
 
@@ -62,8 +69,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 3.1.6 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
+  
 3.2 HC Best Practices
 ----------------------
 
@@ -111,8 +120,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 3.2.115 HCC compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
+  
 3.3 HIP Programing Guide
 -------------------------
 
@@ -143,8 +154,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 3.3.7 Environment Variables 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
+  
 3.4 HIP Best Practices
 ----------------------
 
@@ -192,8 +205,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 3.4.15 HCC compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
+  
 3.5 OpenCL Programing Guide
 ----------------------------
 
@@ -224,6 +239,7 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 3.57 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
 
@@ -283,8 +299,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 4.2 GFX8 Tuning Guide
 ---------------------
+
 .. toctree::
   :maxdepth: 1
+
 5.0 GCN ISA Manuals 
 ====================
 
@@ -299,6 +317,7 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 .. toctree::
   :maxdepth: 1 
+
 6.0 ROCm API References
 ========================
 
@@ -345,8 +364,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 6.7.1 mlOpen
 ~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
+
 7.0 Tools
 ==========
 
@@ -376,8 +397,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 7.9 ROCm Binary Utilities
 -------------------------
+
 .. toctree::
   :maxdepth: 1
+
 8.0 Compiler SDK
 ================
 
@@ -419,8 +442,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 8.4.4 Best Practices Mapping Programing Language to ROCr runtime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
   :maxdepth: 1
+
 9.0 System Managment
 =====================
 9.1 ROCm-SMI
@@ -431,8 +456,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 9.3 SYSFS Interface 
 -----------------------
+
 .. toctree::
   :maxdepth: 1
+
 10 ROCm Virtualization & Containers  
 ==========================================
 
@@ -441,8 +468,10 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 10.2 ROCm-Docker
 -----------------
+
 .. toctree::
   :maxdepth: 1
+
 11 Remote Device Programing 
 ===========================
 
@@ -457,15 +486,19 @@ unless otherwise specified. Consult :source:`LICENSE`.
 
 11.4 IPC
 ---------
+
 .. toctree::
   :maxdepth: 1
+
 12 Other Solutions
 ====================
 
 12.1 Error Codes
 ----------------
+
 .. toctree::
   :maxdepth: 1
+
 13 Glossary
 =============
  
