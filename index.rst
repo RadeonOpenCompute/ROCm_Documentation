@@ -1,6 +1,6 @@
-**************************
-ROCm Documentation Outline
-**************************
+******************
+ROCm Documentation 
+******************
 
 Current Release Notes
 ---------------------
