@@ -20,22 +20,22 @@ unless otherwise specified. Consult .
 .. _ROCm_Release_Notes:
 
   
-1.0 Current Release Notes
+Current Release Notes
 ==========================
 .. toctree::
    :maxdepth: 2
 
 
 .. _ROCm_Install_Guide:
-2.0 Installation Guide
+Installation Guide
 ======================
 .. toctree::
    :maxdepth: 2
-2.1 Quick Start Guide
+Quick Start Guide
 ---------------------
-2.2 Installation Guide Ubuntu
+Installation Guide Ubuntu
 -----------------------------
-2.3 Installation Guide Fedora
+Installation Guide Fedora
 -----------------------------
 
 
