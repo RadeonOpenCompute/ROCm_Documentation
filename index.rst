@@ -2,7 +2,8 @@
 ROCm Documentation 
 ******************
 
-Welcome to ROCm 
+Welcome to ROCm
+================
 .. _ROCm website: http://radeonopencompute.github.io
 
 * If you're interested in trying ROCm out, check out the .
@@ -13,14 +14,15 @@ Welcome to ROCm
 All of the documentation and source code is available under the MIT license,
 unless otherwise specified. Consult .
 
-.. _ROCm_Documentation:
+.. _ROCm_Release_Notes:
   
 1.0 Current Release Notes
 ==========================
 
 .. toctree::
   :maxdepth: 1
-  
+
+.. _ROCm_Install_Guide:
 2.0 Installation Guide
 ======================
 
@@ -33,7 +35,8 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
-  
+.. _ROCm_Programing_Guide:
+
 3.0 Programing Guides
 ======================
 
@@ -68,9 +71,6 @@ unless otherwise specified. Consult .
 
 3.1.6 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-  :maxdepth: 1
   
 3.2 HC Best Practices
 ----------------------
@@ -119,9 +119,6 @@ unless otherwise specified. Consult .
 
 3.2.115 HCC compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-  :maxdepth: 1
   
 3.3 HIP Programing Guide
 -------------------------
@@ -153,9 +150,6 @@ unless otherwise specified. Consult .
 
 3.3.7 Environment Variables 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-  :maxdepth: 1
   
 3.4 HIP Best Practices
 ----------------------
@@ -204,9 +198,6 @@ unless otherwise specified. Consult .
 
 3.4.15 HCC compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-  :maxdepth: 1
   
 3.5 OpenCL Programing Guide
 ----------------------------
@@ -238,9 +229,6 @@ unless otherwise specified. Consult .
 
 3.57 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-  :maxdepth: 1
 
 3.6 OpenCL Best Practices
 ----------------------------
@@ -290,8 +278,13 @@ unless otherwise specified. Consult .
 3.6.15 OpenCL compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4.0 GPU Tunning Guides 
-=====================
+.. toctree::
+  :maxdepth: 1
+.. _ROCm_Hardware_Tunning_Guides:
+
+
+4.0 ROCm GPU Tunning Guides 
+============================
 
 4.1 GFX7 Tuning Guide
 ---------------------
@@ -301,6 +294,7 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _GCN_ISA_Manuals:
 
 5.0 GCN ISA Manuals 
 ====================
@@ -315,7 +309,8 @@ unless otherwise specified. Consult .
 -----------------------------------
 
 .. toctree::
-  :maxdepth: 1 
+  :maxdepth: 1
+.. _ROCm_API_Refernces:
 
 6.0 ROCm API References
 ========================
@@ -366,27 +361,28 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_Programing_Guide:
 
-7.0 Tools
-==========
+7.0 ROCm Tools
+===============
 
 7.1 HCC
-----
+--------
 
 7.2 GCN Assembler and Disassembler
--------------------------------
+----------------------------------
 
 7.3 GCN Assembler Tools
---------------------
+------------------------
 
 7.4 ROCm-GDB
------------
+-------------
 
 7.5 ROCm Debugger API
------------------
+---------------------
 
 7.6 ROCm-Profiler
---------------
+------------------
 
 7.7 CodeXL
 -----------
@@ -399,9 +395,10 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_Compiler_SDK:
 
-8.0 Compiler SDK
-================
+8.0 ROCm Compiler SDK
+=====================
 
 8.1 GCN Native ISA LLVM Code Generator
 ---------------------------------------
@@ -444,9 +441,11 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_System_Managment:
 
-9.0 System Managment
-=====================
+9.0 ROCM System Managment
+==========================
+
 9.1 ROCm-SMI
 ----------------
 
@@ -458,6 +457,7 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_Virtualization_Guide:
 
 10 ROCm Virtualization & Containers  
 ==========================================
@@ -470,6 +470,7 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_Remote_Device_Programing:
 
 11 Remote Device Programing 
 ===========================
@@ -488,17 +489,19 @@ unless otherwise specified. Consult .
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_Other_Guide:
 
 12 Other Solutions
 ====================
 
-12.1 Error Codes
-----------------
+12.1 ROCr Error Codes
+----------------------
 
 .. toctree::
   :maxdepth: 1
+.. _ROCm_Virtualization_Guide:
 
-13 Glossary
-=============
+13 ROCm Glossary
+=================
  
 
