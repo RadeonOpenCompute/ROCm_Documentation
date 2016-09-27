@@ -1,14 +1,18 @@
-.. ROCm Documentation Outline
+ROCm Documentation Outline
+==========================
 
-... Current Release Notes
- 
-... Installation Guide
+Current Release Notes
+---------------------
+
+Installation Guide
+------------------
 
 1.      Quick Start Guide
 2.      Installation Guide Ubuntu
 3.      Installation Guide Fedora
  
-... Programing Guides
+Programing Guides
+-----------------
 
 1.      HC Programing Guide
 
@@ -141,7 +145,8 @@ o.      HCC compiler switches
 11.  Inline GCN ISA Assembly
 
  
-... ROCm API References
+ROCm API References
+-------------------
 
 1.      ROCr System Runtime API
 2.      HCC Language Runtime API
@@ -158,7 +163,8 @@ o.      HCC compiler switches
 13.  clSPARSE
 14.  clRAND
 
-... Tools
+Tools
+-----
 
 1.      HCC
 2.      GCN Assembler and Disassembler
@@ -170,7 +176,8 @@ o.      HCC compiler switches
 8.      GPUperfAPI
 9.      ROCm Binary Utilities
 
-... Compiler SDK
+Compiler SDK
+------------
 
 1.      GCN Native ISA LLVM Code Generator
 2.      ROCm Code Object Format
@@ -195,7 +202,8 @@ viii.      Code Object Loading
 ix.      Common definitions  
 d.      Best Practices Mapping Programing Language to ROCr runtime
 
-... Other Solutions 
+Other Solutions
+---------------
 
 1.      ROCnRDMA
 2.      ROCm-SMI
