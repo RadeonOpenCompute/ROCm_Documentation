@@ -17,11 +17,11 @@ unless otherwise specified. Consult .
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
 
    Release/notes
-   Installation /Guide
+   Installation/Guide
    Programming/Guide
    ROCm/GPU/Tuning/Guide
    GCN/ISA/Manuals
@@ -31,7 +31,6 @@ unless otherwise specified. Consult .
    ROCm/System/Managment
    ROCm/Virtualization/&/Containers
    Remote/Device/Programing
-   internal/index
    Other/Solutions
    ROCm/Glossary 
    LICENSE
