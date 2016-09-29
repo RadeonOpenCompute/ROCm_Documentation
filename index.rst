@@ -1,49 +1,4 @@
 
-Basics
-------
-
-.. toctree::
-
-    adding
-    examples
-    gradients
-    conditions
-    loop
-    shape_info
-
-Advanced
---------
-
-.. toctree::
-
-    sparse
-    using_gpu
-    using_multi_gpu
-
-Advanced configuration and debugging
-------------------------------------
-
-.. toctree::
-
-    modes
-    printing_drawing
-    debug_faq
-    nan_tutorial
-    profiling
-
-Further readings
-----------------
-
-.. toctree::
-
-    ../extending/graphstructures 
-    loading_and_saving
-    gpu_data_convert
-    aliasing
-    python-memory-management
-    multi_cores
-    faq_tutorial
-******************
 ROCm Documentation 
 ******************
 
