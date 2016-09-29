@@ -504,6 +504,9 @@ unless otherwise specified. Consult .
 
 Indices and tables
 ==================
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
 .. toctree::
    :maxdepth: 1
@@ -526,6 +529,4 @@ Indices and tables
    LICENSE
 
    
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
