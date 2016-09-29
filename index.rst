@@ -400,8 +400,7 @@ unless otherwise specified. Consult .
 
 8.0 ROCm Compiler SDK
 =====================
-.. toctree::
-   :maxdepth: 2
+
 8.1 GCN Native ISA LLVM Code Generator
 ---------------------------------------
 
@@ -447,8 +446,7 @@ unless otherwise specified. Consult .
 
 9.0 ROCM System Managment
 ==========================
-.. toctree::
-   :maxdepth: 2
+
 9.1 ROCm-SMI
 ----------------
 
@@ -463,8 +461,7 @@ unless otherwise specified. Consult .
 
 10 ROCm Virtualization & Containers  
 ==========================================
-.. toctree::
-   :maxdepth: 2
+
 10.1 KVM Passthrough
 --------------------
 
@@ -476,8 +473,7 @@ unless otherwise specified. Consult .
 
 11 Remote Device Programing 
 ===========================
-.. toctree::
-   :maxdepth: 2
+
 11.1 ROCnRDMA
 ---------
 
@@ -495,8 +491,7 @@ unless otherwise specified. Consult .
 
 12 Other Solutions
 ====================
-.. toctree::
-   :maxdepth: 2
+
 12.1 ROCr Error Codes
 ----------------------
 
@@ -505,12 +500,32 @@ unless otherwise specified. Consult .
 
 13 ROCm Glossary
 =================
-.. toctree::
-   :maxdepth: 2 
+
 
 Indices and tables
 ==================
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   Release/notes
+   Installation /Guide
+   Programming/Guide
+   ROCm/GPU/Tuning/Guide
+   GCN/ISA/Manuals
+   ROCm/API/References 
+   ROCm/Tools
+   ROCm/Compiler/SDK
+   ROCm/System/Managment
+   ROCm/Virtualization/&/Containers
+   Remote/Device/Programing
+   internal/index
+   Other/Solutions
+   ROCm/Glossary 
+   LICENSE
+
+   
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
