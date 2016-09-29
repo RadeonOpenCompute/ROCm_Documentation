@@ -144,5 +144,4 @@ Getting ROCm Source Code
 Refer to the ROCm GitHub project for the latest instructions on how to
 check out the code.
 
-* [ROCm on
-GitHub](https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md)
+`ROCm on GitHub <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md.`
