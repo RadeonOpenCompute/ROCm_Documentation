@@ -1,10 +1,10 @@
 
-ROCm Documentation-Latest 
-*************************
+ROCm Documentation (Update in Progress)
+***************************************
 
    
-Welcome to ROCm-Latest
-======================
+Welcome to ROCm
+===============
 .. _ROCm website: http://radeonopencompute.github.io
 
 * If you're interested in trying ROCm out, check out the .
