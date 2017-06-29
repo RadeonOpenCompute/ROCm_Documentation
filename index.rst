@@ -19,7 +19,8 @@ unless otherwise specified. Consult .
 .. toctree::
    :maxdepth: 2
 
-
+   testing
+   -------
    Release/notes
    Installation/Guide
    Programming/Guide
