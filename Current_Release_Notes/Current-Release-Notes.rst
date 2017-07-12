@@ -23,14 +23,6 @@ ROCm 1.6 What New?
 
 
 
-Quick Start Guide
-==================
 
-
-Installation Guide Ubuntu
-=========================
-
-Installation Guide Fedora
-==========================
 
 
