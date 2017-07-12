@@ -21,7 +21,7 @@ Going to 11: Amping Up the Programming-Language Run-Time Foundation
 ####################################################################
 The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continum’s Anaconda Python.
 
-.. image:: ROCm_stack.png
+.. image:: ROCm_Stack.png
     :width: 200px
     :height: 100px
 
