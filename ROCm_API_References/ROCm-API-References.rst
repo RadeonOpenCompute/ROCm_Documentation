@@ -7,7 +7,7 @@ Rocm API References
 
 
 ROCr System Runtime API
-=======================
+========================
 
 HCC Language Runtime API
 ========================
