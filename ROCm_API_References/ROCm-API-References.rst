@@ -29,7 +29,7 @@ HIP Math API
 Math Libarary API's
 ====================
 
-intersphinx_mapping = {'MIOpen': ('https://rocmsoftwareplatform.github.io/MIOpen/doc/html/', None)}
+intersphinx_mapping = {'hcBLAS': ('http://hcblas-documentation.readthedocs.io/en/latest/', None)}
 
 Deep Learning API's
 ====================
