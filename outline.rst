@@ -274,20 +274,24 @@
 4.2 GFX8 Tuning Guide
 ---------------------
 
-
+4.3 GFX9 Tuning Guide
+---------------------
 
 .. _GCN_ISA_Manuals:
 
 5.0 GCN ISA Manuals 
 ====================
 
-5.1 GCN 1.1
+5.1 GCN 1.1 Hawaii
 ----------------
 
-5.2 GCN 2.0 
+5.2 GCN 2.0 Fiji and Polaris  
 ---------------
 
-5.3 Inline GCN ISA Assembly Guide
+5.2 GCN - Vega  
+---------------
+
+5.4 Inline GCN ISA Assembly Guide
 -----------------------------------
 
 
@@ -338,7 +342,7 @@
 6.7 Deep Learning API's 
 ------------------------
 
-6.7.1 mlOpen
+6.7.1 MIOpen
 ~~~~~~~~~~~~~~~~~~
 
 
