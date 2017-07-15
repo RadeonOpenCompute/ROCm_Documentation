@@ -12,13 +12,12 @@ ROCr System Runtime API
 HCC Language Runtime API
 ========================
 
-intersphinx_mapping = {'HCC API': ('https://scchan.github.io/hcc/', None)}
-
+* `HCC API <https://scchan.github.io/hcc/>`
 
 HIP Language Runtime API
 ========================
-intersphinx_mapping = {'HIP API': ('http://rocm-developer-tools.github.io/HIP/', None)}
 
+* `HIP API <http://rocm-developer-tools.github.io/HIP/>`
 
 HIP Device Runtime API
 ======================
@@ -29,13 +28,15 @@ HIP Math API
 Math Libarary API's
 ====================
 
-intersphinx_mapping = {'hcBLAS': ('http://hcblas-documentation.readthedocs.io/en/latest/', None)}
+* `hcBLAS API <http://hcblas-documentation.readthedocs.io/en/latest/>`
 
 Deep Learning API's
 ====================
 
-intersphinx_mapping = {'MIOpen': ('https://rocmsoftwareplatform.github.io/MIOpen/doc/html/', None)}
-intersphinx_mapping = {'MIOpenGEMM': ('https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/', None)}
+* `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`
+
+* `MIOpenGEMM API <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/>`
+
 
 
 
