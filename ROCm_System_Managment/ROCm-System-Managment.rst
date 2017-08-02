@@ -8,7 +8,7 @@ ROCm System Management
 
 
 ROCm-SMI
-===============
+=================
 
 Programing ROCm-SMI
 ===================

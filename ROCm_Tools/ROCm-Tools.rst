@@ -16,7 +16,7 @@ GCN Assembler Tools
 ====================
 
 ROCm-GDB
-=========
+==========
 
 ROCm Debugger API
 =================

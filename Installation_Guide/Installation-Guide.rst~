@@ -199,9 +199,8 @@ Test if OpenCL is working based on default ROCm OpenCL include and library locat
    g++ -I /opt/rocm/opencl/include/ ./HelloWorld.cpp -o HelloWorld -L/opt/rocm/opencl/lib/x86_64 -lOpenCL
 
 Run it:
-:: 
 
-  ./HelloWorld
+./HelloWorld
 
 
 
