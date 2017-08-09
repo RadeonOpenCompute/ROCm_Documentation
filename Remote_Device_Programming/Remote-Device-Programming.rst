@@ -195,7 +195,7 @@ In-node
 
 * Large BAR support BAR = Base Address Register	Making the GPU memory visible  BAR 1 Region Suppoted in Radeon Instinct MI25,MI8, MI6 `<https://rocm.github.io/ROCmPCIeFeatures.html>`_
 * ROCr Base driver has P2P API support	
- * ` ROCr (HSA) AGENT API with Peer to Peer support<http://www.hsafoundation.com/html_spec111/HSA_Library.htm#Runtime/Topics/02_Core/hsa_iterate_agents.htm%3FTocPath%3DHSA%2520Runtime%2520Programmer%25E2%2580%2599s%2520Reference%2520Manual%2520Version%25201.1.1%2520%7CChapter%25202.%2520HSA%2520Core%2520Programming%2520Guide%7C2.3%2520System%2520and%2520agent%2520information%7C2.3.1%2520System%2520and%2520agent%2520information%2520API%7C_____18>`_
+ * `ROCr (HSA) AGENT API with Peer to Peer support <http://www.hsafoundation.com/html_spec111/HSA_Library.htm#Runtime/Topics/02_Core/hsa_iterate_agents.htm%3FTocPath%3DHSA%2520Runtime%2520Programmer%25E2%2580%2599s%2520Reference%2520Manual%2520Version%25201.1.1%2520%7CChapter%25202.%2520HSA%2520Core%2520Programming%2520Guide%7C2.3%2520System%2520and%2520agent%2520information%7C2.3.1%2520System%2520and%2520agent%2520information%2520API%7C_____18>`_
 * HCC Language Runtime support of P2P	 ` ROCr Agent API <https://scchan.github.io/hcc/classhc_1_1accelerator.html#aebd49b998f9421bd032ea450cbafd247>`_
 * HIP Language Runtime support of P2P	P2P API's model after CUDA P2P API's `<http://rocm-developer-tools.github.io/HIP/group__PeerToPeer.html>`_
 * OpenCL Language Runtime P2P API	Peer-to-Peer API  with Autocopy support over Intel QPI bus 
