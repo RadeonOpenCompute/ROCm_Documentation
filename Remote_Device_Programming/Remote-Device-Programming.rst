@@ -215,8 +215,8 @@ Out of Node
 Standard Frameworks for Out of Node Communication
 =================================================
 
-* OpenUCX	UCX is a communication library implementing high-performance messaging for MPI/PGAS frameworks - 	In Development] `<http://www.openucx.org.>`_ [Source for ROCm](https://github.com/openucx/ucx/tree/master/src/uct/rocm>`_
+* OpenUCX	UCX is a communication library implementing high-performance messaging for MPI/PGAS frameworks - 	In Development `<http://www.openucx.org.>`_  Source for ROCm `<https://github.com/openucx/ucx/tree/master/src/uct/rocm>`_
 * OpenMPI	Open MPI Project is an open source Message Passing Interface `<https://www.open-mpi.org>`_	In Development `<https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX>`_
 * MPICH	MPICH is a high-performance and widely portable implementation of the Message Passing Interface (MPI) standard `<MPI-1, MPI-2 and MPI-3)](https://www.mpich.org/about/overview/>`_	 In Development `<https://www.mpich.org/2016/08/30/mpich-3-3a1-released/>`_
-* OpenSHMEM	Partitioned Global Address Space & Communication Library - 	In Development]`<https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX>`_
+* OpenSHMEM	Partitioned Global Address Space & Communication Library - 	In Development `<https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX>`_
 * OSU benchmark to test performance `<https://github.com/ROCm-Developer-Tools/OSU_Microbenchmarks>`_
