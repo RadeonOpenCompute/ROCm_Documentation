@@ -189,7 +189,8 @@ IPC
 
 ## MultiGPU In-node and Out of Node P2P Solutions
 
-#### In-node			
+In-node			
+========
 
 * Large BAR support BAR = Base Address Register	Making the GPU memory visible [BAR 1 Region Suppoted in Radeon Instinct MI25,MI8, MI6](https://rocm.github.io/ROCmPCIeFeatures.html)
 * ROCr Base driver has P2P API support	
@@ -203,13 +204,15 @@ IPC
 * ROCr level IPC 	Inter Process Communication 	API 
  * IPC is Supported in HIP API 
 
-#### Out of Node			
+Out of Node
+===========
 
 * [Remote DMA technology  ( RDMA) 	Peer-to-Peer bridge driver for PeerDirect](https://github.com/RadeonOpenCompute/ROCnRDMA)
 * [libibverbs	Linux RDMA library	YES -since ROCm 1.0](https://github.com/RadeonOpenCompute/ROCnRDMA)
 * [PeerDirect	Mellanox Peer API for Infiniband](https://community.mellanox.com/docs/DOC-2486)
 
-#### Standard Frameworks for Out of Node Communication			
+Standard Frameworks for Out of Node Communication
+=================================================
 
 * [OpenUCX	UCX is a communication library implementing high-performance messaging for MPI/PGAS frameworks - 	In Development](http://www.openucx.org.) [Source for ROCm](https://github.com/openucx/ucx/tree/master/src/uct/rocm)
 * [OpenMPI	Open MPI Project is an open source Message Passing Interface https://www.open-mpi.org	In Development](https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX)
