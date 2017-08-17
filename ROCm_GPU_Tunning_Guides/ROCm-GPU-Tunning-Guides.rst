@@ -12,6 +12,5 @@ GFX7 Tuning Guide
 GFX8 Tuning Guide
 =================
 
-
 Vega Tuning Guide
 =================

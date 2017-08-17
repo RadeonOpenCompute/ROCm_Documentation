@@ -1,0 +1,186 @@
+
+.. _Remote-Device-Programming:
+
+==========================
+Remote Device Programming
+==========================
+
+
+ROCnRDMA
+=========
+ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU  memory. It allows direct path for data exchange (peer-to-peer) using the standard features of PCI Express. 
+
+Currently ROCmRDMA provides the following benefits:
+
+ * Direct access to ROCm memory for 3rd party PCIe devices
+ * Support for PeerDirect(c) interface to offloads the CPU when dealing 
+   with ROCm memory for RDMA network stacks;
+
+Restrictions and limitations
+*****************************
+To fully utilize ROCmRDMA  the number of limitation could apply impacting either performance or functionality in the whole:
+
+ * It is recommended that devices utilizing ROCmRDMA share the same upstream PCI Express root complex. Such limitation depends on    	PCIe chipset manufacturses and outside of GPU controls;
+ * To provide peer-to-peer DMA access all GPU local memory must be exposed via PCI memory BARs (so called large-BAR configuration);
+ * It is recommended to have IOMMU support disabled or configured in pass-through mode due to limitation in Linux kernel to support  	local PCIe device memory for any form transition others then 1:1 mapping.
+
+ROCmRDMA interface specification
+*********************************
+The implementation of ROCmRDMA interface could be found in `[amd_rdma.h] <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/blob/roc-1.4.0/include/drm/amd_rdma.h>`_ file.
+
+Data structures
+*************** 
+
+:: 
+   
+  
+   /**
+    * Structure describing information needed to P2P access from another device
+    * to specific location of GPU memory
+    */
+   struct amd_p2p_info {
+  	   uint64_t	   va;		   /**< Specify user virt. address
+					     * which this page table described
+					     */
+	 
+	   uint64_t	   size;	   /**< Specify total size of
+					     * allocation
+					     */
+	  
+	  struct pid	   *pid;	   /**< Specify process pid to which
+					     * virtual address belongs
+					     */
+	 
+	  struct sg_table *pages;	   /**< Specify DMA/Bus addresses */
+	
+	   void		*priv;		   /**< Pointer set by AMD kernel
+					      * driver
+					      */
+     };
+
+::
+
+  /**
+   * Structure providing function pointers to support rdma/p2p requirements.
+   * to specific location of GPU memory
+   */
+   
+   struct amd_rdma_interface {
+  	  int (*get_pages)(uint64_t address, uint64_t length, struct pid *pid,
+				  struct amd_p2p_info  **amd_p2p_data,
+				  void  (*free_callback)(void *client_priv),
+				  void  *client_priv);
+	  int (*put_pages)(struct amd_p2p_info **amd_p2p_data);
+	  int (*is_gpu_address)(uint64_t address, struct pid *pid);
+	  int (*get_page_size)(uint64_t address, uint64_t length, struct pid *pid,
+				  unsigned long *page_size);
+  };
+ 
+The function to query ROCmRDMA interface
+****************************************
+
+::
+
+  
+   /**
+    * amdkfd_query_rdma_interface - Return interface (function pointers table) for
+    *				 rdma interface
+    *
+    *
+    *    \param interace     - OUT: Pointer to interface
+    *    \return 0 if operation was successful.
+    */
+   int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma);
+   
+
+The function to query ROCmRDMA interface
+****************************************
+
+::
+
+   
+   /**
+    * amdkfd_query_rdma_interface - Return interface (function pointers table) for rdma interface
+    * \param interace     - OUT: Pointer to interface
+    * \return 0 if operation was successful.
+    */
+    int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma);
+   
+
+ROCmRDMA interface functions description
+*****************************************
+
+:: 
+
+   
+   /**
+    * This function makes the pages underlying a range of GPU virtual memory
+    * accessible for DMA operations from another PCIe device
+    *
+    * \param   address       - The start address in the Unified Virtual Address
+    *			       space in the specified process
+    * \param   length        - The length of requested mapping
+    * \param   pid           - Pointer to structure pid to which address belongs.
+    *			       Could be NULL for current process address space.
+    * \param   p2p_data      - On return: Pointer to structure describing
+    *			       underlying pages/locations
+    * \param   free_callback - Pointer to callback which will be called when access
+    *			       to such memory must be stopped immediately: Memory
+    *			       was freed, GECC events, etc.
+    *			       Client should  immediately stop any transfer
+    *			       operations and returned as soon as possible.
+    *			       After return all resources associated with address
+    *			       will be release and no access will be allowed.
+    * \param   client_priv   - Pointer to be passed as parameter on
+    *			       'free_callback;
+    *
+    * \return  0 if operation was successful
+    */
+    int get_pages(uint64_t address, uint64_t length, struct pid *pid,
+		    struct amd_p2p_info **amd_p2p_data,
+		    void  (*free_callback)(void *client_priv),
+		    void  *client_priv);
+::
+
+   /**
+    * This function release resources previously allocated by get_pages() call.
+    * \param   p_p2p_data - A pointer to pointer to amd_p2p_info entries
+    * 			allocated by get_pages() call.
+    * \return  0 if operation was successful
+    */
+    int put_pages(struct amd_p2p_info **p_p2p_data)
+
+::
+   
+  /**
+    * Check if given address belongs to GPU address space.
+    * \param   address - Address to check
+    * \param   pid     - Process to which given address belongs.
+    *		         Could be NULL if current one.
+    * \return  0       - This is not GPU address managed by AMD driver
+    *	       1       - This is GPU address managed by AMD driver
+    */
+    int is_gpu_address(uint64_t address, struct pid *pid);
+
+
+.. function:: int get_page_size(uint64_t address, uint64_t length, struct pid *pid,
+	         		unsigned long *page_size);
+              Return the single page size to be used when building scatter/gather table
+              for given range.
+     param   address   - Address
+     param   length    - Range length
+     param   pid       - Process id structure. Could be NULL if current one.
+     param   page_size - On return: Page size
+     return  0 if operation was successful
+     
+    
+
+
+UCX
+====
+
+MPI
+=====
+
+IPC
+====

@@ -29,7 +29,7 @@ Full control over the machine
     * Fully control asynchronous kernel launch and completion
     * Get device-side dependency resolution for kernel and data commands (without host involvement)
     * Obtain HSA agents, queues and signals for low-level control of the architecture using the HSA Runtime API
-    * Use direct-to-ISA compilation
+    * Use `direct-to-ISA <https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA>`_ compilation
 
 **When to Use HC**
  Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising performance or control of the machine.
@@ -364,13 +364,13 @@ HIP Best Practices
 
 OpenCL Programing Guide
 ========================
-
+OpenCL Programing Guide :download:`download</Programming_Guides//AMD_OpenCL_Programming_User_Guide.docx>`
 
 
 
 OpenCL Best Practices
 ======================
-
+OpenCL Best Practices download:`download</Programming_Guides//AMD_OpenCL_Programming_Optimization_Guide.docx>`
 
 
 

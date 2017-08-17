@@ -5,28 +5,25 @@
 ROCm Glossary
 ================
 
-
 ROCk ROCm Kernel Driver
 
-ROCt. ROCm Thunk Layer 
+ROCt. ROCm Thunk Layer
 
-ROCr ROCm runtime 
+ROCr ROCm runtime
 
-HCC Hetrogneous Compute Compiler 
+HCC Hetrogneous Compute Compiler
 
-HIP Hetrogenous Interface for Portability 
+HIP Hetrogenous Interface for Portability
 
-OpenCL 
+OpenCL
 
-PCIe Platform Atomics 
+PCIe Platform Atomics
 
-Queue 
+Queue
 
-HSA Hetrogenous System Architecture 
+HSA Hetrogenous System Architecture
 
-AQL Architectured Queueing Language 
-
-.....
+AQL Architectured Queueing Language
 
 
 
