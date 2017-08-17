@@ -24,6 +24,8 @@ Queue
 
 HSA Hetrogenous System Architecture 
 
+AQL Architectured Queueing Language 
+
 .....
 
 
