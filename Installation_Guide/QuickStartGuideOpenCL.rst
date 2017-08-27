@@ -21,14 +21,14 @@ Quickstart Instructions
 Here's a simple workflow to get you quickly up and running with OpenCL on ROCm --
 
 Install the ROCm OpenCL implementation (assuming you already have the 'rocm' package installed):
-------------------------------
+
 
 ```shell
 sudo apt-get install rocm-opencl-dev
 ```
 
 For a sample OpenCL application, let's use a simple vector-add example from the University of Bristol's very nice "Hands On OpenCL" lectures.
-------------------------------
+
 
 ```shell
 git clone https://github.com/HandsOnOpenCL/Exercises-Solutions.git
@@ -54,7 +54,7 @@ Example 2 for AMDAPPSDK
 export AMDAPPSDK=/opt/rocm/opencl
 ```
 Where is clinfo?
---------------
+
 ```shell
 /opt/rocm/opencl/bin/x86_64/clinfo 
 ```
@@ -62,7 +62,7 @@ Where is clinfo?
 * That's it!  Super easy.*
 
 Related Resources
-------------------------------
+-----------------
 
 ROCm Developer website will have more information: http:/rocm.github.io
 
