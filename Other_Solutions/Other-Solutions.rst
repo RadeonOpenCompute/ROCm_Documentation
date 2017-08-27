@@ -5,120 +5,101 @@
 Other Solutions
 ================
 
+Kernel options to avoid Ethernet port getting renamed every time you change graphics cards
+net.ifnames=0 biosdevname=0
 
 ROCr Error Codes
 ================
 
+- 2  Invalid Dimension </li>
+- 4 Invalid Group Memory </li>
+- 8 Invalid (or Null) Code </li>
+- 32 Invalid Format </li>
+- 64 Group is too large </li>
+- 128 Out of VGPR’s </li>
+- 0x80000000  Debug Trap </li>
 
-ROCm PCIe Feature and Overview BAR Memory
-================
+Command to dump firmware version
+===================
 
-ROCm is an extension of  HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents. 
+sudo cat /sys/kernel/debug/dri/1/amdgpu_firmware_info 
+uname -a  
 
-The full list of HSA system architecture platform requirements are here: http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm
-
-For ROCm the Platform atomics are used in ROCm in the following ways:
-
-- Update HSA queue’s read_dispatch_id: 64bit atomic add used by the command processor on the GPU agent to update the packet ID it processed.
-- Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
-- Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
-
-The PCIe Platform Atomics are  CAS, FetchADD, SWAP
-
-Here is document on PCIe Atomics https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf
-
-In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:  
-
-1. write to another GPU memory, 
-2. then write to system memory to indicate transfer complete. 
-
-They are routed off to different ends of the computer but we want to make sure the write to system memory to indicate transfer complete occurs AFTER P2P write to GPU has complete. 
-
-BAR Memory Overview
-================
-
-On a Xeon E5 based system in the BIOS  we can turn on above 4GB PCIe addressing, if so he need to set MMIO Base address ( MMIOH Base) and Range ( MMIO High Size)  in the BIOS.
- 
-In SuperMicro system in the system bios you need to see the following
-
-- Advanced->PCIe/PCI/PnP configuration-> Above 4G Decoding = Enabled
- 
-- Advanced->PCIe/PCI/PnP Configuration->MMIOH Base = 512G
- 
-- Advanced->PCIe/PCI/PnP Configuration->MMIO High Size = 256G
- 
-When we support Large Bar Capbility there is a  Large Bar Vbios which also disable the IO bar.  
+Debug Flags 
+=============
 
 
-For GFX9 and Vega10 which have Physical Address up 44 bit and 48 bit Virtual address.
- 
-- BAR0-1 registers: 64bit, prefetchable, GPU memory. 8GB or 16GB depending on Vega10 SKU. Must be placed < 2^44 to support P2P access from other Vega10.
-- BAR2-3 registers: 64bit, prefetchable, Doorbell. Must be placed < 2^44 to support P2P access from other Vega10.
-- BAR4 register: Optional, not a boot device.
-- BAR5 register: 32bit, non-prefetchable, MMIO. Must be placed < 4GB.
- 
- 
-Here is how our BAR works on GFX 8 GPU's with 40 bit Physical Address Limit
- 
-      11:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Fiji [Radeon R9 FURY / NANO Series] (rev c1)
+Debug messages when developing/debugging base ROCm dirver. You could enable the printing from libhsakmt.so by setting an environment variable, HSAKMT_DEBUG_LEVEL. Available debug levels are 3~7. The higher level you set, the more messages will print.
 
-      Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0b35
-        
-      Flags: bus master, fast devsel, latency 0, IRQ 119
-        
-      Memory at bf40000000 (64-bit, prefetchable) [size=256M]
-       
-      Memory at bf50000000 (64-bit, prefetchable) [size=2M]
-       
-      I/O ports at 3000 [size=256]
-       
-      Memory at c7400000 (32-bit, non-prefetchable) [size=256K]
-       
-      Expansion ROM at c7440000 [disabled] [size=128K]
- 
-Legend: 
+export HSAKMT_DEBUG_LEVEL=3 : only pr_err() will print.
+export HSAKMT_DEBUG_LEVEL=4 : pr_err() and pr_warn() will print.
+export HSAKMT_DEBUG_LEVEL=5 : We currently don’t implement “notice”. Setting to 5 is same as setting to 4.
+export HSAKMT_DEBUG_LEVEL=6 : pr_err(), pr_warn(), and pr_info will print.
+export HSAKMT_DEBUG_LEVEL=7 : Everything including pr_debug will print.
 
-___1___ : GPU Frame Buffer BAR – In this example it happens to be 256M, but typically this will be size of the GPU memory (typically 4GB+). This BAR has to be placed < 2^40 to allow peer-to-peer access from other GFX8 AMD GPUs. For GFX9 (Vega GPU) the BAR has to be placed < 2^44 to allow peer-to-peer access from other GFX9 AMD GPUs. 
- 
-___2___ : Doorbell BAR – The size of the BAR is typically will be < 10MB (currently fixed at 2MB) for this generation GPUs. This BAR has to be placed < 2^40 to allow peer-to-peer access from other current generation AMD GPUs.
- 
-___3___ : IO BAR - This is for legacy VGA and boot device support, but since this the GPUs in this project are not VGA devices (headless), this is not a concern even if the SBIOS does not setup. 
- 
-___4___ : MMIO BAR – This is required for the AMD Driver SW to access the configuration registers. Since the reminder of the BAR available is only 1 DWORD (32bit), this is placed < 4GB. This is fixed at 256KB.
- 
-___5___ : Expansion ROM – This is required for the AMD Driver SW to access the GPU’s video-bios. This is currently fixed at 128KB.
- 
--------------------------------------------------------------------------------------------------
-Excepts form Overview of Changes to PCI Express 3.0
-================
 
-By Mike Jackson, Senior Staff Architect, MindShare, Inc.
 
-Atomic Operations – Goal: 
-================
+ROCr level env variable for debug 
+=================
 
-Support SMP-type operations across a PCIe network to allow for things like offloading tasks between CPU cores and accelerators like a GPU. The spec says this enables advanced synchronization mechanisms that are particularly useful with multiple producers or consumers that need to be synchronized in a non-blocking fashion. Three new atomic non-posted requests were added, plus the corresponding completion (the address must be naturally aligned with the operand size or the TLP is malformed):
+HSA_ENABLE_SDMA=0
+HSA_ENABLE_INTERRUPT=0
+HSA_SVM_GUARD_PAGES=0
+HSA_DISABLE_CACHE=1
 
-- Fetch and Add – uses one operand as the “add” value. Reads the target location, adds the operand, and then writes the result back to the original location.
+OpenCL 
+======
 
-- Unconditional Swap – uses one operand as the “swap” value. Reads the target location and then writes the swap value to it.
+- AMD_OCL_WAIT_COMMAND=1
 
-- Compare and Swap – uses 2 operands: first data is compare value, second is swap value. Reads the target location, checks it against the compare value and, if equal, writes the swap value to the target location.
 
-- AtomicOpCompletion – new completion to give the result so far atomic request and indicate that the atomicity of the transaction has been maintained.
+HCC Debug Enviroment Varibles
+=========================
 
-Since AtomicOps are not locked they don’t have the performance downsides of the PCI locked protocol. Compared to locked cycles, they provide “lower latency, higher scalability, advanced synchronization algorithms, and dramatically lower impact on other PCIe traffic.” The lock mechanism can still be used across a bridge to PCI or PCI-X to achieve the desired operation.
+HCC_PRINT_ENV=1 HIP_PRINT_ENV=1 will print usage and current values for the HCC and HIP env variables.  
 
-AtomicOps can go from device to device, device to host, or host to device. Each completer indicates whether it supports this capability and guarantees atomic access if it does. The ability to route AtomicOps is also indicated in the registers for a given port.
+HCC_PRINT_ENV                  = 1 : Print values of HCC environment variables
+HCC_SERIALIZE_KERNEL           = 0 : 0x1=pre-serialize before each kernel launch, 0x2=post-serialize after each kernel launch, 0x3=both
+HCC_SERIALIZE_COPY             = 0 : 0x1=pre-serialize before each data copy, 0x2=post-serialize after each data copy, 0x3=both
+HCC_DB                         = 0 : Enable HCC trace debug
+HCC_OPT_FLUSH                  = 1 : Perform system-scope acquire/release only at CPU sync boundaries (rather than after each kernel)
+HCC_MAX_QUEUES                 = 20 : Set max number of HSA queues this process will use.  accelerator_views will share the allotted queues and steal from each other as necessary
+HCC_UNPINNED_COPY_MODE         = 2 : Select algorithm for unpinned copies. 0=ChooseBest(see thresholds), 1=PinInPlace, 2=StagingBuffer, 3=Memcpy
+HCC_CHECK_COPY                 = 0 : Check dst == src after each copy operation.  Only works on large-bar systems.
+HCC_H2D_STAGING_THRESHOLD      = 64 : Min size (in KB) to use staging buffer algorithm for H2D copy if ChooseBest algorithm selected
+HCC_H2D_PININPLACE_THRESHOLD   = 4096 : Min size (in KB) to use pin-in-place algorithm for H2D copy if ChooseBest algorithm selected
+HCC_D2H_PININPLACE_THRESHOLD   = 1024 : Min size (in KB) to use pin-in-place for D2H copy if ChooseBest algorithm selected
+HCC_PROFILE                    = 0 : Enable HCC kernel and data profiling.  1=summary, 2=trace
+HCC_PROFILE_VERBOSE            = 31 : Bitmark to control profile verbosity and format. 0x1=default, 0x2=show begin/end, 0x4=show barrier
+HCC_PROFILE_FILE               =
 
-ID-based Ordering – Goal: 
-================
 
-Improve performance by avoiding stalls caused by ordering rules. For example, posted writes are never normally allowed to pass each other in a queue, but if they are requested by different functions, we can have some confidence that the requests are not dependent on each other. The previously reserved Attribute bit [2] is now combined with the RO bit to indicate ID ordering with or without relaxed ordering. 
+HIP Envorment Varibles
+=====================
 
-This only has meaning for memory requests, and is reserved for Configuration or IO requests. Completers are not required to copy this bit into a completion, and only use the bit if their enable bit is set for this operation.
+HIP_PRINT_ENV                  =  1 : Print HIP environment variables.
+HIP_LAUNCH_BLOCKING            =  0 : Make HIP kernel launches 'host-synchronous', so they block until any kernel launches. Alias: CUDA_LAUNCH_BLOCKING.
+HIP_LAUNCH_BLOCKING_KERNELS    =  : Comma-separated list of kernel names to make host-synchronous, so they block until completed.
+HIP_API_BLOCKING               =  0 : Make HIP APIs 'host-synchronous', so they block until completed.  Impacts hipMemcpyAsync, hipMemsetAsync.
+HIP_HIDDEN_FREE_MEM            = 256 : Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB. Impacts hipMemGetInfo.
+HIP_DB                         = 0 : Print debug info.  Bitmask (HIP_DB=0xff) or flags separated by '+' (HIP_DB=api+sync+mem+copy)
+HIP_TRACE_API                  =  0 : Trace each HIP API call.  Print function name and return code to stderr as program executes.
+HIP_TRACE_API_COLOR            = green : Color to use for HIP_API.  None/Red/Green/Yellow/Blue/Magenta/Cyan/White
+HIP_PROFILE_API                =  0 : Add HIP API markers to ATP file generated with CodeXL. 0x1=short API name, 0x2=full API name including args.
+HIP_DB_START_API               =  : Comma-separated list of tid.api_seq_num for when to start debug and profiling.
+HIP_DB_STOP_API                =  : Comma-separated list of tid.api_seq_num for when to stop debug and profiling.
+HIP_VISIBLE_DEVICES            = 0  : Only devices whose index is present in the sequence are visible to HIP applications and they are enumerated in the order of sequence.
+HIP_WAIT_MODE                  =  0 : Force synchronization mode. 1= force yield, 2=force spin, 0=defaults specified in application
+HIP_FORCE_P2P_HOST             =  0 : Force use of host/staging copy for peer-to-peer copies.1=always use copies, 2=always return false for hipDeviceCanAccessPeer
+HIP_FORCE_SYNC_COPY            =  0 : Force all copies (even hipMemcpyAsync) to use sync copies
+HIP_FAIL_SOC                   =  0 : Fault on Sub-Optimal-Copy, rather than use a slower but functional implementation.  Bit 0x1=Fail on async copy with unpinned memory.  Bit 0x2=Fail peer copy rather than use staging buffer copy
+HIP_SYNC_HOST_ALLOC            =  1 : Sync before and after all host memory allocations.  May help stability
+HIP_SYNC_NULL_STREAM           =  0 : Synchronize on host for null stream submissions
+HIP_HOST_COHERENT              =  1 : If set, all host memory will be allocated as fine-grained system memory.  This allows threadfence_system to work but prevents host memory from being cached on GPU which may have performance impact.
+HCC_OPT_FLUSH                  =  1 : When set, use agent-scope fence operations rather than system-scope fence operationsflush when possible. This flag controls both HIP and HCC behavior.
+HIP_EVENT_SYS_RELEASE          =  0 : If set, event are created with hipEventReleaseToSystem by default.  If 0, events are created with hipEventReleaseToDevice by default.  The defaults can be overridden by specifying hipEventReleaseToSystem or hipEventReleaseToDevice flag when creating the event.
 
-To read more on PCIe Gen 3 new options http://www.mindshare.com/files/resources/PCIe%203-0.pdf 
--------------------------------------------------------------------------------------------------
-
+There’s some more information here on how to debug and profile HIP applications:
+https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_debugging.md
+https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_profiling.md
 
