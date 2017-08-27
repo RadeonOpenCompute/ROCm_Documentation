@@ -19,7 +19,7 @@ __device__ static float __dotf(float4, float4);
 /*Way down in the file....*/
 __device__ static inline float __dotf(float4 x, float4 y)
 
- *implementation 
+*implementation 
 
 
 
