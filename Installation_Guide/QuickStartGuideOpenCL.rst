@@ -26,6 +26,7 @@ Install the ROCm OpenCL implementation (assuming you already have the 'rocm' pac
 
 
 For a sample OpenCL application, let's use a simple vector-add example from the University of Bristol's very nice "Hands On OpenCL" lectures.
+
 .. code-block:: shell
  git clone https://github.com/HandsOnOpenCL/Exercises-Solutions.git
 
