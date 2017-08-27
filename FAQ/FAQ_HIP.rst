@@ -1,4 +1,4 @@
-
+.. _HIP-FAQ:
 
 *********
 HIP Programing FAQ
