@@ -30,9 +30,6 @@ HIP Math API
 * :ref:`HIP_Math_API`
 
 
-
-HIP Math API
-
 Math Libarary API's
 ====================
 
