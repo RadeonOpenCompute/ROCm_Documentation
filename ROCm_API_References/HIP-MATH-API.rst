@@ -1,3 +1,6 @@
+.. _HIP-MATH-API:
+
+
 ###########
 HIP MATH APIs Documentation 
 ###########
