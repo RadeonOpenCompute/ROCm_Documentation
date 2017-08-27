@@ -102,10 +102,10 @@ What libraries does HIP support?
 HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse.
 These offer pointer*based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HCC applications.  Developers should use conditional compilation if portability to nvcc systems is desired * using calls to cu* routines on one path and hc* routines on the other.  
 
-* [hcblas](https://bitbucket.org/multicoreware/hcblas)
-* [hcfft](https://bitbucket.org/multicoreware/hcfft)
-* [hcsparse](https://bitbucket.org/multicoreware/hcsparse)
-* [hcrng](https://bitbucket.org/multicoreware/hcrng)
+* [rocblas](https://github.com/ROCmSoftwarePlatform/rocBLAS)
+* [rocfft](https://github.com/ROCmSoftwarePlatform/rocFFT)
+* [MIOpen](https://github.com/ROCmSoftwarePlatform/MIOpen)
+* [hipRAND] Under Development 
    
 Additionally, some of the cublas routines are automatically converted to hipblas equivalents by the hipify*clang tool.  These APIs use cublas or hcblas depending on the platform, and replace the need
 to use conditional compilation. 
@@ -192,6 +192,8 @@ In some cases CUDA has a richer set of modes for some APIs, and some C++ capabil
 Can I develop HIP code on an AMD HCC platform?
 *****************************
 
-Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile* or run*time errors. Developers must use the HIP API for most accelerator code and bracket any HCC*specific code with preprocessor conditionals. Those concerned about portability should, of course, test their code on both platforms and should tune it for performance. Typically, HCC supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the hc path.
+Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile* or run*time errors. Developers must use the HIP API for most accelerator code and bracket any HCC*specific code with preprocessor conditionals. 
+
+Those concerned about portability should, of course, test their code on both platforms and should tune it for performance. Typically, HCC supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the hc path.
 
 
