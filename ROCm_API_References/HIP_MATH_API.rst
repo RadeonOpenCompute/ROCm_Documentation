@@ -1,18 +1,26 @@
-# HIP MATH APIs Documentation 
-HIP supports most of the device functions supported by CUDA. Way to find the unsupported one is to search for the function and check its description
-Note: This document is not human generated. Any changes to this file will be discarded. Please make changes to Python3 script docs/markdown/device_md_gen.py
+###########
+HIP MATH APIs Documentation 
+###########
 
-## For Developers 
+HIP supports most of the device functions supported by CUDA. Way to find the unsupported one is to search for the function and check its description
+
+
+
+For Developers 
+##############
+
 If you add or fixed a device function, make sure to add a signature of the function and definition later.
 For example, if you want to add `__device__ float __dotf(float4, float4)`, which does a dot product on 4 float vector components 
+
 The way to add to the header is, 
-```cpp 
+
+.. code-block:: 
 __device__ static float __dotf(float4, float4); 
 /*Way down in the file....*/
 __device__ static inline float __dotf(float4 x, float4 y) { 
  /*implementation*/
 }
-```
+
 
 This helps python script to add the device function newly declared into markdown documentation (as it looks at functions with `;` at the end and `__device__` at the beginning)
 
@@ -20,31 +28,31 @@ The next step would be to add Description to  `deviceFuncDesc` dictionary in pyt
 From the above example, it can be writtern as,
 `deviceFuncDesc['__dotf'] = 'This functions takes 2 4 component float vector and outputs dot product across them'`
 
-### acosf
+** acosf
 ```cpp 
 __device__ float acosf(float x);
 
 ```
-**Description:**  This function returns floating point of arc cosine from a floating point input
+* Description:  This function returns floating point of arc cosine from a floating point input
 
 
-### acoshf
+** acoshf
 ```cpp 
 __device__ float acoshf(float x);
 
 ```
-**Description:**  Supported
+* Description:   Supported
 
 
-### asinf
+** asinf
 ```cpp 
 __device__ float asinf(float x);
 
 ```
-**Description:**  Supported
+* Description:  Supported
 
 
-### asinhf
+** asinhf
 ```cpp 
 __device__ float asinhf(float x);
 
@@ -52,28 +60,28 @@ __device__ float asinhf(float x);
 **Description:**  Supported
 
 
-### atan2f
+** atan2f
 ```cpp 
 __device__ float atan2f(float y, float x);
 
 ```
-**Description:**  Supported
+** Description:  Supported
 
 
-### atanf
+** atanf
 ```cpp 
 __device__ float atanf(float x);
 
 ```
-**Description:**  Supported
+* Description:  Supported
 
 
-### atanhf
+** atanhf
 ```cpp 
 __device__ float atanhf(float x);
 
 ```
-**Description:**  Supported
+* Description:  Supported
 
 
 ### cbrtf
