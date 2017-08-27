@@ -43,7 +43,9 @@ For a sample OpenCL application, let's use a simple vector-add example from the 
 
 Not for all your application that supported the AMDGPU SDK for OpenCL to get the Header,  rocm-opencl-dev now included the headerfiles. 
 
-If your built all your code with the AMDAPPSDK you do not need to download anything else,  you can just export environment variable to  /opt/rocm/opencl    Do not install the AMDAPPSDK 3.0  on ROCm OpenCL it designed for old driver which need headers installed.  rocm-opencl-dev package does this for you. 
+If your built all your code with the AMDAPPSDK you do not need to download anything else,  you can just export environment variable to  /opt/rocm/opencl    
+
+Do not install the AMDAPPSDK 3.0  on ROCm OpenCL it designed for old driver which need headers installed.  rocm-opencl-dev package does this for you. 
 
 Example 1 for AMDAPPSDKROOT
 ::
