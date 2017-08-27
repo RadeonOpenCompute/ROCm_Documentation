@@ -17,9 +17,10 @@ The way to add to the header is,
 .. code-block:: 
 __device__ static float __dotf(float4, float4); 
 /*Way down in the file....*/
-__device__ static inline float __dotf(float4 x, float4 y) { 
- /*implementation*/
-}
+__device__ static inline float __dotf(float4 x, float4 y)
+
+ *implementation 
+
 
 
 This helps python script to add the device function newly declared into markdown documentation (as it looks at functions with `;` at the end and `__device__` at the beginning)
