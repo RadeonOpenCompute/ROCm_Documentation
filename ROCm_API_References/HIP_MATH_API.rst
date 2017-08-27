@@ -19,7 +19,7 @@ __device__ static float __dotf(float4, float4);
 /*Way down in the file....*/
 __device__ static inline float __dotf(float4 x, float4 y)
 
-* implementation 
+*implementation*
 
 
 
@@ -29,3817 +29,3818 @@ The next step would be to add Description to  `deviceFuncDesc` dictionary in pyt
 From the above example, it can be writtern as,
 `deviceFuncDesc['__dotf'] = 'This functions takes 2 4 component float vector and outputs dot product across them'`
 
-** acosf
-```cpp 
+**acosf
+.. code-block:: 
 __device__ float acosf(float x);
 
-```
-* Description:  This function returns floating point of arc cosine from a floating point input
+
+*Description:  This function returns floating point of arc cosine from a floating point input
 
 
-** acoshf
-```cpp 
+**acoshf
+.. code-block:: 
 __device__ float acoshf(float x);
 
-```
-* Description:   Supported
+
+*Description:   Supported
 
 
-** asinf
-```cpp 
+**asinf
+.. code-block::  
 __device__ float asinf(float x);
 
-```
-* Description:  Supported
+
+*Description:  Supported
 
 
-** asinhf
-```cpp 
+**asinhf
+.. code-block::  
 __device__ float asinhf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-** atan2f
-```cpp 
+**atan2f
+.. code-block::  
 __device__ float atan2f(float y, float x);
 
-```
-** Description:  Supported
+
+**Description:  Supported
 
 
-** atanf
-```cpp 
+**atanf
+.. code-block::  
 __device__ float atanf(float x);
 
-```
-* Description:  Supported
+
+*Description:  Supported
 
 
-** atanhf
-```cpp 
+**atanhf
+.. code-block::  
 __device__ float atanhf(float x);
 
-```
-* Description:  Supported
+
+*Description:  Supported
 
 
-### cbrtf
-```cpp 
+**cbrtf
+.. code-block::  
 __device__ float cbrtf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ceilf
-```cpp 
+**ceilf
+.. code-block::  
 __device__ float ceilf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### copysignf
-```cpp 
+**copysignf
+.. code-block::  
 __device__ float copysignf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cosf
-```cpp 
+**cosf
+.. code-block::  
 __device__ float cosf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### coshf
-```cpp 
+**coshf
+.. code-block::  
 __device__ float coshf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cospif
-```cpp 
+**cospif
+.. code-block::  
 __device__ __host__ float cospif(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cyl_bessel_i0f
-```cpp 
+**cyl_bessel_i0f
+.. code-block::  
 //__device__ float cyl_bessel_i0f(float x);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### cyl_bessel_i1f
-```cpp 
+**cyl_bessel_i1f
+.. code-block::  
 //__device__ float cyl_bessel_i1f(float x);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### erfcf
-```cpp 
+**erfcf
+.. code-block::  
 __device__ float erfcf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfcinvf
-```cpp 
+**erfcinvf
+.. code-block::  
 __device__  float erfcinvf(float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfcxf
-```cpp 
+**erfcxf
+.. code-block::  
 __device__ float erfcxf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erff
-```cpp 
+**erff
+.. code-block::  
 __device__ float erff(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfinvf
-```cpp 
+**erfinvf
+.. code-block::  
 __device__ float erfinvf(float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### exp10f
-```cpp 
+**exp10f
+.. code-block::  
 __device__ float exp10f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### exp2f
-```cpp 
+**exp2f
+.. code-block::  
 __device__ float exp2f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### expf
-```cpp 
+**expf
+.. code-block::  
 __device__ float expf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### expm1f
-```cpp 
+**expm1f
+.. code-block::  
 __device__ float expm1f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fabsf
-```cpp 
+**fabsf
+.. code-block::  
 __device__ float fabsf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fdimf
-```cpp 
+**fdimf
+.. code-block::  
 __device__ float fdimf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fdividef
-```cpp 
+**fdividef
+.. code-block::  
 __device__ __host__ float fdividef(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### floorf
-```cpp 
+**floorf
+.. code-block::  
 __device__ float floorf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fmaf
-```cpp 
+**fmaf
+.. code-block::  
 __device__ float fmaf(float x, float y, float z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fmaxf
-```cpp 
+**fmaxf
+.. code-block::  
 __device__ float fmaxf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fminf
-```cpp 
+**fminf
+.. code-block::  
 __device__ float fminf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fmodf
-```cpp 
+**fmodf
+.. code-block::  
 __device__ float fmodf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### frexpf
-```cpp 
-//__device__ float frexpf(float x, int* nptr);
-
-```
-**Description:**  **NOT Supported**
+**frexpf
+.. code-block::  
+//__device__ float frexpf(float x, int*nptr);
 
 
-### hypotf
-```cpp 
+*Description:* **NOT Supported**
+
+
+**hypotf
+.. code-block::  
 __device__ float hypotf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ilogbf
-```cpp 
+**ilogbf
+.. code-block::  
 __device__ float ilogbf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### isfinite
-```cpp 
+**isfinite
+.. code-block::  
 __device__ __host__ int isfinite(float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### isinf
-```cpp 
+**isinf
+.. code-block::  
 __device__ unsigned isinf(float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### isnan
-```cpp 
+**isnan
+.. code-block::  
 __device__ unsigned isnan(float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### j0f
-```cpp 
+**j0f
+.. code-block::  
 __device__ float j0f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### j1f
-```cpp 
+**j1f
+.. code-block::  
 __device__ float j1f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### jnf
-```cpp 
+**jnf
+.. code-block::  
 __device__ float jnf(int n, float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ldexpf
-```cpp 
+**ldexpf
+.. code-block::  
 __device__ float ldexpf(float x, int exp);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### lgammaf
-```cpp 
+**lgammaf
+.. code-block::  
 //__device__ float lgammaf(float x);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### llrintf
-```cpp 
+**llrintf
+.. code-block::  
 __device__ long long int llrintf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### llroundf
-```cpp 
+**llroundf
+.. code-block::  
 __device__ long long int llroundf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### log10f
-```cpp 
+**log10f
+.. code-block::  
 __device__ float log10f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### log1pf
-```cpp 
+**log1pf
+.. code-block::  
 __device__ float log1pf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### logbf
-```cpp 
+**logbf
+.. code-block::  
 __device__ float logbf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### lrintf
-```cpp 
+**lrintf
+.. code-block::  
 __device__ long int lrintf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### lroundf
-```cpp 
+**lroundf
+.. code-block::  
 __device__ long int lroundf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### modff
-```cpp 
+**modff
+.. code-block::  
 //__device__ float modff(float x, float *iptr);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### nanf
-```cpp 
-__device__ float nanf(const char* tagp);
-
-```
-**Description:**  Supported
+**nanf
+.. code-block::  
+__device__ float nanf(const char*tagp);
 
 
-### nearbyintf
-```cpp 
+*Description:* Supported
+
+
+**nearbyintf
+.. code-block::  
 __device__ float nearbyintf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### nextafterf
-```cpp 
+**nextafterf
+.. code-block::  
 //__device__ float nextafterf(float x, float y);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### norm3df
-```cpp 
+**norm3df
+.. code-block::  
 __device__ float norm3df(float a, float b, float c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### norm4df
-```cpp 
+**norm4df
+.. code-block::  
 __device__ float norm4df(float a, float b, float c, float d);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### normcdff
-```cpp 
+**normcdff
+.. code-block::  
 __device__ float normcdff(float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### normcdfinvf
-```cpp 
+**normcdfinvf
+.. code-block::  
 __device__ float normcdfinvf(float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### normf
-```cpp 
+**normf
+.. code-block::  
 __device__ float normf(int dim, const float *a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### powf
-```cpp 
+**powf
+.. code-block::  
 __device__ float powf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rcbrtf
-```cpp 
+**rcbrtf
+.. code-block::  
 __device__ float rcbrtf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### remainderf
-```cpp 
+**remainderf
+.. code-block::  
 __device__ float remainderf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### remquof
-```cpp 
+**remquof
+.. code-block::  
 __device__ float remquof(float x, float y, int *quo);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rhypotf
-```cpp 
+**rhypotf
+.. code-block::  
 __device__ float rhypotf(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rintf
-```cpp 
+**rintf
+.. code-block::  
 __device__ float rintf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rnorm3df
-```cpp 
+**rnorm3df
+.. code-block::  
 __device__ float rnorm3df(float a, float b, float c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rnorm4df
-```cpp 
+**rnorm4df
+.. code-block::  
 __device__ float rnorm4df(float a, float b, float c, float d);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rnormf
-```cpp 
-__device__ float rnormf(int dim, const float* a);
-
-```
-**Description:**  Supported
+**rnormf
+.. code-block::  
+__device__ float rnormf(int dim, const float*a);
 
 
-### roundf
-```cpp 
+*Description:* Supported
+
+
+**roundf
+.. code-block::  
 __device__ float roundf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rsqrtf
-```cpp 
+**rsqrtf
+.. code-block::  
 __device__ __host__ float rsqrtf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### scalblnf
-```cpp 
+**scalblnf
+.. code-block::  
 __device__ float scalblnf(float x, long int n);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### scalbnf
-```cpp 
+**scalbnf
+.. code-block::  
 __device__ float scalbnf(float x, int n);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### signbit
-```cpp 
+**signbit
+.. code-block::  
 __device__ __host__ unsigned signbit(float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sincosf
-```cpp 
+**sincosf
+.. code-block::  
 __device__ void sincosf(float x, float *sptr, float *cptr);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sincospif
-```cpp 
+**sincospif
+.. code-block::  
 __device__ void sincospif(float x, float *sptr, float *cptr);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sinf
-```cpp 
+**sinf
+.. code-block::  
 __device__ float sinf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sinhf
-```cpp 
+**sinhf
+.. code-block::  
 __device__ float sinhf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sinpif
-```cpp 
+**sinpif
+.. code-block::  
 __device__ __host__ float sinpif(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sqrtf
-```cpp 
+**sqrtf
+.. code-block::  
 __device__ float sqrtf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### tanf
-```cpp 
+**tanf
+.. code-block::  
 __device__ float tanf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### tanhf
-```cpp 
+**tanhf
+.. code-block::  
 __device__ float tanhf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### tgammaf
-```cpp 
+**tgammaf
+.. code-block::  
 __device__ float tgammaf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### truncf
-```cpp 
+**truncf
+.. code-block::  
 __device__ float truncf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### y0f
-```cpp 
+**y0f
+.. code-block::  
 __device__ float y0f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### y1f
-```cpp 
+**y1f
+.. code-block::  
 __device__ float y1f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ynf
-```cpp 
+**ynf
+.. code-block::  
 __device__ float ynf(int n, float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### acos
-```cpp 
+**acos
+.. code-block::  
 __device__ double acos(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### acosh
-```cpp 
+**acosh
+.. code-block::  
 __device__ double acosh(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### asin
-```cpp 
+**asin
+.. code-block::  
 __device__ double asin(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### asinh
-```cpp 
+**asinh
+.. code-block::  
 __device__ double asinh(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### atan
-```cpp 
+**atan
+.. code-block::  
 __device__ double atan(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### atan2
-```cpp 
+**atan2
+.. code-block::  
 __device__ double atan2(double y, double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### atanh
-```cpp 
+**atanh
+.. code-block::  
 __device__ double atanh(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cbrt
-```cpp 
+**cbrt
+.. code-block::  
 __device__ double cbrt(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ceil
-```cpp 
+**ceil
+.. code-block::  
 __device__ double ceil(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### copysign
-```cpp 
+**copysign
+.. code-block::  
 __device__ double copysign(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cos
-```cpp 
+**cos
+.. code-block::  
 __device__ double cos(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cosh
-```cpp 
+**cosh
+.. code-block::  
 __device__ double cosh(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cospi
-```cpp 
+**cospi
+.. code-block::  
 __device__ __host__ double cospi(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### cyl_bessel_i0
-```cpp 
+**cyl_bessel_i0
+.. code-block::  
 //__device__ double cyl_bessel_i0(double x);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### cyl_bessel_i1
-```cpp 
+**cyl_bessel_i1
+.. code-block::  
 //__device__ double cyl_bessel_i1(double x);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### erf
-```cpp 
+**erf
+.. code-block::  
 __device__ double erf(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfc
-```cpp 
+**erfc
+.. code-block::  
 __device__ double erfc(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfcinv
-```cpp 
+**erfcinv
+.. code-block::  
 __device__ double erfcinv(double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfcx
-```cpp 
+**erfcx
+.. code-block::  
 __device__ double erfcx(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### erfinv
-```cpp 
+**erfinv
+.. code-block::  
 __device__ double erfinv(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### exp
-```cpp 
+**exp
+.. code-block::  
 __device__ double exp(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### exp10
-```cpp 
+**exp10
+.. code-block::  
 __device__ double exp10(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### exp2
-```cpp 
+**exp2
+.. code-block::  
 __device__ double exp2(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### expm1
-```cpp 
+**expm1
+.. code-block::  
 __device__ double expm1(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fabs
-```cpp 
+**fabs
+.. code-block::  
 __device__ double fabs(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fdim
-```cpp 
+**fdim
+.. code-block::  
 __device__ double fdim(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### floor
-```cpp 
+**floor
+.. code-block::  
 __device__ double floor(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fma
-```cpp 
+**fma
+.. code-block::  
 __device__ double fma(double x, double y, double z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fmax
-```cpp 
+**fmax
+.. code-block::  
 __device__ double fmax(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fmin
-```cpp 
+**fmin
+.. code-block::  
 __device__ double fmin(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### fmod
-```cpp 
+**fmod
+.. code-block::  
 __device__ double fmod(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### frexp
-```cpp 
+**frexp
+.. code-block::  
 //__device__ double frexp(double x, int *nptr);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### hypot
-```cpp 
+**hypot
+.. code-block::  
 __device__ double hypot(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ilogb
-```cpp 
+**ilogb
+.. code-block::  
 __device__ double ilogb(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### isfinite
-```cpp 
+**isfinite
+.. code-block::  
 __device__ __host__ unsigned isfinite(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### isinf
-```cpp 
+**isinf
+.. code-block::  
 __device__ unsigned isinf(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### isnan
-```cpp 
+**isnan
+.. code-block::  
 __device__ unsigned isnan(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### j0
-```cpp 
+**j0
+.. code-block::  
 __device__ double j0(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### j1
-```cpp 
+**j1
+.. code-block::  
 __device__ double j1(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### jn
-```cpp 
+**jn
+.. code-block::  
 __device__ double jn(int n, double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### ldexp
-```cpp 
+**ldexp
+.. code-block::  
 __device__ double ldexp(double x, int exp);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### lgamma
-```cpp 
+**lgamma
+.. code-block::  
 __device__ double lgamma(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### llrint
-```cpp 
+**llrint
+.. code-block::  
 __device__ long long llrint(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### llround
-```cpp 
+**llround
+.. code-block::  
 __device__ long long llround(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### log
-```cpp 
+**log
+.. code-block::  
 __device__ double log(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### log10
-```cpp 
+**log10
+.. code-block::  
 __device__ double log10(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### log1p
-```cpp 
+**log1p
+.. code-block::  
 __device__ double log1p(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### log2
-```cpp 
+**log2
+.. code-block::  
 __device__ double log2(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### logb
-```cpp 
+**logb
+.. code-block::  
 __device__ double logb(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### lrint
-```cpp 
+**lrint
+.. code-block::  
 __device__ long int lrint(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### lround
-```cpp 
+**lround
+.. code-block::  
 __device__ long int lround(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### modf
-```cpp 
+**modf
+.. code-block::  
 //__device__ double modf(double x, double *iptr);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### nan
-```cpp 
-__device__ double nan(const char* tagp);
-
-```
-**Description:**  Supported
+**nan
+.. code-block::  
+__device__ double nan(const char*tagp);
 
 
-### nearbyint
-```cpp 
+*Description:* Supported
+
+
+**nearbyint
+.. code-block::  
 __device__ double nearbyint(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### nextafter
-```cpp 
+**nextafter
+.. code-block::  
 __device__ double nextafter(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### norm
-```cpp 
-__device__ double norm(int dim, const double* t);
-
-```
-**Description:**  Supported
+**norm
+.. code-block::  
+__device__ double norm(int dim, const double*t);
 
 
-### norm3d
-```cpp 
+*Description:* Supported
+
+
+**norm3d
+.. code-block::  
 __device__ double norm3d(double a, double b, double c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### norm4d
-```cpp 
+**norm4d
+.. code-block::  
 __device__ double norm4d(double a, double b, double c, double d);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### normcdf
-```cpp 
+**normcdf
+.. code-block::  
 __device__ double normcdf(double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### normcdfinv
-```cpp 
+**normcdfinv
+.. code-block::  
 __device__ double normcdfinv(double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### pow
-```cpp 
+**pow
+.. code-block::  
 __device__ double pow(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rcbrt
-```cpp 
+**rcbrt
+.. code-block::  
 __device__ double rcbrt(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### remainder
-```cpp 
+**remainder
+.. code-block::  
 __device__ double remainder(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### remquo
-```cpp 
+**remquo
+.. code-block::  
 //__device__ double remquo(double x, double y, int *quo);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### rhypot
-```cpp 
+**rhypot
+.. code-block::  
 __device__ double rhypot(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rint
-```cpp 
+**rint
+.. code-block::  
 __device__ double rint(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rnorm
-```cpp 
-__device__ double rnorm(int dim, const double* t);
-
-```
-**Description:**  Supported
+**rnorm
+.. code-block::  
+__device__ double rnorm(int dim, const double*t);
 
 
-### rnorm3d
-```cpp 
+*Description:* Supported
+
+
+**rnorm3d
+.. code-block::  
 __device__ double rnorm3d(double a, double b, double c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rnorm4d
-```cpp 
+**rnorm4d
+.. code-block::  
 __device__ double rnorm4d(double a, double b, double c, double d);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### round
-```cpp 
+**round
+.. code-block::  
 __device__ double round(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### rsqrt
-```cpp 
+**rsqrt
+.. code-block::  
 __device__ __host__ double rsqrt(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### scalbln
-```cpp 
+**scalbln
+.. code-block::  
 __device__ double scalbln(double x, long int n);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### scalbn
-```cpp 
+**scalbn
+.. code-block::  
 __device__ double scalbn(double x, int n);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### signbit
-```cpp 
+**signbit
+.. code-block::  
 __device__ __host__ unsigned signbit(double a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sin
-```cpp 
+**sin
+.. code-block::  
 __device__ double sin(double a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sincos
-```cpp 
+**sincos
+.. code-block::  
 __device__ void sincos(double x, double *sptr, double *cptr);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sincospi
-```cpp 
+**sincospi
+.. code-block::  
 __device__ void sincospi(double x, double *sptr, double *cptr);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sinh
-```cpp 
+**sinh
+.. code-block::  
 __device__ double sinh(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sinpi
-```cpp 
+**sinpi
+.. code-block::  
 __device__ __host__ double sinpi(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### sqrt
-```cpp 
+**sqrt
+.. code-block::  
 __device__ double sqrt(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### tan
-```cpp 
+**tan
+.. code-block::  
 __device__ double tan(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### tanh
-```cpp 
+**tanh
+.. code-block::  
 __device__ double tanh(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### tgamma
-```cpp 
+**tgamma
+.. code-block::  
 __device__ double tgamma(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### trunc
-```cpp 
+**trunc
+.. code-block::  
 __device__ double trunc(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### y0
-```cpp 
+**y0
+.. code-block::  
 __device__ double y0(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### y1
-```cpp 
+**y1
+.. code-block::  
 __device__ double y1(double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### yn
-```cpp 
+**yn
+.. code-block::  
 __device__ double yn(int n, double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __cosf
-```cpp 
+**__cosf
+.. code-block::  
 __device__  float __cosf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __exp10f
-```cpp 
+**__exp10f
+.. code-block::  
 __device__  float __exp10f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __expf
-```cpp 
+**__expf
+.. code-block::  
 __device__  float __expf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fadd_rd
-```cpp 
+**__fadd_rd
+.. code-block::  
 __device__ static  float __fadd_rd(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fadd_rn
-```cpp 
+**__fadd_rn
+.. code-block::  
 __device__ static  float __fadd_rn(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fadd_ru
-```cpp 
+**__fadd_ru
+.. code-block::  
 __device__ static  float __fadd_ru(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fadd_rz
-```cpp 
+**__fadd_rz
+.. code-block::  
 __device__ static  float __fadd_rz(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fdiv_rd
-```cpp 
+**__fdiv_rd
+.. code-block::  
 __device__ static  float __fdiv_rd(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fdiv_rn
-```cpp 
+**__fdiv_rn
+.. code-block::  
 __device__ static  float __fdiv_rn(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fdiv_ru
-```cpp 
+**__fdiv_ru
+.. code-block::  
 __device__ static  float __fdiv_ru(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fdiv_rz
-```cpp 
+**__fdiv_rz
+.. code-block::  
 __device__ static  float __fdiv_rz(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fdividef
-```cpp 
+**__fdividef
+.. code-block::  
 __device__ static  float __fdividef(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmaf_rd
-```cpp 
+**__fmaf_rd
+.. code-block::  
 __device__  float __fmaf_rd(float x, float y, float z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmaf_rn
-```cpp 
+**__fmaf_rn
+.. code-block::  
 __device__  float __fmaf_rn(float x, float y, float z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmaf_ru
-```cpp 
+**__fmaf_ru
+.. code-block::  
 __device__  float __fmaf_ru(float x, float y, float z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmaf_rz
-```cpp 
+**__fmaf_rz
+.. code-block::  
 __device__  float __fmaf_rz(float x, float y, float z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmul_rd
-```cpp 
+**__fmul_rd
+.. code-block::  
 __device__ static  float __fmul_rd(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmul_rn
-```cpp 
+**__fmul_rn
+.. code-block::  
 __device__ static  float __fmul_rn(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmul_ru
-```cpp 
+**__fmul_ru
+.. code-block::  
 __device__ static  float __fmul_ru(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fmul_rz
-```cpp 
+**__fmul_rz
+.. code-block::  
 __device__ static  float __fmul_rz(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __frcp_rd
-```cpp 
+**__frcp_rd
+.. code-block::  
 __device__  float __frcp_rd(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __frcp_rn
-```cpp 
+**__frcp_rn
+.. code-block::  
 __device__  float __frcp_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __frcp_ru
-```cpp 
+**__frcp_ru
+.. code-block::  
 __device__  float __frcp_ru(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __frcp_rz
-```cpp 
+**__frcp_rz
+.. code-block::  
 __device__  float __frcp_rz(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __frsqrt_rn
-```cpp 
+**__frsqrt_rn
+.. code-block::  
 __device__  float __frsqrt_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsqrt_rd
-```cpp 
+**__fsqrt_rd
+.. code-block::  
 __device__  float __fsqrt_rd(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsqrt_rn
-```cpp 
+**__fsqrt_rn
+.. code-block::  
 __device__  float __fsqrt_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsqrt_ru
-```cpp 
+**__fsqrt_ru
+.. code-block::  
 __device__  float __fsqrt_ru(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsqrt_rz
-```cpp 
+**__fsqrt_rz
+.. code-block::  
 __device__  float __fsqrt_rz(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsub_rd
-```cpp 
+**__fsub_rd
+.. code-block::  
 __device__ static  float __fsub_rd(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsub_rn
-```cpp 
+**__fsub_rn
+.. code-block::  
 __device__ static  float __fsub_rn(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fsub_ru
-```cpp 
+**__fsub_ru
+.. code-block::  
 __device__ static  float __fsub_ru(float x, float y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __log10f
-```cpp 
+**__log10f
+.. code-block::  
 __device__  float __log10f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __log2f
-```cpp 
+**__log2f
+.. code-block::  
 __device__  float __log2f(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __logf
-```cpp 
+**__logf
+.. code-block::  
 __device__  float __logf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __powf
-```cpp 
+**__powf
+.. code-block::  
 __device__  float __powf(float base, float exponent);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __saturatef
-```cpp 
+**__saturatef
+.. code-block::  
 __device__ static  float __saturatef(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __sincosf
-```cpp 
+**__sincosf
+.. code-block::  
 __device__  void __sincosf(float x, float *s, float *c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __sinf
-```cpp 
+**__sinf
+.. code-block::  
 __device__  float __sinf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __tanf
-```cpp 
+**__tanf
+.. code-block::  
 __device__  float __tanf(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dadd_rd
-```cpp 
+**__dadd_rd
+.. code-block::  
 __device__ static  double __dadd_rd(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dadd_rn
-```cpp 
+**__dadd_rn
+.. code-block::  
 __device__ static  double __dadd_rn(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dadd_ru
-```cpp 
+**__dadd_ru
+.. code-block::  
 __device__ static  double __dadd_ru(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dadd_rz
-```cpp 
+**__dadd_rz
+.. code-block::  
 __device__ static  double __dadd_rz(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ddiv_rd
-```cpp 
+**__ddiv_rd
+.. code-block::  
 __device__ static  double __ddiv_rd(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ddiv_rn
-```cpp 
+**__ddiv_rn
+.. code-block::  
 __device__ static  double __ddiv_rn(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ddiv_ru
-```cpp 
+**__ddiv_ru
+.. code-block::  
 __device__ static  double __ddiv_ru(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ddiv_rz
-```cpp 
+**__ddiv_rz
+.. code-block::  
 __device__ static  double __ddiv_rz(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dmul_rd
-```cpp 
+**__dmul_rd
+.. code-block::  
 __device__ static  double __dmul_rd(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dmul_rn
-```cpp 
+**__dmul_rn
+.. code-block::  
 __device__ static  double __dmul_rn(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dmul_ru
-```cpp 
+**__dmul_ru
+.. code-block::  
 __device__ static  double __dmul_ru(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dmul_rz
-```cpp 
+**__dmul_rz
+.. code-block::  
 __device__ static  double __dmul_rz(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __drcp_rd
-```cpp 
+**__drcp_rd
+.. code-block::  
 __device__  double __drcp_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __drcp_rn
-```cpp 
+**__drcp_rn
+.. code-block::  
 __device__  double __drcp_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __drcp_ru
-```cpp 
+**__drcp_ru
+.. code-block::  
 __device__  double __drcp_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __drcp_rz
-```cpp 
+**__drcp_rz
+.. code-block::  
 __device__  double __drcp_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsqrt_rd
-```cpp 
+**__dsqrt_rd
+.. code-block::  
 __device__  double __dsqrt_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsqrt_rn
-```cpp 
+**__dsqrt_rn
+.. code-block::  
 __device__  double __dsqrt_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsqrt_ru
-```cpp 
+**__dsqrt_ru
+.. code-block::  
 __device__  double __dsqrt_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsqrt_rz
-```cpp 
+**__dsqrt_rz
+.. code-block::  
 __device__  double __dsqrt_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsub_rd
-```cpp 
+**__dsub_rd
+.. code-block::  
 __device__ static  double __dsub_rd(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsub_rn
-```cpp 
+**__dsub_rn
+.. code-block::  
 __device__ static  double __dsub_rn(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsub_ru
-```cpp 
+**__dsub_ru
+.. code-block::  
 __device__ static  double __dsub_ru(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __dsub_rz
-```cpp 
+**__dsub_rz
+.. code-block::  
 __device__ static  double __dsub_rz(double x, double y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fma_rd
-```cpp 
+**__fma_rd
+.. code-block::  
 __device__  double __fma_rd(double x, double y, double z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fma_rn
-```cpp 
+**__fma_rn
+.. code-block::  
 __device__  double __fma_rn(double x, double y, double z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fma_ru
-```cpp 
+**__fma_ru
+.. code-block::  
 __device__  double __fma_ru(double x, double y, double z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __fma_rz
-```cpp 
+**__fma_rz
+.. code-block::  
 __device__  double __fma_rz(double x, double y, double z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __brev
-```cpp 
+**__brev
+.. code-block::  
 __device__ unsigned int __brev( unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __brevll
-```cpp 
+**__brevll
+.. code-block::  
 __device__ unsigned long long int __brevll( unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __byte_perm
-```cpp 
+**__byte_perm
+.. code-block::  
 __device__ unsigned int __byte_perm(unsigned int x, unsigned int y, unsigned int s);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __clz
-```cpp 
+**__clz
+.. code-block::  
 __device__ unsigned int __clz(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __clzll
-```cpp 
+**__clzll
+.. code-block::  
 __device__ unsigned int __clzll(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ffs
-```cpp 
+**__ffs
+.. code-block::  
 __device__ unsigned int __ffs(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ffsll
-```cpp 
+**__ffsll
+.. code-block::  
 __device__ unsigned int __ffsll(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hadd
-```cpp 
+**__hadd
+.. code-block::  
 __device__ static unsigned int __hadd(int x, int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __mul24
-```cpp 
+**__mul24
+.. code-block::  
 __device__ static int __mul24(int x, int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __mul64hi
-```cpp 
+**__mul64hi
+.. code-block::  
 __device__ long long int __mul64hi(long long int x, long long int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __mulhi
-```cpp 
+**__mulhi
+.. code-block::  
 __device__ static int __mulhi(int x, int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __popc
-```cpp 
+**__popc
+.. code-block::  
 __device__ unsigned int __popc(unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __popcll
-```cpp 
+**__popcll
+.. code-block::  
 __device__ unsigned int __popcll(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __rhadd
-```cpp 
+**__rhadd
+.. code-block::  
 __device__ static int __rhadd(int x, int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __sad
-```cpp 
+**__sad
+.. code-block::  
 __device__ static unsigned int __sad(int x, int y, int z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uhadd
-```cpp 
+**__uhadd
+.. code-block::  
 __device__ static unsigned int __uhadd(unsigned int x, unsigned int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __umul24
-```cpp 
+**__umul24
+.. code-block::  
 __device__ static int __umul24(unsigned int x, unsigned int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __umul64hi
-```cpp 
+**__umul64hi
+.. code-block::  
 __device__ unsigned long long int __umul64hi(unsigned long long int x, unsigned long long int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __umulhi
-```cpp 
+**__umulhi
+.. code-block::  
 __device__ static unsigned int __umulhi(unsigned int x, unsigned int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __urhadd
-```cpp 
+**__urhadd
+.. code-block::  
 __device__ static unsigned int __urhadd(unsigned int x, unsigned int y);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __usad
-```cpp 
+**__usad
+.. code-block::  
 __device__ static unsigned int __usad(unsigned int x, unsigned int y, unsigned int z);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2float_rd
-```cpp 
+**__double2float_rd
+.. code-block::  
 __device__ float __double2float_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2float_rn
-```cpp 
+**__double2float_rn
+.. code-block::  
 __device__ float __double2float_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2float_ru
-```cpp 
+**__double2float_ru
+.. code-block::  
 __device__ float __double2float_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2float_rz
-```cpp 
+**__double2float_rz
+.. code-block::  
 __device__ float __double2float_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2hiint
-```cpp 
+**__double2hiint
+.. code-block::  
 __device__ int __double2hiint(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2int_rd
-```cpp 
+**__double2int_rd
+.. code-block::  
 __device__ int __double2int_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2int_rn
-```cpp 
+**__double2int_rn
+.. code-block::  
 __device__ int __double2int_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2int_ru
-```cpp 
+**__double2int_ru
+.. code-block::  
 __device__ int __double2int_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2int_rz
-```cpp 
+**__double2int_rz
+.. code-block::  
 __device__ int __double2int_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ll_rd
-```cpp 
+**__double2ll_rd
+.. code-block::  
 __device__ long long int __double2ll_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ll_rn
-```cpp 
+**__double2ll_rn
+.. code-block::  
 __device__ long long int __double2ll_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ll_ru
-```cpp 
+**__double2ll_ru
+.. code-block::  
 __device__ long long int __double2ll_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ll_rz
-```cpp 
+**__double2ll_rz
+.. code-block::  
 __device__ long long int __double2ll_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2loint
-```cpp 
+**__double2loint
+.. code-block::  
 __device__ int __double2loint(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2uint_rd
-```cpp 
+**__double2uint_rd
+.. code-block::  
 __device__ unsigned int __double2uint_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2uint_rn
-```cpp 
+**__double2uint_rn
+.. code-block::  
 __device__ unsigned int __double2uint_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2uint_ru
-```cpp 
+**__double2uint_ru
+.. code-block::  
 __device__ unsigned int __double2uint_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2uint_rz
-```cpp 
+**__double2uint_rz
+.. code-block::  
 __device__ unsigned int __double2uint_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ull_rd
-```cpp 
+**__double2ull_rd
+.. code-block::  
 __device__ unsigned long long int __double2ull_rd(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ull_rn
-```cpp 
+**__double2ull_rn
+.. code-block::  
 __device__ unsigned long long int __double2ull_rn(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ull_ru
-```cpp 
+**__double2ull_ru
+.. code-block::  
 __device__ unsigned long long int __double2ull_ru(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double2ull_rz
-```cpp 
+**__double2ull_rz
+.. code-block::  
 __device__ unsigned long long int __double2ull_rz(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __double_as_longlong
-```cpp 
+**__double_as_longlong
+.. code-block::  
 __device__ long long int __double_as_longlong(double x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half_rn
-```cpp 
+**__float2half_rn
+.. code-block::  
 __device__ unsigned short __float2half_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2float
-```cpp 
+**__half2float
+.. code-block::  
 __device__ float __half2float(unsigned short);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half_rn
-```cpp 
+**__float2half_rn
+.. code-block::  
 __device__ __half __float2half_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2float
-```cpp 
+**__half2float
+.. code-block::  
 __device__ float __half2float(__half);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2int_rd
-```cpp 
+**__float2int_rd
+.. code-block::  
 __device__ int __float2int_rd(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2int_rn
-```cpp 
+**__float2int_rn
+.. code-block::  
 __device__ int __float2int_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2int_ru
-```cpp 
+**__float2int_ru
+.. code-block::  
 __device__ int __float2int_ru(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2int_rz
-```cpp 
+**__float2int_rz
+.. code-block::  
 __device__ int __float2int_rz(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ll_rd
-```cpp 
+**__float2ll_rd
+.. code-block::  
 __device__ long long int __float2ll_rd(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ll_rn
-```cpp 
+**__float2ll_rn
+.. code-block::  
 __device__ long long int __float2ll_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ll_ru
-```cpp 
+**__float2ll_ru
+.. code-block::  
 __device__ long long int __float2ll_ru(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ll_rz
-```cpp 
+**__float2ll_rz
+.. code-block::  
 __device__ long long int __float2ll_rz(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2uint_rd
-```cpp 
+**__float2uint_rd
+.. code-block::  
 __device__ unsigned int __float2uint_rd(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2uint_rn
-```cpp 
+**__float2uint_rn
+.. code-block::  
 __device__ unsigned int __float2uint_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2uint_ru
-```cpp 
+**__float2uint_ru
+.. code-block::  
 __device__ unsigned int __float2uint_ru(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2uint_rz
-```cpp 
+**__float2uint_rz
+.. code-block::  
 __device__ unsigned int __float2uint_rz(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ull_rd
-```cpp 
+**__float2ull_rd
+.. code-block::  
 __device__ unsigned long long int __float2ull_rd(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ull_rn
-```cpp 
+**__float2ull_rn
+.. code-block::  
 __device__ unsigned long long int __float2ull_rn(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ull_ru
-```cpp 
+**__float2ull_ru
+.. code-block::  
 __device__ unsigned long long int __float2ull_ru(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2ull_rz
-```cpp 
+**__float2ull_rz
+.. code-block::  
 __device__ unsigned long long int __float2ull_rz(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float_as_int
-```cpp 
+**__float_as_int
+.. code-block::  
 __device__ int __float_as_int(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float_as_uint
-```cpp 
+**__float_as_uint
+.. code-block::  
 __device__ unsigned int __float_as_uint(float x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hiloint2double
-```cpp 
+**__hiloint2double
+.. code-block::  
 __device__ double __hiloint2double(int hi, int lo);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2double_rn
-```cpp 
+**__int2double_rn
+.. code-block::  
 __device__ double __int2double_rn(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2float_rd
-```cpp 
+**__int2float_rd
+.. code-block::  
 __device__ float __int2float_rd(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2float_rn
-```cpp 
+**__int2float_rn
+.. code-block::  
 __device__ float __int2float_rn(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2float_ru
-```cpp 
+**__int2float_ru
+.. code-block::  
 __device__ float __int2float_ru(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2float_rz
-```cpp 
+**__int2float_rz
+.. code-block::  
 __device__ float __int2float_rz(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int_as_float
-```cpp 
+**__int_as_float
+.. code-block::  
 __device__ float __int_as_float(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2double_rd
-```cpp 
+**__ll2double_rd
+.. code-block::  
 __device__ double __ll2double_rd(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2double_rn
-```cpp 
+**__ll2double_rn
+.. code-block::  
 __device__ double __ll2double_rn(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2double_ru
-```cpp 
+**__ll2double_ru
+.. code-block::  
 __device__ double __ll2double_ru(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2double_rz
-```cpp 
+**__ll2double_rz
+.. code-block::  
 __device__ double __ll2double_rz(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2float_rd
-```cpp 
+**__ll2float_rd
+.. code-block::  
 __device__ float __ll2float_rd(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2float_rn
-```cpp 
+**__ll2float_rn
+.. code-block::  
 __device__ float __ll2float_rn(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2float_ru
-```cpp 
+**__ll2float_ru
+.. code-block::  
 __device__ float __ll2float_ru(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2float_rz
-```cpp 
+**__ll2float_rz
+.. code-block::  
 __device__ float __ll2float_rz(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __longlong_as_double
-```cpp 
+**__longlong_as_double
+.. code-block::  
 __device__ double __longlong_as_double(long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2double_rn
-```cpp 
+**__uint2double_rn
+.. code-block::  
 __device__ double __uint2double_rn(int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2float_rd
-```cpp 
+**__uint2float_rd
+.. code-block::  
 __device__ float __uint2float_rd(unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2float_rn
-```cpp 
+**__uint2float_rn
+.. code-block::  
 __device__ float __uint2float_rn(unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2float_ru
-```cpp 
+**__uint2float_ru
+.. code-block::  
 __device__ float __uint2float_ru(unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2float_rz
-```cpp 
+**__uint2float_rz
+.. code-block::  
 __device__ float __uint2float_rz(unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint_as_float
-```cpp 
+**__uint_as_float
+.. code-block::  
 __device__ float __uint_as_float(unsigned int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2double_rd
-```cpp 
+**__ull2double_rd
+.. code-block::  
 __device__ double __ull2double_rd(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2double_rn
-```cpp 
+**__ull2double_rn
+.. code-block::  
 __device__ double __ull2double_rn(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2double_ru
-```cpp 
+**__ull2double_ru
+.. code-block::  
 __device__ double __ull2double_ru(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2double_rz
-```cpp 
+**__ull2double_rz
+.. code-block::  
 __device__ double __ull2double_rz(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2float_rd
-```cpp 
+**__ull2float_rd
+.. code-block::  
 __device__ float __ull2float_rd(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2float_rn
-```cpp 
+**__ull2float_rn
+.. code-block::  
 __device__ float __ull2float_rn(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2float_ru
-```cpp 
+**__ull2float_ru
+.. code-block::  
 __device__ float __ull2float_ru(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2float_rz
-```cpp 
+**__ull2float_rz
+.. code-block::  
 __device__ float __ull2float_rz(unsigned long long int x);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hadd
-```cpp 
+**__hadd
+.. code-block::  
 __device__ static __half __hadd(const __half a, const __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hadd_sat
-```cpp 
+**__hadd_sat
+.. code-block::  
 __device__ static __half __hadd_sat(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hfma
-```cpp 
+**__hfma
+.. code-block::  
 __device__ static __half __hfma(__half a, __half b, __half c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hfma_sat
-```cpp 
+**__hfma_sat
+.. code-block::  
 __device__ static __half __hfma_sat(__half a, __half b, __half c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hmul
-```cpp 
+**__hmul
+.. code-block::  
 __device__ static __half __hmul(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hmul_sat
-```cpp 
+**__hmul_sat
+.. code-block::  
 __device__ static __half __hmul_sat(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hneg
-```cpp 
+**__hneg
+.. code-block::  
 __device__ static __half __hneg(__half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hsub
-```cpp 
+**__hsub
+.. code-block::  
 __device__ static __half __hsub(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hsub_sat
-```cpp 
+**__hsub_sat
+.. code-block::  
 __device__ static __half __hsub_sat(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hdiv
-```cpp 
+**hdiv
+.. code-block::  
 __device__ static __half hdiv(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hadd2
-```cpp 
+**__hadd2
+.. code-block::  
 __device__ static __half2 __hadd2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hadd2_sat
-```cpp 
+**__hadd2_sat
+.. code-block::  
 __device__ static __half2 __hadd2_sat(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hfma2
-```cpp 
+**__hfma2
+.. code-block::  
 __device__ static __half2 __hfma2(__half2 a, __half2 b, __half2 c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hfma2_sat
-```cpp 
+**__hfma2_sat
+.. code-block::  
 __device__ static __half2 __hfma2_sat(__half2 a, __half2 b, __half2 c);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hmul2
-```cpp 
+**__hmul2
+.. code-block::  
 __device__ static __half2 __hmul2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hmul2_sat
-```cpp 
+**__hmul2_sat
+.. code-block::  
 __device__ static __half2 __hmul2_sat(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hsub2
-```cpp 
+**__hsub2
+.. code-block::  
 __device__ static __half2 __hsub2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hneg2
-```cpp 
+**__hneg2
+.. code-block::  
 __device__ static __half2 __hneg2(__half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hsub2_sat
-```cpp 
+**__hsub2_sat
+.. code-block::  
 __device__ static __half2 __hsub2_sat(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2div
-```cpp 
+**h2div
+.. code-block::  
 __device__ static __half2 h2div(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __heq
-```cpp 
+**__heq
+.. code-block::  
 __device__  bool __heq(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hge
-```cpp 
+**__hge
+.. code-block::  
 __device__  bool __hge(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hgt
-```cpp 
+**__hgt
+.. code-block::  
 __device__  bool __hgt(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hisinf
-```cpp 
+**__hisinf
+.. code-block::  
 __device__  bool __hisinf(__half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hisnan
-```cpp 
+**__hisnan
+.. code-block::  
 __device__  bool __hisnan(__half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hle
-```cpp 
+**__hle
+.. code-block::  
 __device__  bool __hle(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hlt
-```cpp 
+**__hlt
+.. code-block::  
 __device__  bool __hlt(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hne
-```cpp 
+**__hne
+.. code-block::  
 __device__  bool __hne(__half a, __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hbeq2
-```cpp 
+**__hbeq2
+.. code-block::  
 __device__  bool __hbeq2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hbge2
-```cpp 
+**__hbge2
+.. code-block::  
 __device__  bool __hbge2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hbgt2
-```cpp 
+**__hbgt2
+.. code-block::  
 __device__  bool __hbgt2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hble2
-```cpp 
+**__hble2
+.. code-block::  
 __device__  bool __hble2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hblt2
-```cpp 
+**__hblt2
+.. code-block::  
 __device__  bool __hblt2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hbne2
-```cpp 
+**__hbne2
+.. code-block::  
 __device__  bool __hbne2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __heq2
-```cpp 
+**__heq2
+.. code-block::  
 __device__  __half2 __heq2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hge2
-```cpp 
+**__hge2
+.. code-block::  
 __device__  __half2 __hge2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hgt2
-```cpp 
+**__hgt2
+.. code-block::  
 __device__  __half2 __hgt2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hisnan2
-```cpp 
+**__hisnan2
+.. code-block::  
 __device__  __half2 __hisnan2(__half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hle2
-```cpp 
+**__hle2
+.. code-block::  
 __device__  __half2 __hle2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hlt2
-```cpp 
+**__hlt2
+.. code-block::  
 __device__  __half2 __hlt2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __hne2
-```cpp 
+**__hne2
+.. code-block::  
 __device__  __half2 __hne2(__half2 a, __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hceil
-```cpp 
+**hceil
+.. code-block::  
 __device__ static __half hceil(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hcos
-```cpp 
+**hcos
+.. code-block::  
 __device__ static __half hcos(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hexp
-```cpp 
+**hexp
+.. code-block::  
 __device__ static __half hexp(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hexp10
-```cpp 
+**hexp10
+.. code-block::  
 __device__ static __half hexp10(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hexp2
-```cpp 
+**hexp2
+.. code-block::  
 __device__ static __half hexp2(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hfloor
-```cpp 
+**hfloor
+.. code-block::  
 __device__ static __half hfloor(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hlog
-```cpp 
+**hlog
+.. code-block::  
 __device__ static __half hlog(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hlog10
-```cpp 
+**hlog10
+.. code-block::  
 __device__ static __half hlog10(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hlog2
-```cpp 
+**hlog2
+.. code-block::  
 __device__ static __half hlog2(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hrcp
-```cpp 
+**hrcp
+.. code-block::  
 //__device__ static __half hrcp(const __half h);
 
-```
-**Description:**  **NOT Supported**
+
+*Description:* **NOT Supported**
 
 
-### hrint
-```cpp 
+**hrint
+.. code-block::  
 __device__ static __half hrint(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hsin
-```cpp 
+**hsin
+.. code-block::  
 __device__ static __half hsin(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### hsqrt
-```cpp 
+**hsqrt
+.. code-block::  
 __device__ static __half hsqrt(const __half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### htrunc
-```cpp 
+**htrunc
+.. code-block::  
 __device__ static __half htrunc(const __half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2ceil
-```cpp 
+**h2ceil
+.. code-block::  
 __device__ static __half2 h2ceil(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2exp
-```cpp 
+**h2exp
+.. code-block::  
 __device__ static __half2 h2exp(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2exp10
-```cpp 
+**h2exp10
+.. code-block::  
 __device__ static __half2 h2exp10(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2exp2
-```cpp 
+**h2exp2
+.. code-block::  
 __device__ static __half2 h2exp2(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2floor
-```cpp 
+**h2floor
+.. code-block::  
 __device__ static __half2 h2floor(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2log
-```cpp 
+**h2log
+.. code-block::  
 __device__ static __half2 h2log(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2log10
-```cpp 
+**h2log10
+.. code-block::  
 __device__ static __half2 h2log10(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2log2
-```cpp 
+**h2log2
+.. code-block::  
 __device__ static __half2 h2log2(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2rcp
-```cpp 
+**h2rcp
+.. code-block::  
 __device__ static __half2 h2rcp(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2rsqrt
-```cpp 
+**h2rsqrt
+.. code-block::  
 __device__ static __half2 h2rsqrt(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2sin
-```cpp 
+**h2sin
+.. code-block::  
 __device__ static __half2 h2sin(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### h2sqrt
-```cpp 
+**h2sqrt
+.. code-block::  
 __device__ static __half2 h2sqrt(const __half2 h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float22half2_rn
-```cpp 
+**__float22half2_rn
+.. code-block::  
 __device__  __half2 __float22half2_rn(const float2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half
-```cpp 
+**__float2half
+.. code-block::  
 __device__  __half __float2half(const float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half2_rn
-```cpp 
+**__float2half2_rn
+.. code-block::  
 __device__  __half2 __float2half2_rn(const float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half_rd
-```cpp 
+**__float2half_rd
+.. code-block::  
 __device__  __half __float2half_rd(const float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half_rn
-```cpp 
+**__float2half_rn
+.. code-block::  
 __device__  __half __float2half_rn(const float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half_ru
-```cpp 
+**__float2half_ru
+.. code-block::  
 __device__  __half __float2half_ru(const float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __float2half_rz
-```cpp 
+**__float2half_rz
+.. code-block::  
 __device__  __half __float2half_rz(const float a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __floats2half2_rn
-```cpp 
+**__floats2half2_rn
+.. code-block::  
 __device__  __half2 __floats2half2_rn(const float a, const float b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half22float2
-```cpp 
+**__half22float2
+.. code-block::  
 __device__  float2 __half22float2(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2float
-```cpp 
+**__half2float
+.. code-block::  
 __device__  float __half2float(const __half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### half2half2
-```cpp 
+**half2half2
+.. code-block::  
 __device__  __half2 half2half2(const __half a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2int_rd
-```cpp 
+**__half2int_rd
+.. code-block::  
 __device__  int __half2int_rd(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2int_rn
-```cpp 
+**__half2int_rn
+.. code-block::  
 __device__  int __half2int_rn(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2int_ru
-```cpp 
+**__half2int_ru
+.. code-block::  
 __device__  int __half2int_ru(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2int_rz
-```cpp 
+**__half2int_rz
+.. code-block::  
 __device__  int __half2int_rz(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ll_rd
-```cpp 
+**__half2ll_rd
+.. code-block::  
 __device__  long long int __half2ll_rd(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ll_rn
-```cpp 
+**__half2ll_rn
+.. code-block::  
 __device__  long long int __half2ll_rn(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ll_ru
-```cpp 
+**__half2ll_ru
+.. code-block::  
 __device__  long long int __half2ll_ru(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ll_rz
-```cpp 
+**__half2ll_rz
+.. code-block::  
 __device__  long long int __half2ll_rz(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2short_rd
-```cpp 
+**__half2short_rd
+.. code-block::  
 __device__  short __half2short_rd(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2short_rn
-```cpp 
+**__half2short_rn
+.. code-block::  
 __device__  short __half2short_rn(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2short_ru
-```cpp 
+**__half2short_ru
+.. code-block::  
 __device__  short __half2short_ru(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2short_rz
-```cpp 
+**__half2short_rz
+.. code-block::  
 __device__  short __half2short_rz(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2uint_rd
-```cpp 
+**__half2uint_rd
+.. code-block::  
 __device__  unsigned int __half2uint_rd(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2uint_rn
-```cpp 
+**__half2uint_rn
+.. code-block::  
 __device__  unsigned int __half2uint_rn(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2uint_ru
-```cpp 
+**__half2uint_ru
+.. code-block::  
 __device__  unsigned int __half2uint_ru(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2uint_rz
-```cpp 
+**__half2uint_rz
+.. code-block::  
 __device__  unsigned int __half2uint_rz(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ull_rd
-```cpp 
+**__half2ull_rd
+.. code-block::  
 __device__  unsigned long long int __half2ull_rd(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ull_rn
-```cpp 
+**__half2ull_rn
+.. code-block::  
 __device__  unsigned long long int __half2ull_rn(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ull_ru
-```cpp 
+**__half2ull_ru
+.. code-block::  
 __device__  unsigned long long int __half2ull_ru(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ull_rz
-```cpp 
+**__half2ull_rz
+.. code-block::  
 __device__  unsigned long long int __half2ull_rz(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ushort_rd
-```cpp 
+**__half2ushort_rd
+.. code-block::  
 __device__  unsigned short int __half2ushort_rd(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ushort_rn
-```cpp 
+**__half2ushort_rn
+.. code-block::  
 __device__  unsigned short int __half2ushort_rn(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ushort_ru
-```cpp 
+**__half2ushort_ru
+.. code-block::  
 __device__  unsigned short int __half2ushort_ru(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half2ushort_rz
-```cpp 
+**__half2ushort_rz
+.. code-block::  
 __device__  unsigned short int __half2ushort_rz(__half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half_as_short
-```cpp 
+**__half_as_short
+.. code-block::  
 __device__  short int __half_as_short(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __half_as_ushort
-```cpp 
+**__half_as_ushort
+.. code-block::  
 __device__  unsigned short int __half_as_ushort(const __half h);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __halves2half2
-```cpp 
+**__halves2half2
+.. code-block::  
 __device__  __half2 __halves2half2(const __half a, const __half b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __high2float
-```cpp 
+**__high2float
+.. code-block::  
 __device__  float __high2float(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __high2half
-```cpp 
+**__high2half
+.. code-block::  
 __device__  __half __high2half(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __high2half2
-```cpp 
+**__high2half2
+.. code-block::  
 __device__  __half2 __high2half2(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __highs2half2
-```cpp 
+**__highs2half2
+.. code-block::  
 __device__  __half2 __highs2half2(const __half2 a, const __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2half_rd
-```cpp 
+**__int2half_rd
+.. code-block::  
 __device__  __half __int2half_rd(int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2half_rn
-```cpp 
+**__int2half_rn
+.. code-block::  
 __device__  __half __int2half_rn(int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2half_ru
-```cpp 
+**__int2half_ru
+.. code-block::  
 __device__  __half __int2half_ru(int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __int2half_rz
-```cpp 
+**__int2half_rz
+.. code-block::  
 __device__  __half __int2half_rz(int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2half_rd
-```cpp 
+**__ll2half_rd
+.. code-block::  
 __device__  __half __ll2half_rd(long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2half_rn
-```cpp 
+**__ll2half_rn
+.. code-block::  
 __device__  __half __ll2half_rn(long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2half_ru
-```cpp 
+**__ll2half_ru
+.. code-block::  
 __device__  __half __ll2half_ru(long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ll2half_rz
-```cpp 
+**__ll2half_rz
+.. code-block::  
 __device__  __half __ll2half_rz(long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __low2float
-```cpp 
+**__low2float
+.. code-block::  
 __device__  float __low2float(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __low2half
-```cpp 
+**__low2half
+.. code-block::  
 __device__ __half __low2half(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __low2half2
-```cpp 
+**__low2half2
+.. code-block::  
 __device__ __half2 __low2half2(const __half2 a, const __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __low2half2
-```cpp 
+**__low2half2
+.. code-block::  
 __device__ __half2 __low2half2(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __lowhigh2highlow
-```cpp 
+**__lowhigh2highlow
+.. code-block::  
 __device__ __half2 __lowhigh2highlow(const __half2 a);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __lows2half2
-```cpp 
+**__lows2half2
+.. code-block::  
 __device__ __half2 __lows2half2(const __half2 a, const __half2 b);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __short2half_rd
-```cpp 
+**__short2half_rd
+.. code-block::  
 __device__  __half __short2half_rd(short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __short2half_rn
-```cpp 
+**__short2half_rn
+.. code-block::  
 __device__  __half __short2half_rn(short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __short2half_ru
-```cpp 
+**__short2half_ru
+.. code-block::  
 __device__  __half __short2half_ru(short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __short2half_rz
-```cpp 
+**__short2half_rz
+.. code-block::  
 __device__  __half __short2half_rz(short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2half_rd
-```cpp 
+**__uint2half_rd
+.. code-block::  
 __device__  __half __uint2half_rd(unsigned int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2half_rn
-```cpp 
+**__uint2half_rn
+.. code-block::  
 __device__  __half __uint2half_rn(unsigned int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2half_ru
-```cpp 
+**__uint2half_ru
+.. code-block::  
 __device__  __half __uint2half_ru(unsigned int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __uint2half_rz
-```cpp 
+**__uint2half_rz
+.. code-block::  
 __device__  __half __uint2half_rz(unsigned int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2half_rd
-```cpp 
+**__ull2half_rd
+.. code-block::  
 __device__  __half __ull2half_rd(unsigned long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2half_rn
-```cpp 
+**__ull2half_rn
+.. code-block::  
 __device__  __half __ull2half_rn(unsigned long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2half_ru
-```cpp 
+**__ull2half_ru
+.. code-block::  
 __device__  __half __ull2half_ru(unsigned long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ull2half_rz
-```cpp 
+**__ull2half_rz
+.. code-block::  
 __device__  __half __ull2half_rz(unsigned long long int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ushort2half_rd
-```cpp 
+**__ushort2half_rd
+.. code-block::  
 __device__  __half __ushort2half_rd(unsigned short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ushort2half_rn
-```cpp 
+**__ushort2half_rn
+.. code-block::  
 __device__  __half __ushort2half_rn(unsigned short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ushort2half_ru
-```cpp 
+**__ushort2half_ru
+.. code-block::  
 __device__  __half __ushort2half_ru(unsigned short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ushort2half_rz
-```cpp 
+**__ushort2half_rz
+.. code-block::  
 __device__  __half __ushort2half_rz(unsigned short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
 
 
-### __ushort_as_half
-```cpp 
+**__ushort_as_half
+.. code-block::  
 __device__  __half __ushort_as_half(const unsigned short int i);
 
-```
-**Description:**  Supported
+
+*Description:* Supported
+
