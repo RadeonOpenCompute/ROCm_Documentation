@@ -9,6 +9,7 @@ What APIs and features does HIP support?
 ###################
 
 HIP provides the following:
+
 * Devices (hipSetDevice(), hipGetDeviceProperties(), etc.)
 * Memory management (hipMalloc(), hipMemcpy(), hipFree(), etc.)
 * Streams (hipStreamCreate(),hipStreamSynchronize(), hipStreamWaitEvent(),  etc.)
@@ -29,6 +30,7 @@ Runtime/Driver API features
 *******************
 
 At a high*level, the following features are not supported:
+
 * Textures 
 * Dynamic parallelism (CUDA 5.0)
 * Managed memory (CUDA 6.5)
@@ -48,7 +50,10 @@ Kernel language features
 * Virtual functions, indirect functions and try/catch (CUDA 4.0)
 * `__prof_trigger` 
 * PTX assembly (CUDA 4.0).  HCC supports inline GCN assembly.
-* Several kernel features are under development.  See the [HIP Kernel Language](hip_kernel_language.md) for more information.  These include:
+* Several kernel features are under development.  See the [HIP Kernel Language](hip_kernel_language.md) for more information.  
+
+These include:
+
   * printf
   * assert
   * `__restrict__`
@@ -64,7 +69,9 @@ No. HIP provides porting tools which do most of the work to convert CUDA code in
 Most developers will port their code from CUDA to HIP and then maintain the HIP version. 
 HIP code provides the same performance as native CUDA code, plus the benefits of running on AMD platforms.
 
-### What specific version of CUDA does HIP support?
+What specific version of CUDA does HIP support?
+*************************************
+
 HIP APIs and features do not map to a specific CUDA version. HIP provides a strong subset of functionality provided in CUDA, and the hipify tools can 
 scan code to identify any unsupported CUDA functions * this is useful for identifying the specific features required by a given application.
 
@@ -108,6 +115,7 @@ How does HIP compare with OpenCL?
 
 Both AMD and Nvidia support OpenCL 1.2 on their devices, so developers can write portable code.
 HIP offers several benefits over OpenCL:
+
 * Developers can code in C++ as well as mix host and device C++ code in their source files. HIP C++ code can use templates, lambdas, classes and so on.
 * The HIP API is less verbose than OpenCL and is familiar to CUDA developers.
 * Because both CUDA and HIP are C++ languages, porting from CUDA to HIP is significantly easier than porting from CUDA to OpenCL.
@@ -120,14 +128,18 @@ How does porting CUDA to HIP compare to porting CUDA to OpenCL?
 *****************************
 
 Both HIP and CUDA are dialects of C++, and thus porting between them is relatively straightforward.
+
 Both dialects support templates, classes, lambdas, and other C++ constructs.
+
 As one example, the hipify tool was originally a Perl script that used simple text conversions from CUDA to HIP.
 HIP and CUDA provide similar math library calls as well.  In summary, the HIP philosophy was to make the HIP language close enough to CUDA that the porting effort is relatively simple.
+
 This reduces the potential for error, and also makes it easy to automate the translation.  HIP's goal is to quickly get the ported program running on both platforms with little manual intervention,
 so that the programmer can focus on performance optimizations.
 
 There have been several tools that have attempted to convert CUDA into OpenCL, such as CU2CL.  OpenCL is a C99*based kernel language (rather than C++) and also does not support single*source compilation.  
 As a result, the OpenCL syntax is different from CUDA, and the porting tools have to perform some heroic transformations to bridge this gap.
+
 The tools also struggle with more complex CUDA applications, in particular those that use templates, classes, or other C++ features inside the kernel.  
 
 
@@ -141,9 +153,12 @@ Does Hipify automatically convert all source code?
 *****************************
 
 Typically, hipify can automatically convert almost all run*time code, and the coordinate indexing device code ( threadIdx.x *> hipThreadIdx_x ).  
+
 Most device code needs no additional conversion, since HIP and CUDA have similar names for math and built*in functions. 
 The hipify*clang tool will automatically modify the kernel signature as needed (automating a step that used to be done manually)
+
 Additional porting may be required to deal with architecture feature queries or with CUDA capabilities that HIP doesn't support. 
+
 In general, developers should always expect to perform some platform*specific tuning and optimization.
 
 What is NVCC?
@@ -159,6 +174,7 @@ HCC is AMD's compiler driver which compiles "heterogeneous C++" code into HSAIL 
 Why use HIP rather than supporting CUDA directly?
 *****************************
 While HIP is a strong subset of the CUDA, it is a subset.  The HIP layer allows that subset to be clearly defined and documented.
+
 Developers who code to the HIP API can be assured their code will remain portable across Nvidia and AMD platforms.  
 In addition, HIP defines portable mechanisms to query architectural features, and supports a larger 64*bit wavesize which expands the return type for cross*lane functions like ballot and shuffle from 32*bit ints to 64*bit ints.  
 
@@ -167,7 +183,9 @@ Can I develop HIP code on an Nvidia CUDA platform?
 
 Yes.  HIP's CUDA path only exposes the APIs and functionality that work on both NVCC and HCC back*ends.
 "Extra" APIs, parameters, and features which exist in CUDA but not in HCC will typically result in compile* or run*time errors.
+
 Developers need to use the HIP API for most accelerator code, and bracket any CUDA*specific code with preprocessor conditionals.
+
 Developers concerned about portability should of course run on both platforms, and should expect to tune for performance.
 In some cases CUDA has a richer set of modes for some APIs, and some C++ capabilities such as virtual functions * see the HIP @API documentation for more details.
 
