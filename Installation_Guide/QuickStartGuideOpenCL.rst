@@ -22,13 +22,11 @@ Here's a simple workflow to get you quickly up and running with OpenCL on ROCm -
 
 Install the ROCm OpenCL implementation (assuming you already have the 'rocm' package installed):
 
-
 ```
 sudo apt-get install rocm-opencl-dev
 ```
 
 For a sample OpenCL application, let's use a simple vector-add example from the University of Bristol's very nice "Hands On OpenCL" lectures.
-
 
 ```
 git clone https://github.com/HandsOnOpenCL/Exercises-Solutions.git
@@ -41,18 +39,23 @@ make \
 
 ./vadd
 ```
+
 Not for all your application that supported the AMDGPU SDK for OpenCL to get the Header,  rocm-opencl-dev now included the headerfiles. 
 
 If your built all your code with the AMDAPPSDK you do not need to download anything else,  you can just export environment variable to  /opt/rocm/opencl    Do not install the AMDAPPSDK 3.0  on ROCm OpenCL it designed for old driver which need headers installed.  rocm-opencl-dev package does this for you. 
 
 Example 1 for AMDAPPSDKROOT
+
 ```
 export AMDAPPSDKROOT=/opt/rocm/opencl 
 ```
+
 Example 2 for AMDAPPSDK
+
 ```
 export AMDAPPSDK=/opt/rocm/opencl
 ```
+
 Where is clinfo?
 
 ```
