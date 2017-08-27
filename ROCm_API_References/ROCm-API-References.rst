@@ -28,7 +28,7 @@ HIP Math API
 ====================
 
 * `HIP Math API <
->`
+/HIP_MATH_API.rst>`
 Math Libarary API's
 ====================
 
