@@ -22,10 +22,12 @@ Here's a simple workflow to get you quickly up and running with OpenCL on ROCm -
 
 Install the ROCm OpenCL implementation (assuming you already have the 'rocm' package installed)::
 
-sudo apt-get install rocm-opencl-dev
+ sudo apt-get install rocm-opencl-dev
 
 
-For a sample OpenCL application, let's use a simple vector-add example from the University of Bristol's very nice "Hands On OpenCL" lectures.::
+For a sample OpenCL application, let's use a simple vector-add example from the University of Bristol's very nice "Hands On OpenCL" lectures.
+.. code-block:: shell
+   :linenos:
 
 git clone https://github.com/HandsOnOpenCL/Exercises-Solutions.git
 
@@ -44,17 +46,17 @@ If your built all your code with the AMDAPPSDK you do not need to download anyth
 
 Example 1 for AMDAPPSDKROOT::
 
-export AMDAPPSDKROOT=/opt/rocm/opencl 
+ export AMDAPPSDKROOT=/opt/rocm/opencl 
 
 
 Example 2 for AMDAPPSDK::
 
-export AMDAPPSDK=/opt/rocm/opencl
+ export AMDAPPSDK=/opt/rocm/opencl
 
 
 Where is clinfo?::
 
-/opt/rocm/opencl/bin/x86_64/clinfo 
+ /opt/rocm/opencl/bin/x86_64/clinfo 
 
 
 * That's it!  Super easy.*
