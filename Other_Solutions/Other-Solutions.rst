@@ -28,7 +28,6 @@ Command to dump firmware version and get Linux Kerenl version
 Debug Flags 
 =============
 
-
 Debug messages when developing/debugging base ROCm dirver. You could enable the printing from libhsakmt.so by setting an environment variable, HSAKMT_DEBUG_LEVEL. Available debug levels are 3~7. The higher level you set, the more messages will print.
 
 # export HSAKMT_DEBUG_LEVEL=3 : only pr_err() will print.
@@ -101,6 +100,7 @@ HIP Envorment Varibles
 
 There’s some more information here on how to debug and profile HIP applications:
 =======================
+
 # https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_debugging.md
 # https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_profiling.md
 
