@@ -30,6 +30,7 @@ From the above example, it can be writtern as,
 `deviceFuncDesc['__dotf'] = 'This functions takes 2 4 component float vector and outputs dot product across them'`
 
 **acosf**
+
 .. code-block:: 
 __device__ float acosf(float x);
 
@@ -38,6 +39,7 @@ __device__ float acosf(float x);
 
 
 **acoshf**
+
 .. code-block:: 
 __device__ float acoshf(float x);
 
@@ -46,6 +48,7 @@ __device__ float acoshf(float x);
 
 
 **asinf**
+
 .. code-block::  
 __device__ float asinf(float x);
 
@@ -54,7 +57,8 @@ __device__ float asinf(float x);
 
 
 **asinhf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float asinhf(float x);
 
 
@@ -62,7 +66,8 @@ __device__ float asinhf(float x);
 
 
 **atan2f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float atan2f(float y, float x);
 
 
@@ -70,6 +75,7 @@ __device__ float atan2f(float y, float x);
 
 
 **atanf**
+
 .. code-block::  
 __device__ float atanf(float x);
 
@@ -78,7 +84,8 @@ __device__ float atanf(float x);
 
 
 **atanhf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float atanhf(float x);
 
 
@@ -86,7 +93,8 @@ __device__ float atanhf(float x);
 
 
 **cbrtf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float cbrtf(float x);
 
 
@@ -94,7 +102,8 @@ __device__ float cbrtf(float x);
 
 
 **ceilf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float ceilf(float x);
 
 
@@ -102,7 +111,8 @@ __device__ float ceilf(float x);
 
 
 **copysignf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float copysignf(float x, float y);
 
 
@@ -110,7 +120,8 @@ __device__ float copysignf(float x, float y);
 
 
 **cosf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float cosf(float x);
 
 
@@ -118,7 +129,8 @@ __device__ float cosf(float x);
 
 
 **coshf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float coshf(float x);
 
 
@@ -126,7 +138,8 @@ __device__ float coshf(float x);
 
 
 **cospif**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ float cospif(float x);
 
 
@@ -134,7 +147,8 @@ __device__ __host__ float cospif(float x);
 
 
 **cyl_bessel_i0f**
-.. code-block::  
+
+.. code-block:: 
 //__device__ float cyl_bessel_i0f(float x);
 
 
@@ -142,7 +156,8 @@ __device__ __host__ float cospif(float x);
 
 
 **cyl_bessel_i1f**
-.. code-block::  
+
+.. code-block:: 
 //__device__ float cyl_bessel_i1f(float x);
 
 
@@ -150,7 +165,8 @@ __device__ __host__ float cospif(float x);
 
 
 **erfcf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float erfcf(float x);
 
 
@@ -158,7 +174,8 @@ __device__ float erfcf(float x);
 
 
 **erfcinvf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float erfcinvf(float y);
 
 
@@ -166,7 +183,8 @@ __device__  float erfcinvf(float y);
 
 
 **erfcxf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float erfcxf(float x);
 
 
@@ -174,7 +192,8 @@ __device__ float erfcxf(float x);
 
 
 **erff**
-.. code-block::  
+
+.. code-block:: 
 __device__ float erff(float x);
 
 
@@ -182,7 +201,8 @@ __device__ float erff(float x);
 
 
 **erfinvf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float erfinvf(float y);
 
 
@@ -190,7 +210,8 @@ __device__ float erfinvf(float y);
 
 
 **exp10f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float exp10f(float x);
 
 
@@ -198,7 +219,8 @@ __device__ float exp10f(float x);
 
 
 **exp2f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float exp2f(float x);
 
 
@@ -206,7 +228,8 @@ __device__ float exp2f(float x);
 
 
 **expf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float expf(float x);
 
 
@@ -214,7 +237,8 @@ __device__ float expf(float x);
 
 
 **expm1f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float expm1f(float x);
 
 
@@ -222,7 +246,8 @@ __device__ float expm1f(float x);
 
 
 **fabsf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float fabsf(float x);
 
 
@@ -230,7 +255,8 @@ __device__ float fabsf(float x);
 
 
 **fdimf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float fdimf(float x, float y);
 
 
@@ -238,7 +264,8 @@ __device__ float fdimf(float x, float y);
 
 
 **fdividef**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ float fdividef(float x, float y);
 
 
@@ -246,7 +273,8 @@ __device__ __host__ float fdividef(float x, float y);
 
 
 **floorf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float floorf(float x);
 
 
@@ -254,7 +282,8 @@ __device__ float floorf(float x);
 
 
 **fmaf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float fmaf(float x, float y, float z);
 
 
@@ -262,7 +291,8 @@ __device__ float fmaf(float x, float y, float z);
 
 
 **fmaxf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float fmaxf(float x, float y);
 
 
@@ -270,7 +300,8 @@ __device__ float fmaxf(float x, float y);
 
 
 **fminf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float fminf(float x, float y);
 
 
@@ -278,7 +309,8 @@ __device__ float fminf(float x, float y);
 
 
 **fmodf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float fmodf(float x, float y);
 
 
@@ -286,7 +318,8 @@ __device__ float fmodf(float x, float y);
 
 
 **frexpf**
-.. code-block::  
+
+.. code-block:: 
 //__device__ float frexpf(float x, int*nptr);
 
 
@@ -302,7 +335,8 @@ __device__ float hypotf(float x, float y);
 
 
 **ilogbf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float ilogbf(float x);
 
 
@@ -310,7 +344,8 @@ __device__ float ilogbf(float x);
 
 
 **isfinite**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ int isfinite(float a);
 
 
@@ -318,7 +353,8 @@ __device__ __host__ int isfinite(float a);
 
 
 **isinf**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned isinf(float a);
 
 
@@ -326,7 +362,8 @@ __device__ unsigned isinf(float a);
 
 
 **isnan**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned isnan(float a);
 
 
@@ -334,7 +371,8 @@ __device__ unsigned isnan(float a);
 
 
 **j0f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float j0f(float x);
 
 
@@ -342,7 +380,8 @@ __device__ float j0f(float x);
 
 
 **j1f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float j1f(float x);
 
 
@@ -350,7 +389,8 @@ __device__ float j1f(float x);
 
 
 **jnf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float jnf(int n, float x);
 
 
@@ -358,7 +398,8 @@ __device__ float jnf(int n, float x);
 
 
 **ldexpf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float ldexpf(float x, int exp);
 
 
@@ -366,7 +407,8 @@ __device__ float ldexpf(float x, int exp);
 
 
 **lgammaf**
-.. code-block::  
+
+.. code-block:: 
 //__device__ float lgammaf(float x);
 
 
@@ -374,7 +416,8 @@ __device__ float ldexpf(float x, int exp);
 
 
 **llrintf**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int llrintf(float x);
 
 
@@ -382,7 +425,8 @@ __device__ long long int llrintf(float x);
 
 
 **llroundf**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int llroundf(float x);
 
 
@@ -390,7 +434,8 @@ __device__ long long int llroundf(float x);
 
 
 **log10f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float log10f(float x);
 
 
@@ -398,7 +443,8 @@ __device__ float log10f(float x);
 
 
 **log1pf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float log1pf(float x);
 
 
@@ -406,7 +452,8 @@ __device__ float log1pf(float x);
 
 
 **logbf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float logbf(float x);
 
 
@@ -414,7 +461,8 @@ __device__ float logbf(float x);
 
 
 **lrintf**
-.. code-block::  
+
+.. code-block:: 
 __device__ long int lrintf(float x);
 
 
@@ -422,7 +470,8 @@ __device__ long int lrintf(float x);
 
 
 **lroundf**
-.. code-block::  
+
+.. code-block:: 
 __device__ long int lroundf(float x);
 
 
@@ -430,7 +479,8 @@ __device__ long int lroundf(float x);
 
 
 **modff**
-.. code-block::  
+
+.. code-block:: 
 //__device__ float modff(float x, float *iptr);
 
 
@@ -438,7 +488,8 @@ __device__ long int lroundf(float x);
 
 
 **nanf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float nanf(const char*tagp);
 
 
@@ -446,7 +497,8 @@ __device__ float nanf(const char*tagp);
 
 
 **nearbyintf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float nearbyintf(float x);
 
 
@@ -454,7 +506,8 @@ __device__ float nearbyintf(float x);
 
 
 **nextafterf**
-.. code-block::  
+
+.. code-block:: 
 //__device__ float nextafterf(float x, float y);
 
 
@@ -462,7 +515,8 @@ __device__ float nearbyintf(float x);
 
 
 **norm3df**
-.. code-block::  
+
+.. code-block:: 
 __device__ float norm3df(float a, float b, float c);
 
 
@@ -470,7 +524,8 @@ __device__ float norm3df(float a, float b, float c);
 
 
 **norm4df**
-.. code-block::  
+
+.. code-block:: 
 __device__ float norm4df(float a, float b, float c, float d);
 
 
@@ -478,7 +533,8 @@ __device__ float norm4df(float a, float b, float c, float d);
 
 
 **normcdff**
-.. code-block::  
+
+.. code-block:: 
 __device__ float normcdff(float y);
 
 
@@ -486,7 +542,8 @@ __device__ float normcdff(float y);
 
 
 **normcdfinvf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float normcdfinvf(float y);
 
 
@@ -494,7 +551,8 @@ __device__ float normcdfinvf(float y);
 
 
 **normf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float normf(int dim, const float *a);
 
 
@@ -502,7 +560,8 @@ __device__ float normf(int dim, const float *a);
 
 
 **powf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float powf(float x, float y);
 
 
@@ -510,7 +569,8 @@ __device__ float powf(float x, float y);
 
 
 **rcbrtf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float rcbrtf(float x);
 
 
@@ -518,7 +578,8 @@ __device__ float rcbrtf(float x);
 
 
 **remainderf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float remainderf(float x, float y);
 
 
@@ -526,7 +587,8 @@ __device__ float remainderf(float x, float y);
 
 
 **remquof**
-.. code-block::  
+
+.. code-block:: 
 __device__ float remquof(float x, float y, int *quo);
 
 
@@ -534,7 +596,8 @@ __device__ float remquof(float x, float y, int *quo);
 
 
 **rhypotf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float rhypotf(float x, float y);
 
 
@@ -542,7 +605,8 @@ __device__ float rhypotf(float x, float y);
 
 
 **rintf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float rintf(float x);
 
 
@@ -550,7 +614,8 @@ __device__ float rintf(float x);
 
 
 **rnorm3df**
-.. code-block::  
+
+.. code-block:: 
 __device__ float rnorm3df(float a, float b, float c);
 
 
@@ -558,7 +623,8 @@ __device__ float rnorm3df(float a, float b, float c);
 
 
 **rnorm4df**
-.. code-block::  
+
+.. code-block:: 
 __device__ float rnorm4df(float a, float b, float c, float d);
 
 
@@ -566,7 +632,8 @@ __device__ float rnorm4df(float a, float b, float c, float d);
 
 
 **rnormf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float rnormf(int dim, const float*a);
 
 
@@ -574,7 +641,8 @@ __device__ float rnormf(int dim, const float*a);
 
 
 **roundf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float roundf(float x);
 
 
@@ -582,7 +650,8 @@ __device__ float roundf(float x);
 
 
 **rsqrtf**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ float rsqrtf(float x);
 
 
@@ -590,7 +659,8 @@ __device__ __host__ float rsqrtf(float x);
 
 
 **scalblnf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float scalblnf(float x, long int n);
 
 
@@ -598,7 +668,8 @@ __device__ float scalblnf(float x, long int n);
 
 
 **scalbnf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float scalbnf(float x, int n);
 
 
@@ -606,7 +677,8 @@ __device__ float scalbnf(float x, int n);
 
 
 **signbit**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ unsigned signbit(float a);
 
 
@@ -614,7 +686,8 @@ __device__ __host__ unsigned signbit(float a);
 
 
 **sincosf**
-.. code-block::  
+
+.. code-block:: 
 __device__ void sincosf(float x, float *sptr, float *cptr);
 
 
@@ -622,7 +695,8 @@ __device__ void sincosf(float x, float *sptr, float *cptr);
 
 
 **sincospif**
-.. code-block::  
+
+.. code-block:: 
 __device__ void sincospif(float x, float *sptr, float *cptr);
 
 
@@ -630,7 +704,8 @@ __device__ void sincospif(float x, float *sptr, float *cptr);
 
 
 **sinf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float sinf(float x);
 
 
@@ -638,7 +713,8 @@ __device__ float sinf(float x);
 
 
 **sinhf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float sinhf(float x);
 
 
@@ -646,7 +722,8 @@ __device__ float sinhf(float x);
 
 
 **sinpif**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ float sinpif(float x);
 
 
@@ -654,7 +731,8 @@ __device__ __host__ float sinpif(float x);
 
 
 **sqrtf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float sqrtf(float x);
 
 
@@ -662,7 +740,8 @@ __device__ float sqrtf(float x);
 
 
 **tanf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float tanf(float x);
 
 
@@ -670,7 +749,8 @@ __device__ float tanf(float x);
 
 
 **tanhf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float tanhf(float x);
 
 
@@ -678,7 +758,8 @@ __device__ float tanhf(float x);
 
 
 **tgammaf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float tgammaf(float x);
 
 
@@ -686,7 +767,8 @@ __device__ float tgammaf(float x);
 
 
 **truncf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float truncf(float x);
 
 
@@ -694,7 +776,8 @@ __device__ float truncf(float x);
 
 
 **y0f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float y0f(float x);
 
 
@@ -702,7 +785,8 @@ __device__ float y0f(float x);
 
 
 **y1f**
-.. code-block::  
+
+.. code-block:: 
 __device__ float y1f(float x);
 
 
@@ -710,7 +794,8 @@ __device__ float y1f(float x);
 
 
 **ynf**
-.. code-block::  
+
+.. code-block:: 
 __device__ float ynf(int n, float x);
 
 
@@ -718,7 +803,8 @@ __device__ float ynf(int n, float x);
 
 
 **acos**
-.. code-block::  
+
+.. code-block:: 
 __device__ double acos(double x);
 
 
@@ -726,7 +812,8 @@ __device__ double acos(double x);
 
 
 **acosh**
-.. code-block::  
+
+.. code-block:: 
 __device__ double acosh(double x);
 
 
@@ -734,7 +821,8 @@ __device__ double acosh(double x);
 
 
 **asin**
-.. code-block::  
+
+.. code-block:: 
 __device__ double asin(double x);
 
 
@@ -742,7 +830,8 @@ __device__ double asin(double x);
 
 
 **asinh**
-.. code-block::  
+
+.. code-block:: 
 __device__ double asinh(double x);
 
 
@@ -750,7 +839,8 @@ __device__ double asinh(double x);
 
 
 **atan**
-.. code-block::  
+
+.. code-block:: 
 __device__ double atan(double x);
 
 
@@ -758,7 +848,8 @@ __device__ double atan(double x);
 
 
 **atan2**
-.. code-block::  
+
+.. code-block:: 
 __device__ double atan2(double y, double x);
 
 
@@ -766,7 +857,8 @@ __device__ double atan2(double y, double x);
 
 
 **atanh**
-.. code-block::  
+
+.. code-block:: 
 __device__ double atanh(double x);
 
 
@@ -774,7 +866,8 @@ __device__ double atanh(double x);
 
 
 **cbrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ double cbrt(double x);
 
 
@@ -782,7 +875,8 @@ __device__ double cbrt(double x);
 
 
 **ceil**
-.. code-block::  
+
+.. code-block:: 
 __device__ double ceil(double x);
 
 
@@ -790,7 +884,8 @@ __device__ double ceil(double x);
 
 
 **copysign**
-.. code-block::  
+
+.. code-block:: 
 __device__ double copysign(double x, double y);
 
 
@@ -798,7 +893,8 @@ __device__ double copysign(double x, double y);
 
 
 **cos**
-.. code-block::  
+
+.. code-block:: 
 __device__ double cos(double x);
 
 
@@ -806,7 +902,8 @@ __device__ double cos(double x);
 
 
 **cosh**
-.. code-block::  
+
+.. code-block:: 
 __device__ double cosh(double x);
 
 
@@ -822,7 +919,8 @@ __device__ __host__ double cospi(double x);
 
 
 **cyl_bessel_i0**
-.. code-block::  
+
+.. code-block:: 
 //__device__ double cyl_bessel_i0(double x);
 
 
@@ -830,7 +928,8 @@ __device__ __host__ double cospi(double x);
 
 
 **cyl_bessel_i1**
-.. code-block::  
+
+.. code-block:: 
 //__device__ double cyl_bessel_i1(double x);
 
 
@@ -838,7 +937,8 @@ __device__ __host__ double cospi(double x);
 
 
 **erf**
-.. code-block::  
+
+.. code-block:: 
 __device__ double erf(double x);
 
 
@@ -846,7 +946,8 @@ __device__ double erf(double x);
 
 
 **erfc**
-.. code-block::  
+
+.. code-block:: 
 __device__ double erfc(double x);
 
 
@@ -854,7 +955,8 @@ __device__ double erfc(double x);
 
 
 **erfcinv**
-.. code-block::  
+
+.. code-block:: 
 __device__ double erfcinv(double y);
 
 
@@ -862,7 +964,8 @@ __device__ double erfcinv(double y);
 
 
 **erfcx**
-.. code-block::  
+
+.. code-block:: 
 __device__ double erfcx(double x);
 
 
@@ -870,7 +973,8 @@ __device__ double erfcx(double x);
 
 
 **erfinv**
-.. code-block::  
+
+.. code-block:: 
 __device__ double erfinv(double x);
 
 
@@ -878,7 +982,8 @@ __device__ double erfinv(double x);
 
 
 **exp**
-.. code-block::  
+
+.. code-block:: 
 __device__ double exp(double x);
 
 
@@ -886,7 +991,8 @@ __device__ double exp(double x);
 
 
 **exp10**
-.. code-block::  
+
+.. code-block:: 
 __device__ double exp10(double x);
 
 
@@ -894,7 +1000,8 @@ __device__ double exp10(double x);
 
 
 **exp2**
-.. code-block::  
+
+.. code-block:: 
 __device__ double exp2(double x);
 
 
@@ -902,7 +1009,8 @@ __device__ double exp2(double x);
 
 
 **expm1**
-.. code-block::  
+
+.. code-block:: 
 __device__ double expm1(double x);
 
 
@@ -910,7 +1018,8 @@ __device__ double expm1(double x);
 
 
 **fabs**
-.. code-block::  
+
+.. code-block:: 
 __device__ double fabs(double x);
 
 
@@ -918,7 +1027,8 @@ __device__ double fabs(double x);
 
 
 **fdim**
-.. code-block::  
+
+.. code-block:: 
 __device__ double fdim(double x, double y);
 
 
@@ -926,7 +1036,8 @@ __device__ double fdim(double x, double y);
 
 
 **floor**
-.. code-block::  
+
+.. code-block:: 
 __device__ double floor(double x);
 
 
@@ -934,7 +1045,8 @@ __device__ double floor(double x);
 
 
 **fma**
-.. code-block::  
+
+.. code-block:: 
 __device__ double fma(double x, double y, double z);
 
 
@@ -942,7 +1054,8 @@ __device__ double fma(double x, double y, double z);
 
 
 **fmax**
-.. code-block::  
+
+.. code-block:: 
 __device__ double fmax(double x, double y);
 
 
@@ -958,7 +1071,8 @@ __device__ double fmin(double x, double y);
 
 
 **fmod**
-.. code-block::  
+
+.. code-block:: 
 __device__ double fmod(double x, double y);
 
 
@@ -966,7 +1080,8 @@ __device__ double fmod(double x, double y);
 
 
 **frexp**
-.. code-block::  
+
+.. code-block:: 
 //__device__ double frexp(double x, int *nptr);
 
 
@@ -974,7 +1089,8 @@ __device__ double fmod(double x, double y);
 
 
 **hypot**
-.. code-block::  
+
+.. code-block:: 
 __device__ double hypot(double x, double y);
 
 
@@ -982,7 +1098,8 @@ __device__ double hypot(double x, double y);
 
 
 **ilogb**
-.. code-block::  
+
+.. code-block:: 
 __device__ double ilogb(double x);
 
 
@@ -990,7 +1107,8 @@ __device__ double ilogb(double x);
 
 
 **isfinite**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ unsigned isfinite(double x);
 
 
@@ -998,7 +1116,8 @@ __device__ __host__ unsigned isfinite(double x);
 
 
 **isinf**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned isinf(double x);
 
 
@@ -1006,7 +1125,8 @@ __device__ unsigned isinf(double x);
 
 
 **isnan**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned isnan(double x);
 
 
@@ -1014,7 +1134,8 @@ __device__ unsigned isnan(double x);
 
 
 **j0**
-.. code-block::  
+
+.. code-block:: 
 __device__ double j0(double x);
 
 
@@ -1022,7 +1143,8 @@ __device__ double j0(double x);
 
 
 **j1**
-.. code-block::  
+
+.. code-block:: 
 __device__ double j1(double x);
 
 
@@ -1030,7 +1152,8 @@ __device__ double j1(double x);
 
 
 **jn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double jn(int n, double x);
 
 
@@ -1038,7 +1161,8 @@ __device__ double jn(int n, double x);
 
 
 **ldexp**
-.. code-block::  
+
+.. code-block:: 
 __device__ double ldexp(double x, int exp);
 
 
@@ -1046,7 +1170,8 @@ __device__ double ldexp(double x, int exp);
 
 
 **lgamma**
-.. code-block::  
+
+.. code-block:: 
 __device__ double lgamma(double x);
 
 
@@ -1054,7 +1179,8 @@ __device__ double lgamma(double x);
 
 
 **llrint**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long llrint(double x);
 
 
@@ -1070,7 +1196,8 @@ __device__ long long llround(double x);
 
 
 **log**
-.. code-block::  
+
+.. code-block:: 
 __device__ double log(double x);
 
 
@@ -1078,7 +1205,8 @@ __device__ double log(double x);
 
 
 **log10**
-.. code-block::  
+
+.. code-block:: 
 __device__ double log10(double x);
 
 
@@ -1086,7 +1214,8 @@ __device__ double log10(double x);
 
 
 **log1p**
-.. code-block::  
+
+.. code-block:: 
 __device__ double log1p(double x);
 
 
@@ -1094,7 +1223,8 @@ __device__ double log1p(double x);
 
 
 **log2**
-.. code-block::  
+
+.. code-block:: 
 __device__ double log2(double x);
 
 
@@ -1102,7 +1232,8 @@ __device__ double log2(double x);
 
 
 **logb**
-.. code-block::  
+
+.. code-block:: 
 __device__ double logb(double x);
 
 
@@ -1110,7 +1241,8 @@ __device__ double logb(double x);
 
 
 **lrint**
-.. code-block::  
+
+.. code-block:: 
 __device__ long int lrint(double x);
 
 
@@ -1118,7 +1250,8 @@ __device__ long int lrint(double x);
 
 
 **lround**
-.. code-block::  
+
+.. code-block:: 
 __device__ long int lround(double x);
 
 
@@ -1126,7 +1259,8 @@ __device__ long int lround(double x);
 
 
 **modf**
-.. code-block::  
+
+.. code-block:: 
 //__device__ double modf(double x, double *iptr);
 
 
@@ -1134,7 +1268,8 @@ __device__ long int lround(double x);
 
 
 **nan**
-.. code-block::  
+
+.. code-block:: 
 __device__ double nan(const char*tagp);
 
 
@@ -1142,7 +1277,8 @@ __device__ double nan(const char*tagp);
 
 
 **nearbyint**
-.. code-block::  
+
+.. code-block:: 
 __device__ double nearbyint(double x);
 
 
@@ -1150,7 +1286,8 @@ __device__ double nearbyint(double x);
 
 
 **nextafter**
-.. code-block::  
+
+.. code-block:: 
 __device__ double nextafter(double x, double y);
 
 
@@ -1158,7 +1295,8 @@ __device__ double nextafter(double x, double y);
 
 
 **norm**
-.. code-block::  
+
+.. code-block:: 
 __device__ double norm(int dim, const double*t);
 
 
@@ -1166,7 +1304,8 @@ __device__ double norm(int dim, const double*t);
 
 
 **norm3d**
-.. code-block::  
+
+.. code-block:: 
 __device__ double norm3d(double a, double b, double c);
 
 
@@ -1174,7 +1313,8 @@ __device__ double norm3d(double a, double b, double c);
 
 
 **norm4d**
-.. code-block::  
+
+.. code-block:: 
 __device__ double norm4d(double a, double b, double c, double d);
 
 
@@ -1182,7 +1322,8 @@ __device__ double norm4d(double a, double b, double c, double d);
 
 
 **normcdf**
-.. code-block::  
+
+.. code-block:: 
 __device__ double normcdf(double y);
 
 
@@ -1198,7 +1339,8 @@ __device__ double normcdfinv(double y);
 
 
 **pow**
-.. code-block::  
+
+.. code-block:: 
 __device__ double pow(double x, double y);
 
 
@@ -1206,7 +1348,8 @@ __device__ double pow(double x, double y);
 
 
 **rcbrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ double rcbrt(double x);
 
 
@@ -1214,7 +1357,8 @@ __device__ double rcbrt(double x);
 
 
 **remainder**
-.. code-block::  
+
+.. code-block:: 
 __device__ double remainder(double x, double y);
 
 
@@ -1222,7 +1366,8 @@ __device__ double remainder(double x, double y);
 
 
 **remquo**
-.. code-block::  
+
+.. code-block:: 
 //__device__ double remquo(double x, double y, int *quo);
 
 
@@ -1230,7 +1375,8 @@ __device__ double remainder(double x, double y);
 
 
 **rhypot**
-.. code-block::  
+
+.. code-block:: 
 __device__ double rhypot(double x, double y);
 
 
@@ -1238,7 +1384,8 @@ __device__ double rhypot(double x, double y);
 
 
 **rint**
-.. code-block::  
+
+.. code-block:: 
 __device__ double rint(double x);
 
 
@@ -1246,7 +1393,8 @@ __device__ double rint(double x);
 
 
 **rnorm**
-.. code-block::  
+
+.. code-block:: 
 __device__ double rnorm(int dim, const double*t);
 
 
@@ -1254,7 +1402,8 @@ __device__ double rnorm(int dim, const double*t);
 
 
 **rnorm3d**
-.. code-block::  
+
+.. code-block:: 
 __device__ double rnorm3d(double a, double b, double c);
 
 
@@ -1262,7 +1411,8 @@ __device__ double rnorm3d(double a, double b, double c);
 
 
 **rnorm4d**
-.. code-block::  
+
+.. code-block:: 
 __device__ double rnorm4d(double a, double b, double c, double d);
 
 
@@ -1270,7 +1420,8 @@ __device__ double rnorm4d(double a, double b, double c, double d);
 
 
 **round**
-.. code-block::  
+
+.. code-block:: 
 __device__ double round(double x);
 
 
@@ -1278,7 +1429,8 @@ __device__ double round(double x);
 
 
 **rsqrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ double rsqrt(double x);
 
 
@@ -1286,7 +1438,8 @@ __device__ __host__ double rsqrt(double x);
 
 
 **scalbln**
-.. code-block::  
+
+.. code-block:: 
 __device__ double scalbln(double x, long int n);
 
 
@@ -1294,7 +1447,8 @@ __device__ double scalbln(double x, long int n);
 
 
 **scalbn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double scalbn(double x, int n);
 
 
@@ -1302,7 +1456,8 @@ __device__ double scalbn(double x, int n);
 
 
 **signbit**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ unsigned signbit(double a);
 
 
@@ -1310,7 +1465,8 @@ __device__ __host__ unsigned signbit(double a);
 
 
 **sin**
-.. code-block::  
+
+.. code-block:: 
 __device__ double sin(double a);
 
 
@@ -1318,7 +1474,8 @@ __device__ double sin(double a);
 
 
 **sincos**
-.. code-block::  
+
+.. code-block:: 
 __device__ void sincos(double x, double *sptr, double *cptr);
 
 
@@ -1326,7 +1483,8 @@ __device__ void sincos(double x, double *sptr, double *cptr);
 
 
 **sincospi**
-.. code-block::  
+
+.. code-block:: 
 __device__ void sincospi(double x, double *sptr, double *cptr);
 
 
@@ -1334,7 +1492,8 @@ __device__ void sincospi(double x, double *sptr, double *cptr);
 
 
 **sinh**
-.. code-block::  
+
+.. code-block:: 
 __device__ double sinh(double x);
 
 
@@ -1342,7 +1501,8 @@ __device__ double sinh(double x);
 
 
 **sinpi**
-.. code-block::  
+
+.. code-block:: 
 __device__ __host__ double sinpi(double x);
 
 
@@ -1350,7 +1510,8 @@ __device__ __host__ double sinpi(double x);
 
 
 **sqrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ double sqrt(double x);
 
 
@@ -1358,7 +1519,8 @@ __device__ double sqrt(double x);
 
 
 **tan**
-.. code-block::  
+
+.. code-block:: 
 __device__ double tan(double x);
 
 
@@ -1366,7 +1528,8 @@ __device__ double tan(double x);
 
 
 **tanh**
-.. code-block::  
+
+.. code-block:: 
 __device__ double tanh(double x);
 
 
@@ -1374,7 +1537,8 @@ __device__ double tanh(double x);
 
 
 **tgamma**
-.. code-block::  
+
+.. code-block:: 
 __device__ double tgamma(double x);
 
 
@@ -1382,7 +1546,8 @@ __device__ double tgamma(double x);
 
 
 **trunc**
-.. code-block::  
+
+.. code-block:: 
 __device__ double trunc(double x);
 
 
@@ -1390,7 +1555,8 @@ __device__ double trunc(double x);
 
 
 **y0**
-.. code-block::  
+
+.. code-block:: 
 __device__ double y0(double x);
 
 
@@ -1398,7 +1564,8 @@ __device__ double y0(double x);
 
 
 **y1**
-.. code-block::  
+
+.. code-block:: 
 __device__ double y1(double y);
 
 
@@ -1406,7 +1573,8 @@ __device__ double y1(double y);
 
 
 **yn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double yn(int n, double x);
 
 
@@ -1414,7 +1582,8 @@ __device__ double yn(int n, double x);
 
 
 **__cosf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __cosf(float x);
 
 
@@ -1422,7 +1591,8 @@ __device__  float __cosf(float x);
 
 
 **__exp10f**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __exp10f(float x);
 
 
@@ -1430,7 +1600,8 @@ __device__  float __exp10f(float x);
 
 
 **__expf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __expf(float x);
 
 
@@ -1438,7 +1609,8 @@ __device__  float __expf(float x);
 
 
 **__fadd_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fadd_rd(float x, float y);
 
 
@@ -1446,7 +1618,8 @@ __device__ static  float __fadd_rd(float x, float y);
 
 
 **__fadd_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fadd_rn(float x, float y);
 
 
@@ -1454,7 +1627,8 @@ __device__ static  float __fadd_rn(float x, float y);
 
 
 **__fadd_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fadd_ru(float x, float y);
 
 
@@ -1462,7 +1636,8 @@ __device__ static  float __fadd_ru(float x, float y);
 
 
 **__fadd_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fadd_rz(float x, float y);
 
 
@@ -1470,7 +1645,8 @@ __device__ static  float __fadd_rz(float x, float y);
 
 
 **__fdiv_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fdiv_rd(float x, float y);
 
 
@@ -1478,7 +1654,8 @@ __device__ static  float __fdiv_rd(float x, float y);
 
 
 **__fdiv_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fdiv_rn(float x, float y);
 
 
@@ -1486,7 +1663,8 @@ __device__ static  float __fdiv_rn(float x, float y);
 
 
 **__fdiv_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fdiv_ru(float x, float y);
 
 
@@ -1494,7 +1672,8 @@ __device__ static  float __fdiv_ru(float x, float y);
 
 
 **__fdiv_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fdiv_rz(float x, float y);
 
 
@@ -1502,7 +1681,8 @@ __device__ static  float __fdiv_rz(float x, float y);
 
 
 **__fdividef**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fdividef(float x, float y);
 
 
@@ -1510,7 +1690,8 @@ __device__ static  float __fdividef(float x, float y);
 
 
 **__fmaf_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fmaf_rd(float x, float y, float z);
 
 
@@ -1518,7 +1699,8 @@ __device__  float __fmaf_rd(float x, float y, float z);
 
 
 **__fmaf_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fmaf_rn(float x, float y, float z);
 
 
@@ -1526,7 +1708,8 @@ __device__  float __fmaf_rn(float x, float y, float z);
 
 
 **__fmaf_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fmaf_ru(float x, float y, float z);
 
 
@@ -1534,7 +1717,8 @@ __device__  float __fmaf_ru(float x, float y, float z);
 
 
 **__fmaf_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fmaf_rz(float x, float y, float z);
 
 
@@ -1542,7 +1726,8 @@ __device__  float __fmaf_rz(float x, float y, float z);
 
 
 **__fmul_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fmul_rd(float x, float y);
 
 
@@ -1550,7 +1735,8 @@ __device__ static  float __fmul_rd(float x, float y);
 
 
 **__fmul_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fmul_rn(float x, float y);
 
 
@@ -1558,7 +1744,8 @@ __device__ static  float __fmul_rn(float x, float y);
 
 
 **__fmul_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fmul_ru(float x, float y);
 
 
@@ -1566,7 +1753,8 @@ __device__ static  float __fmul_ru(float x, float y);
 
 
 **__fmul_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fmul_rz(float x, float y);
 
 
@@ -1574,7 +1762,8 @@ __device__ static  float __fmul_rz(float x, float y);
 
 
 **__frcp_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __frcp_rd(float x);
 
 
@@ -1582,7 +1771,8 @@ __device__  float __frcp_rd(float x);
 
 
 **__frcp_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __frcp_rn(float x);
 
 
@@ -1598,7 +1788,8 @@ __device__  float __frcp_ru(float x);
 
 
 **__frcp_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __frcp_rz(float x);
 
 
@@ -1606,7 +1797,8 @@ __device__  float __frcp_rz(float x);
 
 
 **__frsqrt_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __frsqrt_rn(float x);
 
 
@@ -1614,7 +1806,8 @@ __device__  float __frsqrt_rn(float x);
 
 
 **__fsqrt_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fsqrt_rd(float x);
 
 
@@ -1622,7 +1815,8 @@ __device__  float __fsqrt_rd(float x);
 
 
 **__fsqrt_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fsqrt_rn(float x);
 
 
@@ -1630,7 +1824,8 @@ __device__  float __fsqrt_rn(float x);
 
 
 **__fsqrt_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fsqrt_ru(float x);
 
 
@@ -1638,7 +1833,8 @@ __device__  float __fsqrt_ru(float x);
 
 
 **__fsqrt_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __fsqrt_rz(float x);
 
 
@@ -1654,7 +1850,8 @@ __device__ static  float __fsub_rd(float x, float y);
 
 
 **__fsub_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fsub_rn(float x, float y);
 
 
@@ -1662,7 +1859,8 @@ __device__ static  float __fsub_rn(float x, float y);
 
 
 **__fsub_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __fsub_ru(float x, float y);
 
 
@@ -1670,7 +1868,8 @@ __device__ static  float __fsub_ru(float x, float y);
 
 
 **__log10f**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __log10f(float x);
 
 
@@ -1678,7 +1877,8 @@ __device__  float __log10f(float x);
 
 
 **__log2f**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __log2f(float x);
 
 
@@ -1686,7 +1886,8 @@ __device__  float __log2f(float x);
 
 
 **__logf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __logf(float x);
 
 
@@ -1694,7 +1895,8 @@ __device__  float __logf(float x);
 
 
 **__powf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __powf(float base, float exponent);
 
 
@@ -1702,7 +1904,8 @@ __device__  float __powf(float base, float exponent);
 
 
 **__saturatef**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  float __saturatef(float x);
 
 
@@ -1710,7 +1913,8 @@ __device__ static  float __saturatef(float x);
 
 
 **__sincosf**
-.. code-block::  
+
+.. code-block:: 
 __device__  void __sincosf(float x, float *s, float *c);
 
 
@@ -1718,7 +1922,8 @@ __device__  void __sincosf(float x, float *s, float *c);
 
 
 **__sinf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __sinf(float x);
 
 
@@ -1726,7 +1931,8 @@ __device__  float __sinf(float x);
 
 
 **__tanf**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __tanf(float x);
 
 
@@ -1734,7 +1940,8 @@ __device__  float __tanf(float x);
 
 
 **__dadd_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dadd_rd(double x, double y);
 
 
@@ -1742,7 +1949,8 @@ __device__ static  double __dadd_rd(double x, double y);
 
 
 **__dadd_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dadd_rn(double x, double y);
 
 
@@ -1750,7 +1958,8 @@ __device__ static  double __dadd_rn(double x, double y);
 
 
 **__dadd_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dadd_ru(double x, double y);
 
 
@@ -1758,7 +1967,8 @@ __device__ static  double __dadd_ru(double x, double y);
 
 
 **__dadd_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dadd_rz(double x, double y);
 
 
@@ -1766,7 +1976,8 @@ __device__ static  double __dadd_rz(double x, double y);
 
 
 **__ddiv_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __ddiv_rd(double x, double y);
 
 
@@ -1774,7 +1985,8 @@ __device__ static  double __ddiv_rd(double x, double y);
 
 
 **__ddiv_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __ddiv_rn(double x, double y);
 
 
@@ -1782,7 +1994,8 @@ __device__ static  double __ddiv_rn(double x, double y);
 
 
 **__ddiv_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __ddiv_ru(double x, double y);
 
 
@@ -1790,7 +2003,8 @@ __device__ static  double __ddiv_ru(double x, double y);
 
 
 **__ddiv_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __ddiv_rz(double x, double y);
 
 
@@ -1798,7 +2012,8 @@ __device__ static  double __ddiv_rz(double x, double y);
 
 
 **__dmul_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dmul_rd(double x, double y);
 
 
@@ -1806,7 +2021,8 @@ __device__ static  double __dmul_rd(double x, double y);
 
 
 **__dmul_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dmul_rn(double x, double y);
 
 
@@ -1814,7 +2030,8 @@ __device__ static  double __dmul_rn(double x, double y);
 
 
 **__dmul_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dmul_ru(double x, double y);
 
 
@@ -1822,7 +2039,8 @@ __device__ static  double __dmul_ru(double x, double y);
 
 
 **__dmul_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dmul_rz(double x, double y);
 
 
@@ -1830,7 +2048,8 @@ __device__ static  double __dmul_rz(double x, double y);
 
 
 **__drcp_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __drcp_rd(double x);
 
 
@@ -1838,7 +2057,8 @@ __device__  double __drcp_rd(double x);
 
 
 **__drcp_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __drcp_rn(double x);
 
 
@@ -1846,7 +2066,8 @@ __device__  double __drcp_rn(double x);
 
 
 **__drcp_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __drcp_ru(double x);
 
 
@@ -1854,7 +2075,8 @@ __device__  double __drcp_ru(double x);
 
 
 **__drcp_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __drcp_rz(double x);
 
 
@@ -1862,7 +2084,8 @@ __device__  double __drcp_rz(double x);
 
 
 **__dsqrt_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __dsqrt_rd(double x);
 
 
@@ -1870,7 +2093,8 @@ __device__  double __dsqrt_rd(double x);
 
 
 **__dsqrt_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __dsqrt_rn(double x);
 
 
@@ -1878,7 +2102,8 @@ __device__  double __dsqrt_rn(double x);
 
 
 **__dsqrt_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __dsqrt_ru(double x);
 
 
@@ -1886,7 +2111,8 @@ __device__  double __dsqrt_ru(double x);
 
 
 **__dsqrt_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __dsqrt_rz(double x);
 
 
@@ -1894,7 +2120,8 @@ __device__  double __dsqrt_rz(double x);
 
 
 **__dsub_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dsub_rd(double x, double y);
 
 
@@ -1902,7 +2129,8 @@ __device__ static  double __dsub_rd(double x, double y);
 
 
 **__dsub_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dsub_rn(double x, double y);
 
 
@@ -1910,7 +2138,8 @@ __device__ static  double __dsub_rn(double x, double y);
 
 
 **__dsub_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dsub_ru(double x, double y);
 
 
@@ -1918,7 +2147,8 @@ __device__ static  double __dsub_ru(double x, double y);
 
 
 **__dsub_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ static  double __dsub_rz(double x, double y);
 
 
@@ -1926,7 +2156,8 @@ __device__ static  double __dsub_rz(double x, double y);
 
 
 **__fma_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __fma_rd(double x, double y, double z);
 
 
@@ -1934,7 +2165,8 @@ __device__  double __fma_rd(double x, double y, double z);
 
 
 **__fma_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __fma_rn(double x, double y, double z);
 
 
@@ -1942,7 +2174,8 @@ __device__  double __fma_rn(double x, double y, double z);
 
 
 **__fma_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __fma_ru(double x, double y, double z);
 
 
@@ -1950,7 +2183,8 @@ __device__  double __fma_ru(double x, double y, double z);
 
 
 **__fma_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  double __fma_rz(double x, double y, double z);
 
 
@@ -1958,7 +2192,8 @@ __device__  double __fma_rz(double x, double y, double z);
 
 
 **__brev**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __brev( unsigned int x);
 
 
@@ -1966,7 +2201,8 @@ __device__ unsigned int __brev( unsigned int x);
 
 
 **__brevll**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __brevll( unsigned long long int x);
 
 
@@ -1974,7 +2210,8 @@ __device__ unsigned long long int __brevll( unsigned long long int x);
 
 
 **__byte_perm**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __byte_perm(unsigned int x, unsigned int y, unsigned int s);
 
 
@@ -1982,7 +2219,8 @@ __device__ unsigned int __byte_perm(unsigned int x, unsigned int y, unsigned int
 
 
 **__clz**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __clz(int x);
 
 
@@ -1990,7 +2228,8 @@ __device__ unsigned int __clz(int x);
 
 
 **__clzll**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __clzll(long long int x);
 
 
@@ -1998,7 +2237,8 @@ __device__ unsigned int __clzll(long long int x);
 
 
 **__ffs**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __ffs(int x);
 
 
@@ -2006,7 +2246,8 @@ __device__ unsigned int __ffs(int x);
 
 
 **__ffsll**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __ffsll(long long int x);
 
 
@@ -2014,7 +2255,8 @@ __device__ unsigned int __ffsll(long long int x);
 
 
 **__hadd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static unsigned int __hadd(int x, int y);
 
 
@@ -2022,7 +2264,8 @@ __device__ static unsigned int __hadd(int x, int y);
 
 
 **__mul24**
-.. code-block::  
+
+.. code-block:: 
 __device__ static int __mul24(int x, int y);
 
 
@@ -2030,7 +2273,8 @@ __device__ static int __mul24(int x, int y);
 
 
 **__mul64hi**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __mul64hi(long long int x, long long int y);
 
 
@@ -2038,7 +2282,8 @@ __device__ long long int __mul64hi(long long int x, long long int y);
 
 
 **__mulhi**
-.. code-block::  
+
+.. code-block:: 
 __device__ static int __mulhi(int x, int y);
 
 
@@ -2046,7 +2291,8 @@ __device__ static int __mulhi(int x, int y);
 
 
 **__popc**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __popc(unsigned int x);
 
 
@@ -2054,7 +2300,8 @@ __device__ unsigned int __popc(unsigned int x);
 
 
 **__popcll**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __popcll(unsigned long long int x);
 
 
@@ -2062,7 +2309,8 @@ __device__ unsigned int __popcll(unsigned long long int x);
 
 
 **__rhadd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static int __rhadd(int x, int y);
 
 
@@ -2070,7 +2318,8 @@ __device__ static int __rhadd(int x, int y);
 
 
 **__sad**
-.. code-block::  
+
+.. code-block:: 
 __device__ static unsigned int __sad(int x, int y, int z);
 
 
@@ -2078,7 +2327,8 @@ __device__ static unsigned int __sad(int x, int y, int z);
 
 
 **__uhadd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static unsigned int __uhadd(unsigned int x, unsigned int y);
 
 
@@ -2086,7 +2336,8 @@ __device__ static unsigned int __uhadd(unsigned int x, unsigned int y);
 
 
 **__umul24**
-.. code-block::  
+
+.. code-block:: 
 __device__ static int __umul24(unsigned int x, unsigned int y);
 
 
@@ -2094,7 +2345,8 @@ __device__ static int __umul24(unsigned int x, unsigned int y);
 
 
 **__umul64hi**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __umul64hi(unsigned long long int x, unsigned long long int y);
 
 
@@ -2102,7 +2354,8 @@ __device__ unsigned long long int __umul64hi(unsigned long long int x, unsigned 
 
 
 **__umulhi**
-.. code-block::  
+
+.. code-block:: 
 __device__ static unsigned int __umulhi(unsigned int x, unsigned int y);
 
 
@@ -2110,7 +2363,8 @@ __device__ static unsigned int __umulhi(unsigned int x, unsigned int y);
 
 
 **__urhadd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static unsigned int __urhadd(unsigned int x, unsigned int y);
 
 
@@ -2118,7 +2372,8 @@ __device__ static unsigned int __urhadd(unsigned int x, unsigned int y);
 
 
 **__usad**
-.. code-block::  
+
+.. code-block:: 
 __device__ static unsigned int __usad(unsigned int x, unsigned int y, unsigned int z);
 
 
@@ -2126,7 +2381,8 @@ __device__ static unsigned int __usad(unsigned int x, unsigned int y, unsigned i
 
 
 **__double2float_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __double2float_rd(double x);
 
 
@@ -2134,7 +2390,8 @@ __device__ float __double2float_rd(double x);
 
 
 **__double2float_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __double2float_rn(double x);
 
 
@@ -2142,7 +2399,8 @@ __device__ float __double2float_rn(double x);
 
 
 **__double2float_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __double2float_ru(double x);
 
 
@@ -2150,7 +2408,8 @@ __device__ float __double2float_ru(double x);
 
 
 **__double2float_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __double2float_rz(double x);
 
 
@@ -2158,7 +2417,8 @@ __device__ float __double2float_rz(double x);
 
 
 **__double2hiint**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __double2hiint(double x);
 
 
@@ -2166,7 +2426,8 @@ __device__ int __double2hiint(double x);
 
 
 **__double2int_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __double2int_rd(double x);
 
 
@@ -2174,7 +2435,8 @@ __device__ int __double2int_rd(double x);
 
 
 **__double2int_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __double2int_rn(double x);
 
 
@@ -2182,7 +2444,8 @@ __device__ int __double2int_rn(double x);
 
 
 **__double2int_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __double2int_ru(double x);
 
 
@@ -2190,7 +2453,8 @@ __device__ int __double2int_ru(double x);
 
 
 **__double2int_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __double2int_rz(double x);
 
 
@@ -2198,7 +2462,8 @@ __device__ int __double2int_rz(double x);
 
 
 **__double2ll_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __double2ll_rd(double x);
 
 
@@ -2206,7 +2471,8 @@ __device__ long long int __double2ll_rd(double x);
 
 
 **__double2ll_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __double2ll_rn(double x);
 
 
@@ -2214,7 +2480,8 @@ __device__ long long int __double2ll_rn(double x);
 
 
 **__double2ll_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __double2ll_ru(double x);
 
 
@@ -2222,7 +2489,8 @@ __device__ long long int __double2ll_ru(double x);
 
 
 **__double2ll_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __double2ll_rz(double x);
 
 
@@ -2230,7 +2498,8 @@ __device__ long long int __double2ll_rz(double x);
 
 
 **__double2loint**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __double2loint(double x);
 
 
@@ -2238,7 +2507,8 @@ __device__ int __double2loint(double x);
 
 
 **__double2uint_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __double2uint_rd(double x);
 
 
@@ -2246,7 +2516,8 @@ __device__ unsigned int __double2uint_rd(double x);
 
 
 **__double2uint_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __double2uint_rn(double x);
 
 
@@ -2254,7 +2525,8 @@ __device__ unsigned int __double2uint_rn(double x);
 
 
 **__double2uint_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __double2uint_ru(double x);
 
 
@@ -2262,7 +2534,8 @@ __device__ unsigned int __double2uint_ru(double x);
 
 
 **__double2uint_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __double2uint_rz(double x);
 
 
@@ -2270,7 +2543,8 @@ __device__ unsigned int __double2uint_rz(double x);
 
 
 **__double2ull_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __double2ull_rd(double x);
 
 
@@ -2278,7 +2552,8 @@ __device__ unsigned long long int __double2ull_rd(double x);
 
 
 **__double2ull_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __double2ull_rn(double x);
 
 
@@ -2286,7 +2561,8 @@ __device__ unsigned long long int __double2ull_rn(double x);
 
 
 **__double2ull_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __double2ull_ru(double x);
 
 
@@ -2294,7 +2570,8 @@ __device__ unsigned long long int __double2ull_ru(double x);
 
 
 **__double2ull_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __double2ull_rz(double x);
 
 
@@ -2302,7 +2579,8 @@ __device__ unsigned long long int __double2ull_rz(double x);
 
 
 **__double_as_longlong**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __double_as_longlong(double x);
 
 
@@ -2310,7 +2588,8 @@ __device__ long long int __double_as_longlong(double x);
 
 
 **__float2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned short __float2half_rn(float x);
 
 
@@ -2318,7 +2597,8 @@ __device__ unsigned short __float2half_rn(float x);
 
 
 **__half2float**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __half2float(unsigned short);
 
 
@@ -2326,7 +2606,8 @@ __device__ float __half2float(unsigned short);
 
 
 **__float2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ __half __float2half_rn(float x);
 
 
@@ -2334,7 +2615,8 @@ __device__ __half __float2half_rn(float x);
 
 
 **__half2float**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __half2float(__half);
 
 
@@ -2342,7 +2624,8 @@ __device__ float __half2float(__half);
 
 
 **__float2int_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __float2int_rd(float x);
 
 
@@ -2350,7 +2633,8 @@ __device__ int __float2int_rd(float x);
 
 
 **__float2int_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __float2int_rn(float x);
 
 
@@ -2358,7 +2642,8 @@ __device__ int __float2int_rn(float x);
 
 
 **__float2int_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __float2int_ru(float x);
 
 
@@ -2366,7 +2651,8 @@ __device__ int __float2int_ru(float x);
 
 
 **__float2int_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __float2int_rz(float x);
 
 
@@ -2374,7 +2660,8 @@ __device__ int __float2int_rz(float x);
 
 
 **__float2ll_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __float2ll_rd(float x);
 
 
@@ -2382,7 +2669,8 @@ __device__ long long int __float2ll_rd(float x);
 
 
 **__float2ll_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __float2ll_rn(float x);
 
 
@@ -2390,7 +2678,8 @@ __device__ long long int __float2ll_rn(float x);
 
 
 **__float2ll_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __float2ll_ru(float x);
 
 
@@ -2398,7 +2687,8 @@ __device__ long long int __float2ll_ru(float x);
 
 
 **__float2ll_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ long long int __float2ll_rz(float x);
 
 
@@ -2406,7 +2696,8 @@ __device__ long long int __float2ll_rz(float x);
 
 
 **__float2uint_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __float2uint_rd(float x);
 
 
@@ -2414,7 +2705,8 @@ __device__ unsigned int __float2uint_rd(float x);
 
 
 **__float2uint_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __float2uint_rn(float x);
 
 
@@ -2422,7 +2714,8 @@ __device__ unsigned int __float2uint_rn(float x);
 
 
 **__float2uint_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __float2uint_ru(float x);
 
 
@@ -2430,7 +2723,8 @@ __device__ unsigned int __float2uint_ru(float x);
 
 
 **__float2uint_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __float2uint_rz(float x);
 
 
@@ -2438,7 +2732,8 @@ __device__ unsigned int __float2uint_rz(float x);
 
 
 **__float2ull_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __float2ull_rd(float x);
 
 
@@ -2446,7 +2741,8 @@ __device__ unsigned long long int __float2ull_rd(float x);
 
 
 **__float2ull_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __float2ull_rn(float x);
 
 
@@ -2454,7 +2750,8 @@ __device__ unsigned long long int __float2ull_rn(float x);
 
 
 **__float2ull_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __float2ull_ru(float x);
 
 
@@ -2462,7 +2759,8 @@ __device__ unsigned long long int __float2ull_ru(float x);
 
 
 **__float2ull_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned long long int __float2ull_rz(float x);
 
 
@@ -2470,7 +2768,8 @@ __device__ unsigned long long int __float2ull_rz(float x);
 
 
 **__float_as_int**
-.. code-block::  
+
+.. code-block:: 
 __device__ int __float_as_int(float x);
 
 
@@ -2478,7 +2777,8 @@ __device__ int __float_as_int(float x);
 
 
 **__float_as_uint**
-.. code-block::  
+
+.. code-block:: 
 __device__ unsigned int __float_as_uint(float x);
 
 
@@ -2486,7 +2786,8 @@ __device__ unsigned int __float_as_uint(float x);
 
 
 **__hiloint2double**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __hiloint2double(int hi, int lo);
 
 
@@ -2494,7 +2795,8 @@ __device__ double __hiloint2double(int hi, int lo);
 
 
 **__int2double_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __int2double_rn(int x);
 
 
@@ -2502,7 +2804,8 @@ __device__ double __int2double_rn(int x);
 
 
 **__int2float_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __int2float_rd(int x);
 
 
@@ -2510,7 +2813,8 @@ __device__ float __int2float_rd(int x);
 
 
 **__int2float_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __int2float_rn(int x);
 
 
@@ -2518,7 +2822,8 @@ __device__ float __int2float_rn(int x);
 
 
 **__int2float_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __int2float_ru(int x);
 
 
@@ -2526,7 +2831,8 @@ __device__ float __int2float_ru(int x);
 
 
 **__int2float_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __int2float_rz(int x);
 
 
@@ -2534,7 +2840,8 @@ __device__ float __int2float_rz(int x);
 
 
 **__int_as_float**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __int_as_float(int x);
 
 
@@ -2542,7 +2849,8 @@ __device__ float __int_as_float(int x);
 
 
 **__ll2double_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ll2double_rd(long long int x);
 
 
@@ -2550,7 +2858,8 @@ __device__ double __ll2double_rd(long long int x);
 
 
 **__ll2double_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ll2double_rn(long long int x);
 
 
@@ -2558,7 +2867,8 @@ __device__ double __ll2double_rn(long long int x);
 
 
 **__ll2double_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ll2double_ru(long long int x);
 
 
@@ -2566,7 +2876,8 @@ __device__ double __ll2double_ru(long long int x);
 
 
 **__ll2double_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ll2double_rz(long long int x);
 
 
@@ -2574,7 +2885,8 @@ __device__ double __ll2double_rz(long long int x);
 
 
 **__ll2float_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ll2float_rd(long long int x);
 
 
@@ -2582,7 +2894,8 @@ __device__ float __ll2float_rd(long long int x);
 
 
 **__ll2float_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ll2float_rn(long long int x);
 
 
@@ -2590,7 +2903,8 @@ __device__ float __ll2float_rn(long long int x);
 
 
 **__ll2float_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ll2float_ru(long long int x);
 
 
@@ -2598,7 +2912,8 @@ __device__ float __ll2float_ru(long long int x);
 
 
 **__ll2float_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ll2float_rz(long long int x);
 
 
@@ -2606,7 +2921,8 @@ __device__ float __ll2float_rz(long long int x);
 
 
 **__longlong_as_double**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __longlong_as_double(long long int x);
 
 
@@ -2614,7 +2930,8 @@ __device__ double __longlong_as_double(long long int x);
 
 
 **__uint2double_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __uint2double_rn(int x);
 
 
@@ -2622,7 +2939,8 @@ __device__ double __uint2double_rn(int x);
 
 
 **__uint2float_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __uint2float_rd(unsigned int x);
 
 
@@ -2630,7 +2948,8 @@ __device__ float __uint2float_rd(unsigned int x);
 
 
 **__uint2float_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __uint2float_rn(unsigned int x);
 
 
@@ -2638,7 +2957,8 @@ __device__ float __uint2float_rn(unsigned int x);
 
 
 **__uint2float_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __uint2float_ru(unsigned int x);
 
 
@@ -2646,7 +2966,8 @@ __device__ float __uint2float_ru(unsigned int x);
 
 
 **__uint2float_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __uint2float_rz(unsigned int x);
 
 
@@ -2654,7 +2975,8 @@ __device__ float __uint2float_rz(unsigned int x);
 
 
 **__uint_as_float**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __uint_as_float(unsigned int x);
 
 
@@ -2662,7 +2984,8 @@ __device__ float __uint_as_float(unsigned int x);
 
 
 **__ull2double_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ull2double_rd(unsigned long long int x);
 
 
@@ -2670,7 +2993,8 @@ __device__ double __ull2double_rd(unsigned long long int x);
 
 
 **__ull2double_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ull2double_rn(unsigned long long int x);
 
 
@@ -2678,7 +3002,8 @@ __device__ double __ull2double_rn(unsigned long long int x);
 
 
 **__ull2double_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ull2double_ru(unsigned long long int x);
 
 
@@ -2686,7 +3011,8 @@ __device__ double __ull2double_ru(unsigned long long int x);
 
 
 **__ull2double_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ double __ull2double_rz(unsigned long long int x);
 
 
@@ -2694,7 +3020,8 @@ __device__ double __ull2double_rz(unsigned long long int x);
 
 
 **__ull2float_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ull2float_rd(unsigned long long int x);
 
 
@@ -2702,7 +3029,8 @@ __device__ float __ull2float_rd(unsigned long long int x);
 
 
 **__ull2float_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ull2float_rn(unsigned long long int x);
 
 
@@ -2710,7 +3038,8 @@ __device__ float __ull2float_rn(unsigned long long int x);
 
 
 **__ull2float_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ull2float_ru(unsigned long long int x);
 
 
@@ -2718,7 +3047,8 @@ __device__ float __ull2float_ru(unsigned long long int x);
 
 
 **__ull2float_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__ float __ull2float_rz(unsigned long long int x);
 
 
@@ -2726,7 +3056,8 @@ __device__ float __ull2float_rz(unsigned long long int x);
 
 
 **__hadd**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hadd(const __half a, const __half b);
 
 
@@ -2734,7 +3065,8 @@ __device__ static __half __hadd(const __half a, const __half b);
 
 
 **__hadd_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hadd_sat(__half a, __half b);
 
 
@@ -2742,7 +3074,8 @@ __device__ static __half __hadd_sat(__half a, __half b);
 
 
 **__hfma**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hfma(__half a, __half b, __half c);
 
 
@@ -2750,7 +3083,8 @@ __device__ static __half __hfma(__half a, __half b, __half c);
 
 
 **__hfma_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hfma_sat(__half a, __half b, __half c);
 
 
@@ -2758,7 +3092,8 @@ __device__ static __half __hfma_sat(__half a, __half b, __half c);
 
 
 **__hmul**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hmul(__half a, __half b);
 
 
@@ -2766,7 +3101,8 @@ __device__ static __half __hmul(__half a, __half b);
 
 
 **__hmul_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hmul_sat(__half a, __half b);
 
 
@@ -2774,7 +3110,8 @@ __device__ static __half __hmul_sat(__half a, __half b);
 
 
 **__hneg**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hneg(__half a);
 
 
@@ -2782,7 +3119,8 @@ __device__ static __half __hneg(__half a);
 
 
 **__hsub**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hsub(__half a, __half b);
 
 
@@ -2790,7 +3128,8 @@ __device__ static __half __hsub(__half a, __half b);
 
 
 **__hsub_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half __hsub_sat(__half a, __half b);
 
 
@@ -2798,7 +3137,8 @@ __device__ static __half __hsub_sat(__half a, __half b);
 
 
 **hdiv**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hdiv(__half a, __half b);
 
 
@@ -2806,7 +3146,8 @@ __device__ static __half hdiv(__half a, __half b);
 
 
 **__hadd2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hadd2(__half2 a, __half2 b);
 
 
@@ -2814,7 +3155,8 @@ __device__ static __half2 __hadd2(__half2 a, __half2 b);
 
 
 **__hadd2_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hadd2_sat(__half2 a, __half2 b);
 
 
@@ -2822,7 +3164,8 @@ __device__ static __half2 __hadd2_sat(__half2 a, __half2 b);
 
 
 **__hfma2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hfma2(__half2 a, __half2 b, __half2 c);
 
 
@@ -2830,7 +3173,8 @@ __device__ static __half2 __hfma2(__half2 a, __half2 b, __half2 c);
 
 
 **__hfma2_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hfma2_sat(__half2 a, __half2 b, __half2 c);
 
 
@@ -2838,7 +3182,8 @@ __device__ static __half2 __hfma2_sat(__half2 a, __half2 b, __half2 c);
 
 
 **__hmul2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hmul2(__half2 a, __half2 b);
 
 
@@ -2846,7 +3191,8 @@ __device__ static __half2 __hmul2(__half2 a, __half2 b);
 
 
 **__hmul2_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hmul2_sat(__half2 a, __half2 b);
 
 
@@ -2854,7 +3200,8 @@ __device__ static __half2 __hmul2_sat(__half2 a, __half2 b);
 
 
 **__hsub2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hsub2(__half2 a, __half2 b);
 
 
@@ -2862,7 +3209,8 @@ __device__ static __half2 __hsub2(__half2 a, __half2 b);
 
 
 **__hneg2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hneg2(__half2 a);
 
 
@@ -2870,7 +3218,8 @@ __device__ static __half2 __hneg2(__half2 a);
 
 
 **__hsub2_sat**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 __hsub2_sat(__half2 a, __half2 b);
 
 
@@ -2878,7 +3227,8 @@ __device__ static __half2 __hsub2_sat(__half2 a, __half2 b);
 
 
 **h2div**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2div(__half2 a, __half2 b);
 
 
@@ -2886,7 +3236,8 @@ __device__ static __half2 h2div(__half2 a, __half2 b);
 
 
 **__heq**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __heq(__half a, __half b);
 
 
@@ -2894,7 +3245,8 @@ __device__  bool __heq(__half a, __half b);
 
 
 **__hge**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hge(__half a, __half b);
 
 
@@ -2902,7 +3254,8 @@ __device__  bool __hge(__half a, __half b);
 
 
 **__hgt**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hgt(__half a, __half b);
 
 
@@ -2910,7 +3263,8 @@ __device__  bool __hgt(__half a, __half b);
 
 
 **__hisinf**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hisinf(__half a);
 
 
@@ -2918,7 +3272,8 @@ __device__  bool __hisinf(__half a);
 
 
 **__hisnan**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hisnan(__half a);
 
 
@@ -2926,7 +3281,8 @@ __device__  bool __hisnan(__half a);
 
 
 **__hle**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hle(__half a, __half b);
 
 
@@ -2934,7 +3290,8 @@ __device__  bool __hle(__half a, __half b);
 
 
 **__hlt**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hlt(__half a, __half b);
 
 
@@ -2942,7 +3299,8 @@ __device__  bool __hlt(__half a, __half b);
 
 
 **__hne**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hne(__half a, __half b);
 
 
@@ -2950,7 +3308,8 @@ __device__  bool __hne(__half a, __half b);
 
 
 **__hbeq2**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hbeq2(__half2 a, __half2 b);
 
 
@@ -2958,7 +3317,8 @@ __device__  bool __hbeq2(__half2 a, __half2 b);
 
 
 **__hbge2**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hbge2(__half2 a, __half2 b);
 
 
@@ -2966,7 +3326,8 @@ __device__  bool __hbge2(__half2 a, __half2 b);
 
 
 **__hbgt2**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hbgt2(__half2 a, __half2 b);
 
 
@@ -2974,7 +3335,8 @@ __device__  bool __hbgt2(__half2 a, __half2 b);
 
 
 **__hble2**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hble2(__half2 a, __half2 b);
 
 
@@ -2982,7 +3344,8 @@ __device__  bool __hble2(__half2 a, __half2 b);
 
 
 **__hblt2**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hblt2(__half2 a, __half2 b);
 
 
@@ -2990,7 +3353,8 @@ __device__  bool __hblt2(__half2 a, __half2 b);
 
 
 **__hbne2**
-.. code-block::  
+
+.. code-block:: 
 __device__  bool __hbne2(__half2 a, __half2 b);
 
 
@@ -2998,7 +3362,8 @@ __device__  bool __hbne2(__half2 a, __half2 b);
 
 
 **__heq2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __heq2(__half2 a, __half2 b);
 
 
@@ -3006,7 +3371,8 @@ __device__  __half2 __heq2(__half2 a, __half2 b);
 
 
 **__hge2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __hge2(__half2 a, __half2 b);
 
 
@@ -3014,7 +3380,8 @@ __device__  __half2 __hge2(__half2 a, __half2 b);
 
 
 **__hgt2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __hgt2(__half2 a, __half2 b);
 
 
@@ -3022,7 +3389,8 @@ __device__  __half2 __hgt2(__half2 a, __half2 b);
 
 
 **__hisnan2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __hisnan2(__half2 a);
 
 
@@ -3030,7 +3398,8 @@ __device__  __half2 __hisnan2(__half2 a);
 
 
 **__hle2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __hle2(__half2 a, __half2 b);
 
 
@@ -3038,7 +3407,8 @@ __device__  __half2 __hle2(__half2 a, __half2 b);
 
 
 **__hlt2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __hlt2(__half2 a, __half2 b);
 
 
@@ -3046,7 +3416,8 @@ __device__  __half2 __hlt2(__half2 a, __half2 b);
 
 
 **__hne2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __hne2(__half2 a, __half2 b);
 
 
@@ -3054,7 +3425,8 @@ __device__  __half2 __hne2(__half2 a, __half2 b);
 
 
 **hceil**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hceil(const __half h);
 
 
@@ -3062,7 +3434,8 @@ __device__ static __half hceil(const __half h);
 
 
 **hcos**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hcos(const __half h);
 
 
@@ -3070,7 +3443,8 @@ __device__ static __half hcos(const __half h);
 
 
 **hexp**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hexp(const __half h);
 
 
@@ -3078,7 +3452,8 @@ __device__ static __half hexp(const __half h);
 
 
 **hexp10**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hexp10(const __half h);
 
 
@@ -3086,7 +3461,8 @@ __device__ static __half hexp10(const __half h);
 
 
 **hexp2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hexp2(const __half h);
 
 
@@ -3094,7 +3470,8 @@ __device__ static __half hexp2(const __half h);
 
 
 **hfloor**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hfloor(const __half h);
 
 
@@ -3102,7 +3479,8 @@ __device__ static __half hfloor(const __half h);
 
 
 **hlog**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hlog(const __half h);
 
 
@@ -3110,7 +3488,8 @@ __device__ static __half hlog(const __half h);
 
 
 **hlog10**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hlog10(const __half h);
 
 
@@ -3118,7 +3497,8 @@ __device__ static __half hlog10(const __half h);
 
 
 **hlog2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hlog2(const __half h);
 
 
@@ -3126,7 +3506,8 @@ __device__ static __half hlog2(const __half h);
 
 
 **hrcp**
-.. code-block::  
+
+.. code-block:: 
 //__device__ static __half hrcp(const __half h);
 
 
@@ -3134,7 +3515,8 @@ __device__ static __half hlog2(const __half h);
 
 
 **hrint**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hrint(const __half h);
 
 
@@ -3142,7 +3524,8 @@ __device__ static __half hrint(const __half h);
 
 
 **hsin**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hsin(const __half h);
 
 
@@ -3150,7 +3533,8 @@ __device__ static __half hsin(const __half h);
 
 
 **hsqrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half hsqrt(const __half a);
 
 
@@ -3158,7 +3542,8 @@ __device__ static __half hsqrt(const __half a);
 
 
 **htrunc**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half htrunc(const __half a);
 
 
@@ -3166,7 +3551,8 @@ __device__ static __half htrunc(const __half a);
 
 
 **h2ceil**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2ceil(const __half2 h);
 
 
@@ -3174,7 +3560,8 @@ __device__ static __half2 h2ceil(const __half2 h);
 
 
 **h2exp**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2exp(const __half2 h);
 
 
@@ -3182,7 +3569,8 @@ __device__ static __half2 h2exp(const __half2 h);
 
 
 **h2exp10**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2exp10(const __half2 h);
 
 
@@ -3190,7 +3578,8 @@ __device__ static __half2 h2exp10(const __half2 h);
 
 
 **h2exp2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2exp2(const __half2 h);
 
 
@@ -3198,7 +3587,8 @@ __device__ static __half2 h2exp2(const __half2 h);
 
 
 **h2floor**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2floor(const __half2 h);
 
 
@@ -3206,7 +3596,8 @@ __device__ static __half2 h2floor(const __half2 h);
 
 
 **h2log**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2log(const __half2 h);
 
 
@@ -3214,7 +3605,8 @@ __device__ static __half2 h2log(const __half2 h);
 
 
 **h2log10**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2log10(const __half2 h);
 
 
@@ -3222,7 +3614,8 @@ __device__ static __half2 h2log10(const __half2 h);
 
 
 **h2log2**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2log2(const __half2 h);
 
 
@@ -3230,7 +3623,8 @@ __device__ static __half2 h2log2(const __half2 h);
 
 
 **h2rcp**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2rcp(const __half2 h);
 
 
@@ -3238,7 +3632,8 @@ __device__ static __half2 h2rcp(const __half2 h);
 
 
 **h2rsqrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2rsqrt(const __half2 h);
 
 
@@ -3246,7 +3641,8 @@ __device__ static __half2 h2rsqrt(const __half2 h);
 
 
 **h2sin**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2sin(const __half2 h);
 
 
@@ -3254,7 +3650,8 @@ __device__ static __half2 h2sin(const __half2 h);
 
 
 **h2sqrt**
-.. code-block::  
+
+.. code-block:: 
 __device__ static __half2 h2sqrt(const __half2 h);
 
 
@@ -3262,7 +3659,8 @@ __device__ static __half2 h2sqrt(const __half2 h);
 
 
 **__float22half2_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __float22half2_rn(const float2 a);
 
 
@@ -3270,7 +3668,8 @@ __device__  __half2 __float22half2_rn(const float2 a);
 
 
 **__float2half**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __float2half(const float a);
 
 
@@ -3278,7 +3677,8 @@ __device__  __half __float2half(const float a);
 
 
 **__float2half2_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __float2half2_rn(const float a);
 
 
@@ -3286,7 +3686,8 @@ __device__  __half2 __float2half2_rn(const float a);
 
 
 **__float2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __float2half_rd(const float a);
 
 
@@ -3294,7 +3695,8 @@ __device__  __half __float2half_rd(const float a);
 
 
 **__float2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __float2half_rn(const float a);
 
 
@@ -3302,7 +3704,8 @@ __device__  __half __float2half_rn(const float a);
 
 
 **__float2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __float2half_ru(const float a);
 
 
@@ -3310,7 +3713,8 @@ __device__  __half __float2half_ru(const float a);
 
 
 **__float2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __float2half_rz(const float a);
 
 
@@ -3318,7 +3722,8 @@ __device__  __half __float2half_rz(const float a);
 
 
 **__floats2half2_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __floats2half2_rn(const float a, const float b);
 
 
@@ -3326,7 +3731,8 @@ __device__  __half2 __floats2half2_rn(const float a, const float b);
 
 
 **__half22float2**
-.. code-block::  
+
+.. code-block:: 
 __device__  float2 __half22float2(const __half2 a);
 
 
@@ -3334,7 +3740,8 @@ __device__  float2 __half22float2(const __half2 a);
 
 
 **__half2float**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __half2float(const __half a);
 
 
@@ -3342,7 +3749,8 @@ __device__  float __half2float(const __half a);
 
 
 **half2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 half2half2(const __half a);
 
 
@@ -3350,7 +3758,8 @@ __device__  __half2 half2half2(const __half a);
 
 
 **__half2int_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  int __half2int_rd(__half h);
 
 
@@ -3358,7 +3767,8 @@ __device__  int __half2int_rd(__half h);
 
 
 **__half2int_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  int __half2int_rn(__half h);
 
 
@@ -3366,7 +3776,8 @@ __device__  int __half2int_rn(__half h);
 
 
 **__half2int_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  int __half2int_ru(__half h);
 
 
@@ -3374,7 +3785,8 @@ __device__  int __half2int_ru(__half h);
 
 
 **__half2int_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  int __half2int_rz(__half h);
 
 
@@ -3382,7 +3794,8 @@ __device__  int __half2int_rz(__half h);
 
 
 **__half2ll_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  long long int __half2ll_rd(__half h);
 
 
@@ -3390,7 +3803,8 @@ __device__  long long int __half2ll_rd(__half h);
 
 
 **__half2ll_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  long long int __half2ll_rn(__half h);
 
 
@@ -3398,7 +3812,8 @@ __device__  long long int __half2ll_rn(__half h);
 
 
 **__half2ll_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  long long int __half2ll_ru(__half h);
 
 
@@ -3406,7 +3821,8 @@ __device__  long long int __half2ll_ru(__half h);
 
 
 **__half2ll_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  long long int __half2ll_rz(__half h);
 
 
@@ -3414,7 +3830,8 @@ __device__  long long int __half2ll_rz(__half h);
 
 
 **__half2short_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  short __half2short_rd(__half h);
 
 
@@ -3422,7 +3839,8 @@ __device__  short __half2short_rd(__half h);
 
 
 **__half2short_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  short __half2short_rn(__half h);
 
 
@@ -3430,7 +3848,8 @@ __device__  short __half2short_rn(__half h);
 
 
 **__half2short_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  short __half2short_ru(__half h);
 
 
@@ -3438,7 +3857,8 @@ __device__  short __half2short_ru(__half h);
 
 
 **__half2short_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  short __half2short_rz(__half h);
 
 
@@ -3446,7 +3866,8 @@ __device__  short __half2short_rz(__half h);
 
 
 **__half2uint_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned int __half2uint_rd(__half h);
 
 
@@ -3454,7 +3875,8 @@ __device__  unsigned int __half2uint_rd(__half h);
 
 
 **__half2uint_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned int __half2uint_rn(__half h);
 
 
@@ -3462,7 +3884,8 @@ __device__  unsigned int __half2uint_rn(__half h);
 
 
 **__half2uint_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned int __half2uint_ru(__half h);
 
 
@@ -3470,7 +3893,8 @@ __device__  unsigned int __half2uint_ru(__half h);
 
 
 **__half2uint_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned int __half2uint_rz(__half h);
 
 
@@ -3478,7 +3902,8 @@ __device__  unsigned int __half2uint_rz(__half h);
 
 
 **__half2ull_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned long long int __half2ull_rd(__half h);
 
 
@@ -3486,7 +3911,8 @@ __device__  unsigned long long int __half2ull_rd(__half h);
 
 
 **__half2ull_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned long long int __half2ull_rn(__half h);
 
 
@@ -3494,7 +3920,8 @@ __device__  unsigned long long int __half2ull_rn(__half h);
 
 
 **__half2ull_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned long long int __half2ull_ru(__half h);
 
 
@@ -3502,7 +3929,8 @@ __device__  unsigned long long int __half2ull_ru(__half h);
 
 
 **__half2ull_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned long long int __half2ull_rz(__half h);
 
 
@@ -3510,7 +3938,8 @@ __device__  unsigned long long int __half2ull_rz(__half h);
 
 
 **__half2ushort_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned short int __half2ushort_rd(__half h);
 
 
@@ -3518,7 +3947,8 @@ __device__  unsigned short int __half2ushort_rd(__half h);
 
 
 **__half2ushort_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned short int __half2ushort_rn(__half h);
 
 
@@ -3526,7 +3956,8 @@ __device__  unsigned short int __half2ushort_rn(__half h);
 
 
 **__half2ushort_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned short int __half2ushort_ru(__half h);
 
 
@@ -3534,7 +3965,8 @@ __device__  unsigned short int __half2ushort_ru(__half h);
 
 
 **__half2ushort_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned short int __half2ushort_rz(__half h);
 
 
@@ -3542,7 +3974,8 @@ __device__  unsigned short int __half2ushort_rz(__half h);
 
 
 **__half_as_short**
-.. code-block::  
+
+.. code-block:: 
 __device__  short int __half_as_short(const __half h);
 
 
@@ -3550,7 +3983,8 @@ __device__  short int __half_as_short(const __half h);
 
 
 **__half_as_ushort**
-.. code-block::  
+
+.. code-block:: 
 __device__  unsigned short int __half_as_ushort(const __half h);
 
 
@@ -3558,7 +3992,8 @@ __device__  unsigned short int __half_as_ushort(const __half h);
 
 
 **__halves2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __halves2half2(const __half a, const __half b);
 
 
@@ -3566,7 +4001,8 @@ __device__  __half2 __halves2half2(const __half a, const __half b);
 
 
 **__high2float**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __high2float(const __half2 a);
 
 
@@ -3574,7 +4010,8 @@ __device__  float __high2float(const __half2 a);
 
 
 **__high2half**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __high2half(const __half2 a);
 
 
@@ -3582,7 +4019,8 @@ __device__  __half __high2half(const __half2 a);
 
 
 **__high2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __high2half2(const __half2 a);
 
 
@@ -3590,7 +4028,8 @@ __device__  __half2 __high2half2(const __half2 a);
 
 
 **__highs2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half2 __highs2half2(const __half2 a, const __half2 b);
 
 
@@ -3598,7 +4037,8 @@ __device__  __half2 __highs2half2(const __half2 a, const __half2 b);
 
 
 **__int2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __int2half_rd(int i);
 
 
@@ -3606,7 +4046,8 @@ __device__  __half __int2half_rd(int i);
 
 
 **__int2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __int2half_rn(int i);
 
 
@@ -3614,7 +4055,8 @@ __device__  __half __int2half_rn(int i);
 
 
 **__int2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __int2half_ru(int i);
 
 
@@ -3622,7 +4064,8 @@ __device__  __half __int2half_ru(int i);
 
 
 **__int2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __int2half_rz(int i);
 
 
@@ -3630,7 +4073,8 @@ __device__  __half __int2half_rz(int i);
 
 
 **__ll2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ll2half_rd(long long int i);
 
 
@@ -3638,7 +4082,8 @@ __device__  __half __ll2half_rd(long long int i);
 
 
 **__ll2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ll2half_rn(long long int i);
 
 
@@ -3646,7 +4091,8 @@ __device__  __half __ll2half_rn(long long int i);
 
 
 **__ll2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ll2half_ru(long long int i);
 
 
@@ -3654,7 +4100,8 @@ __device__  __half __ll2half_ru(long long int i);
 
 
 **__ll2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ll2half_rz(long long int i);
 
 
@@ -3662,7 +4109,8 @@ __device__  __half __ll2half_rz(long long int i);
 
 
 **__low2float**
-.. code-block::  
+
+.. code-block:: 
 __device__  float __low2float(const __half2 a);
 
 
@@ -3670,7 +4118,8 @@ __device__  float __low2float(const __half2 a);
 
 
 **__low2half**
-.. code-block::  
+
+.. code-block:: 
 __device__ __half __low2half(const __half2 a);
 
 
@@ -3678,7 +4127,8 @@ __device__ __half __low2half(const __half2 a);
 
 
 **__low2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__ __half2 __low2half2(const __half2 a, const __half2 b);
 
 
@@ -3686,7 +4136,8 @@ __device__ __half2 __low2half2(const __half2 a, const __half2 b);
 
 
 **__low2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__ __half2 __low2half2(const __half2 a);
 
 
@@ -3694,7 +4145,8 @@ __device__ __half2 __low2half2(const __half2 a);
 
 
 **__lowhigh2highlow**
-.. code-block::  
+
+.. code-block:: 
 __device__ __half2 __lowhigh2highlow(const __half2 a);
 
 
@@ -3702,7 +4154,8 @@ __device__ __half2 __lowhigh2highlow(const __half2 a);
 
 
 **__lows2half2**
-.. code-block::  
+
+.. code-block:: 
 __device__ __half2 __lows2half2(const __half2 a, const __half2 b);
 
 
@@ -3710,7 +4163,8 @@ __device__ __half2 __lows2half2(const __half2 a, const __half2 b);
 
 
 **__short2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __short2half_rd(short int i);
 
 
@@ -3718,7 +4172,8 @@ __device__  __half __short2half_rd(short int i);
 
 
 **__short2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __short2half_rn(short int i);
 
 
@@ -3726,7 +4181,8 @@ __device__  __half __short2half_rn(short int i);
 
 
 **__short2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __short2half_ru(short int i);
 
 
@@ -3734,7 +4190,8 @@ __device__  __half __short2half_ru(short int i);
 
 
 **__short2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __short2half_rz(short int i);
 
 
@@ -3742,7 +4199,8 @@ __device__  __half __short2half_rz(short int i);
 
 
 **__uint2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __uint2half_rd(unsigned int i);
 
 
@@ -3750,7 +4208,8 @@ __device__  __half __uint2half_rd(unsigned int i);
 
 
 **__uint2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __uint2half_rn(unsigned int i);
 
 
@@ -3758,7 +4217,8 @@ __device__  __half __uint2half_rn(unsigned int i);
 
 
 **__uint2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __uint2half_ru(unsigned int i);
 
 
@@ -3766,7 +4226,8 @@ __device__  __half __uint2half_ru(unsigned int i);
 
 
 **__uint2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __uint2half_rz(unsigned int i);
 
 
@@ -3774,7 +4235,8 @@ __device__  __half __uint2half_rz(unsigned int i);
 
 
 **__ull2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ull2half_rd(unsigned long long int i);
 
 
@@ -3782,7 +4244,8 @@ __device__  __half __ull2half_rd(unsigned long long int i);
 
 
 **__ull2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ull2half_rn(unsigned long long int i);
 
 
@@ -3790,7 +4253,8 @@ __device__  __half __ull2half_rn(unsigned long long int i);
 
 
 **__ull2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ull2half_ru(unsigned long long int i);
 
 
@@ -3798,7 +4262,8 @@ __device__  __half __ull2half_ru(unsigned long long int i);
 
 
 **__ull2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ull2half_rz(unsigned long long int i);
 
 
@@ -3806,7 +4271,8 @@ __device__  __half __ull2half_rz(unsigned long long int i);
 
 
 **__ushort2half_rd**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ushort2half_rd(unsigned short int i);
 
 
@@ -3814,7 +4280,8 @@ __device__  __half __ushort2half_rd(unsigned short int i);
 
 
 **__ushort2half_rn**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ushort2half_rn(unsigned short int i);
 
 
@@ -3822,7 +4289,8 @@ __device__  __half __ushort2half_rn(unsigned short int i);
 
 
 **__ushort2half_ru**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ushort2half_ru(unsigned short int i);
 
 
@@ -3830,7 +4298,8 @@ __device__  __half __ushort2half_ru(unsigned short int i);
 
 
 **__ushort2half_rz**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ushort2half_rz(unsigned short int i);
 
 
@@ -3838,7 +4307,8 @@ __device__  __half __ushort2half_rz(unsigned short int i);
 
 
 **__ushort_as_half**
-.. code-block::  
+
+.. code-block:: 
 __device__  __half __ushort_as_half(const unsigned short int i);
 
 
