@@ -1,7 +1,7 @@
 Quick Start Guide For OpenCL
 ==========================
 
-* ROCm 1.6 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack! *
+* ROCm 1.6 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack! 
 
 This developer release includes the following:
 ------------------------------
@@ -18,7 +18,7 @@ This developer release includes the following:
 Quickstart Instructions
 ------------------------------
 
-Here's a simple workflow to get you quickly up and running with OpenCL on ROCm --
+Here's a simple workflow to get you quickly up and running with OpenCL on ROCm.
 
 Install the ROCm OpenCL implementation (assuming you already have the 'rocm' package installed)
 ::
@@ -60,7 +60,7 @@ Where is clinfo?
  /opt/rocm/opencl/bin/x86_64/clinfo 
 
 
-* That's it!  Super easy. *
+* That's it!  Super easy. 
 
 Related Resources
 -----------------
