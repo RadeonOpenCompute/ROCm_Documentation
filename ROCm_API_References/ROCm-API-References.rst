@@ -27,8 +27,10 @@ HIP Device Runtime API
 HIP Math API
 ====================
 
-* `HIP Math API <
-/HIP_MATH_API.rst>`
+* :ref:`HIP Math API`
+
+HIP Math API
+
 Math Libarary API's
 ====================
 
