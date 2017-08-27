@@ -27,8 +27,8 @@ HIP Device Runtime API
 HIP Math API
 ====================
 
-* `HIP Math API <https://gist.github.com/adityaatluri/10333bdb83bfce14f264a94ce206fecd>`_
-
+* `HIP Math API <
+>`
 Math Libarary API's
 ====================
 
