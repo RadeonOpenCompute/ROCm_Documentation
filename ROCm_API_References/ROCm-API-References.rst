@@ -2,7 +2,7 @@
 .. _ROCm-API-References:
 
 =====================
-Rocm API References
+ROCm API References
 =====================
 
 
