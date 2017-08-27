@@ -57,7 +57,7 @@ Where is clinfo?
  /opt/rocm/opencl/bin/x86_64/clinfo 
 
 
-* That's it!  Super easy.*
+* That's it!  Super easy. *
 
 Related Resources
 -----------------
