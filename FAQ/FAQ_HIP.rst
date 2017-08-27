@@ -104,7 +104,7 @@ These offer pointer*based memory interfaces (as opposed to opaque buffers) and c
 
 * `rocblas <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
 * `rocfft <https://github.com/ROCmSoftwarePlatform/rocFFT>`_
-* `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>'_
+* `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>`_
 * hipRAND Under Development 
    
 Additionally, some of the cublas routines are automatically converted to hipblas equivalents by the hipify*clang tool.  These APIs use cublas or hcblas depending on the platform, and replace the need
