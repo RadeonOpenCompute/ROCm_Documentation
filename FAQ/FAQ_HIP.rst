@@ -50,7 +50,7 @@ Kernel language features
 * Virtual functions, indirect functions and try/catch (CUDA 4.0)
 * `__prof_trigger` 
 * PTX assembly (CUDA 4.0).  HCC supports inline GCN assembly.
-* Several kernel features are under development.  See the [HIP Kernel Language](hip_kernel_language.md) for more information.  
+* Several kernel features are under development.  See the `HIP Kernel Language <hip_kernel_language.md>`_ for more information.  
 
 These include
 
@@ -83,7 +83,7 @@ However, we can provide a rough summary of the features included in each CUDA SD
     * Dynamic Parallelism (not supported) 
     * cuIpc functions (under development).
 * CUDA 5.5 : 
-    * `CUPTI (not directly supported, AMD GPUPerfAPI]<http://developer.amd.com/tools*and*sdks/graphics*development/gpuperfapi/>` can be used as an alternative in some cases)
+    * CUPTI (not directly supported), `AMD GPUPerfAPI <http://developer.amd.com/tools*and*sdks/graphics*development/gpuperfapi/>`_ can be used as an alternative in some cases)
 * CUDA 6.0
     * Managed memory (under development)
 * CUDA 6.5
@@ -102,9 +102,9 @@ What libraries does HIP support?
 HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse.
 These offer pointer*based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HCC applications.  Developers should use conditional compilation if portability to nvcc systems is desired * using calls to cu* routines on one path and hc* routines on the other.  
 
-* `rocblas <https://github.com/ROCmSoftwarePlatform/rocBLAS>`
-* `rocfft <https://github.com/ROCmSoftwarePlatform/rocFFT>
-* `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>'
+* `rocblas <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
+* `rocfft <https://github.com/ROCmSoftwarePlatform/rocFFT>`_
+* `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>'_
 * hipRAND Under Development 
    
 Additionally, some of the cublas routines are automatically converted to hipblas equivalents by the hipify*clang tool.  These APIs use cublas or hcblas depending on the platform, and replace the need
