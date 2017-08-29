@@ -30,7 +30,7 @@ HIP Math API
 * :ref:`HIP-Math-API`
 
 
-Math Libarary API's
+Math Library API's
 ====================
 
 * `rocBLAS API <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki>`_
