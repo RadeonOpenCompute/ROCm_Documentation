@@ -18,9 +18,9 @@ ROCm 1.6 What New?
     * ARM AArch64 and IBM Power 8 support in the core driver
     * MIOpen 1.0 Deep Learning Solver.
     * Binary package support for Ubuntu 16.04 and Fedora 24
-    * Debian and Yum Package for Math Libraries ( rocBLAS, rocFFT, hcFFT, hcRNG, hcBLAS, hibBLAS)
+    * Debian and Yum Package for Math Libraries (rocBLAS, rocFFT, hcFFT, hcRNG, hcBLAS, hibBLAS)
     * ROCm-SMI update to check current Power Utilization of GPU
-    * `Radeon Compute Profiler <https://github.com/GPUOpen-Tools/RCP>`_ Formally called the ROCm Profiler
+    * `Radeon Compute Profiler <https://github.com/GPUOpen-Tools/RCP>`_ (formally called the ROCm Profiler)
     * New Package Server repo.radeon.com to give you better download performance
 
 
