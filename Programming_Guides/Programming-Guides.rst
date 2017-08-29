@@ -365,7 +365,7 @@ HIP Best Practices
 OpenCL Programing Guide
 ========================
 OpenCL Programing Guide :download:`download</Programming_Guides//AMD_OpenCL_Programming_User_Guide.docx>`
-
+* :ref:`Opencl-Programming-Guide`
 
 
 OpenCL Best Practices
