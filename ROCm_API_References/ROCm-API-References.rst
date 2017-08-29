@@ -33,7 +33,9 @@ HIP Math API
 Math Libarary API's
 ====================
 
-* `hcBLAS API <http://hcblas-documentation.readthedocs.io/en/latest/>`_
+* `rocBLAS API <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki>`_
+* `rocFFT API <https://github.com/ROCmSoftwarePlatform/rocFFT/wiki>`_
+* `Tensile API <https://github.com/ROCmSoftwarePlatform/Tensile>`_
 
 Deep Learning API's
 ====================
