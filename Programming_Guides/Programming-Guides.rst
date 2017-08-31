@@ -369,7 +369,7 @@ OpenCL Programing Guide
 
 OpenCL Best Practices
 ======================
-
+* :ref:`Opencl-optimization`
 
 
 
