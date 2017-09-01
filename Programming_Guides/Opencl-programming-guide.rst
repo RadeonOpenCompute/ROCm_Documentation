@@ -1,6 +1,6 @@
 ﻿.. _Opencl-programming-guide:
 
-OPENCL Programming Guide
+OpenCL Programming Guide
 ========================
 
 
