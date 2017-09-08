@@ -62,18 +62,18 @@ Setting GPU function breakpoints
 ********************************
 The gdb :: break command has been extended to break rocm in order to set GPU breakpoints. To set a specific GPU kernel function breakpoints:
 
-   * :: break rocm:<kernel_name>
+   * ``break rocm:<kernel_name>``
 
 For matrix multiplication, you can specify the kernel name
 
-   * :: (ROCm-gdb) break rocm:&__OpenCL_matrixMul_kernel
+   *  ``(ROCm-gdb) break rocm:&__OpenCL_matrixMul_kernel``
 
 This will stop the application's execution just before the GPU kernel (in this case, the matrix multiplication kernel) begins executing on the device.
 
 To set a general GPU kernel function breakpoint, use either of the following command:
 
-   * :: (ROCm-gdb) break rocm
-   * :: (ROCm-gdb) break rocm:*
+   * ``(ROCm-gdb) break rocm``
+   * ``(ROCm-gdb) break rocm:*``
 
 This will stop the application just before every dispatch begins executing on the device.
 
@@ -83,7 +83,7 @@ In order to break into GPU kernels, you need to set GPU source breakpoints. ROCm
 
 Once you hit a kernel function breakpoint, you can view the temp_source file and choose a line number. You can set the source breakpoint using the syntax
 
-   * :: break rocm:<line_number>
+   * ``break rocm:<line_number>``
 
 For example, this will set a breakpoint at line 150 in the temp_source
 
@@ -174,7 +174,7 @@ How do I print GPU registers?
 ******************************
 To print registers in a GPU kernel, the gdb print command has been extended. To print GPU registers.
 
-   * :: print rocm:$register_name
+   * ``print rocm:$register_name``
 
 This will print the value $register_name for a single work-item. For example, printing GPU register $s0 will provide the value of register $s0
 
@@ -264,9 +264,7 @@ How do I view GPU dispatch info?
 *********************************
 The info command has been extended to info rocm. The info rocm command allows you to view the present state of the GPU dispatch and also allows you to view information about the GPU dispatches that have executed over the lifetime of the application.
 
-::
-
-    (ROCm-gdb) info rocm
+  ``(ROCm-gdb) info rocm``
 
 This will print all the possible options for info rocm. The info rocm command allows you to view information about the active dispatch, active work-groups and active work-items on the device. The possible inputs to info rocm are below
 
