@@ -731,3 +731,31 @@ Known Issues
 
 ROCm Binary Utilities
 ======================
+
+
+Libraries
+=============
+
+
+* :ref:`rocFFT`
+
+* :ref:`rocBLAS`
+
+* :ref:`tensile`
+
+* :ref:`hcFFT`
+
+* :ref:`hipBLAS`
+
+* :ref:`hcRNG`
+
+* :ref:`hipeigen`
+
+* :ref:`clFFT`
+
+* :ref:`clBLA`
+
+* :ref:`clSPARSE`
+
+* :ref:`clRNG`
+

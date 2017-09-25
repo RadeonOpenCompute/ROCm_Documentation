@@ -62,6 +62,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
    Remote_Device_Programming/Remote-Device-Programming
+   Deep_learning/Deep-learning
    Other_Solutions/Other-Solutions
    ROCm_Glossary/ROCm-Glossary
 
