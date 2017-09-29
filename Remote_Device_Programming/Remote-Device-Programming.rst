@@ -365,66 +365,6 @@ This will strip all debugging and profiling code.
 
 $ make -C test/gtest test
 
-**OpenMPI and OpenSHMEM installation**
-
- 1. Get latest-and-gratest OpenMPI version:
-
-::
-
-  $ git clone https://github.com/open-mpi/ompi.git
-
- 2. Autogen:
-
-::
-
-  $ cd ompi
-  $ ./autogen.pl
-
- 3. Configure with UCX:
-
-::
-
-  $ mkdir build
-  $ cd build
-  ../configure --prefix=/your_install_path/ --with-ucx=/path_to_ucx_installation
-
- 4. Build:
-
-::
-
-  $ make
-  $ make install
-
-**Running Open MPI with UCX**
-
-Example of the command line (for InfiniBand RC + shared memory):
-
-::
-
-   $ mpirun -np 2 -mca pml ucx -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
-
-**Open MPI runtime optimizations for UCX**
-
- * By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress   	 function. In order to workaround this issue you may try to disable certain BTLs.
-
-::
-
-  $ mpirun -np 2 -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
-
- * OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer   	mechanism and there fore reduces software overheads in OpenMPI progress
-
-**MPI and OpenSHMEM release versions tested with UCX master**
-
- 1. UCX current tarball: https://github.com/openucx/ucx/archive/master.zip
-
- 2. The table of MPI and OpenSHMEM distributions that are tested with the HEAD of UCX master
-
-================ ===========
-MPI/OpenSHMEM     project	
-OpenMPI/OSHMEM     2.1.0
-MPICH		   Latest
-================ ===========
-
 Interface to ROCm
 ********************
 
@@ -621,57 +561,69 @@ See `How to install UCX and OpenMPI <https://github.com/openucx/ucx/wiki/OpenMPI
  | 3.Open Pull Request
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 MPI
 =====
+**OpenMPI and OpenSHMEM installation**
+
+ 1. Get latest-and-gratest OpenMPI version:
+
+::
+
+  $ git clone https://github.com/open-mpi/ompi.git
+
+ 2. Autogen:
+
+::
+
+  $ cd ompi
+  $ ./autogen.pl
+
+ 3. Configure with UCX:
+
+::
+
+  $ mkdir build
+  $ cd build
+  ../configure --prefix=/your_install_path/ --with-ucx=/path_to_ucx_installation
+
+ 4. Build:
+
+::
+
+  $ make
+  $ make install
+
+**Running Open MPI with UCX**
+
+Example of the command line (for InfiniBand RC + shared memory):
+
+::
+
+   $ mpirun -np 2 -mca pml ucx -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
+
+**Open MPI runtime optimizations for UCX**
+
+ * By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress   	 function. In order to workaround this issue you may try to disable certain BTLs.
+
+::
+
+  $ mpirun -np 2 -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
+
+ * OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer   	mechanism and there fore reduces software overheads in OpenMPI progress
+
+**MPI and OpenSHMEM release versions tested with UCX master**
+
+ 1. UCX current tarball: https://github.com/openucx/ucx/archive/master.zip
+
+ 2. The table of MPI and OpenSHMEM distributions that are tested with the HEAD of UCX master
+
+================ ===========
+MPI/OpenSHMEM     project	
+OpenMPI/OSHMEM     2.1.0
+MPICH		   Latest
+================ ===========
+
+
 
 IPC
 ====
