@@ -19,7 +19,7 @@ ROCr Error Codes
 * 128 Out of VGPR’s 
 * 0x80000000  Debug Trap 
 
-Command to dump firmware version and get Linux Kerenl version 
+Command to dump firmware version and get Linux Kernel version 
 ===================
 
 * sudo cat /sys/kernel/debug/dri/1/amdgpu_firmware_info 
