@@ -2,7 +2,7 @@
 .. _Other-Solutions:
 
 ================
-Other Solutions
+ROCm Language & System Level Debug, Flags and Environment Variables 
 ================
 
 Kernel options to avoid Ethernet port getting renamed every time you change graphics cards
