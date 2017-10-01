@@ -1,5 +1,5 @@
 
-## lspci helpfull examples to help you debug issue 
+## lspci helpfull examples and tips for you debugging ROCm Install issue 
 
 ### To find if the Linux Kerenl is seeing your GPU and to get the the slot number of the device part number you want to look at
 
@@ -147,7 +147,7 @@ Example
 	Kernel modules: amdgpu
  ``` 
   
- ### tv option on lspci print PCIe root trees 
+ ### To print PCIe root tree 
  
  ``` shell
   ~$ lspci -tv
