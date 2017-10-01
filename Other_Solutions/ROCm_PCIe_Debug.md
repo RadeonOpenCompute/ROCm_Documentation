@@ -9,6 +9,13 @@
 43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 
+### Show Device Slot 
+
+lspci -s <slot number>
+
+~$ lspci -s 43:00.0
+43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
+
 ### If you want to see the capabilites of the device 
 
 lspci -vs <slot number>
@@ -39,6 +46,18 @@ Example
 	Capabilities: [320] Latency Tolerance Reporting
 	Kernel driver in use: amdgpu
 	Kernel modules: amdgpu
+
+### Display Vendor and Device Codes and numbers 
+
+lspci -nvmms <slot number>
+	
+ ~$ lspci -nvmms 43:00.0
+Slot:	43:00.0
+Class:	0300
+Vendor:	1002
+Device:	6860
+SVendor:	1002
+SDevice:	0c35 
   
   
  ### To show kernel module running on device 
