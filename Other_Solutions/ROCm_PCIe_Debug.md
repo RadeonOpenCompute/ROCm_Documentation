@@ -12,7 +12,7 @@
 ```
 ### Show Device Slot 
 
-lspci -s <slot number>
+lspci -s slot number
 
 ``` shell
 ~$ lspci -s 43:00.0
@@ -21,7 +21,7 @@ lspci -s <slot number>
 
 ### If you want to see the capabilites of the device 
 
-lspci -vs <slot number>
+lspci -vs slot number
 
 Example
 
@@ -55,7 +55,7 @@ Example
 
 ### Display Vendor and Device Codes and numbers 
 
-lspci -nvmms <slot number>
+lspci -nvmms slot number
 
 ``` shell
  ~$ lspci -nvmms 43:00.0
@@ -69,7 +69,7 @@ SDevice:	0c35
   
  ### To show kernel module running on device 
  
- lspci -ks <slot number> 
+ lspci -ks slot number
 
 ``` shell
  ~$ lspci -ks 63:00.0
@@ -80,7 +80,7 @@ SDevice:	0c35
 ```
 ### When you need more information on the device 
 
-sudo lspci -vvvs <Slot Number>
+sudo lspci -vvvs slot number
 
 Example 
 
