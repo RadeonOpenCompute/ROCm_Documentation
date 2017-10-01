@@ -3,24 +3,29 @@
 
 ### To find if the Linux Kerenl is seeing your GPU and to get the the slot number of the device part number you want to look at
 
+``` shell
 ~$ lspci |grep ATI
 06:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 23:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
-
+```
 ### Show Device Slot 
 
 lspci -s <slot number>
 
+``` shell
 ~$ lspci -s 43:00.0
 43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
+```
 
 ### If you want to see the capabilites of the device 
 
 lspci -vs <slot number>
 
-Example 
+Example
+
+``` shell
 ~$ sudo lspci -vs 63:00.0
 [sudo] password for rocm: 
 63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860 (prog-if 00 [VGA controller])
@@ -46,11 +51,13 @@ Example
 	Capabilities: [320] Latency Tolerance Reporting
 	Kernel driver in use: amdgpu
 	Kernel modules: amdgpu
+```
 
 ### Display Vendor and Device Codes and numbers 
 
 lspci -nvmms <slot number>
-	
+
+``` shell
  ~$ lspci -nvmms 43:00.0
 Slot:	43:00.0
 Class:	0300
@@ -58,24 +65,27 @@ Vendor:	1002
 Device:	6860
 SVendor:	1002
 SDevice:	0c35 
-  
+```
   
  ### To show kernel module running on device 
  
  lspci -ks <slot number> 
- 
+
+``` shell
  ~$ lspci -ks 63:00.0
 63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 	Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0c35
 	Kernel driver in use: amdgpu
 	Kernel modules: amdgpu
-
+```
 ### When you need more information on the device 
 
 sudo lspci -vvvs <Slot Number>
 
 Example 
- sudo lspci -vvvs 43:00.0
+
+``` shell
+ ~$ sudo lspci -vvvs 43:00.0
 43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860 (prog-if 00 [VGA controller])
 	Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0c35
 	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
@@ -135,10 +145,11 @@ Example
 		Max no snoop latency: 0ns
 	Kernel driver in use: amdgpu
 	Kernel modules: amdgpu
-  
+ ``` 
   
  ### tv option on lspci print PCIe root trees 
  
+ ``` shell
   ~$ lspci -tv
 -+-[0000:60]-+-00.0  Advanced Micro Devices, Inc. [AMD] Device 1450
  |           +-01.0  Advanced Micro Devices, Inc. [AMD] Device 1452
@@ -229,3 +240,4 @@ Example
              +-1b.5  Advanced Micro Devices, Inc. [AMD] Device 1465
              +-1b.6  Advanced Micro Devices, Inc. [AMD] Device 1466
              \-1b.7  Advanced Micro Devices, Inc. [AMD] Device 1467
+```
