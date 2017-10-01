@@ -1,5 +1,5 @@
 
-## lspci helpfull examples and tips for you debugging ROCm Install issue 
+## lspci helpfull options to help you debug ROCm install issue 
 
 ### To find if the Linux Kerenl is seeing your GPU and to get the the slot number of the device part number you want to look at
 
