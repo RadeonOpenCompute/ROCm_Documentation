@@ -1,5 +1,7 @@
 .. _PCIe-Debug:
 
+ROCm PCIe Debug
+################
 
 lspci helpfull options to help you debug ROCm install issue 
 **************************************************************
