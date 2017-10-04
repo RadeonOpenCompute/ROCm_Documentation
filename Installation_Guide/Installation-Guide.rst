@@ -29,8 +29,8 @@ Table 1. Native Linux Distribution Support in ROCm 1.6
 Distribution  Kernel    GCC   GLIBC
 ============= ======== ====== =======
 x86_64
-Fedora 24      4.9      5.40   2.23
-Ubuntu 16.04   4.9      5.40   2.23
+Fedora 24      4.11      5.40   2.23
+Ubuntu 16.04   4.11      5.40   2.23
 ============= ======== ====== =======
 
 Supported CPUs
@@ -191,7 +191,7 @@ Verify you have the correct Kernel Post install
 ::
 
    uname -r
-   4.9.0-kfd-compute-rocm-rel-1.6-77
+   4.9.0-kfd-compute-rocm-rel-1.6-148
 
 Test if OpenCL is working based on default ROCm OpenCL include and library locations:
 ::
