@@ -160,7 +160,7 @@ HIP Envorment Varibles
 **There’s some more information here on how to debug and profile HIP applications**
 
 
-* https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_debugging.md
-* https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_profiling.md
+* http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/HIP_Debugging.html#hip-debugging
+* http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#hip-profiling
 
 
