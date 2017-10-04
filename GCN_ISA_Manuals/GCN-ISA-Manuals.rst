@@ -17,7 +17,8 @@ ISA Manual for Fiji and Polaris :download:`pdf </GCN_ISA_Manuals//AMD_GCN3_Instr
 
 Vega
 ====
-ISA Manual for Vega :download:`pdf </GCN_ISA_Manuals//Vega_Shader_ISA_28July2017.pdf>`
+
+* :ref:`testdocbook`
 
 
 Inline GCN ISA Assembly Guide

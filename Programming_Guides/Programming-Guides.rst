@@ -356,9 +356,15 @@ HIP Best Practices
 
  * :ref:`HIP-porting-guide` 
  * :ref:`HIP-terminology` 
+ * :ref:`hip_profiling`
+ * :ref:`HIP_Debugging`
+ * :ref:`Kernel_language`
  * :ref:`HIP-run-time-API` 
+ * :ref:`CUDAAPIHIP`
+ * :ref:`CUDAAPIHIPTEXTURE`
+ * :ref:`HIP-bug`
  * :ref:`HIP-FAQ` 
-   
+ 
 
 
 

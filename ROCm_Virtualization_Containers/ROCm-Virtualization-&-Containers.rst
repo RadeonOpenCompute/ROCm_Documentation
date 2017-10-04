@@ -8,6 +8,72 @@ ROCm Virtualization & Containers
 KVM Passthrough
 ================
 
+
+Setup host passthrough mode
+****************************
+Assume we use an intel system  that support VT-d , with fresh ubuntu 16.04 installed
+ 
+**a. Install necessary packages and prepare for pass through device**
+
+1. sudo apt-get install qemu-kvm qemu-system bridge-utils virt-manager ubuntu-vm-builder libvirt-dev
+	
+2. add following modules into /etc/modules
+       | vfio
+       | vfio_iommu_type1
+       | vfio_pci
+       | kvm
+       | kvm_intel
+
+    add intel_iommu=on in /etc/default/grub 
+ 	| GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on"
+    sudo update-grub
+
+3. Blacklist amdgpu by adding the following line to /etc/modprobe.d/blacklist.conf
+	blacklist amdgpu
+
+**b. Bind pass through device to vfio-pci**
+
+1. Create a script file (vfio-bind) under /usr/bin. The script file has the following content:
+
+::
+
+	#!/bin/bash
+	modprobe vfio-pci
+	for dev in "$@"; do
+	        vendor=$(cat /sys/bus/pci/devices/$dev/vendor)
+	        device=$(cat /sys/bus/pci/devices/$dev/device)
+	        if [ -e /sys/bus/pci/devices/$dev/driver ]; then
+	                echo $dev > /sys/bus/pci/devices/$dev/driver/unbind
+	        fi
+	        echo $vendor $device > /sys/bus/pci/drivers/vfio-pci/new_id
+	done
+
+2. Make it executable by enter the command
+
+::	
+ 
+   chmod 755 vfio-bind
+
+3. Bind the device to vfio by running the command for the three pass through devices
+
+::
+
+	lspci -n -d 1002:
+		83:00.0 0300: 1002:7300 (rev ca)
+	vfio.bind 0000:83:00.0
+
+4. sudo reboot
+
+**c. Pass through device to guest VM**
+
+1. Start VMM by running “virt-manager” as root. Follow the on screen instruction to create one virtual machine(VM), make sure CPU    	copy host CPU configuration, network use bridge mode. 
+2. Add Hardware --> Select PCI Host device, select the appropriate device to pass through. ex:0000:83:00.0
+3. sudo setpci -s 83:00.0 CAP_EXP+28.l=40
+4. sudo reboot
+
+After reboot, start virt-manager and then start the VM, inside the VM , lspci -d 1002: should shows the pass throughed device.   
+
+		
 ROCm-Docker
 ===========
 

@@ -1,3 +1,5 @@
+.. _PCIe-Debug:
+
 
 lspci helpfull options to help you debug ROCm install issue 
 **************************************************************
@@ -11,7 +13,8 @@ lspci helpfull options to help you debug ROCm install issue
   23:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
   43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
   63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
-```
+
+
 **Show Device Slot** 
 
 lspci -s _slot number_
