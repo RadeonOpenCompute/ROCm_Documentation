@@ -61,7 +61,7 @@ Tutorials
 **hipCaffe**
 
   * :ref:`caffe`
-
+  *  `Vector-Add <https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/master/vectorAdd>`_ Vector Add example ussing the HIP 	Programing Language
 
 
 

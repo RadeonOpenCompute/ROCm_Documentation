@@ -20,7 +20,7 @@ Vega
 
 * :ref:`testdocbook`
 
-
 Inline GCN ISA Assembly Guide
 ==============================
+
 

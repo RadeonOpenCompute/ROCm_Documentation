@@ -10,16 +10,9 @@ Preface
 About This Document
 -------------------
 
-This document describes the environment, organization and program state
-of AMD GCN "VEGA" Generation devices. It details the instruction set and
-the microcode formats native to this family of processors that are
-accessible to programmers and compilers.
+This document describes the environment, organization and program state of AMD GCN "VEGA" Generation devices. It details the instruction set and the microcode formats native to this family of processors that are accessible to programmers and compilers.
 
-The document specifies the instructions (include the format of each type
-of instruction) and the relevant program state (including how the
-program state interacts with the instructions). Some instruction fields
-are mutually dependent; not all possible settings for all fields are
-legal. This document specifies the valid combinations.
+The document specifies the instructions (include the format of each type of instruction) and the relevant program state (including how the program state interacts with the instructions). Some instruction fields are mutually dependent; not all possible settings for all fields are legal. This document specifies the valid combinations.
 
 The main purposes of this document are to:
 
@@ -33,11 +26,7 @@ The main purposes of this document are to:
 Audience
 --------
 
-This document is intended for programmers writing application and system
-software, including operating systems, compilers, loaders, linkers,
-device drivers, and system utilities. It assumes that programmers are
-writing compute-intensive parallel applications (streaming applications)
-and assumes an understanding of requisite programming practices.
+This document is intended for programmers writing application and system software, including operating systems, compilers, loaders, linkers,device drivers, and system utilities. It assumes that programmers are writing compute-intensive parallel applications (streaming applications) and assumes an understanding of requisite programming practices.
 
 Organization
 ------------
@@ -159,48 +148,26 @@ Summary of kernel instruction changes in Vega GPUs:
 Contact Information
 -------------------
 
-For information concerning AMD Accelerated Parallel Processing
-developing, please see: developer.amd.com/ .
+For information concerning AMD Accelerated Parallel Processing developing, please see: developer.amd.com/ .
 
-For information about developing with AMD Accelerated Parallel
-Processing, please see: developer.amd.com/appsdk .
+For information about developing with AMD Accelerated Parallel Processing, please see: developer.amd.com/appsdk .
 
-We also have a growing community of AMD Accelerated Parallel Processing
-users. Come visit us at the AMD Accelerated Parallel Processing
-Developer Forum ( http://developer.amd.com/openclforum ) to find out
-what applications other users are trying on their AMD Accelerated
-Parallel Processing products.
+We also have a growing community of AMD Accelerated Parallel Processing users. Come visit us at the AMD Accelerated Parallel Processing Developer Forum ( http://developer.amd.com/openclforum ) to find out what applications other users are trying on their AMD Accelerated Parallel Processing products.
 
 Introduction
 ============
 
-AMD GCN processors implement a parallel micro-architecture that provides
-an excellent platform not only for computer graphics applications but
-also for general-purpose data parallel applications. Any data-intensive
-application that requires high bandwidth or is computationally intensive
-is a candidate for running on an AMD GCN processor.
+AMD GCN processors implement a parallel micro-architecture that provides an excellent platform not only for computer graphics applications but also for general-purpose data parallel applications. Any data-intensive application that requires high bandwidth or is computationally intensive is a candidate for running on an AMD GCN processor.
 
-The figure below shows a block diagram of the AMD GCN Vega Generation
-series processors
+The figure below shows a block diagram of the AMD GCN Vega Generation series processors
 
-.. figure:: ../images/fig_1_1_vega.png
-   :alt: AMD GCN VEGA Generation Series Block Diagram
+.. figure:: fig_1_1_vega.png
 
-   AMD GCN VEGA Generation Series Block Diagram
 
-The GCN device includes a data-parallel processor (DPP) array, a command
-processor, a memory controller, and other logic (not shown). The GCN
-command processor reads commands that the host has written to
-memory-mapped GCN registers in the system-memory address space. The
-command processor sends hardware-generated interrupts to the host when
-the command is completed. The GCN memory controller has direct access to
-all GCN device memory and the host-specified areas of system memory. To
-satisfy read and write requests, the memory controller performs the
-functions of a direct-memory access (DMA) controller, including
-computing memory-address offsets based on the format of the requested
-data in memory. In the GCN environment, a complete application includes
-two parts:
 
+AMD GCN VEGA Generation Series Block Diagram
+
+The GCN device includes a data-parallel processor (DPP) array, a command processor, a memory controller, and other logic (not shown). The GCN command processor reads commands that the host has written to memory-mapped GCN registers in the system-memory address space. The command processor sends hardware-generated interrupts to the host when the command is completed. The GCN memory controller has direct access to all GCN device memory and the host-specified areas of system memory. To satisfy read and write requests, the memory controller performs the functions of a direct-memory access (DMA) controller, including computing memory-address offsets based on the format of the requested data in memory. In the GCN environment, a complete application includes two parts: 
 -  a program running on the host processor, and
 
 -  programs, called kernels, running on the GCN processor.
@@ -216,38 +183,21 @@ The GCN programs are controlled by host commands that
 -  cause the GCN GPU to begin execution of a program.
 
 The GCN driver program runs on the host.
+ 
+The DPP array is the heart of the GCN processor. The array is organized as a set of compute unit pipelines, each independent from the others, that operate in parallel on streams of floating-point or integer data.The compute unit pipelines can process data or, through the memory controller, transfer data to, or from, memory. Computation in a compute unit pipeline can be made conditional. Outputs written to memory can also be made conditional.
 
-The DPP array is the heart of the GCN processor. The array is organized
-as a set of compute unit pipelines, each independent from the others,
-that operate in parallel on streams of floating-point or integer data.
-The compute unit pipelines can process data or, through the memory
-controller, transfer data to, or from, memory. Computation in a compute
-unit pipeline can be made conditional. Outputs written to memory can
-also be made conditional.
+When it receives a request, the compute unit pipeline loads instructions and data from memory, begins execution, and continues until the end of the kernel. As kernels are running, the GCN hardware automatically fetches instructions from memory into on-chip caches; GCN software plays no role in this. GCN kernels can load data from off-chip memory into on-chip general-purpose registers (GPRs) and caches. 
 
-When it receives a request, the compute unit pipeline loads instructions
-and data from memory, begins execution, and continues until the end of
-the kernel. As kernels are running, the GCN hardware automatically
-fetches instructions from memory into on-chip caches; GCN software plays
-no role in this. GCN kernels can load data from off-chip memory into
-on-chip general-purpose registers (GPRs) and caches.
+The AMD GCN devices can detect floating point exceptions and can generate interrupts. In particular, they detect IEEE floating-point
+exceptions in hardware; these can be recorded for post-execution analysis. The software interrupts shown in the previous figure from the command processor to the host represent hardware-generated interrupts for signaling command-completion and related management functions.
 
-The AMD GCN devices can detect floating point exceptions and can
-generate interrupts. In particular, they detect IEEE floating-point
-exceptions in hardware; these can be recorded for post-execution
-analysis. The software interrupts shown in the previous figure from the
-command processor to the host represent hardware-generated interrupts
-for signaling command-completion and related management functions.
+The GCN processor hides memory latency by keeping track of potentially hundreds of work-items in different stages of execution, and by
+overlapping compute operations with memory-access operations. 
 
-The GCN processor hides memory latency by keeping track of potentially
-hundreds of work-items in different stages of execution, and by
-overlapping compute operations with memory-access operations.
-
-The figure below shows the dataflow for a GCN application. For
-general-purpose applications, only one processing block performs all
+The figure below shows the dataflow for a GCN application. For general-purpose applications, only one processing block performs all
 computation.
 
-.. figure:: ../images/fig_1_2.png
+.. figure:: fig_1_2.png
    :alt: GCN VEGA Generation Dataflow
 
    GCN VEGA Generation Dataflow
@@ -310,72 +260,39 @@ Table: Basic Terms
 Program Organization
 ====================
 
-GCN kernels are programs executed by the GCN processor. Conceptually,
-the kernel is executed independently on every work-item, but in reality
-the GCN processor groups 64 work-items into a wavefront, which executes
-the kernel on all 64 work-items in one pass.
+GCN kernels are programs executed by the GCN processor. Conceptually, the kernel is executed independently on every work-item, but in reality the GCN processor groups 64 work-items into a wavefront, which executes the kernel on all 64 work-items in one pass.
 
 The GCN processor consists of:
 
--  A scalar ALU, which operates on one value per wavefront (common to
-   all work items).
+-  A scalar ALU, which operates on one value per wavefront (common to all work items).
 
 -  A vector ALU, which operates on unique values per work-item.
 
--  Local data storage, which allows work-items within a workgroup to
-   communicate and share data.
+-  Local data storage, which allows work-items within a workgroup to communicate and share data.
 
--  Scalar memory, which can transfer data between SGPRs and memory
-   through a cache.
+-  Scalar memory, which can transfer data between SGPRs and memory through a cache.
 
--  Vector memory, which can transfer data between VGPRs and memory,
-   including sampling texture maps.
+-  Vector memory, which can transfer data between VGPRs and memory,including sampling texture maps.
 
-All kernel control flow is handled using scalar ALU instructions. This
-includes if/else, branches and looping. Scalar ALU (SALU) and memory
-instructions work on an entire wavefront and operate on up to two SGPRs,
-as well as literal constants.
+All kernel control flow is handled using scalar ALU instructions. This includes if/else, branches and looping. Scalar ALU (SALU) and memory instructions work on an entire wavefront and operate on up to two SGPRs,as well as literal constants.
 
-Vector memory and ALU instructions operate on all work-items in the
-wavefront at one time. In order to support branching and conditional
-execute, every wavefront has an EXECute mask that determines which
-work-items are active at that moment, and which are dormant. Active
-work-items execute the vector instruction, and dormant ones treat the
-instruction as a NOP. The EXEC mask can be changed at any time by Scalar
-ALU instructions.
+Vector memory and ALU instructions operate on all work-items in the wavefront at one time. In order to support branching and conditional execute, every wavefront has an EXECute mask that determines which work-items are active at that moment, and which are dormant. Active work-items execute the vector instruction, and dormant ones treat the instruction as a NOP. The EXEC mask can be changed at any time by Scalar ALU instructions.
 
-Vector ALU instructions can take up to three arguments, which can come
-from VGPRs, SGPRs, or literal constants that are part of the instruction
-stream. They operate on all work-items enabled by the EXEC mask. Vector
-compare and add with- carryout return a bit-per-work-item mask back to
-the SGPRs to indicate, per work-item, which had a "true" result from the
-compare or generated a carry-out.
+Vector ALU instructions can take up to three arguments, which can come from VGPRs, SGPRs, or literal constants that are part of the instruction stream. They operate on all work-items enabled by the EXEC mask. Vector compare and add with- carryout return a bit-per-work-item mask back to the SGPRs to indicate, per work-item, which had a "true" result from the compare or generated a carry-out.
 
-Vector memory instructions transfer data between VGPRs and memory. Each
-work-item supplies its own memory address and supplies or receives
-unique data. These instructions are also subject to the EXEC mask.
+Vector memory instructions transfer data between VGPRs and memory. Each work-item supplies its own memory address and supplies or receives unique data. These instructions are also subject to the EXEC mask.
 
 Compute Shaders
 ---------------
 
-Compute kernels (shaders) are generic programs that can run on the GCN
-processor, taking data from memory, processing it, and writing results
-back to memory. Compute kernels are created by a dispatch, which causes
-the GCN processors to run the kernel over all of the work-items in a 1D,
-2D, or 3D grid of data. The GCN processor walks through this grid and
-generates wavefronts, which then run the compute kernel. Each work-item
-is initialized with its unique address (index) within the grid. Based on
-this index, the work-item computes the address of the data it is
-required to work on and what to do with the results.
+Compute kernels (shaders) are generic programs that can run on the GCN processor, taking data from memory, processing it, and writing results back to memory. Compute kernels are created by a dispatch, which causes the GCN processors to run the kernel over all of the work-items in a 1D, 2D, or 3D grid of data. The GCN processor walks through this grid and generates wavefronts, which then run the compute kernel. Each work-item is initialized with its unique address (index) within the grid. Based on this index, the work-item computes the address of the data it is required to work on and what to do with the results.
 
 Data Sharing
 ------------
 
-The AMD GCN stream processors can share data between different
-work-items. Data sharing can significantly boost performance. The figure
-below shows the memory hierarchy that is available to each work-item.
+The AMD GCN stream processors can share data between different work-items. Data sharing can significantly boost performance. The figure below shows the memory hierarchy that is available to each work-item.
 
-.. figure:: ../images/fig_2_1_vega.png
+.. figure:: fig_2_1_vega.png
    :alt: Shared Memory Hierarchy
 
    Shared Memory Hierarchy
@@ -383,73 +300,25 @@ below shows the memory hierarchy that is available to each work-item.
 Local Data Share (LDS)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Each compute unit has a 64 kB memory space that enables low-latency
-communication between work-items within a work-group, or the work-items
-within a wavefront; this is the local data share (LDS). This memory is
-configured with 32 banks, each with 512 entries of 4 bytes. The AMD GCN
-processors use a 64 kB local data share (LDS) memory for each compute
-unit; this enables 64 kB of low-latency bandwidth to the processing
-elements. The shared memory contains 32 integer atomic units to enable
-fast, unordered atomic operations. This memory can be used as a software
-cache for predictable re-use of data, a data exchange machine for the
-work-items of a work-group, or as a cooperative way to enable efficient
-access to off-chip memory.
+Each compute unit has a 64 kB memory space that enables low-latency communication between work-items within a work-group, or the work-items within a wavefront; this is the local data share (LDS). This memory is configured with 32 banks, each with 512 entries of 4 bytes. The AMD GCN processors use a 64 kB local data share (LDS) memory for each compute unit; this enables 64 kB of low-latency bandwidth to the processing elements. The shared memory contains 32 integer atomic units to enable fast, unordered atomic operations. This memory can be used as a software cache for predictable re-use of data, a data exchange machine for the work-items of a work-group, or as a cooperative way to enable efficient access to off-chip memory.
 
 Global Data Share (GDS)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The AMD GCN devices use a 64 kB global data share (GDS) memory that can
-be used by wavefronts of a kernel on all compute units. This memory
-provides 128 bytes per cycle of memory access to all the processing
-elements. The GDS is configured with 32 banks, each with 512 entries of
-4 bytes each. It provides full access to any location for any processor.
-The shared memory contains 32 integer atomic units to enable fast,
-unordered atomic operations. This memory can be used as a software cache
-to store important control data for compute kernels, reduction
-operations, or a small global shared surface. Data can be preloaded from
-memory prior to kernel launch and written to memory after kernel
-completion. The GDS block contains support logic for unordered
-append/consume and domain launch ordered append/consume operations to
-buffers in memory. These dedicated circuits enable fast compaction of
-data or the creation of complex data structures in memory.
+The AMD GCN devices use a 64 kB global data share (GDS) memory that can be used by wavefronts of a kernel on all compute units. This memory provides 128 bytes per cycle of memory access to all the processing elements. The GDS is configured with 32 banks, each with 512 entries of 4 bytes each. It provides full access to any location for any processor. The shared memory contains 32 integer atomic units to enable fast, unordered atomic operations. This memory can be used as a software cache to store important control data for compute kernels, reduction operations, or a small global shared surface. Data can be preloaded from memory prior to kernel launch and written to memory after kernel completion. The GDS block contains support logic for unordered append/consume and domain launch ordered append/consume operations to buffers in memory. These dedicated circuits enable fast compaction of data or the creation of complex data structures in memory.
 
 Device Memory
 -------------
 
-The AMD GCN devices offer several methods for access to off-chip memory
-from the processing elements (PE) within each compute unit. On the
-primary read path, the device consists of multiple channels of L2
-read-only cache that provides data to an L1 cache for each compute unit.
-Special cache-less load instructions can force data to be retrieved from
-device memory during an execution of a load clause. Load requests that
-overlap within the clause are cached with respect to each other. The
-output cache is formed by two levels of cache: the first for
-write-combining cache (collect scatter and store operations and combine
-them to provide good access patterns to memory); the second is a
-read/write cache with atomic units that lets each processing element
-complete unordered atomic accesses that return the initial value. Each
-processing element provides the destination address on which the atomic
-operation acts, the data to be used in the atomic operation, and a
-return address for the read/write atomic unit to store the pre-op value
-in memory. Each store or atomic operation can be set up to return an
-acknowledgment to the requesting PE upon write confirmation of the
-return value (pre-atomic op value at destination) being stored to device
-memory.
+The AMD GCN devices offer several methods for access to off-chip memory from the processing elements (PE) within each compute unit. On the primary read path, the device consists of multiple channels of L2 read-only cache that provides data to an L1 cache for each compute unit. Special cache-less load instructions can force data to be retrieved from device memory during an execution of a load clause. Load requests that overlap within the clause are cached with respect to each other. The output cache is formed by two levels of cache: the first for write-combining cache (collect scatter and store operations and combine them to provide good access patterns to memory); the second is a read/write cache with atomic units that lets each processing element complete unordered atomic accesses that return the initial value. Each processing element provides the destination address on which the atomic operation acts, the data to be used in the atomic operation, and a return address for the read/write atomic unit to store the pre-op value in memory. Each store or atomic operation can be set up to return an acknowledgment to the requesting PE upon write confirmation of the return value (pre-atomic op value at destination) being stored to device memory.
 
 This acknowledgment has two purposes:
 
--  enabling a PE to recover the pre-op value from an atomic operation by
-   performing a cache-less load from its return address after receipt of
-   the write confirmation acknowledgment, and
+-  enabling a PE to recover the pre-op value from an atomic operation by performing a cache-less load from its return address after  	receipt of the write confirmation acknowledgment, and
 
 -  enabling the system to maintain a relaxed consistency model.
 
-Each scatter write from a given PE to a given memory channel always
-maintains order. The acknowledgment enables one processing element to
-implement a fence to maintain serial consistency by ensuring all writes
-have been posted to memory prior to completing a subsequent write. In
-this manner, the system can maintain a relaxed consistency model between
-all parallel work-items operating on the system.
+Each scatter write from a given PE to a given memory channel always maintains order. The acknowledgment enables one processing element to implement a fence to maintain serial consistency by ensuring all writes have been posted to memory prior to completing a subsequent write. In this manner, the system can maintain a relaxed consistency model between all parallel work-items operating on the system.
 
 Kernel State
 ============
@@ -549,19 +418,13 @@ Table: Readable and Writable Hardware States
 Program Counter (PC)
 --------------------
 
-The program counter (PC) is a byte address pointing to the next
-instruction to execute. When a wavefront is created, the PC is
+The program counter (PC) is a byte address pointing to the next instruction to execute. When a wavefront is created, the PC is
 initialized to the first instruction in the program.
 
-The PC interacts with three instructions: S\_GET\_PC, S\_SET\_PC,
-S\_SWAP\_PC. These transfer the PC to, and from, an even-aligned SGPR
+The PC interacts with three instructions: S\_GET\_PC, S\_SET\_PC,S\_SWAP\_PC. These transfer the PC to, and from, an even-aligned SGPR
 pair.
 
-Branches jump to (PC\_of\_the\_instruction\_after\_the\_branch +
-offset). The shader program cannot directly read from, or write to, the
-PC. Branches, GET\_PC and SWAP\_PC, are PC-relative to the next
-instruction, not the current one. S\_TRAP saves the PC of the S\_TRAP
-instruction itself.
+Branches jump to (PC\_of\_the\_instruction\_after\_the\_branch +offset). The shader program cannot directly read from, or write to, the PC. Branches, GET\_PC and SWAP\_PC, are PC-relative to the next instruction, not the current one. S\_TRAP saves the PC of the S\_TRAP instruction itself.
 
 EXECute Mask
 ------------
@@ -570,13 +433,9 @@ EXECute Mask
   executed:
 | 1 = execute, 0 = do not execute.
 
-EXEC can be read from, and written to, through scalar instructions; it
-also can be written as a result of a vector-ALU compare. This mask
-affects vector-ALU, vector-memory, LDS, and export instructions. It does
-not affect scalar execution or branches.
+EXEC can be read from, and written to, through scalar instructions; it also can be written as a result of a vector-ALU compare. This mask affects vector-ALU, vector-memory, LDS, and export instructions. It does not affect scalar execution or branches.
 
-A helper bit (EXECZ) can be used as a condition for branches to skip
-code when EXEC is zero.
+A helper bit (EXECZ) can be used as a condition for branches to skip code when EXEC is zero.
 
     **Note**
 
@@ -588,9 +447,7 @@ code when EXEC is zero.
 Status registers
 ----------------
 
-Status register fields can be read, but not written to, by the shader.
-These bits are initialized at wavefront-creation time. The table below
-lists and briefly describes the status register fields.
+Status register fields can be read, but not written to, by the shader.These bits are initialized at wavefront-creation time. The table below lists and briefly describes the status register fields.
 
 +-------------------+---------+-------------------------------------------------+
 | Field             | Bit     | Description                                     |
@@ -781,23 +638,17 @@ Table: Mode Register Fields
 GPRs and LDS
 ------------
 
-This section describes how GPR and LDS space is allocated to a
-wavefront, as well as how out-of-range and misaligned accesses are
+This section describes how GPR and LDS space is allocated to a wavefront, as well as how out-of-range and misaligned accesses are
 handled.
 
 Out-of-Range behavior
 ~~~~~~~~~~~~~~~~~~~~~
 
-This section defines the behavior when a source or destination GPR or
-memory address is outside the legal range for a wavefront.
+This section defines the behavior when a source or destination GPR or memory address is outside the legal range for a wavefront.
 
-Out-of-range can occur through GPR-indexing or bad programming. It is
-illegal to index from one register type into another (for example: SGPRs
-into trap registers or inline constants). It is also illegal to index
-within inline constants.
+Out-of-range can occur through GPR-indexing or bad programming. It is illegal to index from one register type into another (for example: SGPRs into trap registers or inline constants). It is also illegal to index within inline constants.
 
-The following describe the out-of-range behavior for various storage
-types.
+The following describe the out-of-range behavior for various storage types.
 
 -  SGPRs
 
@@ -856,23 +707,13 @@ types.
       -  Atomic operations with out-of-range destination VGPRs are
          nullified: issued, but with exec mask of zero.
 
-Instructions with multiple destinations (for example: V\_ADDC): if any
-destination is out-of-range, no results are written.
+Instructions with multiple destinations (for example: V\_ADDC): if any destination is out-of-range, no results are written.
 
 SGPR Allocation and storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A wavefront can be allocated 16 to 102 SGPRs, in units of 16 GPRs
-(Dwords). These are logically viewed as SGPRs 0-101. The VCC is
-physically stored as part of the wavefront’s SGPRs in the highest
-numbered two SGPRs (SGPR 106 and 107; the source/destination VCC is an
-alias for those two SGPRs). When a trap handler is present, 16
-additional SGPRs are reserved after VCC to hold the trap addresses, as
-well as saved-PC and trap-handler temps. These all are privileged
-(cannot be written to unless privilege is set). Note that if a wavefront
-allocates 16 SGPRs, 2 SGPRs are normally used as VCC, the remaining 14
-are available to the shader. Shader hardware does not prevent use of all
-16 SGPRs.
+A wavefront can be allocated 16 to 102 SGPRs, in units of 16 GPRs (Dwords). These are logically viewed as SGPRs 0-101. The VCC is
+physically stored as part of the wavefront’s SGPRs in the highest numbered two SGPRs (SGPR 106 and 107; the source/destination VCC is an alias for those two SGPRs). When a trap handler is present, 16 additional SGPRs are reserved after VCC to hold the trap addresses, as well as saved-PC and trap-handler temps. These all are privileged (cannot be written to unless privilege is set). Note that if a wavefront allocates 16 SGPRs, 2 SGPRs are normally used as VCC, the remaining 14 are available to the shader. Shader hardware does not prevent use of all 16 SGPRs.
 
 SGPR Alignment
 ~~~~~~~~~~~~~~
@@ -885,32 +726,19 @@ Even-aligned SGPRs are required in the following cases.
 -  When scalar memory reads that the address-base comes from an
    SGPR-pair (either in SGPR).
 
-Quad-alignment is required for the data-GPR when a scalar memory read
-returns four or more Dwords. When a 64-bit quantity is stored in SGPRs,
-the LSBs are in SGPR[n], and the MSBs are in SGPR[n+1].
+Quad-alignment is required for the data-GPR when a scalar memory read returns four or more Dwords. When a 64-bit quantity is stored in SGPRs, the LSBs are in SGPR[n], and the MSBs are in SGPR[n+1].
 
 VGPR Allocation and Alignment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-VGPRs are allocated in groups of four Dwords. Operations using pairs of
-VGPRs (for example: double-floats) have no alignment restrictions.
-Physically, allocations of VGPRs can wrap around the VGPR memory pool.
+VGPRs are allocated in groups of four Dwords. Operations using pairs of VGPRs (for example: double-floats) have no alignment restrictions. Physically, allocations of VGPRs can wrap around the VGPR memory pool.
 
 LDS Allocation and Clamping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-LDS is allocated per work-group or per-wavefront when work-groups are
-not in use. LDS space is allocated to a work-group or wavefront in
-contiguous blocks of 128 Dwords on 128-Dword alignment. LDS allocations
-do not wrap around the LDS storage. All accesses to LDS are restricted
-to the space allocated to that wavefront/work-group.
+LDS is allocated per work-group or per-wavefront when work-groups are not in use. LDS space is allocated to a work-group or wavefront in contiguous blocks of 128 Dwords on 128-Dword alignment. LDS allocations do not wrap around the LDS storage. All accesses to LDS are restricted to the space allocated to that wavefront/work-group.
 
-Clamping of LDS reads and writes is controlled by two size registers,
-which contain values for the size of the LDS space allocated by SPI to
-this wavefront or work-group, and a possibly smaller value specified in
-the LDS instruction (size is held in M0). The LDS operations use the
-smaller of these two sizes to determine how to clamp the read/write
-addresses.
+Clamping of LDS reads and writes is controlled by two size registers, which contain values for the size of the LDS space allocated by SPI to this wavefront or work-group, and a possibly smaller value specified in the LDS instruction (size is held in M0). The LDS operations use the smaller of these two sizes to determine how to clamp the read/write addresses.
 
 M# Memory Descriptor
 --------------------
@@ -942,8 +770,7 @@ for:
 SCC: Scalar Condition code
 --------------------------
 
-Most scalar ALU instructions set the Scalar Condition Code (SCC) bit,
-indicating the result of the operation.
+Most scalar ALU instructions set the Scalar Condition Code (SCC) bit,indicating the result of the operation.
 
 .. raw:: html
 
@@ -958,28 +785,19 @@ indicating the result of the operation.
 
    </div>
 
-The SCC can be used as the carry-in for extended-precision integer
-arithmetic, as well as the selector for conditional moves and branches.
+The SCC can be used as the carry-in for extended-precision integer arithmetic, as well as the selector for conditional moves and branches.
 
 Vector Compares: VCC and VCCZ
 -----------------------------
 
-Vector ALU comparisons always set the Vector Condition Code (VCC)
-register (1=pass, 0=fail). Also, vector compares have the option of
+Vector ALU comparisons always set the Vector Condition Code (VCC) register (1=pass, 0=fail). Also, vector compares have the option of
 setting EXEC to the VCC value.
 
-There is also a VCC summary bit (vccz) that is set to 1 when the VCC
-result is zero. This is useful for early-exit branch tests. VCC is also
-set for selected integer ALU operations (carry-out).
+There is also a VCC summary bit (vccz) that is set to 1 when the VCC result is zero. This is useful for early-exit branch tests. VCC is also set for selected integer ALU operations (carry-out).
 
-Vector compares have the option of writing the result to VCC (32-bit
-instruction encoding) or to any SGPR (64-bit instruction encoding). VCCZ
-is updated every time VCC is updated: vector compares and scalar writes
-to VCC.
+Vector compares have the option of writing the result to VCC (32-bit instruction encoding) or to any SGPR (64-bit instruction encoding). VCCZ is updated every time VCC is updated: vector compares and scalar writes to VCC.
 
-The EXEC mask determines which threads execute an instruction. The VCC
-indicates which executing threads passed the conditional test, or which
-threads generated a carry-out from an integer add or subtract.
+The EXEC mask determines which threads execute an instruction. The VCC indicates which executing threads passed the conditional test, or which threads generated a carry-out from an integer add or subtract.
 
 .. raw:: html
 
@@ -1010,18 +828,11 @@ SGPRs that happen to hold VCC).
 Trap and Exception registers
 ----------------------------
 
-Each type of exception can be enabled or disabled independently by
-setting, or clearing, bits in the TRAPSTS register’s EXCP\_EN field.
-This section describes the registers which control and report kernel
-exceptions.
+Each type of exception can be enabled or disabled independently by setting, or clearing, bits in the TRAPSTS register’s EXCP\_EN field.This section describes the registers which control and report kernel exceptions.
 
-All Trap temporary SGPRs (TTMP\*) are privileged for writes - they can
-be written only when in the trap handler (status.priv = 1). When not
-privileged, writes to these are ignored. TMA and TBA are read-only; they
-can be accessed through S\_GETREG\_B32.
+All Trap temporary SGPRs (TTMP\*) are privileged for writes - they can be written only when in the trap handler (status.priv = 1). When not privileged, writes to these are ignored. TMA and TBA are read-only; they can be accessed through S\_GETREG\_B32.
 
-When a trap is taken (either user initiated, exception or host
-initiated), the shader hardware generates an S\_TRAP instruction. This
+When a trap is taken (either user initiated, exception or host initiated), the shader hardware generates an S\_TRAP instruction. This
 loads trap information into a pair of SGPRS:
 
 ::
@@ -1142,41 +953,26 @@ A Memory Violation is reported from:
 
 -  GWS operation aborted (semaphore or barrier not executed).
 
-Memory violations are not reported for instruction or scalar-data
-accesses.
+Memory violations are not reported for instruction or scalar-data accesses.
 
-Memory Buffer to LDS does NOT return a memory violation if the LDS
-address is out of range, but masks off EXEC bits of threads that would
-go out of range.
+Memory Buffer to LDS does NOT return a memory violation if the LDS address is out of range, but masks off EXEC bits of threads that would go out of range.
 
-When a memory access is in violation, the appropriate memory (LDS or TC)
-returns MEM\_VIOL to the wave. This is stored in the wave’s
-TRAPSTS.mem\_viol bit. This bit is sticky, so once set to 1, it remains
-at 1 until the user clears it.
+When a memory access is in violation, the appropriate memory (LDS or TC) returns MEM\_VIOL to the wave. This is stored in the wave’s
+TRAPSTS.mem\_viol bit. This bit is sticky, so once set to 1, it remains at 1 until the user clears it.
 
-There is a corresponding exception enable bit (EXCP\_EN.mem\_viol). If
-this bit is set when the memory returns with a violation, the wave jumps
-to the trap handler.
+There is a corresponding exception enable bit (EXCP\_EN.mem\_viol). If this bit is set when the memory returns with a violation, the wave jumps to the trap handler.
 
-Memory violations are not precise. The violation is reported when the
-LDS or TC processes the address; during this time, the wave may have
-processed many more instructions. When a mem\_viol is reported, the
-Program Counter saved is that of the next instruction to execute; it has
-no relationship the faulting instruction.
+Memory violations are not precise. The violation is reported when the LDS or TC processes the address; during this time, the wave may have processed many more instructions. When a mem\_viol is reported, the Program Counter saved is that of the next instruction to execute; it has no relationship the faulting instruction.
 
 Program Flow Control
 ====================
 
-All program flow control is programmed using scalar ALU instructions.
-This includes loops, branches, subroutine calls, and traps. The program
-uses SGPRs to store branch conditions and loop counters. Constants can
-be fetched from the scalar constant cache directly into SGPRs.
+All program flow control is programmed using scalar ALU instructions. This includes loops, branches, subroutine calls, and traps. The program uses SGPRs to store branch conditions and loop counters. Constants can be fetched from the scalar constant cache directly into SGPRs.
 
 Program Control
 ---------------
 
-The instructions in the table below control the priority and termination
-of a shader program, as well as provide support for trap handlers.
+The instructions in the table below control the priority and termination of a shader program, as well as provide support for trap handlers.
 
 +--------------------------------------+--------------------------------------+
 | Instructions                         | Description                          |
@@ -1257,43 +1053,26 @@ Branching is done using one of the following scalar ALU instructions.
 
 Table: Branch Instructions
 
-For conditional branches, the branch condition can be determined by
-either scalar or vector operations. A scalar compare operation sets the
-Scalar Condition Code (SCC), which then can be used as a conditional
-branch condition. Vector compare operations set the VCC mask, and VCCZ
-or VCCNZ then can be used to determine branching.
+For conditional branches, the branch condition can be determined by either scalar or vector operations. A scalar compare operation sets the Scalar Condition Code (SCC), which then can be used as a conditional branch condition. Vector compare operations set the VCC mask, and VCCZ or VCCNZ then can be used to determine branching.
 
 Workgroups
 ----------
 
-Work-groups are collections of wavefronts running on the same compute
-unit which can synchronize and share data. Up to 16 wavefronts (1024
-work-items) can be combined into a work-group. When multiple wavefronts
-are in a workgroup, the S\_BARRIER instruction can be used to force each
-wavefront to wait until all other wavefronts reach the same instruction;
-then, all wavefronts continue. Any wavefront can terminate early using
-S\_ENDPGM, and the barrier is considered satisfied when the remaining
+Work-groups are collections of wavefronts running on the same compute unit which can synchronize and share data. Up to 16 wavefronts (1024 work-items) can be combined into a work-group. When multiple wavefronts are in a workgroup, the S\_BARRIER instruction can be used to force each wavefront to wait until all other wavefronts reach the same instruction; then, all wavefronts continue. Any wavefront can terminate early using S\_ENDPGM, and the barrier is considered satisfied when the remaining
 live waves reach their barrier instruction.
 
 Data Dependency Resolution
 --------------------------
 
-Shader hardware resolves most data dependencies, but a few cases must be
-explicitly handled by the shader program. In these cases, the program
-must insert S\_WAITCNT instructions to ensure that previous operations
-have completed before continuing.
+Shader hardware resolves most data dependencies, but a few cases must be explicitly handled by the shader program. In these cases, the program must insert S\_WAITCNT instructions to ensure that previous operations have completed before continuing.
 
-The shader has three counters that track the progress of issued
-instructions. S\_WAITCNT waits for the values of these counters to be
+The shader has three counters that track the progress of issued instructions. S\_WAITCNT waits for the values of these counters to be
 at, or below, specified values before continuing.
 
-These allow the shader writer to schedule long-latency instructions,
-execute unrelated work, and specify when results of long-latency
+These allow the shader writer to schedule long-latency instructions,execute unrelated work, and specify when results of long-latency
 operations are needed.
 
-Instructions of a given type return in order, but instructions of
-different types can complete out-of-order. For example, both GDS and LDS
-instructions use LGKM\_cnt, but they can return out-of-order.
+Instructions of a given type return in order, but instructions of different types can complete out-of-order. For example, both GDS and LDS instructions use LGKM\_cnt, but they can return out-of-order.
 
 -  | VM\_CNT: Vector memory count.
    | Determines when memory reads have returned data to VGPRs, or memory
@@ -1350,8 +1129,7 @@ instructions use LGKM\_cnt, but they can return out-of-order.
 Manually Inserted Wait States (NOPs)
 ------------------------------------
 
-The hardware does not check for the following dependencies; they must be
-resolved by inserting NOPs or independent instructions.
+The hardware does not check for the following dependencies; they must be resolved by inserting NOPs or independent instructions.
 
 +---------------------------+----------------------+-------+----------------------+
 | First Instruction         | Second Instruction   | Wait  | Notes                |
@@ -1449,24 +1227,14 @@ Arbitrary Divergent Control Flow
 In the GCN architecture, conditional branches are handled in one of the
 following ways.
 
-1. S\_CBRANCH This case is used for simple control flow, where the
-   decision to take a branch is based on a previous compare operation.
+1. S\_CBRANCH This case is used for simple control flow, where the decision to take a branch is based on a previous compare operation.
    This is the most common method for conditional branching.
 
-2. S\_CBRANCH\_I/G\_FORK and S\_CBRANCH\_JOIN This method, intended for
-   complex, irreducible control flow graphs, is described in the rest of
-   this section. The performance of this method is lower than that for
-   S\_CBRANCH on simple flow control; use it only when necessary.
+2. S\_CBRANCH\_I/G\_FORK and S\_CBRANCH\_JOIN This method, intended for complex, irreducible control flow graphs, is described in the 	 rest of this section. The performance of this method is lower than that for S\_CBRANCH on simple flow control; use it only when   	necessary.
 
-Conditional Branch (CBR) graphs are grouped into self-contained code
-blocks, denoted by FORK at the entrance point, and JOIN and the exit
-point. The shader compiler must add these instructions into the code.
-This method uses a six-deep stack and requires three SGPRs for each
-fork/join block. Fork/Join blocks can be hierarchically nested to any
-depth (subject to SGPR requirements); they also can coexist with other
-conditional flow control or computed jumps.
+Conditional Branch (CBR) graphs are grouped into self-contained code blocks, denoted by FORK at the entrance point, and JOIN and the exit point. The shader compiler must add these instructions into the code.This method uses a six-deep stack and requires three SGPRs for each fork/join block. Fork/Join blocks can be hierarchically nested to any depth (subject to SGPR requirements); they also can coexist with other conditional flow control or computed jumps.
 
-.. figure:: ../images/fig_3_1_fork_join.png
+.. figure:: fig_3_1_fork_join.png
    :alt: Example of Complex Control Flow Graph
 
    Example of Complex Control Flow Graph
@@ -1478,13 +1246,9 @@ The register requirements per wavefront are:
 -  Six stack entries of 128-bits each, stored in SGPRS: { exec[63:0],
    PC[47:2] }
 
-This method compares how many of the 64 threads go down the PASS path
-instead of the FAIL path; then, it selects the path with the fewer
-number of threads first. This means at most 50% of the threads are
-active, and this limits the necessary stack depth to Log264 = 6.
+This method compares how many of the 64 threads go down the PASS path instead of the FAIL path; then, it selects the path with the fewer number of threads first. This means at most 50% of the threads are active, and this limits the necessary stack depth to Log264 = 6.
 
-The following pseudo-code shows the details of CBRANCH Fork and Join
-operations.
+The following pseudo-code shows the details of CBRANCH Fork and Join operations.
 
 ::
 
@@ -1526,13 +1290,7 @@ operations.
 Scalar ALU Operations
 =====================
 
-Scalar ALU (SALU) instructions operate on a single value per wavefront.
-These operations consist of 32-bit integer arithmetic and 32- or 64-bit
-bit-wise operations. The SALU also can perform operations directly on
-the Program Counter, allowing the program to create a call stack in
-SGPRs. Many operations also set the Scalar Condition Code bit (SCC) to
-indicate the result of a comparison, a carry-out, or whether the
-instruction result was zero.
+Scalar ALU (SALU) instructions operate on a single value per wavefront.These operations consist of 32-bit integer arithmetic and 32- or 64-bit bit-wise operations. The SALU also can perform operations directly on the Program Counter, allowing the program to create a call stack in SGPRs. Many operations also set the Scalar Condition Code bit (SCC) to indicate the result of a comparison, a carry-out, or whether the instruction result was zero.
 
 SALU Instruction Formats
 ------------------------
@@ -1566,10 +1324,7 @@ Each of these instruction formats uses some of these fields:
 | SIMM16                | Signed immediate 16-bit integer constant.          |
 +-----------------------+----------------------------------------------------+
 
-The lists of similar instructions sometimes use a condensed form using
-curly braces { } to express a list of possible names. For example,
-S\_AND\_{B32, B64} defines two legal instructions: S\_AND\_B32 and
-S\_AND\_B64.
+The lists of similar instructions sometimes use a condensed form using curly braces { } to express a list of possible names. For example, S\_AND\_{B32, B64} defines two legal instructions: S\_AND\_B32 and S\_AND\_B64.
 
 Scalar ALU Operands
 -------------------
@@ -1613,49 +1368,49 @@ In the table below, 0-127 can be used as scalar sources or destinations;
 | | Dest       |           |                    |                                 |
 | | (7 bits)   |           |                    |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 102          | FLAT\_SCR | Holds the low      |
-|              | \_LO      | Dword of the       |
-|              |           | flat-scratch       |
-|              |           | memory descriptor  |
+| 102          | FLAT\_SCR | Holds the low      |                                 |
+|              | \_LO      | Dword of the       |                                 |  
+|              |           | flat-scratch       |                                 |
+|              |           | memory descriptor  |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 103          | FLAT\_SCR | Holds the high     |
-|              | \_HI      | Dword of the       |
-|              |           | flat-scratch       |
-|              |           | memory descriptor  |
+| 103          | FLAT\_SCR | Holds the high     |                                 |
+|              | \_HI      | Dword of the       |                                 |   
+|              |           | flat-scratch       |                                 |  
+|              |           | memory descriptor  |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 104          | XNACK\_MA | Holds the low      |
-|              | SK\_LO    | Dword of the XNACK |
-|              |           | mask.              |
+| 104          | XNACK\_MA | Holds the low      |                                 |
+|              | SK\_LO    | Dword of the XNACK |                                 |
+|              |           | mask.              |                                 | 
 +--------------+-----------+--------------------+---------------------------------+
-| 105          | XNACK\_MA | Holds the high     |
-|              | SK\_HI    | Dword of the XNACK |
-|              |           | mask.              |
+| 105          | XNACK\_MA | Holds the high     |                                 |
+|              | SK\_HI    | Dword of the XNACK |                                 | 
+|              |           | mask.              |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 106          | VCC\_LO   | Holds the low      |
-|              |           | Dword of the       |
-|              |           | vector condition   |
-|              |           | code               |
+| 106          | VCC\_LO   | Holds the low      |                                 | 
+|              |           | Dword of the       |                                 |
+|              |           | vector condition   |                                 | 
+|              |           | code               |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 107          | VCC\_HI   | Holds the high     |
-|              |           | Dword of the       |
-|              |           | vector condition   |
-|              |           | code               |
+| 107          | VCC\_HI   | Holds the high     |                                 |     
+|              |           | Dword of the       |                                 | 
+|              |           | vector condition   |                                 |
+|              |           | code               |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 108-123      | TTMP0 to  | Trap temps         |
-|              | TTMP15    | (privileged)       |
+| 108-123      | TTMP0 to  | Trap temps         |                                 |
+|              | TTMP15    | (privileged)       |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 124          | M0        | Holds the low      |
-|              |           | Dword of the       |
-|              |           | flat-scratch       |
-|              |           | memory descriptor  |
+| 124          | M0        | Holds the low      |                                 |
+|              |           | Dword of the       |                                 |  
+|              |           | flat-scratch       |                                 |
+|              |           | memory descriptor  |                                 |
++--------------+-----------+--------------------+---------------------------------+ 
+| 125          | reserved  | reserved           |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 125          | reserved  | reserved           |
+| 126          | EXEC\_LO  | Execute mask, low  |                                 | 
+|              |           | Dword              |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-| 126          | EXEC\_LO  | Execute mask, low  |
-|              |           | Dword              |
-+--------------+-----------+--------------------+---------------------------------+
-| 127          | EXEC\_HI  | Execute mask, high |
-|              |           | Dword              |
+| 127          | EXEC\_HI  | Execute mask, high |                                 |
+|              |           | Dword              |                                 |
 +--------------+-----------+--------------------+---------------------------------+
 |              | 128       | 0                  | zero                            |
 +--------------+-----------+--------------------+---------------------------------+
@@ -1667,32 +1422,32 @@ In the table below, 0-127 can be used as scalar sources or destinations;
 +--------------+-----------+--------------------+---------------------------------+
 |              | 235       | SHARED\_BASE       | Memory Aperture definition.     |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 236       | SHARED\_LIMIT      |
+|              | 236       | SHARED\_LIMIT      |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 237       | PRIVATE\_BASE      |
+|              | 237       | PRIVATE\_BASE      |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 238       | PRIVATE\_LIMIT     |
+|              | 238       | PRIVATE\_LIMIT     |                                 |
 +--------------+-----------+--------------------+---------------------------------+
 |              | 239       | POPS\_EXITING\_WAV | Primitive Ordered Pixel Shading |
 |              |           | E\_ID              | wave ID.                        |
 +--------------+-----------+--------------------+---------------------------------+
 |              | 240       | 0.5                | single or double floats         |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 241       | -0.5               |
+|              | 241       | -0.5               |                                 |   
 +--------------+-----------+--------------------+---------------------------------+
-|              | 242       | 1.0                |
+|              | 242       | 1.0                |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 243       | -1.0               |
+|              | 243       | -1.0               |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 244       | 2.0                |
+|              | 244       | 2.0                |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 245       | -2.0               |
+|              | 245       | -2.0               |                                 |   
 +--------------+-----------+--------------------+---------------------------------+
-|              | 246       | 4.0                |
+|              | 246       | 4.0                |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 247       | -4.0               |
+|              | 247       | -4.0               |                                 |
 +--------------+-----------+--------------------+---------------------------------+
-|              | 248       | 1.0 / (2 \* PI)    |
+|              | 248       | 1.0 / (2 \* PI)    |                                 |
 +--------------+-----------+--------------------+---------------------------------+
 |              | 249-250   | reserved           | unused                          |
 +--------------+-----------+--------------------+---------------------------------+
@@ -1710,28 +1465,18 @@ In the table below, 0-127 can be used as scalar sources or destinations;
 
 Table: Scalar Operands
 
-The SALU cannot use VGPRs or LDS. SALU instructions can use a 32-bit
-literal constant. This constant is part of the instruction stream and is
-available to all SALU microcode formats except SOPP and SOPK. Literal
-constants are used by setting the source instruction field to "literal"
-(255), and then the following instruction dword is used as the source
-value.
+The SALU cannot use VGPRs or LDS. SALU instructions can use a 32-bit literal constant. This constant is part of the instruction stream and is available to all SALU microcode formats except SOPP and SOPK. Literal constants are used by setting the source instruction field to "literal" (255), and then the following instruction dword is used as the source value.
 
 If any source SGPR is out-of-range, the value of SGPR0 is used instead.
 
-If the destination SGPR is out-of-range, no SGPR is written with the
-result. However, SCC and possibly EXEC (if saveexec) will still be
-written.
+If the destination SGPR is out-of-range, no SGPR is written with the result. However, SCC and possibly EXEC (if saveexec) will still be written.
 
-If an instruction uses 64-bit data in SGPRs, the SGPR pair must be
-aligned to an even boundary. For example, it is legal to use SGPRs 2 and
-3 or 8 and 9 (but not 11 and 12) to represent 64-bit data.
+If an instruction uses 64-bit data in SGPRs, the SGPR pair must be aligned to an even boundary. For example, it is legal to use SGPRs 2 and 3 or 8 and 9 (but not 11 and 12) to represent 64-bit data.
 
 Scalar Condition Code (SCC)
 ---------------------------
 
-The scalar condition code (SCC) is written as a result of executing most
-SALU instructions.
+The scalar condition code (SCC) is written as a result of executing most SALU instructions.
 
 The SCC is set by many instructions:
 
@@ -1739,10 +1484,8 @@ The SCC is set by many instructions:
 
 -  Arithmetic operations: 1 = carry out.
 
-   -  SCC = overflow for signed add and subtract operations. For add,
-      overflow = both operands are of the same sign, and the MSB (sign
-      bit) of the result is different than the sign of the operands. For
-      subtract (AB), overflow = A and B have opposite signs and the
+   -  SCC = overflow for signed add and subtract operations. For add, overflow = both operands are of the same sign, and the MSB (sign
+      bit) of the result is different than the sign of the operands. For subtract (AB), overflow = A and B have opposite signs and the
       resulting sign is not the same as the sign of A.
 
 -  Bit/logical operations: 1 = result was not zero.
@@ -1987,9 +1730,7 @@ These instructions access hardware internal registers.
 
 Table: Hardware Internal Registers
 
-The hardware register is specified in the DEST field of the instruction,
-using the values in the table above. Some bits of the DEST specify which
-register to read/write, but additional bits specify which bits in the
+The hardware register is specified in the DEST field of the instruction,using the values in the table above. Some bits of the DEST specify which register to read/write, but additional bits specify which bits in the
 special register to read/write:
 
 ::
@@ -2099,37 +1840,26 @@ Table: LDS\_ALLOC
 Vector ALU Operations
 =====================
 
-Vector ALU instructions (VALU) perform an arithmetic or logical
-operation on data for each of 64 threads and write results back to
+Vector ALU instructions (VALU) perform an arithmetic or logical operation on data for each of 64 threads and write results back to
 VGPRs, SGPRs or the EXEC mask.
 
-Parameter interpolation is a mixed VALU and LDS instruction, and is
-described in the Data Share chapter.
+Parameter interpolation is a mixed VALU and LDS instruction, and is described in the Data Share chapter.
 
 Microcode Encodings
 -------------------
 
-Most VALU instructions are available in two encodings: VOP3 which uses
-64-bits of instruction and has the full range of capabilities, and one
-of three 32-bit encodings that offer a restricted set of capabilities. A
-few instructions are only available in the VOP3 encoding. The only
-instructions that cannot use the VOP3 format are the parameter
-interpolation instructions.
+Most VALU instructions are available in two encodings: VOP3 which uses 64-bits of instruction and has the full range of capabilities, and one of three 32-bit encodings that offer a restricted set of capabilities. A few instructions are only available in the VOP3 encoding. The only instructions that cannot use the VOP3 format are the parameter interpolation instructions.
 
-When an instruction is available in two microcode formats, it is up to
-the user to decide which to use. It is recommended to use the 32-bit
-encoding whenever possible.
+When an instruction is available in two microcode formats, it is up to the user to decide which to use. It is recommended to use the 32-bit encoding whenever possible.
 
 The microcode encodings are shown below.
 
-VOP2 is for instructions with two inputs and a single vector
-destination. Instructions that have a carry-out implicitly write the
+VOP2 is for instructions with two inputs and a single vector destination. Instructions that have a carry-out implicitly write the
 carry-out to the VCC register.
 
 |microcode vop2|
 
-VOP1 is for instructions with no inputs or a single input and one
-destination.
+VOP1 is for instructions with no inputs or a single input and one destination.
 
 |microcode vop1|
 
@@ -2154,20 +1884,14 @@ other instructions use the common form, designated VOP3a.
 Any of the 32-bit microcode formats may use a 32-bit literal constant,
 but not VOP3.
 
-VOP3P is for instructions that use "packed math": They perform the
-operation on a pair of input values that are packed into the high and
-low 16-bits of each operand; the two 16-bit results are written to a
-single VGPR as two packed values.
+VOP3P is for instructions that use "packed math": They perform the operation on a pair of input values that are packed into the high and low 16-bits of each operand; the two 16-bit results are written to a single VGPR as two packed values.
 
 |microcode vop3p|
 
 Operands
 --------
 
-All VALU instructions take at least one input operand (except V\_NOP and
-V\_CLREXCP). The data-size of the operands is explicitly defined in the
-name of the instruction. For example, V\_MAD\_F32 operates on 32-bit
-floating point data.
+All VALU instructions take at least one input operand (except V\_NOP and V\_CLREXCP). The data-size of the operands is explicitly defined in the name of the instruction. For example, V\_MAD\_F32 operates on 32-bit floating point data.
 
 Instruction Inputs
 ~~~~~~~~~~~~~~~~~~
@@ -2280,17 +2004,17 @@ bits; codes 0 to 255 can be the scalar source if it is eight bits; codes
 +-----------+--------------------+-----------------------------------------------+
 | 129-192   | int 1.. 64         | Integer inline constants.                     |
 +-----------+--------------------+-----------------------------------------------+
-| 193-208   | int -1 .. -16      |
+| 193-208   | int -1 .. -16      |                                               |
 +-----------+--------------------+-----------------------------------------------+
 | 209-234   | reserved           | Unused.                                       |
 +-----------+--------------------+-----------------------------------------------+
 | 235       | SHARED\_BASE       | Memory Aperture definition.                   |
 +-----------+--------------------+-----------------------------------------------+
-| 236       | SHARED\_LIMIT      |
+| 236       | SHARED\_LIMIT      |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 237       | PRIVATE\_BASE      |
+| 237       | PRIVATE\_BASE      |                                               |      
 +-----------+--------------------+-----------------------------------------------+
-| 238       | PRIVATE\_LIMIT     |
+| 238       | PRIVATE\_LIMIT     |                                               |
 +-----------+--------------------+-----------------------------------------------+
 | 239       | POPS\_EXITING\_WAV | Primitive Ordered Pixel Shading wave ID.      |
 |           | E\_ID              |                                               |
@@ -2303,21 +2027,21 @@ bits; codes 0 to 255 can be the scalar source if it is eight bits; codes
 |           |                    | | single: 0x3e22f983                          |
 |           |                    | | double: 0x3fc45f306dc9c882                  |
 +-----------+--------------------+-----------------------------------------------+
-| 241       | -0.5               |
+| 241       | -0.5               |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 242       | 1.0                |
+| 242       | 1.0                |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 243       | -1.0               |
+| 243       | -1.0               |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 244       | 2.0                |
+| 244       | 2.0                |                                               |       
 +-----------+--------------------+-----------------------------------------------+
-| 245       | -2.0               |
+| 245       | -2.0               |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 246       | 4.0                |
+| 246       | 4.0                |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 247       | -4.0               |
+| 247       | -4.0               |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 248       | 1/(2\*PI)          |
+| 248       | 1/(2\*PI)          |                                               |
 +-----------+--------------------+-----------------------------------------------+
 | 249       | SDWA               | 250                                           |
 +-----------+--------------------+-----------------------------------------------+
@@ -2524,8 +2248,8 @@ Table: VALU Instruction Set
 | V\_CMP         | I16, I32, I64, | F, LT, EQ, LE, | Write VCC..                  |
 |                | U16, U32, U64  | GT, LG, GE, T  |                              |
 +----------------+----------------+----------------+------------------------------+
-| V\_CMPX        | Write VCC and  |
-|                | exec.          |
+| V\_CMPX        | Write VCC and  |                |                              | 
+|                | exec.          |                |                              |
 +----------------+----------------+----------------+------------------------------+
 | V\_CMP         | F16, F32, F64  | | F, LT, EQ,   | Write VCC.                   |
 |                |                |   LE, GT, LG,  |                              |
@@ -2541,8 +2265,8 @@ Table: VALU Instruction Set
 |                |                |   normal       |                              |
 |                |                |   compare)     |                              |
 +----------------+----------------+----------------+------------------------------+
-| V\_CMPX        | Write VCC and  |
-|                | exec.          |
+| V\_CMPX        | Write VCC and  |                                               |
+|                | exec.          |                                               |
 +----------------+----------------+----------------+------------------------------+
 | V\_CMP\_CLASS  | F16, F32, F64  | | Test for one | Write VCC.                   |
 |                |                |   of:          |                              |
@@ -2556,8 +2280,8 @@ Table: VALU Instruction Set
 |                |                |   subnormal,   |                              |
 |                |                |   zero.        |                              |
 +----------------+----------------+----------------+------------------------------+
-| V\_CMPX\_CLASS | Write VCC and  |
-|                | exec.          |
+| V\_CMPX\_CLASS | Write VCC and  |                |                              |
+|                | exec.          |                |                              |
 +----------------+----------------+----------------+------------------------------+
 
 Table: VALU Instruction Set
@@ -3132,14 +2856,14 @@ VGPRs.
 +-------------------------------+--------------------------------------------+
 | Instruction                   | Description                                |
 +===============================+============================================+
-| MTBUF Instructions            |
+| MTBUF Instructions            |                                            |
 +-------------------------------+--------------------------------------------+
 | | TBUFFER\_LOAD\_FORMAT\_{x,x | Read from, or write to, a typed buffer     |
 | y,xyz,xyzw}                   | object. Also used for a vertex fetch.      |
 | | TBUFFER\_STORE\_FORMAT\_{x, |                                            |
 | xy,xyz,xyzw}                  |                                            |
 +-------------------------------+--------------------------------------------+
-| MUBUF Instructions            |
+| MUBUF Instructions            |                                            | 
 +-------------------------------+--------------------------------------------+
 | | BUFFER\_LOAD\_FORMAT\_{x,xy | | Read to, or write from, an untyped       |
 | ,xyz,xyzw}                    |   buffer object.                           |
@@ -3547,7 +3271,7 @@ The final buffer memory address is composed of three parts:
    the buffer is linearly addressed (a simple Array-of-Structures
    calculation) or is swizzled.
 
-.. figure:: ../images/fig_8_2.png
+.. figure:: fig_8_2.png
    :alt: Address Calculation for a Linear Buffer
 
    Address Calculation for a Linear Buffer
@@ -3615,7 +3339,7 @@ STRIDE must be a multiple of element\_size.
 Remember that the "sgpr\_offset" is not a part of the "offset" term in
 the above equations.
 
-.. figure:: ../images/fig_8_3.png
+.. figure:: fig_8_3.png
    :alt: Example of Buffer Swizzling
 
    Example of Buffer Swizzling
@@ -3697,43 +3421,43 @@ descriptor.
 +----------+--------+---------------+---------------------------------------------+
 | 61:48    | 14     | Stride        | Bytes 0 to 16383                            |
 +----------+--------+---------------+---------------------------------------------+
-| 62       | 1      | Cache swizzle | Buffer access. Optionally, swizzle texture  |
-|          |        |               | cache TC L1 cache banks.                    |
+| 62       | 1      | Cache swizzle | | Buffer access. Optionally, swizzle texture|
+|          |        |               | | cache TC L1 cache banks.                  |
 +----------+--------+---------------+---------------------------------------------+
-| 63       | 1      | Swizzle       | Swizzle AOS according to stride,            |
-|          |        | enable        | index\_stride, and element\_size, else      |
-|          |        |               | linear (stride \* index + offset).          |
+| 63       | 1      | Swizzle       || Swizzle AOS according to stride,           |
+|          |        | enable        || index\_stride, and element\_size, else     |
+|          |        |               || linear (stride \* index + offset).         |
 +----------+--------+---------------+---------------------------------------------+
 | 95:64    | 32     | Num\_records  | In units of stride or bytes.                |
 +----------+--------+---------------+---------------------------------------------+
-| 98:96    | 3      | Dst\_sel\_x   | | Destination channel select:               |
-|          |        |               | | 0=0, 1=1, 4=R, 5=G, 6=B, 7=A              |
+| 98:96    | 3      | Dst\_sel\_x   ||  Destination channel select:               |
+|          |        |               ||  0=0, 1=1, 4=R, 5=G, 6=B, 7=A              |
 +----------+--------+---------------+---------------------------------------------+
-| 101:99   | 3      | Dst\_sel\_y   |
+| 101:99   | 3      | Dst\_sel\_y   |                                             |
 +----------+--------+---------------+---------------------------------------------+
-| 104:102  | 3      | Dst\_sel\_z   |
+| 104:102  | 3      | Dst\_sel\_z   |                                             |
 +----------+--------+---------------+---------------------------------------------+
-| 107:105  | 3      | Dst\_sel\_w   |
+| 107:105  | 3      | Dst\_sel\_w   |                                             |
 +----------+--------+---------------+---------------------------------------------+
-| 110:108  | 3      | Num format    | Numeric data type (float, int, …​). See     |
-|          |        |               | instruction encoding for values.            |
+| 110:108  | 3      | Num format    || Numeric data type (float, int, …​). See     |
+|          |        |               || instruction encoding for values.           |
 +----------+--------+---------------+---------------------------------------------+
-| 114:111  | 4      | Data format   | Number of fields and size of each field.    |
-|          |        |               | See instruction encoding for values. For    |
-|          |        |               | MUBUF instructions with ADD\_TID\_EN = 1.   |
-|          |        |               | This field holds Stride [17:14].            |
+| 114:111  | 4      | Data format   || Number of fields and size of each field.   |
+|          |        |               || See instruction encoding for values. For   |
+|          |        |               || MUBUF instructions with ADD\_TID\_EN = 1   |
+|          |        |               || This field holds Stride [17:14].           |
 +----------+--------+---------------+---------------------------------------------+
-| 115      | 1      | User VM       | Resource is mapped via tiled pool / heap.   |
-|          |        | Enable        |                                             |
+| 115      | 1      || User VM      | Resource is mapped via tiled pool / heap.   |
+|          |        || Enable       |                                             |
 +----------+--------+---------------+---------------------------------------------+
-| 116      | 1      | User VM mode  | Unmapped behavior: 0: null (return 0 / drop |
-|          |        |               | write); 1:invalid (results in error)        |
+| 116      | 1      | User VM mode  || Unmapped behavior: 0: null (return 0 / drop|
+|          |        |               || write); 1:invalid (results in error)       |
 +----------+--------+---------------+---------------------------------------------+
-| 118:117  | 2      | Index stride  | 8, 16, 32, or 64. Used for swizzled buffer  |
-|          |        |               | addressing.                                 |
+| 118:117  | 2      | Index stride  || 8, 16, 32, or 64. Used for swizzled buffer |
+|          |        |               || addressing.                                |
 +----------+--------+---------------+---------------------------------------------+
-| 119      | 1      | Add tid       | Add thread ID to the index for to calculate |
-|          |        | enable        | the address.                                |
+| 119      | 1      || Add tid      || Add thread ID to the index for to calculate|
+|          |        || enable       || the address.                               |
 +----------+--------+---------------+---------------------------------------------+
 | 122:120  | 3      | RSVD          | Reserved. Must be set to zero.              |
 +----------+--------+---------------+---------------------------------------------+
@@ -3741,9 +3465,9 @@ descriptor.
 +----------+--------+---------------+---------------------------------------------+
 | 125:124  | 2      | RSVD          | Reserved. Must be set to zero.              |
 +----------+--------+---------------+---------------------------------------------+
-| 127:126  | 2      | Type          | Value == 0 for buffer. Overlaps upper two   |
-|          |        |               | bits of four-bit TYPE field in 128-bit T#   |
-|          |        |               | resource.                                   |
+| 127:126  | 2      | Type          || Value == 0 for buffer. Overlaps upper two  |
+|          |        |               || bits of four-bit TYPE field in 128-bit T#  |
+|          |        |               || resource.                                  |
 +----------+--------+---------------+---------------------------------------------+
 
 Table: Buffer Resource Descriptor
@@ -4106,39 +3830,39 @@ image opcodes.
 | load / store /     | 0      | 1D          | x         |           |           |           |
 | atomics            |        |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 1                  | 1D     | x           | slice     |           |           |
-|                    | Array  |             |           |           |           |
+| 1                  | 1D     | x           | slice     |           |           |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 1                  | 2D     | x           | y         |           |           |
+| 1                  | 2D     | x           | y         |           |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | fragid    |           |
-|                    | MSAA   |             |           |           |           |
+| 2                  | 2D     | x           | y         | fragid    |           |           |
+|                    | MSAA   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | slice     |           |
-|                    | Array  |             |           |           |           |
+| 2                  | 2D     | x           | y         | slice     |           |           | 
+|                    | Array  |             |           |           |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | fragid    |
-|                    | Array  |             |           |           |           |
-|                    | MSAA   |             |           |           |           |
+| 3                  | 2D     | x           | y         | slice     | fragid    |           |
+|                    | Array  |             |           |           |           |           |
+|                    | MSAA   |             |           |           |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 3D     | x           | y         | z         |           |
+| 2                  | 3D     | x           | y         | z         |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | Cube   | x           | y         | face\_id  |           |
+| 2                  | Cube   | x           | y         | face\_id  |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | load\_mip /        | 1      | 1D          | x         | mipid     |           |           |
 | store\_mip         |        |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 1D     | x           | slice     | mipid     |           |
-|                    | Array  |             |           |           |           |
+| 2                  | 1D     | x           | slice     | mipid     |           |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | mipid     |           |
+| 2                  | 2D     | x           | y         | mipid     |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | mipid     |
-|                    | Array  |             |           |           |           |
+| 3                  | 2D     | x           | y         | slice     | mipid     |           | 
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 3D     | x           | y         | z         | mipid     |
+| 3                  | 3D     | x           | y         | z         | mipid     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | mipid     |
+| 3                  | Cube   | x           | y         | face\_id  | mipid     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 
 Table: Image Opcodes with No Sampler
@@ -4159,90 +3883,89 @@ gradients.
 +====================+========+=============+===========+===========+===========+===========+
 | sample             | 0      | 1D          | x         |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 1                  | 1D     | x           | slice     |           |           |
-|                    | Array  |             |           |           |           |
+| 1                  | 1D     | x           | slice     |           |           |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 1                  | 2D     | x           | y         |           |           |
+| 1                  | 2D     | x           | y         |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | field     |           |
-|                    | interl |             |           |           |           |
-|                    | aced   |             |           |           |           |
+| 2                  | 2D     | x           | y         | field     |           |           |
+|                    | interl |             |           |           |           |           |
+|                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | slice     |           |
-|                    | Array  |             |           |           |           |
+| 2                  | 2D     | x           | y         | slice     |           |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 3D     | x           | y         | z         |           |
+| 2                  | 3D     | x           | y         | z         |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | Cube   | x           | y         | face\_id  |           |
+| 2                  | Cube   | x           | y         | face\_id  |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | sample\_l          | 1      | 1D          | x         | lod       |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 1D     | x           | slice     | lod       |           |
-|                    | Array  |             |           |           |           |
+| 2                  | 1D     | x           | slice     | lod       |           |           | 
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | lod       |           |
+| 2                  | 2D     | x           | y         | lod       |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | field     | lod       |
-|                    | interl |             |           |           |           |
-|                    | aced   |             |           |           |           |
+| 3                  | 2D     | x           | y         | field     | lod       |           |
+|                    | interl |             |           |           |           |           |
+|                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | lod       |
-|                    | Array  |             |           |           |           |
+| 3                  | 2D     | x           | y         | slice     | lod       |           | 
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 3D     | x           | y         | z         | lod       |
+| 3                  | 3D     | x           | y         | z         | lod       |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | lod       |
+| 3                  | Cube   | x           | y         | face\_id  | lod       |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | sample\_cl         | 1      | 1D          | x         | clamp     |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 1D     | x           | slice     | clamp     |           |
-|                    | Array  |             |           |           |           |
+| 2                  | 1D     | x           | slice     | clamp     |           |           |
+|                    | Array  |             |           |           |           |           | 
+| 2                  | 2D     | x           | y         | clamp     |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | clamp     |           |
+| 3                  | 2D     | x           | y         | field     | clamp     |           |   
+|                    | interl |             |           |           |           |           |
+|                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | field     | clamp     |
-|                    | interl |             |           |           |           |
-|                    | aced   |             |           |           |           |
+| 3                  | 2D     | x           | y         | slice     | clamp     |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | clamp     |
-|                    | Array  |             |           |           |           |
+| 3                  | 3D     | x           | y         | z         | clamp     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 3D     | x           | y         | z         | clamp     |
-+--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | clamp     |
+| 3                  | Cube   | x           | y         | face\_id  | clamp     |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | gather4            | 1      | 2D          | x         | y         |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | field     |           |
-|                    | interl |             |           |           |           |
-|                    | aced   |             |           |           |           |
+| 2                  | 2D     | x           | y         | field     |           |           |
+|                    | interl |             |           |           |           |           |
+|                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | slice     |           |
-|                    | Array  |             |           |           |           |
+| 2                  | 2D     | x           | y         | slice     |           |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | Cube   | x           | y         | face\_id  |           |
+| 2                  | Cube   | x           | y         | face\_id  |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | gather4\_l         | 2      | 2D          | x         | y         | lod       |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | field     | lod       |
-|                    | interl |             |           |           |           |
-|                    | aced   |             |           |           |           |
+| 3                  | 2D     | x           | y         | field     | lod       |           |     
+|                    | interl |             |           |           |           |           |
+|                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | lod       |
-|                    | Array  |             |           |           |           |
+| 3                  | 2D     | x           | y         | slice     | lod       |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | lod       |
+| 3                  | Cube   | x           | y         | face\_id  | lod       |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | gather4\_cl        | 2      | 2D          | x         | y         | clamp     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | field     | clamp     |
-|                    | interl |             |           |           |           |
-|                    | aced   |             |           |           |           |
+| 3                  | 2D     | x           | y         | field     | clamp     |           |
+|                    | interl |             |           |           |           |           | 
+|                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | clamp     |
-|                    | Array  |             |           |           |           |
+| 3                  | 2D     | x           | y         | slice     | clamp     |           |
+|                    | Array  |             |           |           |           |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | clamp     |
+| 3                  | Cube   | x           | y         | face\_id  | clamp     |           | 
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 
 Table: Image Opcodes with Sampler
@@ -4281,10 +4004,10 @@ instructions:
 |                    |                    |                    | for it to used in  |
 |                    |                    |                    | LOD computation.   |
 +--------------------+--------------------+--------------------+--------------------+
-| \_CD               | Coarse Derivative  | Send dx/dv, dx/dy, |
-|                    |                    | etc. slopes to TA  |
-|                    |                    | for it to used in  |
-|                    |                    | LOD computation.   |
+| \_CD               | Coarse Derivative  | Send dx/dv, dx/dy, |                    | 
+|                    |                    | etc. slopes to TA  |                    |
+|                    |                    | for it to used in  |                    |
+|                    |                    | LOD computation.   |                    |
 +--------------------+--------------------+--------------------+--------------------+
 | \_LZ               | Level 0            | -                  | Force use of MIP   |
 |                    |                    |                    | level 0.           |
@@ -4402,17 +4125,17 @@ MIMG instructions.
 +----------+--------+---------------+---------------------------------------------+
 | Bits     | Size   | Name          | Comments                                    |
 +==========+========+===============+=============================================+
-| **128-bi |
-| t        |
-| Resource |
-| :        |
-| 1D-tex,  |
-| 2d-tex,  |
-| 2d-msaa  |
-| (multi-s |
-| ample    |
-| auto-ali |
-| asing)** |
+| **128-bi |        |               |                                             |  
+| t        |        |               |                                             |
+| Resource |        |               |                                             |
+| :        |        |               |                                             |
+| 1D-tex,  |        |               |                                             |
+| 2d-tex,  |        |               |                                             |
+| 2d-msaa  |        |               |                                             |
+| (multi-s |        |               |                                             |
+| ample    |        |               |                                             |
+| auto-ali |        |               |                                             |
+| asing)** |        |               |                                             |
 +----------+--------+---------------+---------------------------------------------+
 | 39:0     | 40     | base address  | 256-byte aligned. Also used for fmask-ptr.  |
 +----------+--------+---------------+---------------------------------------------+
@@ -4434,11 +4157,11 @@ MIMG instructions.
 +----------+--------+---------------+---------------------------------------------+
 | 98:96    | 3      | dst\_sel\_x   | 0 = 0, 1 = 1, 4 = R, 5 = G, 6 = B, 7 = A.   |
 +----------+--------+---------------+---------------------------------------------+
-| 101:99   | 3      | dst\_sel\_y   |
+| 101:99   | 3      | dst\_sel\_y   |                                             | 
 +----------+--------+---------------+---------------------------------------------+
-| 104:102  | 3      | dst\_sel\_z   |
-+----------+--------+---------------+---------------------------------------------+
-| 107:105  | 3      | dst\_sel\_w   |
+| 104:102  | 3      | dst\_sel\_z   |                                             |
++----------+--------+---------------+---------------------------------------------+ 
+| 107:105  | 3      | dst\_sel\_w   |                                             | 
 +----------+--------+---------------+---------------------------------------------+
 | 111:108  | 4      | base level    | largest mip level in the resource view. For |
 |          |        |               | msaa, set to zero.                          |
@@ -4456,17 +4179,17 @@ MIMG instructions.
 |          |        |               | 2d-msaa, 15 = 2d-msaa-array. 1-7 are        |
 |          |        |               | reserved.                                   |
 +----------+--------+---------------+---------------------------------------------+
-| **256-bi |
-| t        |
-| Resource |
-| :        |
-| 1d-array |
-| ,        |
-| 2d-array |
-| ,        |
-| 3d,      |
-| cubemap, |
-| MSAA**   |
+| **256-bi |        |               |                                             |        
+| t        |        |               |                                             |
+| Resource |        |               |                                             |
+| :        |        |               |                                             |
+| 1d-array |        |               |                                             |
+| ,        |        |               |                                             |
+| 2d-array |        |               |                                             |
+| ,        |        |               |                                             |
+| 3d,      |        |               |                                             |
+| cubemap, |        |               |                                             |
+| MSAA**   |        |               |                                             |
 +----------+--------+---------------+---------------------------------------------+
 | 140:128  | 13     | depth         | depth-1 of mip0 for 3d map                  |
 +----------+--------+---------------+---------------------------------------------+
@@ -4544,9 +4267,9 @@ with every sample instruction.
 +====================+====================+====================+====================+
 | 2:0                | 3                  | clamp x            | Clamp/wrap mode.   |
 +--------------------+--------------------+--------------------+--------------------+
-| 5:3                | 3                  | clamp y            |
+| 5:3                | 3                  | clamp y            |                    |  
 +--------------------+--------------------+--------------------+--------------------+
-| 8:6                | 3                  | clamp z            |
+| 8:6                | 3                  | clamp z            |                    |
 +--------------------+--------------------+--------------------+--------------------+
 | 11:9               | 3                  | max aniso ratio    |                    |
 +--------------------+--------------------+--------------------+--------------------+
@@ -4841,10 +4564,10 @@ Table: Flat, Global and Scratch Microcode Formats
 +-------------------------+-------------------------+--------------------------+
 | FLAT\_ATOMIC\_DEC       | GLOBAL\_ATOMIC\_DEC     | none                     |
 +-------------------------+-------------------------+--------------------------+
-| The atomic instructions |
-| above are also          |
-| available in "\_X2"     |
-| versions (64-bit).      |
+| The atomic instructions |                         |			       | 
+| above are also          |                         |			       | 
+| available in "\_X2"     |                         |			       | 
+| versions (64-bit).      |                         |			       | 
 +-------------------------+-------------------------+--------------------------+
 
 Table: Flat, Global and Scratch Opcodes
@@ -5027,7 +4750,7 @@ Overview
 The figure below shows the conceptual framework of the LDS is
 integration into the memory of AMD GPUs using OpenCL.
 
-.. figure:: ../images/fig_10_1.png
+.. figure:: fig_10_1.png
    :alt: High-Level Memory Configuration
 
    High-Level Memory Configuration
@@ -5230,7 +4953,7 @@ The table below lists and briefly describes the LDS instruction fields.
 |             |             | ops treat the offset as a 16-bit signed Dword    |
 |             |             | offset.                                          |
 +-------------+-------------+--------------------------------------------------+
-| OFFSET1     | 8           |
+| OFFSET1     | 8           |                                                  | 
 +-------------+-------------+--------------------------------------------------+
 | VDST        | 8           | VGPR to which result is written: either from     |
 |             |             | LDS-load or atomic return value.                 |
@@ -5444,11 +5167,11 @@ The export instruction uses the EXP microcode format.
 |                         |                         | | MRT: vsrc0=R, 1=G,     |
 |                         |                         |   2=B, 3=A               |
 +-------------------------+-------------------------+--------------------------+
-| VSRC2                   | 8                       |
+| VSRC2                   | 8                       |                          |    
 +-------------------------+-------------------------+--------------------------+
-| VSRC1                   | 8                       |
+| VSRC1                   | 8                       |                          |
 +-------------------------+-------------------------+--------------------------+
-| VSRC0                   | 8                       |
+| VSRC0                   | 8                       |                          |
 +-------------------------+-------------------------+--------------------------+
 
 Table: EXP Encoding Field Descriptions
@@ -6456,7 +6179,7 @@ send data from the SIMM16 field and in some cases from EXEC.
 |            |            | 2=emit,    |                                           |
 |            |            | 3=emit-cut |                                           |
 +------------+------------+------------+-------------------------------------------+
-| GS-done    | 3          |
+| GS-done    | 3          |            |                                           |  
 +------------+------------+------------+-------------------------------------------+
 | save wave  | 4          | -          | used in context switching                 |
 +------------+------------+------------+-------------------------------------------+
@@ -11237,29 +10960,29 @@ sections that follow provide details
 | Microcode Formats                       | Reference             | Width      |
 |                                         |                       | (bits)     |
 +=========================================+=======================+============+
-| **Scalar ALU and Control Formats**      |
+| **Scalar ALU and Control Formats**      |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | SOP2                                    | `section\_title <#_so | 32         |
 |                                         | p2>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| SOP1                                    | `section\_title <#_so |
-|                                         | p1>`__                |
+| SOP1                                    | `section\_title <#_so |            | 
+|                                         | p1>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| SOPK                                    | `section\_title <#_so |
-|                                         | pk>`__                |
+| SOPK                                    | `section\_title <#_so |            |
+|                                         | pk>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| SOPP                                    | `section\_title <#_so |
-|                                         | pp>`__                |
+| SOPP                                    | `section\_title <#_so |            |
+|                                         | pp>`__                |            | 
 +-----------------------------------------+-----------------------+------------+
-| SOPC                                    | `section\_title <#_so |
-|                                         | pc>`__                |
+| SOPC                                    | `section\_title <#_so |            |
+|                                         | pc>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| **Scalar Memory Format**                |
+| **Scalar Memory Format**                |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | SMEM                                    | `section\_title <#_sm | 64         |
 |                                         | em>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| **Vector ALU Format**                   |
+| **Vector ALU Format**                   |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | VOP1                                    | `section\_title <#_vo | 32         |
 |                                         | p1>`__                |            |
@@ -11285,35 +11008,35 @@ sections that follow provide details
 | SDWA                                    | `section\_title <#_vo | 32         |
 |                                         | p2>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| **Vector Parameter Interpolation        |
-| Format**                                |
+| **Vector Parameter Interpolation        |                       |            | 
+| Format**                                |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | VINTRP                                  | `section\_title <#_vi | 32         |
 |                                         | ntrp>`__              |            |
 +-----------------------------------------+-----------------------+------------+
-| **LDS/GDS Format**                      |
+| **LDS/GDS Format**                      |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | DS                                      | `section\_title <#_ds | 64         |
 |                                         | >`__                  |            |
 +-----------------------------------------+-----------------------+------------+
-| **Vector Memory Buffer Formats**        |
+| **Vector Memory Buffer Formats**        |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | MTBUF                                   | `??? <#MTUBF>`__      | 64         |
 +-----------------------------------------+-----------------------+------------+
 | MUBUF                                   | `section\_title <#_mu | 64         |
 |                                         | buf>`__               |            |
 +-----------------------------------------+-----------------------+------------+
-| **Vector Memory Image Format**          |
+| **Vector Memory Image Format**          |                       |            |     
 +-----------------------------------------+-----------------------+------------+
 | MIMG                                    | `section\_title <#_mi | 64         |
 |                                         | mg>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| **Export Format**                       |
+| **Export Format**                       |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | EXP                                     | `section\_title <#_ex | 64         |
 |                                         | p>`__                 |            |
 +-----------------------------------------+-----------------------+------------+
-| **Flat Formats**                        |
+| **Flat Formats**                        |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | FLAT                                    | `section\_title <#_fl | 64         |
 |                                         | at>`__                |            |
@@ -12712,9 +12435,9 @@ VOP3 format.
 | Compare         | Opcode  | Description                                       |
 | Operation       | Offset  |                                                   |
 +=================+=========+===================================================+
-| Sixteen Compare |
-| Operations      |
-| (OP16)          |
+| Sixteen Compare |         |                                                   |
+| Operations      |         |                                                   | 
+| (OP16)          |         |                                                   |    
 +-----------------+---------+---------------------------------------------------+
 | F               | 0       | D.u = 0                                           |
 +-----------------+---------+---------------------------------------------------+
@@ -12748,9 +12471,9 @@ VOP3 format.
 +-----------------+---------+---------------------------------------------------+
 | TRU             | 15      | D.u = 1                                           |
 +-----------------+---------+---------------------------------------------------+
-| Eight Compare   |
-| Operations      |
-| (OP8)           |
+| Eight Compare   |         |                                                   |
+| Operations      |         |                                                   |
+| (OP8)           |         |                                                   |
 +-----------------+---------+---------------------------------------------------+
 | F               | 0       | D.u = 0                                           |
 +-----------------+---------+---------------------------------------------------+
@@ -14105,7 +13828,7 @@ DS
 
 +-----------------+---------+---------------------------------------------------+
 | Field Name      | Bits    | Format or Description                             |
-+=================+=========+===================================================+
++-----------------+---------+---------------------------------------------------+
 | OFFSET0         | [7:0]   | First address offset                              |
 +-----------------+---------+---------------------------------------------------+
 | OFFSET1         | [15:8]  | Second address offset. For some opcodes this is   |
@@ -15452,29 +15175,29 @@ The export format has only a single opcode, "EXPORT".
 
 Table: EXP Fields
 
-.. |microcode sop1| image:: ../images/microcode/microcode_sop1.png
-.. |microcode sop2| image:: ../images/microcode/microcode_sop2.png
-.. |microcode sopk| image:: ../images/microcode/microcode_sopk.png
-.. |microcode sopc| image:: ../images/microcode/microcode_sopc.png
-.. |microcode sopp| image:: ../images/microcode/microcode_sopp.png
-.. |microcode vop2| image:: ../images/microcode/microcode_vop2.png
-.. |microcode vop1| image:: ../images/microcode/microcode_vop1.png
-.. |microcode vopc| image:: ../images/microcode/microcode_vopc.png
-.. |microcode vintrp| image:: ../images/microcode/microcode_vintrp.png
-.. |microcode vop3a| image:: ../images/microcode/microcode_vop3a.png
-.. |microcode vop3b| image:: ../images/microcode/microcode_vop3b.png
-.. |microcode vop3p| image:: ../images/microcode/microcode_vop3p.png
-.. |microcode smem| image:: ../images/microcode/microcode_smem.png
-.. |fig 8 1| image:: ../images/fig_8_1.png
-.. |fig 8 5| image:: ../images/fig_8_5.png
-.. |gfx9 valid texture formats| image:: ../images/gfx9_valid_texture_formats.png
-.. |fig 10 2| image:: ../images/fig_10_2.png
-.. |microcode exp| image:: ../images/microcode/microcode_exp.png
-.. |microcode ds| image:: ../images/microcode/microcode_ds.png
-.. |microcode mubuf| image:: ../images/microcode/microcode_mubuf.png
-.. |microcode mtbuf| image:: ../images/microcode/microcode_mtbuf.png
-.. |microcode mimg| image:: ../images/microcode/microcode_mimg.png
-.. |microcode flat| image:: ../images/microcode/microcode_flat.png
-.. |microcode sdwa| image:: ../images/microcode/microcode_sdwa.png
-.. |microcode sdwab| image:: ../images/microcode/microcode_sdwab.png
-.. |microcode dpp16| image:: ../images/microcode/microcode_dpp16.png
+.. |microcode sop1| image:: microcode/microcode_sop1.png
+.. |microcode sop2| image:: microcode/microcode_sop2.png
+.. |microcode sopk| image:: microcode/microcode_sopk.png
+.. |microcode sopc| image:: microcode/microcode_sopc.png
+.. |microcode sopp| image:: microcode/microcode_sopp.png
+.. |microcode vop2| image:: microcode/microcode_vop2.png
+.. |microcode vop1| image:: microcode/microcode_vop1.png
+.. |microcode vopc| image:: microcode/microcode_vopc.png
+.. |microcode vintrp| image:: microcode/microcode_vintrp.png
+.. |microcode vop3a| image:: microcode/microcode_vop3a.png
+.. |microcode vop3b| image:: microcode/microcode_vop3b.png
+.. |microcode vop3p| image:: microcode/microcode_vop3p.png
+.. |microcode smem| image:: microcode/microcode_smem.png
+.. |fig 8 1| image:: fig_8_1.png
+.. |fig 8 5| image:: fig_8_5.png
+.. |gfx9 valid texture formats| image:: gfx9_valid_texture_formats.png
+.. |fig 10 2| image:: fig_10_2.png
+.. |microcode exp| image:: microcode/microcode_exp.png
+.. |microcode ds| image:: microcode/microcode_ds.png
+.. |microcode mubuf| image:: microcode/microcode_mubuf.png
+.. |microcode mtbuf| image:: images/microcode/microcode_mtbuf.png
+.. |microcode mimg| image:: microcode/microcode_mimg.png
+.. |microcode flat| image:: microcode/microcode_flat.png
+.. |microcode sdwa| image:: microcode/microcode_sdwa.png
+.. |microcode sdwab| image:: microcode/microcode_sdwab.png
+.. |microcode dpp16| image:: microcode/microcode_dpp16.png
