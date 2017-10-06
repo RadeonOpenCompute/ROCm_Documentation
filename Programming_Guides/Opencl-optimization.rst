@@ -1,5 +1,8 @@
 .. _Opencl-optimization:
 
+OPENCL Optimization
+========================
+
 Chapter 1 OpenCL Performance and Optimization
 ==============================================
 
