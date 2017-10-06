@@ -81,6 +81,8 @@ performance similar to that of C, C++ and Fortran---without having to switch lan
 Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically
 (through the included Pycc tool). It supports Python compilation to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NumPy.
 
+  * `Anaconda® with Numba <accelerationhttp://numba.pydata.org/numba-doc/latest/index.html>`_
+
 When to Use Anaconda
 #####################
 Use Anaconda when you’re handling large-scale data-analytics,
