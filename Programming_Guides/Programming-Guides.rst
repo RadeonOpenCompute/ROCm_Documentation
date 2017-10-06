@@ -81,8 +81,6 @@ performance similar to that of C, C++ and Fortran---without having to switch lan
 Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically
 (through the included Pycc tool). It supports Python compilation to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NumPy.
 
-  * `Anaconda® with Numba <accelerationhttp://numba.pydata.org/numba-doc/latest/index.html>`_
-
 When to Use Anaconda
 #####################
 Use Anaconda when you’re handling large-scale data-analytics,
@@ -443,8 +441,8 @@ HC Best Practices
 
 HC comes with two header files as of now:
 
-    * `<hc.hpp> <http://scchan.github.io/hcc/hc_8hpp.html>`_ : Main header file for HC
-    * `<hc_math.hpp> <http://scchan.github.io/hcc/hc__math_8hpp_source.html>`_ : Math functions for HC
+    * <`hc.hpp <http://scchan.github.io/hcc/hc_8hpp.html>`> : Main header file for HC
+    * <`hc_math.hpp <http://scchan.github.io/hcc/hc__math_8hpp_source.html>`> : Math functions for HC
 
 Most HC APIs are stored under "hc" namespace, and the class name is the same as their counterpart in C++AMP "Concurrency" namespace. Users of C++AMP should find it easy to switch from C++AMP to HC.
 
@@ -679,10 +677,9 @@ The hcc profiler does not add any additional synchronization between commands or
 Additional Details and tips
 ++++++++++++++++++++++++++++
 
-* Commands are logged in the order they are removed from the internal HCC command tracker. Typically this is the same order that commands are dispatched, though sometimes these may diverge. For example, commands from different devices,queues, or cpu threads may be interleaved on the hcc trace display to stderr. If a single view in timeline order is required, enable and sort by the profiler START timestamps (HCC_PROFILE_VERBOSE=0x2)
-* If the application keeps a reference to a completion_future, then the command timestamp may be reported significantly after it occurs.
+* Commands are logged in the order they are removed from the internal HCC command tracker. Typically this is the same order that      	commands are dispatched, though sometimes these may diverge. For example, commands from different devices,queues, or cpu threads    	may be interleaved on the hcc trace display to stderr. If a single view in timeline order is required, enable and sort by the       	profiler START timestamps (HCC_PROFILE_VERBOSE=0x2)
+* If the application keeps a reference to a completion_future, then the command timestamp may be reported significantly after it      	occurs.
 * HCC_PROFILE has an (untested) feature to write to a log file.
-
 
 
 API documentation
@@ -694,10 +691,10 @@ HIP Programing Guide
 
 HIP provides a C++ syntax that is suitable for compiling most code that commonly appears in compute kernels, including classes, namespaces, operator overloading, templates and more. Additionally, it defines other language features designed specifically to target accelerators, such as the following:
 
-    A kernel-launch syntax that uses standard C++, resembles a function call and is portable to all HIP targets
-    Short-vector headers that can serve on a host or a device
-    Math functions resembling those in the "math.h" header included with standard C++ compilers
-    Built-in functions for accessing specific GPU hardware capabilities
+   * A kernel-launch syntax that uses standard C++, resembles a function call and is portable to all HIP targets
+   * Short-vector headers that can serve on a host or a device
+   * Math functions resembling those in the "math.h" header included with standard C++ compilers
+   * Built-in functions for accessing specific GPU hardware capabilities
 
 This section describes the built-in variables and functions accessible from the HIP kernel. It’s intended for readers who are familiar with Cuda kernel syntax and want to understand how HIP is different.
 
@@ -709,10 +706,19 @@ HIP Best Practices
 
  * :ref:`HIP-porting-guide` 
  * :ref:`HIP-terminology` 
- * :ref:`HIP-run-time-API` 
+ * :ref:`hip_profiling`
+ * :ref:`HIP_Debugging`
+ * :ref:`Kernel_language`
+ * :ref:`HIPTerms`
+ * :ref:`HIP-bug`
+ * :ref:`hipporting-driver-api`
+ * :ref:`CUDAAPIHIP`
+ * :ref:`CUDAAPIHIPTEXTURE`
  * :ref:`HIP-FAQ` 
- * :ref:`hip_porting_driver_api`
- * :ref:`hip_programming_guide`   
+ * :ref:`HIPTerms2`
+
+
+
 
 
 
@@ -725,7 +731,6 @@ OpenCL Best Practices
 ======================
 
 * :ref:`Opencl-optimization`
-
 
 
 
