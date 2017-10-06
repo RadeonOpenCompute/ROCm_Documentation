@@ -4,9 +4,7 @@
 Tutorial
 =====================
 
-	           
-Tutorials
-*************
+
   * :ref:`caffe` How use Caffe on ROCm
 
   *  `Vector-Add <https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/master/vectorAdd>`_ example ussing the HIP 	Programing 	 Language
