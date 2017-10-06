@@ -1,6 +1,6 @@
-.. _HIP-Terms:
+.. _HIPTerms:
 
-#####################################################
+
 Table Comparing Syntax for Different Compute APIs
 #####################################################
 

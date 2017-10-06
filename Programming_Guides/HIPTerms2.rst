@@ -1,4 +1,4 @@
-.. _HIP-Term2:
+.. _HIPTerms2:
 
 Terms used in HIP Documentation
 ################################

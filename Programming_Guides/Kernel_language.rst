@@ -1,7 +1,7 @@
 .. _Kernel_language:
 
 ###################
-HIP Kernel Language
+Kernel Language
 ###################
 
 Index

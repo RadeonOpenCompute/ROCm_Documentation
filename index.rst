@@ -64,6 +64,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    Remote_Device_Programming/Remote-Device-Programming
    Deep_learning/Deep-learning
    Other_Solutions/Other-Solutions
+   Tutorial/Tutorial
    ROCm_Glossary/ROCm-Glossary
 
 
