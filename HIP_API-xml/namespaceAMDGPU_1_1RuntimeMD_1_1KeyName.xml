@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName" kind="namespace" language="C++">
+    <compoundname>AMDGPU::RuntimeMD::KeyName</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a8b089a607bab38db58d62a20e8626d22" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::MDVersion[]</definition>
+        <argsstring>[]</argsstring>
+        <name>MDVersion</name>
+        <initializer>= &quot;amd.MDVersion&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="50" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1abf2cfb8b794b060400cc0dd8ebe2ec03" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfo[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfo</name>
+        <initializer>= &quot;amd.IsaInfo&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="53" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a7ac51ae8bcfd614f4ded194de4dc0894" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoWavefrontSize[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoWavefrontSize</name>
+        <initializer>= &quot;amd.IsaInfoWavefrontSize&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="55" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1aeffaea0951c9e7be0d368eb31e5d869f" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoLocalMemorySize[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoLocalMemorySize</name>
+        <initializer>= &quot;amd.IsaInfoLocalMemorySize&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="57" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a50c9255ede4baeedcf1e9a38c856f722" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoEUsPerCU[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoEUsPerCU</name>
+        <initializer>= &quot;amd.IsaInfoEUsPerCU&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="59" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a9ffffa4e6f89c44859b7909d3675ab51" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoMaxWavesPerEU[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoMaxWavesPerEU</name>
+        <initializer>= &quot;amd.IsaInfoMaxWavesPerEU&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="61" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a00ce03ad5d48d4122ac935c1412c2336" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoMaxFlatWorkGroupSize[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoMaxFlatWorkGroupSize</name>
+        <initializer>= &quot;amd.IsaInfoMaxFlatWorkGroupSize&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="63" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a639a188e45f8e1562149bf9e289fbe7b" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoSGPRAllocGranule[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoSGPRAllocGranule</name>
+        <initializer>= &quot;amd.IsaInfoSGPRAllocGranule&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="65" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a7d48ffadde3113580c7ecb5093a3db6a" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoTotalNumSGPRs[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoTotalNumSGPRs</name>
+        <initializer>= &quot;amd.IsaInfoTotalNumSGPRs&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="67" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1aaf92b1eb9f8d70dd30c2c51e3bd02057" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoAddressableNumSGPRs[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoAddressableNumSGPRs</name>
+        <initializer>= &quot;amd.IsaInfoAddressableNumSGPRs&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="69" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1aa8f4a7fb9271efdbdd7ad8981810720c" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoVGPRAllocGranule[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoVGPRAllocGranule</name>
+        <initializer>= &quot;amd.IsaInfoVGPRAllocGranule&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="71" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a1053d06188636453bb9309bdc95d88db" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoTotalNumVGPRs[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoTotalNumVGPRs</name>
+        <initializer>= &quot;amd.IsaInfoTotalNumVGPRs&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="73" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a0a7d34359cfee474f59657a0e0bc3b78" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::IsaInfoAddressableNumVGPRs[]</definition>
+        <argsstring>[]</argsstring>
+        <name>IsaInfoAddressableNumVGPRs</name>
+        <initializer>= &quot;amd.IsaInfoAddressableNumVGPRs&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="75" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a84d8f416819a9a60551330b866727bcb" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::Language[]</definition>
+        <argsstring>[]</argsstring>
+        <name>Language</name>
+        <initializer>= &quot;amd.Language&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="78" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a701f75f2f1cad7feb2a04ed2fe6148f8" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::LanguageVersion[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LanguageVersion</name>
+        <initializer>= &quot;amd.LanguageVersion&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="80" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a6af3f46ef46ba81b681670f71207a967" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::Kernels[]</definition>
+        <argsstring>[]</argsstring>
+        <name>Kernels</name>
+        <initializer>= &quot;amd.Kernels&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="83" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a2013ed230ad56615612c8c5da58bf789" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::KernelName[]</definition>
+        <argsstring>[]</argsstring>
+        <name>KernelName</name>
+        <initializer>= &quot;amd.KernelName&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="85" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1af7aad6df7ada762778410a73739adbbe" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::Args[]</definition>
+        <argsstring>[]</argsstring>
+        <name>Args</name>
+        <initializer>= &quot;amd.Args&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="87" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1abbc19e2342d2bbc62018cdc3a7999bef" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgSize[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgSize</name>
+        <initializer>= &quot;amd.ArgSize&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="89" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a54ebb3923e896ef0a846d14a0eb0c83c" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgAlign[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgAlign</name>
+        <initializer>= &quot;amd.ArgAlign&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="91" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1ab20a16649a4f23065ebd0c14f8353e69" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgTypeName[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgTypeName</name>
+        <initializer>= &quot;amd.ArgTypeName&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="93" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a19a27d549888642150e52d87d3371f64" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgName[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgName</name>
+        <initializer>= &quot;amd.ArgName&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="95" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1ab13b8ea1d9b7682167eeda6827abc317" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgKind[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgKind</name>
+        <initializer>= &quot;amd.ArgKind&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="97" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a0c0a7b05b4080804ac0b0ad537e6b298" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgValueType[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgValueType</name>
+        <initializer>= &quot;amd.ArgValueType&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="99" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1ab2b7cff9162f2a92801f91aba0fb5a32" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgAddrQual[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgAddrQual</name>
+        <initializer>= &quot;amd.ArgAddrQual&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="101" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a71eb3a6c8e15a465991054a41cd5273c" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgAccQual[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgAccQual</name>
+        <initializer>= &quot;amd.ArgAccQual&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="103" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a9f59563f1487f66e72ab309517c29631" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgIsConst[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgIsConst</name>
+        <initializer>= &quot;amd.ArgIsConst&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="105" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a608e6e26f762135348e3f504fdffc335" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgIsRestrict[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgIsRestrict</name>
+        <initializer>= &quot;amd.ArgIsRestrict&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="107" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a138199575fb4a4327f20e74a46109e7c" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgIsVolatile[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgIsVolatile</name>
+        <initializer>= &quot;amd.ArgIsVolatile&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="109" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a9808c9b34cdcb4c0b10cb29c1cb9d8d8" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgIsPipe[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgIsPipe</name>
+        <initializer>= &quot;amd.ArgIsPipe&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="111" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1af250eb134ce4bbc89bc916e59aa64540" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ReqdWorkGroupSize[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ReqdWorkGroupSize</name>
+        <initializer>= &quot;amd.ReqdWorkGroupSize&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="113" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a85fc95a4bacb474865c720628c9919b7" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::WorkGroupSizeHint[]</definition>
+        <argsstring>[]</argsstring>
+        <name>WorkGroupSizeHint</name>
+        <initializer>= &quot;amd.WorkGroupSizeHint&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="115" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1ad4dd1729ee32c4c88170250c724b9e88" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::VecTypeHint[]</definition>
+        <argsstring>[]</argsstring>
+        <name>VecTypeHint</name>
+        <initializer>= &quot;amd.VecTypeHint&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="117" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a3b0063797578c2414b10c3b69f9f7c20" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::KernelIndex[]</definition>
+        <argsstring>[]</argsstring>
+        <name>KernelIndex</name>
+        <initializer>= &quot;amd.KernelIndex&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="119" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1aecaf4d90da0b40047c1ad66a98376676" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::NoPartialWorkGroups[]</definition>
+        <argsstring>[]</argsstring>
+        <name>NoPartialWorkGroups</name>
+        <initializer>= &quot;amd.NoPartialWorkGroups&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="121" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1ac1eff4ae6fea2a488036e8b35a30f71f" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::PrintfInfo[]</definition>
+        <argsstring>[]</argsstring>
+        <name>PrintfInfo</name>
+        <initializer>= &quot;amd.PrintfInfo&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="123" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1a92572c762caf91b3d818dd3ebf06cca6" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgActualAcc[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgActualAcc</name>
+        <initializer>= &quot;amd.ArgActualAcc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="125" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName_1afa691f7b90b843bca8fee25e1672de40" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::RuntimeMD::KeyName::ArgPointeeAlign[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ArgPointeeAlign</name>
+        <initializer>= &quot;amd.ArgPointeeAlign&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="127" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="47" column="1"/>
+  </compounddef>
+</doxygen>

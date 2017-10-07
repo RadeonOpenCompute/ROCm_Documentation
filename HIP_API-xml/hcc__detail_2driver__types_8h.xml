@@ -1,0 +1,978 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="hcc__detail_2driver__types_8h" kind="file" language="C++">
+    <compoundname>driver_types.h</compoundname>
+    <includedby refid="driver__types_8h" local="no">HIP/include/hip/driver_types.h</includedby>
+    <includedby refid="hcc__detail_2channel__descriptor_8h" local="no">HIP/include/hip/hcc_detail/channel_descriptor.h</includedby>
+    <includedby refid="hcc__detail_2hip__runtime__api_8h" local="no">HIP/include/hip/hcc_detail/hip_runtime_api.h</includedby>
+    <includedby refid="hcc__detail_2texture__types_8h" local="no">HIP/include/hip/hcc_detail/texture_types.h</includedby>
+    <invincdepgraph>
+      <node id="109">
+        <label>HIP/include/hip/hcc_detail/hip_runtime_api.h</label>
+        <link refid="hcc__detail_2hip__runtime__api_8h"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>HIP/include/hip/hcc_detail/texture_types.h</label>
+        <link refid="hcc__detail_2texture__types_8h_source"/>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>HIP/include/hip/channel_descriptor.h</label>
+        <link refid="channel__descriptor_8h_source"/>
+      </node>
+      <node id="113">
+        <label>HIP/include/hip/hcc_detail/device_functions.h</label>
+        <link refid="hcc__detail_2device__functions_8h_source"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>HIP/src/hip_hcc.cpp</label>
+        <link refid="hip__hcc_8cpp"/>
+      </node>
+      <node id="124">
+        <label>HIP/src/hip_texture.h</label>
+        <link refid="hip__texture_8h_source"/>
+      </node>
+      <node id="117">
+        <label>HIP/include/hip/hcc_detail/math_functions.h</label>
+        <link refid="hcc__detail_2math__functions_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>HIP/include/hip/device_functions.h</label>
+        <link refid="device__functions_8h_source"/>
+      </node>
+      <node id="105">
+        <label>HIP/include/hip/hcc_detail/channel_descriptor.h</label>
+        <link refid="hcc__detail_2channel__descriptor_8h_source"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>HIP/include/hip/texture_types.h</label>
+        <link refid="texture__types_8h_source"/>
+      </node>
+      <node id="103">
+        <label>HIP/include/hip/hcc_detail/driver_types.h</label>
+        <link refid="hcc_detail/driver_types.h"/>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>HIP/include/hip/hip_hcc.h</label>
+        <link refid="hip__hcc_8h_source"/>
+      </node>
+      <node id="108">
+        <label>HIP/include/hip/hip_texture_types.h</label>
+        <link refid="hip__texture__types_8h_source"/>
+      </node>
+      <node id="115">
+        <label>HIP/include/hip/hcc_detail/hip_runtime.h</label>
+        <link refid="hcc__detail_2hip__runtime_8h"/>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>HIP/include/hip/hip_runtime.h</label>
+        <link refid="hip__runtime_8h_source"/>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>HIP/include/hip/hip_runtime_api.h</label>
+        <link refid="hip__runtime__api_8h_source"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="119">
+        <label>HIP/src/hip_hcc_internal.h</label>
+        <link refid="hip__hcc__internal_8h_source"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>HIP/src/device_util.h</label>
+        <link refid="device__util_8h_source"/>
+      </node>
+      <node id="118">
+        <label>HIP/include/hip/math_functions.h</label>
+        <link refid="math__functions_8h_source"/>
+      </node>
+      <node id="104">
+        <label>HIP/include/hip/driver_types.h</label>
+        <link refid="driver__types_8h_source"/>
+      </node>
+      <node id="121">
+        <label>HIP/include/hip/hcc_detail/texture_functions.h</label>
+        <link refid="texture__functions_8h_source"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>HIP/include/hip/hcc_detail/hip_texture_types.h</label>
+        <link refid="hcc__detail_2hip__texture__types_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structhipChannelFormatDesc" prot="public">hipChannelFormatDesc</innerclass>
+    <innerclass refid="structhipArray" prot="public">hipArray</innerclass>
+    <innerclass refid="structhipMipmappedArray" prot="public">hipMipmappedArray</innerclass>
+    <innerclass refid="structhipResourceDesc" prot="public">hipResourceDesc</innerclass>
+    <innerclass refid="structhipResourceViewDesc" prot="public">hipResourceViewDesc</innerclass>
+    <innerclass refid="structhipPitchedPtr" prot="public">hipPitchedPtr</innerclass>
+    <innerclass refid="structhipExtent" prot="public">hipExtent</innerclass>
+    <innerclass refid="structhipPos" prot="public">hipPos</innerclass>
+    <innerclass refid="structhipMemcpy3DParms" prot="public">hipMemcpy3DParms</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="hcc__detail_2driver__types_8h_1a098cc20d3d4d7491e6fd551b92ddfe13" prot="public" static="no">
+        <name>hipChannelFormatKind</name>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a098cc20d3d4d7491e6fd551b92ddfe13ab02387829e0e6ba8ecfe50ff48bb01ed" prot="public">
+          <name>hipChannelFormatKindSigned</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a098cc20d3d4d7491e6fd551b92ddfe13aaaa9627a55441642dc6b979eea7a5aac" prot="public">
+          <name>hipChannelFormatKindUnsigned</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a098cc20d3d4d7491e6fd551b92ddfe13a3e7aa403938413ba94916c95c505e18f" prot="public">
+          <name>hipChannelFormatKindFloat</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a098cc20d3d4d7491e6fd551b92ddfe13a6c3c97c39f7019c1625cdc185cb3a1e0" prot="public">
+          <name>hipChannelFormatKindNone</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="27" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="26" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="enum" id="hcc__detail_2driver__types_8h_1ac4a2d283d15bd706ec2fce745e5cf7ac" prot="public" static="no">
+        <name>hipResourceType</name>
+        <enumvalue id="hcc__detail_2driver__types_8h_1ac4a2d283d15bd706ec2fce745e5cf7aca0589eb56f5887c95e50c97bb3afd618c" prot="public">
+          <name>hipResourceTypeArray</name>
+          <initializer>= 0x00</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1ac4a2d283d15bd706ec2fce745e5cf7aca67c0cdae37af35df9a56c09a2ec806a9" prot="public">
+          <name>hipResourceTypeMipmappedArray</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1ac4a2d283d15bd706ec2fce745e5cf7acabfbb200e565b7d76cecf8f13e3c282e5" prot="public">
+          <name>hipResourceTypeLinear</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1ac4a2d283d15bd706ec2fce745e5cf7acab79b496f361dd19e423382fc5aea7729" prot="public">
+          <name>hipResourceTypePitch2D</name>
+          <initializer>= 0x03</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hip resource types </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="73" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="72" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="enum" id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ce" prot="public" static="no">
+        <name>hipResourceViewFormat</name>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea2063974b7c63fe5cc30608eee63c7614" prot="public">
+          <name>hipResViewFormatNone</name>
+          <initializer>= 0x00</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceae24b50913e9a821ec8f8c577d047bb75" prot="public">
+          <name>hipResViewFormatUnsignedChar1</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea2638d20534e10404e014f99b447603bd" prot="public">
+          <name>hipResViewFormatUnsignedChar2</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea77ca99a2f486070fe859d714d3b62a57" prot="public">
+          <name>hipResViewFormatUnsignedChar4</name>
+          <initializer>= 0x03</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceae3d8d4b36e2c4a25de5208513fbf751b" prot="public">
+          <name>hipResViewFormatSignedChar1</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceabce1650eb85d3ef6db11513caaaf08be" prot="public">
+          <name>hipResViewFormatSignedChar2</name>
+          <initializer>= 0x05</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea041b834a894dd458994afd3fb17f2dcf" prot="public">
+          <name>hipResViewFormatSignedChar4</name>
+          <initializer>= 0x06</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceab1ec6b2b7587f5a7505df1518bc4e2cf" prot="public">
+          <name>hipResViewFormatUnsignedShort1</name>
+          <initializer>= 0x07</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceaf1f818268859b5db38129200e9c1535a" prot="public">
+          <name>hipResViewFormatUnsignedShort2</name>
+          <initializer>= 0x08</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceafb6ec538c67bcd6944a682263b7a6b39" prot="public">
+          <name>hipResViewFormatUnsignedShort4</name>
+          <initializer>= 0x09</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceaeebafd1f78ec8590ff32a81a1268f0e5" prot="public">
+          <name>hipResViewFormatSignedShort1</name>
+          <initializer>= 0x0a</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea55ccc4ec1afb1a023aeed517cffaccc2" prot="public">
+          <name>hipResViewFormatSignedShort2</name>
+          <initializer>= 0x0b</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea37a0212e13a615f6a972834d661c5edb" prot="public">
+          <name>hipResViewFormatSignedShort4</name>
+          <initializer>= 0x0c</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea74327a9fbc40fad62352d54248a106fb" prot="public">
+          <name>hipResViewFormatUnsignedInt1</name>
+          <initializer>= 0x0d</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea4cd9e01ef72096fdd9c1f844b879ed95" prot="public">
+          <name>hipResViewFormatUnsignedInt2</name>
+          <initializer>= 0x0e</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea7c253bb1e7c25cd51a9bcbe8a88106ab" prot="public">
+          <name>hipResViewFormatUnsignedInt4</name>
+          <initializer>= 0x0f</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceafe8ce539aced89efc110cbd0f862bfa9" prot="public">
+          <name>hipResViewFormatSignedInt1</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea03a89ff79e27e25450d2c02cbca60412" prot="public">
+          <name>hipResViewFormatSignedInt2</name>
+          <initializer>= 0x11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea49b56a0bc812ada92ff2199f29d42698" prot="public">
+          <name>hipResViewFormatSignedInt4</name>
+          <initializer>= 0x12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceab5d4e7c0bb19afd3e2c1b7006fa6bc43" prot="public">
+          <name>hipResViewFormatHalf1</name>
+          <initializer>= 0x13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceaad2ea80ee12541c78c8c14a020406233" prot="public">
+          <name>hipResViewFormatHalf2</name>
+          <initializer>= 0x14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea5e59ef9588077f8b7514582bf6b4bc76" prot="public">
+          <name>hipResViewFormatHalf4</name>
+          <initializer>= 0x15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea0b724b833c3350e7fa709b8d4c1b3908" prot="public">
+          <name>hipResViewFormatFloat1</name>
+          <initializer>= 0x16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceace7ed35d1f9e472b12434ef15d622f52" prot="public">
+          <name>hipResViewFormatFloat2</name>
+          <initializer>= 0x17</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea63014d0f5b494259309ce97e2084828a" prot="public">
+          <name>hipResViewFormatFloat4</name>
+          <initializer>= 0x18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea72d644a4603a5f50e28219cca0dbc63a" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed1</name>
+          <initializer>= 0x19</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea8d3723df9d15fd0f7d948405074c4645" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed2</name>
+          <initializer>= 0x1a</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceadc93cc8950df637929fec0833091d843" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed3</name>
+          <initializer>= 0x1b</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea37b93313fdc9e6d4345c9f62e8ffacc3" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed4</name>
+          <initializer>= 0x1c</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceab2b2d0d8eeb42f5e0bd36742ddf5c32d" prot="public">
+          <name>hipResViewFormatSignedBlockCompressed4</name>
+          <initializer>= 0x1d</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea2022710f743fb58bfc48b22520e95386" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed5</name>
+          <initializer>= 0x1e</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceab216c662063865156e5c064ce5156991" prot="public">
+          <name>hipResViewFormatSignedBlockCompressed5</name>
+          <initializer>= 0x1f</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceae445c47c26608ab53a073b61b2495c84" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed6H</name>
+          <initializer>= 0x20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96cea89fa2e14d9d41c48d01c34594728456f" prot="public">
+          <name>hipResViewFormatSignedBlockCompressed6H</name>
+          <initializer>= 0x21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1aa0ce0df88178c3157b1a56ae9adb96ceaecae7d40367785c319d4af27f11d1cf7" prot="public">
+          <name>hipResViewFormatUnsignedBlockCompressed7</name>
+          <initializer>= 0x22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hip texture resource view formats </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="84" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="83" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="enum" id="hcc__detail_2driver__types_8h_1a232e222db36b1fc672ba98054d036a18" prot="public" static="no">
+        <name>hipMemcpyKind</name>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a232e222db36b1fc672ba98054d036a18a9d66b705aa85a9c83f0f533cef70d0af" prot="public">
+          <name>hipMemcpyHostToHost</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Host-to-Host Copy. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a232e222db36b1fc672ba98054d036a18aff32175ecb0c7113200286eff8211008" prot="public">
+          <name>hipMemcpyHostToDevice</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Host-to-Device Copy. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a232e222db36b1fc672ba98054d036a18aba2505e9ce1e5382f17730bc670917d1" prot="public">
+          <name>hipMemcpyDeviceToHost</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Device-to-Host Copy. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a232e222db36b1fc672ba98054d036a18abd05a09d3105e0ce25b34dd91cf83f88" prot="public">
+          <name>hipMemcpyDeviceToDevice</name>
+          <initializer>=3</initializer>
+          <briefdescription>
+<para>Device-to-Device Copy. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2driver__types_8h_1a232e222db36b1fc672ba98054d036a18a4e37107e416f79a2edf2b6534163c823" prot="public">
+          <name>hipMemcpyDefault</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Runtime will automatically determine copy-kind based on virtual addresses. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Memory copy types </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="169" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="169" bodyend="175"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="hcc__detail_2driver__types_8h_1a489732842b8866d0af94040a296299a6" prot="public" static="no">
+        <type>struct <ref refid="structhipArray" kindref="compound">hipArray</ref> *</type>
+        <definition>typedef struct hipArray* hipArray_t</definition>
+        <argsstring></argsstring>
+        <name>hipArray_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="52" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hcc__detail_2driver__types_8h_1a9f60656acb28958101d89192f365babc" prot="public" static="no">
+        <type>const struct <ref refid="structhipArray" kindref="compound">hipArray</ref> *</type>
+        <definition>typedef const struct hipArray* hipArray_const_t</definition>
+        <argsstring></argsstring>
+        <name>hipArray_const_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="54" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hcc__detail_2driver__types_8h_1a4d0c1996a3615d72530ddcd90db3de9e" prot="public" static="no">
+        <type>struct <ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray</ref> *</type>
+        <definition>typedef struct hipMipmappedArray* hipMipmappedArray_t</definition>
+        <argsstring></argsstring>
+        <name>hipMipmappedArray_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="65" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hcc__detail_2driver__types_8h_1ad3a2249d04845db4cddf271c474058f6" prot="public" static="no">
+        <type>const struct <ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray</ref> *</type>
+        <definition>typedef const struct hipMipmappedArray* hipMipmappedArray_const_t</definition>
+        <argsstring></argsstring>
+        <name>hipMipmappedArray_const_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="67" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="hcc__detail_2driver__types_8h_1a0c04e67413ce030817361f02673e5c85" prot="public" static="no">
+        <type>enum hipMemcpyKind</type>
+        <definition>typedef enum hipMemcpyKind  hipMemcpyKind</definition>
+        <argsstring></argsstring>
+        <name>hipMemcpyKind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Memory copy types </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="175" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hcc__detail_2driver__types_8h_1ac27d206fb8250a07f403d3dc37e4757d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__inline__ struct <ref refid="structhipPitchedPtr" kindref="compound">hipPitchedPtr</ref></type>
+        <definition>static __inline__ struct hipPitchedPtr make_hipPitchedPtr</definition>
+        <argsstring>(void *d, size_t p, size_t xsz, size_t ysz)</argsstring>
+        <name>make_hipPitchedPtr</name>
+        <param>
+          <type>void *</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xsz</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>ysz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="210" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="210" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="hcc__detail_2driver__types_8h_1aa6587d19b5f194bb0707b11d0272165c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__inline__ struct <ref refid="structhipPos" kindref="compound">hipPos</ref></type>
+        <definition>static __inline__ struct hipPos make_hipPos</definition>
+        <argsstring>(size_t x, size_t y, size_t z)</argsstring>
+        <name>make_hipPos</name>
+        <param>
+          <type>size_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="222" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="222" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="hcc__detail_2driver__types_8h_1aca66f0ccc240b2c882bfc386840833d8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__inline__ struct <ref refid="structhipExtent" kindref="compound">hipExtent</ref></type>
+        <definition>static __inline__ struct hipExtent make_hipExtent</definition>
+        <argsstring>(size_t w, size_t h, size_t d)</argsstring>
+        <name>make_hipExtent</name>
+        <param>
+          <type>size_t</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="233" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="233" bodyend="242"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>present<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>HIP_INCLUDE_HIP_HCC_DETAIL_DRIVER_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIP_INCLUDE_HIP_HCC_DETAIL_DRIVER_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipChannelFormatKind</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>hipChannelFormatKindSigned<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>hipChannelFormatKindUnsigned<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>hipChannelFormatKindFloat<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>hipChannelFormatKindNone<sp/>=<sp/>3</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structhipChannelFormatDesc" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipChannelFormatKind<sp/>f;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structhipArray" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipArray" kindref="compound">hipArray</ref><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data;<sp/></highlight><highlight class="comment">//FIXME:<sp/>generalize<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref><sp/>desc;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipArray" kindref="compound">hipArray</ref>*<sp/><ref refid="structhipArray" kindref="compound">hipArray_t</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipArray" kindref="compound">hipArray</ref>*<sp/><ref refid="structhipArray" kindref="compound">hipArray_const_t</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>It<sp/>needs<sp/>to<sp/>be<sp/>modified<sp/>since<sp/>it<sp/>was<sp/>just<sp/>copied<sp/>from<sp/>hipArray.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="structhipMipmappedArray" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray</ref><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data;<sp/></highlight><highlight class="comment">//FIXME:<sp/>generalize<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref><sp/>desc;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray</ref><sp/>*<ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray_t</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray</ref><sp/>*<ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray_const_t</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipResourceType</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResourceTypeArray<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x00,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResourceTypeMipmappedArray<sp/>=<sp/>0x01,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResourceTypeLinear<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x02,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResourceTypePitch2D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x03</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipResourceViewFormat</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatNone<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x00,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedChar1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x01,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedChar2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x02,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedChar4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x03,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedChar1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x04,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedChar2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x05,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedChar4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x06,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedShort1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x07,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedShort2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x08,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedShort4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x09,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedShort1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0a,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedShort2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0b,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedShort4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0c,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedInt1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0d,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedInt2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0e,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedInt4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0f,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedInt1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x10,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedInt2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x11,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedInt4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x12,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatHalf1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x13,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatHalf2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x14,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatHalf4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x15,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatFloat1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x16,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatFloat2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x17,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatFloat4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x18,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed1<sp/><sp/>=<sp/>0x19,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed2<sp/><sp/>=<sp/>0x1a,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed3<sp/><sp/>=<sp/>0x1b,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed4<sp/><sp/>=<sp/>0x1c,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedBlockCompressed4<sp/><sp/><sp/><sp/>=<sp/>0x1d,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed5<sp/><sp/>=<sp/>0x1e,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedBlockCompressed5<sp/><sp/><sp/><sp/>=<sp/>0x1f,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed6H<sp/>=<sp/>0x20,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatSignedBlockCompressed6H<sp/><sp/><sp/>=<sp/>0x21,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>hipResViewFormatUnsignedBlockCompressed7<sp/><sp/>=<sp/>0x22</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="structhipResourceDesc" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipResourceDesc" kindref="compound">hipResourceDesc</ref><sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipResourceType<sp/>resType;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hipArray_t<sp/>array;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>array;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hipMipmappedArray_t<sp/>mipmap;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>mipmap;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*devPtr;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref><sp/>desc;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeInBytes;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>linear;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*devPtr;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref><sp/>desc;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>width;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>height;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>pitchInBytes;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>pitch2D;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>res;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="structhipResourceViewDesc" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipResourceViewDesc" kindref="compound">hipResourceViewDesc</ref></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipResourceViewFormat<sp/>format;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>width;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>height;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>depth;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>firstMipmapLevel;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastMipmapLevel;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>firstLayer;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastLayer;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipMemcpyKind<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>hipMemcpyHostToHost<sp/>=<sp/>0,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>hipMemcpyHostToDevice<sp/>=<sp/>1,<sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>hipMemcpyDeviceToHost<sp/>=<sp/>2,<sp/><sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>hipMemcpyDeviceToDevice<sp/>=3,<sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>hipMemcpyDefault<sp/>=<sp/>4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}<sp/>hipMemcpyKind;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="structhipPitchedPtr" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPitchedPtr" kindref="compound">hipPitchedPtr</ref></highlight></codeline>
+<codeline lineno="178"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/>*ptr;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/>pitch;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/>xsize;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/>ysize;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="structhipExtent" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipExtent" kindref="compound">hipExtent</ref><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>width;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Width<sp/>in<sp/>elements<sp/>when<sp/>referring<sp/>to<sp/>array<sp/>memory,<sp/>in<sp/>bytes<sp/>when<sp/>referring<sp/>to<sp/>linear<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>height;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>depth;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="structhipPos" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPos" kindref="compound">hipPos</ref><sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>x;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>y;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>z;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="structhipMemcpy3DParms" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipMemcpy3DParms" kindref="compound">hipMemcpy3DParms</ref><sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>hipArray_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>srcArray;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPos" kindref="compound">hipPos</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>srcPos;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPitchedPtr" kindref="compound">hipPitchedPtr</ref><sp/><sp/>srcPtr;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>hipArray_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dstArray;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPos" kindref="compound">hipPos</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dstPos;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPitchedPtr" kindref="compound">hipPitchedPtr</ref><sp/><sp/>dstPtr;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipExtent" kindref="compound">hipExtent</ref><sp/><sp/><sp/><sp/><sp/><sp/>extent;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipMemcpyKind<sp/><sp/><sp/><sp/>kind;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>__inline__<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPitchedPtr" kindref="compound">hipPitchedPtr</ref><sp/>make_hipPitchedPtr(void<sp/>*d,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xsz,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ysz)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPitchedPtr" kindref="compound">hipPitchedPtr</ref><sp/>s;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>s.ptr<sp/><sp/><sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>s.pitch<sp/>=<sp/>p;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>s.xsize<sp/>=<sp/>xsz;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>s.ysize<sp/>=<sp/>ysz;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>__inline__<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPos" kindref="compound">hipPos</ref><sp/>make_hipPos(size_t<sp/>x,<sp/>size_t<sp/>y,<sp/>size_t<sp/>z)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipPos" kindref="compound">hipPos</ref><sp/>p;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>p.x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>p.y<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>p.z<sp/>=<sp/>z;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>__inline__<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipExtent" kindref="compound">hipExtent</ref><sp/>make_hipExtent(size_t<sp/>w,<sp/>size_t<sp/>h,<sp/>size_t<sp/>d)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipExtent" kindref="compound">hipExtent</ref><sp/>e;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>e.width<sp/><sp/>=<sp/>w;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>e.height<sp/>=<sp/>h;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>e.depth<sp/><sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h"/>
+  </compounddef>
+</doxygen>

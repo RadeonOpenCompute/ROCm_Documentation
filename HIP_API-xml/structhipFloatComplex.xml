@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structhipFloatComplex" kind="struct" language="C++" prot="public">
+    <compoundname>hipFloatComplex</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipFloatComplex_1a946095e4c5e8294f48205136368cea7a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hipFloatComplex::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_complex.h" line="116" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_complex.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipFloatComplex_1a5883b4293816867e6d5dd6ceb3e34bd3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float hipFloatComplex::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_complex.h" line="116" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_complex.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_complex.h" line="100" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_complex.h" bodystart="100" bodyend="117"/>
+    <listofallmembers>
+      <member refid="structhipFloatComplex_1a946095e4c5e8294f48205136368cea7a" prot="public" virt="non-virtual"><scope>hipFloatComplex</scope><name>x</name></member>
+      <member refid="structhipFloatComplex_1a5883b4293816867e6d5dd6ceb3e34bd3" prot="public" virt="non-virtual"><scope>hipFloatComplex</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

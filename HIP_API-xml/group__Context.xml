@@ -1,0 +1,669 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="group__Context" kind="group">
+    <compoundname>Context</compoundname>
+    <title>Management</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxCreate</definition>
+        <argsstring>(hipCtx_t *ctx, unsigned int flags, hipDevice_t device)</argsstring>
+        <name>hipCtxCreate</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Create a context and set it as current/ default context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">associated</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>device handle</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1576" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="57" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxDestroy</definition>
+        <argsstring>(hipCtx_t ctx)</argsstring>
+        <name>hipCtxDestroy</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a HIP context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context to destroy</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>,<ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref> , <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1587" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="118" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxPopCurrent</definition>
+        <argsstring>(hipCtx_t *ctx)</argsstring>
+        <name>hipCtxPopCurrent</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Pop the current/default context and return the popped context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad9d895f7f4dbf63a4586b2aab593c9fe" kindref="member">hipErrorInvalidContext</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1598" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="143" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxPushCurrent</definition>
+        <argsstring>(hipCtx_t ctx)</argsstring>
+        <name>hipCtxPushCurrent</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Push the context to be set as current/ default context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad9d895f7f4dbf63a4586b2aab593c9fe" kindref="member">hipErrorInvalidContext</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref> , <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1609" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="165" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga834a192f70c2bfc0269c309436776feb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxSetCurrent</definition>
+        <argsstring>(hipCtx_t ctx)</argsstring>
+        <name>hipCtxSetCurrent</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Set the passed context as current/default. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad9d895f7f4dbf63a4586b2aab593c9fe" kindref="member">hipErrorInvalidContext</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref> , <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1620" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="191" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga741786101d348fdbfa1f64546860357a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxGetCurrent</definition>
+        <argsstring>(hipCtx_t *ctx)</argsstring>
+        <name>hipCtxGetCurrent</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Get the handle of the current/ default context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad9d895f7f4dbf63a4586b2aab593c9fe" kindref="member">hipErrorInvalidContext</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1631" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="179" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxGetDevice</definition>
+        <argsstring>(hipDevice_t *device)</argsstring>
+        <name>hipCtxGetDevice</name>
+        <param>
+          <type>hipDevice_t *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Get the handle of the device associated with current/default context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad9d895f7f4dbf63a4586b2aab593c9fe" kindref="member">hipErrorInvalidContext</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1643" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="205" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gabe5941e6798c71a8351b7d51311e7e8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxGetApiVersion</definition>
+        <argsstring>(hipCtx_t ctx, int *apiVersion)</argsstring>
+        <name>hipCtxGetApiVersion</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>apiVersion</declname>
+        </param>
+        <briefdescription>
+<para>Returns the approximate HIP api version. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context to check </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">apiVersion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="warning"><para>The HIP feature set does not correspond to an exact CUDA SDK api revision. This function always set *apiVersion to 4 as an approximation though HIP supports some features which were introduced in later CUDA SDK revisions. HIP apps code should not rely on the api revision number here and should use arch feature flags to test device capabilities or conditional compilation.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1661" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="222" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gab10373068faafd3042c9003e2e6d905a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxGetCacheConfig</definition>
+        <argsstring>(hipFuncCache_t *cacheConfig)</argsstring>
+        <name>hipCtxGetCacheConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref> *</type>
+          <declname>cacheConfig</declname>
+        </param>
+        <briefdescription>
+<para>Set Cache configuration for a specific function. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">cacheConfiguration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="warning"><para>AMD devices and some Nvidia GPUS do not support reconfigurable cache. This hint is ignored on those architectures.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1674" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="233" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxSetCacheConfig</definition>
+        <argsstring>(hipFuncCache_t cacheConfig)</argsstring>
+        <name>hipCtxSetCacheConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref></type>
+          <declname>cacheConfig</declname>
+        </param>
+        <briefdescription>
+<para>Set L1/Shared cache partition. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cacheConfiguration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="warning"><para>AMD devices and some Nvidia GPUS do not support reconfigurable cache. This hint is ignored on those architectures.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1687" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="242" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gad5c1d4ced27f584a74ed550dd002fa5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxSetSharedMemConfig</definition>
+        <argsstring>(hipSharedMemConfig config)</argsstring>
+        <name>hipCtxSetSharedMemConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Set Shared memory bank configuration. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sharedMemoryConfiguration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="warning"><para>AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1700" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="251" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga3c78b22dd03435a7ca88621a45409565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxGetSharedMemConfig</definition>
+        <argsstring>(hipSharedMemConfig *pConfig)</argsstring>
+        <name>hipCtxGetSharedMemConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref> *</type>
+          <declname>pConfig</declname>
+        </param>
+        <briefdescription>
+<para>Get Shared memory bank configuration. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">sharedMemoryConfiguration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="warning"><para>AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1713" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="260" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxSynchronize</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipCtxSynchronize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Blocks until the default context has completed all preceding requested tasks. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="warning"><para>This function waits for all streams on the default context to complete execution, and then returns.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1724" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="269" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxGetFlags</definition>
+        <argsstring>(unsigned int *flags)</argsstring>
+        <name>hipCtxGetFlags</name>
+        <param>
+          <type>unsigned int *</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Return flags used for creating default context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1735" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="275" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga834dfd99d72082fe8770142fa30b30e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxEnablePeerAccess</definition>
+        <argsstring>(hipCtx_t peerCtx, unsigned int flags)</argsstring>
+        <name>hipCtxEnablePeerAccess</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Enables direct access to memory allocations in a peer context. </para>        </briefdescription>
+        <detaileddescription>
+<para>Memory which already allocated on peer device will be mapped into the address space of the current device. In addition, all future memory allocations on peerDeviceId will be mapped into the address space of the current device when the memory is allocated. The peer memory remains accessible from the current device until a call to hipDeviceDisablePeerAccess or hipDeviceReset.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peerCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a5399c146f91246f8b77abcd4ea30e7ac" kindref="member">hipErrorPeerAccessAlreadyEnabled</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+<simplesect kind="warning"><para>PeerToPeer support is experimental. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1753" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="215" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gaf48e4e9c3b6bbad5deaeff10d2e28b31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxDisablePeerAccess</definition>
+        <argsstring>(hipCtx_t peerCtx)</argsstring>
+        <name>hipCtxDisablePeerAccess</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <briefdescription>
+<para>Disable direct access from current context&apos;s virtual address space to memory allocations physically located on a peer context.Disables direct access to memory allocations in a peer context and unregisters any registered allocations. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns hipErrorPeerAccessNotEnabled if direct access to memory on peerDevice has not yet been enabled from the current device.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peerCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a2ee0bf2e64840f253e4a1b12bbaf2d09" kindref="member">hipErrorPeerAccessNotEnabled</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+<simplesect kind="warning"><para>PeerToPeer support is experimental. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1767" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="222" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga60d31f744991c6c568ec3027cf1fb8ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDevicePrimaryCtxGetState</definition>
+        <argsstring>(hipDevice_t dev, unsigned int *flags, int *active)</argsstring>
+        <name>hipDevicePrimaryCtxGetState</name>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>unsigned int *</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Get the state of the primary context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">Device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to get primary context flags for </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">Pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to store flags </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">Pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to store context state; 0 = inactive, 1 = active</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1780" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="285" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga7bbe8905908168909ddecd98cd34c1e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDevicePrimaryCtxRelease</definition>
+        <argsstring>(hipDevice_t dev)</argsstring>
+        <name>hipDevicePrimaryCtxRelease</name>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Release the primary context on the GPU. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">Device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which primary context is released</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+<simplesect kind="warning"><para>This function return <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref> though doesn&apos;t release the primaryCtx by design on HIP/HCC path. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1792" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="308" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gab6e1014e9a4dbe281b84e38d89ff2409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDevicePrimaryCtxRetain</definition>
+        <argsstring>(hipCtx_t *pctx, hipDevice_t dev)</argsstring>
+        <name>hipDevicePrimaryCtxRetain</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref> *</type>
+          <declname>pctx</declname>
+        </param>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Retain the primary context on the GPU. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">Returned</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>context handle of the new context </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">Device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which primary context is released</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1804" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="320" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gac2ca146e5d67b28d870dadd9dc3fc04e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDevicePrimaryCtxReset</definition>
+        <argsstring>(hipDevice_t dev)</argsstring>
+        <name>hipDevicePrimaryCtxReset</name>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Resets the primary context on the GPU. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">Device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which primary context is reset</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1815" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="333" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga5cd8ba188e628274142dd44d39780436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDevicePrimaryCtxSetFlags</definition>
+        <argsstring>(hipDevice_t dev, unsigned int flags)</argsstring>
+        <name>hipDevicePrimaryCtxSetFlags</name>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Set flags for the primary context. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">Device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for which the primary context flags are set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">New</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>flags for the device</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, #hipErrorContextAlreadyInUse</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1827" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_context.cpp" bodystart="347" bodyend="359"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="2">----------------------------------------------------------------------------------------------<mdash/> </heading>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

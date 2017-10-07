@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="group__Error" kind="group">
+    <compoundname>Error</compoundname>
+    <title>Error Handling</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Error_1ga533daeb9114d7fc2db8d867adf9e419b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipGetLastError</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipGetLastError</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return last error returned by any HIP runtime API call and resets the stored error code to <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>return code from last HIP called from the active host thread</para></simplesect>
+Returns the last error that has been returned by any of the runtime calls in the same host thread, and then resets the saved error to <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>.</para><para><simplesect kind="see"><para><ref refid="group__Error_1ga1421a2ee561f30d5b1dbed3ecb28b264" kindref="member">hipGetErrorString</ref>, <ref refid="group__Error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, <ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="486" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_error.cpp" bodystart="32" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Error_1ga1dd660bc739f7e13edd34615660f0148" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipPeekAtLastError</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipPeekAtLastError</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return last error returned by any HIP runtime API call. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+Returns the last error that has been returned by any of the runtime calls in the same host thread. Unlike hipGetLastError, this function does not reset the saved error code.</para><para><simplesect kind="see"><para><ref refid="group__Error_1ga1421a2ee561f30d5b1dbed3ecb28b264" kindref="member">hipGetErrorString</ref>, <ref refid="group__Error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, <ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="499" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_error.cpp" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Error_1ga88c474d77635523dbf6ca67be7b56999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* hipGetErrorName</definition>
+        <argsstring>(hipError_t hip_error)</argsstring>
+        <name>hipGetErrorName</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+          <declname>hip_error</declname>
+        </param>
+        <briefdescription>
+<para>Return name of the specified error code in text form. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hip_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error code to convert to name. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>const char pointer to the NULL-terminated error name</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Error_1ga1421a2ee561f30d5b1dbed3ecb28b264" kindref="member">hipGetErrorString</ref>, <ref refid="group__Error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, <ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="511" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_error.cpp" bodystart="50" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Error_1ga1421a2ee561f30d5b1dbed3ecb28b264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* hipGetErrorString</definition>
+        <argsstring>(hipError_t hipError)</argsstring>
+        <name>hipGetErrorString</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+          <declname>hipError</declname>
+        </param>
+        <briefdescription>
+<para>Return handy text string message to explain the error which occurred. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hipError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error code to convert to string. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>const char pointer to the NULL-terminated error string</para></simplesect>
+<simplesect kind="warning"><para>: on HCC, this function returns the name of the error (same as hipGetErrorName)</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Error_1ga88c474d77635523dbf6ca67be7b56999" kindref="member">hipGetErrorName</ref>, <ref refid="group__Error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, <ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="524" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_error.cpp" bodystart="57" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="2">----------------------------------------------------------------------------------------------<mdash/> </heading>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

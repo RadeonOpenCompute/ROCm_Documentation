@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structucharHolder" kind="struct" language="C++" prot="public">
+    <compoundname>ucharHolder</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structucharHolder_1a64f9673d8a740ede7d8508040dc965d3" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char ucharHolder::c[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="465" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="465" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structucharHolder_1a6af4173699d0813948dd9cb68a6c85f4" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ucharHolder::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="466" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="466" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structucharHolder_1a4f8d420162454c81c8aa37fe8ad7e8e4" prot="public" static="no" mutable="no">
+        <type>union ucharHolder::@76</type>
+        <definition>union ucharHolder::@76 ucharHolder::@77</definition>
+        <argsstring></argsstring>
+        <name>@77</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="467" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="463" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="463" bodyend="468"/>
+    <listofallmembers>
+      <member refid="structucharHolder_1a64f9673d8a740ede7d8508040dc965d3" prot="public" virt="non-virtual"><scope>ucharHolder</scope><name>c</name></member>
+      <member refid="structucharHolder_1a6af4173699d0813948dd9cb68a6c85f4" prot="public" virt="non-virtual"><scope>ucharHolder</scope><name>ui</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

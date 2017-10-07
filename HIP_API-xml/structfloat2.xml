@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structfloat2" kind="struct" language="C++" prot="public">
+    <compoundname>float2</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfloat2_1a0bb68b4a8de04ffea5f7aae53c48a613" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float float2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="661" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="661" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfloat2_1a0f1298f22c4ee20a369cd3b9c25b2cc6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float float2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="661" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="661" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="643" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="643" bodyend="662"/>
+    <listofallmembers>
+      <member refid="structfloat2_1a0bb68b4a8de04ffea5f7aae53c48a613" prot="public" virt="non-virtual"><scope>float2</scope><name>x</name></member>
+      <member refid="structfloat2_1a0f1298f22c4ee20a369cd3b9c25b2cc6" prot="public" virt="non-virtual"><scope>float2</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

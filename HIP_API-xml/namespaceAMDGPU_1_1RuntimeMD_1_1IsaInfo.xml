@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="namespaceAMDGPU_1_1RuntimeMD_1_1IsaInfo" kind="namespace" language="C++">
+    <compoundname>AMDGPU::RuntimeMD::IsaInfo</compoundname>
+    <innerclass refid="structAMDGPU_1_1RuntimeMD_1_1IsaInfo_1_1Metadata" prot="public">AMDGPU::RuntimeMD::IsaInfo::Metadata</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="231" column="1"/>
+  </compounddef>
+</doxygen>

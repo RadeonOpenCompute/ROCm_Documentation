@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structLockedBase" kind="struct" language="C++" prot="public">
+    <compoundname>LockedBase</compoundname>
+    <derivedcompoundref refid="classihipCtxCriticalBase__t" prot="private" virt="non-virtual">ihipCtxCriticalBase_t&lt; MUTEX_TYPE &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classihipDeviceCriticalBase__t" prot="private" virt="non-virtual">ihipDeviceCriticalBase_t&lt; MUTEX_TYPE &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classihipStreamCriticalBase__t" prot="public" virt="non-virtual">ihipStreamCriticalBase_t&lt; MUTEX_TYPE &gt;</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>MUTEX_TYPE</declname>
+        <defname>MUTEX_TYPE</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structLockedBase_1a9f06ef8dd0ca387f29f4bfce78171ce6" prot="public" static="no" mutable="no">
+        <type>MUTEX_TYPE</type>
+        <definition>MUTEX_TYPE LockedBase&lt; MUTEX_TYPE &gt;::_mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="446" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="446" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structLockedBase_1a594e7f7b1d4c4ad73036fa39236b186d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LockedBase&lt; MUTEX_TYPE &gt;::lock</definition>
+        <argsstring>()</argsstring>
+        <name>lock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="442" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="442" bodyend="442"/>
+      </memberdef>
+      <memberdef kind="function" id="structLockedBase_1acaf4ab2a22731604d0db747ddb6f68aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LockedBase&lt; MUTEX_TYPE &gt;::unlock</definition>
+        <argsstring>()</argsstring>
+        <name>unlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="443" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="443" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="structLockedBase_1aac7d86884283de7f2bd7109287e5840e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LockedBase&lt; MUTEX_TYPE &gt;::try_lock</definition>
+        <argsstring>()</argsstring>
+        <name>try_lock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="444" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="444" bodyend="444"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="151">
+        <label>LockedBase&lt; MUTEX_TYPE &gt;</label>
+        <link refid="structLockedBase"/>
+      </node>
+      <node id="153">
+        <label>ihipDeviceCriticalBase_t&lt; MUTEX_TYPE &gt;</label>
+        <link refid="classihipDeviceCriticalBase__t"/>
+        <childnode refid="151" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="154">
+        <label>ihipStreamCriticalBase_t&lt; MUTEX_TYPE &gt;</label>
+        <link refid="classihipStreamCriticalBase__t"/>
+        <childnode refid="151" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="152">
+        <label>ihipCtxCriticalBase_t&lt; MUTEX_TYPE &gt;</label>
+        <link refid="classihipCtxCriticalBase__t"/>
+        <childnode refid="151" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="155">
+        <label>LockedBase&lt; MUTEX_TYPE &gt;</label>
+        <link refid="structLockedBase"/>
+        <childnode refid="156" relation="usage">
+          <edgelabel>_mutex</edgelabel>
+        </childnode>
+      </node>
+      <node id="156">
+        <label>MUTEX_TYPE</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="438" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="438" bodyend="447"/>
+    <listofallmembers>
+      <member refid="structLockedBase_1a9f06ef8dd0ca387f29f4bfce78171ce6" prot="public" virt="non-virtual"><scope>LockedBase</scope><name>_mutex</name></member>
+      <member refid="structLockedBase_1a594e7f7b1d4c4ad73036fa39236b186d" prot="public" virt="non-virtual"><scope>LockedBase</scope><name>lock</name></member>
+      <member refid="structLockedBase_1aac7d86884283de7f2bd7109287e5840e" prot="public" virt="non-virtual"><scope>LockedBase</scope><name>try_lock</name></member>
+      <member refid="structLockedBase_1acaf4ab2a22731604d0db747ddb6f68aa" prot="public" virt="non-virtual"><scope>LockedBase</scope><name>unlock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

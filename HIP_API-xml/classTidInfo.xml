@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classTidInfo" kind="class" language="C++" prot="public">
+    <compoundname>TidInfo</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTidInfo_1a826a31e05e314d13710700f885882fcc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TidInfo::_shortTid</definition>
+        <argsstring></argsstring>
+        <name>_shortTid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="90" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTidInfo_1aef35e8ca2b40761f86b5c04acf292ffd" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t TidInfo::_apiSeqNum</definition>
+        <argsstring></argsstring>
+        <name>_apiSeqNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="93" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTidInfo_1aa240209f29826e5a3ce9fee05600b2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TidInfo::TidInfo</definition>
+        <argsstring>()</argsstring>
+        <name>TidInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="83" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="242" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classTidInfo_1a8ed954888f5dac8d35717e30f6621386" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int TidInfo::tid</definition>
+        <argsstring>() const </argsstring>
+        <name>tid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="85" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classTidInfo_1acc70f501d41f2a4208b04bf9a05ace20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t TidInfo::incApiSeqNum</definition>
+        <argsstring>()</argsstring>
+        <name>incApiSeqNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="86" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classTidInfo_1adbaa8eeb33e8291db69d9de5aa82280b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t TidInfo::apiSeqNum</definition>
+        <argsstring>() const </argsstring>
+        <name>apiSeqNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="87" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="80" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="80" bodyend="94"/>
+    <listofallmembers>
+      <member refid="classTidInfo_1aef35e8ca2b40761f86b5c04acf292ffd" prot="private" virt="non-virtual"><scope>TidInfo</scope><name>_apiSeqNum</name></member>
+      <member refid="classTidInfo_1a826a31e05e314d13710700f885882fcc" prot="private" virt="non-virtual"><scope>TidInfo</scope><name>_shortTid</name></member>
+      <member refid="classTidInfo_1adbaa8eeb33e8291db69d9de5aa82280b" prot="public" virt="non-virtual"><scope>TidInfo</scope><name>apiSeqNum</name></member>
+      <member refid="classTidInfo_1acc70f501d41f2a4208b04bf9a05ace20" prot="public" virt="non-virtual"><scope>TidInfo</scope><name>incApiSeqNum</name></member>
+      <member refid="classTidInfo_1a8ed954888f5dac8d35717e30f6621386" prot="public" virt="non-virtual"><scope>TidInfo</scope><name>tid</name></member>
+      <member refid="classTidInfo_1aa240209f29826e5a3ce9fee05600b2fb" prot="public" virt="non-virtual"><scope>TidInfo</scope><name>TidInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

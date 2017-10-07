@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structhipDeviceProp__t" kind="struct" language="C++" prot="public">
+    <compoundname>hipDeviceProp_t</compoundname>
+    <includes refid="hip__runtime__api_8h" local="no">hip_runtime_api.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a5b44bf8fa46faefcde989942b1d11a5e" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char hipDeviceProp_t::name[256]</definition>
+        <argsstring>[256]</argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Device name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="84" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1acedd6a2d23423441e4bf51c4a1b719f9" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipDeviceProp_t::totalGlobalMem</definition>
+        <argsstring></argsstring>
+        <name>totalGlobalMem</name>
+        <briefdescription>
+<para>Size of global memory region (in bytes). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="85" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a3b9138678a0795c2677eddcfb1c67156" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipDeviceProp_t::sharedMemPerBlock</definition>
+        <argsstring></argsstring>
+        <name>sharedMemPerBlock</name>
+        <briefdescription>
+<para>Size of shared memory region (in bytes). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="86" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a73c1c21648a901799ff6bef83c11135b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::regsPerBlock</definition>
+        <argsstring></argsstring>
+        <name>regsPerBlock</name>
+        <briefdescription>
+<para>Registers per block. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="87" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1af3357d33c004608bf05bc21a352be81b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::warpSize</definition>
+        <argsstring></argsstring>
+        <name>warpSize</name>
+        <briefdescription>
+<para>Warp size. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="88" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1af971cf1ca3ec1f68ad09036c0cc672e0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::maxThreadsPerBlock</definition>
+        <argsstring></argsstring>
+        <name>maxThreadsPerBlock</name>
+        <briefdescription>
+<para>Max work items per work group or workgroup max size. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="89" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a8ebba6fc12f80c9a9cf9b9193f0da465" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::maxThreadsDim[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>maxThreadsDim</name>
+        <briefdescription>
+<para>Max number of threads in each dimension (XYZ) of a block. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="90" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1ae529c23929f592120081fed31d877a55" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::maxGridSize[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>maxGridSize</name>
+        <briefdescription>
+<para>Max grid dimensions (XYZ). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="91" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a1dd15bee43692b8649dfbdc1adbaaf96" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::clockRate</definition>
+        <argsstring></argsstring>
+        <name>clockRate</name>
+        <briefdescription>
+<para>Max clock frequency of the multiProcessors in khz. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="92" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a6db0ab8e7e8cc13c84d7bb7f70226d5e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::memoryClockRate</definition>
+        <argsstring></argsstring>
+        <name>memoryClockRate</name>
+        <briefdescription>
+<para>Max global memory clock frequency in khz. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="93" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a1d710ce8bd34daf66f892a66a2273132" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::memoryBusWidth</definition>
+        <argsstring></argsstring>
+        <name>memoryBusWidth</name>
+        <briefdescription>
+<para>Global memory bus width in bits. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="94" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a29880232c56120be3455ce00d5379665" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipDeviceProp_t::totalConstMem</definition>
+        <argsstring></argsstring>
+        <name>totalConstMem</name>
+        <briefdescription>
+<para>Size of shared memory region (in bytes). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="95" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1aec9e4173c2e34cc232300c415dbd5e4f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::major</definition>
+        <argsstring></argsstring>
+        <name>major</name>
+        <briefdescription>
+<para>Major compute capability. On HCC, this is an approximation and features may differ from CUDA CC. See the arch feature flags for portable ways to query feature caps. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="96" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1abb51208e2509a7a1d107f0da69108938" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::minor</definition>
+        <argsstring></argsstring>
+        <name>minor</name>
+        <briefdescription>
+<para>Minor compute capability. On HCC, this is an approximation and features may differ from CUDA CC. See the arch feature flags for portable ways to query feature caps. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="97" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1add8d9d2ad52aece9fd1dbe25c18d9d57" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::multiProcessorCount</definition>
+        <argsstring></argsstring>
+        <name>multiProcessorCount</name>
+        <briefdescription>
+<para>Number of multi-processors (compute units). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="98" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a24404decccc16833973c803ced6f3a51" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::l2CacheSize</definition>
+        <argsstring></argsstring>
+        <name>l2CacheSize</name>
+        <briefdescription>
+<para>L2 cache size. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="99" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a23a39f4fd795addb3b125e9c3f6295ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::maxThreadsPerMultiProcessor</definition>
+        <argsstring></argsstring>
+        <name>maxThreadsPerMultiProcessor</name>
+        <briefdescription>
+<para>Maximum resident threads per multi-processor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="100" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1ae7d9216f8583a703359d0b9373823f5d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::computeMode</definition>
+        <argsstring></argsstring>
+        <name>computeMode</name>
+        <briefdescription>
+<para>Compute mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="101" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a6fbf3b08a1a08ae700f1a06265f6666b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::clockInstructionRate</definition>
+        <argsstring></argsstring>
+        <name>clockInstructionRate</name>
+        <briefdescription>
+<para>Frequency in khz of the timer used by the device-side &quot;clock*&quot; instructions. New for HIP. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="102" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1afc58158e44bef6ad26f2be401434b049" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipDeviceArch__t" kindref="compound">hipDeviceArch_t</ref></type>
+        <definition>hipDeviceArch_t hipDeviceProp_t::arch</definition>
+        <argsstring></argsstring>
+        <name>arch</name>
+        <briefdescription>
+<para>Architectural feature flags. New for HIP. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="103" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1ad8461a28caf9c38c58cf358583b5bee3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::concurrentKernels</definition>
+        <argsstring></argsstring>
+        <name>concurrentKernels</name>
+        <briefdescription>
+<para>Device can possibly execute multiple kernels concurrently. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="104" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1aa0f598c0196ff1f429290a43c1fa4038" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::pciDomainID</definition>
+        <argsstring></argsstring>
+        <name>pciDomainID</name>
+        <briefdescription>
+<para>PCI Domain ID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="105" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a1350f64d49b717ed3a06458f7549ccb0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::pciBusID</definition>
+        <argsstring></argsstring>
+        <name>pciBusID</name>
+        <briefdescription>
+<para>PCI Bus ID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="106" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1ae6aa845dc2d540f85098ea30be35f4eb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::pciDeviceID</definition>
+        <argsstring></argsstring>
+        <name>pciDeviceID</name>
+        <briefdescription>
+<para>PCI Device ID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="107" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1aa1a32a7f387f6da845db7b228711fce8" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipDeviceProp_t::maxSharedMemoryPerMultiProcessor</definition>
+        <argsstring></argsstring>
+        <name>maxSharedMemoryPerMultiProcessor</name>
+        <briefdescription>
+<para>Maximum Shared Memory Per Multiprocessor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="108" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1a9bb19b2b0cdee8977ed63964532d639d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::isMultiGpuBoard</definition>
+        <argsstring></argsstring>
+        <name>isMultiGpuBoard</name>
+        <briefdescription>
+<para>1 if device is on a multi-GPU board, 0 if not. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="109" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1ac2143f5448607d1a02a9e8783fcf06a1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::canMapHostMemory</definition>
+        <argsstring></argsstring>
+        <name>canMapHostMemory</name>
+        <briefdescription>
+<para>Check whether HIP can map host memory. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="110" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipDeviceProp__t_1adc5950a3d5bbe00cf59d413d8aeeee18" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipDeviceProp_t::gcnArch</definition>
+        <argsstring></argsstring>
+        <name>gcnArch</name>
+        <briefdescription>
+<para>AMD GCN Arch Value. Eg: 803, 701. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="111" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>hipDeviceProp </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="38">
+        <label>hipDeviceProp_t</label>
+        <link refid="structhipDeviceProp__t"/>
+        <childnode refid="39" relation="usage">
+          <edgelabel>arch</edgelabel>
+        </childnode>
+      </node>
+      <node id="39">
+        <label>hipDeviceArch_t</label>
+        <link refid="structhipDeviceArch__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" line="83" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hip_runtime_api.h" bodystart="83" bodyend="112"/>
+    <listofallmembers>
+      <member refid="structhipDeviceProp__t_1afc58158e44bef6ad26f2be401434b049" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>arch</name></member>
+      <member refid="structhipDeviceProp__t_1ac2143f5448607d1a02a9e8783fcf06a1" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>canMapHostMemory</name></member>
+      <member refid="structhipDeviceProp__t_1a6fbf3b08a1a08ae700f1a06265f6666b" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>clockInstructionRate</name></member>
+      <member refid="structhipDeviceProp__t_1a1dd15bee43692b8649dfbdc1adbaaf96" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>clockRate</name></member>
+      <member refid="structhipDeviceProp__t_1ae7d9216f8583a703359d0b9373823f5d" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>computeMode</name></member>
+      <member refid="structhipDeviceProp__t_1ad8461a28caf9c38c58cf358583b5bee3" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>concurrentKernels</name></member>
+      <member refid="structhipDeviceProp__t_1adc5950a3d5bbe00cf59d413d8aeeee18" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>gcnArch</name></member>
+      <member refid="structhipDeviceProp__t_1a9bb19b2b0cdee8977ed63964532d639d" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>isMultiGpuBoard</name></member>
+      <member refid="structhipDeviceProp__t_1a24404decccc16833973c803ced6f3a51" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>l2CacheSize</name></member>
+      <member refid="structhipDeviceProp__t_1aec9e4173c2e34cc232300c415dbd5e4f" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>major</name></member>
+      <member refid="structhipDeviceProp__t_1ae529c23929f592120081fed31d877a55" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>maxGridSize</name></member>
+      <member refid="structhipDeviceProp__t_1aa1a32a7f387f6da845db7b228711fce8" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>maxSharedMemoryPerMultiProcessor</name></member>
+      <member refid="structhipDeviceProp__t_1a8ebba6fc12f80c9a9cf9b9193f0da465" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>maxThreadsDim</name></member>
+      <member refid="structhipDeviceProp__t_1af971cf1ca3ec1f68ad09036c0cc672e0" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>maxThreadsPerBlock</name></member>
+      <member refid="structhipDeviceProp__t_1a23a39f4fd795addb3b125e9c3f6295ea" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>maxThreadsPerMultiProcessor</name></member>
+      <member refid="structhipDeviceProp__t_1a1d710ce8bd34daf66f892a66a2273132" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>memoryBusWidth</name></member>
+      <member refid="structhipDeviceProp__t_1a6db0ab8e7e8cc13c84d7bb7f70226d5e" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>memoryClockRate</name></member>
+      <member refid="structhipDeviceProp__t_1abb51208e2509a7a1d107f0da69108938" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>minor</name></member>
+      <member refid="structhipDeviceProp__t_1add8d9d2ad52aece9fd1dbe25c18d9d57" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>multiProcessorCount</name></member>
+      <member refid="structhipDeviceProp__t_1a5b44bf8fa46faefcde989942b1d11a5e" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>name</name></member>
+      <member refid="structhipDeviceProp__t_1a1350f64d49b717ed3a06458f7549ccb0" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>pciBusID</name></member>
+      <member refid="structhipDeviceProp__t_1ae6aa845dc2d540f85098ea30be35f4eb" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>pciDeviceID</name></member>
+      <member refid="structhipDeviceProp__t_1aa0f598c0196ff1f429290a43c1fa4038" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>pciDomainID</name></member>
+      <member refid="structhipDeviceProp__t_1a73c1c21648a901799ff6bef83c11135b" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>regsPerBlock</name></member>
+      <member refid="structhipDeviceProp__t_1a3b9138678a0795c2677eddcfb1c67156" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>sharedMemPerBlock</name></member>
+      <member refid="structhipDeviceProp__t_1a29880232c56120be3455ce00d5379665" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>totalConstMem</name></member>
+      <member refid="structhipDeviceProp__t_1acedd6a2d23423441e4bf51c4a1b719f9" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>totalGlobalMem</name></member>
+      <member refid="structhipDeviceProp__t_1af3357d33c004608bf05bc21a352be81b" prot="public" virt="non-virtual"><scope>hipDeviceProp_t</scope><name>warpSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

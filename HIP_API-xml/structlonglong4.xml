@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structlonglong4" kind="struct" language="C++" prot="public">
+    <compoundname>longlong4</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlonglong4_1a46fa1a4866f90d55db77b6a662d4ec4b" prot="public" static="no" mutable="no">
+        <type>signed long</type>
+        <definition>signed long longlong4::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="1129" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlonglong4_1ad8b4bb030f57b6811bc5fd2d1bab6c1a" prot="public" static="no" mutable="no">
+        <type>signed long</type>
+        <definition>signed long longlong4::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="1129" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlonglong4_1af9a43e7e2ecdd405f5b868a16c4a27a0" prot="public" static="no" mutable="no">
+        <type>signed long</type>
+        <definition>signed long longlong4::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="1129" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlonglong4_1aaff1a0a0ca86c3b42bd565e41dab9bce" prot="public" static="no" mutable="no">
+        <type>signed long</type>
+        <definition>signed long longlong4::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="1129" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="1111" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="1111" bodyend="1130"/>
+    <listofallmembers>
+      <member refid="structlonglong4_1aaff1a0a0ca86c3b42bd565e41dab9bce" prot="public" virt="non-virtual"><scope>longlong4</scope><name>w</name></member>
+      <member refid="structlonglong4_1a46fa1a4866f90d55db77b6a662d4ec4b" prot="public" virt="non-virtual"><scope>longlong4</scope><name>x</name></member>
+      <member refid="structlonglong4_1ad8b4bb030f57b6811bc5fd2d1bab6c1a" prot="public" virt="non-virtual"><scope>longlong4</scope><name>y</name></member>
+      <member refid="structlonglong4_1af9a43e7e2ecdd405f5b868a16c4a27a0" prot="public" virt="non-virtual"><scope>longlong4</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

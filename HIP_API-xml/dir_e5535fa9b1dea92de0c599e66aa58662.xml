@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_e5535fa9b1dea92de0c599e66aa58662" kind="dir">
+    <compoundname>HIP/include/hip/hcc_detail</compoundname>
+    <innerfile refid="hcc__detail_2channel__descriptor_8h">channel_descriptor.h</innerfile>
+    <innerfile refid="hcc__detail_2device__functions_8h">device_functions.h</innerfile>
+    <innerfile refid="hcc__detail_2driver__types_8h">driver_types.h</innerfile>
+    <innerfile refid="hcc__detail_2hip__complex_8h">hip_complex.h</innerfile>
+    <innerfile refid="hip__db_8h">hip_db.h</innerfile>
+    <innerfile refid="hcc__detail_2hip__fp16_8h">hip_fp16.h</innerfile>
+    <innerfile refid="hip__ldg_8h">hip_ldg.h</innerfile>
+    <innerfile refid="hcc__detail_2hip__runtime_8h">hip_runtime.h</innerfile>
+    <innerfile refid="hcc__detail_2hip__runtime__api_8h">hip_runtime_api.h</innerfile>
+    <innerfile refid="hcc__detail_2hip__texture__types_8h">hip_texture_types.h</innerfile>
+    <innerfile refid="hcc__detail_2hip__vector__types_8h">hip_vector_types.h</innerfile>
+    <innerfile refid="host__defines_8h">host_defines.h</innerfile>
+    <innerfile refid="hcc__detail_2math__functions_8h">math_functions.h</innerfile>
+    <innerfile refid="texture__functions_8h">texture_functions.h</innerfile>
+    <innerfile refid="hcc__detail_2texture__types_8h">texture_types.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/"/>
+  </compounddef>
+</doxygen>

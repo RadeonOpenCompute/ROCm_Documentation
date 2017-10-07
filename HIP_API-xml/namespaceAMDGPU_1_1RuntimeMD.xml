@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="namespaceAMDGPU_1_1RuntimeMD" kind="namespace" language="C++">
+    <compoundname>AMDGPU::RuntimeMD</compoundname>
+    <innernamespace refid="namespaceAMDGPU_1_1RuntimeMD_1_1IsaInfo">AMDGPU::RuntimeMD::IsaInfo</innernamespace>
+    <innernamespace refid="namespaceAMDGPU_1_1RuntimeMD_1_1Kernel">AMDGPU::RuntimeMD::Kernel</innernamespace>
+    <innernamespace refid="namespaceAMDGPU_1_1RuntimeMD_1_1KernelArg">AMDGPU::RuntimeMD::KernelArg</innernamespace>
+    <innernamespace refid="namespaceAMDGPU_1_1RuntimeMD_1_1KeyName">AMDGPU::RuntimeMD::KeyName</innernamespace>
+    <innernamespace refid="namespaceAMDGPU_1_1RuntimeMD_1_1Program">AMDGPU::RuntimeMD::Program</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1a59ee022f07463134b0a93185db742643" prot="public" static="no" mutable="no">
+        <type>const unsigned char</type>
+        <definition>const unsigned char AMDGPU::RuntimeMD::MDVersion</definition>
+        <argsstring></argsstring>
+        <name>MDVersion</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="43" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1ad5c89a78f545cc5d3274e4a0d95d3ae3" prot="public" static="no" mutable="no">
+        <type>const unsigned char</type>
+        <definition>const unsigned char AMDGPU::RuntimeMD::MDRevision</definition>
+        <argsstring></argsstring>
+        <name>MDRevision</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="44" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1ad4d8d3000febaa7ec942407b91244abb" prot="public" static="no" mutable="no">
+        <type>const uint8_t</type>
+        <definition>const uint8_t AMDGPU::RuntimeMD::INVALID_ADDR_QUAL</definition>
+        <argsstring></argsstring>
+        <name>INVALID_ADDR_QUAL</name>
+        <initializer>= 0xff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="185" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1ab66fee4011ed39f20dc7d508615309a8" prot="public" static="no" mutable="no">
+        <type>const uint8_t</type>
+        <definition>const uint8_t AMDGPU::RuntimeMD::INVALID_ACC_QUAL</definition>
+        <argsstring></argsstring>
+        <name>INVALID_ACC_QUAL</name>
+        <initializer>= 0xff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="186" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1RuntimeMD_1a7e3bfd0989857ec5ddf9f3178f91a5be" prot="public" static="no" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t AMDGPU::RuntimeMD::INVALID_KERNEL_INDEX</definition>
+        <argsstring></argsstring>
+        <name>INVALID_KERNEL_INDEX</name>
+        <initializer>= ~0U</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="187" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="40" column="1"/>
+  </compounddef>
+</doxygen>

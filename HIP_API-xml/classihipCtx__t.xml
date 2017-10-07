@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classihipCtx__t" kind="class" language="C++" prot="public">
+    <compoundname>ihipCtx_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classihipCtx__t_1a6347fe6223f93238a1835abffe11629a" prot="public" static="no" mutable="no">
+        <type><ref refid="classihipStream__t" kindref="compound">ihipStream_t</ref> *</type>
+        <definition>ihipStream_t* ihipCtx_t::_defaultStream</definition>
+        <argsstring></argsstring>
+        <name>_defaultStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="820" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="820" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipCtx__t_1a5cf04019cc8004e0addebb2b78ffaf02" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned ihipCtx_t::_ctxFlags</definition>
+        <argsstring></argsstring>
+        <name>_ctxFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="823" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="823" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classihipCtx__t_1ac486d4fd89dc19c6056aa203fe1c095d" prot="private" static="no" mutable="no">
+        <type><ref refid="classihipDevice__t" kindref="compound">ihipDevice_t</ref> *</type>
+        <definition>ihipDevice_t* ihipCtx_t::_device</definition>
+        <argsstring></argsstring>
+        <name>_device</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="826" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="826" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipCtx__t_1a8f8ac1bb0dab7a32be33f88228072a65" prot="private" static="no" mutable="no">
+        <type><ref refid="classihipCtxCriticalBase__t" kindref="compound">ihipCtxCritical_t</ref></type>
+        <definition>ihipCtxCritical_t ihipCtx_t::_criticalData</definition>
+        <argsstring></argsstring>
+        <name>_criticalData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="832" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="832" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classihipCtx__t_1a0f45c6c4658c334919f9c10e8bb36945" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ihipCtx_t::ihipCtx_t</definition>
+        <argsstring>(ihipDevice_t *device, unsigned deviceCnt, unsigned flags)</argsstring>
+        <name>ihipCtx_t</name>
+        <param>
+          <type><ref refid="classihipDevice__t" kindref="compound">ihipDevice_t</ref> *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>deviceCnt</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="794" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="914" bodyend="928"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1a4f2f1cf2c2ce59cebf4db5065cf4a4f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ihipCtx_t::~ihipCtx_t</definition>
+        <argsstring>()</argsstring>
+        <name>~ihipCtx_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="795" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="933" bodyend="939"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1a7bb16b42406604e36cf3a8ff4a22b6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ihipCtx_t::locked_removeStream</definition>
+        <argsstring>(ihipStream_t *s)</argsstring>
+        <name>locked_removeStream</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">ihipStream_t</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="802" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="1074" bodyend="1079"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1a5ae2e486fa216f0aca1669a2896a1209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ihipCtx_t::locked_reset</definition>
+        <argsstring>()</argsstring>
+        <name>locked_reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="803" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="942" bodyend="980"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1a37743c0eeb5f097494b65a9c459d452b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ihipCtx_t::locked_waitAllStreams</definition>
+        <argsstring>()</argsstring>
+        <name>locked_waitAllStreams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="804" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="1084" bodyend="1092"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1ab4183967a66d33fe4be2c3fe587e0093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ihipCtx_t::locked_syncDefaultStream</definition>
+        <argsstring>(bool waitOnSelf, bool syncHost)</argsstring>
+        <name>locked_syncDefaultStream</name>
+        <param>
+          <type>bool</type>
+          <declname>waitOnSelf</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>syncHost</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="805" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="1020" bodyend="1070"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1ab735f446b5af2863b224d3427b087af3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classihipCtxCriticalBase__t" kindref="compound">ihipCtxCritical_t</ref> &amp;</type>
+        <definition>ihipCtxCritical_t&amp; ihipCtx_t::criticalData</definition>
+        <argsstring>()</argsstring>
+        <name>criticalData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="807" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="807" bodyend="807"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1aa8a9fc5c59a2c96691e26f88226207f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classihipDevice__t" kindref="compound">ihipDevice_t</ref> *</type>
+        <definition>const ihipDevice_t* ihipCtx_t::getDevice</definition>
+        <argsstring>() const </argsstring>
+        <name>getDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="809" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="809" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1a2e2be9f765a7ce7dbc1d83e39a58a507" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ihipCtx_t::getDeviceNum</definition>
+        <argsstring>() const </argsstring>
+        <name>getDeviceNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="810" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="810" bodyend="810"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1a4417fabf8c0b5f91ccd0c2b5a26ec72b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classihipDevice__t" kindref="compound">ihipDevice_t</ref> *</type>
+        <definition>ihipDevice_t* ihipCtx_t::getWriteableDevice</definition>
+        <argsstring>() const </argsstring>
+        <name>getWriteableDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="813" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="813" bodyend="813"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipCtx__t_1af4deb9e9edb0399c4c79030df9f12d90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ihipCtx_t::toString</definition>
+        <argsstring>() const </argsstring>
+        <name>toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="815" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="984" bodyend="989"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="88">
+        <label>ihipCtx_t</label>
+        <link refid="classihipCtx__t"/>
+        <childnode refid="89" relation="usage">
+          <edgelabel>_defaultStream</edgelabel>
+        </childnode>
+      </node>
+      <node id="91">
+        <label>LockedBase&lt; StreamMutex &gt;</label>
+        <link refid="structLockedBase"/>
+      </node>
+      <node id="90">
+        <label>ihipStreamCriticalBase_t&lt; StreamMutex &gt;</label>
+        <link refid="classihipStreamCriticalBase__t"/>
+        <childnode refid="91" relation="public-inheritance">
+        </childnode>
+        <childnode refid="89" relation="usage">
+          <edgelabel>_parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="89">
+        <label>ihipStream_t</label>
+        <link refid="classihipStream__t"/>
+        <childnode refid="90" relation="usage">
+          <edgelabel>_criticalData</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="792" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="791" bodyend="834"/>
+    <listofallmembers>
+      <member refid="classihipCtx__t_1a8f8ac1bb0dab7a32be33f88228072a65" prot="private" virt="non-virtual"><scope>ihipCtx_t</scope><name>_criticalData</name></member>
+      <member refid="classihipCtx__t_1a5cf04019cc8004e0addebb2b78ffaf02" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>_ctxFlags</name></member>
+      <member refid="classihipCtx__t_1a6347fe6223f93238a1835abffe11629a" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>_defaultStream</name></member>
+      <member refid="classihipCtx__t_1ac486d4fd89dc19c6056aa203fe1c095d" prot="private" virt="non-virtual"><scope>ihipCtx_t</scope><name>_device</name></member>
+      <member refid="classihipCtx__t_1ab735f446b5af2863b224d3427b087af3" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>criticalData</name></member>
+      <member refid="classihipCtx__t_1aa8a9fc5c59a2c96691e26f88226207f1" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>getDevice</name></member>
+      <member refid="classihipCtx__t_1a2e2be9f765a7ce7dbc1d83e39a58a507" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>getDeviceNum</name></member>
+      <member refid="classihipCtx__t_1a4417fabf8c0b5f91ccd0c2b5a26ec72b" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>getWriteableDevice</name></member>
+      <member refid="classihipCtx__t_1a0f45c6c4658c334919f9c10e8bb36945" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>ihipCtx_t</name></member>
+      <member refid="classihipCtx__t_1a7bb16b42406604e36cf3a8ff4a22b6a0" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>locked_removeStream</name></member>
+      <member refid="classihipCtx__t_1a5ae2e486fa216f0aca1669a2896a1209" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>locked_reset</name></member>
+      <member refid="classihipCtx__t_1ab4183967a66d33fe4be2c3fe587e0093" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>locked_syncDefaultStream</name></member>
+      <member refid="classihipCtx__t_1a37743c0eeb5f097494b65a9c459d452b" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>locked_waitAllStreams</name></member>
+      <member refid="classihipCtx__t_1af4deb9e9edb0399c4c79030df9f12d90" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>toString</name></member>
+      <member refid="classihipCtx__t_1a4f2f1cf2c2ce59cebf4db5065cf4a4f8" prot="public" virt="non-virtual"><scope>ihipCtx_t</scope><name>~ihipCtx_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

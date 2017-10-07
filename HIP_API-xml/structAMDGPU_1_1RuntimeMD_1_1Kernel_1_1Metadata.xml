@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata" kind="struct" language="C++" prot="public">
+    <compoundname>AMDGPU::RuntimeMD::Kernel::Metadata</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1afa60acc2d2dabb29cd2e48a515761474" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string AMDGPU::RuntimeMD::Kernel::Metadata::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="216" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a5078092514cb7963fe835fb84bef42cc" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string AMDGPU::RuntimeMD::Kernel::Metadata::Language</definition>
+        <argsstring></argsstring>
+        <name>Language</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="217" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1ad5dd5fb7e691757a8650cf974589c3f8" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; AMDGPU::RuntimeMD::Kernel::Metadata::LanguageVersion</definition>
+        <argsstring></argsstring>
+        <name>LanguageVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="218" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1adba302e9063d31a298ed363071232880" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; uint32_t &gt;</type>
+        <definition>std::vector&lt;uint32_t&gt; AMDGPU::RuntimeMD::Kernel::Metadata::ReqdWorkGroupSize</definition>
+        <argsstring></argsstring>
+        <name>ReqdWorkGroupSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="219" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a9adae5fa0978d820087fe983b2cb4582" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; uint32_t &gt;</type>
+        <definition>std::vector&lt;uint32_t&gt; AMDGPU::RuntimeMD::Kernel::Metadata::WorkGroupSizeHint</definition>
+        <argsstring></argsstring>
+        <name>WorkGroupSizeHint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="220" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1af7b364ca5adea7acdd59795d3f339e68" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string AMDGPU::RuntimeMD::Kernel::Metadata::VecTypeHint</definition>
+        <argsstring></argsstring>
+        <name>VecTypeHint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="221" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1af4dd360b56298f9316ec0fc9046e261d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t AMDGPU::RuntimeMD::Kernel::Metadata::KernelIndex</definition>
+        <argsstring></argsstring>
+        <name>KernelIndex</name>
+        <initializer>= INVALID_KERNEL_INDEX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="222" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a789d6fcf46083e7f1a650aa7a9401591" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t AMDGPU::RuntimeMD::Kernel::Metadata::NoPartialWorkGroups</definition>
+        <argsstring></argsstring>
+        <name>NoPartialWorkGroups</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="223" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a96540385df019a56632b6d81ba613e15" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structAMDGPU_1_1RuntimeMD_1_1KernelArg_1_1Metadata" kindref="compound">KernelArg::Metadata</ref> &gt;</type>
+        <definition>std::vector&lt;KernelArg::Metadata&gt; AMDGPU::RuntimeMD::Kernel::Metadata::Args</definition>
+        <argsstring></argsstring>
+        <name>Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="224" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a7e864ddcb8e8d3f040a763bb3828b5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AMDGPU::RuntimeMD::Kernel::Metadata::Metadata</definition>
+        <argsstring>()=default</argsstring>
+        <name>Metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="226" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" line="215" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPURuntimeMetadata.h" bodystart="215" bodyend="227"/>
+    <listofallmembers>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a96540385df019a56632b6d81ba613e15" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>Args</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1af4dd360b56298f9316ec0fc9046e261d" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>KernelIndex</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a5078092514cb7963fe835fb84bef42cc" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>Language</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1ad5dd5fb7e691757a8650cf974589c3f8" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>LanguageVersion</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a7e864ddcb8e8d3f040a763bb3828b5ad" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>Metadata</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1afa60acc2d2dabb29cd2e48a515761474" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>Name</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a789d6fcf46083e7f1a650aa7a9401591" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>NoPartialWorkGroups</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1adba302e9063d31a298ed363071232880" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>ReqdWorkGroupSize</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1af7b364ca5adea7acdd59795d3f339e68" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>VecTypeHint</name></member>
+      <member refid="structAMDGPU_1_1RuntimeMD_1_1Kernel_1_1Metadata_1a9adae5fa0978d820087fe983b2cb4582" prot="public" virt="non-virtual"><scope>AMDGPU::RuntimeMD::Kernel::Metadata</scope><name>WorkGroupSizeHint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

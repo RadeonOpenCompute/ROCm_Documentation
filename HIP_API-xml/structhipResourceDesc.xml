@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structhipResourceDesc" kind="struct" language="C++" prot="public">
+    <compoundname>hipResourceDesc</compoundname>
+    <includes refid="hcc__detail_2driver__types_8h" local="no">driver_types.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipResourceDesc_1a3ccc1ada3d52c60b2d3cec1119503f0c" prot="public" static="no" mutable="no">
+        <type>enum hipResourceType</type>
+        <definition>enum hipResourceType hipResourceDesc::resType</definition>
+        <argsstring></argsstring>
+        <name>resType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="62" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1ae28ff04413b14b6f72809c500e35fbc4" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipArray" kindref="compound">hipArray_t</ref></type>
+        <definition>hipArray_t hipResourceDesc::array</definition>
+        <argsstring></argsstring>
+        <name>array</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="130" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1ae096c8d107934d2b760d3cd73a12f0c3" prot="public" static="no" mutable="no">
+        <type>struct hipResourceDesc::@1::@2</type>
+        <definition>struct hipResourceDesc::@1::@2  hipResourceDesc::array</definition>
+        <argsstring></argsstring>
+        <name>array</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="131" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1ad929671b58dbc80e61ea6acd8a8e8276" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipMipmappedArray" kindref="compound">hipMipmappedArray_t</ref></type>
+        <definition>hipMipmappedArray_t hipResourceDesc::mipmap</definition>
+        <argsstring></argsstring>
+        <name>mipmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="133" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1a560469310955148b84e7d8eb3eb2f4c3" prot="public" static="no" mutable="no">
+        <type>struct hipResourceDesc::@1::@3</type>
+        <definition>struct hipResourceDesc::@1::@3  hipResourceDesc::mipmap</definition>
+        <argsstring></argsstring>
+        <name>mipmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="134" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1a518d3e00c9183e784da08c1ca0c4d0bd" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* hipResourceDesc::devPtr</definition>
+        <argsstring></argsstring>
+        <name>devPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="136" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1a61b3d1194012e546183a963d9f934c8b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref></type>
+        <definition>struct hipChannelFormatDesc hipResourceDesc::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="136" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1aa35b0e12f88678c240fdb47e6a115ea5" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipResourceDesc::sizeInBytes</definition>
+        <argsstring></argsstring>
+        <name>sizeInBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="138" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1a250269e26443b8903487ed6a09504ec4" prot="public" static="no" mutable="no">
+        <type>struct hipResourceDesc::@1::@4</type>
+        <definition>struct hipResourceDesc::@1::@4  hipResourceDesc::linear</definition>
+        <argsstring></argsstring>
+        <name>linear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="139" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1ab015b7d99eae7fd257ff6af820246ac1" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipResourceDesc::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="143" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1a3a37c6d60c370e3004debdd4c74e462b" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipResourceDesc::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="144" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1a841f0a227bc764315afa1c6633c73341" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipResourceDesc::pitchInBytes</definition>
+        <argsstring></argsstring>
+        <name>pitchInBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="145" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1abe2b32eb4ef56a7ce931d18301f4b59a" prot="public" static="no" mutable="no">
+        <type>struct hipResourceDesc::@1::@5</type>
+        <definition>struct hipResourceDesc::@1::@5  hipResourceDesc::pitch2D</definition>
+        <argsstring></argsstring>
+        <name>pitch2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="146" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipResourceDesc_1addf098991004942fa96ee000348decd0" prot="public" static="no" mutable="no">
+        <type>union hipResourceDesc::@1</type>
+        <definition>union hipResourceDesc::@1  hipResourceDesc::res</definition>
+        <argsstring></argsstring>
+        <name>res</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="147" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>HIP resource descriptor </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="67">
+        <label>hipResourceDesc</label>
+        <link refid="structhipResourceDesc"/>
+        <childnode refid="68" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+        <childnode refid="69" relation="usage">
+          <edgelabel>array</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>mipmap</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>hipArray</label>
+        <link refid="structhipArray"/>
+        <childnode refid="68" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>hipMipmappedArray</label>
+        <link refid="structhipMipmappedArray"/>
+        <childnode refid="68" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+      </node>
+      <node id="68">
+        <label>hipChannelFormatDesc</label>
+        <link refid="structhipChannelFormatDesc"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="125" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="125" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structhipResourceDesc_1ae28ff04413b14b6f72809c500e35fbc4" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>array</name></member>
+      <member refid="structhipResourceDesc_1ae096c8d107934d2b760d3cd73a12f0c3" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>array</name></member>
+      <member refid="structhipResourceDesc_1a61b3d1194012e546183a963d9f934c8b" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>desc</name></member>
+      <member refid="structhipResourceDesc_1a518d3e00c9183e784da08c1ca0c4d0bd" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>devPtr</name></member>
+      <member refid="structhipResourceDesc_1a3a37c6d60c370e3004debdd4c74e462b" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>height</name></member>
+      <member refid="structhipResourceDesc_1a250269e26443b8903487ed6a09504ec4" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>linear</name></member>
+      <member refid="structhipResourceDesc_1ad929671b58dbc80e61ea6acd8a8e8276" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>mipmap</name></member>
+      <member refid="structhipResourceDesc_1a560469310955148b84e7d8eb3eb2f4c3" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>mipmap</name></member>
+      <member refid="structhipResourceDesc_1abe2b32eb4ef56a7ce931d18301f4b59a" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>pitch2D</name></member>
+      <member refid="structhipResourceDesc_1a841f0a227bc764315afa1c6633c73341" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>pitchInBytes</name></member>
+      <member refid="structhipResourceDesc_1addf098991004942fa96ee000348decd0" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>res</name></member>
+      <member refid="structhipResourceDesc_1a3ccc1ada3d52c60b2d3cec1119503f0c" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>resType</name></member>
+      <member refid="structhipResourceDesc_1aa35b0e12f88678c240fdb47e6a115ea5" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>sizeInBytes</name></member>
+      <member refid="structhipResourceDesc_1ab015b7d99eae7fd257ff6af820246ac1" prot="public" virt="non-virtual"><scope>hipResourceDesc</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

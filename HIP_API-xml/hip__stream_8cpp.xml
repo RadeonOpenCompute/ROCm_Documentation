@@ -1,0 +1,827 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="hip__stream_8cpp" kind="file" language="C++">
+    <compoundname>hip_stream.cpp</compoundname>
+    <includes refid="hip__runtime_8h" local="yes">hip/hip_runtime.h</includes>
+    <includes refid="hip__hcc__internal_8h" local="yes">hip_hcc_internal.h</includes>
+    <includes refid="trace__helper_8h" local="yes">trace_helper.h</includes>
+    <incdepgraph>
+      <node id="1158">
+        <label>hip/hcc_detail/hip_runtime_api.h</label>
+        <link refid="hcc__detail_2hip__runtime__api_8h"/>
+        <childnode refid="1148" relation="include">
+        </childnode>
+        <childnode refid="1156" relation="include">
+        </childnode>
+        <childnode refid="1159" relation="include">
+        </childnode>
+        <childnode refid="1160" relation="include">
+        </childnode>
+        <childnode refid="1157" relation="include">
+        </childnode>
+        <childnode refid="1161" relation="include">
+        </childnode>
+        <childnode refid="1162" relation="include">
+        </childnode>
+      </node>
+      <node id="1180">
+        <label>list</label>
+      </node>
+      <node id="1166">
+        <label>hip/hcc_detail/texture_types.h</label>
+        <link refid="hcc__detail_2texture__types_8h_source"/>
+        <childnode refid="1161" relation="include">
+        </childnode>
+      </node>
+      <node id="1188">
+        <label>iomanip</label>
+      </node>
+      <node id="1171">
+        <label>hip/hcc_detail/device_functions.h</label>
+        <link refid="hcc__detail_2device__functions_8h_source"/>
+        <childnode refid="1147" relation="include">
+        </childnode>
+        <childnode refid="1170" relation="include">
+        </childnode>
+      </node>
+      <node id="1176">
+        <label>hsa/hsa.h</label>
+      </node>
+      <node id="1151">
+        <label>assert.h</label>
+      </node>
+      <node id="1168">
+        <label>hip/hcc_detail/math_functions.h</label>
+        <link refid="hcc__detail_2math__functions_8h_source"/>
+        <childnode refid="1169" relation="include">
+        </childnode>
+        <childnode refid="1147" relation="include">
+        </childnode>
+        <childnode refid="1170" relation="include">
+        </childnode>
+        <childnode refid="1171" relation="include">
+        </childnode>
+      </node>
+      <node id="1169">
+        <label>kalmar_math.h</label>
+      </node>
+      <node id="1164">
+        <label>hip/hcc_detail/channel_descriptor.h</label>
+        <link refid="hcc__detail_2channel__descriptor_8h_source"/>
+        <childnode refid="1161" relation="include">
+        </childnode>
+        <childnode refid="1165" relation="include">
+        </childnode>
+      </node>
+      <node id="1148">
+        <label>stdint.h</label>
+      </node>
+      <node id="1150">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1167">
+        <label>grid_launch.h</label>
+      </node>
+      <node id="1189">
+        <label>string</label>
+      </node>
+      <node id="1174">
+        <label>hc_short_vector.hpp</label>
+      </node>
+      <node id="1161">
+        <label>hip/hcc_detail/driver_types.h</label>
+        <link refid="hcc__detail_2driver__types_8h_source"/>
+      </node>
+      <node id="1156">
+        <label>stddef.h</label>
+      </node>
+      <node id="1173">
+        <label>hc.hpp</label>
+      </node>
+      <node id="1163">
+        <label>limits.h</label>
+      </node>
+      <node id="1177">
+        <label>hsa/hsa_ext_amd.h</label>
+      </node>
+      <node id="1186">
+        <label>env.h</label>
+        <link refid="env_8h_source"/>
+      </node>
+      <node id="1178">
+        <label>hip_util.h</label>
+        <link refid="hip__util_8h_source"/>
+        <childnode refid="1151" relation="include">
+        </childnode>
+        <childnode refid="1148" relation="include">
+        </childnode>
+        <childnode refid="1159" relation="include">
+        </childnode>
+        <childnode refid="1179" relation="include">
+        </childnode>
+        <childnode refid="1180" relation="include">
+        </childnode>
+        <childnode refid="1181" relation="include">
+        </childnode>
+        <childnode refid="1182" relation="include">
+        </childnode>
+        <childnode refid="1183" relation="include">
+        </childnode>
+        <childnode refid="1184" relation="include">
+        </childnode>
+        <childnode refid="1185" relation="include">
+        </childnode>
+      </node>
+      <node id="1153">
+        <label>hip/hcc_detail/hip_runtime.h</label>
+        <link refid="hcc__detail_2hip__runtime_8h"/>
+        <childnode refid="1154" relation="include">
+        </childnode>
+        <childnode refid="1155" relation="include">
+        </childnode>
+        <childnode refid="1156" relation="include">
+        </childnode>
+        <childnode refid="1157" relation="include">
+        </childnode>
+        <childnode refid="1167" relation="include">
+        </childnode>
+        <childnode refid="1160" relation="include">
+        </childnode>
+        <childnode refid="1168" relation="include">
+        </childnode>
+        <childnode refid="1171" relation="include">
+        </childnode>
+        <childnode refid="1172" relation="include">
+        </childnode>
+      </node>
+      <node id="1181">
+        <label>sys/types.h</label>
+      </node>
+      <node id="1155">
+        <label>string.h</label>
+      </node>
+      <node id="1147">
+        <label>hip/hip_runtime.h</label>
+        <link refid="hip__runtime_8h_source"/>
+        <childnode refid="1148" relation="include">
+        </childnode>
+        <childnode refid="1149" relation="include">
+        </childnode>
+        <childnode refid="1150" relation="include">
+        </childnode>
+        <childnode refid="1151" relation="include">
+        </childnode>
+        <childnode refid="1152" relation="include">
+        </childnode>
+        <childnode refid="1153" relation="include">
+        </childnode>
+        <childnode refid="1157" relation="include">
+        </childnode>
+        <childnode refid="1170" relation="include">
+        </childnode>
+      </node>
+      <node id="1182">
+        <label>unistd.h</label>
+      </node>
+      <node id="1184">
+        <label>vector</label>
+      </node>
+      <node id="1165">
+        <label>hip/hcc_detail/hip_vector_types.h</label>
+        <link refid="hcc__detail_2hip__vector__types_8h"/>
+        <childnode refid="1160" relation="include">
+        </childnode>
+      </node>
+      <node id="1179">
+        <label>sstream</label>
+      </node>
+      <node id="1187">
+        <label>trace_helper.h</label>
+        <link refid="trace__helper_8h_source"/>
+        <childnode refid="1159" relation="include">
+        </childnode>
+        <childnode refid="1188" relation="include">
+        </childnode>
+        <childnode refid="1189" relation="include">
+        </childnode>
+      </node>
+      <node id="1152">
+        <label>hip/hip_common.h</label>
+        <link refid="hip__common_8h_source"/>
+      </node>
+      <node id="1154">
+        <label>math.h</label>
+      </node>
+      <node id="1157">
+        <label>hip/hip_runtime_api.h</label>
+        <link refid="hip__runtime__api_8h_source"/>
+        <childnode refid="1155" relation="include">
+        </childnode>
+        <childnode refid="1152" relation="include">
+        </childnode>
+        <childnode refid="1158" relation="include">
+        </childnode>
+      </node>
+      <node id="1175">
+        <label>hip_hcc_internal.h</label>
+        <link refid="hip__hcc__internal_8h_source"/>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1176" relation="include">
+        </childnode>
+        <childnode refid="1177" relation="include">
+        </childnode>
+        <childnode refid="1147" relation="include">
+        </childnode>
+        <childnode refid="1178" relation="include">
+        </childnode>
+        <childnode refid="1186" relation="include">
+        </childnode>
+      </node>
+      <node id="1159">
+        <label>iostream</label>
+      </node>
+      <node id="1183">
+        <label>deque</label>
+      </node>
+      <node id="1146">
+        <label>HIP/src/hip_stream.cpp</label>
+        <link refid="hip_stream.cpp"/>
+        <childnode refid="1147" relation="include">
+        </childnode>
+        <childnode refid="1175" relation="include">
+        </childnode>
+        <childnode refid="1187" relation="include">
+        </childnode>
+      </node>
+      <node id="1172">
+        <label>hip/hcc_detail/texture_functions.h</label>
+        <link refid="texture__functions_8h_source"/>
+        <childnode refid="1173" relation="include">
+        </childnode>
+        <childnode refid="1174" relation="include">
+        </childnode>
+        <childnode refid="1162" relation="include">
+        </childnode>
+      </node>
+      <node id="1185">
+        <label>algorithm</label>
+      </node>
+      <node id="1170">
+        <label>hip/hip_vector_types.h</label>
+        <link refid="hip__vector__types_8h_source"/>
+        <childnode refid="1152" relation="include">
+        </childnode>
+      </node>
+      <node id="1162">
+        <label>hip/hcc_detail/hip_texture_types.h</label>
+        <link refid="hcc__detail_2hip__texture__types_8h"/>
+        <childnode refid="1163" relation="include">
+        </childnode>
+        <childnode refid="1164" relation="include">
+        </childnode>
+        <childnode refid="1166" relation="include">
+        </childnode>
+      </node>
+      <node id="1149">
+        <label>stdio.h</label>
+      </node>
+      <node id="1160">
+        <label>hip/hcc_detail/host_defines.h</label>
+        <link refid="host__defines_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hip__stream_8cpp_1a0d65c52fd846b72a6de757cdeeb18290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t ihipStreamCreate</definition>
+        <argsstring>(hipStream_t *stream, unsigned int flags)</argsstring>
+        <name>ihipStreamCreate</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref> *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="34" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="34" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamCreateWithFlags</definition>
+        <argsstring>(hipStream_t *stream, unsigned int flags)</argsstring>
+        <name>hipStreamCreateWithFlags</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref> *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Create an asynchronous stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to new stream </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to control stream creation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref></para></simplesect>
+Create a new asynchronous stream. <computeroutput>stream</computeroutput> returns an opaque handle that can be used to reference the newly created stream in subsequent hipStream* commands. The stream is allocated on the heap and will remain allocated even if the handle goes out-of-scope. To release the memory used by the stream, applicaiton must call hipStreamDestroy. Flags controls behavior of the stream. See <ref refid="group__GlobalDefs_1ga6df5f70eb976836ab3598cacf0ffcdf9" kindref="member">hipStreamDefault</ref>, <ref refid="group__GlobalDefs_1gaaba9ae995d9b43b7d1ee70c6fa12c57d" kindref="member">hipStreamNonBlocking</ref>.</para><para><simplesect kind="see"><para><ref refid="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="73" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="73" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamCreate</definition>
+        <argsstring>(hipStream_t *stream)</argsstring>
+        <name>hipStreamCreate</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref> *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Create an asynchronous stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid pointer to hipStream_t. This function writes the memory with the newly created stream. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref></para></simplesect>
+Create a new asynchronous stream. <computeroutput>stream</computeroutput> returns an opaque handle that can be used to reference the newly created stream in subsequent hipStream* commands. The stream is allocated on the heap and will remain allocated even if the handle goes out-of-scope. To release the memory used by the stream, applicaiton must call hipStreamDestroy.</para><para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="82" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="82" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamWaitEvent</definition>
+        <argsstring>(hipStream_t stream, hipEvent_t event, unsigned int flags)</argsstring>
+        <name>hipStreamWaitEvent</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipEvent__t" kindref="compound">hipEvent_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Make the specified compute stream wait for an event. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to make wait. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event to wait on </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>control operation [must be 0]</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref></para></simplesect>
+This function inserts a wait operation into the specified stream. All future work submitted to <computeroutput>stream</computeroutput> will wait until <computeroutput>event</computeroutput> reports completion before beginning execution.</para><para>This function only waits for commands in the current stream to complete. Notably,, this function does not impliciy wait for commands in the default stream to complete, even if the specified stream is created with hipStreamNonBlocking = 0.</para><para><simplesect kind="see"><para><ref refid="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="90" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="90" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamQuery</definition>
+        <argsstring>(hipStream_t stream)</argsstring>
+        <name>hipStreamQuery</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Return <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref> if all of the operations in the specified <computeroutput>stream</computeroutput> have completed, or <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aa9638063c8746a9d1fda2b2069a0a9f1" kindref="member">hipErrorNotReady</ref> if not. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to query</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aa9638063c8746a9d1fda2b2069a0a9f1" kindref="member">hipErrorNotReady</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref></para></simplesect>
+This is thread-safe and returns a snapshot of the current state of the queue. However, if other host threads are sending work to the stream, the status may change immediately after the function is called. It is typically used for debug.</para><para><simplesect kind="see"><para><ref refid="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="117" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="117" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamSynchronize</definition>
+        <argsstring>(hipStream_t stream)</argsstring>
+        <name>hipStreamSynchronize</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Wait for all commands in stream to complete. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream identifier.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref></para></simplesect>
+This command is host-synchronous : the host will block until the specified stream is empty.</para><para>This command follows standard null-stream semantics. Specifically, specifying the null stream will cause the command to wait for other streams on the same device to complete all pending operations.</para><para>This command honors the hipDeviceLaunchBlocking flag, which controls whether the wait is active or blocking.</para><para><simplesect kind="see"><para><ref refid="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="141" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="141" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamDestroy</definition>
+        <argsstring>(hipStream_t stream)</argsstring>
+        <name>hipStreamDestroy</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Destroys the specified stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="166" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="166" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1ga3249555a26439591b8873f70b39bb116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamGetFlags</definition>
+        <argsstring>(hipStream_t stream, unsigned int *flags)</argsstring>
+        <name>hipStreamGetFlags</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>unsigned int *</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Return flags associated with this stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to be queried </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an unsigned integer in which the stream&apos;s flags are returned </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref></para></simplesect>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref> <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref> <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref></para></simplesect>
+Return flags associated with this stream in *<computeroutput>flags</computeroutput>.</para><para><simplesect kind="see"><para><ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="195" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="195" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Stream_1ga3e098cd7478828b2104abb41a7bb00d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipStreamAddCallback</definition>
+        <argsstring>(hipStream_t stream, hipStreamCallback_t callback, void *userData, unsigned int flags)</argsstring>
+        <name>hipStreamAddCallback</name>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Stream_1ga40983cf29c304d68d96656509fb9c37e" kindref="member">hipStreamCallback_t</ref></type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>userData</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Adds a callback to be called on the host after all currently enqueued items in the stream have completed. For each cudaStreamAddCallback call, a callback will be executed exactly once. The callback will block later work in the stream until it is finished. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Stream to add callback to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The function to call once preceding stream operations are complete </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">userData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- User specified data to be passed to the callback function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Reserved for future use, must be 0 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref>, #hipErrorNotSupported</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group__Stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" kindref="member">hipStreamQuery</ref>, <ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" line="211" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp" bodystart="211" bodyend="219"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>present<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hip/hip_runtime.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hip_hcc_internal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;trace_helper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Stream</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>ihipStreamCreate(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>*stream,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref><sp/>*ctx<sp/>=<sp/>ihipGetTlsDefaultCtx();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ctx)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(HIP_FORCE_NULL_STREAM)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*stream<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hc::accelerator<sp/>acc<sp/>=<sp/>ctx-&gt;getWriteableDevice()-&gt;_acc;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>-<sp/>se<sp/>try-catch<sp/>loop<sp/>to<sp/>detect<sp/>memory<sp/>exception?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Note<sp/>this<sp/>is<sp/>an<sp/>execute_in_order<sp/>queue,<sp/>so<sp/>all<sp/>kernels<sp/>submitted<sp/>will<sp/>atuomatically<sp/>wait<sp/>for<sp/>prev<sp/>to<sp/>complete:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//This<sp/>matches<sp/>CUDA<sp/>stream<sp/>behavior:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Obtain<sp/>mutex<sp/>access<sp/>to<sp/>the<sp/>device<sp/>critical<sp/>data,<sp/>release<sp/>by<sp/>destructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLockedAccessor" kindref="compound">LockedAccessor_CtxCrit_t</ref><sp/><sp/>ctxCrit(ctx-&gt;criticalData());</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>istream<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classihipStream__t" kindref="compound">ihipStream_t</ref>(ctx,<sp/>acc.create_view(),<sp/>flags);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctxCrit-&gt;addStream(istream);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*stream<sp/>=<sp/>istream;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tprintf(DB_SYNC,<sp/></highlight><highlight class="stringliteral">&quot;hipStreamCreate,<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>ToString(*stream).c_str());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>e;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>*stream,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(stream,<sp/>flags);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipStreamCreate(stream,<sp/>flags));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>*stream)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(stream);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipStreamCreate(stream,<sp/><ref refid="group__GlobalDefs_1ga6df5f70eb976836ab3598cacf0ffcdf9" kindref="member">hipStreamDefault</ref>));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream,<sp/><ref refid="classihipEvent__t" kindref="compound">hipEvent_t</ref><sp/>event,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_SPECIAL_API(TRACE_SYNC,<sp/>stream,<sp/>event,<sp/>flags);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(event<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(event-&gt;_state<sp/>!=<sp/>hipEventStatusUnitialized)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(HIP_SYNC_STREAM_WAIT<sp/>||<sp/>(HIP_SYNC_NULL_STREAM<sp/>&amp;&amp;<sp/>(stream<sp/>==<sp/>0)))<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>conservative<sp/>wait<sp/>on<sp/>host<sp/>for<sp/>the<sp/>specified<sp/>event<sp/>to<sp/>complete:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal">-&gt;locked_waitComplete((event-&gt;_flags<sp/>&amp;<sp/><ref refid="group__GlobalDefs_1gafa1c076a5b991763a98695063f1ea11d" kindref="member">hipEventBlockingSync</ref>)<sp/>?<sp/>hc::hcWaitModeBlocked<sp/>:<sp/>hc::hcWaitModeActive);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream<sp/>=<sp/>ihipSyncAndResolveStream(stream);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>will<sp/>user<sp/>create_blocking_marker<sp/>to<sp/>wait<sp/>on<sp/>the<sp/>specified<sp/>queue.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream-&gt;locked_streamWaitEvent(event);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="comment">//<sp/>else<sp/>event<sp/>not<sp/>recorded,<sp/>return<sp/>immediately<sp/>and<sp/>don&apos;t<sp/>create<sp/>marker.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(e);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" kindref="member">hipStreamQuery</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_SPECIAL_API(TRACE_QUERY,<sp/>stream);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>stream<sp/>if<sp/>0<sp/>specified:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stream<sp/>==<sp/>hipStreamNull)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref><sp/>*device<sp/>=<sp/>ihipGetTlsDefaultCtx();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream<sp/>=<sp/><sp/>device-&gt;_defaultStream;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isEmpty<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLockedAccessor" kindref="compound">LockedAccessor_StreamCrit_t</ref><sp/>crit(stream-&gt;_criticalData);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isEmpty<sp/>=<sp/>crit-&gt;_av.get_is_empty();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>e<sp/>=<sp/>isEmpty<sp/>?<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref><sp/>:<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aa9638063c8746a9d1fda2b2069a0a9f1" kindref="member">hipErrorNotReady</ref><sp/>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(e);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(stream);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_SPECIAL_API(TRACE_SYNC,<sp/>stream);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stream<sp/>==<sp/>hipStreamNull)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref><sp/>*ctx<sp/>=<sp/>ihipGetTlsDefaultCtx();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;locked_syncDefaultStream(</highlight><highlight class="keyword">true</highlight><highlight class="comment">/*waitOnSelf*/</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="comment">/*syncToHost*/</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>note<sp/>this<sp/>does<sp/>not<sp/>synchornize<sp/>with<sp/>the<sp/>NULL<sp/>stream:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream-&gt;locked_wait();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(e);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//---</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"></highlight><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(stream);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//---<sp/>Drain<sp/>the<sp/>stream:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stream<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!HIP_FORCE_NULL_STREAM)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref>;<sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream-&gt;locked_wait();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref><sp/>*ctx<sp/>=<sp/>stream-&gt;getCtx();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ctx)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;locked_removeStream(stream);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>stream;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(e);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1ga3249555a26439591b8873f70b39bb116" kindref="member">hipStreamGetFlags</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*flags)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(stream,<sp/>flags);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(flags<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(<ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stream<sp/>==<sp/>hipStreamNull)<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(<ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a88e525a7c8f35552dfada58e9f2f6d3a" kindref="member">hipErrorInvalidResourceHandle</ref>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*flags<sp/>=<sp/>stream-&gt;_flags;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(<ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Stream_1ga3e098cd7478828b2104abb41a7bb00d3" kindref="member">hipStreamAddCallback</ref>(<ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream,<sp/><ref refid="group__Stream_1ga40983cf29c304d68d96656509fb9c37e" kindref="member">hipStreamCallback_t</ref><sp/>callback,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*userData,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(stream,<sp/>callback,<sp/>userData,<sp/>flags);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>e<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//---<sp/>explicitly<sp/>synchronize<sp/>stream<sp/>to<sp/>add<sp/>callback<sp/>routines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__Stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>(stream);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>callback(stream,<sp/>e,<sp/>userData);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(e);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_stream.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1024 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="hip__peer_8cpp" kind="file" language="C++">
+    <compoundname>hip_peer.cpp</compoundname>
+    <includes local="no">hc_am.hpp</includes>
+    <includes refid="hip__runtime_8h" local="yes">hip/hip_runtime.h</includes>
+    <includes refid="hip__hcc__internal_8h" local="yes">hip_hcc_internal.h</includes>
+    <includes refid="trace__helper_8h" local="yes">trace_helper.h</includes>
+    <incdepgraph>
+      <node id="1113">
+        <label>hip/hcc_detail/hip_runtime_api.h</label>
+        <link refid="hcc__detail_2hip__runtime__api_8h"/>
+        <childnode refid="1103" relation="include">
+        </childnode>
+        <childnode refid="1111" relation="include">
+        </childnode>
+        <childnode refid="1114" relation="include">
+        </childnode>
+        <childnode refid="1115" relation="include">
+        </childnode>
+        <childnode refid="1112" relation="include">
+        </childnode>
+        <childnode refid="1116" relation="include">
+        </childnode>
+        <childnode refid="1117" relation="include">
+        </childnode>
+      </node>
+      <node id="1135">
+        <label>list</label>
+      </node>
+      <node id="1121">
+        <label>hip/hcc_detail/texture_types.h</label>
+        <link refid="hcc__detail_2texture__types_8h_source"/>
+        <childnode refid="1116" relation="include">
+        </childnode>
+      </node>
+      <node id="1143">
+        <label>iomanip</label>
+      </node>
+      <node id="1126">
+        <label>hip/hcc_detail/device_functions.h</label>
+        <link refid="hcc__detail_2device__functions_8h_source"/>
+        <childnode refid="1102" relation="include">
+        </childnode>
+        <childnode refid="1125" relation="include">
+        </childnode>
+      </node>
+      <node id="1131">
+        <label>hsa/hsa.h</label>
+      </node>
+      <node id="1106">
+        <label>assert.h</label>
+      </node>
+      <node id="1123">
+        <label>hip/hcc_detail/math_functions.h</label>
+        <link refid="hcc__detail_2math__functions_8h_source"/>
+        <childnode refid="1124" relation="include">
+        </childnode>
+        <childnode refid="1102" relation="include">
+        </childnode>
+        <childnode refid="1125" relation="include">
+        </childnode>
+        <childnode refid="1126" relation="include">
+        </childnode>
+      </node>
+      <node id="1124">
+        <label>kalmar_math.h</label>
+      </node>
+      <node id="1119">
+        <label>hip/hcc_detail/channel_descriptor.h</label>
+        <link refid="hcc__detail_2channel__descriptor_8h_source"/>
+        <childnode refid="1116" relation="include">
+        </childnode>
+        <childnode refid="1120" relation="include">
+        </childnode>
+      </node>
+      <node id="1103">
+        <label>stdint.h</label>
+      </node>
+      <node id="1105">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1101">
+        <label>hc_am.hpp</label>
+      </node>
+      <node id="1122">
+        <label>grid_launch.h</label>
+      </node>
+      <node id="1144">
+        <label>string</label>
+      </node>
+      <node id="1129">
+        <label>hc_short_vector.hpp</label>
+      </node>
+      <node id="1116">
+        <label>hip/hcc_detail/driver_types.h</label>
+        <link refid="hcc__detail_2driver__types_8h_source"/>
+      </node>
+      <node id="1111">
+        <label>stddef.h</label>
+      </node>
+      <node id="1128">
+        <label>hc.hpp</label>
+      </node>
+      <node id="1118">
+        <label>limits.h</label>
+      </node>
+      <node id="1132">
+        <label>hsa/hsa_ext_amd.h</label>
+      </node>
+      <node id="1141">
+        <label>env.h</label>
+        <link refid="env_8h_source"/>
+      </node>
+      <node id="1133">
+        <label>hip_util.h</label>
+        <link refid="hip__util_8h_source"/>
+        <childnode refid="1106" relation="include">
+        </childnode>
+        <childnode refid="1103" relation="include">
+        </childnode>
+        <childnode refid="1114" relation="include">
+        </childnode>
+        <childnode refid="1134" relation="include">
+        </childnode>
+        <childnode refid="1135" relation="include">
+        </childnode>
+        <childnode refid="1136" relation="include">
+        </childnode>
+        <childnode refid="1137" relation="include">
+        </childnode>
+        <childnode refid="1138" relation="include">
+        </childnode>
+        <childnode refid="1139" relation="include">
+        </childnode>
+        <childnode refid="1140" relation="include">
+        </childnode>
+      </node>
+      <node id="1108">
+        <label>hip/hcc_detail/hip_runtime.h</label>
+        <link refid="hcc__detail_2hip__runtime_8h"/>
+        <childnode refid="1109" relation="include">
+        </childnode>
+        <childnode refid="1110" relation="include">
+        </childnode>
+        <childnode refid="1111" relation="include">
+        </childnode>
+        <childnode refid="1112" relation="include">
+        </childnode>
+        <childnode refid="1122" relation="include">
+        </childnode>
+        <childnode refid="1115" relation="include">
+        </childnode>
+        <childnode refid="1123" relation="include">
+        </childnode>
+        <childnode refid="1126" relation="include">
+        </childnode>
+        <childnode refid="1127" relation="include">
+        </childnode>
+      </node>
+      <node id="1136">
+        <label>sys/types.h</label>
+      </node>
+      <node id="1110">
+        <label>string.h</label>
+      </node>
+      <node id="1102">
+        <label>hip/hip_runtime.h</label>
+        <link refid="hip__runtime_8h_source"/>
+        <childnode refid="1103" relation="include">
+        </childnode>
+        <childnode refid="1104" relation="include">
+        </childnode>
+        <childnode refid="1105" relation="include">
+        </childnode>
+        <childnode refid="1106" relation="include">
+        </childnode>
+        <childnode refid="1107" relation="include">
+        </childnode>
+        <childnode refid="1108" relation="include">
+        </childnode>
+        <childnode refid="1112" relation="include">
+        </childnode>
+        <childnode refid="1125" relation="include">
+        </childnode>
+      </node>
+      <node id="1137">
+        <label>unistd.h</label>
+      </node>
+      <node id="1139">
+        <label>vector</label>
+      </node>
+      <node id="1120">
+        <label>hip/hcc_detail/hip_vector_types.h</label>
+        <link refid="hcc__detail_2hip__vector__types_8h"/>
+        <childnode refid="1115" relation="include">
+        </childnode>
+      </node>
+      <node id="1134">
+        <label>sstream</label>
+      </node>
+      <node id="1142">
+        <label>trace_helper.h</label>
+        <link refid="trace__helper_8h_source"/>
+        <childnode refid="1114" relation="include">
+        </childnode>
+        <childnode refid="1143" relation="include">
+        </childnode>
+        <childnode refid="1144" relation="include">
+        </childnode>
+      </node>
+      <node id="1107">
+        <label>hip/hip_common.h</label>
+        <link refid="hip__common_8h_source"/>
+      </node>
+      <node id="1109">
+        <label>math.h</label>
+      </node>
+      <node id="1112">
+        <label>hip/hip_runtime_api.h</label>
+        <link refid="hip__runtime__api_8h_source"/>
+        <childnode refid="1110" relation="include">
+        </childnode>
+        <childnode refid="1107" relation="include">
+        </childnode>
+        <childnode refid="1113" relation="include">
+        </childnode>
+      </node>
+      <node id="1130">
+        <label>hip_hcc_internal.h</label>
+        <link refid="hip__hcc__internal_8h_source"/>
+        <childnode refid="1128" relation="include">
+        </childnode>
+        <childnode refid="1131" relation="include">
+        </childnode>
+        <childnode refid="1132" relation="include">
+        </childnode>
+        <childnode refid="1102" relation="include">
+        </childnode>
+        <childnode refid="1133" relation="include">
+        </childnode>
+        <childnode refid="1141" relation="include">
+        </childnode>
+      </node>
+      <node id="1114">
+        <label>iostream</label>
+      </node>
+      <node id="1138">
+        <label>deque</label>
+      </node>
+      <node id="1100">
+        <label>HIP/src/hip_peer.cpp</label>
+        <link refid="hip_peer.cpp"/>
+        <childnode refid="1101" relation="include">
+        </childnode>
+        <childnode refid="1102" relation="include">
+        </childnode>
+        <childnode refid="1130" relation="include">
+        </childnode>
+        <childnode refid="1142" relation="include">
+        </childnode>
+      </node>
+      <node id="1127">
+        <label>hip/hcc_detail/texture_functions.h</label>
+        <link refid="texture__functions_8h_source"/>
+        <childnode refid="1128" relation="include">
+        </childnode>
+        <childnode refid="1129" relation="include">
+        </childnode>
+        <childnode refid="1117" relation="include">
+        </childnode>
+      </node>
+      <node id="1140">
+        <label>algorithm</label>
+      </node>
+      <node id="1125">
+        <label>hip/hip_vector_types.h</label>
+        <link refid="hip__vector__types_8h_source"/>
+        <childnode refid="1107" relation="include">
+        </childnode>
+      </node>
+      <node id="1117">
+        <label>hip/hcc_detail/hip_texture_types.h</label>
+        <link refid="hcc__detail_2hip__texture__types_8h"/>
+        <childnode refid="1118" relation="include">
+        </childnode>
+        <childnode refid="1119" relation="include">
+        </childnode>
+        <childnode refid="1121" relation="include">
+        </childnode>
+      </node>
+      <node id="1104">
+        <label>stdio.h</label>
+      </node>
+      <node id="1115">
+        <label>hip/hcc_detail/host_defines.h</label>
+        <link refid="host__defines_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hip__peer_8cpp_1a98c654c0f5d5b452cdc8b754ffb0ac01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t ihipDeviceCanAccessPeer</definition>
+        <argsstring>(int *canAccessPeer, hipCtx_t thisCtx, hipCtx_t peerCtx)</argsstring>
+        <name>ihipDeviceCanAccessPeer</name>
+        <param>
+          <type>int *</type>
+          <declname>canAccessPeer</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>thisCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="40" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="40" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__peer_8cpp_1ab399a4669c261b28a02a9583958dcc6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceCanAccessPeer</definition>
+        <argsstring>(int *canAccessPeer, hipCtx_t thisCtx, hipCtx_t peerCtx)</argsstring>
+        <name>hipDeviceCanAccessPeer</name>
+        <param>
+          <type>int *</type>
+          <declname>canAccessPeer</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>thisCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>HCC returns 0 in *canAccessPeer ; Need to update this function when RT supports P2P </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="75" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="75" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__peer_8cpp_1a9f639132839ceef270238fdc223f981b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t ihipDisablePeerAccess</definition>
+        <argsstring>(hipCtx_t peerCtx)</argsstring>
+        <name>ihipDisablePeerAccess</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="86" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="86" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__peer_8cpp_1abdf485b8a2a4387a08af057151b0ec5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t ihipEnablePeerAccess</definition>
+        <argsstring>(hipCtx_t peerCtx, unsigned int flags)</argsstring>
+        <name>ihipEnablePeerAccess</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="121" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="121" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__peer_8cpp_1a04455aeddd42b1cf66297467d7225971" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipMemcpyPeer</definition>
+        <argsstring>(void *dst, hipCtx_t dstCtx, const void *src, hipCtx_t srcCtx, size_t sizeBytes)</argsstring>
+        <name>hipMemcpyPeer</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>dstCtx</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>srcCtx</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="152" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="152" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__peer_8cpp_1af71ab51aaeba8ab251cbb27a2bceb215" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipMemcpyPeerAsync</definition>
+        <argsstring>(void *dst, hipCtx_t dstDevice, const void *src, hipCtx_t srcDevice, size_t sizeBytes, hipStream_t stream)</argsstring>
+        <name>hipMemcpyPeerAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>dstDevice</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>srcDevice</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="163" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="163" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PeerToPeer_1ga0a1c9ccd775758d9d7d5b5a1f525b719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceCanAccessPeer</definition>
+        <argsstring>(int *canAccessPeer, int deviceId, int peerDeviceId)</argsstring>
+        <name>hipDeviceCanAccessPeer</name>
+        <param>
+          <type>int *</type>
+          <declname>canAccessPeer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>deviceId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>peerDeviceId</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a device can access a peer&apos;s memory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">canAccessPeer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns the peer access capability (0 or 1) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- device from where memory may be accessed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">peerDevice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- device where memory is physically located</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the specified <computeroutput>device</computeroutput> is capable of directly accessing memory physically located on peerDevice , or &quot;0&quot; if not.</para><para>Returns &quot;0&quot; in <computeroutput>canAccessPeer</computeroutput> if deviceId == peerDeviceId, and both are valid devices : a device is not a peer of itself.</para><para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, </para></simplesect>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref> if deviceId or peerDeviceId are not valid devices </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="179" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="179" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PeerToPeer_1ga85030c72824fb60aaddc7374ab60481b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceDisablePeerAccess</definition>
+        <argsstring>(int peerDeviceId)</argsstring>
+        <name>hipDeviceDisablePeerAccess</name>
+        <param>
+          <type>int</type>
+          <declname>peerDeviceId</declname>
+        </param>
+        <briefdescription>
+<para>Disable direct access from current device&apos;s virtual address space to memory allocations physically located on a peer device. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns hipErrorPeerAccessNotEnabled if direct access to memory on peerDevice has not yet been enabled from the current device.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peerDeviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a2ee0bf2e64840f253e4a1b12bbaf2d09" kindref="member">hipErrorPeerAccessNotEnabled</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="186" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="186" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PeerToPeer_1ga0caca59034134d7a7bb893cc1caa653e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceEnablePeerAccess</definition>
+        <argsstring>(int peerDeviceId, unsigned int flags)</argsstring>
+        <name>hipDeviceEnablePeerAccess</name>
+        <param>
+          <type>int</type>
+          <declname>peerDeviceId</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Enable direct access from current device&apos;s virtual address space to memory allocations physically located on a peer device. </para>        </briefdescription>
+        <detaileddescription>
+<para>Memory which already allocated on peer device will be mapped into the address space of the current device. In addition, all future memory allocations on peerDeviceId will be mapped into the address space of the current device when the memory is allocated. The peer memory remains accessible from the current device until a call to hipDeviceDisablePeerAccess or hipDeviceReset.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peerDeviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a5399c146f91246f8b77abcd4ea30e7ac" kindref="member">hipErrorPeerAccessAlreadyEnabled</ref> if peer access is already enabled for this device. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="194" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="194" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PeerToPeer_1ga5512f45e25c08052667c8ffe7162333b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipMemcpyPeer</definition>
+        <argsstring>(void *dst, int dstDevice, const void *src, int srcDevice, size_t sizeBytes)</argsstring>
+        <name>hipMemcpyPeer</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dstDeviceId</declname>
+          <defname>dstDevice</defname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcDeviceId</declname>
+          <defname>srcDevice</defname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+<para>Copies memory from one device to memory on another device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Destination device pointer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dstDeviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Destination device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Source device pointer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srcDeviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Source device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Size of memory copy in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="202" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="202" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="group__PeerToPeer_1ga216f951370c931d22e80c089ab724ed9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipMemcpyPeerAsync</definition>
+        <argsstring>(void *dst, int dstDevice, const void *src, int srcDevice, size_t sizeBytes, hipStream_t stream)</argsstring>
+        <name>hipMemcpyPeerAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dstDevice</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcDevice</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Copies memory from one device to memory on another device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Destination device pointer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dstDevice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Destination device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Source device pointer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srcDevice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Source device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Size of memory copy in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Stream identifier</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="209" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="209" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1ga834dfd99d72082fe8770142fa30b30e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxEnablePeerAccess</definition>
+        <argsstring>(hipCtx_t peerCtx, unsigned int flags)</argsstring>
+        <name>hipCtxEnablePeerAccess</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Enables direct access to memory allocations in a peer context. </para>        </briefdescription>
+        <detaileddescription>
+<para>Memory which already allocated on peer device will be mapped into the address space of the current device. In addition, all future memory allocations on peerDeviceId will be mapped into the address space of the current device when the memory is allocated. The peer memory remains accessible from the current device until a call to hipDeviceDisablePeerAccess or hipDeviceReset.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peerCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a5399c146f91246f8b77abcd4ea30e7ac" kindref="member">hipErrorPeerAccessAlreadyEnabled</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+<simplesect kind="warning"><para>PeerToPeer support is experimental. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="215" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="215" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Context_1gaf48e4e9c3b6bbad5deaeff10d2e28b31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipCtxDisablePeerAccess</definition>
+        <argsstring>(hipCtx_t peerCtx)</argsstring>
+        <name>hipCtxDisablePeerAccess</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref></type>
+          <declname>peerCtx</declname>
+        </param>
+        <briefdescription>
+<para>Disable direct access from current context&apos;s virtual address space to memory allocations physically located on a peer context.Disables direct access to memory allocations in a peer context and unregisters any registered allocations. </para>        </briefdescription>
+        <detaileddescription>
+<para>Returns hipErrorPeerAccessNotEnabled if direct access to memory on peerDevice has not yet been enabled from the current device.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peerCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a2ee0bf2e64840f253e4a1b12bbaf2d09" kindref="member">hipErrorPeerAccessNotEnabled</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kindref="member">hipCtxCreate</ref>, <ref refid="group__Context_1ga9a65fe43238ef303a6d97826c05fd14e" kindref="member">hipCtxDestroy</ref>, <ref refid="group__Context_1ga12a7a993e10f775fbf61a0b14288ed1b" kindref="member">hipCtxGetFlags</ref>, <ref refid="group__Context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kindref="member">hipCtxPopCurrent</ref>, <ref refid="group__Context_1ga741786101d348fdbfa1f64546860357a" kindref="member">hipCtxGetCurrent</ref>, <ref refid="group__Context_1ga834a192f70c2bfc0269c309436776feb" kindref="member">hipCtxSetCurrent</ref>, <ref refid="group__Context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kindref="member">hipCtxPushCurrent</ref>, <ref refid="group__Context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kindref="member">hipCtxSetCacheConfig</ref>, <ref refid="group__Context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kindref="member">hipCtxSynchronize</ref>, <ref refid="group__Context_1ga8aa32cf64272da929f23ecbafefefcee" kindref="member">hipCtxGetDevice</ref> </para></simplesect>
+<simplesect kind="warning"><para>PeerToPeer support is experimental. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" line="222" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp" bodystart="222" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>present<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hc_am.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hip/hip_runtime.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hip_hcc_internal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;trace_helper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Peer<sp/>access<sp/>functions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>There<sp/>are<sp/>two<sp/>flavors:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>-<sp/>one<sp/>where<sp/>contexts<sp/>are<sp/>specified<sp/>with<sp/>hipCtx_t<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>-<sp/>one<sp/>where<sp/>contexts<sp/>are<sp/>specified<sp/>with<sp/>integer<sp/>deviceIds,<sp/>that<sp/>are<sp/>mapped<sp/>to<sp/>the<sp/>primary<sp/>context<sp/>for<sp/>that<sp/>device.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>implementation<sp/>contains<sp/>a<sp/>set<sp/>of<sp/>internal<sp/>ihip*<sp/>functions<sp/>which<sp/>operate<sp/>on<sp/>contexts.<sp/><sp/>Then<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>public<sp/>APIs<sp/>are<sp/>thin<sp/>wrappers<sp/>which<sp/>call<sp/>into<sp/>this<sp/>internal<sp/>implementations.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO<sp/>-<sp/>actually<sp/>not<sp/>yet<sp/>-<sp/>currently<sp/>the<sp/>integer<sp/>deviceId<sp/>flavors<sp/>just<sp/>call<sp/>the<sp/>context<sp/>APIs.<sp/><sp/>need<sp/>to<sp/>fix.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>ihipDeviceCanAccessPeer<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>canAccessPeer,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>thisCtx,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>peerCtx)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((thisCtx<sp/>!=<sp/>NULL)<sp/>&amp;&amp;<sp/>(peerCtx<sp/>!=<sp/>NULL))<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thisCtx<sp/>==<sp/>peerCtx)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*canAccessPeer<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tprintf(DB_MEM,<sp/></highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>be<sp/>peer<sp/>to<sp/>self.<sp/>(this=%s,<sp/>peer=%s)\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thisCtx-&gt;toString().c_str(),<sp/>peerCtx-&gt;toString().c_str());</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(HIP_FORCE_P2P_HOST<sp/>&amp;<sp/>0x2)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*canAccessPeer<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tprintf(DB_MEM,<sp/></highlight><highlight class="stringliteral">&quot;HIP_FORCE_P2P_HOST<sp/>denies<sp/>peer<sp/>access<sp/>this=%s<sp/>peer=%s<sp/><sp/>canAccessPeer=%d\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thisCtx-&gt;toString().c_str(),<sp/>peerCtx-&gt;toString().c_str(),<sp/>*canAccessPeer);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*canAccessPeer<sp/>=<sp/>peerCtx-&gt;getDevice()-&gt;_acc.get_is_peer(thisCtx-&gt;getDevice()-&gt;_acc);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tprintf(DB_MEM,<sp/></highlight><highlight class="stringliteral">&quot;deviceCanAccessPeer<sp/>this=%s<sp/>peer=%s<sp/><sp/>canAccessPeer=%d\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thisCtx-&gt;toString().c_str(),<sp/>peerCtx-&gt;toString().c_str(),<sp/>*canAccessPeer);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*canAccessPeer<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga0a1c9ccd775758d9d7d5b5a1f525b719" kindref="member">hipDeviceCanAccessPeer</ref><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>canAccessPeer,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>thisCtx,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>peerCtx)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(canAccessPeer,<sp/>thisCtx,<sp/>peerCtx);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipDeviceCanAccessPeer(canAccessPeer,<sp/>thisCtx,<sp/>peerCtx));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Disable<sp/>visibility<sp/>of<sp/>this<sp/>device<sp/>into<sp/>memory<sp/>allocated<sp/>on<sp/>peer<sp/>device.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Remove<sp/>this<sp/>device<sp/>from<sp/>peer<sp/>device<sp/>peerlist.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>ihipDisablePeerAccess<sp/>(<ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>peerCtx)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>thisCtx<sp/>=<sp/>ihipGetTlsDefaultCtx();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((thisCtx<sp/>!=<sp/>NULL)<sp/>&amp;&amp;<sp/>(peerCtx<sp/>!=<sp/>NULL))<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>canAccessPeer<sp/>=<sp/><sp/>peerCtx-&gt;getDevice()-&gt;_acc.get_is_peer(thisCtx-&gt;getDevice()-&gt;_acc);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<sp/>canAccessPeer)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>P2P<sp/>not<sp/>allowed<sp/>between<sp/>these<sp/>devices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thisCtx<sp/>==<sp/>peerCtx)<sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>Can&apos;t<sp/>disable<sp/>peer<sp/>access<sp/>to<sp/>self.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLockedAccessor" kindref="compound">LockedAccessor_CtxCrit_t</ref><sp/>peerCrit(peerCtx-&gt;criticalData());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changed<sp/>=<sp/>peerCrit-&gt;removePeerWatcher(peerCtx,<sp/>thisCtx);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(changed)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tprintf(DB_MEM,<sp/></highlight><highlight class="stringliteral">&quot;device<sp/>%s<sp/>disable<sp/>access<sp/>to<sp/>memory<sp/>allocated<sp/>on<sp/>peer:%s\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thisCtx-&gt;toString().c_str(),<sp/>peerCtx-&gt;toString().c_str());</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>the<sp/>peers<sp/>for<sp/>all<sp/>memory<sp/>already<sp/>saved<sp/>in<sp/>the<sp/>tracker:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>am_memtracker_update_peers(peerCtx-&gt;getDevice()-&gt;_acc,<sp/>peerCrit-&gt;peerCnt(),<sp/>peerCrit-&gt;peerAgents());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a2ee0bf2e64840f253e4a1b12bbaf2d09" kindref="member">hipErrorPeerAccessNotEnabled</ref>;<sp/></highlight><highlight class="comment">//<sp/>never<sp/>enabled<sp/>P2P<sp/>access.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Allow<sp/>the<sp/>current<sp/>device<sp/>to<sp/>see<sp/>all<sp/>memory<sp/>allocated<sp/>on<sp/>peerCtx.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>should<sp/>add<sp/>this<sp/>device<sp/>to<sp/>the<sp/>peer-device<sp/>peer<sp/>list.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>ihipEnablePeerAccess<sp/>(<ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>peerCtx,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(flags<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>thisCtx<sp/>=<sp/>ihipGetTlsDefaultCtx();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thisCtx<sp/>==<sp/>peerCtx)<sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>Can&apos;t<sp/>enable<sp/>peer<sp/>access<sp/>to<sp/>self.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((thisCtx<sp/>!=<sp/>NULL)<sp/>&amp;&amp;<sp/>(peerCtx<sp/>!=<sp/>NULL))<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLockedAccessor" kindref="compound">LockedAccessor_CtxCrit_t</ref><sp/>peerCrit(peerCtx-&gt;criticalData());</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>thisCtx<sp/>to<sp/>peerCtx&apos;s<sp/>access<sp/>list<sp/>so<sp/>that<sp/>new<sp/>allocations<sp/>on<sp/>peer<sp/>will<sp/>be<sp/>made<sp/>visible<sp/>to<sp/>this<sp/>device:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isNewPeer<sp/>=<sp/>peerCrit-&gt;addPeerWatcher(peerCtx,<sp/>thisCtx);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isNewPeer)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tprintf(DB_MEM,<sp/></highlight><highlight class="stringliteral">&quot;device=%s<sp/>can<sp/>now<sp/>see<sp/>all<sp/>memory<sp/>allocated<sp/>on<sp/>peer=%s\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thisCtx-&gt;toString().c_str(),<sp/>peerCtx-&gt;toString().c_str());</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>am_memtracker_update_peers(peerCtx-&gt;getDevice()-&gt;_acc,<sp/>peerCrit-&gt;peerCnt(),<sp/>peerCrit-&gt;peerAgents());</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a5399c146f91246f8b77abcd4ea30e7ac" kindref="member">hipErrorPeerAccessAlreadyEnabled</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>err<sp/>=<sp/><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>err;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga5512f45e25c08052667c8ffe7162333b" kindref="member">hipMemcpyPeer</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>dst,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>dstCtx,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>src,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>srcCtx,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeBytes)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(dst,<sp/>dstCtx,<sp/>src,<sp/>srcCtx,<sp/>sizeBytes);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>-<sp/>move<sp/>to<sp/>ihip<sp/>memory<sp/>copy<sp/>implementaion.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>HCC<sp/>has<sp/>a<sp/>unified<sp/>memory<sp/>architecture<sp/>so<sp/>device<sp/>specifiers<sp/>are<sp/>not<sp/>required.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(<ref refid="group__Memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>(dst,<sp/>src,<sp/>sizeBytes,<sp/>hipMemcpyDefault));</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga216f951370c931d22e80c089ab724ed9" kindref="member">hipMemcpyPeerAsync</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>dst,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>dstDevice,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>src,<sp/><ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>srcDevice,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeBytes,<sp/><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(dst,<sp/>dstDevice,<sp/>src,<sp/>srcDevice,<sp/>sizeBytes,<sp/>stream);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>-<sp/>move<sp/>to<sp/>ihip<sp/>memory<sp/>copy<sp/>implementaion.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>HCC<sp/>has<sp/>a<sp/>unified<sp/>memory<sp/>architecture<sp/>so<sp/>device<sp/>specifiers<sp/>are<sp/>not<sp/>required.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(hip_internal::memcpyAsync(dst,<sp/>src,<sp/>sizeBytes,<sp/>hipMemcpyDefault,<sp/>stream));</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>are<sp/>the<sp/>flavors<sp/>that<sp/>accept<sp/>integer<sp/>deviceIDs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Implementations<sp/>map<sp/>these<sp/>to<sp/>primary<sp/>contexts<sp/>and<sp/>call<sp/>the<sp/>internal<sp/>functions<sp/>above.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga0a1c9ccd775758d9d7d5b5a1f525b719" kindref="member">hipDeviceCanAccessPeer</ref><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>canAccessPeer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>deviceId,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>peerDeviceId)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(canAccessPeer,<sp/>deviceId,<sp/>peerDeviceId);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipDeviceCanAccessPeer(canAccessPeer,<sp/>ihipGetPrimaryCtx(deviceId),<sp/>ihipGetPrimaryCtx(peerDeviceId)));</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga85030c72824fb60aaddc7374ab60481b" kindref="member">hipDeviceDisablePeerAccess</ref><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>peerDeviceId)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(peerDeviceId);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipDisablePeerAccess(ihipGetPrimaryCtx(peerDeviceId)));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga0caca59034134d7a7bb893cc1caa653e" kindref="member">hipDeviceEnablePeerAccess</ref><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>peerDeviceId,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(peerDeviceId,<sp/>flags);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipEnablePeerAccess(ihipGetPrimaryCtx(peerDeviceId),<sp/>flags));</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga5512f45e25c08052667c8ffe7162333b" kindref="member">hipMemcpyPeer</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>dst,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/>dstDevice,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/>srcDevice,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeBytes)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(dst,<sp/>dstDevice,<sp/>src,<sp/>srcDevice,<sp/>sizeBytes);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(<ref refid="group__PeerToPeer_1ga5512f45e25c08052667c8ffe7162333b" kindref="member">hipMemcpyPeer</ref>(dst,<sp/>ihipGetPrimaryCtx(dstDevice),<sp/>src,<sp/>ihipGetPrimaryCtx(srcDevice),<sp/>sizeBytes));</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__PeerToPeer_1ga216f951370c931d22e80c089ab724ed9" kindref="member">hipMemcpyPeerAsync</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>dst,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/>dstDevice,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/>srcDevice,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sizeBytes,<sp/><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref><sp/>stream)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(dst,<sp/>dstDevice,<sp/>src,<sp/>srcDevice,<sp/>sizeBytes,<sp/>stream);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(hip_internal::memcpyAsync(dst,<sp/>src,<sp/>sizeBytes,<sp/>hipMemcpyDefault,<sp/>stream));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Context_1ga834dfd99d72082fe8770142fa30b30e2" kindref="member">hipCtxEnablePeerAccess</ref><sp/>(<ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>peerCtx,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(peerCtx,<sp/>flags);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipEnablePeerAccess(peerCtx,<sp/>flags));</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref><sp/><ref refid="group__Context_1gaf48e4e9c3b6bbad5deaeff10d2e28b31" kindref="member">hipCtxDisablePeerAccess</ref><sp/>(<ref refid="classihipCtx__t" kindref="compound">hipCtx_t</ref><sp/>peerCtx)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>HIP_INIT_API(peerCtx);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ihipLogStatus(ihipDisablePeerAccess(peerCtx));</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_peer.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_b2c0e07d6739a282712773a7ad2e40d4" kind="dir">
+    <compoundname>HIP/include</compoundname>
+    <innerdir refid="dir_db2c47f6438bee2d6c6d8bfa7bc75a3c">HIP/include/hip</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/"/>
+  </compounddef>
+</doxygen>

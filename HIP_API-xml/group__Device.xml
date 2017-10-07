@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="group__Device" kind="group">
+    <compoundname>Device</compoundname>
+    <title>Device Management</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Device_1gaefdc2847fb1d6c3fb1354e827a191ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceSynchronize</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipDeviceSynchronize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Waits on all active streams on current device. </para>        </briefdescription>
+        <detaileddescription>
+<para>When this command is invoked, the host thread gets blocked until all the commands associated with streams associated with the device. HIP does not support multiple blocking modes (yet!).</para><para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Device_1ga43c1e7f15925eeb762195ccb5e063eae" kindref="member">hipSetDevice</ref>, <ref refid="group__Device_1ga8d57161ae56a8edc46eeda447417bf6c" kindref="member">hipDeviceReset</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="259" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="154" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga8d57161ae56a8edc46eeda447417bf6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceReset</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipDeviceReset</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>The state of current device is discarded and updated to a fresh state. </para>        </briefdescription>
+        <detaileddescription>
+<para>Calling this function deletes all streams created, memory allocated, kernels running, events created. Make sure that no other thread is using the device or streams, memory, kernels, events associated with the current device.</para><para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Device_1gaefdc2847fb1d6c3fb1354e827a191ebd" kindref="member">hipDeviceSynchronize</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="273" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="160" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga43c1e7f15925eeb762195ccb5e063eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipSetDevice</definition>
+        <argsstring>(int deviceId)</argsstring>
+        <name>hipSetDevice</name>
+        <param>
+          <type>int</type>
+          <declname>deviceId</declname>
+        </param>
+        <briefdescription>
+<para>Set default device to be used for subsequent hip API calls from this thread. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">deviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid device in range 0...<ref refid="group__Device_1ga8555d5c76d88c50ddbf54ae70b568394" kindref="member">hipGetDeviceCount()</ref>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Sets <computeroutput>device</computeroutput> as the default device for the calling host thread. Valid device id&apos;s are 0... (<ref refid="group__Device_1ga8555d5c76d88c50ddbf54ae70b568394" kindref="member">hipGetDeviceCount()</ref>-1).</para><para>Many HIP APIs implicitly use the &quot;default device&quot; :</para><para><itemizedlist>
+<listitem><para>Any device memory subsequently allocated from this host thread (using hipMalloc) will be allocated on device.</para></listitem><listitem><para>Any streams or events created from this host thread will be associated with device.</para></listitem><listitem><para>Any kernels launched from this host thread (using hipLaunchKernel) will be executed on device (unless a specific stream is specified, in which case the device associated with that stream will be used).</para></listitem></itemizedlist>
+</para><para>This function may be called from any host thread. Multiple host threads may use the same device. This function does no synchronization with the previous or new device, and has very little runtime overhead. Applications can use hipSetDevice to quickly switch the default device before making a HIP runtime call which uses the default device.</para><para>The default device is stored in thread-local-storage for each thread. Thread-pool implementations may inherit the default device of the previous thread. A good practice is to always call hipSetDevice at the start of HIP coding sequency to establish a known standard device.</para><para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>, #hipErrorDeviceAlreadyInUse</para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Device_1ga7e0e2e8c5f78e3c7449764657c254e0a" kindref="member">hipGetDevice</ref>, <ref refid="group__Device_1ga8555d5c76d88c50ddbf54ae70b568394" kindref="member">hipGetDeviceCount</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="302" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="142" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga7e0e2e8c5f78e3c7449764657c254e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipGetDevice</definition>
+        <argsstring>(int *deviceId)</argsstring>
+        <name>hipGetDevice</name>
+        <param>
+          <type>int *</type>
+          <declname>deviceId</declname>
+        </param>
+        <briefdescription>
+<para>Return the default device id for the calling host thread. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*device is written with the default device</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+HIP maintains an default device for each thread using thread-local-storage. This device is used implicitly for HIP runtime APIs called by this thread. hipGetDevice returns in * <computeroutput>device</computeroutput> the default device for the calling host thread.</para><para><simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref></para></simplesect>
+<simplesect kind="see"><para><ref refid="group__Device_1ga43c1e7f15925eeb762195ccb5e063eae" kindref="member">hipSetDevice</ref>, hipGetDevicesizeBytes </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="318" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="32" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga8555d5c76d88c50ddbf54ae70b568394" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipGetDeviceCount</definition>
+        <argsstring>(int *count)</argsstring>
+        <name>hipGetDeviceCount</name>
+        <param>
+          <type>int *</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Return number of compute-capable devices. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[output]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>count Returns number of compute-capable devices.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad4406972c318df36d231310a15131c24" kindref="member">hipErrorNoDevice</ref></para></simplesect>
+Returns in <computeroutput>*count</computeroutput> the number of devices that have ability to run compute commands. If there are no such devices, then <ref refid="group__Device_1ga8555d5c76d88c50ddbf54ae70b568394" kindref="member">hipGetDeviceCount</ref> will return <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594ad4406972c318df36d231310a15131c24" kindref="member">hipErrorNoDevice</ref>. If 1 or more devices can be found, then hipGetDeviceCount returns <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="332" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga7080a145a4239a7276e0dc22062026c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceGetAttribute</definition>
+        <argsstring>(int *pi, hipDeviceAttribute_t attr, int deviceId)</argsstring>
+        <name>hipDeviceGetAttribute</name>
+        <param>
+          <type>int *</type>
+          <declname>pi</declname>
+        </param>
+        <param>
+          <type><ref refid="group__GlobalDefs_1gacc0acd7b9bda126c6bb3dfd6e2796d7c" kindref="member">hipDeviceAttribute_t</ref></type>
+          <declname>attr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>deviceId</declname>
+        </param>
+        <briefdescription>
+<para>Query for a specific device attribute. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to value to return </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>attribute to query </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">deviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which device to query for information</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="343" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="274" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga32208513b7cd491f0cb5fc884053f790" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipGetDeviceProperties</definition>
+        <argsstring>(hipDeviceProp_t *prop, int deviceId)</argsstring>
+        <name>hipGetDeviceProperties</name>
+        <param>
+          <type><ref refid="structhipDeviceProp__t" kindref="compound">hipDeviceProp_t</ref> *</type>
+          <declname>prop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>deviceId</declname>
+        </param>
+        <briefdescription>
+<para>Returns device properties. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">prop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>written with device properties </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">deviceId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which device to query for information</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref> </para></simplesect>
+<xrefsect id="bug_1_bug000001"><xreftitle>Bug</xreftitle><xrefdescription><para>HCC always returns 0 for maxThreadsPerMultiProcessor </para><para>HCC always returns 0 for regsPerBlock </para><para>HCC always returns 0 for l2CacheSize</para></xrefdescription></xrefsect></para><para>Populates hipGetDeviceProperties with information for the specified device. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="358" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="303" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1gaada3d30a46ae06f68cf1574f496b86ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceSetCacheConfig</definition>
+        <argsstring>(hipFuncCache_t cacheConfig)</argsstring>
+        <name>hipDeviceSetCacheConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref></type>
+          <declname>cacheConfig</declname>
+        </param>
+        <briefdescription>
+<para>Set L1/Shared cache partition. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cacheConfig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a7e935ae88ee1f9ff3920156ac6864520" kindref="member">hipErrorInitializationError</ref> Note: AMD devices and some Nvidia GPUS do not support reconfigurable cache. This hint is ignored on those architectures. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="370" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="79" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga37057f9830ad6fab7ce5f05f6d3c89ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceGetCacheConfig</definition>
+        <argsstring>(hipFuncCache_t *cacheConfig)</argsstring>
+        <name>hipDeviceGetCacheConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref> *</type>
+          <declname>cacheConfig</declname>
+        </param>
+        <briefdescription>
+<para>Set Cache configuration for a specific function. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cacheConfig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a7e935ae88ee1f9ff3920156ac6864520" kindref="member">hipErrorInitializationError</ref> Note: AMD devices and some Nvidia GPUS do not support reconfigurable cache. This hint is ignored on those architectures. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="382" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="88" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga8edc85bb9637d6b1eda0d064d141a255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceGetLimit</definition>
+        <argsstring>(size_t *pValue, enum hipLimit_t limit)</argsstring>
+        <name>hipDeviceGetLimit</name>
+        <param>
+          <type>size_t *</type>
+          <declname>pValue</declname>
+        </param>
+        <param>
+          <type>enum hipLimit_t</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+<para>Get Resource limits of current device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, #hipErrorUnsupportedLimit, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref> Note: Currently, only hipLimitMallocHeapSize is available </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="394" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="101" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1gafdb33ef569eb89808fc5178d04b508ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipFuncSetCacheConfig</definition>
+        <argsstring>(const void *func, hipFuncCache_t config)</argsstring>
+        <name>hipFuncSetCacheConfig</name>
+        <param>
+          <type>const void *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Set Cache configuration for a specific function. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a7e935ae88ee1f9ff3920156ac6864520" kindref="member">hipErrorInitializationError</ref> Note: AMD devices and some Nvidia GPUS do not support reconfigurable cache. This hint is ignored on those architectures. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="406" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="115" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga1bb08f774a34a468d969a8a04791c9bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceGetSharedMemConfig</definition>
+        <argsstring>(hipSharedMemConfig *pConfig)</argsstring>
+        <name>hipDeviceGetSharedMemConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref> *</type>
+          <declname>pConfig</declname>
+        </param>
+        <briefdescription>
+<para>Returns bank width of shared memory for current device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pConfig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a7e935ae88ee1f9ff3920156ac6864520" kindref="member">hipErrorInitializationError</ref></para></simplesect>
+Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="418" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="133" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga9b1f279084e76691cedfbfadf9c717ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipDeviceSetSharedMemConfig</definition>
+        <argsstring>(hipSharedMemConfig config)</argsstring>
+        <name>hipDeviceSetSharedMemConfig</name>
+        <param>
+          <type><ref refid="group__GlobalDefs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>The bank width of shared memory on current device is set. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a7e935ae88ee1f9ff3920156ac6864520" kindref="member">hipErrorInitializationError</ref></para></simplesect>
+Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="431" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1ga6e54db382768827e84725632018307aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipSetDeviceFlags</definition>
+        <argsstring>(unsigned flags)</argsstring>
+        <name>hipSetDeviceFlags</name>
+        <param>
+          <type>unsigned</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>The current device behavior is changed according the flags passed. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The schedule flags impact how HIP waits for the completion of a command running on a device. hipDeviceScheduleSpin : HIP runtime will actively spin in the thread which submitted the work until the command completes. This offers the lowest latency, but will consume a CPU core and may increase power. hipDeviceScheduleYield : The HIP runtime will yield the CPU to system so that other tasks can use it. This may increase latency to detect the completion but will consume less power and is friendlier to other tasks in the system. hipDeviceScheduleBlockingSync : On ROCm platform, this is a synonym for hipDeviceScheduleYield. hipDeviceScheduleAuto : Use a hueristic to select between Spin and Yield modes. If the number of HIP contexts is greater than the number of logical processors in the system, use Spin scheduling. Else use Yield scheduling.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+hipDeviceMapHost : Allow mapping host memory. On ROCM, this is always allowed and the flag is ignored. hipDeviceLmemResizeToMax : <simplesect kind="warning"><para>ROCm silently ignores this flag.</para></simplesect>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a07ab9b704ea693c1781a52741c60cd0d" kindref="member">hipErrorInvalidDevice</ref>, #hipErrorSetOnActiveProcess </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="452" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Device_1gaf1e365e1d17cf40644d1470de4817c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipChooseDevice</definition>
+        <argsstring>(int *device, const hipDeviceProp_t *prop)</argsstring>
+        <name>hipChooseDevice</name>
+        <param>
+          <type>int *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhipDeviceProp__t" kindref="compound">hipDeviceProp_t</ref> *</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+<para>Device which matches <ref refid="structhipDeviceProp__t" kindref="compound">hipDeviceProp_t</ref> is returned. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>properties pointer</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594aadfbdb847b149723c684ebd764556063" kindref="member">hipSuccess</ref>, <ref refid="group__GlobalDefs_1ggadf5010f6e140a53ecbdf949e73e87594a1e8215fe1108a508bad3944bce7b4d83" kindref="member">hipErrorInvalidValue</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="462" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_device.cpp" bodystart="445" bodyend="526"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="2">----------------------------------------------------------------------------------------------<mdash/> </heading>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

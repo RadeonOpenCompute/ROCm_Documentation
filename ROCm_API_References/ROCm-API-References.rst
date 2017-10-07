@@ -2,7 +2,7 @@
 .. _ROCm-API-References:
 
 =====================
-ROCm API References
+Rocm API References
 =====================
 
 
@@ -14,12 +14,12 @@ ROCr System Runtime API
 HCC Language Runtime API
 ========================
 
-* `HCC API <https://scchan.github.io/hcc/>`_
+* :ref:`HCC_API`
 
 HIP Language Runtime API
 ========================
 
-* `HIP API <http://rocm-developer-tools.github.io/HIP/>`_
+* :ref:`HIP-API`
 
 HIP Device Runtime API
 ======================
@@ -27,15 +27,14 @@ HIP Device Runtime API
 HIP Math API
 ====================
 
-* :ref:`HIP-Math-API`
+* `HIP Math API <https://gist.github.com/adityaatluri/10333bdb83bfce14f264a94ce206fecd>`_
 
-
-Math Library API's
+Math Libarary API's
 ====================
 
-* `rocBLAS API <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki>`_
-* `rocFFT API <https://github.com/ROCmSoftwarePlatform/rocFFT/wiki>`_
-* `Tensile API <https://github.com/ROCmSoftwarePlatform/Tensile>`_
+* `hcBLAS API <http://hcblas-documentation.readthedocs.io/en/latest/>`_
+
+* :ref:`rocBLAS`
 
 Deep Learning API's
 ====================

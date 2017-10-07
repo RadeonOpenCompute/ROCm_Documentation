@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="namespaceAMDGPU_1_1ElfNote" kind="namespace" language="C++">
+    <compoundname>AMDGPU::ElfNote</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020d" prot="public" static="no">
+        <name>NoteType</name>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020da15daff77ba150ef218b6e4732058caaa" prot="public">
+          <name>NT_AMDGPU_HSA_CODE_OBJECT_VERSION</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020dad57ac9ea9fcf0957e47eaadaa190cbc3" prot="public">
+          <name>NT_AMDGPU_HSA_HSAIL</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020dacf6c39cadd39cd8edb346694df4cd52b" prot="public">
+          <name>NT_AMDGPU_HSA_ISA</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020da2f2e945b96645d91f28d7f115779cea3" prot="public">
+          <name>NT_AMDGPU_HSA_PRODUCER</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020da97dc29009c5cd48e72a0e52eaea4e702" prot="public">
+          <name>NT_AMDGPU_HSA_PRODUCER_OPTIONS</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020da927b4e559e0f74116214cf537db40b5e" prot="public">
+          <name>NT_AMDGPU_HSA_EXTENSION</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020dab285040b15ba92e89e826af55d471af3" prot="public">
+          <name>NT_AMDGPU_HSA_RUNTIME_METADATA_V_1</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020da32b43c4653a992495621452507114734" prot="public">
+          <name>NT_AMDGPU_HSA_RUNTIME_METADATA_V_2</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020dac0d4f920de7204d9c072db9223f4d6e9" prot="public">
+          <name>NT_AMDGPU_HSA_RUNTIME_METADATA</name>
+          <initializer>= NT_AMDGPU_HSA_RUNTIME_METADATA_V_2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020da94eb74db07a70a497b58ca8beed1e91a" prot="public">
+          <name>NT_AMDGPU_HSA_HLDEBUG_DEBUG</name>
+          <initializer>= 101</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceAMDGPU_1_1ElfNote_1a6d1d6e4e8b4ba6d112095d14d205020dad1ec0b0079057e16daf2732ac2f783d2" prot="public">
+          <name>NT_AMDGPU_HSA_HLDEBUG_TARGET</name>
+          <initializer>= 102</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" line="29" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" bodystart="29" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1ElfNote_1ade29edcd9ac8cc988920e62f9b89637f" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::ElfNote::SectionName[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SectionName</name>
+        <initializer>= &quot;.note&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" line="24" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceAMDGPU_1_1ElfNote_1a5430f9ac7d10681bc6f86f329305225b" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AMDGPU::ElfNote::NoteName[]</definition>
+        <argsstring>[]</argsstring>
+        <name>NoteName</name>
+        <initializer>= &quot;AMD&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" line="26" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/AMDGPUPTNote.h" line="22" column="1"/>
+  </compounddef>
+</doxygen>

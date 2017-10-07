@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classihipDevice__t" kind="class" language="C++" prot="public">
+    <compoundname>ihipDevice_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classihipDevice__t_1a5ded5827aadc84a29a83b11921cd4dd5" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned ihipDevice_t::_deviceId</definition>
+        <argsstring></argsstring>
+        <name>_deviceId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="693" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="691" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1afbd893a6465d93c46f07c31c4b130123" prot="public" static="no" mutable="no">
+        <type>hc::accelerator</type>
+        <definition>hc::accelerator ihipDevice_t::_acc</definition>
+        <argsstring></argsstring>
+        <name>_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="695" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="695" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1a1e4c6d3814ed3fa19027f4978e0fa933" prot="public" static="no" mutable="no">
+        <type>hsa_agent_t</type>
+        <definition>hsa_agent_t ihipDevice_t::_hsaAgent</definition>
+        <argsstring></argsstring>
+        <name>_hsaAgent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="696" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="696" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1a655e03136394df32571a52707aa371c5" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned ihipDevice_t::_computeUnits</definition>
+        <argsstring></argsstring>
+        <name>_computeUnits</name>
+        <briefdescription>
+<para>Number of compute units supported by the device: </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="699" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="699" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1a7f77d0a7b6b746d6d38ef9164735625e" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipDeviceProp__t" kindref="compound">hipDeviceProp_t</ref></type>
+        <definition>hipDeviceProp_t ihipDevice_t::_props</definition>
+        <argsstring></argsstring>
+        <name>_props</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="700" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="700" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1ad76de987bc874d6746b8116fcbdf9ae4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ihipDevice_t::_isLargeBar</definition>
+        <argsstring></argsstring>
+        <name>_isLargeBar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="703" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="703" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1a015b52a11727ee9e5751af01e63106af" prot="public" static="no" mutable="no">
+        <type><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref> *</type>
+        <definition>ihipCtx_t* ihipDevice_t::_primaryCtx</definition>
+        <argsstring></argsstring>
+        <name>_primaryCtx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="705" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="705" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipDevice__t_1a756e2c8c6188738c3555da81d0b6c1e1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ihipDevice_t::_state</definition>
+        <argsstring></argsstring>
+        <name>_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="707" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="707" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classihipDevice__t_1a16084e570f34217bf8747396b5010e6f" prot="private" static="no" mutable="no">
+        <type><ref refid="classihipDeviceCriticalBase__t" kindref="compound">ihipDeviceCritical_t</ref></type>
+        <definition>ihipDeviceCritical_t ihipDevice_t::_criticalData</definition>
+        <argsstring></argsstring>
+        <name>_criticalData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="712" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="712" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classihipDevice__t_1ad8d3169e4cd801bc58e47f2dcba4ebe9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ihipDevice_t::ihipDevice_t</definition>
+        <argsstring>(unsigned deviceId, unsigned deviceCnt, hc::accelerator &amp;acc)</argsstring>
+        <name>ihipDevice_t</name>
+        <param>
+          <type>unsigned</type>
+          <declname>deviceId</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>deviceCnt</declname>
+        </param>
+        <param>
+          <type>hc::accelerator &amp;</type>
+          <declname>acc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="684" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="544" bodyend="566"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipDevice__t_1af031c86e41d9e8d8bf531742f3373b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ihipDevice_t::~ihipDevice_t</definition>
+        <argsstring>()</argsstring>
+        <name>~ihipDevice_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="685" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="569" bodyend="573"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipDevice__t_1a5b8cc5324a8ffce4db30ec55436ce000" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref> *</type>
+        <definition>ihipCtx_t* ihipDevice_t::getPrimaryCtx</definition>
+        <argsstring>() const </argsstring>
+        <name>getPrimaryCtx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="688" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="688" bodyend="688"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipDevice__t_1a781607589632de13e694078e27445755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ihipDevice_t::locked_removeContext</definition>
+        <argsstring>(ihipCtx_t *c)</argsstring>
+        <name>locked_removeContext</name>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="689" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="575" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipDevice__t_1a93c60fc0b1f75ce8708788ea7578a879" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ihipDevice_t::locked_reset</definition>
+        <argsstring>()</argsstring>
+        <name>locked_reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="690" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="584" bodyend="617"/>
+      </memberdef>
+      <memberdef kind="function" id="classihipDevice__t_1af562a1b853061b750d81886abf9b989c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classihipDeviceCriticalBase__t" kindref="compound">ihipDeviceCritical_t</ref> &amp;</type>
+        <definition>ihipDeviceCritical_t&amp; ihipDevice_t::criticalData</definition>
+        <argsstring>()</argsstring>
+        <name>criticalData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="691" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="691" bodyend="691"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classihipDevice__t_1af5d0fcb1b5fc9b4c3329af77480b4f1c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t ihipDevice_t::initProperties</definition>
+        <argsstring>(hipDeviceProp_t *prop)</argsstring>
+        <name>initProperties</name>
+        <param>
+          <type><ref refid="structhipDeviceProp__t" kindref="compound">hipDeviceProp_t</ref> *</type>
+          <declname>prop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para><xrefsect id="bug_1_bug000002"><xreftitle>Bug</xreftitle><xrefdescription><para>: on HCC, isMultiGpuBoard returns True if system contains multiple GPUS (rather than if GPU is on a multi-ASIC board) </para></xrefdescription></xrefsect></para>        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="710" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="743" bodyend="908"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="99">
+        <label>hipDeviceProp_t</label>
+        <link refid="structhipDeviceProp__t"/>
+        <childnode refid="100" relation="usage">
+          <edgelabel>arch</edgelabel>
+        </childnode>
+      </node>
+      <node id="101">
+        <label>ihipCtx_t</label>
+        <link refid="classihipCtx__t"/>
+        <childnode refid="102" relation="usage">
+          <edgelabel>_defaultStream</edgelabel>
+        </childnode>
+      </node>
+      <node id="104">
+        <label>LockedBase&lt; StreamMutex &gt;</label>
+        <link refid="structLockedBase"/>
+      </node>
+      <node id="103">
+        <label>ihipStreamCriticalBase_t&lt; StreamMutex &gt;</label>
+        <link refid="classihipStreamCriticalBase__t"/>
+        <childnode refid="104" relation="public-inheritance">
+        </childnode>
+        <childnode refid="102" relation="usage">
+          <edgelabel>_parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="102">
+        <label>ihipStream_t</label>
+        <link refid="classihipStream__t"/>
+        <childnode refid="103" relation="usage">
+          <edgelabel>_criticalData</edgelabel>
+        </childnode>
+      </node>
+      <node id="100">
+        <label>hipDeviceArch_t</label>
+        <link refid="structhipDeviceArch__t"/>
+      </node>
+      <node id="98">
+        <label>ihipDevice_t</label>
+        <link refid="classihipDevice__t"/>
+        <childnode refid="99" relation="usage">
+          <edgelabel>_props</edgelabel>
+        </childnode>
+        <childnode refid="101" relation="usage">
+          <edgelabel>_primaryCtx</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="682" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="681" bodyend="713"/>
+    <listofallmembers>
+      <member refid="classihipDevice__t_1afbd893a6465d93c46f07c31c4b130123" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_acc</name></member>
+      <member refid="classihipDevice__t_1a655e03136394df32571a52707aa371c5" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_computeUnits</name></member>
+      <member refid="classihipDevice__t_1a16084e570f34217bf8747396b5010e6f" prot="private" virt="non-virtual"><scope>ihipDevice_t</scope><name>_criticalData</name></member>
+      <member refid="classihipDevice__t_1a5ded5827aadc84a29a83b11921cd4dd5" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_deviceId</name></member>
+      <member refid="classihipDevice__t_1a1e4c6d3814ed3fa19027f4978e0fa933" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_hsaAgent</name></member>
+      <member refid="classihipDevice__t_1ad76de987bc874d6746b8116fcbdf9ae4" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_isLargeBar</name></member>
+      <member refid="classihipDevice__t_1a015b52a11727ee9e5751af01e63106af" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_primaryCtx</name></member>
+      <member refid="classihipDevice__t_1a7f77d0a7b6b746d6d38ef9164735625e" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_props</name></member>
+      <member refid="classihipDevice__t_1a756e2c8c6188738c3555da81d0b6c1e1" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>_state</name></member>
+      <member refid="classihipDevice__t_1af562a1b853061b750d81886abf9b989c" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>criticalData</name></member>
+      <member refid="classihipDevice__t_1a5b8cc5324a8ffce4db30ec55436ce000" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>getPrimaryCtx</name></member>
+      <member refid="classihipDevice__t_1ad8d3169e4cd801bc58e47f2dcba4ebe9" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>ihipDevice_t</name></member>
+      <member refid="classihipDevice__t_1af5d0fcb1b5fc9b4c3329af77480b4f1c" prot="private" virt="non-virtual"><scope>ihipDevice_t</scope><name>initProperties</name></member>
+      <member refid="classihipDevice__t_1a781607589632de13e694078e27445755" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>locked_removeContext</name></member>
+      <member refid="classihipDevice__t_1a93c60fc0b1f75ce8708788ea7578a879" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>locked_reset</name></member>
+      <member refid="classihipDevice__t_1af031c86e41d9e8d8bf531742f3373b58" prot="public" virt="non-virtual"><scope>ihipDevice_t</scope><name>~ihipDevice_t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

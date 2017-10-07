@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structushort3" kind="struct" language="C++" prot="public">
+    <compoundname>ushort3</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structushort3_1aac09b8fca61e98577b4c72b716544581" prot="public" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short ushort3::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="328" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structushort3_1afb1f1cb28bcab7309b97ec65e66ee0d3" prot="public" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short ushort3::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="328" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structushort3_1a651b479a74e87b7abbe7de5b4d1d1bf2" prot="public" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short ushort3::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="328" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="310" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="310" bodyend="329"/>
+    <listofallmembers>
+      <member refid="structushort3_1aac09b8fca61e98577b4c72b716544581" prot="public" virt="non-virtual"><scope>ushort3</scope><name>x</name></member>
+      <member refid="structushort3_1afb1f1cb28bcab7309b97ec65e66ee0d3" prot="public" virt="non-virtual"><scope>ushort3</scope><name>y</name></member>
+      <member refid="structushort3_1a651b479a74e87b7abbe7de5b4d1d1bf2" prot="public" virt="non-virtual"><scope>ushort3</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

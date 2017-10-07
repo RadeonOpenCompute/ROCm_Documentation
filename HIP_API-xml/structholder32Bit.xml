@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structholder32Bit" kind="struct" language="C++" prot="public">
+    <compoundname>holder32Bit</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structholder32Bit_1af701ff594f31467237758b1b902d4c65" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float holder32Bit::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="38" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structholder32Bit_1ad9ec2fea6fd47959b4e804346273e852" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int holder32Bit::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="39" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structholder32Bit_1a01ce7f4f0d92f41e96ce316fde7aea44" prot="public" static="no" mutable="no">
+        <type>signed int</type>
+        <definition>signed int holder32Bit::si</definition>
+        <argsstring></argsstring>
+        <name>si</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="40" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structholder32Bit_1a4dfabfaa839a578a2c04b43fae9f4eb4" prot="public" static="no" mutable="no">
+        <type>union holder32Bit::@72</type>
+        <definition>union holder32Bit::@72 holder32Bit::@73</definition>
+        <argsstring></argsstring>
+        <name>@73</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="41" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" line="36" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/device_functions.cpp" bodystart="36" bodyend="42"/>
+    <listofallmembers>
+      <member refid="structholder32Bit_1af701ff594f31467237758b1b902d4c65" prot="public" virt="non-virtual"><scope>holder32Bit</scope><name>f</name></member>
+      <member refid="structholder32Bit_1a01ce7f4f0d92f41e96ce316fde7aea44" prot="public" virt="non-virtual"><scope>holder32Bit</scope><name>si</name></member>
+      <member refid="structholder32Bit_1ad9ec2fea6fd47959b4e804346273e852" prot="public" virt="non-virtual"><scope>holder32Bit</scope><name>ui</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

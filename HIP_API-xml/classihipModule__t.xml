@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="classihipModule__t" kind="class" language="C++" prot="public">
+    <compoundname>ihipModule_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classihipModule__t_1a98335a56acb280cf54f9df975f7388d7" prot="public" static="no" mutable="no">
+        <type>hsa_executable_t</type>
+        <definition>hsa_executable_t ihipModule_t::executable</definition>
+        <argsstring></argsstring>
+        <name>executable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="354" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipModule__t_1a568e0e86db16ab5fcb8e1d12980d4f1f" prot="public" static="no" mutable="no">
+        <type>hsa_code_object_t</type>
+        <definition>hsa_code_object_t ihipModule_t::object</definition>
+        <argsstring></argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="355" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipModule__t_1a5c4d5400520e4d09d799c691cb741964" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ihipModule_t::fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="356" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipModule__t_1a41370c7c9f8dbfd217a5a4594aa33e34" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* ihipModule_t::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="357" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipModule__t_1a0f8d8534a40fcf70ce8e42c0555dbcaa" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ihipModule_t::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="358" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classihipModule__t_1a91581da05e12fe8dfa0b4fa2bd8c30b8" prot="public" static="no" mutable="no">
+        <type>std::list&lt; <ref refid="structihipModuleSymbol__t" kindref="compound">hipFunction_t</ref> &gt;</type>
+        <definition>std::list&lt;hipFunction_t&gt; ihipModule_t::funcTrack</definition>
+        <argsstring></argsstring>
+        <name>funcTrack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="359" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classihipModule__t_1a3410a575fe5e4ea8639276107527b9bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ihipModule_t::ihipModule_t</definition>
+        <argsstring>()</argsstring>
+        <name>ihipModule_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="360" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="360" bodyend="360"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="352" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" bodystart="352" bodyend="361"/>
+    <listofallmembers>
+      <member refid="classihipModule__t_1a98335a56acb280cf54f9df975f7388d7" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>executable</name></member>
+      <member refid="classihipModule__t_1a5c4d5400520e4d09d799c691cb741964" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>fileName</name></member>
+      <member refid="classihipModule__t_1a91581da05e12fe8dfa0b4fa2bd8c30b8" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>funcTrack</name></member>
+      <member refid="classihipModule__t_1a3410a575fe5e4ea8639276107527b9bc" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>ihipModule_t</name></member>
+      <member refid="classihipModule__t_1a568e0e86db16ab5fcb8e1d12980d4f1f" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>object</name></member>
+      <member refid="classihipModule__t_1a41370c7c9f8dbfd217a5a4594aa33e34" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>ptr</name></member>
+      <member refid="classihipModule__t_1a0f8d8534a40fcf70ce8e42c0555dbcaa" prot="public" virt="non-virtual"><scope>ihipModule_t</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

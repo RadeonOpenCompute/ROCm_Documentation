@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structhipMipmappedArray" kind="struct" language="C++" prot="public">
+    <compoundname>hipMipmappedArray</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipMipmappedArray_1a6a422dd387797b6bf94815a35e5c85ad" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* hipMipmappedArray::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="58" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipMipmappedArray_1a7b3d071fbe88709c605a81fc0377ccec" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref></type>
+        <definition>struct hipChannelFormatDesc hipMipmappedArray::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="58" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipMipmappedArray_1a394a5dcdab60ebe4e4f58690f9d7b219" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int hipMipmappedArray::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="60" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipMipmappedArray_1ab094aeb4c988bc5e305f8a2ac0f22cfc" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int hipMipmappedArray::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="61" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipMipmappedArray_1aa2f0ff4e2a538993d100c2d422f725c0" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int hipMipmappedArray::depth</definition>
+        <argsstring></argsstring>
+        <name>depth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="62" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="58">
+        <label>hipMipmappedArray</label>
+        <link refid="structhipMipmappedArray"/>
+        <childnode refid="59" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+      </node>
+      <node id="59">
+        <label>hipChannelFormatDesc</label>
+        <link refid="structhipChannelFormatDesc"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="57" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="57" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structhipMipmappedArray_1a6a422dd387797b6bf94815a35e5c85ad" prot="public" virt="non-virtual"><scope>hipMipmappedArray</scope><name>data</name></member>
+      <member refid="structhipMipmappedArray_1aa2f0ff4e2a538993d100c2d422f725c0" prot="public" virt="non-virtual"><scope>hipMipmappedArray</scope><name>depth</name></member>
+      <member refid="structhipMipmappedArray_1a7b3d071fbe88709c605a81fc0377ccec" prot="public" virt="non-virtual"><scope>hipMipmappedArray</scope><name>desc</name></member>
+      <member refid="structhipMipmappedArray_1ab094aeb4c988bc5e305f8a2ac0f22cfc" prot="public" virt="non-virtual"><scope>hipMipmappedArray</scope><name>height</name></member>
+      <member refid="structhipMipmappedArray_1a394a5dcdab60ebe4e4f58690f9d7b219" prot="public" virt="non-virtual"><scope>hipMipmappedArray</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

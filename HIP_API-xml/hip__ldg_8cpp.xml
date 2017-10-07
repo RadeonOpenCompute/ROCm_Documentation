@@ -1,0 +1,704 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="hip__ldg_8cpp" kind="file" language="C++">
+    <compoundname>hip_ldg.cpp</compoundname>
+    <includes refid="hip__ldg_8h" local="yes">hip/hcc_detail/hip_ldg.h</includes>
+    <includes refid="hcc__detail_2hip__vector__types_8h" local="yes">hip/hcc_detail/hip_vector_types.h</includes>
+    <incdepgraph>
+      <node id="997">
+        <label>HIP/src/hip_ldg.cpp</label>
+        <link refid="hip_ldg.cpp"/>
+        <childnode refid="998" relation="include">
+        </childnode>
+        <childnode refid="999" relation="include">
+        </childnode>
+      </node>
+      <node id="999">
+        <label>hip/hcc_detail/hip_vector_types.h</label>
+        <link refid="hcc__detail_2hip__vector__types_8h"/>
+        <childnode refid="1000" relation="include">
+        </childnode>
+      </node>
+      <node id="998">
+        <label>hip/hcc_detail/hip_ldg.h</label>
+        <link refid="hip__ldg_8h_source"/>
+      </node>
+      <node id="1000">
+        <label>hip/hcc_detail/host_defines.h</label>
+        <link refid="host__defines_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hip__ldg_8cpp_1a5088aede0db81e93496df7efe3885b63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ char</type>
+        <definition>__device__ char __ldg</definition>
+        <argsstring>(const char *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const char *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="26" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1aa8dc74ea27f5553e3b31bad3f65f00da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structchar2" kindref="compound">char2</ref></type>
+        <definition>__device__ char2 __ldg</definition>
+        <argsstring>(const char2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structchar2" kindref="compound">char2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="31" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a0ffc4a44fd58389623739f1785999b18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structchar4" kindref="compound">char4</ref></type>
+        <definition>__device__ char4 __ldg</definition>
+        <argsstring>(const char4 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structchar4" kindref="compound">char4</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="36" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a66655697f0844e571159299b00d07182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ signed char</type>
+        <definition>__device__ signed char __ldg</definition>
+        <argsstring>(const signed char *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const signed char *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="41" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1ac325f5c71c0ae497d5600ecc038cd8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ unsigned char</type>
+        <definition>__device__ unsigned char __ldg</definition>
+        <argsstring>(const unsigned char *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="46" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a6e70c5f92fad04b756d3f039b24f548a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ short</type>
+        <definition>__device__ short __ldg</definition>
+        <argsstring>(const short *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const short *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="51" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a1ae8cef8394132ca3709e396322dc306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structshort2" kindref="compound">short2</ref></type>
+        <definition>__device__ short2 __ldg</definition>
+        <argsstring>(const short2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structshort2" kindref="compound">short2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="56" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a9721f9c884e6e9c59a7374b92a5f979f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structshort4" kindref="compound">short4</ref></type>
+        <definition>__device__ short4 __ldg</definition>
+        <argsstring>(const short4 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structshort4" kindref="compound">short4</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="61" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1adece6e8d30c609404113b21854e076f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ unsigned short</type>
+        <definition>__device__ unsigned short __ldg</definition>
+        <argsstring>(const unsigned short *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const unsigned short *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="66" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1ab77ec47196cc5659d79633138507d0f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ int</type>
+        <definition>__device__ int __ldg</definition>
+        <argsstring>(const int *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const int *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="71" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a1e86d74ca640e4d0fed1363864826704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structint2" kindref="compound">int2</ref></type>
+        <definition>__device__ int2 __ldg</definition>
+        <argsstring>(const int2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structint2" kindref="compound">int2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="76" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a67c70c8fb13f9093ac391a6b0585ce45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structint4" kindref="compound">int4</ref></type>
+        <definition>__device__ int4 __ldg</definition>
+        <argsstring>(const int4 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structint4" kindref="compound">int4</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="81" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a91c2b9d1973aa74c585b131f01969405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ unsigned int</type>
+        <definition>__device__ unsigned int __ldg</definition>
+        <argsstring>(const unsigned int *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const unsigned int *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="86" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a34e438933e829d723fcd154713806431" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ long</type>
+        <definition>__device__ long __ldg</definition>
+        <argsstring>(const long *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const long *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="92" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1ac761068409bc08c19a6725cfc158e260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ unsigned long</type>
+        <definition>__device__ unsigned long __ldg</definition>
+        <argsstring>(const unsigned long *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const unsigned long *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="97" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1aa7137963d10c662ed9e468ae011d10df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ long long</type>
+        <definition>__device__ long long __ldg</definition>
+        <argsstring>(const long long *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const long long *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="102" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a964f9ffe66e68083eb809d613cf4898d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structlonglong2" kindref="compound">longlong2</ref></type>
+        <definition>__device__ longlong2 __ldg</definition>
+        <argsstring>(const longlong2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structlonglong2" kindref="compound">longlong2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="107" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1acd9025e8ac1d65027154d18413dc6954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ unsigned long long</type>
+        <definition>__device__ unsigned long long __ldg</definition>
+        <argsstring>(const unsigned long long *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const unsigned long long *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="112" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a1ac34b900c3e5ecd1a76507de8dbe2c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structuchar2" kindref="compound">uchar2</ref></type>
+        <definition>__device__ uchar2 __ldg</definition>
+        <argsstring>(const uchar2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structuchar2" kindref="compound">uchar2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="117" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a246443ecfa7d36eca566f0fd3e237a70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structuchar4" kindref="compound">uchar4</ref></type>
+        <definition>__device__ uchar4 __ldg</definition>
+        <argsstring>(const uchar4 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structuchar4" kindref="compound">uchar4</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="122" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1af73291552e10e4b524928d33a8f4b34e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structushort2" kindref="compound">ushort2</ref></type>
+        <definition>__device__ ushort2 __ldg</definition>
+        <argsstring>(const ushort2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structushort2" kindref="compound">ushort2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="127" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a7c3ac25af22ef7b3fdb811d69d9205d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structuint2" kindref="compound">uint2</ref></type>
+        <definition>__device__ uint2 __ldg</definition>
+        <argsstring>(const uint2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structuint2" kindref="compound">uint2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="132" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a19b475c088ccfe31f434b06b4a95ca14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structuint4" kindref="compound">uint4</ref></type>
+        <definition>__device__ uint4 __ldg</definition>
+        <argsstring>(const uint4 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structuint4" kindref="compound">uint4</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="137" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a16562e3211f3139d394a712258c81b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structulonglong2" kindref="compound">ulonglong2</ref></type>
+        <definition>__device__ ulonglong2 __ldg</definition>
+        <argsstring>(const ulonglong2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structulonglong2" kindref="compound">ulonglong2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="142" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a0c400e9a0738d2e7dbb9169d53d522eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ float</type>
+        <definition>__device__ float __ldg</definition>
+        <argsstring>(const float *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const float *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="147" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1abff39fc4f7db63274ac3658df4662bfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structfloat2" kindref="compound">float2</ref></type>
+        <definition>__device__ float2 __ldg</definition>
+        <argsstring>(const float2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structfloat2" kindref="compound">float2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="152" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a975fc3ea6d33c0b417058a3de7d51957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structfloat4" kindref="compound">float4</ref></type>
+        <definition>__device__ float4 __ldg</definition>
+        <argsstring>(const float4 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structfloat4" kindref="compound">float4</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="157" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1af6c753f65215b5282e8a2f22c248b56c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ double</type>
+        <definition>__device__ double __ldg</definition>
+        <argsstring>(const double *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const double *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="162" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="hip__ldg_8cpp_1a207a05448e6f85223cd3600c40fc8180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__device__ <ref refid="structdouble2" kindref="compound">double2</ref></type>
+        <definition>__device__ double2 __ldg</definition>
+        <argsstring>(const double2 *ptr)</argsstring>
+        <name>__ldg</name>
+        <param>
+          <type>const <ref refid="structdouble2" kindref="compound">double2</ref> *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" line="167" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp" bodystart="167" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>present<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;hip/hcc_detail/hip_ldg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="hcc__detail_2hip__vector__types_8h" kindref="compound">hip/hcc_detail/hip_vector_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*ptr;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">__device__<sp/><ref refid="structchar2" kindref="compound">char2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structchar2" kindref="compound">char2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*ptr;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">__device__<sp/><ref refid="structchar4" kindref="compound">char4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structchar4" kindref="compound">char4</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*ptr;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">signed</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">signed</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">__device__<sp/><ref refid="structshort2" kindref="compound">short2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structshort2" kindref="compound">short2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">__device__<sp/><ref refid="structshort4" kindref="compound">short4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structshort4" kindref="compound">short4</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">__device__<sp/><ref refid="structint2" kindref="compound">int2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structint2" kindref="compound">int2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">__device__<sp/><ref refid="structint4" kindref="compound">int4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structint4" kindref="compound">int4</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">__device__<sp/><ref refid="structlonglong2" kindref="compound">longlong2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structlonglong2" kindref="compound">longlong2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">__device__<sp/><ref refid="structuchar2" kindref="compound">uchar2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structuchar2" kindref="compound">uchar2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">__device__<sp/><ref refid="structuchar4" kindref="compound">uchar4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structuchar4" kindref="compound">uchar4</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">__device__<sp/><ref refid="structushort2" kindref="compound">ushort2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structushort2" kindref="compound">ushort2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">__device__<sp/><ref refid="structuint2" kindref="compound">uint2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structuint2" kindref="compound">uint2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">__device__<sp/><ref refid="structuint4" kindref="compound">uint4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structuint4" kindref="compound">uint4</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">__device__<sp/><ref refid="structulonglong2" kindref="compound">ulonglong2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structulonglong2" kindref="compound">ulonglong2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">__device__<sp/><ref refid="structfloat2" kindref="compound">float2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structfloat2" kindref="compound">float2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">__device__<sp/><ref refid="structfloat4" kindref="compound">float4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structfloat4" kindref="compound">float4</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">__device__<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal">__device__<sp/><ref refid="structdouble2" kindref="compound">double2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ldg(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structdouble2" kindref="compound">double2</ref>*<sp/>ptr)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr[0];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_ldg.cpp"/>
+  </compounddef>
+</doxygen>

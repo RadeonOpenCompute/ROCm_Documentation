@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="unionTData" kind="union" language="C++" prot="public">
+    <compoundname>TData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionTData_1a7482026bf07a0570265bdd748c953e89" prot="public" static="no" mutable="no">
+        <type>hc::short_vector::float4::vector_value_type</type>
+        <definition>hc::short_vector::float4::vector_value_type TData::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" line="31" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionTData_1a27671cb50100fb3200473da1e57607d8" prot="public" static="no" mutable="no">
+        <type>hc::short_vector::int4::vector_value_type</type>
+        <definition>hc::short_vector::int4::vector_value_type TData::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" line="32" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionTData_1a57b9d6958c99085c24a4147795cda40c" prot="public" static="no" mutable="no">
+        <type>hc::short_vector::uint4::vector_value_type</type>
+        <definition>hc::short_vector::uint4::vector_value_type TData::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" line="33" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" line="30" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_functions.h" bodystart="30" bodyend="34"/>
+    <listofallmembers>
+      <member refid="unionTData_1a7482026bf07a0570265bdd748c953e89" prot="public" virt="non-virtual"><scope>TData</scope><name>f</name></member>
+      <member refid="unionTData_1a27671cb50100fb3200473da1e57607d8" prot="public" virt="non-virtual"><scope>TData</scope><name>i</name></member>
+      <member refid="unionTData_1a57b9d6958c99085c24a4147795cda40c" prot="public" virt="non-virtual"><scope>TData</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

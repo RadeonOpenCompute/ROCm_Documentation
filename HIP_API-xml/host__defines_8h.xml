@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="host__defines_8h" kind="file" language="C++">
+    <compoundname>host_defines.h</compoundname>
+    <includedby refid="hcc__detail_2hip__runtime_8h" local="no">HIP/include/hip/hcc_detail/hip_runtime.h</includedby>
+    <includedby refid="hcc__detail_2hip__runtime__api_8h" local="no">HIP/include/hip/hcc_detail/hip_runtime_api.h</includedby>
+    <includedby refid="hcc__detail_2hip__vector__types_8h" local="yes">HIP/include/hip/hcc_detail/hip_vector_types.h</includedby>
+    <invincdepgraph>
+      <node id="140">
+        <label>HIP/include/hip/hcc_detail/hip_runtime_api.h</label>
+        <link refid="hcc__detail_2hip__runtime__api_8h"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>HIP/include/hip/channel_descriptor.h</label>
+        <link refid="channel__descriptor_8h_source"/>
+      </node>
+      <node id="133">
+        <label>HIP/include/hip/hcc_detail/device_functions.h</label>
+        <link refid="hcc__detail_2device__functions_8h_source"/>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>HIP/src/hip_hcc.cpp</label>
+        <link refid="hip__hcc_8cpp"/>
+      </node>
+      <node id="150">
+        <label>HIP/include/hip/hip_complex.h</label>
+        <link refid="hip__complex_8h_source"/>
+      </node>
+      <node id="135">
+        <label>HIP/include/hip/hcc_detail/math_functions.h</label>
+        <link refid="hcc__detail_2math__functions_8h_source"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>HIP/include/hip/device_functions.h</label>
+        <link refid="device__functions_8h_source"/>
+      </node>
+      <node id="144">
+        <label>HIP/include/hip/hcc_detail/channel_descriptor.h</label>
+        <link refid="hcc__detail_2channel__descriptor_8h_source"/>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>HIP/include/hip/hip_hcc.h</label>
+        <link refid="hip__hcc_8h_source"/>
+      </node>
+      <node id="147">
+        <label>HIP/include/hip/hip_texture_types.h</label>
+        <link refid="hip__texture__types_8h_source"/>
+      </node>
+      <node id="131">
+        <label>HIP/include/hip/hcc_detail/hip_runtime.h</label>
+        <link refid="hcc__detail_2hip__runtime_8h"/>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>HIP/include/hip/hcc_detail/hip_complex.h</label>
+        <link refid="hcc__detail_2hip__complex_8h_source"/>
+        <childnode refid="150" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>HIP/include/hip/hip_runtime.h</label>
+        <link refid="hip__runtime_8h_source"/>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+      </node>
+      <node id="143">
+        <label>HIP/include/hip/hcc_detail/hip_vector_types.h</label>
+        <link refid="hcc__detail_2hip__vector__types_8h"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>HIP/include/hip/hcc_detail/hip_fp16.h</label>
+        <link refid="hcc__detail_2hip__fp16_8h_source"/>
+        <childnode refid="152" relation="include">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>HIP/include/hip/hip_runtime_api.h</label>
+        <link refid="hip__runtime__api_8h_source"/>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+      </node>
+      <node id="137">
+        <label>HIP/src/hip_hcc_internal.h</label>
+        <link refid="hip__hcc__internal_8h_source"/>
+        <childnode refid="138" relation="include">
+        </childnode>
+      </node>
+      <node id="139">
+        <label>HIP/src/device_util.h</label>
+        <link refid="device__util_8h_source"/>
+      </node>
+      <node id="136">
+        <label>HIP/include/hip/math_functions.h</label>
+        <link refid="math__functions_8h_source"/>
+      </node>
+      <node id="148">
+        <label>HIP/include/hip/hcc_detail/texture_functions.h</label>
+        <link refid="texture__functions_8h_source"/>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="152">
+        <label>HIP/include/hip/hip_fp16.h</label>
+        <link refid="hip__fp16_8h_source"/>
+      </node>
+      <node id="146">
+        <label>HIP/include/hip/hcc_detail/hip_texture_types.h</label>
+        <link refid="hcc__detail_2hip__texture__types_8h"/>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>HIP/include/hip/hcc_detail/host_defines.h</label>
+        <link refid="host_defines.h"/>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="host__defines_8h_1a9a93afd2ec3f43ce2612feb962c67ced" prot="public" static="no">
+        <name>GENERIC_GRID_LAUNCH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="34" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1a803050db3c78e0db3ea59a0c35499622" prot="public" static="no">
+        <name>__host__</name>
+        <initializer>__attribute__((cpu))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function and kernel markers </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="41" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1ad54e07d96efd9a36dfca1a9f27776d62" prot="public" static="no">
+        <name>__device__</name>
+        <initializer>__attribute__((hc))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="42" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1a75e2d5456e52f5c9703fc88479472e55" prot="public" static="no">
+        <name>__global__</name>
+        <initializer>__attribute__((annotate(&quot;hip__global__&quot;), hc, used, weak))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="47" column="10" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1afbf7e0f75921aacac6235118bbbcbaf7" prot="public" static="no">
+        <name>__noinline__</name>
+        <initializer>__attribute__((noinline))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="50" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1a512438e185f4537a4a9b25b30e9f800f" prot="public" static="no">
+        <name>__forceinline__</name>
+        <initializer>__attribute__((always_inline))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="51" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1a8861ebb246f4369c3a2e50d994abf1c6" prot="public" static="no">
+        <name>__shared__</name>
+        <initializer>tile_static</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="59" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="host__defines_8h_1a10acd631ad168a622030ccd1ac0a153e" prot="public" static="no">
+        <name>__constant__</name>
+        <initializer>__attribute__((hc))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" line="60" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TODO-doc. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>present<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor">#ifndef<sp/>HIP_INCLUDE_HIP_HCC_DETAIL_HOST_DEFINES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIP_INCLUDE_HIP_HCC_DETAIL_HOST_DEFINES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Add<sp/>guard<sp/>to<sp/>Generic<sp/>Grid<sp/>Launch<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GENERIC_GRID_LAUNCH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GENERIC_GRID_LAUNCH<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__HCC__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="host__defines_8h_1a803050db3c78e0db3ea59a0c35499622" refkind="member"><highlight class="preprocessor">#define<sp/>__host__<sp/><sp/><sp/><sp/><sp/>__attribute__((cpu))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__device__<sp/><sp/><sp/>__attribute__((hc))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>GENERIC_GRID_LAUNCH<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__global__<sp/><sp/>__attribute__((hc_grid_launch))<sp/>__attribute__((used))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__global__<sp/>__attribute__((annotate(&quot;hip__global__&quot;),<sp/>hc,<sp/>used,<sp/>weak))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//GENERIC_GRID_LAUNCH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__noinline__<sp/><sp/><sp/><sp/><sp/><sp/>__attribute__((noinline))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__forceinline__<sp/><sp/><sp/>__attribute__((always_inline))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Variable<sp/>Type<sp/>Qualifiers:</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>_restrict<sp/>is<sp/>supported<sp/>by<sp/>the<sp/>compiler</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__shared__<sp/><sp/><sp/><sp/><sp/>tile_static</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__constant__<sp/><sp/><sp/>__attribute__((hc))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Non-HCC<sp/>compiler</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"></highlight><highlight class="preprocessor">#define<sp/>__host__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__device__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__global__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__noinline__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__forceinline__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__shared__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__constant__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/host_defines.h"/>
+  </compounddef>
+</doxygen>

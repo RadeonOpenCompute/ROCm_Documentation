@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structuchar4" kind="struct" language="C++" prot="public">
+    <compoundname>uchar4</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structuchar4_1a11698ac879bd83dbc301af5c53ac0e07" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char uchar4::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="161" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structuchar4_1aad0f2695bdcbea7792ee2e666bebcb51" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char uchar4::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="161" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structuchar4_1adcff6c51383de4873e0df1acee9422c1" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char uchar4::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="161" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structuchar4_1a5b8cb7c8d705becc2b916e34d189691a" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char uchar4::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="161" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structuchar4_1a36921b66d293275c04bba339a5081182" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int uchar4::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="163" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structuchar4_1aeb690d2f3ea73d4d4f73e22249df9865" prot="public" static="no" mutable="no">
+        <type>union uchar4::@13</type>
+        <definition>union uchar4::@13 uchar4::@14</definition>
+        <argsstring></argsstring>
+        <name>@14</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="164" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="141" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="141" bodyend="165"/>
+    <listofallmembers>
+      <member refid="structuchar4_1a36921b66d293275c04bba339a5081182" prot="public" virt="non-virtual"><scope>uchar4</scope><name>a</name></member>
+      <member refid="structuchar4_1a5b8cb7c8d705becc2b916e34d189691a" prot="public" virt="non-virtual"><scope>uchar4</scope><name>w</name></member>
+      <member refid="structuchar4_1a11698ac879bd83dbc301af5c53ac0e07" prot="public" virt="non-virtual"><scope>uchar4</scope><name>x</name></member>
+      <member refid="structuchar4_1aad0f2695bdcbea7792ee2e666bebcb51" prot="public" virt="non-virtual"><scope>uchar4</scope><name>y</name></member>
+      <member refid="structuchar4_1adcff6c51383de4873e0df1acee9422c1" prot="public" virt="non-virtual"><scope>uchar4</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

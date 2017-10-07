@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structlong1" kind="struct" language="C++" prot="public">
+    <compoundname>long1</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlong1_1ab17b6b5a3d71d949e24f91fd4f08f2c1" prot="public" static="no" mutable="no">
+        <type>signed long</type>
+        <definition>signed long long1::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="896" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="896" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="878" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="878" bodyend="897"/>
+    <listofallmembers>
+      <member refid="structlong1_1ab17b6b5a3d71d949e24f91fd4f08f2c1" prot="public" virt="non-virtual"><scope>long1</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

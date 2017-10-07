@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structulong2" kind="struct" language="C++" prot="public">
+    <compoundname>ulong2</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structulong2_1a59dd0b44cc4b0e8d2e45fc474a3567bc" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long ulong2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="832" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="832" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structulong2_1a03dc23a912580d2f3b844e4488c7cc32" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long ulong2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="832" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="832" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="814" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="814" bodyend="833"/>
+    <listofallmembers>
+      <member refid="structulong2_1a59dd0b44cc4b0e8d2e45fc474a3567bc" prot="public" virt="non-virtual"><scope>ulong2</scope><name>x</name></member>
+      <member refid="structulong2_1a03dc23a912580d2f3b844e4488c7cc32" prot="public" virt="non-virtual"><scope>ulong2</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

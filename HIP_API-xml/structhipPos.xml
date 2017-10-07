@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structhipPos" kind="struct" language="C++" prot="public">
+    <compoundname>hipPos</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipPos_1aafb0909b6d0f6cd68cc355cf22e28c83" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipPos::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="192" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipPos_1ac18c860523bc02a619cd9bf06681bb91" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipPos::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="193" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipPos_1a8b5c6e0171752091660b08d37ce8e0ff" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipPos::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="194" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" line="191" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/driver_types.h" bodystart="191" bodyend="195"/>
+    <listofallmembers>
+      <member refid="structhipPos_1aafb0909b6d0f6cd68cc355cf22e28c83" prot="public" virt="non-virtual"><scope>hipPos</scope><name>x</name></member>
+      <member refid="structhipPos_1ac18c860523bc02a619cd9bf06681bb91" prot="public" virt="non-virtual"><scope>hipPos</scope><name>y</name></member>
+      <member refid="structhipPos_1a8b5c6e0171752091660b08d37ce8e0ff" prot="public" virt="non-virtual"><scope>hipPos</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

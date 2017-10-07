@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structhipTexture" kind="struct" language="C++" prot="public">
+    <compoundname>hipTexture</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipTexture_1a686785efae8c29ef765cfe3f1bba55fd" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipResourceDesc" kindref="compound">hipResourceDesc</ref></type>
+        <definition>hipResourceDesc hipTexture::resDesc</definition>
+        <argsstring></argsstring>
+        <name>resDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" line="29" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipTexture_1ae706bc171f8f15a1a1d2776210bd34cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipTextureDesc" kindref="compound">hipTextureDesc</ref></type>
+        <definition>hipTextureDesc hipTexture::texDesc</definition>
+        <argsstring></argsstring>
+        <name>texDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" line="30" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipTexture_1a6ee72cb0d7d0b0ecb21e976dea7714c4" prot="public" static="no" mutable="no">
+        <type><ref refid="structhipResourceViewDesc" kindref="compound">hipResourceViewDesc</ref></type>
+        <definition>hipResourceViewDesc hipTexture::resViewDesc</definition>
+        <argsstring></argsstring>
+        <name>resViewDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" line="31" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipTexture_1ab95b251c3e12e3897e66d28b6c1ce38e" prot="public" static="no" mutable="no">
+        <type>hsa_ext_image_t</type>
+        <definition>hsa_ext_image_t hipTexture::image</definition>
+        <argsstring></argsstring>
+        <name>image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" line="32" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhipTexture_1aee3ed7c06531097a0ee5fc743026ebc7" prot="public" static="no" mutable="no">
+        <type>hsa_ext_sampler_t</type>
+        <definition>hsa_ext_sampler_t hipTexture::sampler</definition>
+        <argsstring></argsstring>
+        <name>sampler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" line="33" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="76">
+        <label>hipResourceDesc</label>
+        <link refid="structhipResourceDesc"/>
+        <childnode refid="77" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>array</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>mipmap</edgelabel>
+        </childnode>
+      </node>
+      <node id="75">
+        <label>hipTextureDesc</label>
+        <link refid="structhipTextureDesc"/>
+      </node>
+      <node id="74">
+        <label>hipTexture</label>
+        <link refid="structhipTexture"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>texDesc</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>resDesc</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>resViewDesc</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>hipResourceViewDesc</label>
+        <link refid="structhipResourceViewDesc"/>
+      </node>
+      <node id="78">
+        <label>hipArray</label>
+        <link refid="structhipArray"/>
+        <childnode refid="77" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>hipMipmappedArray</label>
+        <link refid="structhipMipmappedArray"/>
+        <childnode refid="77" relation="usage">
+          <edgelabel>desc</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>hipChannelFormatDesc</label>
+        <link refid="structhipChannelFormatDesc"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" line="28" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_texture.h" bodystart="28" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structhipTexture_1ab95b251c3e12e3897e66d28b6c1ce38e" prot="public" virt="non-virtual"><scope>hipTexture</scope><name>image</name></member>
+      <member refid="structhipTexture_1a686785efae8c29ef765cfe3f1bba55fd" prot="public" virt="non-virtual"><scope>hipTexture</scope><name>resDesc</name></member>
+      <member refid="structhipTexture_1a6ee72cb0d7d0b0ecb21e976dea7714c4" prot="public" virt="non-virtual"><scope>hipTexture</scope><name>resViewDesc</name></member>
+      <member refid="structhipTexture_1aee3ed7c06531097a0ee5fc743026ebc7" prot="public" virt="non-virtual"><scope>hipTexture</scope><name>sampler</name></member>
+      <member refid="structhipTexture_1ae706bc171f8f15a1a1d2776210bd34cd" prot="public" virt="non-virtual"><scope>hipTexture</scope><name>texDesc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

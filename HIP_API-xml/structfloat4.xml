@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structfloat4" kind="struct" language="C++" prot="public">
+    <compoundname>float4</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfloat4_1ab60e7164162636ef8d0315cf18269b0f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float float4::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="703" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="703" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfloat4_1a72bce4984c96cef3d6a50adcbce6e388" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float float4::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="703" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="703" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfloat4_1a898443ac0132ee9f149661c63882361b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float float4::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="703" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="703" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfloat4_1ae3ef7af10eec7945566a363866321e26" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float float4::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="703" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="703" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" line="685" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_vector_types.h" bodystart="685" bodyend="704"/>
+    <listofallmembers>
+      <member refid="structfloat4_1ae3ef7af10eec7945566a363866321e26" prot="public" virt="non-virtual"><scope>float4</scope><name>w</name></member>
+      <member refid="structfloat4_1ab60e7164162636ef8d0315cf18269b0f" prot="public" virt="non-virtual"><scope>float4</scope><name>x</name></member>
+      <member refid="structfloat4_1a72bce4984c96cef3d6a50adcbce6e388" prot="public" virt="non-virtual"><scope>float4</scope><name>y</name></member>
+      <member refid="structfloat4_1a898443ac0132ee9f149661c63882361b" prot="public" virt="non-virtual"><scope>float4</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structtextureReference" kind="struct" language="C++" prot="public">
+    <compoundname>textureReference</compoundname>
+    <includes refid="hcc__detail_2texture__types_8h" local="no">texture_types.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtextureReference_1a7d2636ed684123f1eb107a7b96f5aee7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int textureReference::normalized</definition>
+        <argsstring></argsstring>
+        <name>normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="84" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a6a5fcdde066bff8f72a8984d2406c767" prot="public" static="no" mutable="no">
+        <type>enum hipTextureFilterMode</type>
+        <definition>enum hipTextureFilterMode textureReference::filterMode</definition>
+        <argsstring></argsstring>
+        <name>filterMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="84" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a5f91c843961f1db658a9c902db1c7d9f" prot="public" static="no" mutable="no">
+        <type>enum hipTextureAddressMode</type>
+        <definition>enum hipTextureAddressMode textureReference::addressMode[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>addressMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="84" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1ae27678d145e8b723d08e4c8e7ad4b101" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref></type>
+        <definition>struct hipChannelFormatDesc textureReference::channelDesc</definition>
+        <argsstring></argsstring>
+        <name>channelDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="84" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a09d0a817542f9dc476ed9a85f87e8394" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int textureReference::sRGB</definition>
+        <argsstring></argsstring>
+        <name>sRGB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="88" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a82d0f26cd796675da5ac4c760d6948b2" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int textureReference::maxAnisotropy</definition>
+        <argsstring></argsstring>
+        <name>maxAnisotropy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="89" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a51e5adbf129dab098876916715479f04" prot="public" static="no" mutable="no">
+        <type>enum hipTextureFilterMode</type>
+        <definition>enum hipTextureFilterMode textureReference::mipmapFilterMode</definition>
+        <argsstring></argsstring>
+        <name>mipmapFilterMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="89" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1ab44c375e9b8d99b26aba0700046f8f6c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float textureReference::mipmapLevelBias</definition>
+        <argsstring></argsstring>
+        <name>mipmapLevelBias</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="91" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a41f408f3e94cd418b16a1066fbcb0665" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float textureReference::minMipmapLevelClamp</definition>
+        <argsstring></argsstring>
+        <name>minMipmapLevelClamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="92" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a96d72337d70c83d450d74f7976cfc48c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float textureReference::maxMipmapLevelClamp</definition>
+        <argsstring></argsstring>
+        <name>maxMipmapLevelClamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="93" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtextureReference_1a2824227fafa527f432b19246f2863116" prot="public" static="no" mutable="no">
+        <type>hipTextureObject_t</type>
+        <definition>hipTextureObject_t textureReference::textureObject</definition>
+        <argsstring></argsstring>
+        <name>textureObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="95" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>hip texture reference </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="199">
+        <label>textureReference</label>
+        <link refid="structtextureReference"/>
+        <childnode refid="200" relation="usage">
+          <edgelabel>channelDesc</edgelabel>
+        </childnode>
+      </node>
+      <node id="200">
+        <label>hipChannelFormatDesc</label>
+        <link refid="structhipChannelFormatDesc"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="83" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="82" bodyend="96"/>
+    <listofallmembers>
+      <member refid="structtextureReference_1a5f91c843961f1db658a9c902db1c7d9f" prot="public" virt="non-virtual"><scope>textureReference</scope><name>addressMode</name></member>
+      <member refid="structtextureReference_1ae27678d145e8b723d08e4c8e7ad4b101" prot="public" virt="non-virtual"><scope>textureReference</scope><name>channelDesc</name></member>
+      <member refid="structtextureReference_1a6a5fcdde066bff8f72a8984d2406c767" prot="public" virt="non-virtual"><scope>textureReference</scope><name>filterMode</name></member>
+      <member refid="structtextureReference_1a82d0f26cd796675da5ac4c760d6948b2" prot="public" virt="non-virtual"><scope>textureReference</scope><name>maxAnisotropy</name></member>
+      <member refid="structtextureReference_1a96d72337d70c83d450d74f7976cfc48c" prot="public" virt="non-virtual"><scope>textureReference</scope><name>maxMipmapLevelClamp</name></member>
+      <member refid="structtextureReference_1a41f408f3e94cd418b16a1066fbcb0665" prot="public" virt="non-virtual"><scope>textureReference</scope><name>minMipmapLevelClamp</name></member>
+      <member refid="structtextureReference_1a51e5adbf129dab098876916715479f04" prot="public" virt="non-virtual"><scope>textureReference</scope><name>mipmapFilterMode</name></member>
+      <member refid="structtextureReference_1ab44c375e9b8d99b26aba0700046f8f6c" prot="public" virt="non-virtual"><scope>textureReference</scope><name>mipmapLevelBias</name></member>
+      <member refid="structtextureReference_1a7d2636ed684123f1eb107a7b96f5aee7" prot="public" virt="non-virtual"><scope>textureReference</scope><name>normalized</name></member>
+      <member refid="structtextureReference_1a09d0a817542f9dc476ed9a85f87e8394" prot="public" virt="non-virtual"><scope>textureReference</scope><name>sRGB</name></member>
+      <member refid="structtextureReference_1a2824227fafa527f432b19246f2863116" prot="public" virt="non-virtual"><scope>textureReference</scope><name>textureObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

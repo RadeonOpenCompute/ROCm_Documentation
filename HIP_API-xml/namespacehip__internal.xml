@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="namespacehip__internal" kind="namespace" language="C++">
+    <compoundname>hip_internal</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacehip__internal_1a7e9199bf478add7cb311ad78d925ba62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hip_internal::memcpyAsync</definition>
+        <argsstring>(void *dst, const void *src, size_t sizeBytes, hipMemcpyKind kind, hipStream_t stream)</argsstring>
+        <name>memcpyAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipStream__t" kindref="compound">hipStream_t</ref></type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="912" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_memory.cpp" bodystart="34" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehip__internal_1afa201e503d3f84bfa8e22b7a18ad2a38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int hip_internal::sharePtr</definition>
+        <argsstring>(void *ptr, ihipCtx_t *ctx, bool shareWithAll, unsigned hipFlags)</argsstring>
+        <name>sharePtr</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shareWithAll</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>hipFlags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_memory.cpp" line="58" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_memory.cpp" bodystart="58" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehip__internal_1ac8757d70ca05312ac8cf850abad4853a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* hip_internal::allocAndSharePtr</definition>
+        <argsstring>(const char *msg, size_t sizeBytes, ihipCtx_t *ctx, bool shareWithAll, unsigned amFlags, unsigned hipFlags, size_t alignment)</argsstring>
+        <name>allocAndSharePtr</name>
+        <param>
+          <type>const char *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="classihipCtx__t" kindref="compound">ihipCtx_t</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shareWithAll</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>amFlags</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>hipFlags</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>alignment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_memory.cpp" line="104" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_memory.cpp" bodystart="104" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc_internal.h" line="911" column="1"/>
+  </compounddef>
+</doxygen>

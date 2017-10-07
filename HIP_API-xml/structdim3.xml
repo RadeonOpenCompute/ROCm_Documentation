@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="structdim3" kind="struct" language="C++" prot="public">
+    <compoundname>dim3</compoundname>
+    <includes refid="hcc__detail_2hip__runtime__api_8h" local="no">hip_runtime_api.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structdim3_1ac866c05f83a28dac20a153fc65b3b16c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t dim3::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>x </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="200" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdim3_1a83e60e072f7e8bdfde6ac05053cbb370" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t dim3::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+<para>y </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="201" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdim3_1a866e38993ecc4e76fd47311236c16b04" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t dim3::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+<para>z </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="202" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct for data in 3D </para>    </detaileddescription>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="199" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="199" bodyend="206"/>
+    <listofallmembers>
+      <member refid="structdim3_1ac866c05f83a28dac20a153fc65b3b16c" prot="public" virt="non-virtual"><scope>dim3</scope><name>x</name></member>
+      <member refid="structdim3_1a83e60e072f7e8bdfde6ac05053cbb370" prot="public" virt="non-virtual"><scope>dim3</scope><name>y</name></member>
+      <member refid="structdim3_1a866e38993ecc4e76fd47311236c16b04" prot="public" virt="non-virtual"><scope>dim3</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="group__Profiler" kind="group">
+    <compoundname>Profiler</compoundname>
+    <title>Control</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Profiler_1ga40aa20d731f9c8f0586127d589759e1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipProfilerStart</definition>
+        <argsstring>()</argsstring>
+        <name>hipProfilerStart</name>
+        <briefdescription>
+<para>Start recording of profiling information When using this API, start the profiler with profiling disabled. (<ndash/>startdisabled) </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>: hipProfilerStart API is under development. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2049" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="2101" bodyend="2109"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Profiler_1ga777994cae0f7bdef24131fc1f3ed626e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__GlobalDefs_1gadf5010f6e140a53ecbdf949e73e87594" kindref="member">hipError_t</ref></type>
+        <definition>hipError_t hipProfilerStop</definition>
+        <argsstring>()</argsstring>
+        <name>hipProfilerStop</name>
+        <briefdescription>
+<para>Stop recording of profiling information. When using this API, start the profiler with profiling disabled. (<ndash/>startdisabled) </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>: hipProfilerStop API is under development. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2057" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/src/hip_hcc.cpp" bodystart="2112" bodyend="2120"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="2">----------------------------------------------------------------------------------------------<mdash/> </heading>
+</para><para><simplesect kind="warning"><para>The cudaProfilerInitialize API format for &quot;configFile&quot; is not supported. </para></simplesect>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

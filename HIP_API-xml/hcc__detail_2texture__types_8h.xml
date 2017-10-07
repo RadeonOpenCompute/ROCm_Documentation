@@ -1,0 +1,482 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="hcc__detail_2texture__types_8h" kind="file" language="C++">
+    <compoundname>texture_types.h</compoundname>
+    <includes refid="hcc__detail_2driver__types_8h" local="no">hip/hcc_detail/driver_types.h</includes>
+    <includedby refid="texture__types_8h" local="no">HIP/include/hip/texture_types.h</includedby>
+    <includedby refid="hcc__detail_2hip__texture__types_8h" local="no">HIP/include/hip/hcc_detail/hip_texture_types.h</includedby>
+    <includedby refid="hip__texture_8h" local="no">HIP/src/hip_texture.h</includedby>
+    <incdepgraph>
+      <node id="500">
+        <label>HIP/include/hip/hcc_detail/texture_types.h</label>
+        <link refid="hcc_detail/texture_types.h"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+      </node>
+      <node id="501">
+        <label>hip/hcc_detail/driver_types.h</label>
+        <link refid="hcc__detail_2driver__types_8h_source"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="506">
+        <label>HIP/include/hip/hcc_detail/hip_runtime_api.h</label>
+        <link refid="hcc__detail_2hip__runtime__api_8h"/>
+        <childnode refid="507" relation="include">
+        </childnode>
+      </node>
+      <node id="502">
+        <label>HIP/include/hip/hcc_detail/texture_types.h</label>
+        <link refid="hcc_detail/texture_types.h"/>
+        <childnode refid="503" relation="include">
+        </childnode>
+        <childnode refid="504" relation="include">
+        </childnode>
+        <childnode refid="519" relation="include">
+        </childnode>
+      </node>
+      <node id="510">
+        <label>HIP/include/hip/hcc_detail/device_functions.h</label>
+        <link refid="hcc__detail_2device__functions_8h_source"/>
+        <childnode refid="511" relation="include">
+        </childnode>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+      </node>
+      <node id="517">
+        <label>HIP/src/hip_hcc.cpp</label>
+        <link refid="hip__hcc_8cpp"/>
+      </node>
+      <node id="519">
+        <label>HIP/src/hip_texture.h</label>
+        <link refid="hip__texture_8h_source"/>
+      </node>
+      <node id="514">
+        <label>HIP/include/hip/hcc_detail/math_functions.h</label>
+        <link refid="hcc__detail_2math__functions_8h_source"/>
+        <childnode refid="515" relation="include">
+        </childnode>
+        <childnode refid="512" relation="include">
+        </childnode>
+      </node>
+      <node id="511">
+        <label>HIP/include/hip/device_functions.h</label>
+        <link refid="device__functions_8h_source"/>
+      </node>
+      <node id="503">
+        <label>HIP/include/hip/texture_types.h</label>
+        <link refid="texture__types_8h_source"/>
+      </node>
+      <node id="508">
+        <label>HIP/include/hip/hip_hcc.h</label>
+        <link refid="hip__hcc_8h_source"/>
+      </node>
+      <node id="505">
+        <label>HIP/include/hip/hip_texture_types.h</label>
+        <link refid="hip__texture__types_8h_source"/>
+      </node>
+      <node id="512">
+        <label>HIP/include/hip/hcc_detail/hip_runtime.h</label>
+        <link refid="hcc__detail_2hip__runtime_8h"/>
+        <childnode refid="509" relation="include">
+        </childnode>
+        <childnode refid="513" relation="include">
+        </childnode>
+      </node>
+      <node id="509">
+        <label>HIP/include/hip/hip_runtime.h</label>
+        <link refid="hip__runtime_8h_source"/>
+        <childnode refid="510" relation="include">
+        </childnode>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="516" relation="include">
+        </childnode>
+        <childnode refid="517" relation="include">
+        </childnode>
+      </node>
+      <node id="507">
+        <label>HIP/include/hip/hip_runtime_api.h</label>
+        <link refid="hip__runtime__api_8h_source"/>
+        <childnode refid="508" relation="include">
+        </childnode>
+        <childnode refid="509" relation="include">
+        </childnode>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+      </node>
+      <node id="516">
+        <label>HIP/src/hip_hcc_internal.h</label>
+        <link refid="hip__hcc__internal_8h_source"/>
+        <childnode refid="517" relation="include">
+        </childnode>
+      </node>
+      <node id="513">
+        <label>HIP/src/device_util.h</label>
+        <link refid="device__util_8h_source"/>
+      </node>
+      <node id="515">
+        <label>HIP/include/hip/math_functions.h</label>
+        <link refid="math__functions_8h_source"/>
+      </node>
+      <node id="518">
+        <label>HIP/include/hip/hcc_detail/texture_functions.h</label>
+        <link refid="texture__functions_8h_source"/>
+        <childnode refid="512" relation="include">
+        </childnode>
+      </node>
+      <node id="504">
+        <label>HIP/include/hip/hcc_detail/hip_texture_types.h</label>
+        <link refid="hcc__detail_2hip__texture__types_8h"/>
+        <childnode refid="505" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="518" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structtextureReference" prot="public">textureReference</innerclass>
+    <innerclass refid="structhipTextureDesc" prot="public">hipTextureDesc</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a4e42b9cef1753bda3c033ab45e1197b2" prot="public" static="no">
+        <name>hipTextureType1D</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="29" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a96abb4cfeae2e1551f1e479f8ce26a37" prot="public" static="no">
+        <name>hipTextureType2D</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="30" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1af80b020f877f703e8be1da7394f9bce5" prot="public" static="no">
+        <name>hipTextureType3D</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="31" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a33ee7ee61ed7eb7cf5ae39eaa1acebf9" prot="public" static="no">
+        <name>hipTextureTypeCubemap</name>
+        <initializer>0x0C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="32" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1acf450f33c9ad8cb65e1045f56cf70cff" prot="public" static="no">
+        <name>hipTextureType1DLayered</name>
+        <initializer>0xF1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="33" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a057bc55e2829abb940be087144d7b40d" prot="public" static="no">
+        <name>hipTextureType2DLayered</name>
+        <initializer>0xF2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="34" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a0edc102adec32463b4d53ace08f93e0b" prot="public" static="no">
+        <name>hipTextureTypeCubemapLayered</name>
+        <initializer>0xFC</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="35" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a22ba7ddc1634e82823c022afee81d993" prot="public" static="no">
+        <name>HIP_IMAGE_OBJECT_SIZE_DWORD</name>
+        <initializer>12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Should be same as HSA_IMAGE_OBJECT_SIZE_DWORD/HSA_SAMPLER_OBJECT_SIZE_DWORD </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="40" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1af81d2dfee49f2e427a4c42cdc305d924" prot="public" static="no">
+        <name>HIP_SAMPLER_OBJECT_SIZE_DWORD</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="41" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1ace710725ff642dc6001a6cb8b549f61e" prot="public" static="no">
+        <name>HIP_SAMPLER_OBJECT_OFFSET_DWORD</name>
+        <initializer>HIP_IMAGE_OBJECT_SIZE_DWORD</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="42" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hcc__detail_2texture__types_8h_1a58dc40e135bf917d4856b62610aa520c" prot="public" static="no">
+        <name>HIP_TEXTURE_OBJECT_SIZE_DWORD</name>
+        <initializer>(HIP_IMAGE_OBJECT_SIZE_DWORD + HIP_SAMPLER_OBJECT_SIZE_DWORD)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="43" column="9" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="hcc__detail_2texture__types_8h_1a80ce4b7218b586b656e80d76817967ca" prot="public" static="no">
+        <name>hipTextureAddressMode</name>
+        <enumvalue id="hcc__detail_2texture__types_8h_1a80ce4b7218b586b656e80d76817967caa813cb1d0b18fc1f7313dd30b4eb6b3a6" prot="public">
+          <name>hipAddressModeWrap</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2texture__types_8h_1a80ce4b7218b586b656e80d76817967caabfc49151676f6657f24f742c52fd7f0c" prot="public">
+          <name>hipAddressModeClamp</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2texture__types_8h_1a80ce4b7218b586b656e80d76817967caa2ea813be3f5b60c34ce678dd2448a69a" prot="public">
+          <name>hipAddressModeMirror</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2texture__types_8h_1a80ce4b7218b586b656e80d76817967caa42f37e27292e58140cfefde3a89080f4" prot="public">
+          <name>hipAddressModeBorder</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hip texture address modes </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="54" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="53" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="enum" id="hcc__detail_2texture__types_8h_1aa2f0b6002b81d0a43a808cb880bb21e6" prot="public" static="no">
+        <name>hipTextureFilterMode</name>
+        <enumvalue id="hcc__detail_2texture__types_8h_1aa2f0b6002b81d0a43a808cb880bb21e6a56ede038ab7c805ec4b5b61d2b678dfc" prot="public">
+          <name>hipFilterModePoint</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2texture__types_8h_1aa2f0b6002b81d0a43a808cb880bb21e6a8863d8fc70e8397717641fffc9f5cb80" prot="public">
+          <name>hipFilterModeLinear</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hip texture filter modes </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="65" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="enum" id="hcc__detail_2texture__types_8h_1a442e950774f7306dc33692e358c92c94" prot="public" static="no">
+        <name>hipTextureReadMode</name>
+        <enumvalue id="hcc__detail_2texture__types_8h_1a442e950774f7306dc33692e358c92c94a829645801202174d052d667ffa4e1b8d" prot="public">
+          <name>hipReadModeElementType</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="hcc__detail_2texture__types_8h_1a442e950774f7306dc33692e358c92c94ae6a16ba3dbb9a7f2184efd235dd819c8" prot="public">
+          <name>hipReadModeNormalizedFloat</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hip texture read modes </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="74" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="73" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="hcc__detail_2texture__types_8h_1a094bcada509f9dee461d05f17694822e" prot="public" static="no">
+        <type>unsigned long long</type>
+        <definition>typedef unsigned long long hipTextureObject_t</definition>
+        <argsstring></argsstring>
+        <name>hipTextureObject_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An opaque value that represents a hip texture object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" line="48" column="1" bodyfile="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>present<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>HIP_INCLUDE_HIP_HCC_DETAIL_TEXTURE_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIP_INCLUDE_HIP_HCC_DETAIL_TEXTURE_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;hip/hcc_detail/driver_types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureType1D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureType2D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureType3D<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureTypeCubemap<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureType1DLayered<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureType2DLayered<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>hipTextureTypeCubemapLayered<sp/><sp/>0xFC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor">#define<sp/>HIP_IMAGE_OBJECT_SIZE_DWORD<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIP_SAMPLER_OBJECT_SIZE_DWORD<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIP_SAMPLER_OBJECT_OFFSET_DWORD<sp/>HIP_IMAGE_OBJECT_SIZE_DWORD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIP_TEXTURE_OBJECT_SIZE_DWORD<sp/>(HIP_IMAGE_OBJECT_SIZE_DWORD<sp/>+<sp/>HIP_SAMPLER_OBJECT_SIZE_DWORD)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>hipTextureObject_t;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureAddressMode</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>hipAddressModeWrap<sp/><sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>hipAddressModeClamp<sp/><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>hipAddressModeMirror<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>hipAddressModeBorder<sp/>=<sp/>3</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureFilterMode</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>hipFilterModePoint<sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>hipFilterModeLinear<sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureReadMode</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>hipReadModeElementType<sp/><sp/><sp/><sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>hipReadModeNormalizedFloat<sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="structtextureReference" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtextureReference" kindref="compound">textureReference</ref></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>normalized;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureFilterMode<sp/><sp/><sp/>filterMode;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureAddressMode<sp/><sp/>addressMode[3];<sp/></highlight><highlight class="comment">//Texture<sp/>address<sp/>mode<sp/>for<sp/>up<sp/>to<sp/>3<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipChannelFormatDesc" kindref="compound">hipChannelFormatDesc</ref><sp/>channelDesc;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sRGB;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>sRGB-&gt;linear<sp/>conversion<sp/>during<sp/>texture<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxAnisotropy;<sp/><sp/></highlight><highlight class="comment">//<sp/>Limit<sp/>to<sp/>the<sp/>anisotropy<sp/>ratio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureFilterMode<sp/><sp/><sp/>mipmapFilterMode;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mipmapLevelBias;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minMipmapLevelClamp;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxMipmapLevelClamp;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>hipTextureObject_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>textureObject;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="structhipTextureDesc" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhipTextureDesc" kindref="compound">hipTextureDesc</ref></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureAddressMode<sp/><sp/>addressMode[3];<sp/></highlight><highlight class="comment">//Texture<sp/>address<sp/>mode<sp/>for<sp/>up<sp/>to<sp/>3<sp/>dimensions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureFilterMode<sp/><sp/><sp/>filterMode;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureReadMode<sp/><sp/><sp/><sp/><sp/>readMode;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sRGB;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>sRGB-&gt;linear<sp/>conversion<sp/>during<sp/>texture<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>borderColor[4];</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>normalizedCoords;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxAnisotropy;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>hipTextureFilterMode<sp/><sp/><sp/>mipmapFilterMode;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mipmapLevelBias;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minMipmapLevelClamp;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxMipmapLevelClamp;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/mohit/Desktop/doxygen/hip/HIP/include/hip/hcc_detail/texture_types.h"/>
+  </compounddef>
+</doxygen>
