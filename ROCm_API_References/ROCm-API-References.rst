@@ -27,6 +27,7 @@ HIP Math API
 
 Math Libarary API's
 ====================
+* `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
 
 *  :ref:`clBLAS`
 
