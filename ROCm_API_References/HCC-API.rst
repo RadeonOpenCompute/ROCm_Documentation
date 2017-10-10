@@ -1,13 +1,11 @@
-.. _HCC_API:
+.. _HCC-API:
 
-========
-HCC API
-========
+======================
+HCC API Documentation
+======================
 
  * :ref:`HCCDocumentation`
  * :ref:`HCAPI`
- * :ref:`APIrefference`
- * :ref:`hc`  
 
 .. _HCCDocumentation:
 
@@ -146,38 +144,6 @@ HC supports capturing memory pointer by a GPU kernel.
 ``` // allocate GPU memory through the HSA API int* gpu_pointer; hsa_memory_allocate(..., &gpu_pointer); ... parallel_for_each(ext, [=](index i) [[hc]] { gpu_pointer[i[0]]++; }
 
 ``` For HSA APUs that supports system wide shared virtual memory, a GPU kernel can directly access system memory allocated by the host: ``` int* cpu_memory = (int*) malloc(...); ... parallel_for_each(ext, [=](index i) [[hc]] { cpu_memory[i[0]]++; }); ```
-
-.. _APIrefference:
-
-API refference
-################
-
-
-//.. doxygenclass:: Concurrency::accelerator
-  // :project: hcc
-  // :members:
-
-//.. doxygenclass:: char_1
-  // :project: hcc
-  // :members:
-
-.. _hcnamspace:
-
-hc
-######
-
-.. doxygennamespace:: hc
-   :project: hcc
-   :members:
-
-
-Concurrency
-************
-
-.. doxygennamespace:: Concurrency
-   :project: hcc
-   :members:
-
 
 
 

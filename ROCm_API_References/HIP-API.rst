@@ -1,7 +1,7 @@
 .. _HIP-API:
 
-HIP API Reference
-###################
+HIP API Documentation
+######################
 
 
 .. toctree::

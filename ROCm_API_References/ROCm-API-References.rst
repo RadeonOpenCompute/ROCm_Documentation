@@ -2,39 +2,35 @@
 .. _ROCm-API-References:
 
 =====================
-Rocm API References
+ROCm API References
 =====================
 
 
 ROCr System Runtime API
 ========================
 
-* `ROCr System Runtime API <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/README.md>`_
+*  :ref:`ROCr-API`
 
 HCC Language Runtime API
 ========================
 
-* :ref:`HCC_API`
+* :ref:`HCC-API`
 
 HIP Language Runtime API
 ========================
-
 * :ref:`HIP-API`
-
-HIP Device Runtime API
-======================
 
 HIP Math API
 ====================
 
-* `HIP Math API <https://gist.github.com/adityaatluri/10333bdb83bfce14f264a94ce206fecd>`_
+* :ref:`HIP-MATH`
 
 Math Libarary API's
 ====================
 
-* `hcBLAS API <http://hcblas-documentation.readthedocs.io/en/latest/>`_
+*  :ref:`clBLAS`
 
-* :ref:`rocBLAS`
+*  :ref:`clSPARSE_API`
 
 Deep Learning API's
 ====================
