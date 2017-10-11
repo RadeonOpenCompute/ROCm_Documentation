@@ -13,11 +13,10 @@ HIP Bugs
 
 .. _Errors related to undefined reference to __hcLaunchKernel__***__grid_launch_parm**:
 
-Errors related to undefined reference to ``__hcLaunchKernel__***__grid_launch_parm**``
----------------------------------------------------------------------------------------
+Errors related to undefined reference to __hcLaunchKernel__***__grid_launch_parm**
+--------------------------------------------------------------------------------------
 
-Some common code practices may lead to hipcc generating a error with the form :
-::
+Some common code practices may lead to hipcc generating a error with the form ::
 
  undefined reference to `__hcLaunchKernel__ZN15vecAddNamespace6vecAddIidEEv16grid_launch_parmPT0_S3_S3_T_
 
@@ -66,7 +65,7 @@ What is the current limitation of HIP Generic Grid Launch method?
 
 .. _Errors related to no matching constructor:
 
-Errors related to ``no matching constructor``
+Errors related to no matching constructor
 -------------------------------------------
 
 The symptom is the compiler would complain about errors like no matching constructor for classes/structs passed as arguments into a GPU kernel. Often, this is caused by a design limitation in HCC where array-typed member variables inside a class/struct can’t be correctly passed into GPU kernels. To mitigate this issue, a custom serializer/deserializer pair is provided.

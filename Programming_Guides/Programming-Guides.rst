@@ -59,7 +59,7 @@ Use HIP when converting Cuda applications to portable C++ and for new projects t
 
 OpenCL™: Open Compute Language
 ################################
-What is OpenCL? It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
+What is OpenCL ? It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
 and Nvidia GPUs support version 1.2 of the specification, as do x86 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C run-time API and C99-based kernel language.
 
 When to Use OpenCL
@@ -69,7 +69,7 @@ Windows, Linux and Mac OS, as well as a wide variety of hardware platforms (desc
 
 Anaconda Python With Numba
 ###########################
-What is Anaconda? It’s a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
+What is Anaconda ? It’s a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
 ROCm-enabled discrete GPUs via Numba. It gives superpowers to the people who are changing the world.
 
 Numba
@@ -81,7 +81,7 @@ performance similar to that of C, C++ and Fortran---without having to switch lan
 Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically
 (through the included Pycc tool). It supports Python compilation to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NumPy.
 
-  * `Anaconda® with Numba <accelerationhttp://numba.pydata.org/numba-doc/latest/index.html>`_
+  * `Anaconda® with Numba acceleration <http://numba.pydata.org/numba-doc/latest/index.html>`_
 
 When to Use Anaconda
 #####################
@@ -193,17 +193,19 @@ Table Comparing Syntax for Different Compute APIs
 
 
 
-###Notes
+Notes
+#######
+
 1. For HC and C++AMP, assume a captured _tiled_ext_ named "t_ext" and captured _extent_ named "ext".  These languages use captured variables to pass information to the kernel rather than using special built-in functions so the exact variable name may vary.
 2. The indexing functions (starting with `thread-index`) show the terminology for a 1D grid.  Some APIs use reverse order of xyz / 012 indexing for 3D grids.
-3. HC allows tile dimensions to be specified at runtime while C++AMP requires that tile dimensions be specified at compile-time.  Thus hc syntax for tile dims is `t_ext.tile_dim[0]` while C++AMP is t_ext.tile_dim0.
+3. HC allows tile dimensions to be specified at runtime while C++AMP requires that tile dimensions be specified at compile-time.  Thus hc syntax for tile dims is ``t_ext.tile_dim[0]``  while C++AMP is ``t_ext.tile_dim0``.
 
 
 
 HC Programing Guide
 ===================
 
-**What is the Heterogeneous Compute (HC) API?**
+**What is the Heterogeneous Compute (HC) API ?**
 It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
 
 The Heterogeneous Compute Compiler (HCC) provides two important benefits:
@@ -252,15 +254,15 @@ Ubuntu 14.04
 Support for 14.04 has been deprecated.
 Ubuntu 16.04
 
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
+Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
 
 **Fedora 24**
 
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
+Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-fedora>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
 
 **RHEL 7.4/CentOS 7**
 
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package for RHEL/CentOS. Currently, HCC support for RHEL 7.4 and CentOS 7 is experimental and the compiler has to be built from source. Note: CentOS 7 cmake is outdated, will need to use alternate cmake3.
+Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-fedora>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package for RHEL/CentOS. Currently, HCC support for RHEL 7.4 and CentOS 7 is experimental and the compiler has to be built from source. Note: CentOS 7 cmake is outdated, will need to use alternate cmake3.
 
 **openSUSE Leap 42.3**
 
@@ -270,15 +272,15 @@ Download HCC
 ################
  The project now employs git submodules to manage external components it depends upon. It it advised to add --recursive when you clone the project so all submodules are fetched automatically.
 
-For example: ::
-
+For example::
+  
   # automatically fetches all submodules
   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
 
 Build HCC from source
 ######################
 
-First, install the build dependencies: ::
+First, install the build dependencies::
 
   # Ubuntu 14.04
   sudo apt-get install git cmake make g++  g++-multilib gcc-multilib libc++-dev libc++1 libc++abi-dev libc++abi1 python findutils     	libelf1 libpci3 file debianutils libunwind8-dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
@@ -380,9 +382,10 @@ gfx900        GFX9                 Vega10
 
 Multiple ISA
 #############
-HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways:
-**use :: --amdgpu-target= command line option**
-It's possible to specify multiple --amdgpu-target= option. Example: ::
+HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways: **use :: --amdgpu-target= command line option**
+It's possible to specify multiple --amdgpu-target= option. 
+
+Example::
 
  # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
  # be produced
@@ -395,7 +398,7 @@ It's possible to specify multiple --amdgpu-target= option. Example: ::
 
 use :: HCC_AMDGPU_TARGET env var
 
-Use , to delimit each AMDGPU target in HCC. Example: ::
+Use , to delimit each AMDGPU target in HCC. Example::
   
   export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
   # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
@@ -404,9 +407,7 @@ Use , to delimit each AMDGPU target in HCC. Example: ::
 
 **configure HCC use CMake HSA_AMDGPU_GPU_TARGET variable**
 If you build HCC from source, it's possible to configure it to automatically produce multiple ISAs via :: HSA_AMDGPU_GPU_TARGET CMake variable.
-Use ; to delimit each AMDGPU target. Example: ::
-
-
+Use ; to delimit each AMDGPU target. Example::
 
  # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
  # be produced by default
@@ -421,7 +422,7 @@ Use ; to delimit each AMDGPU target. Example: ::
 
 To enable the CodeXL Activity Logger, use the  USE_CODEXL_ACTIVITY_LOGGER environment variable.
 
-Configure the build in the following way: ::
+Configure the build in the following way::
 
   cmake \
     -DCMAKE_BUILD_TYPE=Release \
@@ -443,8 +444,8 @@ HC Best Practices
 
 HC comes with two header files as of now:
 
-    * <`hc.hpp <http://scchan.github.io/hcc/hc_8hpp.html>`> : Main header file for HC
-    * <`hc_math.hpp <http://scchan.github.io/hcc/hc__math_8hpp_source.html>`> : Math functions for HC
+    * `hc.hpp <http://scchan.github.io/hcc/hc_8hpp.html>`_ : Main header file for HC
+    * `hc_math.hpp <http://scchan.github.io/hcc/hc__math_8hpp_source.html>`_ : Math functions for HC
 
 Most HC APIs are stored under "hc" namespace, and the class name is the same as their counterpart in C++AMP "Concurrency" namespace. Users of C++AMP should find it easy to switch from C++AMP to HC.
 
@@ -463,11 +464,12 @@ Concurrency::array_view     	 hc::array_view
 
 How to build programs with HC API
 ##################################
-Use "hcc-config", instead of "clamp-config", or you could manually add "-hc" when you invoke clang++. Also, "hcc" is added as an alias for "clang++".
 
-For example: ::
+Use ``hcc-config``, instead of ``clamp-config``, or you could manually add ``-hc`` when you invoke clang++. Also, ``hcc`` is added as an alias for ``clang++``.
 
- `` hcchcc-config –cxxflags –ldflagsfoo.cpp -o foo `` 
+For example::
+ 
+ hcchcc-config –cxxflags –ldflagsfoo.cpp -o foo 
 
 HCC built-in macros
 #######################
@@ -537,7 +539,7 @@ HC uses a function attribute ([[hc]] or __attribute__((hc)) ) to annotate a devi
 
 The [[hc]] annotation for the kernel function called by parallel_for_each is optional as it is automatically annotated as a device function by the hcc compiler. The compiler also supports partial automatic [[hc]] annotation for functions that are called by other device functions within the same source file:
 
-Since bar is called by foo, which is a device function, the hcc compiler  will automatically annotate bar as a device function void bar() { ... } void foo() [[hc]] { bar(); }
+Since bar is called by foo, which is a device function, the hcc compiler will automatically annotate bar as a device function ``void bar() { ... } void foo() [[hc]] { bar(); }``
 
 
 **Dynamic tile size**
@@ -560,9 +562,11 @@ C++ AMP doens't support lambda capture of memory pointer into a GPU kernel.
 
 HC supports capturing memory pointer by a GPU kernel.
 
-allocate GPU memory through the HSA API int* gpu_pointer; hsa_memory_allocate(..., &gpu_pointer); ... parallel_for_each(ext, [=](index i) [[hc]] { gpu_pointer[i[0]]++; }
+allocate GPU memory through the HSA API 
+``int* gpu_pointer; hsa_memory_allocate(..., &gpu_pointer); ... parallel_for_each(ext, [=](index i) [[hc]] { gpu_pointer[i[0]]++; }``
 
-For HSA APUs that supports system wide shared virtual memory, a GPU kernel can directly access system memory allocated by the host: int* cpu_memory = (int*) malloc(...); ... parallel_for_each(ext, [=](index i) [[hc]] { cpu_memory[i[0]]++; }); 
+For HSA APUs that supports system wide shared virtual memory, a GPU kernel can directly access system memory allocated by the host: 
+``int* cpu_memory = (int*) malloc(...); ... parallel_for_each(ext, [=](index i) [[hc]] { cpu_memory[i[0]]++; });``
 
 
 HCC Profile Mode
@@ -656,16 +660,16 @@ Barrier Commands
 Barrier commands are only enabled if HCC_PROFILE_VERBOSE 0x
 
 An example barrier command with full vebosity::
-
- profile: barrier; deps:0_acq:none_rel:sys;  5.3 us;   94858731419410; 94858731424690; #0.0.2;
+ 
+ profile: barrier; deps:0_acq:none_rel:sys;  5.3 us;   94858731419410; 94858731424690; # 0.0.2;
  PROFILE:  TYPE;   BARRIER_NAME           ;  DURATION; START         ; STOP          ; ID    ; 
 
 * PROFILE: always "profile:" to distinguish it from other output.
 * TYPE: the command type: either kernel, copy, copyslo, or barrier. The examples and descriptions in this section are all copy commands. Copy indicates that the runtime used a call to the fast hsa memory copy routine while copyslo indicates that the copy was implemented with staging buffers or another less optimal path. copy computes the commands using device-side timestamps while copyslo computes the bandwidth based on host timestamps.
 * BARRIER_NAME has 3 parts:
-	* deps:# - the number of input dependencies into the barrier packet.
-	* acq: - the acquire fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
-	* rel: - the release fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
+	* ``deps:#`` - the number of input dependencies into the barrier packet.
+	* ``acq:`` - the acquire fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
+	* ``rel:`` - the release fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
 * DURATION: command duration measured in us. This is measured using the GPU timestamps from the time the barrier reaches the head of the queue to when it executes. Thus this includes the time to wait for all input dependencies, plus the previous command to complete, plus any fence operations performed by the barrier.
 * START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
 * STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)

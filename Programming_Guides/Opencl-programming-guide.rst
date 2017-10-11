@@ -7,7 +7,7 @@ OPENCL Programming Guide
    * :ref:`OpenCL Architecture`
 	* :ref:`Terminology`
 	* :ref:`Opencl-overview`
-        * :ref:`Programming-model`
+          * :ref:`Programming-model`
  	* :ref:`Synchronization`
 	* :ref:`Memory-Arch`
 	* :ref:`Example`
@@ -62,7 +62,7 @@ OpenCL Architecture and AMD Accelerated Parallel Processing Technology
 
 Terminology
 ############
-**compute kernel** :
+**compute kernel :** 
 
 To define a compute kernel, it is first necessary to define a kernel. A kernel is a small unit of execution that performs a clearly defined function and that can be executed in parallel. Such a kernel can be executed on each element of an input stream (called an NDRange), or simply at each point in an arbitrary index space. A kernel is analogous and, on some devices identical, to what graphics programmers call a shader program. This kernel is not to be confused with an OS kernel, which controls hardware. The most basic form of an NDRange is simply mapped over input data and produces one output item for each input tuple. Subsequent extensions of the basic model provide random-access functionality, variable output counts, and reduction/accumulation operations. Kernels are specified using the kernel keyword.
 
@@ -70,7 +70,7 @@ A compute kernel is a specific type of kernel that is not part of the traditiona
 
 In a compute kernel, the work-item spawn order is sequential. This means that on a chip with N work-items per wavefront, the first N work- items go to wavefront 1, the second N work-items go to wavefront 2, etc. Thus, the work-item IDs for wavefront K are in the range (K•N) to ((K+1)•N)-1.
 
-**wavefronts and work-groups**:
+**wavefronts and work-groups :**
 
 Wavefronts and work-groups are two concepts relating to compute kernels that provide data-parallel granularity. On most AMD GPUs, a wavefront has 64 work-items. A wavefront is the lowest level that flow control can affect. This means that if two work-items inside of a wavefront go divergent paths of flow control, all work-items in the wavefront go to both paths of flow control.
 
@@ -78,7 +78,7 @@ Grouping is a higher-level granularity of data parallelism that is enforced in s
 
 Work-groups are composed of wavefronts. Best performance is attained when the group size is an integer multiple of the wavefront size.
 
-**local data store(LDS)**:
+**local data store(LDS) :**
 
 The LDS is a high-speed, low-latency memory private to each compute unit. It is a full gather/scatter model: a work-group can write anywhere in its allocated space. This model is unchanged for the AMD Radeon™ HD 7XXX series. The constraints of the current LDS model are:
 
@@ -89,7 +89,7 @@ The LDS is a high-speed, low-latency memory private to each compute unit. It is 
 .. _Opencl-overview:
 
 OpenCL Overview
-####################
+##################
 The OpenCL programming model consists of producing complicated task graphs from data-parallel execution nodes.
 
 In a given data-parallel execution, commonly known as a kernel launch, a computation is defined in terms of a sequence of instructions that executes at each point in an N-dimensional index space. It is a common, though by not required, formulation of an algorithm that each computation index maps to an element in an input data set.
@@ -168,7 +168,7 @@ host (CPU)     Host-accessible region for an application’s data structures and
 PCIe	       Part of host (CPU) memory accessible from, and modifiable by, the host program and the GPU compute device. Modifying 		       this memory requires synchronization between the GPU compute device and the CPU.
 ============= ====================================================================================================================
  
-				Table: illustrates the interrelationship of the memories.
+				**Table: illustrates the interrelationship of the memories.**
 
 .. image:: images/img2.png
     :align: center
@@ -180,8 +180,7 @@ PCIe	       Part of host (CPU) memory accessible from, and modifiable by, the ho
 There are two ways to copy data from the host to the GPU compute device memory:
 
    * Implicitly by using ``clEnqueueMapBuffer`` and ``clEnqueueUnMapMemObject``.
-   * Explicitly through  ``clEnqueueReadBuffer`` and  ``clEnqueueWriteBuffer``
-     ``(clEnqueueReadImage, clEnqueueWriteImage).``
+   * Explicitly through  ``clEnqueueReadBuffer``, ``clEnqueueWriteBuffer`` and ``(clEnqueueReadImage, clEnqueueWriteImage).``
 
 
 When using these interfaces, it is important to consider the amount of copying involved. There is a two-copy processes: between host and PCIe, and between PCIe and GPU compute device.
@@ -191,7 +190,7 @@ With proper memory transfer management and the use of system pinned memory (host
 Double copying lowers the overall system memory bandwidth. In GPU compute device programming, pipelining and other techniques help reduce these bottlenecks. See the AMD OpenCL Optimization Reference Guide for more specifics about optimization techniques.
 
 Data Share Operations
-***************************
+***********************
 
 Local data share (LDS) is a very low-latency, RAM scratchpad for temporary data located within each compute unit. The programmer explicitly controls all accesses to the LDS. The LDS can thus provide efficient memory access when used as a software cache for predictable re-use of data (such as holding parameters for pixel shader parameter interpolation), as a data exchange machine for the work-items of a work-group, or as a cooperative way to enable more efficient access to off-chip memory.
 
@@ -217,9 +216,7 @@ The high bandwidth of the LDS memory is achieved not only through its proximity 
 
 
 Dataflow in Memory Hierarchy
-************************************
-Figure 1.5 is a conceptual diagram of the dataflow within the memory structure in pre-GCN devices.
-
+*******************************
 
 .. image:: images/img5.png
     :align: center
@@ -261,26 +258,27 @@ L1 caches).
 .. _Example:  
 
 Example Programs
-#########################
+###################
 
 The following subsections provide simple programming examples with explanatory comments.
 
 First Example: Simple Buffer Write
-******************************************
+************************************
 This sample shows a minimalist OpenCL C program that sets a given buffer to some value. It illustrates the basic programming steps with a minimum amount of code. This sample contains no error checks and the code is not generalized. Yet, many simple test programs might look very similar. The entire code for this sample is provided at the end of this section.
 
-1.   The host program must select a platform, which is an abstraction for a given OpenCL implementation. Implementations by multiple vendors can coexist on a host, and the sample uses the first one available.
+1. The host program must select a platform, which is an abstraction for a given OpenCL implementation. Implementations by multiple vendors can coexist on a host, and the sample uses the first one available.
 
-2.   A device id for a GPU device is requested. A CPU device could be requested by using CL_DEVICE_TYPE_CPU instead. The device can be a physical device, such as a given GPU, or an abstracted device, such as the collection of all CPU cores on the host.
+2. A device id for a GPU device is requested. A CPU device could be requested by using CL_DEVICE_TYPE_CPU instead. The device can be a physical device, such as a given GPU, or an abstracted device, such as the collection of all CPU cores on the host.
 
-3.   On the selected device, an OpenCL context is created. A context ties together a device, memory buffers related to that device, OpenCL programs, and command queues. Note that buffers related to a device can reside on either the host or the device. Many OpenCL programs have only a single context, program, and command queue.
+3. On the selected device, an OpenCL context is created. A context ties together a device, memory buffers related to that device, OpenCL programs, and command queues. Note that buffers related to a device can reside on either the host or the device. Many OpenCL programs have only a single context, program, and command queue.
 
-4.   Before an OpenCL kernel can be launched, its program source is compiled, and a handle to the kernel is created.
+4. Before an OpenCL kernel can be launched, its program source is compiled, and a handle to the kernel is created.
 
-5.   A memory buffer is allocated in the context.
+5. A memory buffer is allocated in the context.
 
-6.   The kernel is launched. While it is necessary to specify the global work size, OpenCL determines a good local work size for this 	  device. Since the kernel was launch asynchronously, ``clFinish() ``is used to wait for completion.
-7.  The data is mapped to the host for examination. Calling clEnqueueMapBuffer ensures the visibility of the buffer on the host,    	which in this case probably includes a physical transfer. Alternatively, we could use ``clEnqueueWriteBuffer()``, which requires 	 a pre-allocated host-side buffer.
+6. The kernel is launched. While it is necessary to specify the global work size, OpenCL determines a good local work size for this device. Since the kernel was launch asynchronously, ``clFinish()`` is used to wait for completion.
+
+7. The data is mapped to the host for examination. Calling clEnqueueMapBuffer ensures the visibility of the buffer on the host, which in this case probably includes a physical transfer. Alternatively, we could use ``clEnqueueWriteBuffer()``, which requires a pre-allocated host-side buffer.
 
 
 **Example Code 1** 
@@ -310,12 +308,12 @@ This sample shows a minimalist OpenCL C program that sets a given buffer to some
   clGetDeviceIDs( platform, CL_DEVICE_TYPE_GPU,
   1,
   &device, NULL);
-
-
+ 
 
 
 ::
 
+    //
     // Copyright (c) 2010 Advanced Micro Devices, Inc. All rights reserved.
     //
 
@@ -389,75 +387,88 @@ This sample shows a minimalist OpenCL C program that sets a given buffer to some
 
 
 Example: SAXPY Function
-*******************************
+*************************
 This section provides an introductory sample for beginner-level OpenCL
 programmers using C++ bindings.
 
-The sample implements the SAXPY function (Y = aX + Y, where X and Y are vectors, and a is a scalar). The full code is reproduced at the end of this section. It uses C++ bindings for OpenCL. These bindings are available in the CL/cl.hpp file in the AMD Compute SDK; they also are downloadable from the Khronos website: http://www.khronos.org/registry/cl .
+The sample implements the SAXPY function (Y = aX + Y, where X and Y are vectors, and a is a scalar). The full code is reproduced at the end of this section. It uses C++ bindings for OpenCL. These bindings are available in the CL/cl.hpp file in the AMD Compute SDK; they also are downloadable from the Khronos website: http://www.khronos.org/registry/cl 
 
 The following steps guide you through this example.
 
 1. Enable error checking through the exception handling mechanism in the C++
    bindings by using the following define.
- 
-   #define  CL_ENABLE_EXCEPTIONS
+   ::
+   
+   #define  CL ENABLE_EXCEPTIONS
 
-   This removes the need to error check after each OpenCL call. If there is an error, the C++ bindings code throw an exception that  	is caught at the end of the try block, where we can clean up the host memory allocations. In this example, the C++ objects 	      	 representing OpenCL resources (cl::Context,
-   cl::CommandQueue, etc.) are declared as automatic variables, so they do not need to be released. If an OpenCL call returns an     	error, the error code is defined in the CL/cl.h file.
+   This removes the need to error check after each OpenCL call. If there is an error, the C++ bindings code throw an exception that is caught at the end of the try block, where we can clean up the host memory allocations. In this example, the C++ object representing OpenCL resources (cl::Context, cl::CommandQueue, etc.) are declared as automatic variables, so they do not need to be released. If an OpenCL call returns an error, the error code is defined in the CL/cl.h file.
 
-2. The kernel is very simple: each work-item, i, does the SAXPY calculation for its corresponding elements Y[i] = aX[i] + Y[i]. Both 	X and Y vectors are stored in global memory; X is read-only, Y is read-write.
+2. The kernel is very simple: each work-item, i, does the SAXPY calculation for its corresponding elements ``Y[i] = aX[i] + Y[i]``. Both X and Y vectors are stored in global memory; X is read-only, Y is read-write.
 
-:: 
-
-   kernel void saxpy(const  global float * X,
-   __global float * Y,
-   const float a)
-   {
-   uint gid = get_global_id(0);
-   Y[gid] = a* X[gid] + Y[gid];
-   }
+   :: 
+    
+    kernel void saxpy(const  global float * X,
+    __global float * Y,
+    const float a)
+    {
+    uint gid = get_global_id(0);
+    Y[gid] = a* X[gid] + Y[gid];
+    }
 
 3. List all platforms on the machine, then select one.
 
-   ``cl::Platform::get(&platforms);``
+   ::
+
+    cl::Platform::get(&platforms);
 
 4. Create an OpenCL context on that platform.
 
-  cl_context_properties cps[3] = { CL_CONTEXT_PLATFORM, (cl_context_properties)(*iter)(), 0 };
-  context = cl::Context(CL_DEVICE_TYPE_GPU, cps);
+   ::
+    
+    cl_context_properties cps[3] = { CL_CONTEXT_PLATFORM, (cl_context_properties)(*iter)(), 0 };
+    context = cl::Context(CL_DEVICE_TYPE_GPU, cps);
 
 5. Get OpenCL devices from the context.
-
-   ``devices = context.getInfo<CL_CONTEXT_DEVICES>();``
+   ::
+   
+    devices = context.getInfo<CL_CONTEXT_DEVICES>();
 
 6. Create an OpenCL command queue.
 
-   ``queue = cl::CommandQueue(context, devices[0]);``
+   ::
+    
+    queue = cl::CommandQueue(context, devices[0]);
 
 7. Create two buffers, corresponding to the X and Y vectors. Ensure the host- side buffers, pX and pY, are allocated and initialized. 	 The CL_MEM_COPY_HOST_PTR flag instructs the runtime to copy over the contents of the host pointer pX in order to initialize the   	buffer bufX. The bufX buffer uses the CL_MEM_READ_ONLY flag, while bufY requires the CL_MEM_READ_WRITE flag.
 
-   bufX = cl::Buffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(cl_float) * length, pX);
+   ::
+    
+    bufX = cl::Buffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(cl_float) * length, pX);
 
-8. Create a program object from the kernel source string, build the program for our devices, and create a kernel object corresponding 	 to the SAXPY kernel. (At this point, it is possible to create multiple kernel objects if there are more than one.)
+8. Create a program object from the kernel source string, build the program for our devices, and create a kernel object correspondingto the SAXPY kernel. (At this point, it is possible to create multiple kernel objects if there are more than one.)
 
-   cl::Program::Sources sources(1, std::make_pair(kernelStr.c_str(), kernelStr.length()));
-   program = cl::Program(context, sources);
-   program.build(devices);
-   kernel = cl::Kernel(program, "saxpy");
+   ::
+   
+    cl::Program::Sources sources(1, std::make_pair(kernelStr.c_str(), kernelStr.length()));
+    program = cl::Program(context, sources);
+    program.build(devices);
+    kernel = cl::Kernel(program, "saxpy");
 
 9. Enqueue the kernel for execution on the device (GPU in our example).
 
-   Set each argument individually in separate kernel.setArg() calls. The arguments, do not need to be set again for subsequent kernel 	 enqueue calls. Reset only those arguments that are to pass a new value to the kernel. Then, enqueue the kernel to the command     	queue with the appropriate global and local work sizes.
-
-   kernel.setArg(0, bufX); kernel.setArg(1, bufY); kernel.setArg(2, a);
-   queue.enqueueNDRangeKernel(kernel, cl::NDRange(), cl::NDRange(length), cl::NDRange(64));
+   Set each argument individually in separate kernel.setArg() calls. The arguments, do not need to be set again for subsequent kernelenqueue calls. Reset only those arguments that are to pass a new value to the kernel. Then, enqueue the kernel to the command queue with the appropriate global and local work sizes.
+   ::
+    
+    kernel.setArg(0,bufX); kernel.setArg(1,bufY); kernel.setArg(2,a);
+    queue.enqueueNDRangeKernel(kernel, cl::NDRange(), cl::NDRange(length), cl::NDRange(64));
 
 10. Read back the results from bufY to the host pointer pY. We will make this a blocking call (using the CL_TRUE argument) since we 	do not want to proceed before the kernel has finished execution and we have our results back.
-
-    queue.enqueueReadBuffer(bufY, CL_TRUE, 0, length * sizeof(cl_float), pY);
+    ::
+      
+      queue.enqueueReadBuffer(bufY, CL_TRUE, 0, length * sizeof(cl_float), pY);
 
 11. Clean up the host resources (pX and pY). OpenCL resources is cleaned up by the C++ bindings support code.
-
+    
     The catch(cl::Error err) block handles exceptions thrown by the C++ bindings code. If there is an OpenCL call error, it prints  	out the name of the call and the error code (codes are defined in CL/cl.h). If there is a kernel compilation error, the error   	code is CL_BUILD_PROGRAM_FAILURE, in which case it is necessary to print out the build log.
 
 **Example Code 2**
@@ -497,7 +508,7 @@ The following steps guide you through this example.
 
 
 
-  std::vector<cl::Platform> platforms; cl::Context	context;         	    	  	std::vector<cl::Device> devices;      	cl::CommandQueue	queue;
+  std::vector<cl::Platform> platforms; cl::Context	context;           	std::vector<cl::Device> devices;      	cl::CommandQueue	queue;
    cl::Program	program;
 
 
@@ -692,38 +703,38 @@ Runtime Code –
 
 2. The compiler is instructed to dump the intermediate IL and ISA files for further analysis.
 
-3. The main section of the code, including device setup, CL data buffer creation, and code compilation, is executed for each device, 	in this case for CPU and GPU. Since the source memory buffer exists on the host, it is shared. All other resources are device      	 specific.
+3. The main section of the code, including device setup, CL data buffer creation, and code compilation, is executed for each device, 	in this case for CPU and GPU. Since the source memory buffer exists on the host, it is shared. All other resources are device     specific.
 
-4. The global work size is computed for each device. A simple heuristic is used to ensure an optimal number of threads on each 	     	device. For the CPU, a given CL implementation can translate one work-item per CL compute unit into one thread per CPU core.
+4. The global work size is computed for each device. A simple heuristic is used to ensure an optimal number of threads on each    	device. For the CPU, a given CL implementation can translate one work-item per CL compute unit into one thread per CPU core.
 
    On the GPU, an initial multiple of the wavefront size is used, which is adjusted to ensure even divisibility of the input data    	over all threads. The value of 7 is a minimum value to keep all independent hardware units of the compute units busy, and to      	provide a minimum amount of memory latency hiding for a kernel with little ALU activity.
 
 5. After the kernels are built, the code prints errors that occurred during kernel compilation and linking.
 
-6. The main loop is set up so that the measured timing reflects the actual kernel performance. If a sufficiently large NLOOPS is      	 chosen, effects from kernel launch time and delayed buffer copies to the device by the CL runtime are minimized. Note that while  	only a single clFinish() is executed at the end of the timing run, the two kernels are always linked using an event to ensure     	serial execution.
+6. The main loop is set up so that the measured timing reflects the actual kernel performance. If a sufficiently large NLOOPS is     chosen, effects from kernel launch time and delayed buffer copies to the device by the CL runtime are minimized. Note that while  	only a single clFinish() is executed at the end of the timing run, the two kernels are always linked using an event to ensure     	serial execution.
 
   The bandwidth is expressed as “number of input bytes processed.” For high- end graphics cards, the bandwidth of this algorithm is   	about an order of magnitude higher than that of the CPU, due to the parallelized memory subsystem of the graphics card.
 
 7. The results then are checked against the comparison value. This also establishes that the result is the same on both CPU and GPU, 	which can serve as the first verification test for newly written kernel code.
 
-8. Note the use of the debug buffer to obtain some runtime variables. Debug buffers also can be used to create short execution traces 	 for each thread, assuming the device has enough memory.
+8. Note the use of the debug buffer to obtain some runtime variables. Debug buffers also can be used to create short execution tracesfor each thread, assuming the device has enough memory.
 
 9. You can use the Timer.cpp and Timer.h files from the TransferOverlap sample, which is in the SDK samples.
 
 Kernel Code –
 
-10. The code uses four-component vectors (uint4) so the compiler can identify concurrent execution paths as often as possible. On the 	  GPU, this can be used to further optimize memory accesses and distribution across ALUs. On the CPU, it can be used to enable SSE  	  like execution.
+10. The code uses four-component vectors (uint4) so the compiler can identify concurrent execution paths as often as possible. On the GPU, this can be used to further optimize memory accesses and distribution across ALUs. On the CPU, it can be used to enable SSE  like execution.
 
-11. The kernel sets up a memory access pattern based on the device. For the CPU, the source buffer is chopped into continuous 	    	buffers: one per thread. Each CPU thread serially walks through its buffer portion, which results in good cache and prefetch    	behavior for each core.
+11. The kernel sets up a memory access pattern based on the device. For the CPU, the source buffer is chopped into continuous   	buffers: one per thread. Each CPU thread serially walks through its buffer portion, which results in good cache and prefetch    	behavior for each core.
 
     On the GPU, each thread walks the source buffer using a stride of the total number of threads. As many threads are executed in  	parallel, the result is a maximally coalesced memory pattern requested from the memory back-end. For example, if each compute   	unit has 16 physical processors, 16 uint4 requests are produced in parallel, per clock, for a total of 256 bytes per clock.
 
 
-12. The kernel code uses a reduction consisting of three stages:     global to private,private to local, which is flushed to  global, 	  and finally global to global. In the first loop, each thread walks     global memory, and reduces all values into a min value    	 in private memory (typically, a register). This is the bulk of the work, and is mainly bound by global memory bandwidth. The    	subsequent reduction stages are brief in comparison.
+12. The kernel code uses a reduction consisting of three stages:     global to private,private to local, which is flushed to  global, and finally global to global. In the first loop, each thread walks     global memory, and reduces all values into a min value   in private memory (typically, a register). This is the bulk of the work, and is mainly bound by global memory bandwidth. The    	subsequent reduction stages are brief in comparison.
 
 13. Next, all per-thread minimum values inside the work-group are reduced to a
-    local value, using an atomic operation. Access to the     local value is serialized; however, the number of these operations is 	very small compared to the work of the previous reduction stage. The threads within a work-group are synchronized through a local 	  barrier(). The reduced min value is stored in     global memory.
-14. After all work-groups are finished, a second kernel reduces all work-group values into a single value in     global memory, using 	  an atomic operation. This is a minor contributor to the overall runtime.
+    local value, using an atomic operation. Access to the     local value is serialized; however, the number of these operations is 	very small compared to the work of the previous reduction stage. The threads within a work-group are synchronized through a local barrier(). The reduced min value is stored in     global memory.
+14. After all work-groups are finished, a second kernel reduces all work-group values into a single value in     global memory, using an atomic operation. This is a minor contributor to the overall runtime.
 
 **Example Code 3**
 
@@ -909,7 +920,7 @@ Kernel Code –
   dbg_buf = clCreateBuffer( context, CL_MEM_WRITE_ONLY,
   global_work_size * sizeof(cl_uint), NULL, NULL );
 
-  clSetKernelArg(minp, 0, sizeof(void *),	(void*) &src_buf); clSetKernelArg(minp, 1, sizeof(void *),	(void*) &dst_buf);    	clSetKernelArg(minp, 2, 1*sizeof(cl_uint),	(void*) NULL); clSetKernelArg(minp, 3, sizeof(void *),	(void*) &dbg_buf);   	      	clSetKernelArg(minp, 4, sizeof(num_src_items), (void*) &num_src_items); clSetKernelArg(minp, 5, sizeof(dev),	(void*) &dev);
+  clSetKernelArg(minp, 0, sizeof(void *),	(void*) &src_buf); clSetKernelArg(minp, 1, sizeof(void *),	(void*) &dst_buf);    	clSetKernelArg(minp, 2, 1*sizeof(cl_uint),	(void*) NULL); clSetKernelArg(minp, 3, sizeof(void *),	(void*) &dbg_buf);       	clSetKernelArg(minp, 4, sizeof(num_src_items), (void*) &num_src_items); clSetKernelArg(minp, 5, sizeof(dev),	(void*) &dev);
 
   clSetKernelArg(reduce, 0, sizeof(void *),	(void*) &src_buf);
   clSetKernelArg(reduce, 1, sizeof(void *),	(void*) &dst_buf);
@@ -1229,7 +1240,7 @@ To compile OpenCL applications on Windows, Visual Studio 2008 Professional Editi
    These must include OpenCL.lib. Optionally, they can include SDKUtil.lib.
 
 Compiling on Linux
-****************************
+********************
 
 To compile OpenCL applications on Linux, gcc or the Intel C compiler must be installed. There are two major steps: compiling and linking.
 
@@ -1311,7 +1322,7 @@ Creating program objects from a pre-built binary
 ************************************************
 OpenCL allows the creation of program object from binaries previously built for one or more specific device(s) or from intermediate device-agnostic binaries (using, for example, the Standard Portable Intermediate Representation (SPIR) format). Such binaries serve two useful purposes:
 
- * Software vendors can protect their IP by supplying the OpenCL library as a collection of pre-built binary programs instead of as   	 raw source code.
+ * Software vendors can protect their IP by supplying the OpenCL library as a collection of pre-built binary programs instead of as  raw source code.
  * The consumer of the OpenCL library can create new program objects using those binaries for use with their own applications.
 
 In this method, the OpenCL binary is passed to the binaries argument of the clCreateProgramWithBinary runtime API (for more details, see the OpenCL specification). If the binary program code is in a file, the binary must be loaded from the file, the content of the file must be placed in a character buffer, and the resulting buffer must be passed to the clCreateProgramWithBinary API.
@@ -1332,12 +1343,12 @@ The most common way of building program objects, this method uses a single API, 
 
 Suppose a program object has been created as follows:
 
- cl_program program = clCreateProgramWithSource(context, 1, &source,&length, NULL);
+  | cl_program program = clCreateProgramWithSource(context, 1, &source,&length, NULL);
 
 
 Next, the program object can be built for all the devices in the context or for a list of selected devices.
 
-* To build the program for all the devices, “NULL” must be passed against the target device list argument, as shown below: 	      	clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
+* To build the program for all the devices, “NULL” must be passed against the target device list argument, as shown below:     	clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
 * To build for any particular GPU device or a list of devices.:
 
   | int nDevices = 0; 
@@ -1349,10 +1360,10 @@ Next, the program object can be built for all the devices in the context or for 
   | sizeof(cl_device_id), devices, NULL);
 
 To build for the nth GPU device in a list of devices:
- | clBuildProgram(program, 1, &devices[n], NULL, NULL, NULL);
+  | clBuildProgram(program, 1, &devices[n], NULL, NULL, NULL);
 
 To build for the first n number of GPU devices
- | clBuildProgram(program, n, devices, NULL, NULL, NULL);
+  | clBuildProgram(program, n, devices, NULL, NULL, NULL);
 
 
 **Build Options:**
@@ -1365,7 +1376,7 @@ For information about AMD-developed supplemental options and environment variabl
 
 **Special note for building OpenCL 2.0 programs:**
 
-In order to build the program with OpenCL 2.0 support, the “-cl-std=CL2.0” option must be specified; otherwise, the highest OpenCL C 1.x language version supported by each device is used when compiling the program for each device.
+In order to build the program with OpenCL 2.0 support, the ``-cl-std=CL2.0`` option must be specified; otherwise, the highest OpenCL C 1.x language version supported by each device is used when compiling the program for each device.
 
 OpenCL 2.0 is backwards-compatible with OpenCL 1.X. Applications written on OpenCL 1.x should run on OpenCL 2.0 without requiring any changes to the application.
 
@@ -1443,11 +1454,11 @@ Now, these headers can be passed as embedded headers along with the program obje
    input_header_names,
    NULL, NULL); // pfn_notify & user_data
 
-**Linking the program **
+**Linking the program**
 
 In this phase, multiple pre-compiled program objects are linked together to create a new program object that contains the final executable. The executable binary can be queried by using ``clGetProgramInfo`` and can be specified to ``clCreateProgramWithBinary``, as shown earlier.
 
-**Example:**
+**Example :**
 
 Assume there are two pre-compiled program objects, program_A and
 program_B. These two can be linked together as follows:
@@ -1475,7 +1486,7 @@ The frequently-used build options are:
 
  * -I dir — Add the directory dir to the list of directories to be searched for header files. When parsing #include directives, the 	OpenCL compiler resolves relative paths using the current working directory of the application.
  * -D name — Predefine name as a macro, with definition = 1. For -
-    D name=definition, the contents of definition are tokenized and processed as if they appeared during the translation phase three  	  in a #define directive. In particular, the definition is truncated by embedded newline characters.
+    D name=definition, the contents of definition are tokenized and processed as if they appeared during the translation phase three  in a #define directive. In particular, the definition is truncated by embedded newline characters.
     -D options are processed in the order they are given in the options argument to ``clBuildProgram``.
 
 For additional build options, see the OpenCL specification.
@@ -1490,7 +1501,7 @@ The following supported options are not part of the OpenCL specification:
  * -g — This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or
    cygwin/minGW under Windows. For more details, see Chapter 4, “Debugging and Profiling OpenCL.” This option does not affect the    	default optimization of the OpenCL code.
  * -O0 — Specifies to the compiler not to optimize. This is equivalent to the OpenCL standard option -cl-opt-disable.
- * -f[no-]bin-source — Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, “OpenCL Binary 	 Image Format (BIF) v2.0.” by default, this option does NOT generate the source.
+ * -f[no-]bin-source — Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, “OpenCL BinaryImage Format (BIF) v2.0.” by default, this option does NOT generate the source.
  * -f[no-]bin-llvmir — Does [not] generate LLVM IR in the .llvmir section.
    For more information, see Appendix C, “OpenCL Binary Image Format (BIF) v2.0.” By default, this option GENERATES the LLVM IR.
  * -f[no-]bin-amdil — Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, “OpenCL Binary Image  	Format (BIF) v2.0.” By default, this option does NOT generate the AMD IL.
@@ -1522,10 +1533,8 @@ where xxx and yyy are the device name and kernel name for this build, respective
 
 To avoid source changes, there are two environment variables that can be used to change CL options during the runtime.
 
-* AMD_OCL_BUILD_OPTIONS — Overrides the CL options specified in
-  clBuildProgram().
-* AMD_OCL_BUILD_OPTIONS_APPEND — Appends options to those specified in
-  clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS — Overrides the CL options specified in clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS_APPEND — Appends options to those specified in clBuildProgram().
 
 .. _Creating-device-specific-binaries:
 
@@ -1574,12 +1583,11 @@ The runtime system assigns the work in the command queues to the underlying devi
 ============================= ======================================================
 OpenCL API Function       	Description
 ============================= ======================================================
-clCreateCommandQueueWithPr     Create a command queue for a specific device (CPU,
-operties (in OpenCL 2.0)
-clCreateCommandQueue() (in
-OpenCL 1.x; deprecated in
-OpenCL 2.0)
-GPU).
+clCreateCommandQueueWith       Create a command queue for a specific device 
+Properties (in OpenCL 2.0)     (CPU,GPU.)
+clCreateCommandQueue() 
+(in OpenCL 1.x; deprecated 
+in OpenCL 2.0) 
 
 clCreateKernel()	       Creates a kernel object from the program object. 
 
@@ -1594,6 +1602,8 @@ clEnqueueWriteBuffer()	       buffer object to host memory, or write to the buff
 
 clEnqueueWaitForEvents()	Wait for the specified events to complete.
 ============================= ====================================================== 
+
+
 The commands can be broadly classified into three categories.
 
  * Kernel commands (for example, clEnqueueNDRangeKernel(), etc.),
@@ -1625,31 +1635,29 @@ SVM pointers as the argument value.
 **Example:**
 
 A sample kernel definition is shown below.
-
+::
+  
   kernel void sample_kernel( global const uchar *normalPtr,
   global uchar *svmPtr)
-
-{
-
-…
-
-}
+  {  
+    …
+  }
 
 To create a kernel object for the above kernel, you must pass the program object corresponding to the kernel to the clCreateKernel function. Assuming that the program object containing the above kernel function has been created and built as program, a kernel object for the above kernel would be created as follows:
 
-Cl_kernel kernel = clCreateKernel(program, "sample_kernel", NULL);
+``Cl_kernel kernel = clCreateKernel(program, "sample_kernel", NULL);``
 
 Suppose a buffer object and an SVM array have been created as follows:
 
-Cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_ONLY, length * sizeof(cl_uchar), NULL, NULL);
+``Cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_ONLY, length * sizeof(cl_uchar), NULL, NULL);``
 
-cl_uchar *svmPtr = clSVMAlloc(context,	CL_MEM_READ_WRITE, length * sizeof(cl_uchar), 0);
+``cl_uchar *svmPtr = clSVMAlloc(context,	CL_MEM_READ_WRITE, length * sizeof(cl_uchar), 0);``
 
 Now, to set the kernel arguments for the kernel object, the buffer (or SVM array in OpenCL 2.0) and the corresponding index must be passed to the kernel as first and second argument, respectively:
 
-clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&buffer);
+``clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&buffer);``
 
-clSetKernelArgSVMPointer(kernel, 1, (void *)( svmPtr));
+``clSetKernelArgSVMPointer(kernel, 1, (void *)( svmPtr));``
 
 Creating a command queue
 *************************
@@ -1658,28 +1666,28 @@ In order to run kernels or any other commands in a device, the host must create 
 A command queue (host or device) is created by using the clCreateCommandQueueWithProperties API (clCreateCommandQueue in OpenCL 1.x, deprecated in OpenCL 2.0) by specifying the device ID of the targeted device within the context; and the queue properties, which specify the type of the queue (host or device) and the mode of command execution (in-order or out-of-order). For details, see the clCreateCommandQueueWithProperties or clCreateCommandQueue API in the OpenCL specification.
 
 **Example: To create a default host-side command queue**
+::
 
- | cl_queue_properties *props = NULL; cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props,
- | &status);
+  cl_queue_properties *props = NULL; cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props,
+  &status);
 
 
 **Example: To create a host-side out-of-order command queue with profiling enabled**
+::
 
- | cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_PROFILING_ENABLE, 0};
-
- | cl_command_queue commandQueue =
- | clCreateCommandQueueWithProperties(context, deviceId, props,
- | &status);
+   cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_PROFILING_ENABLE, 0};
+   cl_command_queue commandQueue =
+   clCreateCommandQueueWithProperties(context, deviceId, props, &status);
 
 
 **Example: To create a default device-side out-of-order command queue with a specific size**
+::
+  
+   cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_ON_DEVICE | 
+   CL_QUEUE_ON_DEVICE_DEFAULT, CL_QUEUE_SIZE, maxQueueSize, 0 };
 
- | cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_ON_DEVICE | 
- | CL_QUEUE_ON_DEVICE_DEFAULT, CL_QUEUE_SIZE, maxQueueSize, 0 };
-
- | cl_command_queue commandQueue =
- | clCreateCommandQueueWithProperties(context, deviceId, props,
- | &status);
+   cl_command_queue commandQueue = 
+   clCreateCommandQueueWithProperties(context, deviceId, props, &status);
 
 Running a Kernel (from the host)
 *********************************
@@ -1782,14 +1790,13 @@ Either install the tar archive, or install the .deb package.
 2. Run:
    $ tar –xvzf AMD_CodeXL_Linux*.tar.gz
 
-**Debian package:**
+**Debian package :**
 
-1. Download the amdcodexl-*.deb 64-bit Linux Debian package.
+1. Download the ``amdcodexl-*.deb 64-bit Linux Debian package.``
 
-2. Run:
-   $ sudo dpkg -i amdcodexl_x.x.x-1_amd64.debGetting Started with CodeXL 5 © 2014 Advanced Micro Devices, Inc.
-3. Run:
-   $ sudo apt-get -f install
+2. Run: ``$ sudo dpkg -i amdcodexl_x.x.x-1_amd64.debGetting Started with CodeXL 5 © 2014 Advanced Micro Devices, Inc.``
+   
+3. Run: ``$ sudo apt-get -f install``
 
 Using CodeXL for profiling
 ***************************
@@ -2027,16 +2034,16 @@ Notes
 
 5. For complete GDB documentation, see http://www.gnu.org/software/gdb/documentation/ .
 
-6. For debugging OpenCL kernels in Windows, a developer can use GDB running in cygwin or minGW. It is done in the same way as 	      	 described in sections 3.1 and 3.2.
+6. For debugging OpenCL kernels in Windows, a developer can use GDB running in cygwin or minGW. It is done in the same way as    described in sections 3.1 and 3.2.
 
-   Notes:
+  ..Notes::
 
-  -Only OpenCL kernels are visible to GDB when running cygwin or minGW. GDB under cygwin/minGW currently does not support host code   	 debugging.
+   -Only OpenCL kernels are visible to GDB when running cygwin or minGW. GDB under cygwin/minGW currently does not support host code  debugging.
 
-  –It is not possible to use two debuggers attached to the same process.
-   Do not try to attach Visual Studio to a process, and concurrently GDB to the kernels of that process.
+   –It is not possible to use two debuggers attached to the same process.
+    Do not try to attach Visual Studio to a process, and concurrently GDB to the kernels of that process.
 
-  –Continue to develop the application code using Visual Studio. Currently, gcc running in cygwin or minGW is not supported.
+   –Continue to develop the application code using Visual Studio. Currently, gcc running in cygwin or minGW is not supported.
 
 
 .. _OpenCL_static:
@@ -2392,14 +2399,13 @@ OpenCL 2.0 introduces the concept of "memory scope", which limits the extent to 
  * "workgroup" scope means that the updates are to be visible only within the work group
  * "device" scope means that the updates are to be visible only within the device (across workgroups within the device)
 
- * "all-svm-devices" scope means the updates are available across devices
-(GPUs and the host/CPU).
+ * "all-svm-devices" scope means the updates are available across devices (GPUs and the host/CPU).
 
 OpenCL 2.0 further differentiates between coarse-grained SVM buffer sharing and fine-grained SVM (buffer and system) sharing mechanisms. These mechanisms define the granularity at which the SVM buffers are shared.
 
 Updates to coarse-grained or fine-grained SVM are visible to other devices at synchronization points:
  
- * For coarse-grained SVM, the synchronization points are: the mapping or un- mapping of the SVM memory and kernel launch or   	      	 completion. This means that any updates are visible only at the end of the kernel or at the point of un-mapping the region of     	memory.
+ * For coarse-grained SVM, the synchronization points are: the mapping or un- mapping of the SVM memory and kernel launch or completion. This means that any updates are visible only at the end of the kernel or at the point of un-mapping the region of     	memory.
    Coarse-grained buffer memory has a fixed virtual address for all the devices it is allocated on. In the AMD implementation, the   	physical memory is allocated on Device Memory.
 
  * For fine-grained SVM, the synchronization points include those defined for coarse-grained SVM as well as atomic operations. This   	 means that updates are visible at the level of atomic operations on the SVM buffer (for fine- grained buffer SVM, allocated with   	 the CL_MEM_SVM_ATOMICS flag) or the SVM system, i.e. anywhere in the SVM (for fine-grained system SVM).
@@ -2460,12 +2466,11 @@ The host creates two buffers, svmTreeBuf and svmSearchBuf, to hold the given tre
 The next task is to create the tree and populate the svmTreeBuf using ``clSVMEnqueueMap`` and ``clSVMEnqueueUnmap``. The host-code method, cpuCreateBinaryTree, illustrates this mechanism; note the calls to these map/unmap APIs.
 
 The host then creates the keys to be searched in svmSearchBuf, as the cpuInitSearchKeys method illustrates. Next, it enqueues the kernel to search the binary tree for the given keys in the svmSearchBuf, and it sets the parameters to the kernel using clSetKernelArgSVMPointer:
+:: 
 
-int status = clSetKernelArgSVMPointer(sample_kernel, 0, (void
-*)(svmTreeBuf));
-
-status = clSetKernelArgSVMPointer(sample_kernel, 1, (void
-*)(svmSearchBuf));
+ int status = clSetKernelArgSVMPointer(sample_kernel, 0, (void *)(svmTreeBuf));
+ 
+ status = clSetKernelArgSVMPointer(sample_kernel, 1, (void *)(svmSearchBuf));
 
 Note that the routine passes both svmTreeBuf and svmSearchBuf to the kernel as parameters. The following node structure demonstrates how to create the tree on the host using pointers to the left and right children:
 
@@ -2480,7 +2485,7 @@ Note that the routine passes both svmTreeBuf and svmSearchBuf to the kernel as p
 
 At this point, the advantage of using SVM becomes clear. Because the structure and its nodes are SVM memory, all the pointer values in these nodes are valid on the GPUs as well.
 
-The kernel running on the OpenCL 2.0 device can directly search the tree as follows: ::
+The kernel running on the OpenCL 2.0 device can directly search the tree as follows::
 
  while(NULL != searchNode)
  {
@@ -2513,8 +2518,7 @@ The “data” is the tree created by the host as a coarse-grain buffer and is p
 .. image:: images/6.1.png
     :align: center
 
-Note: All numbers were obtained on a Kaveri APU with 32 GB RAM running
-Windows 8.1. All numbers are in milli-seconds (ms).
+..note:: All numbers were obtained on a Kaveri APU with 32 GB RAM running Windows 8.1. All numbers are in milli-seconds (ms).
 
 The above table shows the performance of the 2.0 implementation over the 1.2 implementation. As you can see, the GPU times mentioned under the OpenCL 1.2 column include the GPU run time, time to transfer the buffers from the host
 to the device, the time required to transform the buffers into arrays and offsets, and the time required to transfer the buffers from the device back to the host, respectively.
@@ -2537,21 +2541,21 @@ Usage
 
 Generic example
 ****************
-In OpenCL 1.2, the developer needed to write three functions for a pointer p that can reference the local, private, or global address space:
 
- | void fooL (local int *p) { … } 
- | void fooP (private int *p) { … }
- | void fooG (global int *p) { … }
+In OpenCL 1.2, the developer needed to write three functions for a pointer p that can reference the local, private, or global address space::
+  
+  void fooL (local int *p) { … } 
+  void fooP (private int *p) { … }
+  void fooG (global int *p) { … }
+ 
 
 
-In OpenCL 2.0, the developer needs to write only one function:
-
-void foo (int *p)
+In OpenCL 2.0, the developer needs to write only one function::
+ 
+ void foo (int *p)
 
 As foo is a generic function, the compiler will accept calls to it with pointers to any address space except the constant address space.
-Note
-The generic address space feature also allows one to define a pointer-based data structure that can apply to different address spaces. In OpenCL 1.2, different structure types must be defined for different address spaces; in OpenCL
-2.0, a single structure suffices, as shown below.
+Note The generic address space feature also allows one to define a pointer-based data structure that can apply to different address spaces. In OpenCL 1.2, different structure types must be defined for different address spaces; in OpenCL 2.0, a single structure suffices, as shown below.
 
 ::
 
@@ -2559,11 +2563,12 @@ The generic address space feature also allows one to define a pointer-based data
   struct node* next;	// generic address	space pointer
   } ;
 
-Note: The OpenCL 2.0 spec itself shows most built-in functions that accept pointer arguments as accepting generic pointer arguments.
+..note:: The OpenCL 2.0 spec itself shows most built-in functions that accept pointer arguments as accepting generic pointer arguments.
 
 AMD APP SDK example
 ********************
-In the AMD APP SDK sample, addMul2d is a generic function that uses generic address spaces for its operands. The fNoteunction computes the convolution sum of two vectors. Two kernels compute the convolution: one uses data in the global address space (convolution2DUsingGlobal); the other uses the local address space (sepiaToning2DUsingLocal). The use of a single function improves the readability of the source.
+
+In the AMD APP SDK sample, addMul2d is a generic function that uses generic address spaces for its operands. The function computes the convolution sum of two vectors. Two kernels compute the convolution: one uses data in the global address space (convolution2DUsingGlobal); the other uses the local address space (sepiaToning2DUsingLocal). The use of a single function improves the readability of the source.
 
 ::
 
@@ -2582,7 +2587,9 @@ In the AMD APP SDK sample, addMul2d is a generic function that uses generic addr
   return sum;
   }
 
-Note: The compiler will try to resolve the address space at compile time. Otherwise, the runtime will decide whether the pointer references the local or the global address space. For optimum performance, the code must make it easy for the compiler to detect the pointer reference by avoiding data-dependent address space selection, so that run-time resolution -- which is costly -- is not required.
+
+..note:: The compiler will try to resolve the address space at compile time. Otherwise, the runtime will decide whether the pointer references the local or the global address space. For optimum performance, the code must make it easy for the compiler to detect the pointer reference by avoiding data-dependent address space selection, so that run-time resolution -- which is costly -- is not required.
+
 
 .. _Device-side-enqueue:
 
@@ -2612,39 +2619,39 @@ Basically, a wavefront is an execution unit on the GPU. The OpenCL specification
 
 OpenCL 2.0 defines the following new built-in functions. Note that it also defines similar functions for subgroups under the cl_khr_subgroups extensions in CL_DEVICE_EXTENSIONS.
 
-1.   work_group_all and work_group_any: These functions test a given predicate on all work items in the workgroup. The “all” version effectively performs an AND operation on all predicates and returns the result to all work items; similarly, the “any” operation performs an OR operation. Thus, using the “all” function returns true if the predicate is true for all work items; “any” returns true if it is true for at least one work item.
+1. work_group_all and work_group_any: These functions test a given predicate on all work items in the workgroup. The “all” version effectively performs an AND operation on all predicates and returns the result to all work items; similarly, the “any” operation performs an OR operation. Thus, using the “all” function returns true if the predicate is true for all work items; “any” returns true if it is true for at least one work item.
 
-2.   work_group_broadcast: This function broadcasts a local value from each work item to all the others in the workgroup.
+2. work_group_broadcast: This function broadcasts a local value from each work item to all the others in the workgroup.
 
-3.   work_group_reduce: Given an operation, work_group_reduce performs the reduction operation on all work items and returns the result. The operation can be min, max or add. For example, when called for an array using the add operation, the function returns the sum of the array elements.
+3. work_group_reduce: Given an operation, work_group_reduce performs the reduction operation on all work items and returns the result. The operation can be min, max or add. For example, when called for an array using the add operation, the function returns the sum of the array elements.
 
-4.   work_group_inclusive/exclusive_scan: The “scan” operation is a prefix operation, which performs a reduction up to the work-item ID. If it includes the current ID, the function applies an inclusive scan; otherwise, if it covers everything up to but not including the current work item, it applies an exclusive scan. Again, the operation can be min, max or add.
+4. work_group_inclusive/exclusive_scan: The “scan” operation is a prefix operation, which performs a reduction up to the work-item ID. If it includes the current ID, the function applies an inclusive scan; otherwise, if it covers everything up to but not including the current work item, it applies an exclusive scan. Again, the operation can be min, max or add.
 
 OpenCL 2.0 introduces a Khronos sub-group extension. Sub-groups are a logical abstraction of the hardware SIMD execution model akin to wavefronts, warps, or vectors and permit programming closer to the hardware in a vendor-independent manner.  This extension includes a set of cross-sub-group built-in functions that
 match the set of the cross-work-group built-in functions specified above.
 
 Usage
-*****
+******
 
 Iterate until convergence
-*************************
+**************************
 Suppose a complex process requires 4 kernels, A, B, C, and Check, and that these kernels must be run in order repeatedly until the Check kernel produces a value indicating that the process has converged.
 
 In OpenCL 1.2, the host side code to perform this might be structured as follows:
 
-1.   Enqueue kernel A
+1. Enqueue kernel A
 
-2.   Enqueue kernel B
+2. Enqueue kernel B
 
-3.   Enqueue kernel C
+3. Enqueue kernel C
 
-4.   Enqueue kernel Check
+4. Enqueue kernel Check
 
-5.   Enqueue blocking map of Check result, e.g. with clEnqueueMapBuffer
+5. Enqueue blocking map of Check result, e.g. with clEnqueueMapBuffer
 
-6.   If Check result is not "Converged" then: Enqueue unmap of Check result
+6. If Check result is not "Converged" then: Enqueue unmap of Check result
 
-7.   Go to Step 1
+7. Go to Step 1
 
 However, with device-side enqueue in OpenCL 2.0, the Check kernel may be altered to enqueue blocks that carry out A, B, C, and Check when it detects that convergence has not been reached. This avoids a potentially costly interaction with the host on each iteration.  Also, a slight modification of Check might allow the replacement of the entire loop above with a single host-side enqueue of the Check kernel.
 
@@ -2652,16 +2659,11 @@ Data-dependent refinement
 ***************************
 Consider a search or computational process that works from coarse levels to increasingly finer levels that operates something like this:
 
-1.   Search/Compute over current region
-
-2.   Loop over sub-regions in current region
-
-
-3.   If a sub-region is interesting:
-
-1.   Refine the sub-region
-
-2.   Apply a process to the refined sub-region
+1. Search/Compute over current region
+2. Loop over sub-regions in current region
+3. If a sub-region is interesting:
+	1. Refine the sub-region
+	2. Apply a process to the refined sub-region
 
 With OpenCL 1.2, this process would require a complex interaction between the host and the OpenCL device. The device-side kernel would need to somehow mark the sub-regions requiring further work, and the host side code would need to scan all of the sub-regions looking for the marked ones and then enqueue a kernel for each marked sub-region. This process is made more difficult by the lack of globally visible atomic operations in OpenCL 1.2.
 
@@ -2708,28 +2710,26 @@ Finally, the kernel launches itself again using device enqueue, but with new bou
   ,parentGlobalids,globalThreads);};
   int err_ret = enqueue_kernel(defQ,CLK_ENQUEUE_FLAGS_WAIT_KERNEL,ndrange1,binarySe arch_device_enqueue_wrapper_blk);
 
-It also checks for missing keys; absent any such keys, the search stops by forgoing further enqueues:
-
-/**** Search continues only if at least one key is found in previous search ****/
-
-int Flag = atomic_load_explicit(&,memory_order_seq_cst);
-
-if(Flag == 0)
-
-return;
-
+It also checks for missing keys; absent any such keys, the search stops by forgoing further enqueues::
+ 
+ /**** Search continues only if at least one key is found in previous search ****/ 
+ 
+ int Flag = atomic_load_explicit(&,memory_order_seq_cst);
+ 
+ if(Flag == 0)
+  
+ return; 
+ 
 
 The advantage is that when the input array is large, the OpenCL 2.0 version divides the input array into 1024-sized chunks. The chunk in which the given key falls is found and another kernel is enqueued which further divides it into 1024- sized chunks, and so on. In OpenCL 1.2, as the whole array is taken as the NDRange, a huge number of work groups require processing.
 
-The following figure shows how the OpenCL 2.0 version compares to the
-OpenCL 1.2 as the array increases beyond a certain size.
+The following figure shows how the OpenCL 2.0 version compares to the OpenCL 1.2 as the array increases beyond a certain size.
 
 
 .. image:: images/6.2.png
     :align: center
 
-Note: These numbers are for an A10-7850K (3.7GHz) processor with 4GB of
-RAM running Windows 8.1.
+Note: These numbers are for an A10-7850K (3.7GHz) processor with 4GB of RAM running Windows 8.1.
 
 The above figure shows the performance benefit of using OpenCL 2.0 over the same sample using OpenCL 1.2. In OpenCL 2.0, the reduced number of kernel launches from the host allow superior performance. The kernel enqueues are much more efficient when done from the device.
 
@@ -2742,30 +2742,31 @@ The above examples also exemplify the new workgroup and subgroup functions that 
 Atomics and synchronization
 ############################
 Overview
-********
+*********
 In OpenCL 1.2, only work-items in the same workgroup can synchronize. OpenCL 2.0 introduces a new and detailed memory model which allows
 developers to reason about the effects of their code on memory, and in particular understand whether atomic operations and fences used for synchronization ensure the visibility of variables being used to communicate between threads. In conjunction with the new memory model, OpenCL 2.0 adds a new set of atomic built-in functions and fences derived from C++11 (although the set of types is restricted), and also deprecates the 1.2 atomic built in functions and fences.
 
 These additions allow synchronization between work-items in different work- groups, as well as fine-grained synchronization with the host using atomic operations on memory in fine-grained SVM buffers (allocated with the CL_MEM_SVM_ATOMICS flag) for fine-grained SVM system memory.
 
 Usage
-*****
+******
 The following examples to illustrate the use of atomics are part of the AMD Compute SDK.
 
 Atomic Loads/Stores
 ********************
 This sample illustrates atomic loads/stores with the use of memory orders.
 
-The first step is to create this memory on the host: ::
+The first step is to create this memory on the host::
+  
+  buffer = (int * ) clSVMAlloc(context, CL_MEM_SVM_FINE_GRAIN_BUFFER, (N+1)*sizeof(int), 4);
+  
+  atomicBuffer = (int * ) clSVMAlloc(context, CL_MEM_SVM_FINE_GRAIN_BUFFER | CL_MEM_SVM_ATOMICS, (N+1)*sizeof(int), 4);
 
-  buffer = (int *) clSVMAlloc(context, CL_MEM_SVM_FINE_GRAIN_BUFFER, (N+1)*sizeof(int), 4);
 
-  atomicBuffer = (int *) clSVMAlloc(context, CL_MEM_SVM_FINE_GRAIN_BUFFER | CL_MEM_SVM_ATOMICS, (N+1)*sizeof(int), 4);
+Note the flags sent as parameters: ``CL_MEM_SVM_FINE_GRAIN_BUFFER`` and ``CL_MEM_SVM_ATOMICS.`` The following kernel runs on all work items in parallel. It will atomically load atomicBuffer[0], check whether its value is 99, and wait till it is 99. The acquire memory order is used to indicate that the latest update must be done on the host and to ensure that the local L1 cache is not read from. This will be made 99 by the host (CPU) by
+::
 
-Note the flags sent as parameters: CL_MEM_SVM_FINE_GRAIN_BUFFER and CL_MEM_SVM_ATOMICS. The following kernel runs on all work items in parallel. It will atomically load atomicBuffer[0], check whether its value is 99, and wait till it is 99. The acquire memory order is used to indicate that the latest update must be done on the host and to ensure that the local L1 cache is not read from. This will be made 99 by the host (CPU) by
-
-std::atomic_store_explicit ((std::atomic<int> *)&atomicBuffer[0],
-99, std::memory_order_release);
+  std::atomic_store_explicit ((std::atomic<int> *)&atomicBuffer[0], 99, std::memory_order_release);
 
 The host uses the C++11 compiler and the same memory model.
 
@@ -2871,19 +2872,17 @@ Pipe.
 
 ::
 
-  cl_mem	clCreatePipe (	cl_context context, cl_mem_flags flags,
-  cl_uint pipe_packet_size,
-  cl_uint pipe_max_packets,
-  const cl_pipe_properties * properties,
+  cl_mem	clCreatePipe ( cl_context context, cl_mem_flags flags,  cl_uint pipe_packet_size,
+  cl_uint pipe_max_packets,  const cl_pipe_properties * properties,
   cl_int *errcode_ret)
 
 The memory allocated in the above function can be passed to kernels as read- only or write-only pipes. The pipe objects can only be passed as kernel arguments or kernel functions and cannot be declared inside a kernel or as program-scoped objects.
 
 Also, a set of built-in functions have been added to operate on the pipes. The important ones are:
-
-read_pipe (pipe p, gentype *ptr: for reading packet from pipe p into ptr.
-
-write_pipe (pipe p, gentype *ptr: for writing packet pointed to by ptr to pipe p.
+ 
+read_pipe (pipe p, gentype * ptr: for reading packet from pipe p into ptr.
+ 
+write_pipe (pipe p, gentype * ptr: for writing packet pointed to by ptr to pipe p.
 
 To ensure you have enough space in the pipe structure for reading and writing (before you actually do it), you can use built-in functions to “reserve” enough space. For example, you could reserve room by calling reserve_read_pipe or reserve_write_pipe. These functions return a reservation ID, which can be used when the actual operations are performed. Similarly, the standard has built-in functions for workgroup level reservations, such as work_group_reserve_read_pipe and work_group_reserve_write_pipe and for the workgroup order (in the program). These workgroup built-in functions operate at the workgroup level. Ordering across workgroups is undefined. Calls to commit_read_pipe and commit_write_pipe, as the names suggest, commit the actual operations (read/write).
 
@@ -2923,10 +2922,10 @@ In OpenCL 1.2, this kind of communication typically involves the host – althou
 .. _Program-scope-global-Variables:
 
 Program-scope global Variables
-###############################
+#################################
 
 Overview
-********
+***********
 OpenCL 1.2 permits the declaration of only constant address space variables at program scope.
 
 OpenCL 2.0 permits the declaration of variables in the global address space at program (i.e. outside function) scope. These variables have the lifetime of the program in which they appear, and may be initialized.  The host cannot directly access program-scope variables; a kernel must be used to read/write their contents from/to a buffer created on the host.
@@ -2936,10 +2935,10 @@ Program-scope global variables can save data across kernel executions. Using pro
 .. _Image-Enhancements:
 
 Image Enhancements
-##################
+######################
 
 Overview
-********
+***********
 OpenCL 2.0 introduces significant enhancements for processing images.
 
 A read_write access qualifier for images has been added. The qualifier allows reading from and writing to certain types of images (verified against clGetSupportedImageFormats by using the CL_MEM_KERNEL_READ_AND_WRITE flag) in the same kernel, but reads must be sampler-less.  An atomic_work_item_fence with the CLK_IMAGE_MEM_FENCE flag and the memory_scope_work_item memory scope is required between reads and writes to the same image to ensure that the writes are visible to subsequent reads. If multiple work-items are writing to and reading from multiple locations in an image, a call to work_group_barrier with the CLK_IMAGE_MEM_FENCE flag is required.
@@ -3005,7 +3004,7 @@ In order to write sRGB pixels in a kernel, explicit conversion from linear RGB t
 clFillImage is an exception for writing sRGB image directly. The AMD OpenCL platform supports clFillImage for filling linear RGB image to sRGB image directly.
 
 Depth images
-************
+****************
 As with other image formats, clCreateImage is used for creating depth image objects. However, the channel order must be set to CL_DEPTH, as illustrated below. For the data type of depth image, OpenCL 2.0 supports only CL_FLOAT and CL_UNORM_INT16.
 
 ::
@@ -3045,10 +3044,10 @@ The AMD OpenCL 2.0 platform fully supports the cl_khr_depth_images extension but
 .. _Non-uniform-work-group-size:
 
 Non-uniform work group size
-############################
+##############################
 
 Overview
-*********
+***********
 Prior to OpenCL 2.0, each work-group size needed to divide evenly into the corresponding global size. This requirement is relaxed in OpenCL 2.0; the last work-group in each dimension is allowed to be smaller than all of the other work- groups in the "uniform" part of the NDRange. This can reduce the effort required to map problems onto NDRanges.
 
 A consequence is that kernels may no longer assume that calls to get_work_group_size return the same value in all work-groups.  However, a new call (get_enqueued_local_size) has been added to obtain the size in the uniform part, which is specified using the local_work_size argument to the clEnqueueNDRangeKernel.
@@ -3072,7 +3071,7 @@ If a program uses the OpenCL 2.0 functions and if one compiles a kernel by using
 compiles a kernel without the cl-std=CL2.0 option, then the program should run on OpenCL 2.0 platforms.
 
 Identifying implementation specifics
-*************************************
+***************************************
 Applications can query for the OpenCL extensions and use the values returned from the OpenCL functions.
 
 For instance, clGetSupportedImageFormats will return all image formats supported by OpenCL. The supported images may differ across implementations. Similarly, clGetDeviceInfo with the CL_DEVICE_EXTENSIONS parameter returns all the supported extensions. The supported extensions may differ across implementations and between different versions of OpenCL.
@@ -3085,26 +3084,25 @@ The OpenCL extensions are associated with the devices and can be queried for a s
 
 
 Extension Name Convention
-**************************
+###########################
 The name of extension is standardized and must contain the following elements without spaces in the name (in lower case):
 
- * cl_khr_<extension_name> - for extensions approved by Khronos Group.
-   For example: cl_khr_fp64.
- * cl_ext_<extension_name> - for extensions provided collectively by multiple vendors. For example: cl_ext_device_fission.
- * cl_<vendor_name>_<extension_name> – for extension provided by a specific vendor. For example: cl_amd_media_ops.
+ * cl_khr_<extension_name> - for extensions approved by Khronos Group. For example: ``cl_khr_fp64``
+ * cl_ext_<extension_name> - for extensions provided collectively by multiple vendors. For example: ``cl_ext_device_fission``
+ * cl_<vendor_name>_<extension_name> – for extension provided by a specific vendor. For example: ``cl_amd_media_ops``
 
 The OpenCL Specification states that all API functions of the extension must have names in the form of cl<FunctionName>KHR, cl<FunctionName>EXT, or cl<FunctionName><VendorName>. All enumerated values must be in the form of CL_<enum_name>_KHR, CL_<enum_name>_EXT, or CL_<enum_name>_<VendorName>.
 
 Querying Extensions for a Platform
-***********************************
+*************************************
 To query supported extensions for the OpenCL platform, use the clGetPlatformInfo() function, with the param_name parameter set to the enumerated value CL_PLATFORM_EXTENSIONS. This returns the extensions as a character string with extension names separated by spaces. To find out if a specific extension is supported by this platform, search the returned string for the required substring.
 
 Querying Extensions for a Device
-*********************************
+************************************
 To get the list of devices to be queried for supported extensions, use one of the following:
 
 * Query for available platforms using clGetPlatformIDs(). Select one, and query for a list of available devices with clGetDeviceIDs().
-* For a specific device type, call clCreateContextFromType(), and query a list of devices by calling clGetContextInfo() with the      	param_name parameter set to the enumerated value CL_CONTEXT_DEVICES.
+* For a specific device type, call clCreateContextFromType(), and query a list of devices by calling clGetContextInfo() with the param_name parameter set to the enumerated value CL_CONTEXT_DEVICES.
 
 After the device list is retrieved, the extensions supported by each device can be queried with function call clGetDeviceInfo() with parameter param_name being set to enumerated value CL_DEVICE_EXTENSIONS.
 
@@ -3113,65 +3111,58 @@ The extensions are returned in a char string, with extension names separated by 
 Using Extensions in Kernel Programs
 ************************************
 There are special directives for the OpenCL compiler to enable or disable available extensions supported by the OpenCL implementation, and, specifically, by the OpenCL compiler. The directive is defined as follows.
+::
 
-#pragma OPENCL EXTENSION <extention_name> : <behavior>
-#pragma OPENCL EXTENSION all: <behavior>
+ #pragma OPENCL EXTENSION <extention_name> : <behavior>
+ #pragma OPENCL EXTENSION all: <behavior>
 
 
 The <extension_name> is described in Section A.1, “Extension Name
 Convention.”. The second form allows to address all extensions at once. The <behavior> token can be either:
 
-* enable - the extension is enabled if it is supported, or the error is reported
-  if the specified extension is not supported or token “all” is used.
+* enable - the extension is enabled if it is supported, or the error is reported if the specified extension is not supported or token “all” is used.
 * disable - the OpenCL implementation/compiler behaves as if the specified extension does not exist.
 * all - only core functionality of OpenCL is used and supported, all extensions are ignored. If the specified extension is not supported then a warning is issued by the compiler.
 
 The order of directives in #pragma OPENCL EXTENSION is important: a later directive with the same extension name overrides any previous one.
 
-The initial state of the compiler is set to ignore all extensions as if it was explicitly set with the following directive:
-
-#pragma OPENCL EXTENSION all : disable
-
+The initial state of the compiler is set to ignore all extensions as if it was explicitly set with the following directive::
+ 
+ #pragma OPENCL EXTENSION all : disable
 
 This means that the extensions must be explicitly enabled to be used in kernel programs.
 
-Each extension that affects kernel code compilation must add a defined macro with the name of the extension. This allows the kernel code to be compiled differently, depending on whether the extension is supported and enabled, or not. For example, for extension cl_khr_fp64 there should be a #define directive for macro cl_khr_fp64, so that the following code can be preprocessed:
+Each extension that affects kernel code compilation must add a defined macro with the name of the extension. This allows the kernel code to be compiled differently, depending on whether the extension is supported and enabled, or not. For example, for extension cl_khr_fp64 there should be a #define directive for macro cl_khr_fp64, so that the following code can be preprocessed::
 
-#ifdef cl_khr_fp64
-// some code
-#else
-// some code
-#endif
+ #ifdef cl_khr_fp64
+ // some code
+ #else
+ // some code
+ #endif
 
 Getting Extension Function Pointers
-************************************
+**************************************
 Use the following function to get an extension function pointer.
 
-void* clGetExtensionFunctionAddress(const char* FunctionName).
-
+``void* clGetExtensionFunctionAddress(const char* FunctionName).``
 
 This returns the address of the extension function specified by the FunctionName string. The returned value must be appropriately cast to a function pointer type, specified in the extension spec and header file.
 
 A return value of NULL means that the specified function does not exist in the CL implementation. A non-NULL return value does not guarantee that the extension function actually exists – queries described in sec. 2 or 3 must be done to ensure the extension is supported.
 
-The clGetExtensionFunctionAddress() function cannot be used to get core
-API function addresses.
-
+The ``clGetExtensionFunctionAddress()`` function cannot be used to get core API function addresses.
 
 List of Supported Extensions that are Khronos-Approved
-**********************************************************
+***********************************************************
 For a complete list of the supported extensions, see the OpenCL 1.2 and
 OpenCL 2.0 specification documents. The typical extensions in OpenCL 1.2 are:
 
 * cl_khr_global_int32_base_atomics – basic atomic operations on 32-bit integers in global memory.
-* cl_khr_global_int32_extended_atomics – extended atomic operations on
-   32-bit integers in global memory.
+* cl_khr_global_int32_extended_atomics – extended atomic operations on 32-bit integers in global memory.
 * cl_khr_local_int32_base_atomics – basic atomic operations on 32-bit integers in local memory.
-* cl_khr_local_int32_extended_atomics – extended atomic operations on
-   32-bit integers in local memory.
+* cl_khr_local_int32_extended_atomics – extended atomic operations on 32-bit integers in local memory.
 * cl_khr_int64_base_atomics – basic atomic operations on 64-bit integers in both global and local memory.
 * cl_khr_int64_extended_atomics – extended atomic operations on 64-bit integers in both global and local memory.
-
 * cl_khr_3d_image_writes – supports kernel writes to 3D images.
 * cl_khr_byte_addressable_store – this eliminates the restriction of not allowing writes to a pointer (or array elements) of types    	less than 32-bit wide in kernel program.
 * cl_khr_gl_sharing – allows association of OpenGL context or share group with CL context for interoperability.
@@ -3206,18 +3197,19 @@ The typical extensions in OpenCL 2.0 are:
 
 
 cl_ext Extensions
-*******************
+**********************
 * cl_ext_device_fission - Support for device fission in OpenCL™. For more information about this extension, see: http://www.khronos.org/registry/cl/extensions/ext/cl_ext_device_fission.txt
 * cl_ext_atomic_counters_32 - Support for 32-bit atomic counters. For more information about this extension, see: https://www.khronos.org/registry/cl/extensions/ext/cl_ext_atomic_counters_32.txt
 
 
 
 AMD Vendor-Specific Extensions
-###############################
+###################################
+
 This section describes the AMD vendor-specific extensions.
 
 cl_amd_fp64
-***********
+***************
 Before using double data types, double-precision floating point operators, and/or double-precision floating point routines in OpenCL™ C kernels, include the
 #pragma OPENCL EXTENSION cl_amd_fp64 : enable directive. See Table A.1 for a list of supported routines.
 
@@ -3265,27 +3257,24 @@ CL_DEVICE_BOARD_NAME_AMD returns a 128-character value.
 
 cl_amd_compile_options
 ***********************
-This extension adds the following options, which are not part of the OpenCL
-specification.
+This extension adds the following options, which are not part of the OpenCL specification.
 
-* -g — This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or 	cygwin/minGW under Windows. For more details, see Chapter 4, “Debugging and Profiling OpenCL.” This option does not affect the      	default optimization of the OpenCL code.
+* -g — This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or cygwin/minGW under Windows. For more details, see Chapter 4, “Debugging and Profiling OpenCL.” This option does not affect the default optimization of the OpenCL code.
 * -O0 — Specifies to the compiler not to optimize. This is equivalent to the
   OpenCL standard option -cl-opt-disable.
-* -f[no-]bin-source — Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, “OpenCL Binary 	Image Format (BIF) v2.0.” By default, the source is NOT generated.
-
+* -f[no-]bin-source — Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, “OpenCL Binary Image Format (BIF) v2.0.” By default, the source is NOT generated.
 * -f[no-]bin-llvmir — Does [not] generate LLVM IR in the .llvmir section.
   For more information, see Appendix C, “OpenCL Binary Image Format (BIF)
-   v2.0.” By default, LLVM IR IS generated.
-* -f[no-]bin-amdil — Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, “OpenCL Binary Image    	Format (BIF) v2.0.” By Default, AMD IL is NOT generated.
+  v2.0.” By default, LLVM IR IS generated.
+* -f[no-]bin-amdil — Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, “OpenCL Binary Image Format (BIF) v2.0.” By Default, AMD IL is NOT generated.
 * -f[no-]bin-exe — Does [not] generate the executable (ISA) in .text section.
-   For more information, see Appendix C, “OpenCL Binary Image Format (BIF)
+  For more information, see Appendix C, “OpenCL Binary Image Format (BIF)
   v2.0.” By default, the executable IS generated.
 * -f[no-]bin-hsail Does [not] generate HSAIL/BRIG in the binary. By default, HSA IL/BRIG is NOT generated.
 
 To avoid source changes,  there are two environment variables that can be used to change CL options during the runtime.
 
-* AMD_OCL_BUILD_OPTIONS — Overrides the CL options specified in
-  clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS — Overrides the CL options specified in clBuildProgram().
 * AMD_OCL_BUILD_OPTIONS_APPEND — Appends options to the options specified in clBuildProgram().
 
 cl_amd_offline_devices
@@ -3297,14 +3286,14 @@ cl_amd_event_callback
 This extension provides the ability to register event callbacks for states other than cl_complete. The full set of event states are allowed: cl_queued, cl_submitted, and cl_running. This extension is enabled automatically and does not need to be explicitly enabled through #pragma when using the AMD Compute SDK.
 
 cl_amd_popcnt
-*************
+**************
 This extension introduces a “population count” function called popcnt. This extension was taken into core OpenCL 1.2, and the function was renamed popcount. The core 1.2 popcount function (documented in section 6.12.3 of the OpenCL Specification) is identical to the AMD extension popcnt function.
 
 cl_amd_media_ops
-****************
+******************
 This extension adds the following built-in functions to the OpenCL language. Note: For OpenCL scalar types, n = 1; for vector types, it is {2, 4, 8, or 16}.
 
-Note:in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] denotes the indexed element of a vector, designated 0 to n-1.
+..note:: in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] denotes the indexed element of a vector, designated 0 to n-1.
 
 
  | Built-in function: amd_pack
@@ -3359,7 +3348,9 @@ Note:in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] d
  | Built-in function: amd_lerp
  | uintn amd_lerp (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
- | (((((src0[i] >> 0) & 0xFF) + ((src1[i] >> 0) & 0xFF) + ((src2[i] >> 0) & 1)) >> 1) << 0) + (((((src0[i] >> 8) & 0xFF) + ((src1[i]  	| >> 8) & 0xFF) + ((src2[i] >> 8) & 1)) >> 1) << 8) + (((((src0[i] >> 16) & 0xFF) + ((src1[i] >> 16) & 0xFF) + ((src2[i] >> 16) &   	|1)) >> 1) << 16) + (((((src0[i] >> 24) & 0xFF) + ((src1[i] >> 24) & 0xFF) + ((src2[i] >> 24) & 1)) >> 1) << 24) ;
+ | (((((src0[i] >> 0) & 0xFF) + ((src1[i] >> 0) & 0xFF) + ((src2[i] >> 0) & 1)) >> 1) << 0) + (((((src0[i] >> 8) & 0xFF) + ((src1[i]  	
+ | >> 8) & 0xFF) + ((src2[i] >> 8) & 1)) >> 1) << 8) + (((((src0[i] >> 16) & 0xFF) + ((src1[i] >> 16) & 0xFF) + ((src2[i] >> 16) &   	
+ |1)) >> 1) << 16) + (((((src0[i] >> 24) & 0xFF) + ((src1[i] >> 24) & 0xFF) + ((src2[i] >> 24) & 1)) >> 1) << 24) ;
 
  |
 
@@ -3395,16 +3386,17 @@ Note:in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] d
  | (abs(((src0[i] >> 24) & 0xFF) - ((src1[i] >> 24) & 0xFF)) << 16);
 
 
-For more information, see:
-http://www.khronos.org/registry/cl/extensions/amd/cl_amd_media_ops.txt.
+For more information, see: http://www.khronos.org/registry/cl/extensions/amd/cl_amd_media_ops.txt
 
 cl_amd_printf
 ****************
 The OpenCL™ Specification 1.1 and 1.2 support the optional AMD extension cl_amd_printf, which provides printf capabilities to OpenCL C programs. To use this extension, an application first must include
-#pragma OPENCL EXTENSION cl_amd_printf : enable.
+
+``#pragma OPENCL EXTENSION cl_amd_printf : enable.``
 
 Built-in function:
-printf( constant char * restrict format, …);
+
+``printf( constant char * restrict format, …);``
 
 This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:
 
@@ -3416,16 +3408,12 @@ This function writes output to the stdout stream associated with the host applic
 
 The format string must be resolvable at compile time; thus, it cannot be dynamically created by the executing program. (Note that the use of variadic arguments in the built-in printf does not imply its use in other built- ins; more importantly, it is not valid to use printf in user-defined functions or kernels.)
 
-The OpenCL C printf closely matches the definition found as part of the
-C99 standard. Note that conversions introduced in the format string with
-% are supported with the following guidelines:
+The OpenCL C printf closely matches the definition found as part of the C99 standard. Note that conversions introduced in the format string with % are supported with the following guidelines:
 
-* A 32-bit floating point argument is not converted to a 64-bit double, unless the extension cl_khr_fp64 is supported and enabled, as 	defined in section 9.3 of the OpenCL Specification 1.1. This includes the double variants if cl_khr_fp64 is supported and defined   	in the corresponding compilation unit.
+* A 32-bit floating point argument is not converted to a 64-bit double, unless the extension cl_khr_fp64 is supported and enabled, as defined in section 9.3 of the OpenCL Specification 1.1. This includes the double variants if cl_khr_fp64 is supported and defined in the corresponding compilation unit.
 * 64-bit integer types can be printed using %ld / %lx / %lu .
 * %lld / %llx / %llu are not supported and reserved for 128-bit integer types (long long).
-* All OpenCL vector types (section 6.1.2 of the OpenCL Specification
-  1.1) can be explicitly passed and printed using the modifier vn, where n can be 2, 3, 4, 8, or 16. This modifier appears before the 	original conversion specifier for the vector’s component type (for example, to print a float4 %v4f). Since vn is a conversion       	specifier, it is valid to apply optional flags, such as field width and precision, just as it is when printing the component types. 	Since a vector is an aggregate type, the comma separator is used between the components:
-  0:1, … , n-2:n-1.
+* All OpenCL vector types (section 6.1.2 of the OpenCL Specification 1.1) can be explicitly passed and printed using the modifier vn, where n can be 2, 3, 4, 8, or 16. This modifier appears before the original conversion specifier for the vector’s component type (for example, to print a float4 %v4f). Since vn is a conversion specifier, it is valid to apply optional flags, such as field width and precision, just as it is when printing the component types. 	Since a vector is an aggregate type, the comma separator is used between the components: 0:1, … , n-2:n-1.
 
 
 cl_amd_predefined_macros
@@ -3538,7 +3526,7 @@ Extension Support by Device
 ****************************
 Table A.1 and Table A.2 list the extension support for selected devices.
 
-Table A.1	Extension Support for AMD GPU Devices 1
+**Table A.1 Extension Support for AMD GPU Devices 1**
 
 
 ================================== ======== ========== =========== ============ =========== ============= ========== =================
@@ -3559,6 +3547,8 @@ Extensions			   Brazos     Llano      Trinity    Cape Verde3    Turks4      Caym
  cl_amd_popcnt 			    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
  cl_khr_3d_image_writes 	    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
 ================================== ======== ========== =========== ============ =========== ============= ========== =================
+
+
 1.  AMD Radeon™ HD 79XX series.
 2.  AMD Radeon™ HD 78XX series.
 3.  AMD Radeon™ HD 77XX series.
@@ -3569,7 +3559,7 @@ Extensions			   Brazos     Llano      Trinity    Cape Verde3    Turks4      Caym
 
 Note that an atomic counter is a device-level counter that can be added / decremented by different work-items, where the atomicity of the operation is guaranteed. The access to the counter is done only through add/dec built-in functions; thus, no two work-items have the same value returned in the case that a given kernel only increments or decrements the counter. (Also see http://www.khronos.org/registry/cl/extensions/ext/cl_ext_atomic_counters_32.txt.)
 
-Table A.2	Extension Support for Older AMD GPUs and CPUs
+**Table A.2 Extension Support for Older AMD GPUs and CPUs**
 
 
 +---------------------------------+------------+-----------+----------+-----------------------------+
@@ -3630,11 +3620,12 @@ Table A.2	Extension Support for Older AMD GPUs and CPUs
 .. _ICD:
 
 The OpenCL Installable Client Driver (ICD)
-===========================================
+============================================
+
 The OpenCL Installable Client Driver (ICD) is installed as part of the AMD Graphics driver software stack as well as the AMD Compute SDK.
 
 Overview
-*********
+###############
 The ICD allows multiple OpenCL implementations to co-exist; also, it allows applications to select between these implementations at runtime.
 
 Use the ``clGetPlatformIDs()`` and ``clGetPlatformInfo()`` functions to see the list of available OpenCL implementations, and select the one that is best for your requirements. It is recommended that developers offer their users a choice on first run of the program or whenever the list of available platforms changes.
@@ -3643,11 +3634,12 @@ A properly implemented ICD and OpenCL library is transparent to the end-user.
 
 
 Using ICD
-***********
+#############
+
 Sample code that is part of the SDK contains examples showing how to query the platform API and call the functions that require a valid platform parameter.
 
 This is a pre-ICD code snippet. ::
-
+ 
  context = clCreateContextFromType(
  0,
  dType,
@@ -3659,13 +3651,13 @@ This is a pre-ICD code snippet. ::
 The ICD-compliant version of this code follows.
 
 ::
-
+  
   /*
-  * Have a look at the available platforms and pick either
-  * the AMD one if available or a reasonable default.
+   * Have a look at the available platforms and pick either
+   * the AMD one if available or a reasonable default.
   */
-
-
+  
+  
   cl_uint numPlatforms;
   cl_platform_id platform = NULL;
   status = clGetPlatformIDs(0, NULL, &numPlatforms);
@@ -3693,13 +3685,13 @@ The ICD-compliant version of this code follows.
   sizeof(pbuf),
   pbuf,
   NULL);
-
+  
   if(!sampleCommon->checkVal(status, CL_SUCCESS,
   "clGetPlatformInfo failed."))
   {
   return SDK_FAILURE;
   }
-
+  
   platform = platforms[i];
   if (!strcmp(pbuf, "Advanced Micro Devices, Inc."))
   {
@@ -3713,7 +3705,7 @@ The ICD-compliant version of this code follows.
   get whatever the
   * implementation thinks we should be using.
   */
-
+  
   cl_context_properties cps[3] =
   {
   CL_CONTEXT_PLATFORM, (cl_context_properties)platform,
@@ -3721,7 +3713,7 @@ The ICD-compliant version of this code follows.
   };
   /* Use NULL for backward compatibility */
   cl_context_properties* cprops = (NULL == platform) ? NULL : cps;
-
+   
   context = clCreateContextFromType(
   cprops,
   dType,
@@ -3731,17 +3723,17 @@ The ICD-compliant version of this code follows.
 
 
 Another example of a pre-ICD code snippet follows.
+::
+  
+  status = clGetDeviceIDs(NULL, CL_DEVICE_TYPE_DEFAULT, 0, NULL, &numDevices);
+  
 
-status = clGetDeviceIDs(NULL, CL_DEVICE_TYPE_DEFAULT, 0, NULL,
-&numDevices);
+The ICD-compliant version of the code snippet is::
+  
+ status= clGetDeviceiDs(platform, CL_DEVICE_TYPE_DEFAULT, 0, NULL, &nurnDevices);
+ 
 
-The ICD-compliant version of the code snippet is:
-
-
-status= clGetDeviceiDs(platform, CL_DEVICE_TYPE_DEFAULT, 0, NULL,
-&nurnDevices);
-
-NOTE: It is recommended that the host code look at the platform vendor string when searching for the desired OpenCL platform, instead of using the platform name string. The platform name string might change, whereas the platform vendor string remains constant for a particular vendor's implementation.
+..note:: It is recommended that the host code look at the platform vendor string when searching for the desired OpenCL platform, instead of using the platform name string. The platform name string might change, whereas the platform vendor string remains constant for a particular vendor's implementation.
 
 .. _BIF:
 
@@ -3760,8 +3752,7 @@ The BIF can have other special sections for debugging, etc. It also contains sev
 
   * .text for storing the executable.
   * .rodata for storing the OpenCL runtime control data.
-  * other ELF special sections required for forming an ELF (for example:
-.strtab, .symtab, .shstrtab).
+  * other ELF special sections required for forming an ELF (for example: ``.strtab, .symtab, .shstrtab`` ).
 
 By default, OpenCL generates a binary that has LLVM IR, and the executable for the GPU (,.llvmir, .amdil, and .text sections), as well as LLVM IR and the executable for the CPU (.llvmir and .text sections). The BIF binary always contains a .comment section, which is a readable C string. The default behavior can be changed with the BIF options described in Section C.2, “BIF Options,” page C-3.
 
@@ -3913,7 +3904,8 @@ Please note the following guidelines.
 
 1.   All devices used to create the OpenCL context associated with command_queue must support acquiring shared CL/GL objects. This constraint is enforced at context-creation time.
 
-2.   clCreateContext and clCreateContextFromType fail context creation if the device list passed in cannot interoperate with the GL 	 context. clCreateContext only permits GL-friendly device(s). clCreateFromContextType can only include GL-friendly device(s).
+2.   clCreateContext and clCreateContextFromType fail context creation if the device list passed in cannot interoperate with the GLcontext. clCreateContext only permits GL-friendly device(s). clCreateFromContextType can only include GL-friendly device(s).
+
 3.   Use clGetGLContextInfoKHR to determine GL-friendly device(s) from the following parameters:
 
 a.   CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR only returns the device that can interoperate with the GL context.
@@ -3922,13 +3914,12 @@ b.   CL_DEVICES_FOR_GL_CONTEXT_KHR includes all GL-context interoperable devices
 
 4.   While it is possible to create as many GL contexts on a GPU, do not create concurrently two GL contexts for two GPUs from the 	same process.
 
-5.   For OpenGL interoperability with OpenCL, there is a strict order in which the OpenCL context is created and the texture/buffer 	 shared allocations can be made. To use shared resources, the OpenGL application must create an OpenGL context and afterwards an  	   OpenCL context. All resources (GL buffers and textures) created after the OpenCL context was created can be shared between    	OpenGL and OpenCL. If resources are allocated before the OpenCL context was created, they cannot be shared between OpenGL and 	OpenCL.
+5.   For OpenGL interoperability with OpenCL, there is a strict order in which the OpenCL context is created and the texture/buffershared allocations can be made. To use shared resources, the OpenGL application must create an OpenGL context and afterwards an   OpenCL context. All resources (GL buffers and textures) created after the OpenCL context was created can be shared between OpenGL and OpenCL. If resources are allocated before the OpenCL context was created, they cannot be shared between OpenGL and OpenCL.
 
 
 Under Windows
-############
-This sections discusses CL-GL interoperability for single and multiple GPU
-systems running under Windows.
+###############
+This sections discusses CL-GL interoperability for single and multiple GPU systems running under Windows.
 
 Single GPU Environment
 ***********************
@@ -3936,14 +3927,13 @@ Single GPU Environment
 Creating CL Context from a GL Context
 ***************************************
 Use GLUT windowing system or Win32 API for event handling. Using GLUT
-1. Use glutInit to initialize the GLUT library and negotiate a session with the windowing system. This function also processes the   	command line options, depending on the windowing system.
+1. Use glutInit to initialize the GLUT library and negotiate a session with the windowing system. This function also processes the command line options, depending on the windowing system.
 
-2. Use wglGetCurrentContext to get the current rendering GL context
-   (HGLRC) of the calling thread.
+2. Use wglGetCurrentContext to get the current rendering GL context (HGLRC) of the calling thread.
 
-3. Use wglGetCurrentDC to get the device context (HDC) that is associated with the current OpenGL rendering context of the calling   	thread.
+3. Use wglGetCurrentDC to get the device context (HDC) that is associated with the current OpenGL rendering context of the calling thread.
 
-4. Use the clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) function and the 	    			CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
+4. Use the clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) function and the CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
 
 5. Use clCreateContext (See Section 4.3 of the OpenCL Specification 1.1) to create the CL context (of type cl_context).
 
@@ -3975,9 +3965,9 @@ Using Win32 API
 
 1.   Use CreateWindow for window creation and get the device handle (HWND).
 
-2.   Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use  	CreateDC function to create a device context (HDC) for the specified device.
+2.   Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use CreateDC function to create a device context (HDC) for the specified device.
 
-3.   Use ChoosePixelFormat to match an appropriate pixel format supported by a device context and to a given pixel format 	   	specification.
+3.   Use ChoosePixelFormat to match an appropriate pixel format supported by a device context and to a given pixel format specification.
 
 4.   Use SetPixelFormat to set the pixel format of the specified device context to the format specified.
 
@@ -3985,7 +3975,7 @@ Using Win32 API
 
 6.   Use wglMakeCurrent to bind the GL context created in the above step as the current rendering context.
 
-7.   Use clGetGLContextInfoKHR function and parameter CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR to get the device ID of the CL device   	associated with OpenGL context.
+7.   Use clGetGLContextInfoKHR function and parameter CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR to get the device ID of the CL device associated with OpenGL context.
 
 8.   Use clCreateContext function  to create the CL context (of type cl_context).
 
@@ -4011,7 +4001,7 @@ The following code snippet shows how to create an interoperability context using
    pfd.cAlphaBits	= 8;
    pfd.cAlphaShift	= 0;
    pfd.cAccumBits	= 0;
-   pfd.cAccumRedBits	= 0;
+   pfd.cAccumRedBits = 0;
    pfd.cAccumGreenBits = 0;
    pfd.cAccumBlueBits = 0;
    pfd.cAccumAlphaBits = 0;
@@ -4021,7 +4011,7 @@ The following code snippet shows how to create an interoperability context using
    pfd.iLayerType	= PFD_MAIN_PLANE;
    pfd.bReserved	= 0;
    pfd.dwLayerMask	= 0;
-   pfd.dwVisibleMask	= 0;
+   pfd.dwVisibleMask = 0;
    pfd.dwDamageMask	= 0;
 
    ZeroMemory(&pfd, sizeof(PIXELFORMATDESCRIPTOR)); WNDCLASS windowclass;
@@ -4076,13 +4066,13 @@ Do not to use the GLUT windowing system in multi-GPU environment because it alwa
 
 To use Win32 API for windowing in multi-GPU environment:
 
-1. Detect each display by using EnumDisplayDevices function. This function lets you obtain the information about display devices in  	the current session.
+1. Detect each display by using EnumDisplayDevices function. This function lets you obtain the information about display devices in the current session.
 
-2. To query all display devices in the current session, call this function in a loop, starting with DevNum set to 0, and 	     	incrementing DevNum until the function fails. To select all display devices in the desktop, use only the display devices that have 	 the DISPLAY_DEVICE_ATTACHED_TO_DESKTOP flag in the DISPLAY_DEVICE structure.
+2. To query all display devices in the current session, call this function in a loop, starting with DevNum set to 0, and incrementing DevNum until the function fails. To select all display devices in the desktop, use only the display devices that havethe DISPLAY_DEVICE_ATTACHED_TO_DESKTOP flag in the DISPLAY_DEVICE structure.
 
-3. To get information on the display adapter, call EnumDisplayDevices with lpDevice set to NULL. For example,  			     	DISPLAY_DEVICE.DeviceString contains the adapter name.
+3. To get information on the display adapter, call EnumDisplayDevices with lpDevice set to NULL. For example, DISPLAY_DEVICE.DeviceString contains the adapter name.
 
-4. Use EnumDisplaySettings to get DEVMODE. dmPosition.x and dmPosition.y are used to get the x coordinate and y coordinate of the    	current display.
+4. Use EnumDisplaySettings to get DEVMODE. dmPosition.x and dmPosition.y are used to get the x coordinate and y coordinate of the current display.
 
 5. Try to find the first OpenCL device (winner) associated with the OpenGL rendering context by using the loop technique of 2., above.
 
@@ -4090,7 +4080,7 @@ To use Win32 API for windowing in multi-GPU environment:
 
 a. Create a window on a specific display by using the CreateWindow function. This function returns the window handle (HWND).
 
-b. Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use the 	CreateDC function to create a device context (HDC) for the specified device.
+b. Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use the CreateDC function to create a device context (HDC) for the specified device.
 
 c. Use ChoosePixelFormat to match an appropriate pixel format supported by a device context to a given pixel format specification.
 
@@ -4100,7 +4090,7 @@ e. Use wglCreateContext to create a new OpenGL rendering context from device con
 
 f. Use wglMakeCurrent to bind the GL context created in the above step as the current rendering context.
 
-g. Use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to 	get the number of GL associated devices for CL context creation. If the number of devices is zero go to the next display in the   	loop. Otherwise, use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and the   	 	    	     	CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
+g. Use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the number of GL associated devices for CL context creation. If the number of devices is zero go to the next display in the   	loop. Otherwise, use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and the  	       	CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
 
 h. Use clCreateContext (See Section 4.3 of the OpenCL Specification1.1) to create the CL context (of type cl_context).
 
@@ -4124,8 +4114,8 @@ interoperability on multi-GPU environment.
 
   xCoordinate = deviceMode.dmPosition.x; yCoordinate = deviceMode.dmPosition.y; WNDCLASS windowclass;
 
-  windowclass.style = CS_OWNDC; windowclass.lpfnWndProc = WndProc; windowclass.cbClsExtra = 0; windowclass.cbWndExtra = 0;     	      	windowclass.hInstance = NULL;
-  windowclass.hIcon = LoadIcon(NULL, IDI_APPLICATION); windowclass.hCursor = LoadCursor(NULL, IDC_ARROW); windowclass.hbrBackground = 	(HBRUSH)GetStockObject(BLACK_BRUSH); windowclass.lpszMenuName = NULL;
+  windowclass.style = CS_OWNDC; windowclass.lpfnWndProc = WndProc; windowclass.cbClsExtra = 0; windowclass.cbWndExtra = 0; windowclass.hInstance = NULL;
+  windowclass.hIcon = LoadIcon(NULL, IDI_APPLICATION); windowclass.hCursor = LoadCursor(NULL, IDC_ARROW); windowclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH); windowclass.lpszMenuName = NULL;
   windowclass.lpszClassName = reinterpret_cast<LPCSTR>("SimpleGL"); RegisterClass(&windowclass);
   gHwnd = CreateWindow(
   reinterpret_cast<LPCSTR>("SimpleGL"),
@@ -4147,7 +4137,7 @@ interoperability on multi-GPU environment.
 
   cl_context_properties properties[] =
   {
-  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR, (cl_context_properties) hRC, CL_WGL_HDC_KHR,    	     	(cl_context_properties) hDC,
+  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR, (cl_context_properties) hRC, CL_WGL_HDC_KHR, (cl_context_properties) hDC,
   0
   };
 
@@ -4182,7 +4172,7 @@ interoperability on multi-GPU environment.
 
   cl_context_properties properties[] =
   {
-  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR, (cl_context_properties) hRC, CL_WGL_HDC_KHR,   	      	(cl_context_properties) hDC,
+  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR, (cl_context_properties) hRC, CL_WGL_HDC_KHR, (cl_context_properties) hDC,
   0
   };
 
@@ -4203,10 +4193,10 @@ Limitations
 
 
 Linux Operating System
-**********************
+************************
 
 Single GPU Environment
-**********************
+************************
 
 Creating CL Context from a GL Context
 **************************************
@@ -4214,13 +4204,11 @@ Using GLUT
 
 1.   Use glutInit to initialize the GLUT library and to negotiate a session with the windowing system. This function also processes the command-line options depending on the windowing system.
 
-2.   Use glXGetCurrentContext to get the current rendering context
-(GLXContext).
+2.   Use glXGetCurrentContext to get the current rendering context (GLXContext).
 
-3.   Use glXGetCurrentDisplay to get the display (Display *) that is associated with the current OpenGL rendering context of the calling thread.
+3.   Use glXGetCurrentDisplay to get the display ( Display * ) that is associated with the current OpenGL rendering context of the calling thread.
 
-4.   Use clGetGLContextInfoKHR (see Section 9.7 of the OpenCL Specification
-1.1) and the CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with the OpenGL context.
+4.   Use clGetGLContextInfoKHR (see Section 9.7 of the OpenCL Specification 1.1) and the CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with the OpenGL context.
 
 5.   Use clCreateContext (see Section 4.3 of the OpenCL Specification 1.1) to create the CL context (of type cl_context).
 
@@ -4230,7 +4218,7 @@ GLUT in Linux.
 
 ::
 
-  glutInit(&argc, argv); glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE); glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);    	      	glutCreateWindow("OpenCL SimpleGL");
+  glutInit(&argc, argv); glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE); glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT); glutCreateWindow("OpenCL SimpleGL");
   gGLXContext glCtx = glXGetCurrentContext(); Cl_context_properties cpsGL[] =
   {
   CL_CONTEXT_PLATFORM,
@@ -4258,16 +4246,15 @@ Using X Window System
 
 3. Use glXChooseVisual to get a visual that matches specified attributes.
 
+4. Use XCreateColormap to create a color map of the specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it. Note that the specified window is only used to determine the screen.
 
-4. Use XCreateColormap to create a color map of the specified visual type for the screen on which the specified window resides and   	returns the colormap ID associated with it. Note that the specified window is only used to determine the screen.
+5. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, andcauses the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to siblings.
 
-5. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, and 	 causes the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to    	 siblings.
+6. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped ancestor does not display the window, but marks it as eligible for display when the ancestor becomes mapped. Such a window is called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen if it is not    obscured by another window.
 
-6. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped     	ancestor does not display the window, but marks it as eligible for display when the ancestor becomes mapped. Such a window is     	called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen if it is not 	      	 obscured by another window.
+7. Use glXCreateContextAttribsARB to initialize the context to the initial state defined by the OpenGL specification, and returns a handle to it. This handle can be used to render to any GLX surface.
 
-7. Use glXCreateContextAttribsARB to initialize the context to the initial state defined by the OpenGL specification, and returns a  	handle to it. This handle can be used to render to any GLX surface.
-
-8. Use glXMakeCurrent to make argrument3 (GLXContext) the current GLX rendering context of the calling thread, replacing the 	     	previously current context if there was one, and attaches argument3 (GLXcontext) to a GLX drawable, either a window or a GLX      	pixmap.
+8. Use glXMakeCurrent to make argrument3 (GLXContext) the current GLX rendering context of the calling thread, replacing the previously current context if there was one, and attaches argument3 (GLXcontext) to a GLX drawable, either a window or a GLX pixmap.
 
 9. Use clGetGLContextInfoKHR to get the OpenCL-OpenGL interoperability device corresponding to the window created in step 5.
 
@@ -4340,7 +4327,7 @@ The following code snippet shows how to create a CL-GL interoperability context 
   glXMakeCurrent (displayName,
 
   win, ctx);
-  cl_context_properties cpsGL[] = { CL_CONTEXT_PLATFORM,(cl_context_properties)platform, CL_GLX_DISPLAY_KHR, (intptr_t)   	      	glXGetCurrentDisplay(), CL_GL_CONTEXT_KHR, (intptr_t) gGlCtx, 0
+  cl_context_properties cpsGL[] = { CL_CONTEXT_PLATFORM,(cl_context_properties)platform, CL_GLX_DISPLAY_KHR, (intptr_t) glXGetCurrentDisplay(), CL_GL_CONTEXT_KHR, (intptr_t) gGlCtx, 0
   };
   status = clGetGLContextInfoKHR( cpsGL,
   CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR,
@@ -4367,7 +4354,7 @@ Using X Window System
 
 2. Use ScreenCount to get the number of available screens.
 
-3. Use XCloseDisplay to close the connection to the X server for the display specified in the Display structure and destroy all      	windows, resource IDs (Window, Font, Pixmap, Colormap, Cursor, and GContext), or other resources that the client created on this   	 display.
+3. Use XCloseDisplay to close the connection to the X server for the display specified in the Display structure and destroy all windows, resource IDs (Window, Font, Pixmap, Colormap, Cursor, and GContext), or other resources that the client created on this display.
 
 4. Use a FOR loop to enumerate the displays. To change the display, change the value of the environment variable DISPLAY.
 
@@ -4379,19 +4366,19 @@ b. Use OpenDisplay to open a connection to the server that controls a display.
 
 c. Use glXChooseFBConfig to get a list of GLX frame buffer configurations that match the specified attributes.
 
-d. Use glXChooseVisual to get a visual that matches specified attributes. e.   Use XCreateColormap to create a color map of the      	specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it. Note    	 that the specified window is only used to determine the screen.
+d. Use glXChooseVisual to get a visual that matches specified attributes. e.   Use XCreateColormap to create a color map of the specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it. Note that the specified window is only used to determine the screen.
 
-f. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, and 	 causes the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to   	siblings.
+f. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, and causes the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to siblings.
 
-g. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped     	ancestor does not display the window but marks it as eligible for display when the ancestor becomes mapped. Such a window is      	called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen, if it is not      	obscured by another window.
+g. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped ancestor does not display the window but marks it as eligible for display when the ancestor becomes mapped. Such a window is called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen, if it is not obscured by another window.
 
-h. Use glXCreateContextAttribsARB function to initialize the context to the initial state defined by the OpenGL specification and    	return a handle to it. This handle can be used to render to any GLX surface.
+h. Use glXCreateContextAttribsARB function to initialize the context to the initial state defined by the OpenGL specification and	return a handle to it. This handle can be used to render to any GLX surface.
 
-i. Use glXMakeCurrent to make argrument3 (GLXContext) the current GLX rendering context of the calling thread, replacing the 	     	previously current context, if there was one, and to attach argument3 (GLXcontext) to a GLX drawable, either a window or a GLX    	pixmap.
+i. Use glXMakeCurrent to make argrument3 (GLXContext) the current GLX rendering context of the calling thread, replacing the previously current context, if there was one, and to attach argument3 (GLXcontext) to a GLX drawable, either a window or a GLX pixmap.
 
-j. Use clGetGLContextInfoKHR to get the number of OpenCL-OpenGL interoperability devices corresponding to the window created in f,   	above.
+j. Use clGetGLContextInfoKHR to get the number of OpenCL-OpenGL interoperability devices corresponding to the window created in f, above.
 
-k. If the number of interoperable devices is zero, use glXDestroyContext to destroy the context created at step h, and go to step a; 	otherwise, exit from the loop (an OpenCL-OpenGL interoperable device has been found).
+k. If the number of interoperable devices is zero, use glXDestroyContext to destroy the context created at step h, and go to step A otherwise, exit from the loop (an OpenCL-OpenGL interoperable device has been found).
 
 6. Use clGetGLContextInfoKHR to get the OpenCL-OpenGL interoperable device id.
 
@@ -4548,10 +4535,14 @@ GL_RGB32UI CL_RGB,			 CL_UNSIGNED_INT32
 .. _Functions_OpenCL:
 
 New built-in functions in OpenCL 2.0
-#####################################
+========================================
+
+List of Functions
+##################
+
 
 Work Item Functions
-********************
+*********************
 ============================== =========================================================================== 
  get_enqueued_local_size 			local sizes in uniform part of NDRange
   get_global_linear_id 				unique 1D index for each work item in the NDRange
@@ -4781,13 +4772,15 @@ Deprecated runtimes
 .. _SPIR:
 
 Standard Portable Intermediate Representation (SPIR)
-########################################################
+=====================================================                                                          
+
 This chapter provides an overview of the Standard Portable Intermediate Representation (SPIR) format. Application developers can use SPIR to avoid shipping kernel source and to manage the proliferation of devices and drivers from multiple vendors.
 SPIR is a portable encoding of device programs. For example, SPIR 1.2 is an encoding of OpenCL C (version 1.2) device programs in LLVM IR; SPIR 1.2 defines how any OpenCL C (version 1.2) device program can be encoded in LLVM (version 3.2). SPIR 2.0 has yet to be published. For details, see the SPIR specification.
 Open-source tools such as CLANG compilers can be used for generating the SPIR output for any OpenCL kernel program. For information about some open source generators that are used to generate SPIR, see https://github.com/KhronosGroup/SPIR.
 
 Sample consumption of SPIR binaries
-************************************
+######################################
+
 The Simple SPIR sample in the AMD APP SDK demonstrates an implementation for the consumption of SPIR binaries.
 
 The SPIR binary, MatrixTranspose_Kernels.fe.bc, is loaded by using the clCreateProgramWithBinary OpenCL API to generate OpenCL Program.

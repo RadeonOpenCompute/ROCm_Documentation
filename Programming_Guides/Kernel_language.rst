@@ -72,8 +72,8 @@ Features are marked with one of the following keywords:
 Function-Type-Qualifiers
 -------------------------
 
-``__device__``
-+++++++++++++++
+__device__
++++++++++++++
 
 Supported ``__device__`` functions are
 
@@ -82,19 +82,19 @@ Supported ``__device__`` functions are
 
 The ``__device__`` keyword can combine with the host keyword (see `host <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#host>`_ ).
 
-``__global__``
-++++++++++++++++
+__global__
++++++++++++++
 Supported ``__global__`` functions are
 
 * Executed on the device
 * Called ("launched") from the host
 
-HIP ``__global__`` functions must have a void return type, and the first parameter to a HIP ``__global__`` function must have the type ``hipLaunchParm``. See `Kernel-Launch Example<https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#kernel-launch-example>`_ .
+HIP ``__global__`` functions must have a void return type, and the first parameter to a HIP ``__global__`` function must have the type hipLaunchParm. See `Kernel-Launch Example <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#kernel-launch-example>`_ .
 
 HIP lacks dynamic-parallelism support, so ``__global__`` functions cannot be called from the device.
 
-``__host__``
-+++++++++++++++
+__host__
++++++++++++
 
 Supported ``__host__`` functions are
 
@@ -109,21 +109,22 @@ HIP parses the ``__noinline__`` and ``__forceinline__`` keywords and converts th
 
 .. _Calling__global__Functions:
 
-Calling ``__global__`` Functions
+Calling __global__ Functions
 ---------------------------------
 
 ``__global__`` functions are often referred to as kernels, and calling one is termed launching the kernel. These functions require the caller to specify an "execution configuration" that includes the grid and block dimensions. The execution configuration can also include other information for the launch, such as the amount of additional shared memory to allocate and the stream where the kernel should execute. HIP introduces a standard C++ calling convention to pass the execution configuration to the kernel (this convention replaces the Cuda <<< >>> syntax). In HIP,
 
 * Kernels launch with the "hipLaunchKernel" function
 * The first five parameters to hipLaunchKernel are the following:
-  * **symbol kernelName:** the name of the kernel to launch. To support template kernels which contains "," use the HIP_KERNEL_NAME macro. The hipify tools insert this automatically.
-  * **dim3 gridDim:** 3D-grid dimensions specifying the number of blocks to launch.
-  * **dim3 blockDim:** 3D-block dimensions specifying the number of threads in each block.
-  * **size_t dynamicShared:** amount of additional shared memory to allocate when launching the kernel (see `shared <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#__shared__>`_ )
-  * **hipStream_t:** stream where the kernel should execute. A value of 0 corresponds to the NULL stream (see `Synchronization Functions <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#synchronization-functions>`_ ).
+	* **symbol kernelName:** the name of the kernel to launch. To support template kernels which contains "," use the HIP_KERNEL_NAME macro. The hipify tools insert this automatically.
+	* **dim3 gridDim:** 3D-grid dimensions specifying the number of blocks to launch.
+	* **dim3 blockDim:** 3D-block dimensions specifying the number of threads in each block.
+	* **size_t dynamicShared:** amount of additional shared memory to allocate when launching the kernel (see `shared <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#__shared__>`_ )
+	* **hipStream_t:** stream where the kernel should execute. A value of 0 corresponds to the NULL stream (see `Synchronization Functions <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#synchronization-functions>`_ ).
+
 * Kernel arguments follow these first five parameters
 
-::
+  ::
 
   // Example pseudo code introducing hipLaunchKernel:
   __global__ MyKernel(hipLaunchParm lp, float *A, float *B, float *C, size_t N)
@@ -132,6 +133,7 @@ Calling ``__global__`` Functions
   } 
  
   // Replace MyKernel<<<dim3(gridDim), dim3(gridDim), 0, 0>>> (a,b,c,n);
+  
   hipLaunchKernel(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n);
  
 
@@ -175,24 +177,24 @@ Kernel-Launch Example
 Variable-Type Qualifiers
 --------------------------
 
-``__constant__``
-++++++++++++++++++
+__constant__
++++++++++++++++
 
 The ``__constant__`` keyword is supported. The host writes constant memory before launching the kernel; from the GPU, this memory is read-only during kernel execution. The functions for accessing constant memory (hipGetSymbolAddress(), hipGetSymbolSize(), hipMemcpyToSymbol(), hipMemcpyToSymbolAsync, hipMemcpyFromSymbol, hipMemcpyFromSymbolAsync) are under development.
 
-``__shared__``
-++++++++++++++++
+__shared__
++++++++++++++
 
 The ``__shared__`` keyword is supported.
 
 ``extern __shared__`` allows the host to dynamically allocate shared memory and is specified as a launch parameter. HIP uses an alternate syntax based on the HIP_DYNAMIC_SHARED macro.
 
-``__managed__``
-+++++++++++++++++
+__managed__
+++++++++++++++
 
 Managed memory, including the ``__managed__`` keyword, are not supported in HIP.
 
-``__restrict__``
+__restrict__
 +++++++++++++++++
 
 The ``__restrict__`` keyword tells the compiler that the associated memory pointer will not alias with any other pointer in the kernel or function. This feature can help the compiler generate better code. In most cases, all pointer arguments must use this keyword to realize the benefit.
@@ -255,23 +257,29 @@ Note that these types are defined in hip_runtime.h and are not automatically pro
 
 Short Vector Types
 ++++++++++++++++++++
-Short vector types derive from the basic integer and floating-point types. They are structures defined in hip_vector_types.h. The first, second, third and fourth components of the vector are accessible through the ``x``, ``y``, ``z`` and ``w`` fields, respectively. All the short vector types support a constructor function of the form ``make_<type_name>()``. For example, ``float4 make_float4(float x, float y, float z, float w)`` creates a vector of type float4 and value ``(x,y,z,w)``.
+Short vector types derive from the basic integer and floating-point types. They are structures defined in hip_vector_types.h. The first, second, third and fourth components of the vector are accessible through the *x, y, z* and *w* fields, respectively. All the short vector types support a constructor function of the form make_<type_name>(). 
+For example, ``float4 make_float4(float x, float y, float z, float w)`` creates a vector of type float4 and value (x,y,z,w).
 
 HIP supports the following short vector formats:
 
 * Signed Integers:
+  
   * char1, char2, char3, char4
   * short1, short2, short3, short4
   * int1, int2, int3, int4
   * long1, long2, long3, long4
   * longlong1, longlong2, longlong3, longlong4
+
 * Unsigned Integers:
+  
   * uchar1, uchar2, uchar3, uchar4
   * ushort1, ushort2, ushort3, ushort4
   * uint1, uint2, uint3, uint4
   * ulong1, ulong2, ulong3, ulong4
   * ulonglong1, ulonglong2, ulonglong3, ulonglong4
+
 * Floating Points
+  
   * float1, float2, float3, float4
   * double1, double2, double3, double4
 
@@ -287,9 +295,9 @@ dim3 is a three-dimensional integer vector type commonly used to specify grid an
    uint32_t x; 
    uint32_t y; 
    uint32_t z;  
- 
-   dim3(uint32_t _x=1, uint32_t _y=1, uint32_t _z=1) : x(_x), y(_y), z(_z) {};
- }; 
+   
+   dim3(uint32_t _x=1, uint32_t _y=1, uint32_t _z=1) : x(_x), y(_y), z(_z) {};  
+  }; 
  
 .. _Memory-Fence-Instructions:
 
@@ -1125,23 +1133,23 @@ Following is the list of supported floating-point intrinsics. Note that intrinsi
 +----------------------------------------------------------------------------+
 |  float __frsqrt_rn ( float x )                                             |
 |                                                                            |
-|  Compute  ``1 / √x`` in round-to-nearest-even mode.                        |
+|  Compute 1/√x in round-to-nearest-even mode.                               |
 +----------------------------------------------------------------------------+
 |  float __fsqrt_rd ( float x )                                              |
 |                                                                            |
-|  Compute  ``√x`` in round-down mode.                                       |
+|  Compute √x in round-down mode.                                            |
 +----------------------------------------------------------------------------+
 |  float __fsqrt_rn ( float x )                                              |
 |                                                                            |
-|  Compute  ``√x`` in round-to-nearest-even mode.                            |
+|  Compute √x in round-to-nearest-even mode.                                 |
 +----------------------------------------------------------------------------+
 |  float __fsqrt_ru ( float x )                                              |
 |                                                                            |
-|  Compute  ``√x`` in round-up mode.                                         |
+|  Compute √x in round-up mode.                                              |
 +----------------------------------------------------------------------------+
 |  float __fsqrt_rz ( float x )                                              |
 |                                                                            |
-|  Compute  ``√x`` in round-towards-zero mode.                               |
+|  Compute √x in round-towards-zero mode.                                    |
 +----------------------------------------------------------------------------+
 |  float __log10f ( float x )                                                |
 |                                                                            |
@@ -1169,19 +1177,19 @@ Following is the list of supported floating-point intrinsics. Note that intrinsi
 +----------------------------------------------------------------------------+
 |  double __dsqrt_rd ( double x )                                            |
 |                                                                            |
-|  Compute  ``√x`` in round-down mode.                                       |
+|  Compute √x in round-down mode.                                            |
 +----------------------------------------------------------------------------+
 |  double __dsqrt_rn ( double x )                                            |
 |                                                                            |
-|  Compute  ``√x`` in round-to-nearest-even mode.                            |
+|  Compute √x in round-to-nearest-even mode.                                 |
 +----------------------------------------------------------------------------+
 |  double __dsqrt_ru ( double x )                                            |
 |                                                                            |
-|  Compute  ``√x`` in round-up mode.                                         |
+|  Compute √x in round-up mode.                                              |
 +----------------------------------------------------------------------------+
 |  double __dsqrt_rz ( double x )                                            |
 |                                                                            |
-|  Compute  ``√x`` in round-towards-zero mode.                               |
+|  Compute √x in round-towards-zero mode.                                    |
 +----------------------------------------------------------------------------+
 
 .. _Texture-Functions:
@@ -1301,8 +1309,8 @@ Warp cross-lane functions operate across all lanes in a warp. The hardware guara
 
 Note that Nvidia and AMD devices have different warp sizes, so portable code should use the warpSize built-ins to query the warp size. Hipified code from the Cuda path requires careful review to ensure it doesn’t assume a waveSize of 32. "Wave-aware" code that assumes a waveSize of 32 will run on a wave-64 machine, but it will utilize only half of the machine resources. In addition to the warpSize device function, host code can obtain the warpSize from the device properties::
 
- 	 cudaDeviceProp props;
- 	 cudaGetDeviceProperties(&props, deviceID);
+       cudaDeviceProp props;
+       cudaGetDeviceProperties(&props, deviceID);
      int w = props.warpSize;  
      // implement portable algorithm based on w (rather than assume 32 or 64)
  
@@ -1322,7 +1330,7 @@ Threads in a warp are referred to as lanes and are numbered from 0 to warpSize -
 
 * __any() returns 1 if any warp lane contributes a nonzero predicate, or 0 otherwise
 * __all() returns 1 if all other warp lanes contribute nonzero predicates, or 0 otherwise
-Applications can test whether the target platform supports the any/all instruction using the ``hasWarpVote`` device property or the HIP_ARCH_HAS_WARP_VOTE compiler define.
+Applications can test whether the target platform supports the any/all instruction using the hasWarpVote device property or the HIP_ARCH_HAS_WARP_VOTE compiler define.
 
 ``__ballot`` provides a bit mask containing the 1-bit predicate value from each lane. The nth bit of the result contains the 1 bit contributed by the nth warp lane. Note that HIP's __ballot function supports a 64-bit return value (compared with Cuda’s 32 bits). Code ported from Cuda should support the larger warp sizes that the HIP version of this instruction supports. Applications can test whether the target platform supports the ballot instruction using the hasWarpBallot device property or the HIP_ARCH_HAS_WARP_BALLOT compiler define.
 
@@ -1421,7 +1429,7 @@ CUDA defines a __launch_bounds which is also designed to control occupancy::
 * The second parameter __launch_bounds parameters must be converted to the format used __hip_launch_bounds, which uses warps and execution-units rather than blocks and multi-processors ( This conversion is performed automatically by the clang hipify tools.)
 ::
  
- MIN_WARPS_PER_EXECUTION_UNIT = (MIN_BLOCKS_PER_MULTIPROCESSOR * MAX_THREADS_PER_BLOCK) / 32
+ MIN_WARPS_PER_EXECUTION_UNIT = (MIN_BLOCKS_PER_MULTIPROCESSOR * MAX_THREADS_PER_BLOCK)/32
  
 
 The key differences in the interface are:
@@ -1479,13 +1487,13 @@ The following C++ features are not supported:
 
 * Run-time-type information (RTTI)
 * Virtual functions
-* Try/catch
+* Try / catch
 
 .. _Kernel-Compilation:
 
 Kernel Compilation
 -------------------
-hipcc now supports compiling C++/HIP kernels to binary code objects. The user can specify the target for which the binary can be generated. HIP/HCC does not yet support fat binaries so only a single target may be specified. The file format for binary is ``.co`` which means Code Object. The following command builds the code object using ``hipcc``.
+hipcc now supports compiling C++/HIP kernels to binary code objects. The user can specify the target for which the binary can be generated. HIP/HCC does not yet support fat binaries so only a single target may be specified. The file format for binary is ``.co`` which means Code Object. The following command builds the code object using **hipcc**.
 ::
 
  hipcc --genco --target-isa=[TARGET GPU] [INPUT FILE] -o [OUTPUT FILE] 
@@ -1493,6 +1501,7 @@ hipcc now supports compiling C++/HIP kernels to binary code objects. The user ca
  [INPUT FILE] = Name of the file containing kernels
  [OUTPUT FILE] = Name of the generated code object file``` 
 
- Note that one important fact to remember when using binary code objects is that the number of arguments to the kernel are different on HCC and NVCC path. Refer to the sample in samples/0_Intro/module_api for differences in the arguments to be passed to the kernel.
+
+Note that one important fact to remember when using binary code objects is that the number of arguments to the kernel are different on HCC and NVCC path. Refer to the sample in samples/0_Intro/module_api for differences in the arguments to be passed to the kernel.
  
 

@@ -1156,23 +1156,24 @@ The hardware does not check for the following dependencies; they must be resolve
 | VALU writes VCC           | V\_DIV\_FMAS         | 4     |                      |
 | (including v\_div\_scale) |                      |       |                      |
 +---------------------------+----------------------+-------+----------------------+
-| | FLAT\_STORE\_X3         | Write VGPRs holding  | 1     | BUFFER\_STORE\_\*    |
-| | FLAT\_STORE\_X4         | writedata from those |       | operations that use  |
-| | FLAT\_ATOMIC\_{F}CMPSWA | instructions.        |       | an SGPR for "offset" |
+|   FLAT\_STORE\_X3         | Write VGPRs holding  | 1     | BUFFER\_STORE\_\*    |
+|   FLAT\_STORE\_X4         | writedata from those |       | operations that use  |
+|   FLAT\_ATOMIC\_{F}CMPSWA | instructions.        |       | an SGPR for "offset" |
 | P\_X2                     |                      |       | do not require any   |
-| | BUFFER\_STORE\_DWORD\_X |                      |       | wait states.         |
-| 3                         |                      |       | IMAGE\_STORE\_\* and |
-| | BUFFER\_STORE\_DWORD\_X |                      |       | IMAGE\_{F}CMPSWAP\*  |
+|   BUFFER\_STORE\_DWORD\_X |                      |       | wait states.         |
+| 3                         |                      |       |                      |
+|                           |                      |       | IMAGE\_STORE\_\* and |
+|   BUFFER\_STORE\_DWORD\_X |                      |       | IMAGE\_{F}CMPSWAP\*  |
 | 4                         |                      |       | ops with more than   |
-| | BUFFER\_STORE\_FORMAT\_ |                      |       | two DMASK bits set   |
+|   BUFFER\_STORE\_FORMAT\_ |                      |       | two DMASK bits set   |
 | XYZ                       |                      |       | require this one     |
-| | BUFFER\_STORE\_FORMAT\_ |                      |       | wait state. Ops that |
+|   BUFFER\_STORE\_FORMAT\_ |                      |       | wait state. Ops that |
 | XYZW                      |                      |       | use a 256-bit T# do  |
-| | BUFFER\_ATOMIC\_{F}CMPS |                      |       | not need a wait      |
+|   BUFFER\_ATOMIC\_{F}CMPS |                      |       | not need a wait      |
 | WAP\_X2                   |                      |       | state.               |
-| | IMAGE\_STORE\_\* > 64   |                      |       |                      |
+|   IMAGE\_STORE\_\* > 64   |                      |       |                      |
 |   bits                    |                      |       |                      |
-| | IMAGE\_ATOMIC\_{F}CMPSW |                      |       |                      |
+|   IMAGE\_ATOMIC\_{F}CMPSW |                      |       |                      |
 | AP                        |                      |       |                      |
 |   > + 64bits              |                      |       |                      |
 +---------------------------+----------------------+-------+----------------------+
@@ -1194,13 +1195,13 @@ The hardware does not check for the following dependencies; they must be resolve
 | VALU writes EXEC          | VALU DPP op          | 5     | ALU does not forward |
 |                           |                      |       | EXEC to DPP.         |
 +---------------------------+----------------------+-------+----------------------+
-| | Mixed use of VCC: alias | VALU which reads VCC | 1     | VCC can be accessed  |
+|   Mixed use of VCC: alias | VALU which reads VCC | 1     | VCC can be accessed  |
 |   vs                      | as a constant (not   |       | by name or by the    |
-| | SGPR#                   | as a carry-in which  |       | logical SGPR which   |
-| | v\_readlane,            | is 0 wait states).   |       | holds VCC. The data  |
+|   SGPR#                   | as a carry-in which  |       | logical SGPR which   |
+|   v\_readlane,            | is 0 wait states).   |       | holds VCC. The data  |
 |   v\_readfirstlane        |                      |       | dependency check     |
-| | v\_cmp                  |                      |       | logic does not       |
-| | v\_add\*\ *i/u          |                      |       | understand that      |
+|   v\_cmp                  |                      |       | logic does not       |
+|   v\_add\*\ *i/u          |                      |       | understand that      |
 |   v\_sub\*\_i/u           |                      |       | these are the same   |
 |   v\_div\_scale*\ \*      |                      |       | register and do not  |
 |   (writes vcc)            |                      |       | prevent races.       |
@@ -1251,7 +1252,7 @@ This method compares how many of the 64 threads go down the PASS path instead of
 The following pseudo-code shows the details of CBRANCH Fork and Join operations.
 
 ::
-
+   
     S_CBRANCH_G_FORK arg0, arg1
         // arg1 is an sgpr-pair which holds 64bit (48bit) target address
 
@@ -1286,6 +1287,8 @@ The following pseudo-code shows the details of CBRANCH Fork and Join operations.
     else
         CSP -- // this is the 1st time to JOIN: jump to other FORK path
         {PC, EXEC} = SGPR[CSP*4] // read 128-bits from 4 consecutive SGPRs
+    
+    
 
 Scalar ALU Operations
 =====================
@@ -2242,47 +2245,47 @@ Table: VALU Instruction Set
 | 
 | The next table lists the compare instructions.
 
-+----------------+----------------+----------------+------------------------------+
-| Op             | Formats        | Functions      | Result                       |
-+================+================+================+==============================+
-| V\_CMP         | I16, I32, I64, | F, LT, EQ, LE, | Write VCC..                  |
-|                | U16, U32, U64  | GT, LG, GE, T  |                              |
-+----------------+----------------+----------------+------------------------------+
-| V\_CMPX        | Write VCC and  |                |                              | 
-|                | exec.          |                |                              |
-+----------------+----------------+----------------+------------------------------+
-| V\_CMP         | F16, F32, F64  | | F, LT, EQ,   | Write VCC.                   |
-|                |                |   LE, GT, LG,  |                              |
-|                |                |   GE, T,       |                              |
-|                |                | | O, U, NGE,   |                              |
-|                |                |   NLG, NGT,    |                              |
-|                |                |   NLE, NEQ,    |                              |
-|                |                |   NLT          |                              |
-|                |                | | (o = total   |                              |
-|                |                |   order, u =   |                              |
-|                |                |   unordered,   |                              |
-|                |                | | N = NaN or   |                              |
-|                |                |   normal       |                              |
-|                |                |   compare)     |                              |
-+----------------+----------------+----------------+------------------------------+
-| V\_CMPX        | Write VCC and  |                                               |
-|                | exec.          |                                               |
-+----------------+----------------+----------------+------------------------------+
-| V\_CMP\_CLASS  | F16, F32, F64  | | Test for one | Write VCC.                   |
-|                |                |   of:          |                              |
-|                |                |   signaling-Na |                              |
-|                |                | N,             |                              |
-|                |                |   quiet-NaN,   |                              |
-|                |                | | positive or  |                              |
-|                |                |   negative:    |                              |
-|                |                |   infinity,    |                              |
-|                |                |   normal,      |                              |
-|                |                |   subnormal,   |                              |
-|                |                |   zero.        |                              |
-+----------------+----------------+----------------+------------------------------+
-| V\_CMPX\_CLASS | Write VCC and  |                |                              |
-|                | exec.          |                |                              |
-+----------------+----------------+----------------+------------------------------+
++----------------+----------------+------------------------------+------------------------------+
+| Op             | Formats        | Functions                    | Result                       |
++================+================+==============================+==============================+
+| V\_CMP         | I16, I32, I64, | F, LT, EQ, LE, GT, LG, GE, T | Write VCC..                  |
+|                | U16, U32, U64  |                              |                              |
++----------------+----------------+------------------------------+------------------------------+
+| V\_CMPX        | Write VCC and  |                              |                              | 
+|                | exec.          |                              |                              |
++----------------+----------------+------------------------------+------------------------------+
+| V\_CMP         | F16, F32, F64  | | F, LT, EQ,LE, GT, LG, GE,  | Write VCC.                   |
+|                |                |   T, GE, T,                  |                              |
+|                |                |                              |                              |
+|                |                | | O, U, NGE,                 |                              |
+|                |                |   NLG, NGT,                  |                              |
+|                |                |   NLE, NEQ,                  |                              |
+|                |                |   NLT                        |                              |
+|                |                | | (o = total order, u =      |                              |
+|                |                |   unordered,                 |                              |
+|                |                |                              |                              |
+|                |                | | N = NaN or                 |                              |
+|                |                |   normal                     |                              |
+|                |                |   compare)                   |                              |
++----------------+----------------+------------------------------+------------------------------+
+| V\_CMPX        | Write VCC and  |                              |                              |
+|                | exec.          |                              |                              |
++----------------+----------------+------------------------------+------------------------------+
+| V\_CMP\_CLASS  | F16, F32, F64  | | Test for one of: signaling | Write VCC.                   |
+|                |                |   -NaN quiet-NaN,            |                              |
+|                |                | |positive or negative :      |                              |
+|                |                |  infinity,normal,subnormal,  |                              |
+|                |                |  zero                        |                              |
+|                |                |                              |                              |
+|                |                |                              |                              |
+|                |                |                              |                              |
+|                |                |                              |                              |
+|                |                |                              |                              |
+|                |                |                              |                              |
++----------------+----------------+------------------------------+------------------------------+
+| V\_CMPX\_CLASS | Write VCC and  |                              |                              |
+|                | exec.          |                              |                              |
++----------------+----------------+------------------------------+------------------------------+
 
 Table: VALU Instruction Set
 
@@ -2859,16 +2862,16 @@ VGPRs.
 | MTBUF Instructions            |                                            |
 +-------------------------------+--------------------------------------------+
 | | TBUFFER\_LOAD\_FORMAT\_{x,x | Read from, or write to, a typed buffer     |
-| y,xyz,xyzw}                   | object. Also used for a vertex fetch.      |
+|   y,xyz,xyzw}                 | object. Also used for a vertex fetch.      |
 | | TBUFFER\_STORE\_FORMAT\_{x, |                                            |
-| xy,xyz,xyzw}                  |                                            |
+|   xy,xyz,xyzw}                |                                            |
 +-------------------------------+--------------------------------------------+
 | MUBUF Instructions            |                                            | 
 +-------------------------------+--------------------------------------------+
 | | BUFFER\_LOAD\_FORMAT\_{x,xy | | Read to, or write from, an untyped       |
-| ,xyz,xyzw}                    |   buffer object.                           |
+|   ,xyz,xyzw}                  |   buffer object.                           |
 | | BUFFER\_STORE\_FORMAT\_{x,x | | <size> = byte, ubyte, short, ushort,     |
-| y,xyz,xyzw}                   |   Dword, Dwordx2, Dwordx3, Dwordx4         |
+|   y,xyz,xyzw}                 |   Dword, Dwordx2, Dwordx3, Dwordx4         |
 | | BUFFER\_LOAD\_<size>        |   BUFFER\_ATOMIC\_<op>                     |
 | | BUFFER\_STORE\_<size>       | | BUFFER\_ATOMIC\_<op>\_ x2                |
 +-------------------------------+--------------------------------------------+
@@ -3168,7 +3171,7 @@ instructions, or from the opcode for MUBUF instructions. It can be 1, 2,
 |                         |                         |   bits, but is extended  |
 |                         |                         |   to 18-bits when:       |
 |                         |                         | | const\_add\_tid\_enabl |
-|                         |                         | e                        |
+|                         |                         |   e                      |
 |                         |                         |   = true used with MUBUF |
 |                         |                         |   instructions which are |
 |                         |                         |   not **format** types   |
@@ -3181,18 +3184,18 @@ instructions, or from the opcode for MUBUF instructions. It can be 1, 2,
 |                         |                         |                          |
 |                         |                         | ::                       |
 |                         |                         |                          |
-|                         |                         |     If (const_add_tid_en |
-|                         |                         | able && MUBUF-non-format |
-|                         |                         |  instr.)                 |
+|                         |                         |   If (const_add_tid_en   |
+|                         |                         |   able && MUBUF-non-     |
+|                         |                         |   format instr.)         |
 |                         |                         |       const_stride [17:0 |
-|                         |                         | ] = { V#.DFMT[3:0],      |
+|                         |                         |   ] = { V#.DFMT[3:0],    |
 |                         |                         |                          |
 |                         |                         |       V#.const_stride[13 |
-|                         |                         | :0] }                    |
+|                         |                         |   :0] }                  |
 |                         |                         |     else                 |
 |                         |                         |       const_stride is 14 |
-|                         |                         |  bits: {4'b0, V#.const_s |
-|                         |                         | tride[13:0]}             |
+|                         |                         |   bits: {4'b0, V#.const_s|
+|                         |                         |   tride[13:0]}           |
 +-------------------------+-------------------------+--------------------------+
 | const\_num\_records     | 32                      | | Number of records in   |
 |                         |                         |   the buffer.            |
@@ -3414,63 +3417,57 @@ buffer instruction.
 The table below details the fields that make up the buffer resource
 descriptor.
 
-+----------+--------+---------------+---------------------------------------------+
-| Bits     | Size   | Name          | Description                                 |
-+==========+========+===============+=============================================+
-| 47:0     | 48     | Base address  | Byte address.                               |
-+----------+--------+---------------+---------------------------------------------+
-| 61:48    | 14     | Stride        | Bytes 0 to 16383                            |
-+----------+--------+---------------+---------------------------------------------+
-| 62       | 1      | Cache swizzle | | Buffer access. Optionally, swizzle texture|
-|          |        |               | | cache TC L1 cache banks.                  |
-+----------+--------+---------------+---------------------------------------------+
-| 63       | 1      | Swizzle       || Swizzle AOS according to stride,           |
-|          |        | enable        || index\_stride, and element\_size, else     |
-|          |        |               || linear (stride \* index + offset).         |
-+----------+--------+---------------+---------------------------------------------+
-| 95:64    | 32     | Num\_records  | In units of stride or bytes.                |
-+----------+--------+---------------+---------------------------------------------+
-| 98:96    | 3      | Dst\_sel\_x   ||  Destination channel select:               |
-|          |        |               ||  0=0, 1=1, 4=R, 5=G, 6=B, 7=A              |
-+----------+--------+---------------+---------------------------------------------+
-| 101:99   | 3      | Dst\_sel\_y   |                                             |
-+----------+--------+---------------+---------------------------------------------+
-| 104:102  | 3      | Dst\_sel\_z   |                                             |
-+----------+--------+---------------+---------------------------------------------+
-| 107:105  | 3      | Dst\_sel\_w   |                                             |
-+----------+--------+---------------+---------------------------------------------+
-| 110:108  | 3      | Num format    || Numeric data type (float, int, …​). See     |
-|          |        |               || instruction encoding for values.           |
-+----------+--------+---------------+---------------------------------------------+
-| 114:111  | 4      | Data format   || Number of fields and size of each field.   |
-|          |        |               || See instruction encoding for values. For   |
-|          |        |               || MUBUF instructions with ADD\_TID\_EN = 1   |
-|          |        |               || This field holds Stride [17:14].           |
-+----------+--------+---------------+---------------------------------------------+
-| 115      | 1      || User VM      | Resource is mapped via tiled pool / heap.   |
-|          |        || Enable       |                                             |
-+----------+--------+---------------+---------------------------------------------+
-| 116      | 1      | User VM mode  || Unmapped behavior: 0: null (return 0 / drop|
-|          |        |               || write); 1:invalid (results in error)       |
-+----------+--------+---------------+---------------------------------------------+
-| 118:117  | 2      | Index stride  || 8, 16, 32, or 64. Used for swizzled buffer |
-|          |        |               || addressing.                                |
-+----------+--------+---------------+---------------------------------------------+
-| 119      | 1      || Add tid      || Add thread ID to the index for to calculate|
-|          |        || enable       || the address.                               |
-+----------+--------+---------------+---------------------------------------------+
-| 122:120  | 3      | RSVD          | Reserved. Must be set to zero.              |
-+----------+--------+---------------+---------------------------------------------+
-| 123      | 1      | NV            | Non-volatile (0=volatile)                   |
-+----------+--------+---------------+---------------------------------------------+
-| 125:124  | 2      | RSVD          | Reserved. Must be set to zero.              |
-+----------+--------+---------------+---------------------------------------------+
-| 127:126  | 2      | Type          || Value == 0 for buffer. Overlaps upper two  |
-|          |        |               || bits of four-bit TYPE field in 128-bit T#  |
-|          |        |               || resource.                                  |
-+----------+--------+---------------+---------------------------------------------+
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| Bits     | Size  | Name            | Description                                                                 |
++==========+=======+=================+=============================================================================+
+| 47:0     | 48    | Base address    | Byte address.                                                               |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 61:48    | 14    | Stride          | Bytes 0 to 16383                                                            |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 62       | 1     | Cache swizzle   | Buffer access. Optionally, swizzle texture cache TC L1 cache banks.         |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 63       | 1     | Swizzle enable  | Swizzle AOS according to stride,                                            |
+|          |       |                 | index\_stride, and element\_size, else linear (stride \* index offset).     |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 95:64    | 32    | Num\_records    | In units of stride or bytes.                                                |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 98:96    | 3     | Dst\_sel\_x     | | Destination channel select:                                               |
+|          |       |                 | | 0=0, 1=1, 4=R, 5=G, 6=B, 7=A                                              |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 101:99   | 3     | Dst\_sel\_y     |                                                                             |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 104:102  | 3     | Dst\_sel\_z     |                                                                             |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 107:105  | 3     | Dst\_sel\_w     |                                                                             |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 110:108  | 3     | Num format      | Numeric data type (float, int, .... ). See instruction encoding for values. |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 114:111  | 4     | Data format     | Number of fields and size of each field.                                    |
+|          |       |                 | See instruction encoding for values.                                        |
+|          |       |                 | For MUBUF instructions with ADD\_TID\_EN = 1                                |
+|          |       |                 | This field holds Stride [17:14].                                            |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 115      | 1     | User VM  Enable | Resource is mapped via tiled pool / heap.                                   |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 116      | 1     | User VM mode    | Unmapped behavior: 0: null (return 0/drop,write);                           |
+|          |       |                 | 1:invalid (results in error)                                                |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 118:117  | 2     | Index stride    | 8, 16, 32, or 64. Used for swizzled buffer addressing.                      |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 119      | 1     | Add tid enable  | Add thread ID to the index for to calculate the address.                    |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 122:120  | 3     | RSVD            | Reserved. Must be set to zero.                                              |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 123      | 1     | NV              | Nonvolatile (0=volatile)                                                    |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 125:124  | 2     | RSVD            | Reserved. Must be set to zero.                                              |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
+| 127:126  | 2     | Type            | Value 0 for buffer. Overlaps upper two bits of                              |
+|          |       |                 | fourbit TYPE field in 128bit T# resource.                                   |
++----------+-------+-----------------+-----------------------------------------------------------------------------+
 
-Table: Buffer Resource Descriptor
+
+**Table: Buffer Resource Descriptor**
 
 A resource set to all zeros acts as an unbound texture or buffer (return
 0,0,0,0).
@@ -11286,32 +11283,32 @@ SOPK
 |            | take 2 inputs use the destination as the second input.        |
 +------------+---------------------------------------------------------------+
 
-+-----------------+---------+---------------------------------------------------+
-| Field Name      | Bits    | Format or Description                             |
-+=================+=========+===================================================+
-| SIMM16          | [15:0]  | Signed immediate 16-bit value.                    |
-+-----------------+---------+---------------------------------------------------+
-| SDST            | | [22:1 | | Scalar destination, and can provide second      |
-|                 | 6]      |   source operand.                                 |
-|                 |   0 -   | | SGPR0 to SGPR101: Scalar general-purpose        |
-|                 |   101   |   registers.                                      |
-|                 | | 102   | | FLAT\_SCRATCH\_LO.                              |
-|                 | | 103   | | FLAT\_SCRATCH\_HI.                              |
-|                 | | 104   | | XNACK\_MASK\_LO.                                |
-|                 | | 105   | | XNACK\_MASK\_HI.                                |
-|                 | | 106   | | VCC\_LO: vcc[31:0].                             |
-|                 | | 107   | | VCC\_HI: vcc[63:32].                            |
-|                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
-|                 | | 124   | | M0. Memory register 0.                          |
-|                 | | 125   | | Reserved                                        |
-|                 | | 126   | | EXEC\_LO: exec[31:0].                           |
-|                 | | 127   | | EXEC\_HI: exec[63:32].                          |
-+-----------------+---------+---------------------------------------------------+
-| OP              | [27:23] | See Opcode table below.                           |
-+-----------------+---------+---------------------------------------------------+
-| ENCODING        | [31:28] | Must be: 1011                                     |
-+-----------------+---------+---------------------------------------------------+
++-----------------+-----------+---------------------------------------------------+
+| Field Name      | Bits      | Format or Description                             |
++=================+===========+===================================================+
+| SIMM16          |   [15:0]  | Signed immediate 16-bit value.                    |
++-----------------+-----------+---------------------------------------------------+
+| SDST            | | [22:16] | | Scalar destination, and can provide second      |
+|                 |           |   source operand.                                 |
+|                 | | 0 - 101 | | SGPR0 to SGPR101: Scalar general-purpose        |
+|                 |           |   registers.                                      |
+|                 | |   102   | | FLAT\_SCRATCH\_LO.                              |
+|                 | |   103   | | FLAT\_SCRATCH\_HI.                              |
+|                 | |   104   | | XNACK\_MASK\_LO.                                |
+|                 | |   105   | | XNACK\_MASK\_HI.                                |
+|                 | |   106   | | VCC\_LO: vcc[31:0].                             |
+|                 | |   107   | | VCC\_HI: vcc[63:32].                            |
+|                 | | 108-123 | | TTMP0 - TTMP15: Trap handler temporary          |
+|                 | |   124   |   register.                                       |
+|                 | |   125   | | M0. Memory register 0.                          |
+|                 | |   126   | | Reserved                                        |
+|                 | |   127   | | EXEC\_LO: exec[31:0].                           |
+|                 |           | | EXEC\_HI: exec[63:32].                          |
++-----------------+-----------+---------------------------------------------------+
+| OP              |   [27:23] | See Opcode table below.                           |
++-----------------+-----------+---------------------------------------------------+
+| ENCODING        |   [31:28] | Must be: 1011                                     |
++-----------------+-----------+---------------------------------------------------+
 
 Table: SOPK Fields
 
@@ -13389,81 +13386,76 @@ VOP3P
 |            | dword).                                                       |
 +------------+---------------------------------------------------------------+
 
-+-----------------+---------+---------------------------------------------------+
-| Field Name      | Bits    | Format or Description                             |
-+=================+=========+===================================================+
-| VDST            | [7:0]   | Destination VGPR                                  |
-+-----------------+---------+---------------------------------------------------+
-| NEG\_HI         | [10:8]  | Negate sources 0,1,2 of the high 16-bits.         |
-+-----------------+---------+---------------------------------------------------+
-| OPSEL           | [13:11] | Select low or high for low sources 0=[11],        |
-|                 |         | 1=[12], 2=[13].                                   |
-+-----------------+---------+---------------------------------------------------+
-| OPSEL\_HI2      | [14]    | Select low or high for high sources 0=[14],       |
-|                 |         | 1=[60], 2=[59].                                   |
-+-----------------+---------+---------------------------------------------------+
-| CLMP            | [15]    | 1 = clamp result.                                 |
-+-----------------+---------+---------------------------------------------------+
-| OP              | [22:16] | Opcode. see next table.                           |
-+-----------------+---------+---------------------------------------------------+
-| ENCODING        | [31:24] | Must be: 11010011                                 |
-+-----------------+---------+---------------------------------------------------+
-| SRC0            | | [40:3 | | Source 0. First operand for the instruction.    |
-|                 | 2]      | | SGPR0 to SGPR101: Scalar general-purpose        |
-|                 | | 0 -   |   registers.                                      |
-|                 |   101   | | FLAT\_SCRATCH\_LO.                              |
-|                 | | 102   | | FLAT\_SCRATCH\_HI.                              |
-|                 | | 103   | | XNACK\_MASK\_LO.                                |
-|                 | | 104   | | XNACK\_MASK\_HI.                                |
-|                 | | 105   | | VCC\_LO: vcc[31:0].                             |
-|                 | | 106   | | VCC\_HI: vcc[63:32].                            |
-|                 | | 107   | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | | 108-1 |   register.                                       |
-|                 | 23      | | M0. Memory register 0.                          |
-|                 | | 124   | | Reserved                                        |
-|                 | | 125   | | EXEC\_LO: exec[31:0].                           |
-|                 | | 126   | | EXEC\_HI: exec[63:32].                          |
-|                 | | 127   | | 0.                                              |
-|                 | | 128   | | Signed integer 1 to 64.                         |
-|                 | | 129-1 | | Signed integer -1 to -16.                       |
-|                 | 92      | | Reserved.                                       |
-|                 | | 193-2 | | SHARED\_BASE (Memory Aperture definition).      |
-|                 | 08      | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | | 209-2 | | PRIVATE\_BASE (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_LIMIT (Memory Aperture definition).    |
-|                 | | 235   | | POPS\_EXITING\_WAVE\_ID .                       |
-|                 | | 236   | | 0.5.                                            |
-|                 | | 237   | | -0.5.                                           |
-|                 | | 238   | | 1.0.                                            |
-|                 | | 239   | | -1.0.                                           |
-|                 | | 240   | | 2.0.                                            |
-|                 | | 241   | | -2.0.                                           |
-|                 | | 242   | | 4.0.                                            |
-|                 | | 243   | | -4.0.                                           |
-|                 | | 244   | | 1/(2\*PI).                                      |
-|                 | | 245   | | SDWA                                            |
-|                 | | 246   | | DPP                                             |
-|                 | | 247   | | VCCZ.                                           |
-|                 | | 248   | | EXECZ.                                          |
-|                 | | 249   | | SCC.                                            |
-|                 | | 250   | | Reserved.                                       |
-|                 | | 251   | | Literal constant.                               |
-|                 | | 252   | | VGPR 0 - 255                                    |
-|                 | | 253   |                                                   |
-|                 | | 254   |                                                   |
-|                 | | 255   |                                                   |
-|                 | | 256 - |                                                   |
-|                 |   511   |                                                   |
-+-----------------+---------+---------------------------------------------------+
-| SRC1            | [49:41] | Second input operand. Same options as SRC0.       |
-+-----------------+---------+---------------------------------------------------+
-| SRC2            | [58:50] | Third input operand. Same options as SRC0.        |
-+-----------------+---------+---------------------------------------------------+
-| OPSEL\_HI       | [60:59] | See OP\_SEL\_HI2.                                 |
-+-----------------+---------+---------------------------------------------------+
-| NEG             | [63:61] | Negate input for low 16-bits of sources. [61] =   |
-|                 |         | src0, [62] = src1, [63] = src2                    |
-+-----------------+---------+---------------------------------------------------+
++-----------------+-------------+---------------------------------------------------+
+| Field Name      | Bits        | Format or Description                             |
++=================+=============+===================================================+
+| VDST            | [7:0]       | Destination VGPR                                  |
++-----------------+-------------+---------------------------------------------------+
+| NEG\_HI         | [10:8]      | Negate sources 0,1,2 of the high 16-bits.         |
++-----------------+-------------+---------------------------------------------------+
+| OPSEL           | [13:11]     | Select low or high for low sources 0=[11],        |
+|                 |             | 1=[12], 2=[13].                                   |
++-----------------+-------------+---------------------------------------------------+
+| OPSEL\_HI2      | [14]        | Select low or high for high sources 0=[14],       |
+|                 |             | 1=[60], 2=[59].                                   |
++-----------------+-------------+---------------------------------------------------+
+| CLMP            | [15]        | 1 = clamp result.                                 |
++-----------------+-------------+---------------------------------------------------+
+| OP              | [22:16]     | Opcode. see next table.                           |
++-----------------+-------------+---------------------------------------------------+
+| ENCODING        | [31:24]     | Must be: 11010011                                 |
++-----------------+-------------+---------------------------------------------------+
+| SRC0            | | [40:32]   | | Source 0. First operand for the instruction.    |
+|                 | | 0 - 101   | | SGPR0 to SGPR101: Scalar general-purpose        |
+|                 |             |   registers.                                      |
+|                 | | 102       | | FLAT\_SCRATCH\_LO.                              |
+|                 | | 103       | | FLAT\_SCRATCH\_HI.                              |
+|                 | | 104       | | XNACK\_MASK\_LO.                                |
+|                 | | 105       | | XNACK\_MASK\_HI.                                |
+|                 | | 106       | | VCC\_LO: vcc[31:0].                             |
+|                 | | 107       | | VCC\_HI: vcc[63:32].                            |
+|                 | | 108-123   | | TTMP0 - TTMP15: Trap handler temporary          |
+|                 |             |   register.                                       |
+|                 | | 124       | | M0. Memory register 0.                          |
+|                 | | 125       | | Reserved                                        |
+|                 | | 126       | | EXEC\_LO: exec[31:0].                           |
+|                 | | 127       | | EXEC\_HI: exec[63:32].                          |
+|                 | | 128       | | 0.                                              |
+|                 | | 129-192   | | Signed integer 1 to 64.                         |
+|                 | | 193-208   | | Signed integer -1 to -16.                       |
+|                 | | 209-234   | | Reserved.                                       |
+|                 | | 235       | | SHARED\_BASE (Memory Aperture definition).      |
+|                 | | 236       | | SHARED\_LIMIT (Memory Aperture definition).     |
+|                 | | 237       | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 | | 238       | | PRIVATE\_LIMIT (Memory Aperture definition).    |
+|                 | | 239       | | POPS\_EXITING\_WAVE\_ID .                       |
+|                 | | 240       | | 0.5.                                            |
+|                 | | 241       | | -0.5.                                           |
+|                 | | 242       | | 1.0.                                            |
+|                 | | 243       | | -1.0.                                           |
+|                 | | 244       | | 2.0.                                            |
+|                 | | 245       | | -2.0.                                           |
+|                 | | 246       | | 4.0.                                            |
+|                 | | 247       | | -4.0.                                           |
+|                 | | 248       | | 1/(2\*PI).                                      |
+|                 | | 249       | | SDWA                                            |
+|                 | | 250       | | DPP                                             |
+|                 | | 251       | | VCCZ.                                           |
+|                 | | 252       | | EXECZ.                                          |
+|                 | | 253       | | SCC.                                            |
+|                 | | 254       | | Reserved.                                       |
+|                 | | 255       | | Literal constant.                               |
+|                 | | 256-511   | | VGPR 0 - 255                                    |
++-----------------+-------------+---------------------------------------------------+
+| SRC1            | [49:41]     | Second input operand. Same options as SRC0.       |
++-----------------+-------------+---------------------------------------------------+
+| SRC2            | [58:50]     | Third input operand. Same options as SRC0.        |
++-----------------+-------------+---------------------------------------------------+
+| OPSEL\_HI       | [60:59]     | See OP\_SEL\_HI2.                                 |
++-----------------+-------------+---------------------------------------------------+
+| NEG             | [63:61]     | Negate input for low 16-bits of sources. [61] =   |
+|                 |             | src0, [62] = src1, [63] = src2                    |
++-----------------+-------------+---------------------------------------------------+
 
 Table: VOP3P Fields
 

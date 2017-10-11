@@ -11,17 +11,17 @@ ROCm PCIe Feature and Overview BAR Memory
 
 ROCm is an extension of HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents.
 
-The full list of HSA system architecture platform requirements are here: ` HSA Sys Arch Features <http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm>`_
+The full list of HSA system architecture platform requirements are here: `HSA Sys Arch Features <http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm>`_.
 
 The ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0) features for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations.
 
 The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the
-I/O device which support 32-, 64- and 128-bit operand which target address have to be naturally aligned to operation sizes.
+I/O device which support 32-bit, 64-bit and 128-bit operand which target address have to be naturally aligned to operation sizes.
 
 For ROCm the Platform atomics are used in ROCm in the following ways:
 
-   * Update HSA queue’s read_dispatch_id: 64bit atomic add used by the command processor on the GPU agent to update the packet ID it 	  processed.
-   * Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
+   * Update HSA queue’s read_dispatch_id: 64 bit atomic add used by the command processor on the GPU agent to update the packet ID it 	  processed.
+   * Update HSA queue’s write_dispatch_id: 64 bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
    * Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
 
 The PCIe 3.0 AtomicOp feature allows atomic transactions to be requested by, routed through and completed by PCIe components. Routing and completion does not require software support. Component support for each is detectable via the DEVCAP2 register. Upstream bridges need to have AtomicOp routing enabled or the Atomic Operations will fall even though PCIe endpoint and PCIe I/O Devices has the capability to Atomics Operations.
@@ -30,7 +30,7 @@ To do AtomicOp routing capability between two or more Root Ports, each associate
 
 If your system has a PCIe Express Switch it needs to support AtomicsOp routing. Again AtomicOp requests are permitted only if a component’s DEVCTL2.ATOMICOP_REQUESTER_ENABLE field is set. These requests can only be serviced if the upstream components support AtomicOp completion and/or routing to a component which does. AtomicOp Routing Support=1 Routing is supported, AtomicOp Routing Support=0 routing is not supported.
 
-Atomic Operation is a Non-Posted transaction supporting 32- and 64-bit address formats, there must be a response for Completion containing the result of the operation. Errors associated with the operation (uncorrectable error accessing the target location or carrying out the Atomic operation) are signaled to the requester by setting the Completion Status field in the completion descriptor, they are set to to Completer Abort (CA) or Unsupported Request (UR).
+Atomic Operation is a Non-Posted transaction supporting 32-bit and 64-bit address formats, there must be a response for Completion containing the result of the operation. Errors associated with the operation (uncorrectable error accessing the target location or carrying out the Atomic operation) are signaled to the requester by setting the Completion Status field in the completion descriptor, they are set to to Completer Abort (CA) or Unsupported Request (UR).
 
 To understand more about how PCIe Atomic operations work `PCLe Atomics <https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf>`_
 
@@ -56,7 +56,7 @@ Future bus technology with richer I/O Atomics Operation Support
 
 New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
 
-  * `Mellanox Bluefield SOC <www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_
+  * `Mellanox Bluefield SOC <http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_
   * `Cavium Thunder X2 <http://www.cavium.com/ThunderX2_ARM_Processors.html>`_
 
 In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:  

@@ -175,18 +175,20 @@ Demangling C++ Kernel Names
 ++++++++++++++++++++++++++++
 
 HIP includes the ``hipdemangleatp`` tool which can post-process an ATP file to "demangle" C++ names. Mangled kernel names encode the C++ arguments and other information, and are guaranteed to be unique even for cases such as operator overloading. However, the mangled names can be quite verbose. For example:
+::
+  
+ ZZ39gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4RN2hc16accelerator_viewEPKflS3_lPfliiiiiiffEN3_EC__719__cxxamp_trampolineElililiiiiiiS3_iS3_S4_ff
 
-``ZZ39gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4RN2hc16accelerator_viewEPKflS3_lPfliiiiiiffEN3_EC__719__cxxamp_trampolineElililiiiiiiS3_iS3_S4_ff``
+``hipdemangleatp`` will convert this into the more readable: **gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4**
 
-``hipdemangleatp`` will convert this into the more readable: ``gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4``
-
-The ``hipdemangleatp`` tool operates on the ATP file "in-place" and thus replaces the input file with the demangled version.
+The **hipdemangleatp** tool operates on the ATP file "in-place" and thus replaces the input file with the demangled version.
 ::
  
  $ hipdemangleatp myfile.atp
 
 The kernel name is also shown in some of the summary htlm files (Top10 kernels). These can be regenerated from the demangled ATP file by re-running rocm-profiler:
 ::
+ 
  $ rocm-profiler -T --atpfile myfile.atp
 
 A future version of CodeXL may directly integrate demangle functionality.
@@ -209,6 +211,8 @@ When using these options, start the profiler with profiling disabled::
 
  # ROCm:
  $ rocm-profiler --startdisabled ...
+
+::
 
  # CUDA:
  $ nvprof --profile-from-start-off ...
@@ -262,9 +266,9 @@ The HIP runtime can print the HIP function strings to stderr using HIP_TRACE_API
  <<hip-api tid:1.6 hipMemcpy (0x7f32154db010, 0x50446e000, 4000000, hipMemcpyDeviceToHost)
    hip-api tid:1.6 hipMemcpy                      ret= 0 (hipSuccess)>>
 
-* ``<<hip-api`` is the header used for all HIP API debug messages. The message is also shown in a specific color. This can be used to distinguish this API from other HIP or application messages.
-* ``tid:1.6`` indicates that this API call came from thread #1 and is the 6th API call in that thread. When the first API in a new thread is called, HIP will associates a short sequential ID with that thread. You can see the full thread ID (reported by C++) as 0x7f6183b097c0 in the example below.
-* ``hipMemcpy`` is the name of the API.
+* **<<hip-api** is the header used for all HIP API debug messages. The message is also shown in a specific color. This can be used to distinguish this API from other HIP or application messages.
+* **tid:1.6** indicates that this API call came from thread #1 and is the 6th API call in that thread. When the first API in a new thread is called, HIP will associates a short sequential ID with that thread. You can see the full thread ID (reported by C++) as 0x7f6183b097c0 in the example below.
+* **hipMemcpy** is the name of the API.
 * The first line then prints a comma-separated list of the arguments to the function. APIs which return values to the caller by writing to pointers will show the pointer addresses rather than the pointer contents. This behavior may change in the future.
 * The second line shows the completion of the API, including the numeric return value (``ret= 0``) as well as an string representation for the error code (``hipSuccess``). If the returned error code is non-zero, then the csecond line message is shown in red (unless HIP_TRACE_API_COLOR is "none" - see below).
 
@@ -293,10 +297,11 @@ Heres a specific example showing the output of the `square <https://github.com/R
  PASSED!
 
 HIP_TRACE_API supports multiple levels of debug information:
-* 0x1 = print all HIP APIs. This is the most verbose setting; the flags below allow selecting a subset.
-* 0x2 = print HIP APIs which initiate GPU kernel commands. Includes hipLaunchKernel, hipLaunchModuleKernel
-* 0x4 = print HIP APIs which initiate GPU memory commands. Includes hipMemcpy*, hipMemset*.
-* 0x8 = print HIP APIs which allocate or free memory. Includes hipMalloc, hipHostMalloc, hipFree, hipHostFree.
+ 
+ * 0x1 = print all HIP APIs. This is the most verbose setting; the flags below allow selecting a subset.
+ * 0x2 = print HIP APIs which initiate GPU kernel commands. Includes hipLaunchKernel, hipLaunchModuleKernel
+ * 0x4 = print HIP APIs which initiate GPU memory commands. Includes hipMemcpy*, hipMemset*.
+ * 0x8 = print HIP APIs which allocate or free memory. Includes hipMalloc, hipHostMalloc, hipFree, hipHostFree.
 
 These can be combined. For example, HIP_TRACE_API=6 shows a concise view of the HIP commands (both kernel and memory) that are sent to the GPU.
 

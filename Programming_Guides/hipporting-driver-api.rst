@@ -10,7 +10,7 @@ CUDA provides a separate CUDA Driver and Runtime APIs. The two APIs have signifi
 
 * Both APIs support events, streams, memory management, memory copy, and error handling.
 * Both APIs deliver similar performance.
-* Driver APIs calls begin with the prefix ``cu`` while Runtime APIs begin with the prefix cuda. For example, the Driver API API contains ``cuEventCreate`` while the Runtime API contains ``cudaEventCreate``, with similar functionality.
+* Driver APIs calls begin with the prefix **cu** while Runtime APIs begin with the prefix cuda. For example, the Driver API API contains 'cuEventCreate' while the Runtime API contains 'cudaEventCreate', with similar functionality.
 * The Driver API defines a different but largely overlapping error code space than the Runtime API, and uses a different coding convention. For example, Driver API defines ``CUDA_ERROR_INVALID_VALUE`` while the Runtime API defines ``cudaErrorInvalidValue`` 
 
 The Driver API offers two additional pieces of functionality not provided by the Runtime API: cuModule and cuCtx APIs.
@@ -49,12 +49,11 @@ Like the CUDA Driver API, the Module API provides additional control over how co
 | Fat Binary  | hipModuleLoadFatBin              | .fatbin            | Under Development |
 +-------------+----------------------------------+--------------------+-------------------+
 
-``hipcc`` uses NVCC and HCC to compile host codes. Both of these may embed code objects into the final executable, and these code objects will be automatically loaded when the application starts. The hipModule API can be used to load additional code objects, and in this way provides an extended capability to the automatically loaded code objects. HCC allows both of these capabilities to be used together, if desired. Of course it is possible to create a program with no kernels and thus no automatic loading.
 
 hipCtx API
 ++++++++++++
 
-HIP provides a ``Ctx`` API as a thin layer over the existing Device functions. This Ctx API can be used to set the current context, or to query properties of the device associated with the context. The current context is implicitly used by other APIs such as ``hipStreamCreate.``
+HIP provides a **Ctx** API as a thin layer over the existing Device functions. This Ctx API can be used to set the current context, or to query properties of the device associated with the context. The current context is implicitly used by other APIs such as ``hipStreamCreate.``
 
 hipify translation of CUDA Driver API
 +++++++++++++++++++++++++++++++++++++++

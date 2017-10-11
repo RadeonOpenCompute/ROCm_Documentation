@@ -71,7 +71,7 @@ Again, users should make sure that no other repo files contain another rocm repo
 
 Installing from an archived repository
 **************************************
-The Radeon repo server stores several archived releases, supporting both debian and rpm repositories. These archives are located here at http://radeon.repo.com/rocm/archive. Users can install with an archive by downloading the desired archive and then updating the package configuration file to point at the localized repo.
+The Radeon repo server stores several archived releases, supporting both debian and rpm repositories. These archives are located here at http://repo.radeon.com/rocm/archive/ Users can install with an archive by downloading the desired archive and then updating the package configuration file to point at the localized repo.
 
 *Debian Archive Example*
  
@@ -96,8 +96,8 @@ Add a /etc/yum.d/rocm.local.repo file with the following contents: ::
   cd /temp && wget http://radeon.repo.com/rocm/archive/yum_1.6.0.tar.bz2
   tar –xvf yum_1.6.0.tar.bz2
 
-Then execute: ::
-
+Then execute::
+  
   sudo dnf clean all
   sudo dnf install rocm
 
