@@ -52,7 +52,7 @@ Other I/O devices with PCIe Atomics support
 
 Future bus technology with richer I/O Atomics Operation Support
 
-  * `GenZ <genzconsortium.org/faq/gen-z-technology/#33>`_
+  * `GenZ <http://genzconsortium.org/faq/gen-z-technology/#33/>`_
 
 New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
 

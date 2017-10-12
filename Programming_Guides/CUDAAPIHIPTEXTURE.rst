@@ -9,55 +9,55 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------------+---------------------------------+
 | CUDA                                 | HIP                             |
 +======================================+=================================+
-| ``cudaChooseDevice``                 | ``hipChooseDevice``             |
+|   cudaChooseDevice                   |   hipChooseDevice               |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetAttribute``           | ``hipDeviceGetAttribute``       |
+|   cudaDeviceGetAttribute             |   hipDeviceGetAttribute         |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetByPCIBusId``          | ``hipDeviceGetByPCIBusId``      |
+|   cudaDeviceGetByPCIBusId            |   hipDeviceGetByPCIBusId        |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetCacheConfig``         | ``hipDeviceGetCacheConfig``     |
+|   cudaDeviceGetCacheConfig           |   hipDeviceGetCacheConfig       |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetLimit``               | ``hipDeviceGetLimit``           |
+|   cudaDeviceGetLimit                 |   hipDeviceGetLimit             |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetPCIBusId``            | ``hipDeviceGetPCIBusId``        |
+|   cudaDeviceGetPCIBusId              |   hipDeviceGetPCIBusId          |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetSharedMemConfig``     | ``hipDeviceGetSharedMemConfig`` |
+|   cudaDeviceGetSharedMemConfig       |   hipDeviceGetSharedMemConfig   |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceGetStreamPriorityRange`` |                                 |
+|   cudaDeviceGetStreamPriorityRange   |                                 |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceReset``                  | ``hipDeviceReset``              |
+|   cudaDeviceReset                    |   hipDeviceReset                |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceSetCacheConfig``         | ``hipDeviceSetCacheConfig``     |
+|   cudaDeviceSetCacheConfig           |   hipDeviceSetCacheConfig       |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceSetLimit``               | ``hipDeviceSetLimit``           |
+|   cudaDeviceSetLimit                 |   hipDeviceSetLimit             |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceSetSharedMemConfig``     | ``hipDeviceSetSharedMemConfig`` |
+|   cudaDeviceSetSharedMemConfig       |   hipDeviceSetSharedMemConfig   |
 +--------------------------------------+---------------------------------+
-| ``cudaDeviceSynchronize``            | ``hipDeviceSynchronize``        |
+|   cudaDeviceSynchronize              |   hipDeviceSynchronize          |
 +--------------------------------------+---------------------------------+
-| ``cudaGetDevice``                    | ``hipGetDevice``                |
+|   cudaGetDevice                      |   hipGetDevice                  |
 +--------------------------------------+---------------------------------+
-| ``cudaGetDeviceCount``               | ``hipGetDeviceCount``           |
+|   cudaGetDeviceCount                 |   hipGetDeviceCount             |
 +--------------------------------------+---------------------------------+
-| ``cudaGetDeviceFlags``               |                                 |
+|   cudaGetDeviceFlags                 |                                 |
 +--------------------------------------+---------------------------------+
-| ``cudaGetDeviceProperties``          | ``hipGetDeviceProperties``      |
+|   cudaGetDeviceProperties            |   hipGetDeviceProperties        |
 +--------------------------------------+---------------------------------+
-| ``cudaIpcCloseMemHandle``            | ``hipIpcCloseMemHandle``        |
+|   cudaIpcCloseMemHandle              |   hipIpcCloseMemHandle          |
 +--------------------------------------+---------------------------------+
-| ``cudaIpcGetEventHandle``            | ``hipIpcGetEventHandle``        |
+|   cudaIpcGetEventHandle              |   hipIpcGetEventHandle          |
 +--------------------------------------+---------------------------------+
-| ``cudaIpcGetMemHandle``              | ``hipIpcGetMemHandle``          |
+|   cudaIpcGetMemHandle                |   hipIpcGetMemHandle            |
 +--------------------------------------+---------------------------------+
-| ``cudaIpcOpenEventHandle``           | ``hipIpcOpenEventHandle``       |
+|   cudaIpcOpenEventHandle             |   hipIpcOpenEventHandle         |
 +--------------------------------------+---------------------------------+
-| ``cudaIpcOpenMemHandle``             | ``hipIpcOpenMemHandle``         |
+|   cudaIpcOpenMemHandle               |   hipIpcOpenMemHandle           |
 +--------------------------------------+---------------------------------+
-| ``cudaSetDevice``                    | ``hipSetDevice``                |
+|   cudaSetDevice                      |   hipSetDevice                  |
 +--------------------------------------+---------------------------------+
-| ``cudaSetDeviceFlags``               | ``hipSetDeviceFlags``           |
+|   cudaSetDeviceFlags                 |   hipSetDeviceFlags             |
 +--------------------------------------+---------------------------------+
-| ``cudaSetValidDevices``              |                                 |
+|   cudaSetValidDevices                |                                 |
 +--------------------------------------+---------------------------------+
 
 2. Thread Management [DEPRECATED]
@@ -66,17 +66,17 @@ CUDA Runtime API functions supported by HIP
 +------------------------------+-----------------------------+
 | CUDA                         | HIP                         |
 +==============================+=============================+
-| ``cudaThreadExit``           | ``hipDeviceReset``          |
+|   cudaThreadExit             |   hipDeviceReset            |
 +------------------------------+-----------------------------+
-| ``cudaThreadGetCacheConfig`` | ``hipDeviceGetCacheConfig`` |
+|   cudaThreadGetCacheConfig   |   hipDeviceGetCacheConfig   |
 +------------------------------+-----------------------------+
-| ``cudaThreadGetLimit``       |                             |
+|   cudaThreadGetLimit         |                             |
 +------------------------------+-----------------------------+
-| ``cudaThreadSetCacheConfig`` | ``hipDeviceSetCacheConfig`` |
+|   cudaThreadSetCacheConfig   |   hipDeviceSetCacheConfig   |
 +------------------------------+-----------------------------+
-| ``cudaThreadSetLimit``       |                             |
+|   cudaThreadSetLimit         |                             |
 +------------------------------+-----------------------------+
-| ``cudaThreadSynchronize``    | ``hipDeviceSynchronize``    |
+|   cudaThreadSynchronize      |   hipDeviceSynchronize      |
 +------------------------------+-----------------------------+
 
 3. Error Handling
@@ -85,13 +85,13 @@ CUDA Runtime API functions supported by HIP
 +-------------------------+------------------------+
 | CUDA                    | HIP                    |
 +=========================+========================+
-| ``cudaGetErrorName``    | ``hipGetErrorName``    |
+|   cudaGetErrorName      |   hipGetErrorName      |
 +-------------------------+------------------------+
-| ``cudaGetErrorString``  | ``hipGetErrorString``  |
+|   cudaGetErrorString    |   hipGetErrorString    |
 +-------------------------+------------------------+
-| ``cudaGetLastError``    | ``hipGetLastError``    |
+|   cudaGetLastError      |   hipGetLastError      |
 +-------------------------+------------------------+
-| ``cudaPeekAtLastError`` | ``hipPeekAtLastError`` |
+|   cudaPeekAtLastError   |   hipPeekAtLastError   |
 +-------------------------+------------------------+
 
 4. Stream Management
@@ -100,27 +100,27 @@ CUDA Runtime API functions supported by HIP
 +----------------------------------+------------------------------+
 | CUDA                             | HIP                          |
 +==================================+==============================+
-| ``cudaStreamAddCallback``        | ``hipStreamAddCallback``     |
+|   cudaStreamAddCallback          |   hipStreamAddCallback       |
 +----------------------------------+------------------------------+
-| ``cudaStreamAttachMemAsync``     |                              |
+|   cudaStreamAttachMemAsync       |                              |
 +----------------------------------+------------------------------+
-| ``cudaStreamCreate``             | ``hipStreamCreate``          |
+|   cudaStreamCreate               |   hipStreamCreate            |
 +----------------------------------+------------------------------+
-| ``cudaStreamCreateWithFlags``    | ``hipStreamCreateWithFlags`` |
+|   cudaStreamCreateWithFlags      |   hipStreamCreateWithFlags   |
 +----------------------------------+------------------------------+
-| ``cudaStreamCreateWithPriority`` |                              |
+|   cudaStreamCreateWithPriority   |                              |
 +----------------------------------+------------------------------+
-| ``cudaStreamDestroy``            | ``hipStreamDestroy``         |
+|   cudaStreamDestroy              |   hipStreamDestroy           |
 +----------------------------------+------------------------------+
-| ``cudaStreamGetFlags``           | ``hipStreamGetFlags``        |
+|   cudaStreamGetFlags             |   hipStreamGetFlags          |
 +----------------------------------+------------------------------+
-| ``cudaStreamGetPriority``        |                              |
+|   cudaStreamGetPriority          |                              |
 +----------------------------------+------------------------------+
-| ``cudaStreamQuery``              | ``hipStreamQuery``           |
+|   cudaStreamQuery                |   hipStreamQuery             |
 +----------------------------------+------------------------------+
-| ``cudaStreamSynchronize``        | ``hipStreamSynchronize``     |
+|   cudaStreamSynchronize          |   hipStreamSynchronize       |
 +----------------------------------+------------------------------+
-| ``cudaStreamWaitEvent``          | ``hipStreamWaitEvent``       |
+|   cudaStreamWaitEvent            |   hipStreamWaitEvent         |
 +----------------------------------+------------------------------+
 
 5. Event Management
@@ -129,19 +129,19 @@ CUDA Runtime API functions supported by HIP
 +------------------------------+-----------------------------+
 | CUDA                         | HIP                         |
 +==============================+=============================+
-| ``cudaEventCreate``          | ``hipEventCreate``          |
+|   cudaEventCreate            |   hipEventCreate            |
 +------------------------------+-----------------------------+
-| ``cudaEventCreateWithFlags`` | ``hipEventCreateWithFlags`` |
+|   cudaEventCreateWithFlags   |   hipEventCreateWithFlags   |
 +------------------------------+-----------------------------+
-| ``cudaEventDestroy``         | ``hipEventDestroy``         |
+|   cudaEventDestroy           |   hipEventDestroy           |
 +------------------------------+-----------------------------+
-| ``cudaEventElapsedTime``     | ``hipEventElapsedTime``     |
+|   cudaEventElapsedTime       |   hipEventElapsedTime       |
 +------------------------------+-----------------------------+
-| ``cudaEventQuery``           | ``hipEventQuery``           |
+|   cudaEventQuery             |   hipEventQuery             |
 +------------------------------+-----------------------------+
-| ``cudaEventRecord``          | ``hipEventRecord``          |
+|   cudaEventRecord            |   hipEventRecord            |
 +------------------------------+-----------------------------+
-| ``cudaEventSynchronize``     | ``hipEventSynchronize``     |
+|   cudaEventSynchronize       |   hipEventSynchronize       |
 +------------------------------+-----------------------------+
 
 6. Execution Control
@@ -150,21 +150,21 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------+---------------------------+
 | CUDA                           | HIP                       |
 +================================+===========================+
-| ``cudaFuncGetAttributes``      |                           |
+|   cudaFuncGetAttributes        |                           |
 +--------------------------------+---------------------------+
-| ``cudaFuncSetCacheConfig``     | ``hipFuncSetCacheConfig`` |
+|   cudaFuncSetCacheConfig       |   hipFuncSetCacheConfig   |
 +--------------------------------+---------------------------+
-| ``cudaFuncSetSharedMemConfig`` |                           |
+|   cudaFuncSetSharedMemConfig   |                           |
 +--------------------------------+---------------------------+
-| ``cudaGetParameterBuffer``     |                           |
+|   cudaGetParameterBuffer       |                           |
 +--------------------------------+---------------------------+
-| ``cudaGetParameterBufferV2``   |                           |
+|   cudaGetParameterBufferV2     |                           |
 +--------------------------------+---------------------------+
-| ``cudaLaunchKernel``           | ``hipLaunchKernel``       |
+|   cudaLaunchKernel             |   hipLaunchKernel         |
 +--------------------------------+---------------------------+
-| ``cudaSetDoubleForDevice``     |                           |
+|   cudaSetDoubleForDevice       |                           |
 +--------------------------------+---------------------------+
-| ``cudaSetDoubleForHost``       |                           |
+|   cudaSetDoubleForHost         |                           |
 +--------------------------------+---------------------------+
 
 7. Occupancy
@@ -173,9 +173,9 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------------------------------------+--------------------------------------------------+
 | CUDA                                                         | HIP                                              |
 +==============================================================+==================================================+
-| ``cudaOccupancyMaxActiveBlocksPerMultiprocessor``            | ``hipOccupancyMaxActiveBlocksPerMultiprocessor`` |
+|   cudaOccupancyMaxActiveBlocksPerMultiprocessor              |   hipOccupancyMaxActiveBlocksPerMultiprocessor   |
 +--------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags``   |                                                  |
+|   cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags     |                                                  |
 +--------------------------------------------------------------+--------------------------------------------------+
 
 8. Execution Control [deprecated since 7.0]
@@ -184,11 +184,11 @@ CUDA Runtime API functions supported by HIP
 +-----------------------+------------------------------------+
 | CUDA                  | HIP                                |
 +=======================+====================================+
-| ``cudaConfigureCall`` |                                    |
+|   cudaConfigureCall   |                                    |
 +-----------------------+------------------------------------+
-| ``cudaLaunch``        |                                    |
+|   cudaLaunch          |                                    |
 +-----------------------+------------------------------------+
-| ``cudaSetupArgument`` |                                    |
+|   cudaSetupArgument   |                                    |
 +-----------------------+------------------------------------+
 
 9. Memory Management
@@ -197,115 +197,115 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------+-----------------------------+
 | CUDA                           | HIP                         |
 +================================+=============================+
-| ``cudaArrayGetInfo``           |                             |
+|   cudaArrayGetInfo             |                             |
 +--------------------------------+-----------------------------+
-| ``cudaFree``                   | ``hipFree``                 |
+|   cudaFree                     |   hipFree                   |
 +--------------------------------+-----------------------------+
-| ``cudaFreeArray``              | ``hipFreeArray``            |
+|   cudaFreeArray                |   hipFreeArray              |
 +--------------------------------+-----------------------------+
-| ``cudaFreeHost``               | ``hipHostFree``             |
+|   cudaFreeHost                 |   hipHostFree               |
 +--------------------------------+-----------------------------+
-| ``cudaFreeMipmappedArray``     |                             |
+|   cudaFreeMipmappedArray       |                             |
 +--------------------------------+-----------------------------+
-| ``cudaGetMipmappedArrayLevel`` |                             |
+|   cudaGetMipmappedArrayLevel   |                             |
 +--------------------------------+-----------------------------+
-| ``cudaGetSymbolAddress``       |                             |
+|   cudaGetSymbolAddress         |                             |
 +--------------------------------+-----------------------------+
-| ``cudaGetSymbolSize``          |                             |
+|   cudaGetSymbolSize            |                             |
 +--------------------------------+-----------------------------+
-| ``cudaHostAlloc``              | ``hipHostMalloc``           |
+|   cudaHostAlloc                |   hipHostMalloc             |
 +--------------------------------+-----------------------------+
-| ``cudaHostGetDevicePointer``   | ``hipHostGetDevicePointer`` |
+|   cudaHostGetDevicePointer     |   hipHostGetDevicePointer   |
 +--------------------------------+-----------------------------+
-| ``cudaHostGetFlags``           | ``hipHostGetFlags``         |
+|   cudaHostGetFlags             |   hipHostGetFlags           |
 +--------------------------------+-----------------------------+
-| ``cudaHostRegister``           | ``hipHostRegister``         |
+|   cudaHostRegister             |   hipHostRegister           |
 +--------------------------------+-----------------------------+
-| ``cudaHostUnregister``         | ``hipHostUnregister``       |
+|   cudaHostUnregister           |   hipHostUnregister         |
 +--------------------------------+-----------------------------+
-| ``cudaMalloc``                 | ``hipMalloc``               |
+|   cudaMalloc                   |   hipMalloc                 |
 +--------------------------------+-----------------------------+
-| ``cudaMalloc3D``               |                             |
+|   cudaMalloc3D                 |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMalloc3DArray``          | ``hipMalloc3DArray``        |
+|   cudaMalloc3DArray            |   hipMalloc3DArray          |
 +--------------------------------+-----------------------------+
-| ``cudaMallocArray``            | ``hipMallocArray``          |
+|   cudaMallocArray              |   hipMallocArray            |
 +--------------------------------+-----------------------------+
-| ``cudaMallocHost``             | ``hipHostMalloc``           |
+|   cudaMallocHost               |   hipHostMalloc             |
 +--------------------------------+-----------------------------+
-| ``cudaMallocManaged``          |                             |
+|   cudaMallocManaged            |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMallocMipmappedArray``   |                             |
+|   cudaMallocMipmappedArray     |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMallocPitch``            |                             |
+|   cudaMallocPitch              |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemGetInfo``             | ``hipMemGetInfo``           |
+|   cudaMemGetInfo               |   hipMemGetInfo             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy``                 | ``hipMemcpy``               |
+|   cudaMemcpy                   |   hipMemcpy                 |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2D``               | ``hipMemcpy2D``             |
+|   cudaMemcpy2D                 |   hipMemcpy2D               |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2DArrayToArray``   |                             |
+|   cudaMemcpy2DArrayToArray     |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2DAsync``          |                             |
+|   cudaMemcpy2DAsync            |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2DFromArray``      |                             |
+|   cudaMemcpy2DFromArray        |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2DFromArrayAsync`` |                             |
+|   cudaMemcpy2DFromArrayAsync   |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2DToArray``        | ``hipMemcpy2DToArray``      |
+|   cudaMemcpy2DToArray          |   hipMemcpy2DToArray        |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy2DToArrayAsync``   |                             |
+|   cudaMemcpy2DToArrayAsync     |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy3D``               | ``hipMemcpy3D``             |
+|   cudaMemcpy3D                 |   hipMemcpy3D               |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy3DAsync``          |                             |
+|   cudaMemcpy3DAsync            |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy3DPeer``           |                             |
+|   cudaMemcpy3DPeer             |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpy3DPeerAsync``      |                             |
+|   cudaMemcpy3DPeerAsync        |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyArrayToArray``     |                             |
+|   cudaMemcpyArrayToArray       |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyAsync``            | ``hipMemcpyAsync``          |
+|   cudaMemcpyAsync              |   hipMemcpyAsync            |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyFromArray``        | ``MemcpyFromArray``         |
+|   cudaMemcpyFromArray          |   MemcpyFromArray           |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyFromArrayAsync``   |                             |
+|   cudaMemcpyFromArrayAsync     |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyFromSymbol``       | ``hipMemcpyFromSymbol``     |
+|   cudaMemcpyFromSymbol         |   hipMemcpyFromSymbol       |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyFromSymbolAsync``  |                             |
+|   cudaMemcpyFromSymbolAsync    |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyPeer``             | ``hipMemcpyPeer``           |
+|   cudaMemcpyPeer               |   hipMemcpyPeer             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyPeerAsync``        | ``hipMemcpyPeerAsync``      |
+|   cudaMemcpyPeerAsync          |   hipMemcpyPeerAsync        |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyToArray``          | ``hipMemcpyToArray``        |
+|   cudaMemcpyToArray            |   hipMemcpyToArray          |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyToArrayAsync``     |                             |
+|   cudaMemcpyToArrayAsync       |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyToSymbol``         | ``hipMemcpyToSymbol``       |
+|   cudaMemcpyToSymbol           |   hipMemcpyToSymbol         |
 +--------------------------------+-----------------------------+
-| ``cudaMemcpyToSymbolAsync``    | ``hipMemcpyToSymbolAsync``  |
+|   cudaMemcpyToSymbolAsync      |   hipMemcpyToSymbolAsync    |
 +--------------------------------+-----------------------------+
-| ``cudaMemset``                 | ``hipMemset``               |
+|   cudaMemset                   |   hipMemset                 |
 +--------------------------------+-----------------------------+
-| ``cudaMemset2D``               | ``hipMemset2D``             |
+|   cudaMemset2D                 |   hipMemset2D               |
 +--------------------------------+-----------------------------+
-| ``cudaMemset2DAsync``          |                             |
+|   cudaMemset2DAsync            |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemset3D``               |                             |
+|   cudaMemset3D                 |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemset3DAsync``          |                             |
+|   cudaMemset3DAsync            |                             |
 +--------------------------------+-----------------------------+
-| ``cudaMemsetAsync``            | ``hipMemsetAsync``          |
+|   cudaMemsetAsync              |   hipMemsetAsync            |
 +--------------------------------+-----------------------------+
-| ``make_cudaExtent``            | ``make_hipExtent``          |
+|   make_cudaExtent              |   make_hipExtent            |
 +--------------------------------+-----------------------------+
-| ``make_cudaPitchedPtr``        | ``make_hipPitchedPtr``      |
+|   make_cudaPitchedPtr          |   make_hipPitchedPtr        |
 +--------------------------------+-----------------------------+
-| ``make_cudaPos``               | ``make_hipPos``             |
+|   make_cudaPos                 |   make_hipPos               |
 +--------------------------------+-----------------------------+
 
 10. Unified Addressing
@@ -315,7 +315,7 @@ CUDA Runtime API functions supported by HIP
 +------------------------------+-----------------------------+
 | CUDA                         | HIP                         |
 +==============================+=============================+
-| ``cudaPointerGetAttributes`` | ``hipPointerGetAttributes`` |
+|   cudaPointerGetAttributes   |   hipPointerGetAttributes   |
 +------------------------------+-----------------------------+
 11. Peer Device Memory Access
 ------------------------------
@@ -323,11 +323,11 @@ CUDA Runtime API functions supported by HIP
 +---------------------------------+--------------------------------+
 | CUDA                            | HIP                            |
 +=================================+================================+
-| ``cudaDeviceCanAccessPeer``     | ``hipDeviceCanAccessPeer``     |
+|   cudaDeviceCanAccessPeer       |   hipDeviceCanAccessPeer       |
 +---------------------------------+--------------------------------+
-| ``cudaDeviceDisablePeerAccess`` | ``hipDeviceDisablePeerAccess`` |
+|   cudaDeviceDisablePeerAccess   |   hipDeviceDisablePeerAccess   |
 +---------------------------------+--------------------------------+
-| ``cudaDeviceEnablePeerAccess``  | ``hipDeviceEnablePeerAccess``  |
+|   cudaDeviceEnablePeerAccess    |   hipDeviceEnablePeerAccess    |
 +---------------------------------+--------------------------------+
 
 12. OpenGL Interoperability
@@ -336,13 +336,13 @@ CUDA Runtime API functions supported by HIP
 +----------------------------------+-----------------------------------------+
 | CUDA                             | HIP                                     |
 +==================================+=========================================+
-| ``cudaGLGetDevices``             |                                         |
+|   cudaGLGetDevices               |                                         |
 +----------------------------------+-----------------------------------------+
-| ``cudaGraphicsGLRegisterBuffer`` |                                         |
+|   cudaGraphicsGLRegisterBuffer   |                                         |
 +----------------------------------+-----------------------------------------+
-| ``cudaGraphicsGLRegisterImage``  |                                         |
+|   cudaGraphicsGLRegisterImage    |                                         |
 +----------------------------------+-----------------------------------------+
-| ``cudaWGLGetDevice``             |                                         |
+|   cudaWGLGetDevice               |                                         |
 +----------------------------------+-----------------------------------------+
 
 13. OpenGL Interoperability [DEPRECATED]
@@ -351,21 +351,21 @@ CUDA Runtime API functions supported by HIP
 +-----------------------------------+---------------------------------+
 | CUDA                              | HIP                             |
 +===================================+=================================+
-| ``cudaGLMapBufferObject``         |                                 |
+|   cudaGLMapBufferObject           |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLMapBufferObjectAsync``    |                                 |
+|   cudaGLMapBufferObjectAsync      |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLRegisterBufferObject``    |                                 |
+|   cudaGLRegisterBufferObject      |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLSetBufferObjectMapFlags`` |                                 |
+|   cudaGLSetBufferObjectMapFlags   |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLSetGLDevice``             |                                 |
+|   cudaGLSetGLDevice               |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLUnmapBufferObject``       |                                 |
+|   cudaGLUnmapBufferObject         |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLUnmapBufferObjectAsync``  |                                 |
+|   cudaGLUnmapBufferObjectAsync    |                                 |
 +-----------------------------------+---------------------------------+
-| ``cudaGLUnregisterBufferObject``  |                                 |
+|   cudaGLUnregisterBufferObject    |                                 |
 +-----------------------------------+---------------------------------+
 
 14. Direct3D 9 Interoperability
@@ -374,15 +374,15 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------------+-------------------------------------------+
 | CUDA                                 | HIP                                       |
 +======================================+===========================================+
-| ``cudaD3D9GetDevice``                |                                           |
+|   cudaD3D9GetDevice                  |                                           |
 +--------------------------------------+-------------------------------------------+
-| ``cudaD3D9GetDevices``               |                                           |
+|   cudaD3D9GetDevices                 |                                           |
 +--------------------------------------+-------------------------------------------+
-| ``cudaD3D9GetDirect3DDevice``        |                                           |
+|   cudaD3D9GetDirect3DDevice          |                                           |
 +--------------------------------------+-------------------------------------------+
-| ``cudaD3D9SetDirect3DDevice``        |                                           |
+|   cudaD3D9SetDirect3DDevice          |                                           |
 +--------------------------------------+-------------------------------------------+
-| ``cudaGraphicsD3D9RegisterResource`` |                                           |
+|   cudaGraphicsD3D9RegisterResource   |                                           |
 +--------------------------------------+-------------------------------------------+
 
 15. Direct3D 9 Interoperability [DEPRECATED]
@@ -391,25 +391,25 @@ CUDA Runtime API functions supported by HIP
 +------------------------------------------+----------------------------------------------+
 | CUDA                                     | HIP                                          |
 +==========================================+==============================================+
-| ``cudaD3D9MapResources``                 |                                              |
+|   cudaD3D9MapResources                   |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9RegisterResource``             |                                              |
+|   cudaD3D9RegisterResource               |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9ResourceGetMappedArray``       |                                              |
+|   cudaD3D9ResourceGetMappedArray         |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9ResourceGetMappedPitch``       |                                              |
+|   cudaD3D9ResourceGetMappedPitch         |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9ResourceGetMappedPointer``     |                                              |
+|   cudaD3D9ResourceGetMappedPointer       |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9ResourceGetMappedSize``        |                                              |
+|   cudaD3D9ResourceGetMappedSize          |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9ResourceGetSurfaceDimensions`` |                                              |
+|   cudaD3D9ResourceGetSurfaceDimensions   |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9ResourceSetMapFlags``          |                                              |
+|   cudaD3D9ResourceSetMapFlags            |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9UnmapResources``               |                                              |
+|   cudaD3D9UnmapResources                 |                                              |
 +------------------------------------------+----------------------------------------------+
-| ``cudaD3D9UnregisterResource``           |                                              |
+|   cudaD3D9UnregisterResource             |                                              |
 +------------------------------------------+----------------------------------------------+
 
 16. Direct3D 10 Interoperability
@@ -418,11 +418,11 @@ CUDA Runtime API functions supported by HIP
 +---------------------------------------+--------------------------------+
 | CUDA                                  | HIP                            |
 +---------------------------------------+--------------------------------+
-| ``cudaD3D10GetDevice``                |                                |
+|   cudaD3D10GetDevice                  |                                |
 +---------------------------------------+--------------------------------+
-| ``cudaD3D10GetDevices``               |                                |
+|   cudaD3D10GetDevices                 |                                |
 +---------------------------------------+--------------------------------+
-| ``cudaGraphicsD3D10RegisterResource`` |                                |
+|   cudaGraphicsD3D10RegisterResource   |                                |
 +---------------------------------------+--------------------------------+
 
 17. Direct3D 10 Interoperability [DEPRECATED]
@@ -431,29 +431,29 @@ CUDA Runtime API functions supported by HIP
 +-------------------------------------------+-------------------------------------+
 | CUDA                                      | HIP                                 |
 +===========================================+=====================================+
-| ``cudaD3D10GetDirect3DDevice``            |                                     |
+|   cudaD3D10GetDirect3DDevice              |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10MapResources``                 |                                     |
+|   cudaD3D10MapResources                   |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10RegisterResource``             |                                     |
+|   cudaD3D10RegisterResource               |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10ResourceGetMappedArray``       |                                     |
+|   cudaD3D10ResourceGetMappedArray         |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10ResourceGetMappedPitch``       |                                     |
+|   cudaD3D10ResourceGetMappedPitch         |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10ResourceGetMappedPointer``     |                                     |
+|   cudaD3D10ResourceGetMappedPointer       |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10ResourceGetMappedSize``        |                                     |
+|   cudaD3D10ResourceGetMappedSize          |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10ResourceGetSurfaceDimensions`` |                                     |
+|   cudaD3D10ResourceGetSurfaceDimensions   |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10ResourceSetMapFlags``          |                                     |
+|   cudaD3D10ResourceSetMapFlags            |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10SetDirect3DDevice``            |                                     |
+|   cudaD3D10SetDirect3DDevice              |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10UnmapResources``               |                                     |
+|   cudaD3D10UnmapResources                 |                                     |
 +-------------------------------------------+-------------------------------------+
-| ``cudaD3D10UnregisterResource``           |                                     |
+|   cudaD3D10UnregisterResource             |                                     |
 +-------------------------------------------+-------------------------------------+
 
 18. Direct3D 11 Interoperability
@@ -462,11 +462,11 @@ CUDA Runtime API functions supported by HIP
 +---------------------------------------+---------------------------------+
 | CUDA                                  | HIP                             |
 +---------------------------------------+---------------------------------+
-| ``cudaD3D11GetDevice``                |                                 |
+|   cudaD3D11GetDevice                  |                                 |
 +---------------------------------------+---------------------------------+
-| ``cudaD3D11GetDevices``               |                                 |
+|   cudaD3D11GetDevices                 |                                 |
 +---------------------------------------+---------------------------------+
-| ``cudaGraphicsD3D11RegisterResource`` |                                 |
+|   cudaGraphicsD3D11RegisterResource   |                                 |
 +---------------------------------------+---------------------------------+
 
 19. Direct3D 11 Interoperability [DEPRECATED]
@@ -475,9 +475,9 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------+----------------------------------------+
 | CUDA                           | HIP                                    |
 +================================+========================================+
-| ``cudaD3D11GetDirect3DDevice`` |                                        |
+|   cudaD3D11GetDirect3DDevice   |                                        |
 +--------------------------------+----------------------------------------+
-| ``cudaD3D11SetDirect3DDevice`` |                                        |
+|   cudaD3D11SetDirect3DDevice   |                                        |
 +--------------------------------+----------------------------------------+
 
 20. VDPAU Interoperability
@@ -486,13 +486,13 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------------------+-------------------------------+
 | CUDA                                       | HIP                           |
 +============================================+===============================+
-| ``cudaGraphicsVDPAURegisterOutputSurface`` |                               |
+|   cudaGraphicsVDPAURegisterOutputSurface   |                               |
 +--------------------------------------------+-------------------------------+
-| ``cudaGraphicsVDPAURegisterVideoSurface``  |                               |
+|   cudaGraphicsVDPAURegisterVideoSurface    |                               |
 +--------------------------------------------+-------------------------------+
-| ``cudaVDPAUGetDevice``                     |                               |
+|   cudaVDPAUGetDevice                       |                               |
 +--------------------------------------------+-------------------------------+
-| ``cudaVDPAUSetVDPAUDevice``                |                               |
+|   cudaVDPAUSetVDPAUDevice                  |                               |
 +--------------------------------------------+-------------------------------+
 
 21. EGL Interoperability
@@ -501,25 +501,25 @@ CUDA Runtime API functions supported by HIP
 +-------------------------------------------+-------------------------------------------+
 | CUDA                                      | HIP                                       |
 +===========================================+===========================================+
-| ``cudaEGLStreamConsumerAcquireFrame``     |                                           |
+|   cudaEGLStreamConsumerAcquireFrame       |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamConsumerConnect``          |                                           |
+|   cudaEGLStreamConsumerConnect            |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamConsumerConnectWithFlags`` |                                           |
+|   cudaEGLStreamConsumerConnectWithFlags   |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamConsumerReleaseFrame``     |                                           |
+|   cudaEGLStreamConsumerReleaseFrame       |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamProducerConnect``          |                                           |
+|   cudaEGLStreamProducerConnect            |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamProducerDisconnect``       |                                           |
+|   cudaEGLStreamProducerDisconnect         |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamProducerPresentFrame``     |                                           |
+|   cudaEGLStreamProducerPresentFrame       |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaEGLStreamProducerReturnFrame``      |                                           |
+|   cudaEGLStreamProducerReturnFrame        |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsEGLRegisterImage``          |                                           |
+|   cudaGraphicsEGLRegisterImage            |                                           |
 +-------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsResourceGetMappedEglFrame`` |                                           |
+|   cudaGraphicsResourceGetMappedEglFrame   |                                           |
 +-------------------------------------------+-------------------------------------------+
 
 22. Graphics Interoperability
@@ -528,19 +528,19 @@ CUDA Runtime API functions supported by HIP
 +-------------------------------------------------+-------------------------------------------+
 | CUDA                                            | HIP                                       |
 +=================================================+===========================================+
-| ``cudaGraphicsMapResources``                    |                                           |
+|   cudaGraphicsMapResources                      |                                           |
 +-------------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsResourceGetMappedMipmappedArray`` |                                           |
+|   cudaGraphicsResourceGetMappedMipmappedArray   |                                           |
 +-------------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsResourceGetMappedPointer``        |                                           |
+|   cudaGraphicsResourceGetMappedPointer          |                                           |
 +-------------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsResourceSetMapFlags``             |                                           |
+|   cudaGraphicsResourceSetMapFlags               |                                           |
 +-------------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsSubResourceGetMappedArray``       |                                           |
+|   cudaGraphicsSubResourceGetMappedArray         |                                           |
 +-------------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsUnmapResources``                  |                                           |
+|   cudaGraphicsUnmapResources                    |                                           |
 +-------------------------------------------------+-------------------------------------------+
-| ``cudaGraphicsUnregisterResource``              |                                           |
+|   cudaGraphicsUnregisterResource                |                                           |
 +-------------------------------------------------+-------------------------------------------+
 
 23. Texture Reference Management
@@ -549,23 +549,23 @@ CUDA Runtime API functions supported by HIP
 +-------------------------------------+---------------------------+
 | CUDA                                | HIP                       |
 +-------------------------------------+---------------------------+
-| ``cudaBindTexture``                 | ``hipBindTexture``        |
+|   cudaBindTexture                   |   hipBindTexture          |
 +-------------------------------------+---------------------------+
-| ``cudaBindTexture2D``               | ``hipBindTexture2D``      |
+|   cudaBindTexture2D                 |   hipBindTexture2D        |
 +-------------------------------------+---------------------------+
-| ``cudaBindTextureToArray``          | ``hipBindTextureToArray`` |
+|   cudaBindTextureToArray            |   hipBindTextureToArray   |
 +-------------------------------------+---------------------------+
-| ``cudaBindTextureToMipmappedArray`` |                           |
+|   cudaBindTextureToMipmappedArray   |                           |
 +-------------------------------------+---------------------------+
-| ``cudaCreateChannelDesc``           | ``hipCreateChannelDesc``  |
+|   cudaCreateChannelDesc             |   hipCreateChannelDesc    |
 +-------------------------------------+---------------------------+
-| ``cudaGetChannelDesc``              | ``hipGetChannelDesc``     |
+|   cudaGetChannelDesc                |   hipGetChannelDesc       |
 +-------------------------------------+---------------------------+
-| ``cudaGetTextureAlignmentOffset``   |                           |
+|   cudaGetTextureAlignmentOffset     |                           |
 +-------------------------------------+---------------------------+
-| ``cudaGetTextureReference``         |                           |
+|   cudaGetTextureReference           |                           |
 +-------------------------------------+---------------------------+
-| ``cudaUnbindTexture``               | ``hipUnbindTexture``      |
+|   cudaUnbindTexture                 |   hipUnbindTexture        |
 +-------------------------------------+---------------------------+
 
 24. Surface Reference Management
@@ -574,9 +574,9 @@ CUDA Runtime API functions supported by HIP
 +-----------------------------+----------------------------+
 | CUDA                        | HIP                        |
 +=============================+============================+
-| ``cudaBindSurfaceToArray``  |                            |
+|   cudaBindSurfaceToArray    |                            |
 +-----------------------------+----------------------------+
-| ``cudaGetSurfaceReference`` |                            |
+|   cudaGetSurfaceReference   |                            |
 +-----------------------------+----------------------------+
 
 25. Texture Object Management
@@ -585,15 +585,15 @@ CUDA Runtime API functions supported by HIP
 +------------------------------------------+-----------------------------------------+
 | CUDA                                     | HIP                                     |
 +==========================================+=========================================+
-| ``cudaCreateTextureObject``              | ``hipCreateTextureObject``              |
+|   cudaCreateTextureObject                |   hipCreateTextureObject                |
 +------------------------------------------+-----------------------------------------+
-| ``cudaDestroyTextureObject``             | ``hipDestroyTextureObject``             |
+|   cudaDestroyTextureObject               |   hipDestroyTextureObject               |
 +------------------------------------------+-----------------------------------------+
-| ``cudaGetTextureObjectResourceDesc``     | ``hipGetTextureObjectResourceDesc``     |
+|   cudaGetTextureObjectResourceDesc       |   hipGetTextureObjectResourceDesc       |
 +------------------------------------------+-----------------------------------------+
-| ``cudaGetTextureObjectResourceViewDesc`` | ``hipGetTextureObjectResourceViewDesc`` |
+|   cudaGetTextureObjectResourceViewDesc   |   hipGetTextureObjectResourceViewDesc   |
 +------------------------------------------+-----------------------------------------+
-| ``cudaGetTextureObjectTextureDesc``      | ``hipGetTextureObjectTextureDesc``      |
+|   cudaGetTextureObjectTextureDesc        |   hipGetTextureObjectTextureDesc        |
 +------------------------------------------+-----------------------------------------+
 
 26. Surface Object Management
@@ -602,11 +602,11 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------------+-----------------------------------------+
 | CUDA                                 | HIP                                     |
 +======================================+=========================================+
-| ``cudaCreateSurfaceObject``          |                                         |
+|   cudaCreateSurfaceObject            |                                         |
 +--------------------------------------+-----------------------------------------+
-| ``cudaDestroySurfaceObject``         |                                         |
+|   cudaDestroySurfaceObject           |                                         |
 +--------------------------------------+-----------------------------------------+
-| ``cudaGetSurfaceObjectResourceDesc`` |                                         |
+|   cudaGetSurfaceObjectResourceDesc   |                                         |
 +--------------------------------------+-----------------------------------------+
 
 27. Version Management
@@ -615,9 +615,9 @@ CUDA Runtime API functions supported by HIP
 +---------------------------+--------------------------+
 | CUDA                      | HIP                      |
 +===========================+==========================+
-| ``cudaDriverGetVersion``  | ``hipDriverGetVersion``  |
+|   cudaDriverGetVersion    |   hipDriverGetVersion    |
 +---------------------------+--------------------------+
-| ``cudaRuntimeGetVersion`` | ``hipRuntimeGetVersion`` |
+|   cudaRuntimeGetVersion   |   hipRuntimeGetVersion   |
 +---------------------------+--------------------------+
 
 28. C++ API Routines
@@ -628,61 +628,61 @@ CUDA Runtime API functions supported by HIP
 +-------------------------------------------------------------+--------------------------------------------------+
 | CUDA                                                        | HIP                                              |
 +=============================================================+==================================================+
-| ``cudaBindSurfaceToArray``                                  |                                                  |
+|   cudaBindSurfaceToArray                                    |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaBindTexture``                                         | ``hipBindTexture``                               |
+|   cudaBindTexture                                           |   hipBindTexture                                 |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaBindTexture2D``                                       |                                                  |
+|   cudaBindTexture2D                                         |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaBindTextureToArray``                                  |                                                  |
+|   cudaBindTextureToArray                                    |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaBindTextureToMipmappedArray``                         |                                                  |
+|   cudaBindTextureToMipmappedArray                           |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaCreateChannelDesc``                                   | ``hipCreateChannelDesc``                         |
+|   cudaCreateChannelDesc                                     |   hipCreateChannelDesc                           |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaFuncGetAttributes``                                   |                                                  |
+|   cudaFuncGetAttributes                                     |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaFuncSetCacheConfig``                                  |                                                  |
+|   cudaFuncSetCacheConfig                                    |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaGetSymbolAddress``                                    |                                                  |
+|   cudaGetSymbolAddress                                      |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaGetSymbolSize``                                       |                                                  |
+|   cudaGetSymbolSize                                         |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaGetTextureAlignmentOffset``                           |                                                  |
+|   cudaGetTextureAlignmentOffset                             |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaLaunch``                                              |                                                  |
+|   cudaLaunch                                                |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaLaunchKernel``                                        |                                                  |
+|   cudaLaunchKernel                                          |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaMallocHost``                                          |                                                  |
+|   cudaMallocHost                                            |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaMallocManaged``                                       |                                                  |
+|   cudaMallocManaged                                         |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaMemcpyFromSymbol``                                    |                                                  |
+|   cudaMemcpyFromSymbol                                      |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaMemcpyFromSymbolAsync``                               |                                                  |
+|   cudaMemcpyFromSymbolAsync                                 |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaMemcpyToSymbol``                                      |                                                  |
+|   cudaMemcpyToSymbol                                        |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaMemcpyToSymbolAsync``                                 |                                                  |
+|   cudaMemcpyToSymbolAsync                                   |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxActiveBlocksPerMultiprocessor``           | ``hipOccupancyMaxActiveBlocksPerMultiprocessor`` |
+|   cudaOccupancyMaxActiveBlocksPerMultiprocessor             |   hipOccupancyMaxActiveBlocksPerMultiprocessor   |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags``  |                                                  |
+|   cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags    |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxPotentialBlockSize``                      | ``hipOccupancyMaxPotentialBlockSize``            |
+|   cudaOccupancyMaxPotentialBlockSize                        |   hipOccupancyMaxPotentialBlockSize              |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxPotentialBlockSizeVariableSMem``          |                                                  |
+|   cudaOccupancyMaxPotentialBlockSizeVariableSMem            |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxPotentialBlockSizeVariableSMemWithFlags`` |                                                  |
+|   cudaOccupancyMaxPotentialBlockSizeVariableSMemWithFlags   |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaOccupancyMaxPotentialBlockSizeWithFlags``             |                                                  |
+|   cudaOccupancyMaxPotentialBlockSizeWithFlags               |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaSetupArgument``                                       |                                                  |
+|   cudaSetupArgument                                         |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaStreamAttachMemAsync``                                |                                                  |
+|   cudaStreamAttachMemAsync                                  |                                                  |
 +-------------------------------------------------------------+--------------------------------------------------+
-| ``cudaUnbindTexture``                                       | ``hipUnbindTexture``                             |
+|   cudaUnbindTexture                                         |   hipUnbindTexture                               |
 +-------------------------------------------------------------+--------------------------------------------------+
 
 30. Profiler Control
@@ -691,13 +691,13 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------------------------------------+----------------------+
 | CUDA                                                         | HIP                  |
 +==============================================================+======================+
-| ``cudaProfilerInitialize``                                   |                      |
+|   cudaProfilerInitialize                                     |                      |
 +--------------------------------------------------------------+----------------------+
-| ``cudaProfilerStart``                                        | ``hipProfilerStart`` |
+|   cudaProfilerStart                                          |   hipProfilerStart   |
 +--------------------------------------------------------------+----------------------+
-| ``cudaProfilerStop``                                         | ``hipProfilerStop``  |
+|   cudaProfilerStop                                           |   hipProfilerStop    |
 +--------------------------------------------------------------+----------------------+
-| ``Data types used by CUDA Runtime API and supported by HIP`` |                      |
+|   Data types used by CUDA Runtime API and supported by HIP   |                      |
 +--------------------------------------------------------------+----------------------+
 
 31. Data types

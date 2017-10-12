@@ -59,7 +59,7 @@ Use HIP when converting Cuda applications to portable C++ and for new projects t
 
 OpenCL™: Open Compute Language
 ################################
-What is OpenCL ? It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
+What is OpenCL ?  It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
 and Nvidia GPUs support version 1.2 of the specification, as do x86 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C run-time API and C99-based kernel language.
 
 When to Use OpenCL
@@ -69,7 +69,7 @@ Windows, Linux and Mac OS, as well as a wide variety of hardware platforms (desc
 
 Anaconda Python With Numba
 ###########################
-What is Anaconda ? It’s a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
+What is Anaconda ?  It’s a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
 ROCm-enabled discrete GPUs via Numba. It gives superpowers to the people who are changing the world.
 
 Numba
@@ -121,7 +121,7 @@ Table Comparing Syntax for Different Compute APIs
 |                       |               |                 | completion_future   | completion_future      |   cl_event                |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Memory                 |   void * 	|    void * 	  |void *; hc::array;   | concurrency::array;    |   cl_mem                  |
-|			|		|                 | hc::array_view      |concurrency::array_view |                           |
+|			|		|                 |hc::array_view       |concurrency::array_view |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |                       |     grid      |    grid         |	extent	        |	      extent	 |	   NDRange	     |
@@ -143,8 +143,8 @@ Table Comparing Syntax for Different Compute APIs
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Device Function        | __device__    | __device__      |[[hc]] (detected     |                        |Implied in device          |
-|                       |               |                 | automatically in    |    restrict(amp)       |Compilation                |
-|                       |               |                 |   many case)        |                        |                           |
+|                       |               |                 |automatically in     |    restrict(amp)       |Compilation                |
+|                       |               |                 |many case)           |                        |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Host Function          | __host_       |__host_ (default)|[[cpu]] (default)    |                        |Implied in host            |
 |                       |  (default)    |                 |                     |  strict(cpu) (default) |Compilation                |
@@ -206,6 +206,7 @@ HC Programing Guide
 ===================
 
 **What is the Heterogeneous Compute (HC) API ?**
+
 It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
 
 The Heterogeneous Compute Compiler (HCC) provides two important benefits:
@@ -283,33 +284,33 @@ Build HCC from source
 First, install the build dependencies::
 
   # Ubuntu 14.04
-  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib libc++-dev libc++1 libc++abi-dev libc++abi1 python findutils     	libelf1 libpci3 file debianutils libunwind8-dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
+  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib libc++-dev libc++1 libc++abi-dev libc++abi1 python findutils libelf1 libpci3 file debianutils libunwind8-dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
 
 ::  
 
   # Ubuntu 16.04
-  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib python findutils libelf1 libpci3 file debianutils libunwind-     	dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
+  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib python findutils libelf1 libpci3 file debianutils libunwind- dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
 
 ::
 
    # Fedora 23/24
-   sudo dnf install git cmake make gcc-c++ python findutils elfutils-libelf pciutils-libs file pth rpm-build libunwind-devel   	     	hsa- rocr- dev hsa-ext-rocr-dev hsakmt-roct-dev pkgconfig rocm-utils
+   sudo dnf install git cmake make gcc-c++ python findutils elfutils-libelf pciutils-libs file pth rpm-build libunwind-devel hsa- rocr- dev hsa-ext-rocr-dev hsakmt-roct-dev pkgconfig rocm-utils
 
-Clone the HCC source tree: ::
+Clone the HCC source tree::
 
   # automatically fetches all submodules
   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
 
-Create a build directory and run cmake to configure the build: ::
+Create a build directory and run cmake to configure the build::
 
   mkdir build; cd build
   cmake ../hcc
 
-Compile HCC: ::
+Compile HCC::
 
   make -j
 
-Run the unit tests: :: 
+Run the unit tests:: 
 
   make test
 
@@ -321,40 +322,40 @@ Create an installer package (DEB or RPM file)
 
 
 
-To configure and build HCC from source, use the following steps: ::
+To configure and build HCC from source, use the following steps::
  
   mkdir -p build; cd build
   # NUM_BUILD_THREADS is optional
   # set the number to your CPU core numbers time 2 is recommended
   # in this example we set it to 96 
-  cmake -DNUM_BUILD_THREADS=96 \
-      -DCMAKE_BUILD_TYPE=Release \
-      ..
+    cmake -DNUM_BUILD_THREADS=96 \
+    -DCMAKE_BUILD_TYPE=Release \
+  ..
   make
 
-To install it, use the following steps: ::
+To install it, use the following steps::
   
   sudo make install
 
 Use HCC
 ########
 
-For C++AMP source codes: ::
+For C++AMP source codes::
 
   hcc `clamp-config --cxxflags --ldflags` foo.cpp
 
-For HC source codes: ::
+For HC source codes::
  
  hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
 In case you build HCC from source and want to use the compiled binaries directly in the build directory:
 
-For C++AMP source codes: ::
+For C++AMP source codes::
 
   # notice the --build flag
   bin/hcc `bin/clamp-config --build --cxxflags --ldflags` foo.cpp
 
-For HC source codes: ::
+For HC source codes::
 
   # notice the --build flag
   bin/hcc `bin/hcc-config --build --cxxflags --ldflags` foo.cpp
@@ -396,9 +397,8 @@ Example::
     --amdgpu-target=gfx803 \
     foo.cpp
 
-use :: HCC_AMDGPU_TARGET env var
-
-Use , to delimit each AMDGPU target in HCC. Example::
+**use :: HCC_AMDGPU_TARGET env var** 
+Used , to delimit each AMDGPU target in HCC. Example::
   
   export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
   # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
@@ -431,7 +431,7 @@ Configure the build in the following way::
     -DUSE_CODEXL_ACTIVITY_LOGGER=1 \
     <ToT HCC checkout directory>
 
-In your application compiled using hcc, include the CodeXL Activiy Logger header: ::
+In your application compiled using hcc, include the CodeXL Activiy Logger header::
  
   #include <CXLActivityLogger.h>
 
@@ -667,9 +667,9 @@ An example barrier command with full vebosity::
 * PROFILE: always "profile:" to distinguish it from other output.
 * TYPE: the command type: either kernel, copy, copyslo, or barrier. The examples and descriptions in this section are all copy commands. Copy indicates that the runtime used a call to the fast hsa memory copy routine while copyslo indicates that the copy was implemented with staging buffers or another less optimal path. copy computes the commands using device-side timestamps while copyslo computes the bandwidth based on host timestamps.
 * BARRIER_NAME has 3 parts:
-	* ``deps:#`` - the number of input dependencies into the barrier packet.
-	* ``acq:`` - the acquire fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
-	* ``rel:`` - the release fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
+	* **deps:#** - the number of input dependencies into the barrier packet.
+	* **acq:** - the acquire fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
+	* **rel:** - the release fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
 * DURATION: command duration measured in us. This is measured using the GPU timestamps from the time the barrier reaches the head of the queue to when it executes. Thus this includes the time to wait for all input dependencies, plus the previous command to complete, plus any fence operations performed by the barrier.
 * START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
 * STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
@@ -715,16 +715,13 @@ HIP Best Practices
  * :ref:`hip_profiling`
  * :ref:`HIP_Debugging`
  * :ref:`Kernel_language`
- * :ref:`HIPTerms`
+ * :ref:`HIP-Terms`
  * :ref:`HIP-bug`
  * :ref:`hipporting-driver-api`
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
  * :ref:`HIP-FAQ` 
- * :ref:`HIPTerms2`
-
-
-
+ * :ref:`HIP-Terms2`
 
 
 

@@ -1,5 +1,5 @@
 .. _Opencl-optimization:
-
+========================
 OPENCL Optimization
 ========================
 
@@ -14,7 +14,7 @@ AMD's CodeXL is an OpenCL kernel debugging and memory and performance analysis t
 
 CodeXL 1.7, the latest version as of this writing, is available as an extension to Microsoft® Visual Studio®, a stand-alone version for Windows, and a stand-alone version for Linux.
 
-For a high-level summary of CodeXL features, see Chapter 4 in the AMD OpenCL User Guide. For information about how to use CodeXL to gather performance data about your OpenCL application, such as application traces and timeline views, see the `CodeXL home page <http://developer.amd.com/tools-and-sdks/opencl-zone/codexl/>`_.
+For a high-level summary of CodeXL features, see Chapter 4 in the AMD OpenCL User Guide. For information about how to use CodeXL to gather performance data about your OpenCL application, such as application traces and timeline views, see the `CodeXL home page <https://gpuopen.com/compute-product/codexl/?webSyncID=aa83689b-1c51-8139-08ba-c72c235854a7&sessionGUID=ab8d35ae-1db8-2ec6-4d4a-290691c91072>`_.
 
 The Timeline View can be useful for debugging your OpenCL application. Examples are given below.
 
@@ -39,10 +39,10 @@ The OpenCL runtime provides a built-in mechanism for timing the execution of ker
 
 OpenCL provides four timestamps:
 
-- ``CL_PROFILING_COMMAND_QUEUED`` - Indicates when the command is enqueued into a command-queue on the host. This is set by the OpenCL runtime when the user calls an clEnqueue* function.
-- ``CL_PROFILING_COMMAND_SUBMIT`` - Indicates when the command is submitted to the device. For AMD GPU devices, this time is only approximately defined and is not detailed in this section.
-- ``CL_PROFILING_COMMAND_START`` - Indicates when the command starts execution on the requested device.
-- ``CL_PROFILING_COMMAND_END`` - Indicates when the command finishes execution on the requested device.
+- **CL_PROFILING_COMMAND_QUEUED** - Indicates when the command is enqueued into a command-queue on the host. This is set by the OpenCL runtime when the user calls an clEnqueue* function.
+- **CL_PROFILING_COMMAND_SUBMIT** - Indicates when the command is submitted to the device. For AMD GPU devices, this time is only approximately defined and is not detailed in this section.
+- **CL_PROFILING_COMMAND_START** - Indicates when the command starts execution on the requested device.
+- **CL_PROFILING_COMMAND_END** - Indicates when the command finishes execution on the requested device.
 
 The sample code below shows how to compute the kernel execution time (End- Start)::
 
@@ -61,13 +61,14 @@ The sample code below shows how to compute the kernel execution time (End- Start
 The CodeXL GPU Profiler also can record the execution time for a kernel automatically. The Kernel Time metric reported in the Profiler output uses the built-in OpenCL timing capability and reports the same result as the
 ``kernelExecTimeNs`` calculation shown above.
 
-Another interesting metric to track is the kernel launch time (Start - Queue). The kernel launch time includes both the time spent in the user application (after enqueuing the command, but before it is submitted to the device), as well as the time spent in the runtime to launch the kernel. For CPU devices, the kernel launch time is fast (tens of Î¼s), but for discrete GPU devices it can be several hundred Î¼s. Enabling profiling on a command queue adds approximately 10 Î¼s to 40 Î¼s overhead to all clEnqueue calls. Much of the profiling overhead affects the start time; thus, it is visible in the launch time. Be careful when interpreting this metric. To reduce the launch overhead, the AMD OpenCL runtime combines several command submissions into a batch. Commands submitted as batch report similar start times and the same end time.
+Another interesting metric to track is the kernel launch time (Start - Queue). The kernel launch time includes both the time spent in the user application (after enqueuing the command, but before it is submitted to the device), as well as the time spent in the runtime to launch the kernel. For CPU devices, the kernel launch time is fast (tens of 1's), but for discrete GPU devices it can be several hundred Î¼s. Enabling profiling on a command queue adds approximately 10 Î¼s to 40 Î¼s overhead to all clEnqueue calls. Much of the profiling overhead affects the start time; thus, it is visible in the launch time. Be careful when interpreting this metric. To reduce the launch overhead, the AMD OpenCL runtime combines several command submissions into a batch. Commands submitted as batch report similar start times and the same end time.
 
 Measure performance of your test with CPU counters. Do not use OCL profiling. To determine if an application is executed asynchonically, build a dependent execution with OCL events. This is a "generic" solution; however, there is an exception when you can enable profiling and have overlap transfers. DRMDMA engines do not support timestamps ("GPU counters"). To get OCL profiling data, the runtime must synchronize the main command processor (CP) with the DMA engine; this disables overlap. Note, however, that Southern Islands has two independent main CPs and runtime pairs them with DMA engines. So, the application can still execute kernels on one CP, while another is synced with a DRM engine for profiling; this lets you profile it with APP or OCL profiling.
 
 1.2.2 Using the OpenCL timer with Other System Timers
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The resolution of the timer, given in ns, can be obtained from::
+ 
  clGetDeviceInfo(...,CL_DEVICE_PROFILING_TIMER_RESOLUTION...);
 
 AMD CPUs and GPUs report a timer resolution of 1 ns. AMD OpenCL devices are required to correctly track time across changes in frequency and power states. Also, the AMD APP SDK uses the same time-domain for all devices in the platform; thus, the profiling timestamps can be directly compared across the CPU and GPU devices.
@@ -95,12 +96,13 @@ For more information, see section 5.9, "Profiling Operations on Memory Objects a
 1.2.3 Estimating Memory Bandwidth
 ++++++++++++++++++++++++++++++++++
 The memory bandwidth required by a kernel is perhaps the most important performance consideration. To calculate this:
-
-Effective Bandwidth = (Br + Bw)/T
+ 
+ Effective Bandwidth = (Br + Bw)/T
 
 where:
-Br = total number of bytes read from global memory. Bw = total number of bytes written to global memory.
-T = time required to run kernel, specified in nanoseconds.
+
+ Br = total number of bytes read from global memory. Bw = total number of bytes written to global memory.
+ T = time required to run kernel, specified in nanoseconds.
 
 If Br and Bw are specified in bytes, and T in ns, the resulting effective bandwidth is measured in GB/s, which is appropriate for current CPUs and GPUs for which the peak bandwidth range is 20-260 GB/s. Computing Br and Bw requires a
 thorough understanding of the kernel algorithm; it also can be a highly effective
@@ -136,7 +138,7 @@ The bandwidth then can be calculated as:
 (Br + Bw)/T = (7829914 bytes + 55296 bytes) / .9522 ms / 1000000
             = 8.2 GB/s
 
-.. note:: The performance model assumes zero cache utilization. If the kernel is reading the same data over and over again, it will be cached in the GPU L1/L2 memory and will not affect global memory bandwidth.
+.. Note:: The performance model assumes zero cache utilization. If the kernel is reading the same data over and over again, it will be cached in the GPU L1/L2 memory and will not affect global memory bandwidth.
 
 1.3 OpenCL Memory Objects
 -------------------------
@@ -164,7 +166,8 @@ a PCIe3-capable platform and a high-end AMD Radeon™ 7XXX discrete GPU. In Tabl
 
 **Table 1.1 Memory Bandwidth in GB/s (R = read, W = write) in GB/s**
 
-	  			**Table 2:**
+
+**Table 2:**
 	
 +-------------+---------+---------+--------------+--------------+-----------+-------------+
 |             | CPU R   | GPU W   | GPU Shader R | GPU Shader W | GPU DMA R | GPU DMA W   |
@@ -387,13 +390,13 @@ Buffers allocated using the flags ``CL_MEM_READ_ONLY, CL_MEM_WRITE_ONLY``, or ``
 ##########################
 If a buffer is of the zero copy type, the runtime tries to leave its content in place, unless the application explicitly triggers a transfer (for example, through ``clEnqueueCopyBuffer()``). Depending on its type, a zero copy buffer resides on the host or the device. Independent of its location, it can be accessed directly by the host CPU or a GPU device kernel, at a bandwidth determined by the capabilities of the hardware interconnect.
 
-Calling ``clEnqueueMapBuffer()`` and ``clEnqueueUnmapMemObject()`` on a zero copy buffer is typically a low-cost operation.
+Calling clEnqueueMapBuffer() and clEnqueueUnmapMemObject() on a zero copy buffer is typically a low-cost operation.
 
 Since not all possible read and write paths perform equally, check the application scenarios below for recommended usage. To assess performance on a given platform, use the BufferBandwidth sample.
 
 If a given platform supports the zero copy feature, the following buffer types are available:
 
- * ``The CL_MEM_ALLOC_HOST_PTR`` and ``CL_MEM_USE_HOST_PTR`` buffers are:
+ * The CL_MEM_ALLOC_HOST_PTR and CL_MEM_USE_HOST_PTR buffers are:
 
 	* zero copy buffers that resides on the host.
 	
@@ -404,9 +407,9 @@ If a given platform supports the zero copy feature, the following buffer types a
 	* a pre-pinned sources or destinations for CL read, write, and copy commands into device memory at peak interconnect bandwidth.
  
 
-Note that buffers created with the flag ``CL_MEM_ALLOC_HOST_PTR`` together with ``CL_MEM_READ_ONLY`` may reside in uncached write-combined memory. As a result, CPU can have high streamed write bandwidth, but low read and potentially low write scatter bandwidth, due to the uncached WC path.
+Note that buffers created with the flag CL_MEM_ALLOC_HOST_PTR together with CL_MEM_READ_ONLY may reside in uncached write-combined memory. As a result, CPU can have high streamed write bandwidth, but low read and potentially low write scatter bandwidth, due to the uncached WC path.
  
- * The ``CL_MEM_USE_PERSISTENT_MEM_AMD`` buffer is
+ * The CL_MEM_USE_PERSISTENT_MEM_AMD buffer is
 
 	* a zero copy buffer that resides on the GPU device.
 
@@ -422,11 +425,11 @@ There is a limit on the maximum size per buffer, as well as on the total size of
 
 Zero copy buffers work well on APU devices. SDK 2.5 introduced an optimization that is of particular benefit on APUs. The runtime uses USWC memory for buffers allocated as ``CL_MEM_ALLOC_HOST_PTR | CL_MEM_READ_ONLY``. On APU systems, this type of zero copy buffer can be written to by the CPU at very high data rates, then handed over to the GPU at minimal cost for equally high GPU read-data rates over the Radeon memory bus. This path provides the highest data transfer rate for the CPU-to-GPU path. The use of multiple CPU cores may be necessary to achieve peak write performance.
 
-	1. buffer = ``clCreateBuffer(CL_MEM_ALLOC_HOST_PTR | CL_MEM_READ_ONLY)``
-	2. address = ``clMapBuffer( buffer )``.
-	3. ``memset`` (address) or ``memcpy`` (address) (if possible, using multiple CPU cores)
-	4. ``clEnqueueUnmapMemObject`` (buffer)
-	5. ``clEnqueueNDRangeKernel`` (buffer)
+	1. buffer = clCreateBuffer(CL_MEM_ALLOC_HOST_PTR | CL_MEM_READ_ONLY)
+	2. address = clMapBuffer( buffer ).
+	3. memset (address) or memcpy (address) (if possible, using multiple CPU cores)
+	4. clEnqueueUnmapMemObject (buffer)
+	5. clEnqueueNDRangeKernel (buffer)
 
 As this memory is not cacheable, CPU read operations are very slow. This type of buffer also exists on discrete platforms, but transfer performance typically is limited by PCIe bandwidth.
 
@@ -461,38 +464,38 @@ Note that the OpenCL runtime uses deferred allocation to maximize memory resourc
 A code sample named BufferBandwidth can be used to investigate and benchmark the various transfer options in combination with different buffer types.
  
 
-**Option 1** -``clEnqueueWriteBuffer()`` and ``clEnqueueReadBuffer()``.
+**Option 1** - clEnqueueWriteBuffer() and clEnqueueReadBuffer().
  This option is the easiest to use on the application side.  *CL_MEM_USE_HOST_PTR*  is an ideal choice if the application wants to transfer a buffer that has already been allocated through ``malloc( )`` or ``mmap( )``.
- There are two ways to use this option. The first uses ``clEnqueueRead/WriteBuffer`` on a pre-pinned, mapped host-side buffer: 
+ There are two ways to use this option. The first uses clEnqueueRead/WriteBuffer on a pre-pinned, mapped host-side buffer: 
  
-  a. pinnedBuffer = ``clCreateBuffer ( CL_MEM_ALLOC_HOST_PTR or CL_MEM_USE_HOST_PTR )``
-  b. deviceBuffer = ``clCreateBuffer( )``
-  c. void *pinnedMemory = ``clEnqueueMapBuffer`` (pinnedBuffer)
-  d.  ``clEnqueueRead/WriteBuffer`` (deviceBuffer, pinnedMemory)
-  e.  ``clEnqueueUnmapMemObject`` (pinnedBuffer, pinnedMemory)
+  a. pinnedBuffer = clCreateBuffer ( CL_MEM_ALLOC_HOST_PTR or CL_MEM_USE_HOST_PTR )
+  b. deviceBuffer = clCreateBuffer( )
+  c. void *pinnedMemory = clEnqueueMapBuffer (pinnedBuffer)
+  d.  clEnqueueRead/WriteBuffer (deviceBuffer, pinnedMemory)
+  e.  clEnqueueUnmapMemObject (pinnedBuffer, pinnedMemory)
 
  The pinning cost is incurred at step c. Step d does not incur any pinning cost. Typically, an application performs steps a, b, c, and e once. It then repeatedly reads or modifies the data in pinnedMemory, followed by step d.
 
- For the second way to use this option, ``clEnqueueRead/WriteBuffer`` is used directly on a user memory buffer. The standard ``clEnqueueRead/Write`` calls require to pin (lock in memory) memory pages before they can be copied (by the DMA engine). This creates a performance penalty that is proportional to the buffer size. The performance of this path is currently about two-thirds of peak interconnect bandwidth.
+ For the second way to use this option, clEnqueueRead/WriteBuffer is used directly on a user memory buffer. The standard clEnqueueRead/Write calls require to pin (lock in memory) memory pages before they can be copied (by the DMA engine). This creates a performance penalty that is proportional to the buffer size. The performance of this path is currently about two-thirds of peak interconnect bandwidth.
 
-**Option 2** - ``clEnqueueCopyBuffer()`` on a pre-pinned host buffer (requires pre-pinned buffer support)
+**Option 2** - clEnqueueCopyBuffer() on a pre-pinned host buffer (requires pre-pinned buffer support)
 
  This is analogous to Option 1. Performing a CL copy of a pre-pinned buffer to a device buffer (or vice versa) runs at peak interconnect bandwidth.
  
-	a.  pinnedBuffer = ``clCreateBuffer( CL_MEM_ALLOC_HOST_PTR or CL_MEM_USE_HOST_PTR )``
-	b.  deviceBuffer = ``clCreateBuffer()`` *This is followed either by :*
-	c.  void *memory = ``clEnqueueMapBuffer`` ( pinnedBuffer )
+	a.  pinnedBuffer = clCreateBuffer( CL_MEM_ALLOC_HOST_PTR or CL_MEM_USE_HOST_PTR )
+	b.  deviceBuffer = clCreateBuffer() *This is followed either by :*
+	c.  void *memory = clEnqueueMapBuffer ( pinnedBuffer )
 	d.  Application writes or modifies memory.
-	e.  ``clEnqueueUnmapMemObject`` ( pinnedBuffer, memory )
-	f.  ``clEnqueueCopyBuffer`` ( pinnedBuffer, deviceBuffer ) *or by:*
-	g.  ``clEnqueueCopyBuffer`` ( deviceBuffer, pinnedBuffer )
-	h.  void *memory = ``clEnqueueMapBuffer`` ( pinnedBuffer )
+	e.  clEnqueueUnmapMemObject ( pinnedBuffer, memory )
+	f.  clEnqueueCopyBuffer ( pinnedBuffer, deviceBuffer ) *or by:*
+	g.  clEnqueueCopyBuffer ( deviceBuffer, pinnedBuffer )
+	h.  void *memory = clEnqueueMapBuffer ( pinnedBuffer )
 	i.  Application reads memory.
-	j.  ``clEnqueueUnmapMemObject`` ( pinnedBuffer, memory )
+	j.  clEnqueueUnmapMemObject ( pinnedBuffer, memory )
 
- Since the pinnedBuffer resides in host memory, the ``clMap()`` and ``clUnmap()`` calls do not result in data transfers, and they are of very low latency. Sparse or dense memory operations by the application take place at host memory bandwidth.
+ Since the pinnedBuffer resides in host memory, the   clMap()   and ``clUnmap()`` calls do not result in data transfers, and they are of very low latency. Sparse or dense memory operations by the application take place at host memory bandwidth.
 
-**Option 3** - ``clEnqueueMapBuffer()`` and ``clEnqueueUnmapMemObject()`` of a Device Buffer
+**Option 3** - clEnqueueMapBuffer() and clEnqueueUnmapMemObject() of a Device Buffer
 
  This is a good choice if the application fills in the data on the fly, or requires a pointer for calls to other library functions (such as ``fread()`` or ``fwrite()`` ). An optimized path exists for regular device buffers; this path provides peak interconnect bandwidth at map/unmap time.
 
@@ -502,17 +505,17 @@ A code sample named BufferBandwidth can be used to investigate and benchmark the
 
  	a.  Data transfer from host to device buffer.
  	
-		1. ``ptr = clEnqueueMapBuffer( .., buf, .., CL_MAP_WRITE, ..)`` Since the buffer is mapped write-only, no data is transferred from device buffer to host. The map operation is very low cost. A pointer to a pinned host buffer is returned.
-		2. The application fills in the host buffer through ``memset( ptr ), memcpy ( ptr, srcptr ), fread( ptr )``, or direct CPU writes. This happens at host memory bandwidth.
-		3. ``clEnqueueUnmapMemObject( .., buf, ptr, .. )`` The pre-pinned buffer is transferred to the GPU device, at peak interconnect bandwidth.
+		1. ptr = clEnqueueMapBuffer( .., buf, .., CL_MAP_WRITE, ..) Since the buffer is mapped write-only, no data is transferred from device buffer to host. The map operation is very low cost. A pointer to a pinned host buffer is returned.
+		2. The application fills in the host buffer through memset( ptr ), memcpy ( ptr, srcptr ), fread( ptr ), or direct CPU writes. This happens at host memory bandwidth.
+		3. clEnqueueUnmapMemObject( .., buf, ptr, .. ) The pre-pinned buffer is transferred to the GPU device, at peak interconnect bandwidth.
      
  	b.  Data transfer from device buffer to host.
  	 	
-		1. ``ptr = clEnqueueMapBuffer(.., buf, .., CL_MAP_READ, .. )`` 
+		1. ptr = clEnqueueMapBuffer(.., buf, .., CL_MAP_READ, .. ) 
 		This command triggers a transfer from the device to host memory, into a pre-pinned temporary buffer, at peak interconnect bandwidth. A pointer to the pinned memory is returned.
-		2. The application reads and processes the data, or executes a ``memcpy( dstptr, ptr ), fwrite (ptr)``,
+		2. The application reads and processes the data, or executes a memcpy( dstptr, ptr ), fwrite (ptr),
 		or similar function. Since the buffer resides in host memory, this happens at host memory bandwidth.
- 		3. ``clEnqueueUnmapMemObject( .., buf, ptr, .. )``
+ 		3. clEnqueueUnmapMemObject( .., buf, ptr, .. )
  	  
  	  Since the buffer was mapped as read-only, no transfer takes place, and the unmap operation is very low cost.
 
@@ -521,20 +524,24 @@ A code sample named BufferBandwidth can be used to investigate and benchmark the
  This option allows overlapping of data transfers and GPU compute. It is also useful for sparse write updates under certain constraints.
  
 
- 	a.  A zero copy buffer on the device is created using the following command: ``buf = clCreateBuffer ( .., CL_MEM_USE_PERSISTENT_MEM_AMD, ..)``
+ 	a.  A zero copy buffer on the device is created using the following command: buf = clCreateBuffer ( .., CL_MEM_USE_PERSISTENT_MEM_AMD, ..)
               This buffer can be directly accessed by the host CPU, using the uncached WC path. This can take place at the same time the GPU executes a compute kernel. A common double buffering scheme has the kernel process data from one buffer while the CPU fills a second buffer. See the TransferOverlap code sample.
               A zero copy device buffer can also be used to for sparse updates, such as assembling sub-rows of a larger matrix into a smaller, contiguous block for GPU processing. Due to the WC path, it is a good design choice to try to align writes to the cache line size, and to pick the write block size as large as possible.
 
  	b.  Transfer from the host to the device.
  	
-   	  1.``ptr = clEnqueueMapBuffer( .., buf, .., CL_MAP_WRITE, .. ) ``
+   	  1.ptr = clEnqueueMapBuffer( .., buf, .., CL_MAP_WRITE, .. )
+   	  
        	     This operation is low cost because the zero copy device buffer is directly mapped into the host address space.
-   	  2.The application transfers data via ``memset( ptr ), memcpy( ptr, srcptr )``, or direct CPU writes.
-       	      The CPU writes directly across the interconnect into the zero copy device buffer. Depending on the chipset, the bandwidth can be of the same order of magnitude as the interconnect bandwidth, although it typically is lower than peak.
-   	  3.``clEnqueueUnmapMemObject`` ( .., buf, ptr, .. )
+
+   	  2.The application transfers data via memset( ptr ), memcpy( ptr, srcptr ), or direct CPU writes.
+       	     The CPU writes directly across the interconnect into the zero copy device buffer. Depending on the chipset, the bandwidth can be of the same order of magnitude as the interconnect bandwidth, although it typically is lower than peak.
+   	  3.clEnqueueUnmapMemObject ( .., buf, ptr, .. )
+   	  
 	     As with the preceding map, this operation is low cost because the buffer continues to reside on the device.
        	     
- 	c.  If the buffer content must be read back later, use ``clEnqueueReadBuffer( .., buf, ..)`` or ``clEnqueueCopyBuffer( .., buf, zero copy host buffer, .. )``.
+ 	c.  If the buffer content must be read back later, use clEnqueueReadBuffer( .., buf, ..) or clEnqueueCopyBuffer( .., buf, zero copy host buffer, .. )
+ 	
      	    This bypasses slow host reads through the uncached path. 
 
 **Option 5** - Direct GPU access to a zero copy host buffer (requires zero copy support)
@@ -542,18 +549,18 @@ A code sample named BufferBandwidth can be used to investigate and benchmark the
  This option allows direct reads or writes of host memory by the GPU. A GPU kernel can import data from the host without explicit transfer, and write data directly back to host memory. An ideal use is to perform small I/Os straight from the kernel, or to integrate the transfer latency directly into the kernel execution time.
 
  	a.  The application creates a zero copy host buffer.
- 	    ``buf = clCreateBuffer( .., CL_MEM_ALLOC_HOST_PTR, .. )``
+ 	    buf = clCreateBuffer( .., CL_MEM_ALLOC_HOST_PTR, .. )
 
  	b.  Next the application modifies or reads the zero copy host buffer.
  	
- 	  1. ``ptr = clEnqueueMapBuffer( .., buf, .., CL_MAP_READ | CL_MAP_WRITE, .. )``
+ 	  1. ptr = clEnqueueMapBuffer( .., buf, .., CL_MAP_READ | CL_MAP_WRITE, .. )
  	     This operation is very low cost because it is a map of a buffer already residing in host memory.
  	  2. The application modifies the data through ``memset( ptr )``, ``memcpy`` (in either direction), sparse or dense CPU reads or writes. Since the application is modifying a host buffer, these operations take place at host memory bandwidth.
- 	  3. ``clEnqueueUnmapMemObject( .., buf, ptr, .. )``
+ 	  3. clEnqueueUnmapMemObject( .., buf, ptr, .. )
  	  
  	     As with the preceding map, this operation is very low cost because the buffer continues to reside in host memory.
  	     
- 	c.  The application runs ``clEnqueueNDRangeKernel()``, using buffers of this type as input or output. GPU kernel reads and writes go across the interconnect to host memory, and the data transfer becomes part of the kernel execution.
+ 	c.  The application runs clEnqueueNDRangeKernel(), using buffers of this type as input or output. GPU kernel reads and writes go across the interconnect to host memory, and the data transfer becomes part of the kernel execution.
  	    The achievable bandwidth depends on the platform and chipset, but can be of the same order of magnitude as the peak interconnect bandwidth. For discrete graphics cards, it is important to note that resulting GPU kernel bandwidth is an order of magnitude lower compared to a kernel accessing a regular device buffer located on the device.
 
  	d.  Following kernel execution, the application can access data in the host buffer in the same manner as described above.
@@ -613,7 +620,7 @@ The GPU excels at high-throughput: the peak execution rate (measured in FLOPS) i
 .. [1] For the power specifications of the AMD Phenom™ II x4, see http://www.amd.com/us/products/desktop/processors/phenom-ii/Pages/phenom-ii-model-number-comparison.aspx .
 
 
-	Table 4.5 provides a comparison of the CPU and GPU performance charac- teristics in an AMD A8-4555M "Trinity" APU (19 W, 21 GB/s memory bandwidth).
+Table 4.5 provides a comparison of the CPU and GPU performance charac- teristics in an AMD A8-4555M "Trinity" APU (19 W, 21 GB/s memory bandwidth).
 
                        **Table 1.2 CPU and GPU Performance Characteristics on APU**
 
@@ -691,7 +698,6 @@ Multi-core runtimes, such as Cilk, have already introduced dynamic scheduling al
   Another approach is to schedule enough work to the device so that it can tolerate latency in additional scheduling. Here, the scheduler maintains a watermark of uncompleted work that has been sent to the device, and refills the queue when it drops below the watermark. This effectively increase the grain size, but can be very effective at reducing or eliminating device starvation. Developers cannot directly query the list of commands in the OpenCL command queues; however, it is possible to pass an event to each clEnqueue call that can be queried, in order to determine the execution status (in particular the command completion time); developers also can maintain their own queue of outstanding requests.
 
   For many algorithms, this technique can be effective enough at hiding latency so that a core does not need to be reserved for scheduling. In particular, algorithms where the work-load is largely known up-front often work well with a deep queue and watermark. Algorithms in which work is dynamically created may require a dedicated thread to provide low-latency scheduling.
-
 * **Data Location**
 
   Discrete GPUs use dedicated high-bandwidth memory that exists in a separate address space. Moving data between the device address space and the host requires time-consuming transfers over a relatively slow PCI- Express bus. Schedulers should be aware of this cost and, for example, attempt to schedule work that consumes the result on the same device producing it.
@@ -702,15 +708,15 @@ Multi-core runtimes, such as Cilk, have already introduced dynamic scheduling al
 +++++++++++++++++++++++++++++++++
 Enqueuing several commands before flushing can enable the host CPU to batch together the command submission, which can reduce launch overhead.
 
-Command-queues that are configured to execute in-order are guaranteed to complete execution of each command before the next command begins. This synchronization guarantee can often be leveraged to avoid explicit ``clWaitForEvents()`` calls between command submissions. Using ``clWaitForEvents()`` requires intervention by the host CPU and additional
+Command-queues that are configured to execute in-order are guaranteed to complete execution of each command before the next command begins. This synchronization guarantee can often be leveraged to avoid explicit clWaitForEvents() calls between command submissions. Using clWaitForEvents() requires intervention by the host CPU and additional
 
 synchronization cost between the host and the GPU; by leveraging the in-order queue property, back-to-back kernel executions can be efficiently handled directly on the GPU hardware.
 
 AMD Southern Islands GPUs can execute multiple kernels simultaneously when there are no dependencies.
 
-The AMD OpenCL implementation spawns a new thread to manage each command queue. Thus, the OpenCL host code is free to manage multiple devices from a single host thread. Note that ``clFinish`` is a blocking operation; the thread that calls ``clFinish`` blocks until all commands in the specified command-queue have been processed and completed. If the host thread is managing multiple devices, it is important to call ``clFlush`` for each command- queue before calling ``clFinish``, so that the commands are flushed and execute in parallel on the devices. Otherwise, the first call to ``clFinish`` blocks, the commands on the other devices are not flushed, and the devices appear to execute serially rather than in parallel.
+The AMD OpenCL implementation spawns a new thread to manage each command queue. Thus, the OpenCL host code is free to manage multiple devices from a single host thread. Note that clFinish is a blocking operation; the thread that calls clFinish blocks until all commands in the specified command-queue have been processed and completed. If the host thread is managing multiple devices, it is important to call clFlush for each command- queue before calling clFinish, so that the commands are flushed and execute in parallel on the devices. Otherwise, the first call to clFinish blocks, the commands on the other devices are not flushed, and the devices appear to execute serially rather than in parallel.
 
-For low-latency CPU response, it can be more efficient to use a dedicated spin loop and not call ``clFinish()`` Calling ``clFinish()`` indicates that the application wants to wait for the GPU, putting the thread to sleep. For low latency, the application should use ``clFlush()``, followed by a loop to wait for the event to complete. This is also true for blocking maps. The application should use non- blocking maps followed by a loop waiting on the event. The following provides sample code for this.
+For low-latency CPU response, it can be more efficient to use a dedicated spin loop and not call clFinish() Calling clFinish() indicates that the application wants to wait for the GPU, putting the thread to sleep. For low latency, the application should use ``clFlush()``, followed by a loop to wait for the event to complete. This is also true for blocking maps. The application should use non- blocking maps followed by a loop waiting on the event. The following provides sample code for this.
 ::
  
  if (sleep)
@@ -859,13 +865,14 @@ For AMD Radeon™ HD 77XX and 78XX GPUs, when calculating an address as y*width+
 
 If every work-item in a work-group references consecutive memory addresses and the address of work-item 0 is aligned to 256 bytes and each work-item fetches 32 bits, the entire wavefront accesses one channel. Although this seems slow, it actually is a fast pattern because it is necessary to consider the memory access over the entire device, not just a single wavefront.
 
-One or more work-groups execute on each compute unit. On the AMD Radeon™ HD 7000-series GPUs, work-groups are dispatched in a linear order, with x changing most rapidly. For a single dimension, this is:
+One or more work-groups execute on each compute unit. On the AMD Radeon™ HD 7000-series GPUs, work-groups are dispatched in a linear order, with x changing most rapidly. 
+For a single dimension, this is:
 
-DispatchOrder = ``get_group_id(0)``
+ **DispatchOrder = get_group_id(0)**
 
 For two dimensions, this is:
 
-DispatchOrder = ``get_group_id(0) + get_group_id(1) * get_num_groups(0)``
+ **DispatchOrder = get_group_id(0) + get_group_id(1) * get_num_groups(0)**
 
 This is row-major-ordering of the blocks in the index space. Once all compute units are in use, additional work-groups are assigned to compute units as needed. Work-groups retire in order, so active work-groups are contiguous.
 
@@ -1002,7 +1009,7 @@ Each compute unit accesses the memory system in quarter-wavefront units. The com
 
 AMD GCN-family GPUs include a Local Data Store (LDS) cache, which accelerates local memory accesses. LDS provides high-bandwidth access (more than 10X higher than global memory), efficient data transfers between work-items in a work-group, and high-performance atomic support. LDS is much faster than L1 cache access as it has twice the peak bandwidth and far lower latency. Additionally, using LDS memory can reduce global memory bandwidth usage. Local memory offers significant advantages when the data is re-used; for example, subsequent accesses can read from local memory, thus reducing global memory bandwidth. Another advantage is that local memory does not require coalescing.
 
-To determine local memory size: ``clGetDeviceInfo( ..., CL_DEVICE_LOCAL_MEM_SIZE, .... );``
+To determine local memory size: **clGetDeviceInfo( ..., CL_DEVICE_LOCAL_MEM_SIZE, .... );**
 
 All AMD Southern Islands, Sea Islands, and Volcanic Islands GPUs (collectively referred to as GCN devices) contain a 64 kB LDS for each compute unit; although only 32 kB can be allocated per work-group. The LDS contains 32- banks, each bank is four bytes wide and 256 bytes deep; the bank address is determined by bits 6:2 in the address. As shown below, programmers must carefully control the bank bits to avoid bank conflicts as much as possible. Bank conflicts are determined by what addresses are accessed on each half wavefront boundary. Threads 0 through 31 are checked for conflicts as are threads 32 through 63 within a wavefront.
 
@@ -1016,19 +1023,18 @@ LDS reads require one ALU operation to initiate them. Each operation can initiat
 
 The CodeXL GPU Profiler provides the following performance counter to help optimize local memory usage:
 
-``LDSBankConflict:`` The percentage of time accesses to the LDS are stalled due to bank conflicts relative to GPU Time. In the ideal case, there are no bank conflicts in the local memory access, and this number is zero.
+LDSBankConflict: The percentage of time accesses to the LDS are stalled due to bank conflicts relative to GPU Time. In the ideal case, there are no bank conflicts in the local memory access, and this number is zero.
 
 Local memory is software-controlled "scratchpad" memory. In contrast, caches typically used on CPUs monitor the access stream and automatically capture recent accesses in a tagged cache. The scratchpad allows the kernel to explicitly load items into the memory; they exist in local memory until the kernel replaces them, or until the work-group ends. To declare a block of local memory, use the ``___local`` keyword; 
 for example:
 
- ``__local float localBuffer[64]``
+ **__local float localBuffer[64]**
 
 These declarations can be either in the parameters to the kernel call or in the body of the kernel. The    local syntax allocates a single block of memory, which is shared across all work-items in the workgroup.
 
 To write data into local memory, write it into an array allocated with ``__local``.
 
-For example:
- ``localBuffer[i] = 5.0;``
+For example: **localBuffer[i] = 5.0;**
  
 A typical access pattern is for each work-item to collaboratively write to the local memory: each work-item writes a subsection, and as the work-items execute in parallel they write the entire array. Combined with proper consideration for the access pattern and bank alignment, these collaborative write approaches can lead to highly efficient memory accessing.
 
@@ -1091,8 +1097,8 @@ The AMD implementation of OpenCL provides three levels of performance for the "c
 
 To further improve the performance of the AMD OpenCL stack, two methods allow users to take advantage of hardware constant buffers. These are:
  
-1.Globally scoped constant arrays. These arrays are initialized, globally scoped, and in the constant address space (as specified in section 6.5.3 of the OpenCL specification). If the size of an array is below 64 kB, it is placed in hardware constant buffers; otherwise, it uses global memory. An example of this is a lookup table for math functions.
-2.Per-pointer attribute specifying the maximum pointer size. This is specified using the max_constant_size(N) attribute. The attribute form conforms to section 6.10 of the OpenCL 1.0 specification. This attribute is restricted to top-level kernel function arguments in the constant address space. This restriction prevents a pointer of one size from being passed as an argument to a function that declares a different size. It informs the compiler that indices into the pointer remain inside this range and it is safe to allocate a constant buffer in hardware, if it fits. Using a constant pointer that goes outside of this range results in undefined behavior. All allocations are aligned on the 16-byte boundary. For example:
+1. Globally scoped constant arrays. These arrays are initialized, globally scoped, and in the constant address space (as specified in section 6.5.3 of the OpenCL specification). If the size of an array is below 64 kB, it is placed in hardware constant buffers; otherwise, it uses global memory. An example of this is a lookup table for math functions.
+2. Per-pointer attribute specifying the maximum pointer size. This is specified using the max_constant_size(N) attribute. The attribute form conforms to section 6.10 of the OpenCL 1.0 specification. This attribute is restricted to top-level kernel function arguments in the constant address space. This restriction prevents a pointer of one size from being passed as an argument to a function that declares a different size. It informs the compiler that indices into the pointer remain inside this range and it is safe to allocate a constant buffer in hardware, if it fits. Using a constant pointer that goes outside of this range results in undefined behavior. All allocations are aligned on the 16-byte boundary. For example:
 
 :: 
 
@@ -1105,7 +1111,7 @@ To further improve the performance of the AMD OpenCL stack, two methods allow us
  }  
  
 
-A kernel that uses constant buffers must use ``CL_DEVICE_MAX_CONSTANT_ARGS`` to query the device for the maximum number of constant buffers the kernel can support. This value might differ from the maximum number of hardware constant buffers available. In this case, if the number of hardware constant buffers is less than the ``CL_DEVICE_MAX_CONSTANT_ARGS``, the compiler allocates the largest constant buffers in hardware first and allocates the rest of the constant buffers in global memory. As an optimization, if a constant pointer **A** uses n bytes of memory, where n is less than 64 kB, and constant pointer **B** uses m bytes of memory, where m is less than (64 kB - n) bytes of memory, the compiler can allocate the constant buffer pointers in a single hardware constant buffer. This optimization can be applied recursively by treating the resulting allocation as a single allocation and finding the next smallest constant pointer that fits within the space left in the constant buffer.
+A kernel that uses constant buffers must use CL_DEVICE_MAX_CONSTANT_ARGS to query the device for the maximum number of constant buffers the kernel can support. This value might differ from the maximum number of hardware constant buffers available. In this case, if the number of hardware constant buffers is less than the CL_DEVICE_MAX_CONSTANT_ARGS, the compiler allocates the largest constant buffers in hardware first and allocates the rest of the constant buffers in global memory. As an optimization, if a constant pointer **A** uses n bytes of memory, where n is less than 64 kB, and constant pointer **B** uses m bytes of memory, where m is less than (64 kB - n) bytes of memory, the compiler can allocate the constant buffer pointers in a single hardware constant buffer. This optimization can be applied recursively by treating the resulting allocation as a single allocation and finding the next smallest constant pointer that fits within the space left in the constant buffer.
 
 
 2.4 OpenCL Memory Resources: Capacity and Performance
@@ -1277,17 +1283,17 @@ AMD provides the following tools to examine the amount of LDS used by the kernel
 
 2.6.3 Partitioning the Work
 ############################
-In OpenCL, each kernel executes on an index point that exists in a global NDRange. The partition of the NDRange can have a significant impact on performance; thus, it is recommended that the developer explicitly specify the global `` (#work-groups)`` and local `` (#work-items/work-group)`` dimensions, rather than rely on OpenCL to set these automatically (by setting ``local_work_size`` to NULL in ``clEnqueueNDRangeKernel``). This section explains the guidelines for partitioning at the global, local, and work/kernel levels.
+In OpenCL, each kernel executes on an index point that exists in a global NDRange. The partition of the NDRange can have a significant impact on performance; thus, it is recommended that the developer explicitly specify the global `` (#work-groups)`` and local `` (#work-items/work-group)`` dimensions, rather than rely on OpenCL to set these automatically (by setting ``local_work_size`` to NULL in clEnqueueNDRangeKernel). This section explains the guidelines for partitioning at the global, local, and work/kernel levels.
 
 2.6.3.1 Global Work Size
 ##########################
-OpenCL does not explicitly limit the number of work-groups that can be submitted with a ``clEnqueueNDRangeKernel`` command. The hardware limits the available in- flight threads, but the OpenCL SDK automatically partitions a large number of work-groups into smaller pieces that the hardware can process. For some large workloads, the amount of memory available to the GPU can be a limitation; the problem might require so much memory capacity that the GPU cannot hold it all. In these cases, the programmer must partition the workload into multiple ``clEnqueueNDRangeKernel`` commands. The available device memory can be obtained by querying ``clDeviceInfo``.
+OpenCL does not explicitly limit the number of work-groups that can be submitted with a clEnqueueNDRangeKernel command. The hardware limits the available in- flight threads, but the OpenCL SDK automatically partitions a large number of work-groups into smaller pieces that the hardware can process. For some large workloads, the amount of memory available to the GPU can be a limitation; the problem might require so much memory capacity that the GPU cannot hold it all. In these cases, the programmer must partition the workload into multiple clEnqueueNDRangeKernel commands. The available device memory can be obtained by querying ``clDeviceInfo``.
 
-At a minimum, ensure that the workload contains at least as many work-groups as the number of compute units in the hardware. Work-groups cannot be split across multiple compute units, so if the number of work-groups is less than the available compute units, some units are idle. Use ``clGetDeviceInfo(...CL_DEVICE_MAX_COMPUTE_UNITS)`` to determine the value dynamically.
+At a minimum, ensure that the workload contains at least as many work-groups as the number of compute units in the hardware. Work-groups cannot be split across multiple compute units, so if the number of work-groups is less than the available compute units, some units are idle. Use clGetDeviceInfo(...CL_DEVICE_MAX_COMPUTE_UNITS) to determine the value dynamically.
 
 2.6.3.2 Local Work Size (#Work-Items per Work-Group)
 #####################################################
-OpenCL limits the number of work-items in each group. Call ``clDeviceInfo`` with the ``CL_DEVICE_MAX_WORK_GROUP_SIZE`` to determine the maximum number of work-groups supported by the hardware. The latest generation AMD GPUs support a maximum of 256 work-items per work-group. Note the number of work- items is the product of all work-group dimensions; for example, a work-group with dimensions 32x16 requires 512 work-items, which is not allowed with the current AMD OpenCL runtime.
+OpenCL limits the number of work-items in each group. Call clDeviceInfo with the CL_DEVICE_MAX_WORK_GROUP_SIZE to determine the maximum number of work-groups supported by the hardware. The latest generation AMD GPUs support a maximum of 256 work-items per work-group. Note the number of work- items is the product of all work-group dimensions; for example, a work-group with dimensions 32x16 requires 512 work-items, which is not allowed with the current AMD OpenCL runtime.
 
 The fundamental unit of work on AMD GPUs is called a wavefront. Each wavefront consists of 64 work-items; thus, the optimal local work size is an integer multiple of 64 (specifically 64, 128, 192, or 256) work-items per work- group.
 
@@ -1334,8 +1340,6 @@ As shown above, execution range optimization is a complex topic with many intera
 ----------------------------------------
 2.7.1 Instruction Bandwidths
 +++++++++++++++++++++++++++++
-
-Table 2.3 lists the throughput of instructions for GPUs.
 
 **Table 2.3 Instruction Throughput (Operations/Cycle for Each Processing Element (ALU))**
 
@@ -1431,22 +1435,24 @@ Compared to previous families of GPUs, the accuracy of certain native functions 
 The OpenCL compiler currently recognizes a few patterns and transforms them into a single instruction. By following these patterns, a developer can generate highly efficient code. The currently accepted patterns are:
 
 * Bitfield extract on signed/unsigned integers.
- `` (A >> B) & C ==> [u]bit_extract``
+  |(A >> B) & C ==> [u]bit_extract
+ 
  where
  
- * B and C are compile time constants,
- * A is a 8/16/32bit integer type, and
- * C is a mask.
+  | B and C are compile time constants,
+  | A is a 8/16/32bit integer type, and
+  | C is a mask.
 
 * Bitfield insert on signed/unsigned integers
- `` ((A & B) << C) | ((D & E) << F ==> ubit_insert``
+  | ((A & B) << C) | ((D & E) << F ==> ubit_insert
+ 
  where
  
- * B and E have no conflicting bits (B^E == 0),
- * B, C, E, and F are compile-time constants, and
- * B and E are masks.
- * The first bit set in B is greater than the number of bits in E plus the first bit set in E, or the first bit set in E is greater than the number of bits in B plus the first bit set in B.
- * If B, C, E, or F are equivalent to the value 0, this optimization is also supported.
+  | B and E have no conflicting bits (B^E == 0),
+  | B, C, E, and F are compile-time constants, and
+  | B and E are masks.
+  | The first bit set in B is greater than the number of bits in E plus the first bit set in E, or the first bit set in E is greater than the number of bits in B plus the first bit set in B.
+  | If B, C, E, or F are equivalent to the value 0, this optimization is also supported.
 
 2.8 Additional Performance Guidance
 -------------------------------------
@@ -1491,9 +1497,9 @@ Memory access patterns in compute kernels are usually different from those in th
 2.8.3 General Tips
 +++++++++++++++++++
 * Using dynamic pointer assignment in kernels that are executed on the GPU cause inefficient code generation.
-* Many OpenCL specification compiler options that are accepted by the AMD OpenCL compiler are not implemented. The implemented options are ``-D``, ``-I, w, Werror, -clsingle-precision-constant, -cl-opt-disable``, and``-cl-fp32-correctly-rounded-divide-sqrt.``
+* Many OpenCL specification compiler options that are accepted by the AMD OpenCL compiler are not implemented. The implemented options are ``-D`` , ``-I``, ``w``, ``Werror``, ``-clsingle-precision-constant``, ``-cl-opt-disable``, and ``-cl-fp32-correctly-rounded-divide-sqrt``.
 * Avoid declaring global arrays on the kernel's stack frame as these typically cannot be allocated in registers and require expensive global memory operations.
-* Use predication rather than control-flow. The predication allows the GPU to execute both paths of execution in parallel, which can be faster than attempting to minimize the work through clever control-flow. The reason for this is that if no memory operation exists in a ``?:`` operator (also called a ternary operator), this operation is translated into a single cmov_logical instruction, which is executed in a single cycle. An example of this is:
+* Use predication rather than control-flow. The predication allows the GPU to execute both paths of execution in parallel, which can be faster than attempting to minimize the work through clever control-flow. The reason for this is that if no memory operation exists in a ``?:`` operator (also called a ternary operator), this operation is translated into a single cmov_logical instruction, which is executed in a single cycle. An example of this is :
 
 ::
 
@@ -1535,20 +1541,20 @@ In the second block of code, the ``?:`` operator executes in the vector units, s
 This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what â€˜d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
 
 *If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced. On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups. This gives the runtime more flexibility in scheduling work-groups to idle CPU cores. Experimentation might be needed to reach optimal work-group size.
-*Since the AMD OpenCL runtime supports only in-order queuing, using ``clFinish`` () on a queue and queuing a blocking command gives the same result. The latter saves the overhead of another API command.
+*Since the AMD OpenCL runtime supports only in-order queuing, using clFinish() on a queue and queuing a blocking command gives the same result. The latter saves the overhead of another API command.
 
 For example::
-
-  ``clEnqueueWriteBuffer(myCQ, buff, **CL_FALSE**, 0, buffSize, input, 0, NULL, NULL);``
-  ``clFinish(myCQ);``
+  
+  clEnqueueWriteBuffer(myCQ, buff, **CL_FALSE**, 0, buffSize, input, 0, NULL, NULL);
+  clFinish(myCQ);
 
 is equivalent, for the AMD OpenCL runtime, to::
- 
- ``clEnqueueWriteBuffer(myCQ, buff, **CL_TRUE**, 0, buffSize, input, 0, NULL, NULL);``
+  
+  clEnqueueWriteBuffer(myCQ, buff, **CL_TRUE**, 0, buffSize, input, 0, NULL, NULL);
 
 * GPU ISA: GCN-based GPUs have 32KB of dedicated L1 instruction cache. A single instruction cache instance serves up to 4 CUs (depending upon the architecture family and device), with each CU holding up to 40 wavefronts. As each wavefront includes its own program counter, a single instruction cache unit may serve up to 160 wavefronts with each executing a different instruction in the program.
 
-.. note:: If the program is larger than 32KB, the L1-L2 cache trashing can inhibit performance. The size of the ISA can be determined by using the CodeXL analysis mode, under the Statistics tab. For information about how to use CodeXL, see Chapter 4.
+.. Note:: If the program is larger than 32KB, the L1-L2 cache trashing can inhibit performance. The size of the ISA can be determined by using the CodeXL analysis mode, under the Statistics tab. For information about how to use CodeXL, see Chapter 4.
 
 2.8.4 Guidance for CUDA Programmers Using OpenCL
 +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1560,8 +1566,9 @@ is equivalent, for the AMD OpenCL runtime, to::
   * AMD GPUs have a very high single-precision flops capability (3.788 teraflops in a single AMD Radeon™ HD 7970 GPU). Algorithms that benefit from such throughput can deliver excellent performance on AMD hardware.
 
 2.8.5 Guidance for CPU Programmers Using OpenCL to Program GPUs
-OpenCL is the industry-standard toolchain for programming GPUs and parallel devices from many vendors. It is expected that many programmers skilled in CPU programming will program GPUs for the first time using OpenCL. This section provides some guidance for experienced programmers who are programming a GPU for the first time. It specifically highlights the key differences in optimization strategy.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+OpenCL is the industry-standard toolchain for programming GPUs and parallel devices from many vendors. It is expected that many programmers skilled in CPU programming will program GPUs for the first time using OpenCL. This section provides some guidance for experienced programmers who are programming a GPU for the first time. It specifically highlights the key differences in optimization strategy.
 
 * Study the local memory (LDS) optimizations. These greatly affect the GPU performance. Note the difference in the organization of local memory on the GPU as compared to the CPU cache. Local memory is shared by many work-items (64 on Tahiti). This contrasts with a CPU cache that normally is dedicated to a single work-item. GPU kernels run well when they collaboratively load the shared memory.
 * GPUs have a large amount of raw compute horsepower, compared to memory bandwidth and to "control flow" bandwidth. This leads to some high- level differences in GPU programming strategy.
@@ -1595,12 +1602,12 @@ There also is hardware support for OpenCL functions that give the new hardware i
 
 For example:
 
-``sum.x += tempA0.x * tempB0.x + tempA0.y * tempB1.x + tempA0.z * tempB2.x + tempA0.w * tempB3.x;``
+**sum.x += tempA0.x * tempB0.x + tempA0.y * tempB1.x + tempA0.z * tempB2.x + tempA0.w * tempB3.x;**
 
 can be written as a composition of mad instructions which use fused multiple add
 (FMA):
 
-``sum.x += mad(tempA0.x, tempB0.x, mad(tempA0.y, tempB1.x, mad(tempA0.z, tempB2.x, tempA0.w*tempB3.x)));``
+**sum.x += mad(tempA0.x, tempB0.x, mad(tempA0.y, tempB1.x, mad(tempA0.z, tempB2.x, tempA0.w*tempB3.x)));**
 
 2.8.6.4 Avoid Barriers When Possible
 #####################################
@@ -1931,13 +1938,13 @@ The listing shows::
 
 The instruction sequence means the following:
 
-``MEM_RAT``	Read into a buffer using CompletePath, do no operation on the memory location, and send an ACK when done.
+**MEM_RAT** - Read into a buffer using CompletePath, do no operation on the memory location, and send an ACK when done.
 
-``WAIT_ACK``	Suspend execution of the wavefront until the ACK is received. If there is other work pending this might be free, but if there is no other work to be done this could take 100's of cycles.
+**WAIT_ACK** - Suspend execution of the wavefront until the ACK is received. If there is other work pending this might be free, but if there is no other work to be done this could take 100's of cycles.
 
-``TEX``	Use the L1 cache for the next instruction.
+**TEX** - Use the L1 cache for the next instruction.
 
-``VFETCH``	Do a load instruction to (finally) get the value.
+**VFETCH** - Do a load instruction to (finally) get the value.
  
 
 Stores appear as:
@@ -1946,7 +1953,7 @@ Stores appear as:
  .. MEM_RAT_STORE_RAW: RAT(1)
 
 
-The instruction ``MEM_RAT_STORE`` is the store along the CompletePath.``MEM_RAT`` means CompletePath; ``MEM_RAT_CACHELESS`` means FastPath.
+The instruction ``MEM_RAT_STORE`` is the store along the CompletePath. ``MEM_RAT`` means CompletePath; ``MEM_RAT_CACHELESS`` means FastPath.
 
 3.1.2 Channel Conflicts
 ++++++++++++++++++++++++
@@ -1995,11 +2002,11 @@ If every work-item in a work-group references consecutive memory addresses and t
 
 One or more work-groups execute on each compute unit. On the ATI Radeon™ HD 5000-series GPUs, work-groups are dispatched in a linear order, with x changing most rapidly. For a single dimension, this is:
 
-DispatchOrder = ``get_group_id(0)``
+**DispatchOrder = get_group_id(0)**
  
 For two dimensions, this is:
 
-DispatchOrder = ``get_group_id(0) + get_group_id(1) * get_num_groups(0)``
+**DispatchOrder = get_group_id(0) + get_group_id(1) * get_num_groups(0)**
 
 This is row-major-ordering of the blocks in the index space. Once all compute units are in use, additional work-groups are assigned to compute units as needed. Work-groups retire in order, so active work-groups are contiguous.
 
@@ -2054,8 +2061,7 @@ Staggered offsets apply a coordinate transformation to the kernel so that the da
 
 Figure 3.3 illustrates the transformation to staggered offsets.
 
-
-
+.. image:: Opencl_optimization_images/3.3.png
 
 
 **Figure 3.3 Transformation to Staggered Offsets**
@@ -2130,7 +2136,7 @@ The internal memory paths on ATI Radeon™ HD 5000-series devices support 128-bi
 
 The performance of these kernels can be seen in Figure 3.4. Change to float4 after eliminating the conflicts.
 
-
+.. image:: Opencl_optimization_images/3.4.png
 
 **Figure 3.4 Two Kernels: One Using float4 (blue), the Other float1 (red)**
 
@@ -2184,7 +2190,7 @@ The first kernel Copy1 maximizes coalesced writes: work-item k writes to address
 
 
 
-
+.. image:: Opencl_optimization_images/3.5.png
 
 
 **Figure 3.5 Effect of Varying Degrees of Coalescing - Coal (blue), NoCoal red), Split (green)**
@@ -2249,10 +2255,11 @@ There is not much performance difference, although the coalesced version is slig
 ++++++++++++++++
 The program in Figure 3.6 shows how the performance of a simple, unaligned access (float1) of this kernel varies as the size of offset varies. Each transfer was large (16 MB). The performance gain by adjusting alignment is small, so generally this is not an important consideration on AMD GPUs.
  
-
+.. image:: Opencl_optimization_images/3.6.png
 
 
 **Figure 3.6 Unaligned Access Using float1**
+
 ::
   __kernel void
   CopyAdd(global const float * input,
@@ -2300,9 +2307,9 @@ The recommended order of steps to improve performance is:
 ------------------------------------
 AMD Evergreen GPUs include a Local Data Store (LDS) cache, which accelerates local memory accesses. LDS is not supported in OpenCL on AMD R700-family GPUs. LDS provides high-bandwidth access (more than 10X higher than global memory), efficient data transfers between work-items in a work- group, and high-performance atomic support. Local memory offers significant advantages when the data is re-used; for example, subsequent accesses can read from local memory, thus reducing global memory bandwidth. Another advantage is that local memory does not require coalescing.
 
-To determine local memory size:
-
-``clGetDeviceInfo( ..., CL_DEVICE_LOCAL_MEM_SIZE, ... );``
+To determine local memory size::
+ 
+ clGetDeviceInfo( ..., CL_DEVICE_LOCAL_MEM_SIZE, ... );
 
 All AMD Evergreen GPUs contain a 32K LDS for each compute unit. On high- end GPUs, the LDS contains 32-banks, each bank is four bytes wide and 256 bytes deep; the bank address is determined by bits 6:2 in the address. On lower- end GPUs, the LDS contains 16 banks, each bank is still 4 bytes in size, and the bank used is determined by bits 5:2 in the address. As shown below, programmers should carefully control the bank bits to avoid bank conflicts as much as possible.
 
@@ -2315,8 +2322,7 @@ Each stream processor can generate up to two 4-byte LDS requests per cycle. Byte
 LDS reads require one ALU operation to initiate them. Each operation can initiate two loads of up to four bytes each.
 
 The CodeXL GPU Profiler provides the following performance counter to help optimize local memory usage:
-
-	``LDSBankConflict:`` The percentage of time accesses to the LDS are stalled due to bank conflicts relative to GPU Time. In the ideal case, there are no bank conflicts in the local memory access, and this number is zero.
+	**LDSBankConflict :** The percentage of time accesses to the LDS are stalled due to bank conflicts relative to GPU Time. In the ideal case, there are no bank conflicts in the local memory access, and this number is zero.
 
 Local memory is software-controlled "scratchpad" memory. In contrast, caches typically used on CPUs monitor the access stream and automatically capture recent accesses in a tagged cache. The scratchpad allows the kernel to explicitly load items into the memory; they exist in local memory until the kernel replaces them, or until the work-group ends. To declare a block of local memory, use the ``__local`` keyword; for example: ``__local float localBuffer[64]``
 
@@ -2349,7 +2355,7 @@ The following example is a simple kernel section that collaboratively writes, th
  } 
 
 
-.. note:: the host code cannot read from, or write to, local memory. Only the kernel can access local memory.
+.. Note:: the host code cannot read from, or write to, local memory. Only the kernel can access local memory.
 
 Local memory is consistent across work-items only at a work-group barrier; thus, before reading the values written collaboratively, the kernel must include a ``barrier()`` instruction. An important optimization is the case where the local work-group size is less than, or equal to, the wavefront size. Because the wavefront executes as an atomic unit, the explicit barrier operation is not required. The compiler automatically removes these barriers if the kernel specifies a ``reqd_work_group_size``
 
@@ -2372,7 +2378,9 @@ The AMD implementation of OpenCL provides three levels of performance for the "c
 To further improve the performance of the AMD OpenCL stack, two methods allow users to take advantage of hardware constant buffers. These are:
 
 1. Globally scoped constant arrays. These arrays are initialized, globally scoped, and in the constant address space (as specified in section 6.5.3 of the OpenCL specification). If the size of an array is below 64 kB, it is placed in hardware constant buffers; otherwise, it uses global memory. An example of this is a lookup table for math functions.
-2. Per-pointer attribute specifying the maximum pointer size. This is specified using the max_constant_size(N) attribute. The attribute form conforms to section 6.10 of the OpenCL 1.0 specification. This attribute is restricted to top-level kernel function arguments in the constant address space. This restriction prevents a pointer of one size from being passed as an argument to a function that declares a different size. It informs the compiler that indices into the pointer remain inside this range and it is safe to allocate a constant buffer in hardware, if it fits. Using a constant pointer that goes outside of this range results in undefined behavior. All allocations are aligned on the 16-byte boundary. For example::
+2. Per-pointer attribute specifying the maximum pointer size. This is specified using the max_constant_size(N) attribute. The attribute form conforms to section 6.10 of the OpenCL 1.0 specification. This attribute is restricted to top-level kernel function arguments in the constant address space. This restriction prevents a pointer of one size from being passed as an argument to a function that declares a different size. It informs the compiler that indices into the pointer remain inside this range and it is safe to allocate a constant buffer in hardware, if it fits. Using a constant pointer that goes outside of this range results in undefined behavior. All allocations are aligned on the 16-byte boundary. 
+
+For example::
  
  kernel void mykernel(global int* a,
  constant int* b   attribute__((max_constant_size (65536)))
@@ -2383,7 +2391,7 @@ To further improve the performance of the AMD OpenCL stack, two methods allow us
  } 
  
 
-A kernel that uses constant buffers must use ``CL_DEVICE_MAX_CONSTANT_ARGS`` to query the device for the maximum number of constant buffers the kernel can support. This value might differ from the maximum number of hardware constant buffers available. In this case, if the number of hardware constant buffers is less than the ``CL_DEVICE_MAX_CONSTANT_ARGS``, the compiler allocates the largest constant buffers in hardware first and allocates the rest of the constant buffers in global memory. As an optimization, if a constant pointer **A** uses n bytes of memory, where n is less than 64 kB, and constant pointer **B** uses m bytes of memory, where m is less than (64 kB - n) bytes of memory, the compiler can allocate the constant buffer pointers in a single hardware constant buffer. This optimization can be applied recursively by treating the resulting allocation as a single allocation and finding the next smallest constant pointer that fits within the space left in the constant buffer.
+A kernel that uses constant buffers must use CL_DEVICE_MAX_CONSTANT_ARGS to query the device for the maximum number of constant buffers the kernel can support. This value might differ from the maximum number of hardware constant buffers available. In this case, if the number of hardware constant buffers is less than the CL_DEVICE_MAX_CONSTANT_ARGS, the compiler allocates the largest constant buffers in hardware first and allocates the rest of the constant buffers in global memory. As an optimization, if a constant pointer **A** uses n bytes of memory, where n is less than 64 kB, and constant pointer **B** uses m bytes of memory, where m is less than (64 kB - n) bytes of memory, the compiler can allocate the constant buffer pointers in a single hardware constant buffer. This optimization can be applied recursively by treating the resulting allocation as a single allocation and finding the next smallest constant pointer that fits within the space left in the constant buffer.
 
 
 3.4 OpenCL Memory Resources: Capacity and Performance
@@ -2420,9 +2428,9 @@ Same-indexed constants can be cached in the L1 and L2 cache. Note that "same-ind
 
 Varying-indexed constants use the same path as global memory access and are subject to the same bank and alignment constraints described in Section 3.1, "Global Memory Optimization".
 
-The L1 and L2 caches are currently only enabled for images and same-indexed constants. Read only buffers can be cached in L1 and L2. To enable this, the developer must indicate to the compiler that the buffer is read only and does not alias with other buffers. For example, use:
-
-``kernel void mykernel(  global int const * restrict mypointerName)``
+The L1 and L2 caches are currently only enabled for images and same-indexed constants. Read only buffers can be cached in L1 and L2. To enable this, the developer must indicate to the compiler that the buffer is read only and does not alias with other buffers. For example, use::
+ 
+ kernel void mykernel(  global int const * restrict mypointerName)
 
 The ``const`` indicates to the compiler that mypointerName is read only from the kernel, and the ``restrict`` attribute indicates to the compiler that no other pointer aliases with ``mypointerName``.
 
@@ -2574,9 +2582,10 @@ The number of registers used by a work-item is determined when the kernel is com
 For example, if the compiler allocates 70 registers for the work-item, Table 3.7 shows that only three wavefronts (192 work-items) are supported. If the user later launches the kernel with a work-group size of four wavefronts (256 work-items), the launch fails because the work-group requires 70*256=17920 registers, which is more than the hardware allows. To prevent this from happening, the compiler performs the register allocation with the conservative assumption that the kernel is launched with the largest work-group size (256 work-items). The compiler guarantees that the kernel does not use more than 62 registers (the maximum number of registers which supports a work-group with four wave-fronts), and generates low-performing register spill code, if necessary.
 
 Fortunately, OpenCL provides a mechanism to specify a work-group size that the compiler can use to optimize the register allocation. In particular, specifying a smaller work-group size at compile time allows the compiler to allocate more registers for each kernel, which can avoid spill code and improve performance.
-The kernel attribute syntax is:
 
- ``__attribute ((reqd_work_group_size(X, Y, Z)))``
+The kernel attribute syntax is::
+ 
+ __attribute ((reqd_work_group_size(X, Y, Z)))
 
 Section 6.7.2 of the OpenCL specification explains the attribute in more detail.
 
@@ -2616,17 +2625,17 @@ AMD provides the following tools to examine the amount of LDS used by the kernel
 
 3.6.3 Partitioning the Work
 ++++++++++++++++++++++++++++
-In OpenCL, each kernel executes on an index point that exists in a global NDRange. The partition of the NDRange can have a significant impact on performance; thus, it is recommended that the developer explicitly specify the global (``#work-groups``) and local (``#work-items/work-group``) dimensions, rather than rely on OpenCL to set these automatically (by setting ``local_work_size`` to NULL in ``clEnqueueNDRangeKernel``). This section explains the guidelines for partitioning at the global, local, and work/kernel levels.
+In OpenCL, each kernel executes on an index point that exists in a global NDRange. The partition of the NDRange can have a significant impact on performance; thus, it is recommended that the developer explicitly specify the global (``#work-groups``) and local (``#work-items/work-group``) dimensions, rather than rely on OpenCL to set these automatically (by setting ``local_work_size`` to NULL in clEnqueueNDRangeKernel). This section explains the guidelines for partitioning at the global, local, and work/kernel levels.
 
 3.6.3.1 Global Work Size
 #########################
-OpenCL does not explicitly limit the number of work-groups that can be submitted with a ``clEnqueueNDRangeKernel`` command. The hardware limits the available in- flight threads, but the OpenCL SDK automatically partitions a large number of work-groups into smaller pieces that the hardware can process. For some large workloads, the amount of memory available to the GPU can be a limitation; the problem might require so much memory capacity that the GPU cannot hold it all. In these cases, the programmer must partition the workload into multiple ``clEnqueueNDRangeKernel`` commands. The available device memory can be obtained by querying ``clDeviceInfo``.
+OpenCL does not explicitly limit the number of work-groups that can be submitted with a clEnqueueNDRangeKernel command. The hardware limits the available in- flight threads, but the OpenCL SDK automatically partitions a large number of work-groups into smaller pieces that the hardware can process. For some large workloads, the amount of memory available to the GPU can be a limitation; the problem might require so much memory capacity that the GPU cannot hold it all. In these cases, the programmer must partition the workload into multiple clEnqueueNDRangeKernel commands. The available device memory can be obtained by querying clDeviceInfo.
 
-At a minimum, ensure that the workload contains at least as many work-groups as the number of compute units in the hardware. Work-groups cannot be split across multiple compute units, so if the number of work-groups is less than the available compute units, some units are idle. Evergreen and Northern Islands GPUs have 2-24 compute units. (Use ``clGetDeviceInfo(...CL_DEVICE_MAX_COMPUTE_UNITS)`` to determine the value dynamically).
+At a minimum, ensure that the workload contains at least as many work-groups as the number of compute units in the hardware. Work-groups cannot be split across multiple compute units, so if the number of work-groups is less than the available compute units, some units are idle. Evergreen and Northern Islands GPUs have 2-24 compute units. (Use clGetDeviceInfo(...CL_DEVICE_MAX_COMPUTE_UNITS) to determine the value dynamically).
 
 3.6.3.2 Local Work Size (#Work-Items per Work-Group)
 ######################################################
-OpenCL limits the number of work-items in each group. Call ``clDeviceInfo`` with the ``CL_DEVICE_MAX_WORK_GROUP_SIZE`` to determine the maximum number of work-groups supported by the hardware. The latest generation AMD GPUs support a maximum of 256 work-items per work-group. Note the number of work-items is the product of all work-group dimensions; for example, a work-group with dimensions 32x16 requires 512 work-items, which is not allowed with the current AMD OpenCL runtime.
+OpenCL limits the number of work-items in each group. Call clDeviceInfo with the CL_DEVICE_MAX_WORK_GROUP_SIZE to determine the maximum number of work-groups supported by the hardware. The latest generation AMD GPUs support a maximum of 256 work-items per work-group. Note the number of work-items is the product of all work-group dimensions; for example, a work-group with dimensions 32x16 requires 512 work-items, which is not allowed with the current AMD OpenCL runtime.
 
 The fundamental unit of work on AMD GPUs is called a wavefront. Each wavefront consists of 64 work-items; thus, the optimal local work size is an integer multiple of 64 (specifically 64, 128, 192, or 256) work-items per work- group.
 
@@ -2713,8 +2722,8 @@ The total number of work-items in the work-group is typically the most important
 To focus the discussion, this section has used specific hardware characteristics that apply to most of the Evergreen series. The value Evergreen part, referred to as Cedar and used in products such as the ATI Radeon™ HD 5450 GPU, has different architecture characteristics, as shown below.
 
 
-                          +-------------------------------------+-----------------+
-                          | Evergreen Cypress, Juniper, Redwood | Evergreen Cedar |
++-------------------------+-------------------------------------+-----------------+
+|                         | Evergreen Cypress, Juniper, Redwood | Evergreen Cedar |
 +=========================+=====================================+=================+
 | Work-items/Wavefront    | 64                                  | 32              |
 +-------------------------+-------------------------------------+-----------------+
@@ -2727,7 +2736,7 @@ To focus the discussion, this section has used specific hardware characteristics
 | Maximum Work-Group Size | 256                                 | 128             |
 +-------------------------+-------------------------------------+-----------------+
 
-Note the maximum workgroup size can be obtained with ``clGetDeviceInfo...(...,CL_DEVICE_MAX_WORK_GROUP_SIZE,...)``. Applications must ensure that the requested kernel launch dimensions that are fewer than the threshold reported by this API call.
+.. Note:: the maximum workgroup size can be obtained with clGetDeviceInfo...(...,CL_DEVICE_MAX_WORK_GROUP_SIZE,...). Applications must ensure that the requested kernel launch dimensions that are fewer than the threshold reported by this API call.
 
 The difference in total register size can impact the compiled code and cause register spill code for kernels that were tuned for other devices. One technique that can be useful is to specify the required work-group size as 128 (half the default of 256). In this case, the compiler has the same number of registers available as for other devices and uses the same number of registers. The developer must ensure that the kernel is launched with the reduced work size (128) on Cedar-class devices.
 
@@ -2735,9 +2744,10 @@ The difference in total register size can impact the compiled code and cause reg
 +++++++++++++++++++++++++++++++++++++++
 
 As shown above, execution range optimization is a complex topic with many interacting variables and which frequently requires some experimentation to determine the optimal values. Some general guidelines are:
-* Select the work-group size to be a multiple of 64, so that the wavefronts are fully populated.
-* Always provide at least two wavefronts (128 work-items) per compute unit. For a ATI Radeon™ HD 5870 GPU, this implies 40 wave-fronts or 2560 work- items. If necessary, reduce the work-group size (but not below 64 work- items) to provide work-groups for all compute units in the system.
-* Latency hiding depends on both the number of wavefronts/compute unit, as well as the execution time for each kernel. Generally, two to eight wavefronts/compute unit is desirable, but this can vary significantly, depending on the complexity of the kernel and the available memory bandwidth. The CodeXL GPU Profiler and associated performance counters can help to select an optimal value.
+ 
+ * Select the work-group size to be a multiple of 64, so that the wavefronts are fully populated.
+ * Always provide at least two wavefronts (128 work-items) per compute unit. For a ATI Radeon™ HD 5870 GPU, this implies 40 wave-fronts or 2560 work- items. If necessary, reduce the work-group size (but not below 64 work- items) to provide work-groups for all compute units in the system.
+ * Latency hiding depends on both the number of wavefronts/compute unit, as well as the execution time for each kernel. Generally, two to eight wavefronts/compute unit is desirable, but this can vary significantly, depending on the complexity of the kernel and the available memory bandwidth. The CodeXL GPU Profiler and associated performance counters can help to select an optimal value.
 
 3.7 Using Multiple OpenCL Devices
 ----------------------------------
@@ -2751,8 +2761,8 @@ Table 3.9 lists some key performance characteristics of two exemplary CPU and GP
 
 	**Table 3.9 CPU and GPU Performance Characteristics**
 
-                                 +-------------------+---------------------+--------------+
-                                 | CPU               | GPU                 | Winner Ratio |
++--------------------------------+-------------------+---------------------+--------------+
+|                                | CPU               | GPU                 | Winner Ratio |
 +================================+===================+=====================+==============+
 | Example Device                 | AMD Phenom™ II X4 | ATI Radeon™ HD 5670 |              |
 +--------------------------------+-------------------+---------------------+--------------+
@@ -2785,7 +2795,7 @@ Table 3.9 lists some key performance characteristics of two exemplary CPU and GP
 +--------------------------------+-------------------+---------------------+--------------+
 | Approx Kernel Launch Latency   | 25 μs             | 225 μs              | 9 X          |
 +--------------------------------+-------------------+---------------------+--------------+
-.. 1.For the power specifications of the AMD Phenom™ II x4, see http://www.amd.com/us/products/desk- top/processors/phenom-ii/Pages/phenom-ii-model-number-comparison.aspx. For the power specifications of the ATI Radeon™ HD 5670, see http://www.amd.com/us/products/desktop/graphics/ati-radeon- hd-5000/ati-radeon-hd-5670-overview/Pages/ati-radeon-hd-5670-specifications.aspx.
+.. [1] For the power specifications of the AMD Phenom™ II x4, see http://www.amd.com/us/products/desk- top/processors/phenom-ii/Pages/phenom-ii-model-number-comparison.aspx. For the power specifications of the ATI Radeon™ HD 5670, see http://www.amd.com/us/products/desktop/graphics/ati-radeon- hd-5000/ati-radeon-hd-5670-overview/Pages/ati-radeon-hd-5670-specifications.aspx.
 
 The GPU excels at high-throughput: the peak execution rate (measured in FLOPS) is 7X higher than the CPU, and the memory bandwidth is 2.5X higher than the CPU. The GPU also consumes approximately 65% the power of the CPU; thus, for this comparison, the power efficiency in flops/watt is 10X higher. While power efficiency can vary significantly with different devices, GPUs generally provide greater power efficiency (flops/watt) than CPUs because they optimize for throughput and eliminate hardware designed to hide latency.
 
@@ -2822,24 +2832,30 @@ For these reasons, a dynamic scheduling algorithm is recommended. In this approa
 Multi-core runtimes, such as Cilk, have already introduced dynamic scheduling algorithms for multi-core CPUs, and it is natural to consider extending these scheduling algorithms to GPUs as well as CPUs. A GPU introduces several new aspects to the scheduling process:
 
 * **Heterogeneous Compute Devices**
- Most existing multi-core schedulers target only homogenous computing devices. When scheduling across both CPU and GPU devices, the scheduler must be aware that the devices can have very different performance characteristics (10X or more) for some algorithms. To some extent, dynamic scheduling is already designed to deal with heterogeneous workloads (based on data input the same algorithm can have very different performance, even when run on the same device), but a system with heterogeneous devices makes these cases more common and more extreme. Here are some suggestions for these situations.
- ~The scheduler should support sending different workload sizes to different devices. GPUs typically prefer larger grain sizes, and higher- performing GPUs prefer still larger grain sizes.
- ~The scheduler should be conservative about allocating work until after it has examined how the work is being executed. In particular, it is important to avoid the performance cliff that occurs when a slow device is assigned an important long-running task. One technique is to use small grain allocations at the beginning of the algorithm, then switch to larger grain allocations when the device characteristics are well-known.
- ~As a special case of the above rule, when the devices are substantially different in performance (perhaps 10X), load-balancing has only a small potential performance upside, and the overhead of scheduling the load probably eliminates the advantage. In the case where one device is far faster than everything else in the system, use only the fast device.
- ~The scheduler must balance small-grain-size (which increase the adaptiveness of the schedule and can efficiently use heterogeneous devices) with larger grain sizes (which reduce scheduling overhead). Note that the grain size must be large enough to efficiently use the GPU.
+  
+  Most existing multi-core schedulers target only homogenous computing devices. When scheduling across both CPU and GPU devices, the scheduler must be aware that the devices can have very different performance characteristics (10X or more) for some algorithms. To some extent, dynamic scheduling is already designed to deal with heterogeneous workloads (based on data input the same algorithm can have very different performance, even when run on the same device), but a system with heterogeneous devices makes these cases more common and more extreme. Here are some suggestions for these situations.
+  ~ The scheduler should support sending different workload sizes to different devices. GPUs typically prefer larger grain sizes, and higher- performing GPUs prefer still larger grain sizes.
+  ~ The scheduler should be conservative about allocating work until after it has examined how the work is being executed. In particular, it is important to avoid the performance cliff that occurs when a slow device is assigned an important long-running task. One technique is to use small grain allocations at the beginning of the algorithm, then switch to larger grain allocations when the device characteristics are well-known.
+  ~ As a special case of the above rule, when the devices are substantially different in performance (perhaps 10X), load-balancing has only a small potential performance upside, and the overhead of scheduling the load probably eliminates the advantage. In the case where one device is far faster than everything else in the system, use only the fast device.
+  ~ The scheduler must balance small-grain-size (which increase the adaptiveness of the schedule and can efficiently use heterogeneous devices) with larger grain sizes (which reduce scheduling overhead). Note that the grain size must be large enough to efficiently use the GPU.
+
 * **Asynchronous Launch**
-OpenCL devices are designed to be scheduled asynchronously from a command-queue. The host application can enqueue multiple kernels, flush the kernels so they begin executing on the device, then use the host core for other work. The AMD OpenCL implementation uses a separate thread for each command-queue, so work can be transparently scheduled to the GPU in the background.
+  
+  OpenCL devices are designed to be scheduled asynchronously from a command-queue. The host application can enqueue multiple kernels, flush the kernels so they begin executing on the device, then use the host core for other work. The AMD OpenCL implementation uses a separate thread for each command-queue, so work can be transparently scheduled to the GPU in the background.
 
-One situation that should be avoided is starving the high-performance GPU devices. This can occur if the physical CPU core, which must re-fill the device queue, is itself being used as a device. A simple approach to this problem is to dedicate a physical CPU core for scheduling chores. The device fission extension (see the Extensions appendix of the AMD OpenCL User Guide) can be used to reserve a core for scheduling. For example, on a quad-core device, device fission can be used to create an OpenCL device with only three cores.
+  One situation that should be avoided is starving the high-performance GPU devices. This can occur if the physical CPU core, which must re-fill the device queue, is itself being used as a device. A simple approach to this problem is to dedicate a physical CPU core for scheduling chores. The device fission extension (see the Extensions appendix of the AMD OpenCL User Guide) can be used to reserve a core for scheduling. For example, on a quad-core device, device fission can be used to create an OpenCL device with only three cores.
 
-Another approach is to schedule enough work to the device so that it can tolerate latency in additional scheduling. Here, the scheduler maintains a watermark of uncompleted work that has been sent to the device, and refills the queue when it drops below the watermark. This effectively increase the grain size, but can be very effective at reducing or eliminating device starvation. Developers cannot directly query the list of commands in the OpenCL command queues; however, it is possible to pass an event to each ``clEnqueue`` call that can be queried, in order to determine the execution status (in particular the command completion time); developers also can maintain their own queue of outstanding requests. For many algorithms, this technique can be effective enough at hiding latency so that a core does not need to be reserved for scheduling. In particular, algorithms where the work-load is largely known up-front often work well with a deep queue and watermark. Algorithms in which work is dynamically created may require a dedicated thread to provide low-latency scheduling.
+  Another approach is to schedule enough work to the device so that it can tolerate latency in additional scheduling. Here, the scheduler maintains a watermark of uncompleted work that has been sent to the device, and refills the queue when it drops below the watermark. This effectively increase the grain size, but can be very effective at reducing or eliminating device starvation. Developers cannot directly query the list of commands in the OpenCL command queues; however, it is possible to pass an event to each ``clEnqueue`` call that can be queried, in order to determine the execution status (in particular the command completion time); developers also can maintain their own queue of outstanding requests. For many algorithms, this technique can be effective enough at hiding latency so that a core does not need to be reserved for scheduling. In particular, algorithms where the work-load is largely known up-front often work well with a deep queue and watermark. Algorithms in which work is dynamically created may require a dedicated thread to provide low-latency scheduling.
+
 * **Data Location**
- Discrete GPUs use dedicated high-bandwidth memory that exists in a separate address space. Moving data between the device address space and the host requires time-consuming transfers over a relatively slow PCI- Express bus. Schedulers should be aware of this cost and, for example, attempt to schedule work that consumes the result on the same device producing it.
- CPU and GPU devices share the same memory bandwidth, which results in additional interactions of kernel executions.
+
+  Discrete GPUs use dedicated high-bandwidth memory that exists in a separate address space. Moving data between the device address space and the host requires time-consuming transfers over a relatively slow PCI- Express bus. Schedulers should be aware of this cost and, for example, attempt to schedule work that consumes the result on the same device producing it.
+  
+  CPU and GPU devices share the same memory bandwidth, which results in additional interactions of kernel executions.
 
 3.7.4 Synchronization Caveats
 ++++++++++++++++++++++++++++++
-The OpenCL functions that enqueue work `` (clEnqueueNDRangeKernel)`` merely enqueue the requested work in the command queue; they do not cause it to begin executing. Execution begins when the user executes a synchronizing command, such as ``clFlush`` or ``clWaitForEvents``. Enqueuing several commands before flushing can enable the host CPU to batch together the command submission, which can reduce launch overhead.
+The OpenCL functions that enqueue work  (clEnqueueNDRangeKernel) merely enqueue the requested work in the command queue; they do not cause it to begin executing. Execution begins when the user executes a synchronizing command, such as ``clFlush`` or ``clWaitForEvents``. Enqueuing several commands before flushing can enable the host CPU to batch together the command submission, which can reduce launch overhead.
 
 Command-queues that are configured to execute in-order are guaranteed to complete execution of each command before the next command begins. This synchronization guarantee can often be leveraged to avoid explicit ``clWaitForEvents()`` calls between command submissions. Using ``clWaitForEvents()`` requires intervention by the host CPU and additional synchronization cost between the host and the GPU; by leveraging the in-order queue property, back-to-back kernel executions can be efficiently handled directly on the GPU hardware.
 
@@ -2850,6 +2866,7 @@ The AMD OpenCL implementation spawns a new thread to manage each command queue. 
 
 For low-latency CPU response, it can be more efficient to use a dedicated spin loop and not call ``clFinish()`` Calling ``clFinish()`` indicates that the application wants to wait for the GPU, putting the thread to sleep. For low latency, the application should use ``clFlush()``, followed by a loop to wait for the event to complete. This is also true for blocking maps. The application should use non- blocking maps followed by a loop waiting on the event. The following provides sample code for this.
 ::
+ 
  if (sleep)
   {
   // this puts host thread to sleep, useful if power is a consideration or overhead is not a concern
@@ -2901,11 +2918,11 @@ Table 3.10 lists the throughput of instructions for GPUs.
 
 **Table 3.10 Instruction Throughput (Operations/Cycle for Each Stream Processor)**
 
-                                                  +--------------------------------------------------------------+
-                                                  | Rate (Operations/Cycle) for each Stream Processor            |
-                                +-----------------+-------------------------------+------------------------------+
-                                | Instruction     | Non-Double-Precision- Capable | Double-Precision-Capable     |
-                                |                 | (Evergreen and later) Devices | Devices(Evergreen and later) |
++-------------------------------------------------+--------------------------------------------------------------+
+|                               |                 | Rate (Operations/Cycle) for each Stream Processor            |
++-------------------------------+-----------------+-------------------------------+------------------------------+
+|                               | Instruction     | Non-Double-Precision- Capable | Double-Precision-Capable     |
+|                               |                 | (Evergreen and later) Devices | Devices(Evergreen and later) |
 +===============================+=================+===============================+==============================+
 | **Single Precision FP Rates** | SPFP FMA        | 0                             | 4                            |
 +                               +-----------------+-------------------------------+------------------------------+
@@ -3011,67 +3028,20 @@ OpenCL supports two types of math library operation: ``native_function()`` and `
 Each stream core in the AMD GPU is programmed with a five-wide (or four-wide, depending on the GPU type) VLIW instruction. Efficient use of the GPU hardware requires that the kernel contain enough parallelism to fill all five processing elements; serial dependency chains are scheduled into separate instructions. A classic technique for exposing more parallelism to the compiler is loop unrolling. To assist the compiler in disambiguating memory addresses so that loads can be combined, developers should cluster load and store operations. In particular, re- ordering the code to place stores in adjacent code lines can improve performance. Figure 3.7 shows an example of unrolling a loop and then
 clustering the stores.
 
-+-----------------------------------------------------------------+
-| __kernel void loopKernel1A(int loopCount, global float *output, |
-| global const float * input)				      |
-| {						      |
-| uint gid = get_global_id(0);			      |
-|						      |
-| for (int i=0; i<loopCount; i+=1) {			      |
-| float Velm0 = (input[i] * 6.0 + 17.0);		      |
-| output[gid+i] = Velm0;				      |
-| }						      |
-| }						      |
-+-----------------------------------------------------------------+
+.. image:: Opencl_optimization_images/3.7.png
 
 **Figure 3.7 Unmodified Loop**
 
 Figure 3.8 is the same loop unrolled 4x.
 
-+-----------------------------------------------------------+
-|						|
-| __kernel void loopKernel2A(int loopCount,		|
-| global float * output, global const float * input)	|
-| {						|
-| uint gid = get_global_id(0);			|
-| for (int i=0; i<loopCount; i+=4) {			|
-| float Velm0 = (input[i] * 6.0 + 17.0);		|
-| output[gid+i] = Velm0;				|
-| 						|
-| float Velm1 = (input[i+1] * 6.0 + 17.0);		|
-| output[gid+i+1] = Velm1;				|
-| 						|
-| float Velm2 = (input[i+2] * 6.0 + 17.0);		|
-| output[gid+i+2] = Velm2;				|
-|						|
-| float Velm3 = (input[i+3] * 6.0 + 17.0);		|
-| output[gid+i+3] = Velm3;				|
-| }						|
-| }						|
-|						|
-+-----------------------------------------------------------+
+.. image:: Opencl_optimization_images/3.8.png
+
 	**Figure 3.8 Kernel Unrolled 4X**
 
 Figure 3.9 shows and example of an unrolled loop with clustered stores.
 
-+---------------------------------------------------------------------+
-|							|
-|  __kernel void loopKernel3A(int loopCount, global float *output,	|
-|  global const float * input)				|
-| {							|
-| uint gid = get_global_id(0);				|
-| 							|
-| for (int i=0; i<loopCount; i+=4) {				|
-| float Velm0 = (input[i] * 6.0 + 17.0); 			|
-| float Velm1 = (input[i+1] * 6.0 + 17.0); 			|
-| float Velm2 = (input[i+2] * 6.0 + 17.0);			|
-| float Velm3 = (input[i+3] * 6.0 + 17.0);			|
-|							|
-| output[gid+i+0] = Velm0; output[gid+i+1] = Velm1;		|
-| output[gid+i+2] = Velm2; output[gid+i+3] = Velm3;		|
-| }							|
-| }							|
-+---------------------------------------------------------------------+
+.. image:: Opencl_optimization_images/3.9.png
+
 	**Figure 3.9 Unrolled Loop with Stores Clustered**
 
 Unrolling the loop to expose the underlying parallelism typically allows the GPU compiler to pack the instructions into the slots in the VLIW word. For best results, unrolling by a factor of at least 5 (perhaps 8 to preserve power-of-two factors) may deliver best performance. Unrolling increases the number of required registers, so some experimentation may be required.
@@ -3080,22 +3050,7 @@ The CPU back-end requires the use of vector types (float4) to vectorize and gene
 
 Figure 3.10 is an example of an unrolled kernel that uses float4 for vectorization.
 
-+---------------------------------------------------------------------+
-|							|
-|   __kernel void loopKernel4(int loopCount,			|
-|   global float4 *output,					|
-|   global const float4 * input)				|
-|   {							|
-|   uint gid = get_global_id(0);				|
-|							|
-|   for (int i=0; i<loopCount; i+=1) {				|
-|   float4 Velm = input[i] * 6.0 + 17.0;			|
-|							|
-|   output[gid+i] = Velm;					|
-|   }							|
-|   }							|
-|							|
-+---------------------------------------------------------------------+
+.. image:: Opencl_optimization_images/3.10.png
 
 	**Figure 3.10 Unrolled Kernel Using float4 for Vectorization**
 
@@ -3105,26 +3060,32 @@ Figure 3.10 is an example of an unrolled kernel that uses float4 for vectorizati
 The OpenCL compiler currently recognizes a few patterns and transforms them into a single instruction. By following these patterns, a developer can generate highly efficient code. The currently accepted patterns are:
 
 * Bitfield extract on signed/unsigned integers.
-	`` (A >> B) & C ==> [u]bit_extract``
-where
-	~ B and C are compile time constants,
-	~ A is a 8/16/32bit integer type, and
-	~ C is a mask.
+      | (A >> B) & C ==> [u]bit_extract
+      
+     where
+     
+      | B and C are compile time constants,
+      | A is a 8/16/32bit integer type, and
+      | C is a mask.
+      
 * Bitfield insert on signed/unsigned integers
-	`` ((A & B) << C) | ((D & E) << F ==> ubit_insert``
-where
-	~ B and E have no conflicting bits (B^E == 0),
-	~ B, C, E, and F are compile-time constants, and
-	~ B and E are masks.
-	~ The first bit set in B is greater than the number of bits in E plus the first bit set in E, or the first bit set in E is greater than the number of bits in B plus the first bit set in B.
-	~ If B, C, E, or F are equivalent to the value 0, this optimization is also supported.
+      | ((A & B) << C) | ((D & E) << F ==> ubit_insert
+      
+     where
+      
+      | B and E have no conflicting bits (B^E == 0),
+      | B, C, E, and F are compile-time constants, and
+      | B and E are masks.
+      | The first bit set in B is greater than the number of bits in E plus the first bit set in E, or the first bit set in E is greater than the number of bits in B plus the first bit set in B.
+      | If B, C, E, or F are equivalent to the value 0, this optimization is also supported.
  
 3.9 Clause Boundaries
 ----------------------
 
 AMD GPUs groups instructions into clauses. These are broken at control-flow boundaries when:
-* the instruction type changes (for example, from FETCH to ALU), or
-* if the clause contains the maximum amount of operations (the maximum size for an ALU clause is 128 operations).
+
+ * the instruction type changes (for example, from FETCH to ALU), or
+ * if the clause contains the maximum amount of operations (the maximum size for an ALU clause is 128 operations). 
 
 ALU and LDS access instructions are placed in the same clause. FETCH, ALU/LDS, and STORE instructions are placed into separate clauses.
 
@@ -3137,7 +3098,8 @@ ALU dependencies on memory operations are handled at the clause level. Specifica
 Switching to another clause in the same wavefront requires approximately 40 cycles. The hardware immediately schedules another wavefront if one is available, so developers are encouraged to provide multiple wavefronts/compute unit. The cost to switch clauses is far less than the memory latency; typically, if the program is designed to hide memory latency, it hides the clause latency as well.
 
 The address calculations for FETCH and STORE instructions execute on the same hardware in the compute unit as do the ALU clauses. The address calculations for memory operations consumes the same executions resources that are used for floating-point computations.
-* The ISA dump shows the clause boundaries. See the example shown below. For more information on clauses, see the AMD Evergreen-Family ISA Microcode
+ 
+ * The ISA dump shows the clause boundaries. See the example shown below. For more information on clauses, see the AMD Evergreen-Family ISA Microcode
 
 And Instructions (v1.0b) and the AMD R600/R700/Evergreen Assembly Language Format documents.
 
@@ -3218,16 +3180,18 @@ Currently, the unroll pragma requires that the loop boundaries can be determined
 +++++++++++++++++++++
 
 There are many possible physical memory layouts for images. AMD devices can access memory in a tiled or in a linear arrangement.
-* Linear - A linear layout format arranges the data linearly in memory such that element addresses are sequential. This is the layout that is familiar to CPU programmers. This format must be used for OpenCL buffers; it can be used for images.
-* Tiled - A tiled layout format has a pre-defined sequence of element blocks arranged in sequential memory addresses (see Figure 3.11 for a conceptual illustration). A microtile consists of ABIJ; a macrotile consists of the top-left 16 squares for which the arrows are red. Only images can use this format. Translating from user address space to the tiled arrangement is transparent to the user. Tiled memory layouts provide an optimized memory access pattern to make more efficient use of the RAM attached to the GPU compute device. This can contribute to lower latency.
+ 
+ * Linear - A linear layout format arranges the data linearly in memory such that element addresses are sequential. This is the layout that is familiar to CPU programmers. This format must be used for OpenCL buffers; it can be used for images.
+ * Tiled - A tiled layout format has a pre-defined sequence of element blocks arranged in sequential memory addresses (see Figure 3.11 for a conceptual illustration). A microtile consists of ABIJ; a macrotile consists of the top-left 16 squares for which the arrows are red. Only images can use this format. Translating from user address space to the tiled arrangement is transparent to the user. Tiled memory layouts provide an optimized memory access pattern to make more efficient use of the RAM attached to the GPU compute device. This can contribute to lower latency.
 
 
 
-
+.. image:: Opencl_optimization_images/3.11.png
 
 **Figure 3.11 One Example of a Tiled Layout Format**
 
 **Memory Access Pattern -**
+
 Memory access patterns in compute kernels are usually different from those in the pixel shaders. Whereas the access pattern for pixel shaders is in a hierarchical, space-filling curve pattern and is tuned for tiled memory performance (generally for textures), the access pattern for a compute kernel is linear across each row before moving to the next row in the global id space. This has an effect on performance, since pixel shaders have implicit blocking, and compute kernels do not. If accessing a tiled image, best performance is achieved if the application tries to use workgroups as a simple blocking strategy.
 
 3.10.3 General Tips
@@ -3235,69 +3199,80 @@ Memory access patterns in compute kernels are usually different from those in th
 * Using dynamic pointer assignment in kernels that are executed on the GPU cause inefficient code generation.
 * Many OpenCL specification compiler options that are accepted by the AMD OpenCL compiler are not implemented. The implemented options are ``-D, -I, w, Werror, -clsingle-precision-constant, -cl-opt-disable,`` and ``-cl-fp32-correctly-rounded-divide-sqrt``.
 * Avoid declaring global arrays on the kernel's stack frame as these typically cannot be allocated in registers and require expensive global memory operations.
-* Use predication rather than control-flow. The predication allows the GPU to execute both paths of execution in parallel, which can be faster than attempting to minimize the work through clever control-flow. The reason for this is that if no memory operation exists in a ``?:`` operator (also called a ternary operator), this operation is translated into a single ``cmov_logical`` instruction, which is executed in a single cycle. An example of this is::
+* Use predication rather than control-flow. The predication allows the GPU to execute both paths of execution in parallel, which can be faster than attempting to minimize the work through clever control-flow. The reason for this is that if no memory operation exists in a ``?:`` operator (also called a ternary operator), this operation is translated into a single ``cmov_logical`` instruction, which is executed in a single cycle. An example of this is :
+  ::
+   
+   If (A>B) { C += D;
+   } else { C -= D;
+   } 
 
- If (A>B) { C += D;
- } else { C -= D;
- } 
+  Replace this with::
+   
+   int factor = (A>B) ? 1:-1;
+   C += factor*D;
 
-Replace this with::
-
- int factor = (A>B) ? 1:-1;
- C += factor*D;
- 
 
 In the first block of code, this translates into an IF/ELSE/ENDIF sequence of CF clauses, each taking ~40 cycles. The math inside the control flow adds two cycles if the control flow is divergent, and one cycle if it is not. This code executes in ~120 cycles.
 
 In the second block of code, the ``?:`` operator executes in an ALU clause, so no extra CF instructions are generated. Since the instructions are sequentially dependent, this block of code executes in three cycles, for a ~40x speed improvement. To see this, the first cycle is the (A>B) comparison, the result of which is input to the second cycle, which is the ``cmov_logical`` factor, bool, 1, -1. The final cycle is a MAD instruction that: mad C, factor, D, C. If the ratio between CF clauses and ALU instructions is low, this is a good pattern to remove the control flow. 
-* Loop Unrolling
-	~ OpenCL kernels typically are high instruction-per-clock applications. Thus, the overhead to evaluate control-flow and execute branch instructions can consume a significant part of resource that otherwise can be used for high-throughput compute operations.
-	~ The AMD OpenCL compiler performs simple loop unrolling optimizations; however, for more complex loop unrolling, it may be beneficial to do this manually.
-* If possible, create a reduced-size version of your data set for easier debugging and faster turn-around on performance experimentation. GPUs do not have automatic caching mechanisms and typically scale well as resources are added. In many cases, performance optimization for the reduced-size data implementation also benefits the full-size algorithm.
-* When tuning an algorithm, it is often beneficial to code a simple but accurate algorithm that is retained and used for functional comparison. GPU tuning can be an iterative process, so success requires frequent experimentation, verification, and performance measurement.
-* The profiler and analysis tools report statistics on a per-kernel granularity. To narrow the problem further, it might be useful to remove or comment-out sections of code, then re-run the timing and profiling tool.
-* Writing code with dynamic pointer assignment should be avoided on the GPU. For example::
 
- kernel void dyn_assign(global int* a, global int* b, global int* c)
- {
- global int* d; 
- size_t idx = get_global_id(0);
- if (idx & 1) {
- d = b;
- } else {
- d = c;
- }
- a[idx] = d[idx];
- } 
+ * Loop Unrolling
+	* OpenCL kernels typically are high instruction-per-clock applications. Thus, the overhead to evaluate control-flow and execute branch instructions can consume a significant part of resource that otherwise can be used for high-throughput compute operations.
+	* The AMD OpenCL compiler performs simple loop unrolling optimizations; however, for more complex loop unrolling, it may be beneficial to do this manually.
+ * If possible, create a reduced-size version of your data set for easier debugging and faster turn-around on performance experimentation. GPUs do not have automatic caching mechanisms and typically scale well as resources are added. In many cases, performance optimization for the reduced-size data implementation also benefits the full-size algorithm.
+ * When tuning an algorithm, it is often beneficial to code a simple but accurate algorithm that is retained and used for functional comparison. GPU tuning can be an iterative process, so success requires frequent experimentation, verification, and performance measurement.
+ * The profiler and analysis tools report statistics on a per-kernel granularity. To narrow the problem further, it might be useful to remove or comment-out sections of code, then re-run the timing and profiling tool.
+ * Writing code with dynamic pointer assignment should be avoided on the GPU. For example::
  
+   kernel void dyn_assign(global int* a, global int* b, global int* c)
+   {
+   global int* d; 
+   size_t idx = get_global_id(0);
+   if (idx & 1) {
+   d = b;
+   } else {
+   d = c;
+   }
+   a[idx] = d[idx];
+   } 
 
-This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what â€˜d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
-* If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced. On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups. This gives the runtime more flexibility in scheduling work-groups to idle CPU cores. Experimentation might be needed to reach optimal work-group size.
-* Since the AMD OpenCL runtime supports only in-order queuing, using ``clFinish`` () on a queue and queuing a blocking command gives the same result. The latter saves the overhead of another API command.
 
-For example::
+   This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what â€˜d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
+ 
+ * If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced. On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups. This gives the runtime more flexibility in scheduling work-groups to idle CPU cores. Experimentation might be needed to reach optimal work-group size.
+ * Since the AMD OpenCL runtime supports only in-order queuing, using ``clFinish`` () on a queue and queuing a blocking command gives the same result. The latter saves the overhead of another API command.
+   For example::
+     
+     clEnqueueWriteBuffer(myCQ, buff, **CL_FALSE**, 0, buffSize, input, 0, NULL, NULL);``
+     clFinish(myCQ);
+   
+   is equivalent, for the AMD OpenCL runtime, to::
+     
+     clEnqueueWriteBuffer(myCQ, buff, **CL_TRUE**, 0, buffSize, input, 0, NULL, NULL);``
 
- ``clEnqueueWriteBuffer(myCQ, buff, **CL_FALSE**, 0, buffSize, input, 0, NULL, NULL);``
- ``clFinish(myCQ);``   
-is equivalent, for the AMD OpenCL runtime, to:
-
-``clEnqueueWriteBuffer(myCQ, buff, **CL_TRUE**, 0, buffSize, input, 0, NULL, NULL);``
 
 3.10.4 Guidance for CUDA Programmers Using OpenCL
 ++++++++++++++++++++++++++++++++++++++++++++++++++
-* Porting from CUDA to OpenCL is relatively straightforward. Multiple vendors have documents describing how to do this, including AMD: `http://developer.amd.com/documentation/articles/pages/OpenCL-and-the-ATI-Stream-v2.0-Beta.aspx#four`_.
-* Some specific performance recommendations which differ from other GPU architectures:
-	~ Use a workgroup size that is a multiple of 64. CUDA code can use a workgroup size of 32; this uses only half the available compute resources on an ATI Radeon™ HD 5870 GPU.
- 	~ Vectorization can lead to substantially greater efficiency. The ``ALUPacking`` counter provided by the Profiler can track how well the kernel code is using the five-wide (or four-wide, depending on the GPU type) VLIW unit. Values below 70 percent may indicate that dependencies are preventing the full use of the processor. For some kernels, vectorization can be used to increase efficiency and improve kernel performance.
-	~ AMD GPUs have a very high single-precision flops capability (2.72 teraflops in a single ATI Radeon™ HD 5870 GPU). Algorithms that benefit from such throughput can deliver excellent performance on AMD hardware.
+
+ * Porting from CUDA to OpenCL is relatively straightforward. Multiple vendors have documents describing how to do this, including AMD : http://developer.amd.com/tools-and-sdks/opencl-zone/
+ * Some specific performance recommendations which differ from other GPU architectures:
+
+	* Use a workgroup size that is a multiple of 64. CUDA code can use a workgroup size of 32; this uses only half the available compute resources on an ATI Radeon™ HD 5870 GPU.
+ 	* Vectorization can lead to substantially greater efficiency. The ``ALUPacking`` counter provided by the Profiler can track how well the kernel code is using the five-wide (or four-wide, depending on the GPU type) VLIW unit. Values below 70 percent may indicate that dependencies are preventing the full use of the processor. For some kernels, vectorization can be used to increase efficiency and improve kernel performance.
+	* AMD GPUs have a very high single-precision flops capability (2.72 teraflops in a single ATI Radeon™ HD 5870 GPU). Algorithms that benefit from such throughput can deliver excellent performance on AMD hardware.
+
 
 3.10.5 Guidance for CPU Programmers Using OpenCL to Program GPUs
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 OpenCL is the industry-standard toolchain for programming GPUs and parallel devices from many vendors. It is expected that many programmers skilled in CPU programming will program GPUs for the first time using OpenCL. This section provides some guidance for experienced programmers who are programming a GPU for the first time. It specifically highlights the key differences in optimization strategy.
+ 
  * Study the local memory (LDS) optimizations. These greatly affect the GPU performance. Note the difference in the organization of local memory on the GPU as compared to the CPU cache. Local memory is shared by many work-items (64 on Cypress). This contrasts with a CPU cache that normally is dedicated to a single work-item. GPU kernels run well when they collaboratively load the shared memory.
  * GPUs have a large amount of raw compute horsepower, compared to memory bandwidth and to "control flow" bandwidth. This leads to some high- level differences in GPU programming strategy.
-	~ A CPU-optimized algorithm may test branching conditions to minimize the workload. On a GPU, it is frequently faster simply to execute the workload.
-	~ A CPU-optimized version can use memory to store and later load pre- computed values. On a GPU, it frequently is faster to recompute values rather than saving them in registers. Per-thread registers are a scarce resource on the CPU; in contrast, GPUs have many available per-thread register resources.
+
+	* A CPU-optimized algorithm may test branching conditions to minimize the workload. On a GPU, it is frequently faster simply to execute the workload.
+	* A CPU-optimized version can use memory to store and later load pre- computed values. On a GPU, it frequently is faster to recompute values rather than saving them in registers. Per-thread registers are a scarce resource on the CPU; in contrast, GPUs have many available per-thread register resources.
+ 
  * Use ``float4`` and the OpenCL built-ins for vector types `` (vload, vstore,`` etc.). These enable the AMD OpenCL implementation to generate efficient, packed SSE instructions when running on the CPU. Vectorization is an optimization that benefits both the AMD CPU and GPU.
  
 3.10.6 Optimizing Kernel Code
@@ -3325,12 +3300,14 @@ The Bulldozer family of CPUs supports FMA4 instructions, exchanging instructions
 There also is hardware support for OpenCL functions that give the new hardware implementation of rotating.
 
 For example::
- sum.x += tempA0.x * tempB0.x + tempA0.y * tempB1.x + tempA0.z * tempB2.x + tempA0.w * tempB3.x;
+ 
+  sum.x += tempA0.x * tempB0.x + tempA0.y * tempB1.x + tempA0.z * tempB2.x + tempA0.w * tempB3.x;
 
 can be written as a composition of mad instructions which use fused multiple add
 (FMA)::
+ 
+  sum.x += mad(tempA0.x, tempB0.x, mad(tempA0.y, tempB1.x, mad(tempA0.z, tempB2.x, tempA0.w*tempB3.x)));
 
- sum.x += mad(tempA0.x, tempB0.x, mad(tempA0.y, tempB1.x, mad(tempA0.z, tempB2.x, tempA0.w*tempB3.x)));
 
 3.10.6.4 Avoid Barriers When Possible
 #######################################

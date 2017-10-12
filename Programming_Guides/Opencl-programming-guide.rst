@@ -7,15 +7,17 @@ OPENCL Programming Guide
    * :ref:`OpenCL Architecture`
 	* :ref:`Terminology`
 	* :ref:`Opencl-overview`
-          * :ref:`Programming-model`
- 	* :ref:`Synchronization`
+	* :ref:`Programming-model`
+	* :ref:`Synchronization`
 	* :ref:`Memory-Arch`
 	* :ref:`Example`
+   
    * :ref:`AMD_Implementation` 
 	* :ref:`AMD-APP-SDK-Implementation`
 	* :ref:`Hardware-Overview-GCNDevices` 
 	* :ref:`Communication-Host-GPU`
 	* :ref:`Wavefront-Scheduling`
+   
    * :ref:`Build_Run_Opencl`
 	* :ref:`Compilin-Host-Program`
 	* :ref:`Compiling-device-programs`
@@ -26,14 +28,17 @@ OPENCL Programming Guide
 	* :ref:`Running-Program`
 	* :ref:`note-on-thread-safety`
 	* :ref:`Toolchain-considerations`
+   
    * :ref:`Debug_profiling_OpenCL`
 	* :ref:`AMD-CodeXL-GPU-Debugger`
 	* :ref:`Debugging-CPU-Kernels-GDB`
+   
    * :ref:`OpenCL_static` 
 	* :ref:`Overview`
 	* :ref:`OpenCL-C-Runtime` 
 	* :ref:`C-Programming-Language`
 	* :ref:`Examples`
+   
    * :ref:`OpenCL_2.0` 
 	* :ref:`Introduction`
 	* :ref:`Shared-virtual-Memory`
@@ -45,6 +50,7 @@ OPENCL Programming Guide
 	* :ref:`Image-Enhancements`
 	* :ref:`Non-uniform-work-group-size`
 	* :ref:`Portability-considerations`
+   
    * :ref:`OpenCL_Extentions`
    * :ref:`ICD`
    * :ref:`BIF`
@@ -687,7 +693,7 @@ The following steps guide you through this example.
   }
   }
 
-Example: Parallel Min() Function
+Example: Parallel Min( ) Function
 *****************************************
 
 This medium-complexity sample shows how to implement an efficient parallel min() function.
@@ -712,8 +718,8 @@ Runtime Code –
 5. After the kernels are built, the code prints errors that occurred during kernel compilation and linking.
 
 6. The main loop is set up so that the measured timing reflects the actual kernel performance. If a sufficiently large NLOOPS is     chosen, effects from kernel launch time and delayed buffer copies to the device by the CL runtime are minimized. Note that while  	only a single clFinish() is executed at the end of the timing run, the two kernels are always linked using an event to ensure     	serial execution.
-
-  The bandwidth is expressed as “number of input bytes processed.” For high- end graphics cards, the bandwidth of this algorithm is   	about an order of magnitude higher than that of the CPU, due to the parallelized memory subsystem of the graphics card.
+   
+   The bandwidth is expressed as “number of input bytes processed.” For high- end graphics cards, the bandwidth of this algorithm is   	about an order of magnitude higher than that of the CPU, due to the parallelized memory subsystem of the graphics card.
 
 7. The results then are checked against the comparison value. This also establishes that the result is the same on both CPU and GPU, 	which can serve as the first verification test for newly written kernel code.
 
@@ -728,7 +734,6 @@ Kernel Code –
 11. The kernel sets up a memory access pattern based on the device. For the CPU, the source buffer is chopped into continuous   	buffers: one per thread. Each CPU thread serially walks through its buffer portion, which results in good cache and prefetch    	behavior for each core.
 
     On the GPU, each thread walks the source buffer using a stride of the total number of threads. As many threads are executed in  	parallel, the result is a maximally coalesced memory pattern requested from the memory back-end. For example, if each compute   	unit has 16 physical processors, 16 uint4 requests are produced in parallel, per clock, for a total of 256 bytes per clock.
-
 
 12. The kernel code uses a reduction consisting of three stages:     global to private,private to local, which is flushed to  global, and finally global to global. In the first loop, each thread walks     global memory, and reduces all values into a min value   in private memory (typically, a register). This is the bulk of the work, and is mainly bound by global memory bandwidth. The    	subsequent reduction stages are brief in comparison.
 
@@ -991,6 +996,7 @@ AMD Implementation
 The AMD APP SDK Implementation of OpenCL
 #########################################
 AMD APP SDK harnesses the tremendous processing power of GPUs for high- performance, data-parallel computing in a wide range of applications. The AMD system includes a software stack, AMD GPUs, and AMD multicore CPUs.
+
 Figure 2.1 illustrates the relationship of the AMD APP SDK components.
 
 .. image:: images/2.1.png
@@ -1245,23 +1251,23 @@ Compiling on Linux
 To compile OpenCL applications on Linux, gcc or the Intel C compiler must be installed. There are two major steps: compiling and linking.
 
 1. Compile all the C++ files (Template.cpp), and get the object files.
-   For 32-bit object files on a 32-bit system, or 64-bit object files on 64-bit system:
+   For 32-bit object files on a 32-bit system, or 64-bit object files on 64-bit system::
+     
+     g++ -o Template.o -c Template.cpp -I$AMDCOMPUTESDKROOT/include
 
-   ``g++ -o Template.o -c Template.cpp -I$AMDCOMPUTESDKROOT/include``
- 
-   For building 32-bit object files on a 64-bit system:
-
-   ``g++ -o Template.o -c Template.cpp -I$AMDCOMPUTESDKROOT/include``
+   For building 32-bit object files on a 64-bit system::
+   
+    g++ -o Template.o -c Template.cpp -I$AMDCOMPUTESDKROOT/include
 
 2. Link all the object files generated in the previous step to the OpenCL library and create an executable.
 
-   For linking to a 64-bit library:
+   For linking to a 64-bit library::
+   
+     g++ -o Template Template.o -lOpenCL -L$AMDCOMPUTESDKROOT/lib/x86_64
 
-   ``g++ -o Template Template.o -lOpenCL -L$AMDCOMPUTESDKROOT/lib/x86_64``
-
-   For linking to a 32-bit library:
-
-   ``g++ -o Template Template.o -lOpenCL -L$AMDCOMPUTESDKROOT/lib/x86``
+   For linking to a 32-bit library::
+   
+    g++ -o Template Template.o -lOpenCL -L$AMDCOMPUTESDKROOT/lib/x86
 
 .. _Compiling-device-programs:
 
@@ -1290,7 +1296,7 @@ specification) as a text buffer to create the program object. If the source code
 
 Note: Most of the examples in this chapter are shown using runtime C APIs. In order to use the C++ wrapper APIs, one must map (a trivial step) the C APIs to corresponding C++ wrapper APIs. For cleanness, error checking is not shown.
 
-**Example creation of program objects from an inline text string**
+**Example creation of program objects from an inline text string :**
 ::
 
   const char *source =
@@ -1304,7 +1310,7 @@ Note: Most of the examples in this chapter are shown using runtime C APIs. In or
   &source, NULL, NULL );
 
 
-**Example creation of program objects from an external file**
+**Example creation of program objects from an external file :**
 
 :: 
 
@@ -1331,8 +1337,7 @@ Building the program executable from the program objects
 *********************************************************
 After the program object is created (from either sources or binaries), the program must be built for the targeted devices and the device executables must be generated. The executables are generated mainly in two ways:
 
- * Building (compile and link) the program in a single step (using
-   clBuildProgram)
+ * Building (compile and link) the program in a single step (using clBuildProgram)
  * Compiling and linking the program separately (using clCompileProgram and clLinkProgram)
 
 Building the program in a single step
@@ -1342,15 +1347,14 @@ The most common way of building program objects, this method uses a single API, 
 **Example(s):**
 
 Suppose a program object has been created as follows:
-
   | cl_program program = clCreateProgramWithSource(context, 1, &source,&length, NULL);
 
 
 Next, the program object can be built for all the devices in the context or for a list of selected devices.
 
 * To build the program for all the devices, “NULL” must be passed against the target device list argument, as shown below:     	clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
-* To build for any particular GPU device or a list of devices.:
-
+* To build for any particular GPU device or a list of devices :
+  
   | int nDevices = 0; 
   | clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 0, NULL,
   | &nDevices);
@@ -1485,11 +1489,10 @@ Supported Standard OpenCL Compiler Options
 The frequently-used build options are:
 
  * -I dir — Add the directory dir to the list of directories to be searched for header files. When parsing #include directives, the 	OpenCL compiler resolves relative paths using the current working directory of the application.
- * -D name — Predefine name as a macro, with definition = 1. For -
-    D name=definition, the contents of definition are tokenized and processed as if they appeared during the translation phase three  in a #define directive. In particular, the definition is truncated by embedded newline characters.
-    -D options are processed in the order they are given in the options argument to ``clBuildProgram``.
+ * -D name — Predefine name as a macro, with definition = 1. For -D name=definition, the contents of definition are tokenized and processed as if they appeared during the translation phase three  in a #define directive. In particular, the definition is truncated by embedded newline characters.
+   -D options are processed in the order they are given in the options argument to ``clBuildProgram``.
 
-For additional build options, see the OpenCL specification.
+For additional build options, see the :ref:OpenCL specification.
 
 .. _AMD-Developed-Supplemental-Compiler:
 
@@ -2036,7 +2039,7 @@ Notes
 
 6. For debugging OpenCL kernels in Windows, a developer can use GDB running in cygwin or minGW. It is done in the same way as    described in sections 3.1 and 3.2.
 
-  ..Notes::
+  .. Note::s::
 
    -Only OpenCL kernels are visible to GDB when running cygwin or minGW. GDB under cygwin/minGW currently does not support host code  debugging.
 
@@ -2518,7 +2521,7 @@ The “data” is the tree created by the host as a coarse-grain buffer and is p
 .. image:: images/6.1.png
     :align: center
 
-..note:: All numbers were obtained on a Kaveri APU with 32 GB RAM running Windows 8.1. All numbers are in milli-seconds (ms).
+.. Note:::: All numbers were obtained on a Kaveri APU with 32 GB RAM running Windows 8.1. All numbers are in milli-seconds (ms).
 
 The above table shows the performance of the 2.0 implementation over the 1.2 implementation. As you can see, the GPU times mentioned under the OpenCL 1.2 column include the GPU run time, time to transfer the buffers from the host
 to the device, the time required to transform the buffers into arrays and offsets, and the time required to transfer the buffers from the device back to the host, respectively.
@@ -2563,7 +2566,7 @@ Note The generic address space feature also allows one to define a pointer-based
   struct node* next;	// generic address	space pointer
   } ;
 
-..note:: The OpenCL 2.0 spec itself shows most built-in functions that accept pointer arguments as accepting generic pointer arguments.
+.. Note:::: The OpenCL 2.0 spec itself shows most built-in functions that accept pointer arguments as accepting generic pointer arguments.
 
 AMD APP SDK example
 ********************
@@ -2588,7 +2591,7 @@ In the AMD APP SDK sample, addMul2d is a generic function that uses generic addr
   }
 
 
-..note:: The compiler will try to resolve the address space at compile time. Otherwise, the runtime will decide whether the pointer references the local or the global address space. For optimum performance, the code must make it easy for the compiler to detect the pointer reference by avoiding data-dependent address space selection, so that run-time resolution -- which is costly -- is not required.
+.. Note:::: The compiler will try to resolve the address space at compile time. Otherwise, the runtime will decide whether the pointer references the local or the global address space. For optimum performance, the code must make it easy for the compiler to detect the pointer reference by avoiding data-dependent address space selection, so that run-time resolution -- which is costly -- is not required.
 
 
 .. _Device-side-enqueue:
@@ -2662,8 +2665,8 @@ Consider a search or computational process that works from coarse levels to incr
 1. Search/Compute over current region
 2. Loop over sub-regions in current region
 3. If a sub-region is interesting:
-	1. Refine the sub-region
-	2. Apply a process to the refined sub-region
+	* Refine the sub-region
+	* Apply a process to the refined sub-region
 
 With OpenCL 1.2, this process would require a complex interaction between the host and the OpenCL device. The device-side kernel would need to somehow mark the sub-regions requiring further work, and the host side code would need to scan all of the sub-regions looking for the marked ones and then enqueue a kernel for each marked sub-region. This process is made more difficult by the lack of globally visible atomic operations in OpenCL 1.2.
 
@@ -2898,9 +2901,10 @@ The host creates the pipe, which both kernels will use, as follows:
   szPipe, NULL,
   &status);
 
-This code makes a pipe that the program kernels can access (read/write). The host creates two kernels, producer_kernel and consumer_kernel. The producer kernel first reserves enough space for the write pipe:
-
-//reserve space in pipe for writing random numbers. reserve_id_t rid = work_group_reserve_write_pipe(rng_pipe, szgr);
+This code makes a pipe that the program kernels can access (read/write). The host creates two kernels, producer_kernel and consumer_kernel. The producer kernel first reserves enough space for the write pipe::
+ 
+ //reserve space in pipe for writing random numbers. 
+ reserve_id_t rid = work_group_reserve_write_pipe(rng_pipe, szgr);
 
 Next, the kernel writes and commits to the pipe by invoking the following functions:
 
@@ -3120,9 +3124,9 @@ There are special directives for the OpenCL compiler to enable or disable availa
 The <extension_name> is described in Section A.1, “Extension Name
 Convention.”. The second form allows to address all extensions at once. The <behavior> token can be either:
 
-* enable - the extension is enabled if it is supported, or the error is reported if the specified extension is not supported or token “all” is used.
-* disable - the OpenCL implementation/compiler behaves as if the specified extension does not exist.
-* all - only core functionality of OpenCL is used and supported, all extensions are ignored. If the specified extension is not supported then a warning is issued by the compiler.
+* **enable** - the extension is enabled if it is supported, or the error is reported if the specified extension is not supported or token “all” is used.
+* **disable** - the OpenCL implementation/compiler behaves as if the specified extension does not exist.
+* **all** - only core functionality of OpenCL is used and supported, all extensions are ignored. If the specified extension is not supported then a warning is issued by the compiler.
 
 The order of directives in #pragma OPENCL EXTENSION is important: a later directive with the same extension name overrides any previous one.
 
@@ -3293,7 +3297,7 @@ cl_amd_media_ops
 ******************
 This extension adds the following built-in functions to the OpenCL language. Note: For OpenCL scalar types, n = 1; for vector types, it is {2, 4, 8, or 16}.
 
-..note:: in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] denotes the indexed element of a vector, designated 0 to n-1.
+.. Note:::: in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] denotes the indexed element of a vector, designated 0 to n-1.
 
 
  | Built-in function: amd_pack
@@ -3390,13 +3394,13 @@ For more information, see: http://www.khronos.org/registry/cl/extensions/amd/cl_
 
 cl_amd_printf
 ****************
-The OpenCL™ Specification 1.1 and 1.2 support the optional AMD extension cl_amd_printf, which provides printf capabilities to OpenCL C programs. To use this extension, an application first must include
+The OpenCL™ Specification 1.1 and 1.2 support the optional AMD extension cl_amd_printf, which provides printf capabilities to OpenCL C programs. To use this extension, an application first must include::
+ 
+ #pragma OPENCL EXTENSION cl_amd_printf : enable.
 
-``#pragma OPENCL EXTENSION cl_amd_printf : enable.``
-
-Built-in function:
-
-``printf( constant char * restrict format, …);``
+Built-in function::
+ 
+ printf( constant char * restrict format, …);
 
 This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:
 
@@ -3526,7 +3530,6 @@ Extension Support by Device
 ****************************
 Table A.1 and Table A.2 list the extension support for selected devices.
 
-**Table A.1 Extension Support for AMD GPU Devices 1**
 
 
 ================================== ======== ========== =========== ============ =========== ============= ========== =================
@@ -3548,6 +3551,8 @@ Extensions			   Brazos     Llano      Trinity    Cape Verde3    Turks4      Caym
  cl_khr_3d_image_writes 	    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
 ================================== ======== ========== =========== ============ =========== ============= ========== =================
 
+**Table A.1 Extension Support for AMD GPU Devices 1**
+
 
 1.  AMD Radeon™ HD 79XX series.
 2.  AMD Radeon™ HD 78XX series.
@@ -3559,7 +3564,6 @@ Extensions			   Brazos     Llano      Trinity    Cape Verde3    Turks4      Caym
 
 Note that an atomic counter is a device-level counter that can be added / decremented by different work-items, where the atomicity of the operation is guaranteed. The access to the counter is done only through add/dec built-in functions; thus, no two work-items have the same value returned in the case that a given kernel only increments or decrements the counter. (Also see http://www.khronos.org/registry/cl/extensions/ext/cl_ext_atomic_counters_32.txt.)
 
-**Table A.2 Extension Support for Older AMD GPUs and CPUs**
 
 
 +---------------------------------+------------+-----------+----------+-----------------------------+
@@ -3606,12 +3610,11 @@ Note that an atomic counter is a device-level counter that can be added / decrem
 | cl_amd_offline_devices          | Yes        |Yes        | Yes      |           No                |
 +---------------------------------+------------+-----------+----------+-----------------------------+
 	
+**Table A.2 Extension Support for Older AMD GPUs and CPUs**
 
 
 1.  ATI Radeon™ HD 5700 series, AMD Mobility Radeon™ HD 5800 series, AMD FirePro™ V5800 series, AMD Mobility FirePro™ M7820.
-2.  ATI Radeon™ HD 5600 Series, ATI Radeon™ HD 5600 Series, ATI Radeon™ HD 5500 Series, AMD
-    Mobility Radeon™ HD 5700 Series, AMD Mobility Radeon™ HD 5600 Series, AMD FirePro™ V4800
-    Series, AMD FirePro™ V3800 Series, AMD Mobility FirePro™ M5800
+2.  ATI Radeon™ HD 5600 Series, ATI Radeon™ HD 5600 Series, ATI Radeon™ HD 5500 Series, AMD Mobility Radeon™ HD 5700 Series, AMD Mobility Radeon™ HD 5600 Series, AMD FirePro™ V4800 Series, AMD FirePro™ V3800 Series, AMD Mobility FirePro™ M5800
 3.  ATI Radeon™ HD 5400 Series, AMD Mobility Radeon™ HD 5400 Series
 4.  Available on all devices that have double-precision, including all Southern Island devices.
 5.  Environment variable CPU_IMAGE_SUPPORT must be set.
@@ -3733,7 +3736,7 @@ The ICD-compliant version of the code snippet is::
  status= clGetDeviceiDs(platform, CL_DEVICE_TYPE_DEFAULT, 0, NULL, &nurnDevices);
  
 
-..note:: It is recommended that the host code look at the platform vendor string when searching for the desired OpenCL platform, instead of using the platform name string. The platform name string might change, whereas the platform vendor string remains constant for a particular vendor's implementation.
+.. Note:::: It is recommended that the host code look at the platform vendor string when searching for the desired OpenCL platform, instead of using the platform name string. The platform name string might change, whereas the platform vendor string remains constant for a particular vendor's implementation.
 
 .. _BIF:
 
@@ -3764,7 +3767,6 @@ Executable and Linkable Format (ELF) Header
 
 For the ELF binary to be considered valid, the AMD OpenCL runtime expects certain values to be specified. The following header fields must be set for all binaries that are created outside of the OpenCL framework.
 
-Table C.1	ELF Header Fields
 
 =========================== ======================== ==============================================
 Field 				   Value 			Description
@@ -3782,6 +3784,9 @@ e_flags 		         0 		      Not used.
 E_phentsize 			 0 		      Not used.
 E_phnum 			 0 		       Not used.
 =========================== ======================== ==============================================
+
+**Table C.1 ELF Header Fields**
+
 
 The fields not shown in Table C.1 are given values according to the ELF Specification. The e_machine value is defined as one of the oclElfTargets enumerants; the values for these are:
 
@@ -3907,10 +3912,8 @@ Please note the following guidelines.
 2.   clCreateContext and clCreateContextFromType fail context creation if the device list passed in cannot interoperate with the GLcontext. clCreateContext only permits GL-friendly device(s). clCreateFromContextType can only include GL-friendly device(s).
 
 3.   Use clGetGLContextInfoKHR to determine GL-friendly device(s) from the following parameters:
-
-a.   CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR only returns the device that can interoperate with the GL context.
-
-b.   CL_DEVICES_FOR_GL_CONTEXT_KHR includes all GL-context interoperable devices.
+	a.   CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR only returns the device that can interoperate with the GL context.
+	b.   CL_DEVICES_FOR_GL_CONTEXT_KHR includes all GL-context interoperable devices.
 
 4.   While it is possible to create as many GL contexts on a GPU, do not create concurrently two GL contexts for two GPUs from the 	same process.
 
@@ -4077,22 +4080,14 @@ To use Win32 API for windowing in multi-GPU environment:
 5. Try to find the first OpenCL device (winner) associated with the OpenGL rendering context by using the loop technique of 2., above.
 
 6. Inside the loop:
-
-a. Create a window on a specific display by using the CreateWindow function. This function returns the window handle (HWND).
-
-b. Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use the CreateDC function to create a device context (HDC) for the specified device.
-
-c. Use ChoosePixelFormat to match an appropriate pixel format supported by a device context to a given pixel format specification.
-
-d. Use SetPixelFormat to set the pixel format of the specified device context to the format specified.
-
-e. Use wglCreateContext to create a new OpenGL rendering context from device context (HDC).
-
-f. Use wglMakeCurrent to bind the GL context created in the above step as the current rendering context.
-
-g. Use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the number of GL associated devices for CL context creation. If the number of devices is zero go to the next display in the   	loop. Otherwise, use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and the  	       	CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
-
-h. Use clCreateContext (See Section 4.3 of the OpenCL Specification1.1) to create the CL context (of type cl_context).
+	a. Create a window on a specific display by using the CreateWindow function. This function returns the window handle (HWND).
+	b. Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use the CreateDC function to create a device context (HDC) for the specified device.
+	c. Use ChoosePixelFormat to match an appropriate pixel format supported by a device context to a given pixel format specification.
+	d. Use SetPixelFormat to set the pixel format of the specified device context to the format specified.
+	e. Use wglCreateContext to create a new OpenGL rendering context from device context (HDC).
+	f. Use wglMakeCurrent to bind the GL context created in the above step as the current rendering context.
+	g. Use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the number of GL associated devices for CL context creation. If the number of devices is zero go to the next display in the   	loop. Otherwise, use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and the  	       	CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
+	h. Use clCreateContext (See Section 4.3 of the OpenCL Specification1.1) to create the CL context (of type cl_context).
 
 The following code demonstrates how to use WIN32 Windowing API in CL-GL
 interoperability on multi-GPU environment.
@@ -4359,26 +4354,16 @@ Using X Window System
 4. Use a FOR loop to enumerate the displays. To change the display, change the value of the environment variable DISPLAY.
 
 5. Inside the loop:
-
-a. Use putenv to set the environment variable DISPLAY with respect to the display number.
-
-b. Use OpenDisplay to open a connection to the server that controls a display.
-
-c. Use glXChooseFBConfig to get a list of GLX frame buffer configurations that match the specified attributes.
-
-d. Use glXChooseVisual to get a visual that matches specified attributes. e.   Use XCreateColormap to create a color map of the specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it. Note that the specified window is only used to determine the screen.
-
-f. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, and causes the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to siblings.
-
-g. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped ancestor does not display the window but marks it as eligible for display when the ancestor becomes mapped. Such a window is called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen, if it is not obscured by another window.
-
-h. Use glXCreateContextAttribsARB function to initialize the context to the initial state defined by the OpenGL specification and	return a handle to it. This handle can be used to render to any GLX surface.
-
-i. Use glXMakeCurrent to make argrument3 (GLXContext) the current GLX rendering context of the calling thread, replacing the previously current context, if there was one, and to attach argument3 (GLXcontext) to a GLX drawable, either a window or a GLX pixmap.
-
-j. Use clGetGLContextInfoKHR to get the number of OpenCL-OpenGL interoperability devices corresponding to the window created in f, above.
-
-k. If the number of interoperable devices is zero, use glXDestroyContext to destroy the context created at step h, and go to step A otherwise, exit from the loop (an OpenCL-OpenGL interoperable device has been found).
+	a. Use putenv to set the environment variable DISPLAY with respect to the display number.
+	b. Use OpenDisplay to open a connection to the server that controls a display.
+	c. Use glXChooseFBConfig to get a list of GLX frame buffer configurations that match the specified attributes.
+	d. Use glXChooseVisual to get a visual that matches specified attributes. e.   Use XCreateColormap to create a color map of the specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it. Note that the specified window is only used to determine the screen.
+	f. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, and causes the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to siblings.
+	g. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped ancestor does not display the window but marks it as eligible for display when the ancestor becomes mapped. Such a window is called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen, if it is not obscured by another window.
+	h. Use glXCreateContextAttribsARB function to initialize the context to the initial state defined by the OpenGL specification and	return a handle to it. This handle can be used to render to any GLX surface.
+	i. Use glXMakeCurrent to make argrument3 (GLXContext) the current GLX rendering context of the calling thread, replacing the previously current context, if there was one, and to attach argument3 (GLXcontext) to a GLX drawable, either a window or a GLX pixmap.
+	j. Use clGetGLContextInfoKHR to get the number of OpenCL-OpenGL interoperability devices corresponding to the window created in f, above.
+	k. If the number of interoperable devices is zero, use glXDestroyContext to destroy the context created at step h, and go to step A otherwise, exit from the loop (an OpenCL-OpenGL interoperable device has been found).
 
 6. Use clGetGLContextInfoKHR to get the OpenCL-OpenGL interoperable device id.
 
@@ -4496,8 +4481,7 @@ The following code segment shows how to create an OpenCL-OpenGL interoperability
 
 Additional GL Formats Supported
 *******************************
-The following is a list of GL formats beyond the minimum set listed in The
-OpenCL Extension Specification, v 1.2 that AMD supports.
+The following is a list of GL formats beyond the minimum set listed in The OpenCL Extension Specification, v 1.2 that AMD supports.
 
 ==================================== ============================
 AMD-Supported GL Formats 		GL internal format	

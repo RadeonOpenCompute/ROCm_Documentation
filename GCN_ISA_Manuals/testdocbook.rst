@@ -96,8 +96,7 @@ Related Documents
 
 -  OpenGL Programming Guide, at http://www.glprogramming.com/red/
 
--  Microsoft DirectX Reference Website, at
-   http://msdn.microsoft.com/archive/default.asp?url=/archive/en-us/directx9_c_Summer_04/directx/graphics/reference/reference.asp
+-  Microsoft DirectX Reference Website, here at `DirectX <https://msdn.microsoft.com/en-us/library/windows/desktop/ee663274(v=vs.85)>`_.
 
 -  GPGPU: http://www.gpgpu.org
 
@@ -108,8 +107,8 @@ Summary of kernel instruction changes in Vega GPUs:
 
 -  New packed 16-bit math instructions.
 
-::
-
+   ::
+    
     V_PK_MAD_I16       V_PK_MUL_LO_U16    V_PK_ADD_I16       V_PK_SUB_I16
     V_PK_LSHLREV_B16   V_PK_LSHRREV_B16   V_PK_ASHRREV_I16   V_PK_MAX_I16
     V_PK_MIN_I16       V_PK_MAD_U16       V_PK_ADD_U16       V_PK_SUB_U16
@@ -148,9 +147,9 @@ Summary of kernel instruction changes in Vega GPUs:
 Contact Information
 -------------------
 
-For information concerning AMD Accelerated Parallel Processing developing, please see: developer.amd.com/ .
+For information concerning AMD Accelerated Parallel Processing developing, please see: http://developer.amd.com/ .
 
-For information about developing with AMD Accelerated Parallel Processing, please see: developer.amd.com/appsdk .
+For information about developing with AMD Accelerated Parallel Processing, please see: http://developer.amd.com/appsdk .
 
 We also have a growing community of AMD Accelerated Parallel Processing users. Come visit us at the AMD Accelerated Parallel Processing Developer Forum ( http://developer.amd.com/openclforum ) to find out what applications other users are trying on their AMD Accelerated Parallel Processing products.
 
@@ -255,7 +254,7 @@ Terminology
 |                       | address, data format, stride, etc.                 |
 +-----------------------+----------------------------------------------------+
 
-Table: Basic Terms
+	**Table : Basic Terms Uses** 
 
 Program Organization
 ====================
@@ -413,7 +412,7 @@ a shader program.
 |              |                      |        | issued but not yet completed.     |
 +--------------+----------------------+--------+-----------------------------------+
 
-Table: Readable and Writable Hardware States
+**Table : Readable and Writable Hardware States**
 
 Program Counter (PC)
 --------------------
@@ -431,18 +430,13 @@ EXECute Mask
 
 | The Execute mask (64-bit) determines which threads in the vector are
   executed:
-| 1 = execute, 0 = do not execute.
+| **1 = execute, 0 = do not execute.**
 
 EXEC can be read from, and written to, through scalar instructions; it also can be written as a result of a vector-ALU compare. This mask affects vector-ALU, vector-memory, LDS, and export instructions. It does not affect scalar execution or branches.
 
 A helper bit (EXECZ) can be used as a condition for branches to skip code when EXEC is zero.
 
-    **Note**
-
-    This GPU does no optimization when EXEC = 0. The shader hardware
-    executes every instruction, wasting instruction issue bandwidth. Use
-    CBRANCH or VSKIP to rapidly skip over code when it is likely that
-    the EXEC mask is zero.
+.. Note::    This GPU does no optimization when EXEC = 0. The shader hardware executes every instruction, wasting instruction issue bandwidth. Use CBRANCH or VSKIP to rapidly skip over code when it is likely that the EXEC mask is zero.
 
 Status registers
 ----------------
@@ -549,7 +543,8 @@ Status register fields can be read, but not written to, by the shader.These bits
 |                   |         | with Done=1 before terminating.                 |
 +-------------------+---------+-------------------------------------------------+
 
-Table: Status Register Fields
+	**Table : Status Register Fields**
+
 
 Mode register
 -------------
@@ -633,7 +628,7 @@ the mode register fields.
 | CSP             | 31:29   | Conditional branch stack pointer.                |
 +-----------------+---------+--------------------------------------------------+
 
-Table: Mode Register Fields
+	**Table : Mode Register Fields**
 
 GPRs and LDS
 ------------
@@ -811,12 +806,7 @@ V\_CMP\_\* ⇒ VCC[n] = EXEC[n] & (test passed for thread[n])
 
 VCC is always fully written; there are no partial mask updates.
 
-    **Note**
-
-    VCC physically resides in the SGPR register file, so when an
-    instruction sources VCC, that counts against the limit on the total
-    number of SGPRs that can be sourced for a given instruction. VCC
-    physically resides in the highest two user SGPRs.
+.. Note:: VCC physically resides in the SGPR register file, so when an instruction sources VCC, that counts against the limit on the total number of SGPRs that can be sourced for a given instruction. VCC physically resides in the highest two user SGPRs.
 
 **Shader Hazard with VCC** The user/compiler must prevent a scalar-ALU
 write to the SGPR holding VCC, immediately followed by a conditional
@@ -933,7 +923,7 @@ can be read and written by the kernel.
 |                |         | rates.                                             |
 +----------------+---------+----------------------------------------------------+
 
-Table: Exception Field Bits
+	**Table : Exception Field Bits**
 
 Memory Violations
 -----------------
@@ -1003,7 +993,7 @@ The instructions in the table below control the priority and termination of a sh
 |                                      | interrupt) to the host CPU.          |
 +--------------------------------------+--------------------------------------+
 
-Table: Control Instructions
+	**Table : Control Instructions**
 
 Branching
 ---------
@@ -1051,7 +1041,7 @@ Branching is done using one of the following scalar ALU instructions.
 |                                      | PC = PC+4+SIMM16\*4.                 |
 +--------------------------------------+--------------------------------------+
 
-Table: Branch Instructions
+	**Table : Branch Instructions**
 
 For conditional branches, the branch condition can be determined by either scalar or vector operations. A scalar compare operation sets the Scalar Condition Code (SCC), which then can be used as a conditional branch condition. Vector compare operations set the VCC mask, and VCCZ or VCCNZ then can be used to determine branching.
 
@@ -1220,7 +1210,7 @@ The hardware does not check for the following dependencies; they must be resolve
 | SALU writes M0            | S\_MOVEREL           | 1     |                      |
 +---------------------------+----------------------+-------+----------------------+
 
-Table: Required Software-inserted Wait States
+	**Table : Required Software-inserted Wait States**
 
 Arbitrary Divergent Control Flow
 --------------------------------
@@ -1466,7 +1456,7 @@ In the table below, 0-127 can be used as scalar sources or destinations;
 |              |           |                    | instruction stream.             |
 +--------------+-----------+--------------------+---------------------------------+
 
-Table: Scalar Operands
+	**Table : Scalar Operands**
 
 The SALU cannot use VGPRs or LDS. SALU instructions can use a 32-bit literal constant. This constant is part of the instruction stream and is available to all SALU microcode formats except SOPP and SOPK. Literal constants are used by setting the source instruction field to "literal" (255), and then the following instruction dword is used as the source value.
 
@@ -1563,7 +1553,7 @@ perform the operation, or (for CSELECT) which source operand to use.
 | 32,B64}     |                    |                    | NOP.                     |
 +-------------+--------------------+--------------------+--------------------------+
 
-Table: Conditional Instructions
+	**Table : Conditional Instructions**
 
 Comparison Instructions
 -----------------------
@@ -1592,8 +1582,8 @@ comparison yielded a TRUE result.
 | S\_BITCMP1\_{B32,B64 | SOPC     | y        | Test for "is a bit one". SCC =     |
 | }                    |          |          | S0[S1].                            |
 +----------------------+----------+----------+------------------------------------+
-
-Table: Conditional Instructions
+	
+	**Table : Conditional Instructions**
 
 Bit-Wise Instructions
 ---------------------
@@ -1706,7 +1696,7 @@ below, SCC is set if the result is nonzero.
 |                           |         |        |   is an unsigned index.          |
 +---------------------------+---------+--------+----------------------------------+
 
-Table: Bit-Wise Instructions
+	**Table : Bit-Wise Instructions**
 
 Special Instructions
 --------------------
@@ -1731,7 +1721,7 @@ These instructions access hardware internal registers.
 |                   |         |        | instruction format).                     |
 +-------------------+---------+--------+------------------------------------------+
 
-Table: Hardware Internal Registers
+	**Table : Hardware Internal Registers**
 
 The hardware register is specified in the DEST field of the instruction,using the values in the table above. Some bits of the DEST specify which register to read/write, but additional bits specify which bits in the
 special register to read/write:
@@ -1779,7 +1769,7 @@ special register to read/write:
 |                       |                       | [47:32].                     |
 +-----------------------+-----------------------+------------------------------+
 
-Table: Hardware Register Values
+	**Table : Hardware Register Values**
 
 +-----------------------+-----------------------+------------------------------+
 | Code                  | Register              | Description                  |
@@ -1801,7 +1791,7 @@ Table: Hardware Register Values
 |                       |                       | wavefront.                   |
 +-----------------------+-----------------------+------------------------------+
 
-Table: IB\_STS
+	**Table : IB\_STS**
 
 +-----------------------+-----------------------+------------------------------+
 | Code                  | Register              | Description                  |
@@ -1823,7 +1813,7 @@ Table: IB\_STS
 |                       |                       | SGPRs, 1=16 SGPRs, etc.      |
 +-----------------------+-----------------------+------------------------------+
 
-Table: GPR\_ALLOC
+	**Table  : GPR\_ALLOC**
 
 +-----------------------+-----------------------+------------------------------+
 | Code                  | Register              | Description                  |
@@ -1838,7 +1828,7 @@ Table: GPR\_ALLOC
 |                       |                       | of 64 Dwords.                |
 +-----------------------+-----------------------+------------------------------+
 
-Table: LDS\_ALLOC
+**Table : LDS\_ALLOC**
 
 Vector ALU Operations
 =====================

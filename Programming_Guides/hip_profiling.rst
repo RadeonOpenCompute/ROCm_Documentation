@@ -157,7 +157,7 @@ For C++ codes, HIP also provides a scoped marker which records the start time wh
  
 The HIP marker API is only supported on ROCm platform. The marker macros are defined on CUDA platforms and will compile, but are silently ignored at runtime.
 
-This `HIP sample <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/samples/2_Cookbook/2_Profiler>`_ shows the profiler marker API used in a small application.
+This `HIP sample <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#profiling-hip-apis>`_ shows the profiler marker API used in a small application.
 
 More information on the marker API can be found in the profiler header file and PDF in a ROCm installation:
 
@@ -179,9 +179,11 @@ HIP includes the ``hipdemangleatp`` tool which can post-process an ATP file to "
   
  ZZ39gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4RN2hc16accelerator_viewEPKflS3_lPfliiiiiiffEN3_EC__719__cxxamp_trampolineElililiiiiiiS3_iS3_S4_ff
 
-``hipdemangleatp`` will convert this into the more readable: **gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4**
+**hipdemangleatp** will convert this into the more readable::
+ 
+ gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4
 
-The **hipdemangleatp** tool operates on the ATP file "in-place" and thus replaces the input file with the demangled version.
+The hipdemangleatp tool operates on the ATP file "in-place" and thus replaces the input file with the demangled version.
 ::
  
  $ hipdemangleatp myfile.atp

@@ -19,7 +19,7 @@ HIP terminology comparison with OpenCL, Cuda, C++ AMP and HCC
 |                       |               |                 | completion_future   | completion_future      |   cl_event                |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Memory                 |   void * 	|    void * 	  |void *; hc::array;   | concurrency::array;    |   cl_mem                  |
-|			|		|                 | hc::array_view      |concurrency::array_view |                           |
+|			|		|                 |hc::array_view       |concurrency::array_view |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |                       |     grid      |    grid         |	extent	        |	      extent	 |	   NDRange	     |
@@ -41,8 +41,8 @@ HIP terminology comparison with OpenCL, Cuda, C++ AMP and HCC
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Device Function        | __device__    | __device__      |[[hc]] (detected     |                        |Implied in device          |
-|                       |               |                 | automatically in    |    restrict(amp)       |Compilation                |
-|                       |               |                 |   many case)        |                        |                           |
+|                       |               |                 |automatically in     |    restrict(amp)       |Compilation                |
+|                       |               |                 |many case)           |                        |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Host Function          | __host_       |__host_ (default)|[[cpu]] (default)    |                        |Implied in host            |
 |                       |  (default)    |                 |                     |  strict(cpu) (default) |Compilation                |

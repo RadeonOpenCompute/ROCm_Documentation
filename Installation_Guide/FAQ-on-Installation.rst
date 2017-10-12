@@ -43,7 +43,8 @@ Linux Kernels are not uninstalled by default
 
 If ROCm is uninstalled using dnf or apt-get the kernel packages are not uninstalled by default. This is a Linux convention, and isn’t unique the ROCm stack. To remove the kernel packages, they will have to be removed explicitly:
 
-For debian – ‘sudo apt-get autoremove ’ For RPM – ‘sudo dnf remove ’
+For debian – ``sudo apt-get autoremove`` 
+For RPM – ``sudo dnf remove``
 
 The rpm or dpkg command can also be used, but isn’t recommended.
 
@@ -55,6 +56,7 @@ This problem can occur on Fedora installation if several previous kernels are cu
 
  Error: Transaction check error:
   installing package kernel-4.9.0_kfd_compute_rocm_rel_1.6_67-2.x86_64 needs 17MB on the /boot filesystem
+ 
  Error Summary
  -------------
  Disk Requirements:

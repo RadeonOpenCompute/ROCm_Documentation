@@ -4,6 +4,9 @@
 HIP Debugging
 #####################
 
+Table of Contents
+##################
+
 * :ref:`Using HIP_DB`
 * :ref:`Using ltrace`
 * :ref:`Chicken bits`
@@ -11,17 +14,6 @@ HIP Debugging
 * :ref:`General Debugging Tips`
     	* :ref:`Print env var state`
 
-Table of Contents
-##################
-
-* [Profiling HIP Code](#profiling-hip-code" aria-hidden="true"><span aria-hidden="true)
-  
-  * [Using HIP_DB](#using-hip_db" aria-hidden="true"><span aria-hidden="true)
-  * [Using ltrace](#using-ltrace" aria-hidden="true"><span aria-hidden="true)
-  * [Chicken bits](#chicken-bits" aria-hidden="true"><span aria-hidden="true)
-  * [Debugging HIP Applications](#debugging-hip-applications" aria-hidden="true"><span aria-hidden="true)
-  * [General Debugging Tips](#general-debugging-tips" aria-hidden="true"><span aria-hidden="true)
-  * [Print env var state](#print-env-var-state" aria-hidden="true"><span aria-hidden="true)
 
 
 .. _Using HIP_DB:
@@ -31,10 +23,10 @@ Using HIP_DB
 
 This flag is primarily targeted to assist HIP development team in the development of the HIP runtime, but in some situations may be useful to HIP application developers as well. The HIP debug information is designed to print important information during the execution of a HIP API. HIP provides different color-coded levels of debug information:
 
-* api : Print the beginning and end of each HIP API, including the arguments and return codes. This is equivalent to setting HIP_TRACE_API=1.
-* sync : Print multi-thread and other synchronization debug information.
-* copy : Print which engine is doing the copy, which copy flavor is selected, information on source and destination memory.
-* mem : Print information about memory allocation - which pointers are allocated, where they are allocated, peer mappings, and more.
+* **api :** Print the beginning and end of each HIP API, including the arguments and return codes. This is equivalent to setting HIP_TRACE_API=1.
+* **sync :** Print multi-thread and other synchronization debug information.
+* **copy :** Print which engine is doing the copy, which copy flavor is selected, information on source and destination memory.
+* **mem :** Print information about memory allocation - which pointers are allocated, where they are allocated, peer mappings, and more.
 
 HIP_DB format is flags separated by '+' sign, or a hex code for the bitmask. Generally the + format is preferred.
 

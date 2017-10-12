@@ -13,17 +13,16 @@ To use ROCm on your system you need the following:
 
  * ROCm Capable CPU and GPU
     * PCIe Gen 3 Enabled CPU with PCIe Platform Atomics
+      
       * :ref:`More-about-how-ROCm-uses-PCIe-Atomics`
 
     * ROCm enabled GPU’s
      
       * Radeon Instinct Family MI25, MI8, MI6
       * Radeon Vega Frontier Edition
-     
 
  * Supported Version of Linux with a specified GCC Compiler and ToolChain
 
-Table 1. Native Linux Distribution Support in ROCm 1.6
 
 ============= ======== ====== =======
 Distribution  Kernel    GCC   GLIBC
@@ -32,6 +31,8 @@ x86_64
 Fedora 24      4.11      5.40   2.23
 Ubuntu 16.04   4.11      5.40   2.23
 ============= ======== ====== =======
+Table 1. Native Linux Distribution Support in ROCm 1.6
+
 
 Supported CPUs
 **************
