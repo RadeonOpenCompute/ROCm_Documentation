@@ -629,23 +629,8 @@ IPC
 ====
 
 Introduction
-IPC API
-New datatypes
-hsa_amd_ipc_memory_handle_t
-hsa_amd_ipc_signal_handle_t
-Memory sharing API
-hsa_amd_ipc_get_memory_handle
-hsa_amd_ipc_close_memory_handle
-hsa_amd_ipc_open_memory_handle
-Signal sharing  API
-hsa_amd_ipc_get_signal_handle
-hsa_amd_ipc_close_signal_handle
-hsa_amd_ipc_open_signal_handle
-Query   API
-Query memory information
-Introduction
-This proposal describes the bare minimum API which must be the part of the core functionality and doesn't cover support for MPI rank, optimizing MPI/openshmem communication on the same node, AGAS and PGAS models support. it should be possible to implement extra functionality needed using the proposed API as foundation (similar as it was done by Nvidia in the case of NCCL libraries https://github.com/NVIDIA/nccl).
-This document also doesn't cover mechanism to pass information needed application "hand-shake" from one process to another assuming that the standard OS mechanisms will be used for this purpose and out of scope for this document.
+
+This proposal describes the bare minimum API which must be the part of the core functionality and doesn't cover support for MPI rank, optimizing MPI/openshmem communication on the same node, AGAS and PGAS models support. 
  
 IPC API
 New datatypes
