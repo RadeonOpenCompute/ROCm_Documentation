@@ -710,7 +710,9 @@ hsa_amd_ipc_open_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle, hsa_signa
      IN:   ipc_handle - IPC Handle
      OUT:  signal     - Signal handle to be used in the current process
  Client should call hsa_signal_destroy() when access to this resource is not needed any more.
+
 :: 
+
 Query   API
 Query memory information
 The new API must be created to allow query information about memory resource based on address. It is partially overlapped with the following requirement  Memory info interface so it may be possible to merge those two interfaces. It is proposed to follow the general "get info" mechanism design.
