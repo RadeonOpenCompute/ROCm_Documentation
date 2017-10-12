@@ -629,14 +629,11 @@ IPC
 ====
 
 Introduction
-
-This proposal describes the bare minimum API which must be the part of the core functionality and doesn't cover support for MPI rank, optimizing MPI/openshmem communication on the same node, AGAS and PGAS models support. 
  
 IPC API
 
 New datatypes
 
-To support IPC API it is proposed to define new datatypes to identify special IPC handles to be used.
  
 hsa_amd_ipc_memory_handle_t
 
@@ -654,7 +651,7 @@ typedef struct  hsa_amd_ipc_signal_handle_s {
  
 Memory sharing API
 
-The new API must be created to allow sharing of HSA allocated memory between different processes.
+Allows sharing of HSA allocated memory between different processes.
 
 hsa_amd_ipc_get_memory_handle
 
@@ -696,7 +693,7 @@ hsa_amd_ipc_open_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle, void **pt
 Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
 Signal sharing  API
 
-The new API must be created to allow sharing of HSA signals  between different processes.
+Allows sharing of HSA signals  between different processes.
 hsa_amd_ipc_get_signal_handle
 
 The purpose of this API is to get / export an IPC handle for an existing signal.
@@ -740,7 +737,7 @@ Query   API
 
 Query memory information
 
-The new API must be created to allow query information about memory resource based on address. It is partially overlapped with the following requirement  Memory info interface so it may be possible to merge those two interfaces. It is proposed to follow the general "get info" mechanism design.
+Allows query information about memory resource based on address. It is partially overlapped with the following requirement  Memory info interface so it may be possible to merge those two interfaces.
  
 typedef enum hsa_amd_address_info_s {
      
