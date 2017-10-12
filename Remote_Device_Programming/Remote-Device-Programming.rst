@@ -633,7 +633,9 @@ Introduction
 This proposal describes the bare minimum API which must be the part of the core functionality and doesn't cover support for MPI rank, optimizing MPI/openshmem communication on the same node, AGAS and PGAS models support. 
  
 IPC API
+
 New datatypes
+
 To support IPC API it is proposed to define new datatypes to identify special IPC handles to be used.
  
 hsa_amd_ipc_memory_handle_t
@@ -651,10 +653,15 @@ typedef struct  hsa_amd_ipc_signal_handle_s {
 } hsa_amd_ipc_signal_handle_t;
  
 Memory sharing API
+
 The new API must be created to allow sharing of HSA allocated memory between different processes.
+
 hsa_amd_ipc_get_memory_handle
+
 The purpose of this API is to get / export an IPC handle for an existing allocation from pool.
+
 hsa_status_t HSA_API  
+
 hsa_amd_ipc_get_memory_handle(void *ptr, hsa_amd_ipc_memory_handle_t *ipc_handle);
  
  where:
@@ -663,8 +670,11 @@ hsa_amd_ipc_get_memory_handle(void *ptr, hsa_amd_ipc_memory_handle_t *ipc_handle
                          Application must pass this handle to another process.      
  
 hsa_amd_ipc_close_memory_handle
+
 Close IPC memory handle previously received via "hsa_amd_ipc_get_memory_handle()" call .
+
 hsa_status_t HSA_API  
+
 hsa_amd_ipc_close_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle);
  
  where:
@@ -672,19 +682,27 @@ hsa_amd_ipc_close_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle);
 
  
 hsa_amd_ipc_open_memory_handle
+
 Open / import an IPC memory handle exported from another process and return address to be used in the current process.
+
 hsa_status_t HSA_API  
+
 hsa_amd_ipc_open_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle, void **ptr);
  
  where:
      IN:   ipc_handle - IPC Handle
      OUT:  ptr        - Address which could be used in the given process for access to the memory
+
 Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
 Signal sharing  API
+
 The new API must be created to allow sharing of HSA signals  between different processes.
 hsa_amd_ipc_get_signal_handle
+
 The purpose of this API is to get / export an IPC handle for an existing signal.
+
 hsa_status_t HSA_API  
+
 hsa_amd_ipc_get_signal_handle(hsa_signal_t signal, hsa_amd_ipc_signal_handle_t *ipc_handle);
  
  where:
@@ -693,8 +711,10 @@ hsa_amd_ipc_get_signal_handle(hsa_signal_t signal, hsa_amd_ipc_signal_handle_t *
                          Application must pass this handle to another process.      
  
 hsa_amd_ipc_close_signal_handle
+
 Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
 hsa_status_t HSA_API  
+
 hsa_amd_ipc_close_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle);
  
  where:
@@ -702,19 +722,24 @@ hsa_amd_ipc_close_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle);
 
  
 hsa_amd_ipc_open_signal_handle
+
 Open / import an IPC signal handle exported from another process and return address to be used in the current process.
 hsa_status_t HSA_API  
+
 hsa_amd_ipc_open_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle, hsa_signal_t &signal);
  
  where:
      IN:   ipc_handle - IPC Handle
      OUT:  signal     - Signal handle to be used in the current process
- Client should call hsa_signal_destroy() when access to this resource is not needed any more.
+
+Client should call hsa_signal_destroy() when access to this resource is not needed any more.
 
 :: 
 
 Query   API
+
 Query memory information
+
 The new API must be created to allow query information about memory resource based on address. It is partially overlapped with the following requirement  Memory info interface so it may be possible to merge those two interfaces. It is proposed to follow the general "get info" mechanism design.
  
 typedef enum hsa_amd_address_info_s {
