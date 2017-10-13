@@ -8,7 +8,7 @@ GCN ISA Manuals
 GCN 1.1
 ========
 
-ISA Manual for Hawaii :download:`pdf <http://developer.amd.com/wordpress/media/2013/07/AMD_Sea_Islands_Instruction_Set_Architecture.pdf>`
+ISA Manual for Hawaii :download:`pdf </GCN_ISA_Manuals/AMD_Sea_Islands_Instruction_Set_Architecture.pdf>`
 
 
 GCN 2.0
