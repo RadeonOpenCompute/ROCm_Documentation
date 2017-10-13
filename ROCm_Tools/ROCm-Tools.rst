@@ -9,42 +9,39 @@ ROCm Tools
 HCC
 =====
 
-HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute
-#########################################################################
+**HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute**
+
 
 HCC supports heterogeneous offload to AMD APUs and discrete GPUs via HSA enabled runtimes and drivers. It is an ISO compliant C++ 11/14 compiler. It is based on Clang, the LLVM Compiler Infrastructure and the “libc++” C++ standard library.
 
 Platform Requirements
-*********************
+#######################
 
 Accelerated applications could be run on Radeon discrete GPUs from the Fiji family (AMD R9 Nano, R9 Fury, R9 Fury X, FirePro S9300 x2, Polaris 10, Polaris 11) paired with an Intel Haswell CPU or newer. HCC would work with AMD HSA APUs (Kaveri, Carrizo); however, they are not our main support platform and some of the more advanced compute capabilities may not be available on the APUs.
 
 HCC currently only works on Linux and with the open source ROCK kernel driver and the ROCR runtime (see Installation for details). It will not work with the closed source AMD graphics driver.
 
-Compiler Backends
-******************
-This backend compiles GPU kernels into native GCN ISA, which could be directly execute on the GPU hardware. It's being actively developed by the Radeon Technology Group in LLVM.
-
 
 Installation
 ############
-Prerequisites
-**************
+
+**Prerequisites**
+
 Before continuing with the installation, please make sure any previously installed hcc compiler has been removed from on your system.
 Install ROCm and make sure it works correctly.
 
-Ubuntu
-******
-Ubuntu 14.04
-*************
+**Ubuntu**
+
+**Ubuntu 14.04**
+
 Follow the instruction here to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
 
-Ubuntu 16.04
-*************
+**Ubuntu 16.04**
+
 Ubuntu 16.04 is also supported but currently it has to be built from source.
 
-Fedora
-******
+**Fedora**
+
 HCC compiler has been tested on Fedora 23 but currently it has to be built from source.
 
 **Download HCC**
@@ -57,7 +54,7 @@ For example: ::
 
 
 Building HCC from Source
-************************
+########################
 First, install the build dependencies: ::
 
   # Ubuntu 14.04
@@ -101,8 +98,8 @@ How to use HCC
 ##############
 Here's a simple `saxpy example <https://gist.github.com/scchan/540d410456e3e2682dbf018d3c179008>`_ written with the hc API.
 
-Compiling Your First HCC Program
-*********************************
+**Compiling Your First HCC Program**
+
 To compile and link in a single step:
 
 # Assume HCC is installed and added to PATH
@@ -139,7 +136,7 @@ gfx900        GFX9                 Vega10
 
 
 Multiple ISA
-*************
+###############
 HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways:
 **use :: --amdgpu-target= command line option**
 It's possible to specify multiple --amdgpu-target= option. Example: ::
@@ -177,7 +174,7 @@ Use ; to delimit each AMDGPU target. Example: ::
     ../hcc
 
 **CodeXL Activity Logger**
-**************************
+###########################
 
 To enable the CodeXL Activity Logger, use the  USE_CODEXL_ACTIVITY_LOGGER environment variable.
 
@@ -199,7 +196,7 @@ For information about the usage of the Activity Logger for profiling, please ref
 
 
 API documentation
-*******************
+####################
 `API reference of HCC <https://scchan.github.io/hcc/>`_
 
 
@@ -576,7 +573,7 @@ Before running the rocm debugger, the LD_LIBRARY_PATH should include paths to
     A brief tutorial on how to debug GPU applications using ROCm-GDB :ref:`ROCm-Tools/rocm-debug`
 
 ROCm Debugger API
-=================
+##################
 
 The ROCm Debugger provides a gdb-based debugging environment for debugging host application and GPU kernels running on Radeon Open Compute platforms (ROCm). It can support all language runtimes (such as HIP and HCC) built on top of ROCm. Initially, the debugging support within the GPU kernels starts with the HSAIL 1.0 programming language. This support requires a kernel compilation path that goes through HSAIL kernel (such as through HCC-HSAIL or `libHSAIL/HSAILAsm <https://github.com/HSAFoundation/HSAIL-Tools>`_).
 
@@ -599,33 +596,33 @@ Major Features
    * Disassemble GPU kernel at GPU kernel function and source breakpoint
    * Trace GPU kernel launches into an output file
 
-What's New in May 2017 Release (version 1.5)
-**********************************************
+**What's New in May 2017 Release (version 1.5)**
+
     Compatible with `ROCm 1.5 release <https://github.com/RadeonOpenCompute/ROCm>`_
     Added the info rocm devices command to show the available devices in the system
 
-What's New in Dec 2016 Release (version 1.4)
-**********************************************
+**What's New in Dec 2016 Release (version 1.4)**
+
     Compatible with `ROCm 1.4 release <https://github.com/RadeonOpenCompute/ROCm>`_
     Support for demangling kernel names of HIP and HCC kernels (requires clang_tot_upgrade branch of HCC). Also requires c++filt to be intalled on the system. c++filt can be installed using sudo apt-get install binutils
 
-What's New in Nov 2016 Release (version 1.3)
-*********************************************
+**What's New in Nov 2016 Release (version 1.3)**
+
     Compatible with `ROCm 1.3 release <https://github.com/RadeonOpenCompute/ROCm>`_
     Support for AMD code object loader extension
     Initial support for Polaris GPUs
     Detect and gracefully fail on unsupported devices
 
-What's New in Aug 2016 Release (version 1.2)
-*********************************************
+**What's New in Aug 2016 Release (version 1.2)**
+
     Compatible with `ROCm 1.2 release <https://github.com/RadeonOpenCompute/ROCm>`_
     Update gdb base to gdb v7.11.
     Initial support for provided GPU debug information via the GDB machine interface
     Support for debugging applications that use SIGUSR2. (Provided by Pull Request#1 from Didier Nadeaud)
     Add support to report HSAIL source text along with line number when single stepping.
 
-What's New in April 2016 Release (version 1.0)
-************************************************
+**What's New in April 2016 Release (version 1.0)**
+
     Compatible with `ROCm 1.0 release <https://github.com/RadeonOpenCompute/ROCm>`_
     Support 6th Generation AMD A-series APU processors (codenamed “Carrizo”)
     Support AMD Radeon™ R9 Fury, Fury X and Fury Nano GPUs (codenamed “Fiji”)
@@ -815,7 +812,7 @@ CodeXL, previously a tool developed as closed-source by Advanced Micro Devices, 
 To encourage 3rd party contribution and adoption, CodeXL is no longer branded as an AMD product. AMD will still continue development of this tool and upload new versions and features to GPUOpen.
 
 Installation and Build
-************************
+########################
 
 Windows: To install CodeXL, use the `provided <https://github.com/GPUOpen-Tools/CodeXL/releases>`_ executable file CodeXL_*.exe
 Linux: To install CodeXL, use the `provided <https://github.com/GPUOpen-Tools/CodeXL/releases>`_ RPM file, Debian file, or simply extract the compressed archive onto your hard drive.
@@ -959,4 +956,3 @@ Libraries
 * :ref:`clSPARSE`
 
 * :ref:`clRNG`
-
