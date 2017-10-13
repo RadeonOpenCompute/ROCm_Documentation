@@ -227,8 +227,7 @@ In this case, install the development subset of packages: ::
 
 
 
-FAQ on Installation
-*******************
+**FAQ on Installation**
 
 :ref:`FAQ-on-Installation`
 
