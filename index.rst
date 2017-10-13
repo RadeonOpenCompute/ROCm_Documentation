@@ -12,10 +12,6 @@ We are excited to present ROCm, the first open-source HPC/Hyperscale-class platf
 
 **ROCm has a rich system run time** with the critical features that large-scale application, compiler and language-run-time development requires.
 
-**HSA Compliant Runtime and Driver for AMD RADEON GPU’s**
-  .. image:: HSA.jpeg
-      :width: 200px
-      :height: 100px
 
 Going to 11: Amping Up the Programming-Language Run-Time Foundation
 ####################################################################
