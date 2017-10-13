@@ -245,8 +245,8 @@ This backend compiles GPU kernels into native GCN ISA, which could be directly e
 
 Installation
 ##################
-Prerequisites
-****************
+**Prerequisites**
+
 Before continuing with the installation, please make sure any previously installed hcc compiler has been removed from on your system.
 Install `ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ and make sure it works correctly.
 **Ubuntu**
@@ -417,8 +417,8 @@ Use ; to delimit each AMDGPU target. Example::
     -DHSA_AMDGPU_GPU_TARGET="gfx701;gfx801;gfx802;gfx803" \
     ../hcc
 
-**CodeXL Activity Logger**
-**************************
+CodeXL Activity Logger
+#######################
 
 To enable the CodeXL Activity Logger, use the  USE_CODEXL_ACTIVITY_LOGGER environment variable.
 
