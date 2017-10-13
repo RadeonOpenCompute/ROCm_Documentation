@@ -581,15 +581,15 @@ Some other useful features:
 * Shows start / stop timestamps for each command (if requested)
 * Shows barrier commands and the time they spent waiting to resolve (if requested)
 
-Enable and configure
-----------------------
+**Enable and configure**
+
 
 HCC_PROFILE=1 shows a summary of kernel and data commands when hcc exits. (under development) HCC_PROFILE=2 enables a profile message after each command (kernel or data movement) completes.
 
 Additionally, the HCC_PROFILE_VERBOSE variable controls the information shown in the profile log. This is a bit-vector: 0x2 : Show start and stop timestamps for each command. 0x4 : Show the device.queue.cmdseqnum for each command. 0x8 : Show the short CPU TID for each command. (not supported) 0x10 : Show logs for barrier commands.
 
-Sample Output
----------------
+**Sample Output**
+
 
 Kernel Commands
 ++++++++++++++++
