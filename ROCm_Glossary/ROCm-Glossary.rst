@@ -4,10 +4,6 @@
 ROCm Glossary
 ###############
 
-**ROCk ROCm Kernel Driver**
-
-**ROCt. ROCm Thunk Layer**
-
 **ROCr ROCm runtime**
 The HSA runtime is a thin, user-mode API that exposes the necessary interfaces to access and interact with graphics hardware driven by the AMDGPU driver set and the ROCK kernel driver. Together they enable programmers to directly harness the power of AMD discrete graphics devices by allowing host applications to launch compute kernels directly to the graphics hardware.
 
