@@ -1,4 +1,4 @@
-﻿.. _Opencl-programming-guide:
+.. _Opencl-programming-guide:
 
 OPENCL Programming Guide
 ========================
@@ -13,7 +13,7 @@ OPENCL Programming Guide
 	* :ref:`Example`
    
    * :ref:`AMD_Implementation` 
-	* :ref:`AMD-APP-SDK-Implementation`
+	* :ref:`AMD-ROCm-Implementation`
 	* :ref:`Hardware-Overview-GCNDevices` 
 	* :ref:`Communication-Host-GPU`
 	* :ref:`Wavefront-Scheduling`
@@ -29,9 +29,9 @@ OPENCL Programming Guide
 	* :ref:`note-on-thread-safety`
 	* :ref:`Toolchain-considerations`
    
-   * :ref:`Debug_profiling_OpenCL`
-	* :ref:`AMD-CodeXL-GPU-Debugger`
-	* :ref:`Debugging-CPU-Kernels-GDB`
+   * :ref:`Profiling_OpenCL`
+	* :ref:`AMD-CodeXL-GPU`
+
    
    * :ref:`OpenCL_static` 
 	* :ref:`Overview`
@@ -211,9 +211,6 @@ Figure 1.4 shows the conceptual framework of the LDS is integration into the mem
 
 
 Physically located on-chip, directly next to the ALUs, the LDS is approximately one order of magnitude faster than global memory (assuming no bank conflicts).
-
-In pre-GCN devices, there are 32 kB memory per compute unit, segmented into
-32 or 16 banks (depending on the GPU type) of 1 k dwords (for 32 banks) or 2 k dwords (for 16 banks). Each bank is a 256x32 two-port RAM (1R/1W per clock cycle). Dwords are placed in the banks serially, but all banks can execute a store or load simultaneously. One work-group can request up to 32 kB memory. Reads across wavefront are dispatched over four cycles in waterfall.
 
 GCN devices contain 64 kB memory per compute unit and allow up to a maximum of 32 kB per workgroup.
 
@@ -991,18 +988,18 @@ Kernel Code –
 AMD Implementation
 ==================
 
-.. _AMD-APP-SDK-Implementation:
+.. _AMD ROCm-Implementation:
 
-The AMD APP SDK Implementation of OpenCL
+The AMD ROCm Implementation of OpenCL
 #########################################
-AMD APP SDK harnesses the tremendous processing power of GPUs for high- performance, data-parallel computing in a wide range of applications. The AMD system includes a software stack, AMD GPUs, and AMD multicore CPUs.
+ROCm OpenCL runtime harnesses the tremendous processing power of GPUs for high- performance, data-parallel computing in a wide range of applications. The AMD system includes a software stack, AMD GPUs, and AMD multicore CPUs.
 
-Figure 2.1 illustrates the relationship of the AMD APP SDK components.
+Figure 2.1 illustrates the relationship of the ROCm OpenCL components.
 
 .. image:: images/2.1.png
     :align: center
 
-The AMD Accelerated Parallel Processing Technology software stack provides end-users and developers with a complete, flexible suite of tools to leverage the processing power in AMD GPUs. AMD Accelerated Parallel Processing Technology software embraces open-systems, open-platform standards. The AMD Accelerated Parallel Processing Technology open platform strategy enables AMD technology partners to develop and provide third-party development tools.
+The AMD ROCm software stack provides end-users and developers with a complete, flexible suite of tools to leverage the processing power in AMD GPUs. AMD ROCm software embraces open-systems, open-platform standards. The AMD Accelerated Parallel Processing Technology open platform strategy enables AMD technology partners to develop and provide third-party development tools.
 
 The software includes the following components:
 
@@ -1229,21 +1226,11 @@ An OpenCL application consists of a host program (C/C++) and an optional kernel 
 
 Compiling the Host Program
 ###########################
-In order to compile the host program, users must install the latest AMD Accelerated Parallel Processing SDK (AMD APP SDK), which provides all the necessary OpenCL runtime headers and libraries required by the host compiler. The SDK installer provided by AMD sets an environmental variable named AMDAPPSDKROOT which is set to the path of the directory in which the AMD APP SDK is installed. The runtime headers and libraries are placed in the install directory under the “include” and “lib” sub-folders, respectively. [Note: Typically, “lib” contains two sub-directories: one library targeted for 32-bit applications, and another for 64-bit applications].
+In order to compile the host program, users must install the OpenCL Compiler and language runtime on the ROCm, On Ubuntu is rocm-opencl-dev which provides all the necessary OpenCL runtime headers and libraries required by the host compiler. If wish to support application build with the historical  APPS SDK sets an environmental variable named AMDAPPSDKROOT to the path of the directory in which the ROCm OpenCL is installed. It should be /opt/rocm/opencl.  The runtime headers and libraries are placed in the install directory under the “include” and “lib” sub-folders, respectively. 
 
 While building the host program, these headers and libraries must be included in the project by choosing the appropriate options for the targeted operating system, IDE, and compiler.
 
-Compiling on Windows
-*********************
 
-To compile OpenCL applications on Windows, Visual Studio 2008 Professional Edition (or later) or the Intel C (C++) compiler must be installed. All C++ files must be added to the project, which must have the following settings.
-
- * Project Properties → C/C++ → Additional Include Directories
-   These must include $(AMDCOMPUTESDKROOT)/include for OpenCL headers. Optionally, they can include $(AMDCOMPUTESDKSAMPLESROOT)/     	include for SDKUtil headers.
- * Project Properties → Linker → Additional Library Directories
-   These must include $(AMDCOMPUTESDKROOT)/lib/x86 for OpenCL libraries for 32-bit and $(AMDCOMPUTESDKROOT)/lib/x86_64 for 64-bit.   	Optionally, they can include $(AMDCOMPUTESDKSAMPLESROOT)/lib/x86 for SDKUtil libraries.
- * Project Properties → Linker → Input → Additional Dependencies
-   These must include OpenCL.lib. Optionally, they can include SDKUtil.lib.
 
 Compiling on Linux
 ********************
@@ -1251,23 +1238,16 @@ Compiling on Linux
 To compile OpenCL applications on Linux, gcc or the Intel C compiler must be installed. There are two major steps: compiling and linking.
 
 1. Compile all the C++ files (Template.cpp), and get the object files.
-   For 32-bit object files on a 32-bit system, or 64-bit object files on 64-bit system::
+  64-bit object files on 64-bit system::
      
-     g++ -o Template.o -c Template.cpp -I$AMDCOMPUTESDKROOT/include
-
-   For building 32-bit object files on a 64-bit system::
-   
-    g++ -o Template.o -c Template.cpp -I$AMDCOMPUTESDKROOT/include
+     g++ -o Template.o -c Template.cpp -I$ROCMOPENCL/include
 
 2. Link all the object files generated in the previous step to the OpenCL library and create an executable.
 
    For linking to a 64-bit library::
    
-     g++ -o Template Template.o -lOpenCL -L$AMDCOMPUTESDKROOT/lib/x86_64
+     g++ -o Template Template.o -lOpenCL -L$ROCMOPENCL/lib/x86_64
 
-   For linking to a 32-bit library::
-   
-    g++ -o Template Template.o -lOpenCL -L$AMDCOMPUTESDKROOT/lib/x86
 
 .. _Compiling-device-programs:
 
@@ -1725,81 +1705,40 @@ For GPU processing, the OpenCL compiler generates an intermediate representation
 
 .. _Debug_profiling_OpenCL:
 
-Debugging and Profiling OpenCL
+Profiling OpenCL
 ==============================
-This chapter discusses how to debug and profile OpenCL programs running on AMD GPU and CPU compute devices. The preferred method is to debug with AMD CodeXL, as described in  “AMD CodeXL GPU Debugger.” The second method, described in  “Debugging CPU Kernels with GDB,” is to use experimental features provided by AMD APP SDK (GNU project debugger, GDB) to debug kernels on x86 CPUs running Linux or cygwin/minGW under Windows.
-
-.. _AMD-CodeXL-GPU-Debugger:
-
-AMD CodeXL GPU Debugger
-#########################
-CodeXL 1.6, the latest version as of this writing, is available as an extension to Microsoft® Visual Studio®, a stand-alone version for Windows, and a stand-alone version for Linux.
-
-AMD CodeXL features
-*******************
-AMD CodeXL provides a “white box” model offering intuitive and real-time
-OpenCL kernel debugging and memory analysis on GPU devices. Using CodeXL, developers can:
-
-* Debug OpenCL™ and OpenGL API calls
-  Break on OpenCL ™ or OpenGL API errors Set breakpoints on OpenCL ™ API calls Display image, buffer and texture data
-* Debug OpenCL™ kernel source code
-  Set breakpoints in OpenCL™ kernels
-  Display OpenCL™ kernel variables
-  –On a single work item
-  –Across all the work items in a dispatch
-  Display OpenCL™ call stacks
-
-The following figure shows the CodeXL user interface:
+This chapter discusses how to profile OpenCL programs running on AMD GPU and CPU compute devices. The preferred method is to debug with AMD CodeXL, as described in  “AMD CodeXL GPU Debugger.” The second method, described in  “Debugging CPU Kernels with GDB,” is to use experimental features provided by ROCm (GNU project debugger, GDB) to debug kernels on x86 CPUs running Linux.
 
 
-.. image:: images/4.1.png
-    :align: center
-
-The CodeXL home page also includes a video illustrating the different features of CodeXL.
-
-
-Downloading and installing CodeXL
+Downloading and installing CodeXL and Radeon Compute Profiler 
 **********************************
 Download the latest version of CodeXL from the CodeXL home page:
 http://developer.amd.com/tools-and-sdks/opencl-zone/codexl/
 
+Radeon Compute Profiler is a performance analysis tool that gathers data from the API run-time and GPU for OpenCL™ and ROCm/HSA applications
 
-Installing on Windows
-**********************
-1. Download the AMD_CodeXL_Win*.exe file for Windows (32-bit or 64-bit).
+RCP is installed when you you use rocm-dev upon instal of the driver.  You can access the source code at https://github.com/GPUOpen-Tools/RCP
 
-2. Double-click the .exe file to install CodeXL.
-   The installer guides you through the installation process.
-   The CodeXL Visual Studio 2010 and 2012 extensions are part of the installer package and are installed by default.
-
-3. Choose Custom installation, and de-select the Visual Studio extensions if you do not want to install them.
-
-Installing on Red Hat/CentOS/Fedora Linux
-******************************************
-
-1. Download the AMD_CodeXL_Linux*.rpm 64-bit Linux RPM package.
-
-2. Install Install the RPM package directly:
-   $ sudo rpm -Uvh AMD_CodeXL_Linux*.rpm
-
-Installing on Ubuntu and other Debian based Linux distributions
+Installing CodeXL on Ubuntu and other Debian based Linux distributions
 ****************************************************************
 Either install the tar archive, or install the .deb package.
 
 **Tar archive:**
 
-1. Download the AMD_CodeXL_Linux*.tar.gz 64-bit Linux tar package.
+1. Download the AMD_CodeXL_Linux*.tar.gz 64-bit Linux tar package at https://github.com/GPUOpen-Tools/CodeXL/releases 
 
 2. Run:
-   $ tar –xvzf AMD_CodeXL_Linux*.tar.gz
+   $ tar –xvzf CodeXL_Linux*.tar.gz
 
 **Debian package :**
 
 1. Download the ``amdcodexl-*.deb 64-bit Linux Debian package.``
 
-2. Run: ``$ sudo dpkg -i amdcodexl_x.x.x-1_amd64.debGetting Started with CodeXL 5 © 2014 Advanced Micro Devices, Inc.``
+2. Run: ``$ sudo dpkg -i amdcodexl_x.x.x-1_amd64.deb ``
    
 3. Run: ``$ sudo apt-get -f install``
+
+Or build the project from source code https://github.com/GPUOpen-Tools/CodeXL 
 
 Using CodeXL for profiling
 ***************************
@@ -1923,130 +1862,6 @@ The Analyze Mode allows a user to do the following:
     :align: center
 
 
-.. _Debugging-CPU-Kernels-GDB:
-
-Debugging CPU Kernels with GDB
-###############################
-This section describes an experimental feature for using the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or cygwin/minGW under Windows.
-
-Setting the Environment
-************************
-The OpenCL program to be debugged first is compiled by passing the “-g -O0” (or “-g -cl-opt-disable”) option to the compiler through the options string to clBuildProgram. For example, using the C++ API:
-
-err = program.build(devices,"-g -O0");
-
-To avoid source changes, set the environment variable as follows:
-
-AMD_OCL_BUILD_OPTIONS_APPEND="-g -O0" or
-AMD_OCL_BUILD_OPTIONS="-g -O0"
-
-Below is a sample debugging session of a program with a simple hello world kernel. The following GDB session shows how to debug this kernel. Ensure that the program is configured to be executed on the CPU. It is important to set
-
-
-CPU_MAX_COMPUTE_UNITS=1. This ensures that the program is executed deterministically.
-
-Setting the Breakpoint in an OpenCL Kernel
-*******************************************
-To set a breakpoint, use:
-
-b [N | function | kernel_name]
-
-where N is the line number in the source code, function is the function name, and kernel_name is constructed as follows: if the name of the kernel is bitonicSort, the kernel_name is     OpenCL_bitonicSort_kernel.
-
-Note that if no breakpoint is set, the program does not stop until execution is complete.
-
-Also note that OpenCL kernel symbols are not visible in the debugger until the kernel is loaded. A simple way to check for known OpenCL symbols is to set a breakpoint in the host code at clEnqueueNDRangeKernel, and to use the GDB info functions  OpenCL command, as shown in the example below.
-
-Sample GDB Session
-*******************
-The following is a sample debugging session. Note that two separate breakpoints are set. The first is set in the host code, at clEnqueueNDRangeKernel(). The second breakpoint is set at the actual CL kernel function.
-
-::
-
-  $ export AMD_OCL_BUILD_OPTIONS_APPEND="-g -O0"
-  $ export CPU_MAX_COMPUTE_UNITS=1
-  $ gdb BitonicSort
-  GNU gdb (GDB) 7.1-ubuntu
-  Copyright (C) 2010 Free Software Foundation, Inc.
-  License GPLv3+: GNU GPL version 3 or later
-  <http://gnu.org/licenses/gpl.html>
-  This is free software: you are free to change and redistribute it.
-  There is NO WARRANTY, to the extent permitted by law. Type "show copying"
-  and "show warranty" for details.
-  This GDB was configured as "x86_64-linux-gnu".
-  For bug reporting instructions, please see:
-  <http://www.gnu.org/software/gdb/bugs/>...
-  Reading symbols from <</AMDAPPSDKInstall
-  Path>>/samples/opencl/bin/x86_64/BitonicSort...done.
-  (gdb) b clEnqueueNDRangeKernel
-  Breakpoint 1 at 0x403228
-  (gdb) r --device cpu
-  Starting program: <</AMDAPPSDKInstall
-  Path>>/samples/opencl/bin/x86_64/BitonicSort --device cpu
-  [Thread debugging using libthread_db enabled]
-
-  Unsorted Input
-  53 5 199 15 120 9 71 107 71 242 84 150 134 180 26 128 196 9 98 4 102 65
-  206 35 224 2 52 172 160 94 2 214 99 .....
-
-
-  Platform Vendor : Advanced Micro Devices, Inc. 
-  Device 0 : AMD Athlon(tm) II X4 630 Processor 
-  [New Thread 0x7ffff7e6b700 (LWP 1894)]
-  [New Thread 0x7ffff2fcc700 (LWP 1895)] 
-  Executing kernel for 1 iterations
-  -------------------------------------------
-
-
-  Breakpoint 1, 0x00007ffff77b9b20 in clEnqueueNDRangeKernel () from
-  <<AMDAPPSDKInstall Path>>/lib/x86_64/libOpenCL.so
-  (gdb) info functions   OpenCL 
-  All functions matching regular expression "__OpenCL":
-
-  File OCLm2oVFr.cl:
-  void   OpenCL_bitonicSort_kernel(uint *, const uint, const uint, const
-  uint, const uint);
-
-  Non-debugging symbols:
-  0x00007ffff23c2dc0
-  0x00007ffff23c2f40
-  __OpenCL_bitonicSort_kernel@plt
-  __OpenCL_bitonicSort_stub
-  (gdb) b  OpenCL_bitonicSort_kernel
-  Breakpoint 2 at 0x7ffff23c2de9: file OCLm2oVFr.cl, line 32.
-  (gdb) c
-  Continuing.
-  [Switching to Thread 0x7ffff2fcc700 (LWP 1895)]
-
-  Breakpoint 2,   OpenCL_bitonicSort_kernel (theArray=0x615ba0, stage=0, passOfStage=0, width=1024, direction=0) at OCLm2oVFr.cl:32
-  32	uint sortIncreasing = direction; (gdb) p get_global_id(0)
-  $1 = 0 (gdb) c Continuing.
-
-  Breakpoint 2,   OpenCL_bitonicSort_kernel (theArray=0x615ba0, stage=0, passOfStage=0, width=1024, direction=0) at OCLm2oVFr.cl:32
-  32	uint sortIncreasing = direction; (gdb) p get_global_id(0)
-  $2 = 1 (gdb)
-
-
-Notes
-*******
-
-4. To make a breakpoint in a working thread with some particular ID in dimension N, one technique is to set a conditional breakpoint 	when the get_global_id(N) == ID. To do this, use:
-   b [ N | function | kernel_name ] if (get_global_id(N)==ID)
-
-   where N can be 0, 1, or 2.
-
-5. For complete GDB documentation, see http://www.gnu.org/software/gdb/documentation/ .
-
-6. For debugging OpenCL kernels in Windows, a developer can use GDB running in cygwin or minGW. It is done in the same way as    described in sections 3.1 and 3.2.
-
-  .. Note::s::
-
-   -Only OpenCL kernels are visible to GDB when running cygwin or minGW. GDB under cygwin/minGW currently does not support host code  debugging.
-
-   –It is not possible to use two debuggers attached to the same process.
-    Do not try to attach Visual Studio to a process, and concurrently GDB to the kernels of that process.
-
-   –Continue to develop the application code using Visual Studio. Currently, gcc running in cygwin or minGW is not supported.
 
 
 .. _OpenCL_static:
@@ -2363,9 +2178,9 @@ The following sections highlight the salient features of OpenCL 2.0 and provide 
   * Non-uniform work group size
 
 Sample code is included wherever appropriate; complete samples illustrating the
-OpenCL 2.0 features are provided with the AMD APP SDK.
+OpenCL 2.0 and 2.1 features are provided with the ROCm 1.7 OpenCL Language Runtime and Compiler .
 
-For guidelines on how to migrate from OpenCL 1.2 to OpenCL 2.0 and for information about querying for image- and device-specific extensions, see Portability considerations.
+For guidelines on how to migrate from OpenCL 1.2 to OpenCL 2.1 and for information about querying for image- and device-specific extensions, see Portability considerations.
 
 For a list of the new and deprecated functions,  “New and deprecated functions in OpenCL 2.0.”
 
@@ -2568,10 +2383,10 @@ Note The generic address space feature also allows one to define a pointer-based
 
 .. Note:::: The OpenCL 2.0 spec itself shows most built-in functions that accept pointer arguments as accepting generic pointer arguments.
 
-AMD APP SDK example
+OpenCL example
 ********************
 
-In the AMD APP SDK sample, addMul2d is a generic function that uses generic address spaces for its operands. The function computes the convolution sum of two vectors. Two kernels compute the convolution: one uses data in the global address space (convolution2DUsingGlobal); the other uses the local address space (sepiaToning2DUsingLocal). The use of a single function improves the readability of the source.
+OpenCL sample, addMul2d is a generic function that uses generic address spaces for its operands. The function computes the convolution sum of two vectors. Two kernels compute the convolution: one uses data in the global address space (convolution2DUsingGlobal); the other uses the local address space (sepiaToning2DUsingLocal). The use of a single function improves the readability of the source.
 
 ::
 
@@ -4753,45 +4568,5 @@ Deprecated runtimes
  | clCreateSampler
  | clEnqueueTask
 
-.. _SPIR:
 
-Standard Portable Intermediate Representation (SPIR)
-=====================================================                                                          
-
-This chapter provides an overview of the Standard Portable Intermediate Representation (SPIR) format. Application developers can use SPIR to avoid shipping kernel source and to manage the proliferation of devices and drivers from multiple vendors.
-SPIR is a portable encoding of device programs. For example, SPIR 1.2 is an encoding of OpenCL C (version 1.2) device programs in LLVM IR; SPIR 1.2 defines how any OpenCL C (version 1.2) device program can be encoded in LLVM (version 3.2). SPIR 2.0 has yet to be published. For details, see the SPIR specification.
-Open-source tools such as CLANG compilers can be used for generating the SPIR output for any OpenCL kernel program. For information about some open source generators that are used to generate SPIR, see https://github.com/KhronosGroup/SPIR.
-
-Sample consumption of SPIR binaries
-######################################
-
-The Simple SPIR sample in the AMD APP SDK demonstrates an implementation for the consumption of SPIR binaries.
-
-The SPIR binary, MatrixTranspose_Kernels.fe.bc, is loaded by using the clCreateProgramWithBinary OpenCL API to generate OpenCL Program.
-
-The API is declared as follows: ::
-
- cl_program clCreateProgramWithBinary(cl_context
- context,cl_uint num_devices,const cl_device_id *device_list,
- const size_t *lengths, const unsigned char **binaries,
- cl_int *binary_status, cl_int *errcode_ret);
-
-The array of SPIR binaries for various platforms is given under the binaries argument of the clCreateProgramWithBinary API.
-The generated OpenCL Program is built using the clBuildProgram OpenCL API with the following options provided: ::
-
- cl_int
- clBuildProgram (cl_program program,cl_uint
- num_devices,const cl_device_id *device_list, const char
- *options, (CL_CALLBACK *pfn_notify)(cl_program program, void
- *user_data), void *user_data)
- options = “ –x spir -spir-std=1.2”
- -x spir
-
-The last line indicates that the binary used is in SPIR format.
--spir-std=1.2
-
-This option tells the API that the SPIR binary is generated using the SPIR 1.2
-specification. The number corresponding to the version of SPIR specification used must be provided.
-In this sample, the SPIR related options are passed through the
-SimpleSpir_oclflags.txt file.
 
