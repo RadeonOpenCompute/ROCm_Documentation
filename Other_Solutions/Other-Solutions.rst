@@ -47,11 +47,6 @@ ROCr level env variable for debug
 * HSA_SVM_GUARD_PAGES=0
 * HSA_DISABLE_CACHE=1
 
-OpenCL 
-#######
-
-* AMD_OCL_WAIT_COMMAND=1
-
 Turn Off Page Retry on GFX9/Vega devices
 #######
 sudo –s
@@ -156,7 +151,10 @@ HIP Envorment Varibles
 |			       || hipEventReleaseToSystem or hipEventReleaseToDevice flag when creating the event.                   |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 
+OpenCL Debug Flags
+#######
 
+* AMD_OCL_WAIT_COMMAND=1  0 = OFF 1 = On 
 
 :ref:`PCIe-Debug`
 #################
