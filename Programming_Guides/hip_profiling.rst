@@ -25,6 +25,7 @@ Profiling information can viewed in the CodeXL visualization tool or printed dir
     	* :ref:`How to enable profiling at HIP build time`
 
 * :ref:`Tracing and Debug`
+  
   * :ref:`Tracing HIP APIs`
     	* :ref:`Color`    	
     	
@@ -274,7 +275,7 @@ The HIP runtime can print the HIP function strings to stderr using HIP_TRACE_API
 * The first line then prints a comma-separated list of the arguments to the function. APIs which return values to the caller by writing to pointers will show the pointer addresses rather than the pointer contents. This behavior may change in the future.
 * The second line shows the completion of the API, including the numeric return value (``ret= 0``) as well as an string representation for the error code (``hipSuccess``). If the returned error code is non-zero, then the csecond line message is shown in red (unless HIP_TRACE_API_COLOR is "none" - see below).
 
-Heres a specific example showing the output of the `square <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/samples/0_Intro/square>`_ program running on HIP::
+Heres a specific example showing the output of the square program running on HIP::
 
  $ HIP_TRACE_API=1  ./square.hip.out 
    hip-api tid:1:HIP initialized short_tid#1 (maps to full_tid: 0x7f6183b097c0)

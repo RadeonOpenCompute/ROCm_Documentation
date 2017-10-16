@@ -57,10 +57,9 @@ OPENCL Programming Guide
    * :ref:`pre_GCN_Devices`
    * :ref:`OpenCL_OpenGL`
    * :ref:`Functions_OpenCL`
-   * :ref:`SPIR`
+  
    
  .. _OpenCL Architecture:
-
 OpenCL Architecture and AMD Accelerated Parallel Processing Technology
 =======================================================================
 
@@ -988,7 +987,7 @@ Kernel Code –
 AMD Implementation
 ==================
 
-.. _AMD ROCm-Implementation:
+.. _AMD-ROCm-Implementation:
 
 The AMD ROCm Implementation of OpenCL
 #########################################
@@ -1703,15 +1702,16 @@ For CPU processing, the OpenCL runtime uses the LLVM AS to generate x86 binaries
 
 For GPU processing, the OpenCL compiler generates an intermediate representation, called AMDIL or HSAIL, depending on whether the OpenCL 1.2 or OpenCL 2.0 compile-with flag is specified. The OpenCL Runtime layer links the needed libraries and passes the complete IL to the Shader compiler for compilation to GPU-specific binaries.
 
-.. _Debug_profiling_OpenCL:
+.. _Profiling_OpenCL:
 
 Profiling OpenCL
 ==============================
 This chapter discusses how to profile OpenCL programs running on AMD GPU and CPU compute devices. The preferred method is to debug with AMD CodeXL, as described in  “AMD CodeXL GPU Debugger.” The second method, described in  “Debugging CPU Kernels with GDB,” is to use experimental features provided by ROCm (GNU project debugger, GDB) to debug kernels on x86 CPUs running Linux.
 
+.. _AMD-CodeXL-GPU:
 
 Downloading and installing CodeXL and Radeon Compute Profiler 
-**********************************
+****************************************************************
 Download the latest version of CodeXL from the CodeXL home page:
 http://developer.amd.com/tools-and-sdks/opencl-zone/codexl/
 
@@ -1720,7 +1720,7 @@ Radeon Compute Profiler is a performance analysis tool that gathers data from th
 RCP is installed when you you use rocm-dev upon instal of the driver.  You can access the source code at https://github.com/GPUOpen-Tools/RCP
 
 Installing CodeXL on Ubuntu and other Debian based Linux distributions
-****************************************************************
+*************************************************************************
 Either install the tar archive, or install the .deb package.
 
 **Tar archive:**
@@ -2337,7 +2337,6 @@ The “data” is the tree created by the host as a coarse-grain buffer and is p
     :align: center
 
 .. Note:::: All numbers were obtained on a Kaveri APU with 32 GB RAM running Windows 8.1. All numbers are in milli-seconds (ms).
-
 The above table shows the performance of the 2.0 implementation over the 1.2 implementation. As you can see, the GPU times mentioned under the OpenCL 1.2 column include the GPU run time, time to transfer the buffers from the host
 to the device, the time required to transform the buffers into arrays and offsets, and the time required to transfer the buffers from the device back to the host, respectively.
 
@@ -2382,7 +2381,6 @@ Note The generic address space feature also allows one to define a pointer-based
   } ;
 
 .. Note:::: The OpenCL 2.0 spec itself shows most built-in functions that accept pointer arguments as accepting generic pointer arguments.
-
 OpenCL example
 ********************
 
@@ -2407,8 +2405,6 @@ OpenCL sample, addMul2d is a generic function that uses generic address spaces f
 
 
 .. Note:::: The compiler will try to resolve the address space at compile time. Otherwise, the runtime will decide whether the pointer references the local or the global address space. For optimum performance, the code must make it easy for the compiler to detect the pointer reference by avoiding data-dependent address space selection, so that run-time resolution -- which is costly -- is not required.
-
-
 .. _Device-side-enqueue:
 
 Device-side enqueue and workgroup/sub-group level functions
@@ -3113,66 +3109,51 @@ cl_amd_media_ops
 This extension adds the following built-in functions to the OpenCL language. Note: For OpenCL scalar types, n = 1; for vector types, it is {2, 4, 8, or 16}.
 
 .. Note:::: in the following, n denotes the size, which can be 1, 2, 4, 8, or 16; [i] denotes the indexed element of a vector, designated 0 to n-1.
-
-
  | Built-in function: amd_pack
  | uint amd_pack(float4 src)
  | Return value
  | ((((uint)src[0]) & 0xFF) << 0) + ((((uint)src[1]) & 0xFF) << 8) + ((((uint)src[2]) & 0xFF) << 16) + ((((uint)src[3]) & 0xFF) << 24)
  
  |
-
  | Built-in function: amd_unpack0
  | floatn  amd_unpack0 (uintn src)
  | Return value for each vector component
  | (float)(src[i] & 0xFF)
-
  |
  
  | Built-in function: amd_unpack1
  | floatn  amd_unpack1 (uintn src)
  | Return value for each vector component
  | (float)((src[i] >> 8) & 0xFF)
-
  |
-
  | Built-in function: amd_unpack2
  | floatn  amd_unpack2 (uintn src)
  | Return value for each vector component
  | (float)((src[i] >> 16) & 0xFF)
-
  |
-
  | Built-in function: amd_unpack3
  | floatn amd_unpack3(uintn src)
  | Return value for each vector component
  | (float)((src[i] >> 24) & 0xFF)
  
  |
-
  | Built-in function: amd_bitalign
  | uintn amd_bitalign (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
  | (uint) (((((long)src0[i]) << 32) | (long)src1[i]) >> (src2[i] & 31))
-
  |
-
  | Built-in function: amd_bytealign
  | uintn amd_bytealign (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
  | (uint) (((((long)src0[i]) << 32) | (long)src1[i]) >> ((src2[i] & 3)*8))
-
  |
-
  | Built-in function: amd_lerp
  | uintn amd_lerp (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
  | (((((src0[i] >> 0) & 0xFF) + ((src1[i] >> 0) & 0xFF) + ((src2[i] >> 0) & 1)) >> 1) << 0) + (((((src0[i] >> 8) & 0xFF) + ((src1[i]  	
  | >> 8) & 0xFF) + ((src2[i] >> 8) & 1)) >> 1) << 8) + (((((src0[i] >> 16) & 0xFF) + ((src1[i] >> 16) & 0xFF) + ((src2[i] >> 16) &   	
  |1)) >> 1) << 16) + (((((src0[i] >> 24) & 0xFF) + ((src1[i] >> 24) & 0xFF) + ((src2[i] >> 24) & 1)) >> 1) << 24) ;
-
  |
-
  | Built-in function: amd_sad
  | uintn amd_sad (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
@@ -3181,9 +3162,7 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | abs(((src0[i] >> 8) & 0xFF) - ((src1[i] >> 8) & 0xFF)) +
  | abs(((src0[i] >> 16) & 0xFF) - ((src1[i] >> 16) & 0xFF)) +
  | abs(((src0[i] >> 24) & 0xFF) - ((src1[i] >> 24) & 0xFF));
-
  |
-
  | Built-in function: amd_sad4
  | uint amd_sad4 (uint4 a, uint4 b, uint c)
  | Return value for each vector component
@@ -3192,7 +3171,6 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | abs(((src0[i] >> 8) & 0xFF) - ((src1[i] >> 8) & 0xFF)) +
  | abs(((src0[i] >> 16) & 0xFF) - ((src1[i] >> 16) & 0xFF)) +
  | abs(((src0[i] >> 24) & 0xFF) - ((src1[i] >> 24) & 0xFF));
-
  |
  
  | Built-in function: amd_sadhi
@@ -3203,8 +3181,6 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | (abs(((src0[i] >> 8) & 0xFF) - ((src1[i] >> 8) & 0xFF)) << 16) +
  | (abs(((src0[i] >> 16) & 0xFF) - ((src1[i] >> 16) & 0xFF)) << 16) +
  | (abs(((src0[i] >> 24) & 0xFF) - ((src1[i] >> 24) & 0xFF)) << 16);
-
-
 For more information, see: http://www.khronos.org/registry/cl/extensions/amd/cl_amd_media_ops.txt
 
 cl_amd_printf
@@ -3552,7 +3528,6 @@ The ICD-compliant version of the code snippet is::
  
 
 .. Note:::: It is recommended that the host code look at the platform vendor string when searching for the desired OpenCL platform, instead of using the platform name string. The platform name string might change, whereas the platform vendor string remains constant for a particular vendor's implementation.
-
 .. _BIF:
 
 OpenCL Binary Image Format (BIF) v2.0
@@ -4567,6 +4542,5 @@ Deprecated runtimes
  | clCreateCommandQueue
  | clCreateSampler
  | clEnqueueTask
-
 
 

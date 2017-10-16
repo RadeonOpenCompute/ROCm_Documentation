@@ -14,34 +14,35 @@ Index
 * :ref:`Variable-Type-Qualifiers`
 * :ref:`Built-In-Variables`
 * :ref:`Coordinate-Built-Ins`
-* :ref:`warpSize`
+	* :ref:`warpSize`
+	* :ref:`Vector-Types`
 * :ref:`Vector-Types`
-* :ref:`Short-Vector-Types`
-* :ref:`dim3`
+	* :ref:`Short-Vector-Types`
+	* :ref:`dim3`
 * :ref:`Memory-Fence-Instructions`
 * :ref:`Synchronization-Functions`
 * :ref:`Math-Functions`
-* :ref:`Single-Precision-Mathematical-Functions`
-* :ref:`Double-Precision-Mathematical-Functions`
-* :ref:`Integer-Intrinsics`
-* :ref:`Floating-point-Intrinsics`
+	* :ref:`Single-Precision-Mathematical-Functions`
+	* :ref:`Double-Precision-Mathematical-Functions`
+	* :ref:`Integer-Intrinsics`
+	* :ref:`Floating-point-Intrinsics`
 * :ref:`Texture-Functions`
 * :ref:`Surface-Functions`
 * :ref:`Timer-Functions`
 * :ref:`Atomic-Functions`
-* :ref:`Caveats-and-Features-Under-Development`
+	* :ref:`Caveats-and-Features-Under-Development`
 * :ref:`Warp-Cross-Lane-Functions`
-* :ref:`Warp-Vote-and-Ballot-Functions`
-* :ref:`Warp-Shuffle-Functions`
+	* :ref:`Warp-Vote-and-Ballot-Functions`
+	* :ref:`Warp-Shuffle-Functions`
 * :ref:`Profiler-Counter-Function`
 * :ref:`Assert`
 * :ref:`Printf`
 * :ref:`Device-Side-Dynamic-Global-Memory-Allocation`
 * :ref:`launch_bounds__`
-* :ref:`Compiler-Impact`
-* :ref:`CU-and-EU-Definitions`
-* :ref:`Porting-from-CUDA-__launch_bounds`
-* :ref:`maxregcount`
+	* :ref:`Compiler-Impact`
+	* :ref:`CU-and-EU-Definitions`
+	* :ref:`Porting-from-CUDA-__launch_bounds`
+	* :ref:`maxregcount`
 * :ref:`Register-Keyword`
 * :ref:`Pragma-Unroll`
 * :ref:`In-Line-Assembly`
@@ -137,7 +138,7 @@ Calling __global__ Functions
   hipLaunchKernel(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n);
  
 
-The hipLaunchKernel macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernel, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernel parameters. The dim3 constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See `dim3 <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#dim3>`_. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. See `Coordinate Built-Ins <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#coordinate-builtins>`_.
+The hipLaunchKernel macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernel, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernel parameters. The dim3 constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See `dim3 <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#dim3>`_. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. See `Coordinate Built-Ins <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#coordinate-built-ins>`_.
 
 .. _Kernel-Launch-Example:
 

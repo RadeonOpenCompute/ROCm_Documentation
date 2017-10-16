@@ -149,7 +149,7 @@ Contact Information
 
 For information concerning AMD Accelerated Parallel Processing developing, please see: http://developer.amd.com/ .
 
-For information about developing with AMD Accelerated Parallel Processing, please see: http://developer.amd.com/appsdk .
+For information about developing with AMD Accelerated Parallel Processing, please see: http://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/ .
 
 We also have a growing community of AMD Accelerated Parallel Processing users. Come visit us at the AMD Accelerated Parallel Processing Developer Forum ( http://developer.amd.com/openclforum ) to find out what applications other users are trying on their AMD Accelerated Parallel Processing products.
 
@@ -1354,107 +1354,82 @@ Valid operands of SALU instructions are:
 In the table below, 0-127 can be used as scalar sources or destinations;
 128-255 can only be used as sources.
 
-+--------------+-----------+--------------------+---------------------------------+
-|              | Code      | Meaning            | Description                     |
-+==============+===========+====================+=================================+
-| | Scalar     | 0 - 101   | SGPR 0 to 101      | Scalar GPRs                     |
-| | Dest       |           |                    |                                 |
-| | (7 bits)   |           |                    |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 102          | FLAT\_SCR | Holds the low      |                                 |
-|              | \_LO      | Dword of the       |                                 |  
-|              |           | flat-scratch       |                                 |
-|              |           | memory descriptor  |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 103          | FLAT\_SCR | Holds the high     |                                 |
-|              | \_HI      | Dword of the       |                                 |   
-|              |           | flat-scratch       |                                 |  
-|              |           | memory descriptor  |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 104          | XNACK\_MA | Holds the low      |                                 |
-|              | SK\_LO    | Dword of the XNACK |                                 |
-|              |           | mask.              |                                 | 
-+--------------+-----------+--------------------+---------------------------------+
-| 105          | XNACK\_MA | Holds the high     |                                 |
-|              | SK\_HI    | Dword of the XNACK |                                 | 
-|              |           | mask.              |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 106          | VCC\_LO   | Holds the low      |                                 | 
-|              |           | Dword of the       |                                 |
-|              |           | vector condition   |                                 | 
-|              |           | code               |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 107          | VCC\_HI   | Holds the high     |                                 |     
-|              |           | Dword of the       |                                 | 
-|              |           | vector condition   |                                 |
-|              |           | code               |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 108-123      | TTMP0 to  | Trap temps         |                                 |
-|              | TTMP15    | (privileged)       |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 124          | M0        | Holds the low      |                                 |
-|              |           | Dword of the       |                                 |  
-|              |           | flat-scratch       |                                 |
-|              |           | memory descriptor  |                                 |
-+--------------+-----------+--------------------+---------------------------------+ 
-| 125          | reserved  | reserved           |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 126          | EXEC\_LO  | Execute mask, low  |                                 | 
-|              |           | Dword              |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-| 127          | EXEC\_HI  | Execute mask, high |                                 |
-|              |           | Dword              |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 128       | 0                  | zero                            |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 129-192   | int 1 to 64        | Positive integer values.        |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 193-208   | int -1 to -16      | Negative integer values.        |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 209-234   | reserved           | Unused.                         |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 235       | SHARED\_BASE       | Memory Aperture definition.     |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 236       | SHARED\_LIMIT      |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 237       | PRIVATE\_BASE      |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 238       | PRIVATE\_LIMIT     |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 239       | POPS\_EXITING\_WAV | Primitive Ordered Pixel Shading |
-|              |           | E\_ID              | wave ID.                        |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 240       | 0.5                | single or double floats         |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 241       | -0.5               |                                 |   
-+--------------+-----------+--------------------+---------------------------------+
-|              | 242       | 1.0                |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 243       | -1.0               |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 244       | 2.0                |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 245       | -2.0               |                                 |   
-+--------------+-----------+--------------------+---------------------------------+
-|              | 246       | 4.0                |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 247       | -4.0               |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 248       | 1.0 / (2 \* PI)    |                                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 249-250   | reserved           | unused                          |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 251       | VCCZ               | { zeros, VCCZ }                 |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 252       | EXECZ              | { zeros, EXECZ }                |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 253       | SCC                | { zeros, SCC }                  |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 254       | reserved           | unused                          |
-+--------------+-----------+--------------------+---------------------------------+
-|              | 255       | Literal            | constant 32-bit constant from   |
-|              |           |                    | instruction stream.             |
-+--------------+-----------+--------------------+---------------------------------+
++------------------------------+-----------------------+---------------------------------------------------------------+
+| Code scalar Dest (0-7 bits)  | Meaning               | Description                                                   |
++==============================+=======================+===============================================================+
+| 0-101                        | SGPR 0 to 101         | Scalar GPRs                                                   |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 102                          | FLAT\_SCR             | Holds the low\_LO Dword of the flatscratch memory descriptor  |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 103                          | FLAT\_SCR             | Holds the high\_HI Dword of the flatscratch memory descriptor |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 104                          | XNACK\_MA             | Holds the lowSK\_LO Dword of the XNACK mask                   |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 105                          | XNACK\_MA             | Holds the high SK\_HI Dword of the XNACK mask                 |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 106                          | VCC\_LO               | Holds the low Dword of the vector condition code              |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 107                          | VCC\_HI               | Holds the high Dword of the vector condition code             |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 108-123                      | TTMP0 to   Trap temps | TTMP15 (privileged)                                           |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 124                          | M0                    | Holds the low Dword of the flatscratch memory descriptor      |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 125                          | reserved              | reserved                                                      |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 126                          | EXEC\_LO              | Execute mask, low Dword                                       |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 127                          | EXEC\_HI              | Execute mask, high Dword                                      |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 128                          | 0                     | zero                                                          |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 129-192                      | int 1 to 64           | Positive integer values.                                      |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 193-208                      | int 1 to 16           | Negative integer values.                                      |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 209-234                      | reserved              | Unused.                                                       |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 235                          |  SHARED\_BASE         | Memory Aperture definition.                                   |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 236                          |  SHARED\_LIMIT        |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 237                          | PRIVATE\_BASE         |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 238                          | PRIVATE\_LIMIT        |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 239                          | POPS\_EXITING\_WAV    | Primitive Ordered Pixel Shading E\_IDwave ID.                 |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 240                          | 0.5                   | single or double floats                                       |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 241                          | 0.5                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 242                          | 1.0                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 243                          | 1.0                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 244                          | 2.0                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 245                          | 2.0                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 246                          | 4.0                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 247                          | 4.0                   |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 248                          | 1.0 / (2 \* PI)       |                                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 249-250                      | reserved              | unused                                                        |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 251                          | VCCZ                  | { zeros, VCCZ }                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 252                          | EXECZ                 | { zeros, EXECZ}                                               |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 253                          | SCC                   | { zeros, SCC }                                                |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 254                          | reserved              | unused                                                        |
++------------------------------+-----------------------+---------------------------------------------------------------+
+| 255                          | Literal               | constant 32bit constant from instruction stream.              |
++------------------------------+-----------------------+---------------------------------------------------------------+
+
 
 	**Table : Scalar Operands**
 
@@ -2453,11 +2428,8 @@ Packed Math Opcodes:
 | V\_PK\_MUL\_F16    | V\_PK\_MIN\_F16    | V\_PK\_MAX\_F16    | V\_MAD\_MIX\_F32   |
 +--------------------+--------------------+--------------------+--------------------+
 
-    **Note**
+.. note:: V\_MAD\_MIX\_\* are not packed math, but perform a single MAD operation on a mixture of 16- and 32-bit inputs. They are listed here because they use the VOP3P encoding.
 
-    V\_MAD\_MIX\_\* are not packed math, but perform a single MAD
-    operation on a mixture of 16- and 32-bit inputs. They are listed
-    here because they use the VOP3P encoding.
 
 Scalar Memory Operations
 ========================
@@ -2752,6 +2724,8 @@ OFFSET
 
 **Memory Address** : If the memory address is out-of-range (clamped),
 the operation is not performed for any Dwords that are out-of-range.
+
+.. _Vector Memory Operations:
 
 Vector Memory Operations
 ========================
@@ -3091,11 +3065,7 @@ instead of the resource’s fields.
 ignores the resource definition. For example, buffer\_load\_ubyte sets
 the data-format to 8 and number-format to uint.
 
-    **Note**
-
-    The resource’s data format must not be INVALID; that format has
-    special meaning (unbound resource), and for that case the data
-    format is not replaced by the instruction’s implied data format.
+.. note:: The resource’s data format must not be INVALID; that format has special meaning (unbound resource), and for that case the data format is not replaced by the instruction’s implied data format.
 
 **DST\_SEL identity** : Depending on the number of components in the
 data-format, this is: X000, XY00, XYZ0, or XYZW.
@@ -4050,7 +4020,7 @@ These are all packed into consecutive VGPRs.
 +------------+------------+------------+------------+------------+------------+------------+
 
 -  Body: One to four Dwords, as defined by the table:
-   `??? <#Image Opcodes with Sampler>`__ Address components are X,Y,Z,W
+   Address components are X,Y,Z,W
    with X in VGPR\_M, Y in VGPR\_M+1, etc. The number of components in
    "body" is the value of the ACNT field in the table, plus one.
 
@@ -4353,8 +4323,10 @@ The shader developer’s responsibility to avoid data hazards associated
 with VMEM instructions include waiting for VMEM read instruction
 completion before reading data fetched from the TC (VMCNT).
 
-This is explained in the section:
-`section\_title <#_data_dependency_resolution>`__
+This is explained in the section: 
+
+:ref:`Vector Memory Operations`
+
 
 Flat Memory Instructions
 ========================
@@ -4738,7 +4710,8 @@ The figure below shows the conceptual framework of the LDS is
 integration into the memory of AMD GPUs using OpenCL.
 
 .. figure:: fig_10_1.png
-   :alt: High-Level Memory Configuration
+
+:alt: High-Level Memory Configuration
 
    High-Level Memory Configuration
 
@@ -11100,18 +11073,18 @@ Scalar format with Two inputs, one output
 |                 | | 106   | | VCC\_LO: vcc[31:0].                             |
 |                 | | 107   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
+|                 |   23    |   register.                                       |
 |                 | | 124   | | M0. Memory register 0.                          |
 |                 | | 125   | | Reserved                                        |
 |                 | | 126   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 127   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 128   | | 0.                                              |
 |                 | | 129-1 | | Signed integer 1 to 64.                         |
-|                 | 92      | | Signed integer -1 to -16.                       |
+|                 |   92    | | Signed integer -1 to -16.                       |
 |                 | | 193-2 | | Reserved.                                       |
-|                 | 08      | | SHARED\_BASE (Memory Aperture definition).      |
+|                 |   08    | | SHARED\_BASE (Memory Aperture definition).      |
 |                 | | 209-2 | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 |   34    | | PRIVATE\_BASE (Memory Aperture definition).     |
 |                 | | 235   | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 236   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 237   | | 0.5.                                            |
@@ -11375,18 +11348,18 @@ SOP1
 |                 | | 106   | | VCC\_LO: vcc[31:0].                             |
 |                 | | 107   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
+|                 |   23    |   register.                                       |
 |                 | | 124   | | M0. Memory register 0.                          |
 |                 | | 125   | | Reserved                                        |
 |                 | | 126   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 127   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 128   | | 0.                                              |
 |                 | | 129-1 | | Signed integer 1 to 64.                         |
-|                 | 92      | | Signed integer -1 to -16.                       |
+|                 |   92    | | Signed integer -1 to -16.                       |
 |                 | | 193-2 | | Reserved.                                       |
-|                 | 08      | | SHARED\_BASE (Memory Aperture definition).      |
+|                 |   08    | | SHARED\_BASE (Memory Aperture definition).      |
 |                 | | 209-2 | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 |   34    | | PRIVATE\_BASE (Memory Aperture definition).     |
 |                 | | 235   | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 236   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 237   | | 0.5.                                            |
@@ -11560,18 +11533,18 @@ SOPC
 |                 | | 106   | | VCC\_LO: vcc[31:0].                             |
 |                 | | 107   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
+|                 |   23    |   register.                                       |
 |                 | | 124   | | M0. Memory register 0.                          |
 |                 | | 125   | | Reserved                                        |
 |                 | | 126   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 127   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 128   | | 0.                                              |
 |                 | | 129-1 | | Signed integer 1 to 64.                         |
-|                 | 92      | | Signed integer -1 to -16.                       |
+|                 |   92    | | Signed integer -1 to -16.                       |
 |                 | | 193-2 | | Reserved.                                       |
-|                 | 08      | | SHARED\_BASE (Memory Aperture definition).      |
+|                 |   08    | | SHARED\_BASE (Memory Aperture definition).      |
 |                 | | 209-2 | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 |   34    | | PRIVATE\_BASE (Memory Aperture definition).     |
 |                 | | 235   | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 236   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 237   | | 0.5.                                            |
@@ -11993,18 +11966,18 @@ VOP2
 |                 | | 106   | | VCC\_LO: vcc[31:0].                             |
 |                 | | 107   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
+|                 |   23    |   register.                                       |
 |                 | | 124   | | M0. Memory register 0.                          |
 |                 | | 125   | | Reserved                                        |
 |                 | | 126   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 127   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 128   | | 0.                                              |
 |                 | | 129-1 | | Signed integer 1 to 64.                         |
-|                 | 92      | | Signed integer -1 to -16.                       |
+|                 |   92    | | Signed integer -1 to -16.                       |
 |                 | | 193-2 | | Reserved.                                       |
-|                 | 08      | | SHARED\_BASE (Memory Aperture definition).      |
+|                 |   08    | | SHARED\_BASE (Memory Aperture definition).      |
 |                 | | 209-2 | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 |   34    | | PRIVATE\_BASE (Memory Aperture definition).     |
 |                 | | 235   | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 236   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 237   | | 0.5.                                            |
@@ -12181,18 +12154,18 @@ VOP1
 |                 | | 106   | | VCC\_LO: vcc[31:0].                             |
 |                 | | 107   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
+|                 |   23    |   register.                                       |
 |                 | | 124   | | M0. Memory register 0.                          |
 |                 | | 125   | | Reserved                                        |
 |                 | | 126   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 127   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 128   | | 0.                                              |
 |                 | | 129-1 | | Signed integer 1 to 64.                         |
-|                 | 92      | | Signed integer -1 to -16.                       |
+|                 |   92    | | Signed integer -1 to -16.                       |
 |                 | | 193-2 | | Reserved.                                       |
-|                 | 08      | | SHARED\_BASE (Memory Aperture definition).      |
+|                 |   08    | | SHARED\_BASE (Memory Aperture definition).      |
 |                 | | 209-2 | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 |   34    | | PRIVATE\_BASE (Memory Aperture definition).     |
 |                 | | 235   | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 236   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 237   | | 0.5.                                            |
@@ -12494,18 +12467,18 @@ Table: Comparison Operations
 |                 | | 106   | | VCC\_LO: vcc[31:0].                             |
 |                 | | 107   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 108-1 | | TTMP0 - TTMP15: Trap handler temporary          |
-|                 | 23      |   register.                                       |
+|                 |   23    |   register.                                       |
 |                 | | 124   | | M0. Memory register 0.                          |
 |                 | | 125   | | Reserved                                        |
 |                 | | 126   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 127   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 128   | | 0.                                              |
 |                 | | 129-1 | | Signed integer 1 to 64.                         |
-|                 | 92      | | Signed integer -1 to -16.                       |
+|                 |   92    | | Signed integer -1 to -16.                       |
 |                 | | 193-2 | | Reserved.                                       |
-|                 | 08      | | SHARED\_BASE (Memory Aperture definition).      |
+|                 |   08    | | SHARED\_BASE (Memory Aperture definition).      |
 |                 | | 209-2 | | SHARED\_LIMIT (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_BASE (Memory Aperture definition).     |
+|                 |   34    | | PRIVATE\_BASE (Memory Aperture definition).     |
 |                 | | 235   | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 236   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 237   | | 0.5.                                            |
@@ -12972,7 +12945,7 @@ VOP3A
 | ENCODING        | [31:26] | Must be: 110100                                   |
 +-----------------+---------+---------------------------------------------------+
 | SRC0            | | [40:3 | | Source 0. First operand for the instruction.    |
-|                 | 2]      | | SGPR0 to SGPR101: Scalar general-purpose        |
+|                 |   2]    | | SGPR0 to SGPR101: Scalar general-purpose        |
 |                 | | 0 -   |   registers.                                      |
 |                 |   101   | | FLAT\_SCRATCH\_LO.                              |
 |                 | | 102   | | FLAT\_SCRATCH\_HI.                              |
@@ -12982,18 +12955,18 @@ VOP3A
 |                 | | 106   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 107   | | TTMP0 - TTMP15: Trap handler temporary          |
 |                 | | 108-1 |   register.                                       |
-|                 | 23      | | M0. Memory register 0.                          |
+|                 |   23    | | M0. Memory register 0.                          |
 |                 | | 124   | | Reserved                                        |
 |                 | | 125   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 126   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 127   | | 0.                                              |
 |                 | | 128   | | Signed integer 1 to 64.                         |
 |                 | | 129-1 | | Signed integer -1 to -16.                       |
-|                 | 92      | | Reserved.                                       |
+|                 |   92    | | Reserved.                                       |
 |                 | | 193-2 | | SHARED\_BASE (Memory Aperture definition).      |
-|                 | 08      | | SHARED\_LIMIT (Memory Aperture definition).     |
+|                 |   08    | | SHARED\_LIMIT (Memory Aperture definition).     |
 |                 | | 209-2 | | PRIVATE\_BASE (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_LIMIT (Memory Aperture definition).    |
+|                 |   34    | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 235   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 236   | | 0.5.                                            |
 |                 | | 237   | | -0.5.                                           |
@@ -13291,7 +13264,7 @@ only for the opcodes listed below. All other opcodes use VOP3A.
 | ENCODING        | [31:26] | Must be: 110100                                   |
 +-----------------+---------+---------------------------------------------------+
 | SRC0            | | [40:3 | | Source 0. First operand for the instruction.    |
-|                 | 2]      | | SGPR0 to SGPR101: Scalar general-purpose        |
+|                 |   2]    | | SGPR0 to SGPR101: Scalar general-purpose        |
 |                 | | 0 -   |   registers.                                      |
 |                 |   101   | | FLAT\_SCRATCH\_LO.                              |
 |                 | | 102   | | FLAT\_SCRATCH\_HI.                              |
@@ -13301,18 +13274,18 @@ only for the opcodes listed below. All other opcodes use VOP3A.
 |                 | | 106   | | VCC\_HI: vcc[63:32].                            |
 |                 | | 107   | | TTMP0 - TTMP15: Trap handler temporary          |
 |                 | | 108-1 |   register.                                       |
-|                 | 23      | | M0. Memory register 0.                          |
+|                 |   23    | | M0. Memory register 0.                          |
 |                 | | 124   | | Reserved                                        |
 |                 | | 125   | | EXEC\_LO: exec[31:0].                           |
 |                 | | 126   | | EXEC\_HI: exec[63:32].                          |
 |                 | | 127   | | 0.                                              |
 |                 | | 128   | | Signed integer 1 to 64.                         |
 |                 | | 129-1 | | Signed integer -1 to -16.                       |
-|                 | 92      | | Reserved.                                       |
+|                 |   92    | | Reserved.                                       |
 |                 | | 193-2 | | SHARED\_BASE (Memory Aperture definition).      |
-|                 | 08      | | SHARED\_LIMIT (Memory Aperture definition).     |
+|                 |   08    | | SHARED\_LIMIT (Memory Aperture definition).     |
 |                 | | 209-2 | | PRIVATE\_BASE (Memory Aperture definition).     |
-|                 | 34      | | PRIVATE\_LIMIT (Memory Aperture definition).    |
+|                 |   34    | | PRIVATE\_LIMIT (Memory Aperture definition).    |
 |                 | | 235   | | POPS\_EXITING\_WAVE\_ID .                       |
 |                 | | 236   | | 0.5.                                            |
 |                 | | 237   | | -0.5.                                           |

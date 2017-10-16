@@ -1,7 +1,7 @@
 .. _tensile:
 
 ==============
-tensile wiki
+Tensile wiki
 ==============
 
 * :ref:`Home`

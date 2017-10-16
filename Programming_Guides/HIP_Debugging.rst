@@ -12,7 +12,8 @@ Table of Contents
 * :ref:`Chicken bits`
 * :ref:`Debugging HIP Applications`
 * :ref:`General Debugging Tips`
-    	* :ref:`Print env var state`
+ 
+  * :ref:`Print env var state`
 
 
 
@@ -63,7 +64,8 @@ ltrace can be easily combined with the HIP_DB switches to visualize the runtime 
  libhsa-runtime64.so.1->hsaKmtUnmapMemoryToGPU(0x7f7776d3e010, 0x7f7776d3e010, 0x12c3c600000000, 0x1804000) = 0
  libhsa-runtime64.so.1->hsaKmtDeregisterMemory(0x7f7776d3e010, 0x7f7776d3e010, 0x7f777f60f9e8, 0x1220580) = 0
  <... hsa_amd_memory_unlock resumed> )            = 0
- hip-api tid:1.17 hipMemcpy                      ret= 0 (hipSuccess)>>
+ hip-api tid:1.17 hipMemcpy                     
+ ret= 0 (hipSuccess)>>
  
 
 Some key information from the trace above.

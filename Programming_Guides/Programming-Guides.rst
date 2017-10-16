@@ -721,7 +721,7 @@ HIP Best Practices
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
  * :ref:`HIP-FAQ` 
- * :ref:`HIP-Terms2`
+ * :ref:`HIP-Term2`
 
 
 

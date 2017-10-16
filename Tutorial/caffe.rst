@@ -24,7 +24,7 @@ Installation
 AMD ROCm Installation
 +++++++++++++++++++++++
 
-For further background information on ROCm, refer here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_.
+For further background information on ROCm, refer `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_.
 
 Installing ROCm Debian packages:
 ::

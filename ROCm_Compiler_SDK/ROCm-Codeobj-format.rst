@@ -470,172 +470,128 @@ AMD Kernel Code
 AMD Kernel Code object is used by AMD GPU CP to set up the hardware to execute a kernel dispatch and consists of the meta data needed to initiate the execution of a kernel, including the entry point address of the machine code that implements 
 
 
+
 .. _AMD-Kernel-Code-Object:
 
 AMD Kernel Code Object amd_kernel_code_t
 #########################################################
 
-======== ======== ========================================== =========================================================================
-Bits 	   Size 	   Field Name 						Description
-======== ======== ========================================== =========================================================================
-31:0 	 4 bytes   amd_code_version_major 		      The AMD major version. Must be the value AMD_KERNEL_CODE_VERSION_MAJOR. 								      Major versions are not backwards compatible.
-63:32 	 4 bytes   amd_code_version_minor 		      The AMD minor version. Must be the value AMD_CODE_VERSION_MINOR. Minor 								      versions with the same major version must be backward compatible.
-79:64 	 2 bytes   amd_machine_kind 			      Machine kind.
-95:80 	 2 bytes   amd_machine_version_major 		      Instruction set architecture: major
-111:96 	 2 bytes   amd_machine_version_minor 		      Instruction set architecture: minor
-127:112  2 bytes   amd_machine_version_stepping 	      Instruction set architecture: stepping
-191:128  8 bytes   kernel_code_entry_byte_offset 	      | Byte offset (possibly negative) from start of amd_kernel_code_t 							      | object to kernel's entry point instruction. The actual code for the 								      | kernel is required to be 256 byte aligned to match hardware 								      | requirements (SQ cache line is 16; entry point config register only 								      | holds bits 47:8 of the address). The Finalizer should endeavor to 								      | allocate all kernel machine code in contiguous memory pages so that a 								      | device pre-fetcher will tend to only pre-fetch Kernel Code objects, 								      | improving cache performance. The AMD HA Runtime Finalizer generates 								      |	position independent code (PIC) to avoid using relocation records and 								      |  give runtime more flexibility in copying code to discrete GPU device 								      |	memory.
-
-======== ======== ========================================== =========================================================================
-255:192 	8 bytes 	kernel_code_prefetch_byte_offset 	Range of bytes to consider prefetching expressed as a signed offset and unsigned size. The (possibly negative) offset is from the start of amd_kernel_code_t object. Set both to 0 if no prefetch information is available.
-319:256 	8 bytes 	kernel_code_prefetch_byte_size 	
-383:320 	8 bytes 	max_scratch_backing_memory_byte_size 	Number of bytes of scratch backing memory required for full occupancy of target chip. This takes into account the number of bytes of scratch per work-item, the wavefront size, the maximum number of wavefronts per CU, and the number of CUs. This is an upper limit on scratch. If the grid being dispatched is small it may only need less than this. If the kernel uses no scratch, or the Finalizer has not computed this value, it must be 0.
-415:384 	4 bytes 	compute_pgm_rsrc1 	Compute Shader (CS) program settings 1 amd_compute_pgm_rsrc1
-447:416 	4 bytes 	compute_pgm_rsrc2 	Compute Shader (CS) program settings 2 amd_compute_pgm_rsrc2
-448 	1 bit 	enable_sgpr_private_segment_buffer 	Enable the setup of Private Segment Buffer
-449 	1 bit 	enable_sgpr_dispatch_ptr 	Enable the setup of Dispatch Ptr
-450 	1 bit 	enable_sgpr_queue_ptr 	Enable the setup of Queue Ptr
-451 	1 bit 	enable_sgpr_kernarg_segment_ptr 	Enable the setup of Kernarg Segment Ptr
-452 	1 bit 	enable_sgpr_dispatch_id 	Enable the setup of Dispatch Id
-453 	1 bit 	enable_sgpr_flat_scratch_init 	Enable the setup of Flat Scratch Init
-454 	1 bit 	enable_sgpr_private_segment_size 	Enable the setup of Private Segment Size
-455 	1 bit 	enable_sgpr_grid_workgroup_count_X 	Enable the setup of Grid Work-Group Count X
-456 	1 bit 	enable_sgpr_grid_workgroup_count_Y 	Enable the setup of Grid Work-Group Count Y
-457 	1 bit 	enable_sgpr_grid_workgroup_count_Z 	Enable the setup of Grid Work-Group Count Z
-463:458 	6 bits 		Reserved. Must be 0.
-
-
-+--------+--------+----------------------------------------+------------------------------------------------------------------------+
-|	 |  	  |    		          		   |                                                                        |
-+--------+--------+----------------------------------------+------------------------------------------------------------------------+
-|31:0 	 |4 bytes 	amd_code_version_major 	The AMD major version. Must be the value AMD_KERNEL_CODE_VERSION_MAJOR. Major versions are not backwards compatible.
-
-
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| Bits      | Bits      | Bits                                    |								     |
-+===========+===========+=========================================+==================================================================+
-| 31:0      | 4 bytes   | amd_code_version_major                  |  The AMD major version. Must  be the   value	             |
-|	    |           |                                         |  AMD_KERNEL_CODE_VERSION_MAJOR.Major versions are not            |
-|           |           |                                         |  backwards compitable		                             |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 63:32     | 4 bytes   | amd_code_version_minor                  |  The AMD minor version. Must be the valueAMD_CODE_VERSION_MINOR. |
-|           |           | 					  |  Minor versions with the same major version must be              |
-|           |           |                                         |  backward compatible.                                            |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 79:64     | 2 bytes   | amd_machine_kind                        | Machine kind.					             |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 95:80     | 2 bytes   | amd_machine_version_major               | Instruction set architecture: major				     |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 111:96    | 2 bytes   | amd_machine_version_minor               | Instruction set architecture: minor				     |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 127:112   | 2 bytes   | amd_machine_version_stepping            | Instruction set architecture: stepping			     |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 191:128   | 8 bytes   | kernel_code_entry_byte_offset           | | Byte offset (possibly negative) from start of amd_kernel_code_t| |	    |           |                                         | | object to kernel's entry point instruction. The actual code    |
-|	    |           |     		                          | | hardware requirements (SQ cache line is 16; entry point config |
-|           |           |                                         | | register only holds bits 47:8 of the address). The Finalizer   |
-|           |           |                                         | | should endeavor to allocate all kernel machine code in         |
-|           |           |                                         | | contiguous memory pages so that a device pre-fetcher will tend |
-|           |           |                                         | | to only pre-fetch Kernel Code objects, improving cache         |
-| 	    |           |                                         | | performance. The AMD HA Runtime Finalizer generates position   |
-|           |           |                                         | | independent code (PIC) to avoid using relocation records and   |
-|           |           |                                         | | give runtime more flexibility in copying code to discrete GPU  |
-|           |           |                                         | | device memory.                                                 |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 255:192   | 8 bytes   | kernel_code_prefetch_byte_offset        | | Range of bytes to consider prefetching expressed as a signed   |
-|	    |           |                                         | | offset and unsigned size. The (possibly negative) offset is    |
-|	    |           |                                         | | from the start of amd_kernel_code_t object. Set both to 0 if no|
-|	    |           |                                         | | prefetch information is available.                             |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 319:256   | 8 bytes   | kernel_code_prefetch_byte_size          |								     |
-+-----------+-----------+-----------------------------------------+------------------------------------------------------------------+
-| 383:320   | 8 bytes   | max_scratch_backing_memory_byte_size    | | Number of bytes of scratch backing memory required for full 									    | occupancy of target chip. This takes into account the number of 									    | bytes of scratch per work-item, the wavefront size, the maximum 									    | number of wavefronts per CU, and the number of CUs. This is an 									    | upper limit on scratch. If the grid being dispatched is small 									    | it may only need less than this. If the kernel uses no scratch, 									    | or the Finalizer has not computed this value, it must be 0.
-+-----------+-----------+-----------------------------------------+
-| 415:384   | 4 bytes   | compute_pgm_rsrc1                       | Compute Shader (CS) program settings 1 amd_compute_pgm_rsrc1
-+-----------+-----------+-----------------------------------------+
-| 447:416   | 4 bytes   | compute_pgm_rsrc2                       | Compute Shader (CS) program settings 2 amd_compute_pgm_rsrc2
-+-----------+-----------+-----------------------------------------+
-| 448       | 1 bit     | enable_sgpr_private_segment_buffer      | Enable the setup of Private Segment Buffer
-+-----------+-----------+-----------------------------------------+
-| 449       | 1 bit     | enable_sgpr_dispatch_ptr                | Enable the setup of Dispatch Ptr
-+-----------+-----------+-----------------------------------------+
-| 450       | 1 bit     | enable_sgpr_queue_ptr                   | Enable the setup of Queue Ptr
-+-----------+-----------+-----------------------------------------+
-| 451       | 1 bit     | enable_sgpr_kernarg_segment_ptr         | Enable the setup of Kernarg Segment Ptr
-+-----------+-----------+-----------------------------------------+
-| 452       | 1 bit     | enable_sgpr_dispatch_id                 | Enable the setup of Dispatch Id
-+-----------+-----------+-----------------------------------------+
-| 453       | 1 bit     | enable_sgpr_flat_scratch_init           | Enable the setup of Flat Scratch Init
-+-----------+-----------+-----------------------------------------+
-| 454       | 1 bit     | enable_sgpr_private_segment_size        | Enable the setup of Private Segment Size
-+-----------+-----------+-----------------------------------------+
-| 455       | 1 bit     | enable_sgpr_grid_workgroup_count_X      | Enable the setup of Grid Work-Group Count X
-+-----------+-----------+-----------------------------------------+
-| 456       | 1 bit     | enable_sgpr_grid_workgroup_count_Y      | Enable the setup of Grid Work-Group Count X
-+-----------+-----------+-----------------------------------------+
-| 457       | 1 bit     | enable_sgpr_grid_workgroup_count_Z      | Enable the setup of Grid Work-Group Count Z
-+-----------+-----------+-----------------------------------------+
-| 463:458   | 6 bits    |                                         | Reserved. Must be 0.
-+-----------+-----------+-----------------------------------------+
-| 464       | 1 bit     | enable_ordered_append_gds               | | Control wave ID base counter for GDS ordered-append. Used to 									    | set COMPUTE_DISPATCH_INITIATOR.ORDERED_APPEND_ENBL.
-+-----------+-----------+-----------------------------------------+
-| 466:465   | 2 bits    | private_element_size                    | Interleave (swizzle) element size in bytes.
-+-----------+-----------+-----------------------------------------+
-| 467       | 1 bit     | is_ptr64                                | | 1 if global memory addresses are 64 bits, otherwise 0. Must 									    | match SH_MEM_CONFIG.PTR32 (GFX7), SH_MEM_CONFIG.ADDRESS_MODE 									    | (GFX8+).
-+-----------+-----------+-----------------------------------------+
-| 468       | 1 bit     | is_dynamic_call_stack                   | | Indicates if the generated machine code is using dynamic call 									    | stack.
-+-----------+-----------+-----------------------------------------+
-| 469       | 1 bit     | is_debug_enabled                        | | Indicates if the generated machine code includes code required 									    | by the debugger.
-+-----------+-----------+-----------------------------------------+
-| 470       | 1 bit     | is_xnack_enabled                        | | Indicates if the generated machine code uses conservative XNACK 									    | register allocation.
-+-----------+-----------+-----------------------------------------+
-| 479:471   | 9 bits    | reserved                                | Reserved. Must be 0.
-+-----------+-----------+-----------------------------------------+
-| 511:480   | 4 bytes   | workitem_private_segment_byte_size      | | The amount of memory required for the static combined private, 									    | spill and arg segments for a work-item in bytes.
-+-----------+-----------+-----------------------------------------+
-| 543:512   | 4 bytes   | workgroup_group_segment_byte_size       | | The amount of group segment memory required by a work-group in 									    | bytes. This does not include any dynamically allocated group 								            | segment memory that may be added when the kernel is dispatched.
-+-----------+-----------+-----------------------------------------+
-| 575:544   | 4 bytes   | gds_segment_byte_size                   | | Number of byte of GDS required by kernel dispatch. Must be 0 if 									    | not using GDS.
-+-----------+-----------+-----------------------------------------+
-| 639:576   | 8 bytes   | kernarg_segment_byte_size               | | The size in bytes of the kernarg segment that holds the values 									    | of the arguments to the kernel. This could be used by CP to 									    | prefetch the kernarg segment pointed to by the kernel dispatch 									    | packet.
-+-----------+-----------+-----------------------------------------+
-| 671:640   | 4 bytes   | workgroup_fbarrier_count                | | Number of fbarrier's used in the kernel and all functions it 									    | calls. If the implementation uses group memory to allocate the 									    | fbarriers then that amount must already be included in the 									    | workgroup_group_segment_byte_size total.
-+-----------+-----------+-----------------------------------------+
-| 687:672   | 2 bytes   | wavefront_sgpr_count                    | | Number of scalar registers used by a wavefront. This includes 									    | the special SGPRs for VCC, Flat Scratch (Base, Size) and XNACK 									    | (for GFX8 (VI)+). It does not include the 16 SGPR added if a 									    | trap handler is enabled. Must match compute_pgm_rsrc1.sgprs 									    | used to set COMPUTE_PGM_RSRC1.SGPRS.
-+-----------+-----------+-----------------------------------------+
-| 703:688   | 2 bytes   | workitem_vgpr_count                     | | Number of vector registers used by each work-item. Must match 									    | compute_pgm_rsrc1.vgprs used to set COMPUTE_PGM_RSRC1.VGPRS.
-+-----------+-----------+-----------------------------------------+
-| 719:704   | 2 bytes   | reserved_vgpr_first                     | | If reserved_vgpr_count is 0 then must be 0. Otherwise, this is 								            | the first fixed VGPR number reserved.
-+-----------+-----------+-----------------------------------------+
-| 735:720   | 2 bytes   | reserved_vgpr_count                     | | The number of consecutive VGPRs reserved by the client. If 									    | is_debug_supported then this count includes VGPRs reserved for 								            | debugger use.
-+-----------+-----------+-----------------------------------------+
-| 751:736   | 2 bytes   | reserved_sgpr_first                     | | If reserved_sgpr_count is 0 then must be 0. Otherwise, this is 									    | the first fixed SGPR number reserved.
-+-----------+-----------+-----------------------------------------+
-| 767:752   | 2 bytes   | reserved_sgpr_count                     | | The number of consecutive SGPRs reserved by the client. If 									    | is_debug_supported then this count includes SGPRs reserved for 									    | debugger use.
-+-----------+-----------+-----------------------------------------+
-| 783:768   | 2 bytes   | debug_wavefront_private_segment	  | | If is_debug_supported is 0 then must be 0. Otherwise, this is 									    | the fixed SGPR number used to hold the wave scratch offset for 									    | the entire kernel execution, or uint16_t(-1) if the register is 									    | not used or not known.	
-|	    |		| _offset_sgpr 				  |
-+-----------+-----------+-----------------------------------------+
-| 799:784   | 2 bytes   | debug_private_segment_buffer_sgpr       | | If is_debug_supported is 0 then must be 0. Otherwise, this is 									    | the fixed SGPR number of the first of 4 SGPRs used to hold the 									    | scratch V# used for the entire kernel execution, or uint16_t							    | (-1) if the registers are not used or not known.
-+-----------+-----------+-----------------------------------------+
-| 807:800   | 1 byte    | kernarg_segment_alignment               | | The maximum byte alignment of variables used by the kernel in 									    | the specified memory segment. Expressed as a power of two as 									    | defined in Table 37. Must be at least HSA_POWERTWO_16.
-+-----------+-----------+-----------------------------------------+
-| 815:808   | 1 byte    | group_segment_alignment                 |
-+-----------+-----------+-----------------------------------------+
-| 823:816   | 1 byte    | private_segment_alignment               |
-+-----------+-----------+-----------------------------------------+
-| 831:824   | 1 byte    | wavefront_size                          | | Wavefront size expressed as a power of two. Must be a power of 									    | 2 in range 1..256 inclusive. Used to support runtime query that 									    | obtains wavefront size, which may be used by application to 									    | allocated dynamic group memory and set the dispatch work-group 									    | size.
-+-----------+-----------+-----------------------------------------+
-| 863:832   | 4 bytes   | call_convention                         | | Call convention used to produce the machine code for the 									    | kernel. This specifies the function call convention ABI used 									    | for indirect functions. If the application specified that the 									    | Finalizer should select the call convention, then this value 									    | must be the value selected, not the -1 specified to the 									    | Finalizer. If the code object does not support indirect 									    | functions, then the value must be 0xffffffff.
-960:864 	12 bytes 		
-+-----------+-----------+-----------------------------------------+
-| 960:864   | 12 bytes  |                                         | Reserved. Must be 0.
-+-----------+-----------+-----------------------------------------+
-| 1023:960  | 8 bytes   | runtime_loader_kernel_symbol            | | A pointer to the loaded kernel symbol. This field must be 0 |								    | when amd_kernel_code_t is created. The HSA Runtime loader 								    | initializes this field once the code object is loaded to 									    | reference the loader symbol for the kernel. This field is used 									    | to allow the debugger to locate the debug information for the 									    | kernel. The definition of the loaded kernel symbol is located 									    | in hsa/runtime/executable.hpp.
-+-----------+-----------+-----------------------------------------+
-| 2047:1024 | 128 bytes | control_directive                       | | Control directives for this kernel used in generating the 								    | machine code. The values are intended to reflect the constraints that the code actually requires to correctly execute, not the values that were actually specified at finalize time. If the finalizer chooses to ignore a control directive, and not generate constrained code, then the control directive should not be marked as enabled.
-+-----------+-----------+-----------------------------------------+
-| 2048      |           |                                         | Total size 256 bytes.
-+-----------+-----------+-----------------------------------------+
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Bits      | Size      | Field Name                                  | Description                                                                                                                                                                                                                                                      |
++===========+===========+=============================================+==================================================================================================================================================================================================================================================================+
+| 31:0      | 4 bytes   | amd_code_version_major                      | The AMD major version. Must be the value AMD_KERNEL_CODE_VERSION_MAJOR. Major versions are not backwards compatible.                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 63:32     | 4 bytes   | amd_code_version_minor                      | The AMD minor version. Must be the value AMD_CODE_VERSION_MINOR. Minor versions with the same major version must be backward compatible.                                                                                                                         |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 79:64     | 2 bytes   | amd_machine_kind                            | Machine kind.                                                                                                                                                                                                                                                    |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 95:80     | 2 bytes   | amd_machine_version_major                   | Instruction set architecture: major                                                                                                                                                                                                                              |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 111:96    | 2 bytes   | amd_machine_version_minor                   | Instruction set architecture: minor                                                                                                                                                                                                                              |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 127:112   | 2 bytes   | amd_machine_version_stepping                | Instruction set architecture: stepping                                                                                                                                                                                                                           |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 191:128   | 8 bytes   | kernel_code_entry_byte_offset               | Byte offset (possibly negative) from start of amd_kernel_code_t object to kernel's entry point instruction. The actual code for the kernel is required to be 256 byte aligned to match hardware requirements (SQ cache line is 16;                               |
+|           |           |                                             | entry point config register only holds bits 47:8 of the address). The Finalizer should endeavor to allocate all kernel machine code in contiguous memory pages so that a device pre-fetcher will tend to only pre-fetch Kernel Code objects,                     |
+|           |           |                                             | improving cache performance. The AMD HA Runtime Finalizer generates position independent code (PIC) to avoid using relocation records and give runtime more flexibility in copying code to discrete GPU device memory.                                           |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 255:192   | 8 bytes   | kernel_code_prefetch_byte_offset            | Range of bytes to consider prefetching expressed as a signed offset and unsigned size. The (possibly negative) offset is from the start of amd_kernel_code_t object.                                                                                             |
+|           |           |                                             | Set both to 0 if no prefetch information is available.                                                                                                                                                                                                           |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 319:256   | 8 bytes   | kernel_code_prefetch_byte_size              |                                                                                                                                                                                                                                                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 383:320   | 8 bytes   | max_scratch_backing_memory_byte_size        | Number of bytes of scratch backing memory required for full occupancy of target chip. This takes into account the number of bytes of scratch per work-item, the wavefront size, the maximum number of wavefronts per CU, and the number of CUs.                  |
+|           |           |                                             | This is an upper limit on scratch. If the grid being dispatched is small it may only need less than this. If the kernel uses no scratch, or the Finalizer has not computed this value, it must be 0.                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 415:384   | 4 bytes   | compute_pgm_rsrc1                           | Compute Shader (CS) program settings 1 amd_compute_pgm_rsrc1                                                                                                                                                                                                     |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 447:416   | 4 bytes   | compute_pgm_rsrc2                           | Compute Shader (CS) program settings 2 amd_compute_pgm_rsrc2                                                                                                                                                                                                     |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 448       | 1 bit     | enable_sgpr_private_segment_buffer          | Enable the setup of Private Segment Buffer                                                                                                                                                                                                                       |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 449       | 1 bit     | enable_sgpr_dispatch_ptr                    | Enable the setup of Dispatch Ptr                                                                                                                                                                                                                                 |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 450       | 1 bit     | enable_sgpr_queue_ptr                       | Enable the setup of Queue Ptr                                                                                                                                                                                                                                    |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 451       | 1 bit     | enable_sgpr_kernarg_segment_ptr             | Enable the setup of Kernarg Segment Ptr                                                                                                                                                                                                                          |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 452       | 1 bit     | enable_sgpr_dispatch_id                     | Enable the setup of Dispatch Id                                                                                                                                                                                                                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 453       | 1 bit     | enable_sgpr_flat_scratch_init               | Enable the setup of Flat Scratch Init                                                                                                                                                                                                                            |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 454       | 1 bit     | enable_sgpr_private_segment_size            | Enable the setup of Private Segment Size                                                                                                                                                                                                                         |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 455       | 1 bit     | enable_sgpr_grid_workgroup_count_X          | Enable the setup of Grid Work-Group Count X                                                                                                                                                                                                                      |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 456       | 1 bit     | enable_sgpr_grid_workgroup_count_Y          | Enable the setup of Grid Work-Group Count Y                                                                                                                                                                                                                      |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 457       | 1 bit     | enable_sgpr_grid_workgroup_count_Z          | Enable the setup of Grid Work-Group Count Z                                                                                                                                                                                                                      |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 463:458   | 6 bits    |                                             | Reserved. Must be 0.                                                                                                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 464       | 1 bit     | enable_ordered_append_gds                   | Control wave ID base counter for GDS ordered-append. Used to set COMPUTE_DISPATCH_INITIATOR.ORDERED_APPEND_ENBL.                                                                                                                                                 |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 466:465   | 2 bits    | private_element_size                        | Interleave (swizzle) element size in bytes.                                                                                                                                                                                                                      |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 467       | 1 bit     | is_ptr64                                    | 1 if global memory addresses are 64 bits, otherwise 0. Must match SH_MEM_CONFIG.PTR32 (GFX7), SH_MEM_CONFIG.ADDRESS_MODE (GFX8+).                                                                                                                                |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 468       | 1 bit     | is_dynamic_call_stack                       | Indicates if the generated machine code is using dynamic call stack.                                                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 469       | 1 bit     | is_debug_enabled                            | Indicates if the generated machine code includes code required by the debugger.                                                                                                                                                                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 470       | 1 bit     | is_xnack_enabled                            | Indicates if the generated machine code uses conservative XNACK register allocation.                                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 479:471   | 9 bits    | reserved                                    | Reserved. Must be 0.                                                                                                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 511:480   | 4 bytes   | workitem_private_segment_byte_size          | The amount of memory required for the static combined private, spill and arg segments for a work-item in bytes.                                                                                                                                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 543:512   | 4 bytes   | workgroup_group_segment_byte_size           | The amount of group segment memory required by a work-group in bytes. This does not include any dynamically allocated group segment memory that may be added when the kernel is dispatched.                                                                      |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 575:544   | 4 bytes   | gds_segment_byte_size                       | Number of byte of GDS required by kernel dispatch. Must be 0 if not using GDS.                                                                                                                                                                                   |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 639:576   | 8 bytes   | kernarg_segment_byte_size                   | The size in bytes of the kernarg segment that holds the values of the arguments to the kernel. This could be used by CP to prefetch the kernarg segment pointed to by the kernel dispatch packet.                                                                |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 671:640   | 4 bytes   | workgroup_fbarrier_count                    | Number of fbarrier's used in the kernel and all functions it calls. If the implementation uses group memory to allocate the fbarriers then that amount must already be included in the workgroup_group_segment_byte_size total.                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 687:672   | 2 bytes   | wavefront_sgpr_count                        | Number of scalar registers used by a wavefront. This includes the special SGPRs for VCC, Flat Scratch (Base, Size) and XNACK (for GFX8 (VI)+).                                                                                                                   |
+|           |           |                                             |  It does not include the 16 SGPR added if a trap handler is enabled. Must match compute_pgm_rsrc1.sgprs used to set COMPUTE_PGM_RSRC1.SGPRS.                                                                                                                     |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 703:688   | 2 bytes   | workitem_vgpr_count                         | Number of vector registers used by each work-item. Must match compute_pgm_rsrc1.vgprs used to set COMPUTE_PGM_RSRC1.VGPRS.                                                                                                                                       |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 719:704   | 2 bytes   | reserved_vgpr_first                         | If reserved_vgpr_count is 0 then must be 0. Otherwise, this is the first fixed VGPR number reserved.                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 735:720   | 2 bytes   | reserved_vgpr_count                         | The number of consecutive VGPRs reserved by the client. If is_debug_supported then this count includes VGPRs reserved for debugger use.                                                                                                                          |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 751:736   | 2 bytes   | reserved_sgpr_first                         | If reserved_sgpr_count is 0 then must be 0. Otherwise, this is the first fixed SGPR number reserved.                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 767:752   | 2 bytes   | reserved_sgpr_count                         | The number of consecutive SGPRs reserved by the client.                                                                                                                                                                                                          |
+|           |           |                                             |  If is_debug_supported then this count includes SGPRs reserved for debugger use.                                                                                                                                                                                 |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 783:768   | 2 bytes   | debug_wavefront_private_segment_offset_sgpr | If is_debug_supported is 0 then must be 0. Otherwise, this is the fixed SGPR number used to hold the wave scratch offset for the entire kernel execution, or uint16_t(-1) if the register is not used or not known.                                              |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 799:784   | 2 bytes   | debug_private_segment_buffer_sgpr           | If is_debug_supported is 0 then must be 0. Otherwise, this is the fixed SGPR number of the first of 4 SGPRs used to hold the scratch V# used for the entire kernel execution, or uint16_t(-1) if the registers are not used or not known.                        |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 807:800   | 1 byte    | kernarg_segment_alignment                   | The maximum byte alignment of variables used by the kernel in the specified memory segment. Expressed as a power of two as defined in Table 37. Must be at least HSA_POWERTWO_16.                                                                                |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 815:808   | 1 byte    | group_segment_alignment                     |                                                                                                                                                                                                                                                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 823:816   | 1 byte    | private_segment_alignment                   |                                                                                                                                                                                                                                                                  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 831:824   | 1 byte    | wavefront_size                              | Wavefront size expressed as a power of two. Must be a power of 2 in range 1..256 inclusive. Used to support runtime query that obtains wavefront size, which may be used by application to allocated dynamic group memory and set the dispatch work-group size.  |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 863:832   | 4 bytes   | call_convention                             | Call convention used to produce the machine code for the kernel. This specifies the function call convention ABI used for indirect functions.                                                                                                                    |
+|           |           |                                             | If the application specified that the Finalizer should select the call convention, then this value must be the value selected, not the -1 specified to the Finalizer. If the code object does not support indirect functions, then the value must be 0xffffffff. |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 960:864   | 12 bytes  |                                             | Reserved. Must be 0.                                                                                                                                                                                                                                             |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 1023:960  | 8 bytes   | runtime_loader_kernel_symbol                | A pointer to the loaded kernel symbol. This field must be 0 when amd_kernel_code_t is created. The HSA Runtime loader initializes this field once the code object is loaded to reference the loader symbol for the kernel.                                       |
+|           |           |                                             | This field is used to allow the debugger to locate the debug information for the kernel. The definition of the loaded kernel symbol is located in hsa/runtime/executable.hpp.                                                                                    |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 2047:1024 | 128 bytes | control_directive                           | Control directives for this kernel used in generating the machine code. The values are intended to reflect the constraints that the code actually requires to correctly execute, not the values that were actually specified at finalize time.                   |
+|           |           |                                             | If the finalizer chooses to ignore a control directive, and not generate constrained code, then the control directive should not be marked as enabled.                                                                                                           |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 2048      |           |                                             | Total size 256 bytes.                                                                                                                                                                                                                                            |
++-----------+-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. _Compute-shader-settings-1:
@@ -770,6 +726,7 @@ For compute capabilities supporting PCIe Gen3 atomics, system scope atomic opera
    * Other Atomic RMW operations: (max, min, and, or, xor, wrapinc, wrapdec): CAS loop
 
 PCIe Gen3 atomics are only supported on certain hardware configurations, for example, Haswell system.
+
 .. _AMD-Queue:
 
 AMD Queue
@@ -861,7 +818,12 @@ For GFX8 and earlier systems, only HSA Queue type SINGLE is supported.
 |2048    |          |                                        | | Total size 256 bytes.						     |
 +--------+----------+----------------------------------------+-----------------------------------------------------------------------+
 
+
+.. _Queue-operations:
+
+Queue-operations
 ###################
+
 A queue has an associated set of high-level operations defined in "HSA Runtime Specification" (API functions in host code) and "HSA Programmer Reference Manual Specification" (kernel code).
 
 The following is informal description of AMD implementation of queue operations (all use memory scope system, memory order applies):
@@ -1007,7 +969,7 @@ References
    * `HSA Programmer Reference Manual Specification 1.01 <www.hsafoundation.com/?ddownload=4945>`_
    * `HSA Runtime Specification 1.0 <www.hsafoundation.com/?ddownload=4946>`_
    * AMD ISA Documents
-       * AMD GCN3 Instruction Set Architecture (2015)
+       * `AMD GCN3 Instruction Set Architecture (2015) <https://github.com/tpn/pdfs/blob/master/AMD%20-%20GCN3%20Instruction%20Set%20Architecture%20-%20Graphics%20Core%20Next%20Architecture%2C%20Generation%203%20(Revision%201.0%2C%20March%202015).pdf>`_.
        * `AMD_Southern_Islands_Instruction_Set_Architecture <http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_Southern_Islands_Instruction_Set_Architecture1.pdf>`_
    * `ROCR Runtime sources <https://github.com/RadeonOpenCompute/ROCR-Runtime>`_
        * `amd_hsa_kernel_code.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_kernel_code.h>`_

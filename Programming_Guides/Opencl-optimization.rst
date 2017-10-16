@@ -1,8 +1,8 @@
 
 
-..  _Opencl-optimization:
+.. _Opencl-optimization:
 
-Note Re-Write in Progress to move this to Vega and FIJI/Polaris optimization guide 
+.. Note:: Re-Write in Progress to move this to Vega and FIJI/Polaris optimization guide 
 
 ========================
 OPENCL Optimization

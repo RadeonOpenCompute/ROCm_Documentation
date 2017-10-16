@@ -73,7 +73,7 @@ optional arguments:
 
 **Detailed Option Descriptions**
 
---setsclk/--setmclk # [# # ...]: This allows you to set a mask for the levels. For example, if a GPU has 8 clock levels, you can set a mask to use levels 0, 5, 6 and 7 with --setsclk 0 5 6 7 . This will only use the base level, and the top 3 clock levels. This will allow you to keep the GPU at base level when there is no GPU load, and the top 3 levels when the GPU load increases.
+**--setsclk/--setmclk # [# # ...]:**  This allows you to set a mask for the levels. For example, if a GPU has 8 clock levels, you can set a mask to use levels 0, 5, 6 and 7 with --setsclk 0 5 6 7 . This will only use the base level, and the top 3 clock levels. This will allow you to keep the GPU at base level when there is no GPU load, and the top 3 levels when the GPU load increases.
 
 .. NOTE::
     The clock levels will change dynamically based on GPU load based on the default Compute and Graphics profiles. The thresholds and 	  delays for a custom mask cannot be controlled through the SMI tool
@@ -81,19 +81,19 @@ optional arguments:
     This flag automatically sets the Performance Level to "manual" as the mask is not
     applied when the Performance level is set to auto
 
---setfan LEVEL: This sets the fan speed to a value ranging from 0 to 255 (not from 0-100%).
+**--setfan LEVEL:** This sets the fan speed to a value ranging from 0 to 255 (not from 0-100%).
 
 .. NOTE:: 
 	While the hardware is usually capable of overriding this value when required, it is recommended to not set the fan level 	 lower than the default value for extended periods of time
 
---setperflevel LEVEL: This lets you use the pre-defined Performance Level values, which can include: auto (Automatically change       	PowerPlay values based on GPU workload low (Keep PowerPlay values low, regardless of workload) high (Keep PowerPlay values high,    	regardless of workload) manual (Only use values defined in sysfs values)
+**--setperflevel LEVEL:** This lets you use the pre-defined Performance Level values, which can include: auto (Automatically change       	PowerPlay values based on GPU workload low (Keep PowerPlay values low, regardless of workload) high (Keep PowerPlay values high,    	regardless of workload) manual (Only use values defined in sysfs values)
 
---setoverdrive #: This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
+**--setoverdrive #:** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
 
 .. NOTE::
     This option can be used in conjunction with the --setsclk mask Operating the GPU outside of specifications can cause irreparable 	 damage to your hardware Please observe the warning displayed when using this option
 
---setprofile # # # # #: The Compute Profile accepts 5 parameters, which are (in order): Minimum SCLK - Minimum GPU clock speed in MHz Minimum MCLK - Minimum GPU Memory clock speed in MHz Activity threshold - Workload required before clock levels change (%) Hysteresis Up - Delay before clock level is increased in milliseconds Hysteresis Down - Delay before clock level is decresed in milliseconds
+**--setprofile # # # # #:** The Compute Profile accepts 5 parameters, which are (in order): Minimum SCLK - Minimum GPU clock speed in MHz Minimum MCLK - Minimum GPU Memory clock speed in MHz Activity threshold - Workload required before clock levels change (%) Hysteresis Up - Delay before clock level is increased in milliseconds Hysteresis Down - Delay before clock level is decresed in milliseconds
 
 .. NOTE::
     When a compute queue is detected, these values will be automatically applied to the system
