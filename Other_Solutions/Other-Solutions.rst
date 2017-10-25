@@ -50,12 +50,12 @@ ROCr level env variable for debug
 Turn Off Page Retry on GFX9/Vega devices
 #######
 
-.. code-block::
 
-  sudo –s
-  echo 1 > /sys/module/amdkfd/parameters/noretry
+
+  * sudo –s
+  * echo 1 > /sys/module/amdkfd/parameters/noretry
   
-  :
+
 
 HCC Debug Enviroment Varibles
 ##############################
