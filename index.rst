@@ -15,7 +15,7 @@ We are excited to present ROCm, the first open-source HPC/Hyperscale-class platf
 
 Going to 11: Amping Up the Programming-Language Run-Time Foundation
 ####################################################################
-The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continum’s Anaconda Python.
+The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
 
 .. image:: ROCm_Stack.png
     :align: center
