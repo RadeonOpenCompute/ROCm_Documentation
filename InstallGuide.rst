@@ -42,7 +42,7 @@ Debian Repository: apt-get
 For Debian-based systems, such as Ubuntu, configure the Debian ROCm
 repository as follows:
 
-```shell
+```
 wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
 sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 ```
@@ -62,14 +62,14 @@ package.
 >**Warning**: Before proceeding, make sure to completely
 >[uninstall any previous ROCm package](https://github.com/RadeonOpenCompute/ROCm#removing-pre-release-packages):
 
-```shell
+```
 sudo apt-get update
 sudo apt-get install rocm-dkms rocm-opencl-dev
 ```
 
 With move to upstreaming the KFD driver and the support of DKMS,  for all Console aka headless user you will need  add all  your users to the  'video" group by setting the unix permisions
 
-```shell
+```
 sudo usermod -a -G video <username>
 ```
 Once complete, reboot your system.
@@ -89,17 +89,20 @@ Post Install all user need to part of the member of “video” group so set you
  Build and run Hello World OCL app..
 
 HelloWorld sample:
+
 ```
  wget https://raw.githubusercontent.com/bgaster/opencl-book-samples/master/src/Chapter_2/HelloWorld/HelloWorld.cpp
  wget https://raw.githubusercontent.com/bgaster/opencl-book-samples/master/src/Chapter_2/HelloWorld/HelloWorld.cl
 ```
 
  Build it using the default ROCm OpenCL include and library locations:
+ 
 ```
 g++ -I /opt/rocm/opencl/include/ ./HelloWorld.cpp -o HelloWorld -L/opt/rocm/opencl/lib/x86_64 -lOpenCL
 ```
 
  Run it:
+ 
  ```
  ./HelloWorld
 ```
