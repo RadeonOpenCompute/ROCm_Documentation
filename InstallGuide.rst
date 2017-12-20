@@ -2,12 +2,12 @@ ROCm Installation Guide
 =======================
 
 
-Installing From AMD ROCm Repositories
+Introduction 
 --------------------------------------
 
-AMD is hosting both Debian and RPM repositories for the ROCm packages.
-The packages in both repositories are signed to ensure their
-integrity. Below are directions for each repository.
+The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems.
+
+ROCm started  with just the support of AMD’s FIJI Family of dGPUs. Starting with ROCm 1.3 we further extends support to include the Polaris Family of ASICs. With ROCm 1.6 we added Vega Family of products. 
 
 Supported CPU's
 --------------------------------------
@@ -15,19 +15,26 @@ Supported CPU's
 * Radeon R9 Nano, R9 Fury, R9 Fury X, FirePro S9300x2 need a CPU that support PCIe Gen 3 and PCIe Atomics,  Currently Intel Haswell or newer CPU support this fuctionality. Example Intel Xeon E5 v3, Xeon E3 v3, Core i7, Core i5, Core 3. 
 * Radeon R9 290, R9 390, FirePro S9150, S9170 can support older CPU's since it does not require PCIe Gen 3 & PCIe Atomics.    Note we do not recomend PCIe Gen 2 enabled CPU since you will cap your overal bandwith but they will work with these GPU's   
 
-Supported Operating Systems
+Systems Requirements 
 --------------------------------------
 
-The ROCm platform has undergone testing on the following operating
-systems:
+To use ROCm on your system you need the following: 
+* ROCm Capable CPU and GPU 
+	* PCIe Gen 3 Enabled CPU with PCIe Platform Atomics 
+		* [More about how ROCm uses PCIe Atomics](https://rocm.github.io/ROCmPCIeFeatures.html)
+	* ROCm enabled GPU's 
+		* Radeon Instinct Family MI25, MI8, MI6 
+		* Radeon Vega Frontier Edition 
+		* [Broader Set of Tested Hardware](hardware.md)
+* Supported Version of Linux with a specified GCC Compiler and ToolChain 
 
- * Ubuntu 14.04.04
- * Fedora 23
 
-Experimental support is available for these operating systems:
+Table 1. Native Linux Distribution Support in ROCm  1.7
 
- * Ubuntu 16.04
- * Fedora 22
+|Distribution	|Kernel	|GCC	|GLIBC	|
+|:--------------|:------|:------|:------|
+|x86_64		|	|	|       |		
+|Ubuntu 16.04	|4.11	|5.40	|2.23   |
 
 Debian Repository: apt-get
 --------------------------------------
@@ -35,10 +42,16 @@ Debian Repository: apt-get
 For Debian-based systems, such as Ubuntu, configure the Debian ROCm
 repository as follows:
 
-```bash
-wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ trusty main > /etc/apt/sources.list.d/rocm.list'
+```shell
+wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 ```
+
+The gpg key might change, so it may need to be updated when installing a new 
+release. The current rocm.gpg.key is not avialable in a standard key ring distribution,
+but has the following sha1sum hash:
+
+f0d739836a9094004b0a39058d046349aacc1178  rocm.gpg.key
 
 Install or Update
 --------------------------------------
@@ -46,29 +59,58 @@ Install or Update
 Next, update the apt-get repository list and install/update the ROCm
 package.
 
-```
+>**Warning**: Before proceeding, make sure to completely
+>[uninstall any previous ROCm package](https://github.com/RadeonOpenCompute/ROCm#removing-pre-release-packages):
+
+```shell
 sudo apt-get update
-sudo apt-get install rocm
+sudo apt-get install rocm-dkms rocm-opencl-dev
 ```
 
-Make the ROCm kernel your default kernel. If you’re using Grub2
-as your bootloader, you can edit the GRUB_DEFAULT variable:
+With move to upstreaming the KFD driver and the support of DKMS,  for all Console aka headless user you will need  add all  your users to the  'video" group by setting the unix permisions
 
+```shell
+sudo usermod -a -G video <username>
 ```
-sudo vi /etc/default/grub
-sudo update-grub
-```
+Once complete, reboot your system.
+
+We recommend you [verify your installation](https://github.com/RadeonOpenCompute/ROCm#verify-installation) to make sure everything completed successfully.
+
 
 Once complete, reboot your system. We recommend that you [verify](#verify-installation) your
 installation to ensure everything completed successfully.
+
+
+Upon restart, To test your OpenCL instance
+---------------------------------------------
+
+Post Install all user need to part of the member of “video” group so set your Unix permisions for this. 
+
+ Build and run Hello World OCL app..
+
+HelloWorld sample:
+```
+ wget https://raw.githubusercontent.com/bgaster/opencl-book-samples/master/src/Chapter_2/HelloWorld/HelloWorld.cpp
+ wget https://raw.githubusercontent.com/bgaster/opencl-book-samples/master/src/Chapter_2/HelloWorld/HelloWorld.cl
+```
+
+ Build it using the default ROCm OpenCL include and library locations:
+```
+g++ -I /opt/rocm/opencl/include/ ./HelloWorld.cpp -o HelloWorld -L/opt/rocm/opencl/lib/x86_64 -lOpenCL
+```
+
+ Run it:
+ ```
+ ./HelloWorld
+```
 
 Uninstall
 --------------------------------------
 
 To uninstall the entire rocm-dev development package, execute the following command:
 
-```
-sudo apt-get autoremove rocm
+```shell
+sudo apt-get autoremove rocm-dkms
 ```
 
 Installing Development Packages for Cross-Compilation
@@ -87,47 +129,7 @@ sudo apt-get install rocm-dev
 Note: to execute ROCm-enabled apps, you’ll need a system with the full
 ROCm driver stack installed.
 
-RPM Repository: dnf (yum)
---------------------------------------
 
-A dnf (yum) repository is also available for installation of RPM
-packages. To configure a system to use the ROCm RPM directory, create
-the file <code>/etc/yum.repos.d/rocm.repo</code> with the following
-contents:
-
-```
-[remote]
-name=ROCm Repo
-baseurl=http://packages.amd.com/rocm/yum/rpm/
-enabled=1
-gpgcheck=0
-```
-
-Execute this command:
-
-```
-sudo dnf clean all
-sudo dnf install rocm
-```
-
-As with the Debian packages, you can install rocm-dev or rocm-kernel
-individually. To uninstall them, execute the following:
-
-```
-sudo dnf remove rocm
-```
-
-Verify Installation
---------------------------------------
-
-To verify that the ROCm stack installation was successful, execute to
-HSA the vectory_copy sample application:
-
-```
-cd /opt/rocm/hsa/sample
-make
-./vector_copy</code>.
-```
 
 Closed-Source Components
 --------------------------------------
