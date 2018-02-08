@@ -93,7 +93,7 @@ HC-specific features
 
 Differences between HC API and C++ AMP
 **************************************
-Despite HC and C++ AMP share a lot of similarities in terms of programming constructs (e.g. parallel_for_each, array, array_view, etc.), there are several significant differences between the two APIs.
+Despite HC and C++ AMP sharing many similar program constructs (e.g. parallel_for_each, array, array_view, etc.), there are several significant differences between the two APIs.
 
 Support for explicit asynchronous parallel_for_each
 *****************************************************
@@ -125,11 +125,11 @@ C++ AMP doesn't support dynamic tile size. The size of each tile dimensions has 
 
 ``` extent<2> ex(x, y);
 
-// create a tile extent of 8x8 from the extent object // note that the tile dimensions have to be constant values tiled_extent<8,8> t_ex(ex);
+// To create a tile extent of 8x8 from the extent object // observe that the tile dimensions have to be constant values tiled_extent<8,8> t_ex(ex);
 
 parallel_for_each(t_ex, [=](tiled_index<8,8> t_id) restrict(amp) { ... }); ``` HC supports both static and dynamic tile size: ``` extent<2> ex(x,y)
 
-// create a tile extent from dynamically calculated values // note that the the tiled_extent template takes the rank instead of dimensions tx = test_x ? tx_a : tx_b; ty = test_y ? ty_a : ty_b; tiled_extent<2> t_ex(ex, tx, ty);
+// create a tile extent from dynamically calculated values // observe that the the tiled_extent template takes the rank instead of dimensions tx = test_x ? tx_a : tx_b; ty = test_y ? ty_a : ty_b; tiled_extent<2> t_ex(ex, tx, ty);
 
 parallel_for_each(t_ex, [=](tiled_index<2> t_id) [[hc]] { ... });
 
@@ -137,7 +137,7 @@ parallel_for_each(t_ex, [=](tiled_index<2> t_id) [[hc]] { ... });
 
 Support for memory pointer
 *****************************
-C++ AMP doens't support lambda capture of memory pointer into a GPU kernel.
+C++ AMP doesn't support lambda capture of memory pointer into a GPU kernel.
 
 HC supports capturing memory pointer by a GPU kernel.
 

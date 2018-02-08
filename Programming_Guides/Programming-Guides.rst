@@ -1,7 +1,7 @@
 .. _Programming-Guides:
 
 =================
-Programing Guide
+Programming Guide
 =================
 
 ROCm Languages
@@ -238,22 +238,27 @@ HCC currently only works on Linux and with the open source ROCK kernel driver an
 
 Compiler Backends
 ###################
-This backend compiles GPU kernels into native GCN ISA, which could be directly execute on the GPU hardware. It's being actively developed by the Radeon Technology Group in LLVM.
+This backend compiles GPU kernels into native GCN ISA, which can be directly executed on the GPU hardware. It's being actively developed by the Radeon Technology Group in LLVM.
 
 **When to Use HC**
  Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising performance or control of the machine.
 
 Installation
 ##################
+
 **Prerequisites**
 
 Before continuing with the installation, please make sure any previously installed hcc compiler has been removed from on your system.
 Install `ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ and make sure it works correctly.
-**Ubuntu**
-Ubuntu 14.04
+
+Ubuntu
+########
+
+**Ubuntu 14.04**
 
 Support for 14.04 has been deprecated.
-Ubuntu 16.04
+
+**Ubuntu 16.04**
 
 Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
 
@@ -301,9 +306,10 @@ Clone the HCC source tree::
   # automatically fetches all submodules
   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
 
-Create a build directory and run cmake to configure the build::
+Create a build directory and run cmake in that directory to configure the build::
 
-  mkdir build; cd build
+  mkdir build;
+  cd build;
   cmake ../hcc
 
 Compile HCC::
@@ -362,7 +368,7 @@ For HC source codes::
 
 **Compiling for Different GPU Architectures**
 
-By default, HCC would auto-detect all the GPUs available it's running on and set the correct GPU architectures. Users could use the --amdgpu-target=<GCN Version> option to compile for a specific architecture and to disable the auto-detection. The following table shows the different versions currently supported by HCC.
+By default, HCC will auto-detect all the GPU's local to the compiling machine and set the correct GPU architectures. Users could use the --amdgpu-target=<GCN Version> option to compile for a specific architecture and to disable the auto-detection. The following table shows the different versions currently supported by HCC.
 
 There exists an environment variable HCC_AMDGPU_TARGET to override the default GPU architecture globally for HCC; however, the usage of this environment variable is NOT recommended as it is unsupported and it will be deprecated in a future release.
 
@@ -383,6 +389,7 @@ gfx900        GFX9                 Vega10
 
 Multiple ISA
 #############
+
 HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways: **use :: --amdgpu-target= command line option**
 It's possible to specify multiple --amdgpu-target= option. 
 
@@ -398,14 +405,16 @@ Example::
     foo.cpp
 
 **use :: HCC_AMDGPU_TARGET env var** 
-Used , to delimit each AMDGPU target in HCC. Example::
+
+Use, to delimit each AMDGPU target in HCC. Example::
   
   export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
   # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
   # be produced
   hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
-**configure HCC use CMake HSA_AMDGPU_GPU_TARGET variable**
+**configure HCC using the CMake HSA_AMDGPU_GPU_TARGET variable**
+
 If you build HCC from source, it's possible to configure it to automatically produce multiple ISAs via :: HSA_AMDGPU_GPU_TARGET CMake variable.
 Use ; to delimit each AMDGPU target. Example::
 
@@ -499,7 +508,7 @@ __KALMAR_AMP__    1 in case in C++ AMP mode (-std=c++amp)
 __KALMAR_HC__     1 in case in HC mode (-hc) 
 =============== =========================================
 
-Compilation mode: HCC is a single-source compiler where kernel codes and host codes can reside in the same file. Internally HCC would trigger 2 compilation iterations, and the following macros can be user by user programs to determine which mode the compiler is in.
+Compilation mode: HCC is a single-source compiler where kernel codes and host codes can reside in the same file. Internally HCC would trigger 2 compilation iterations, and the following macros can be used by user programs to determine which mode the compiler is in.
 
 ====================== =================================================================
 Macro           		Meaning 
@@ -584,9 +593,9 @@ Some other useful features:
 **Enable and configure**
 
 
-HCC_PROFILE=1 shows a summary of kernel and data commands when hcc exits. (under development) HCC_PROFILE=2 enables a profile message after each command (kernel or data movement) completes.
+HCC_PROFILE=1 shows a summary of kernel and data commands when hcc exits (under development). HCC_PROFILE=2 enables a profile message after each command (kernel or data movement) completes.
 
-Additionally, the HCC_PROFILE_VERBOSE variable controls the information shown in the profile log. This is a bit-vector: 0x2 : Show start and stop timestamps for each command. 0x4 : Show the device.queue.cmdseqnum for each command. 0x8 : Show the short CPU TID for each command. (not supported) 0x10 : Show logs for barrier commands.
+Additionally, the HCC_PROFILE_VERBOSE variable controls the information shown in the profile log. This is a bit-vector: 0x2 : Show start and stop timestamps for each command. 0x4 : Show the device.queue.cmdseqnum for each command. 0x8 : Show the short CPU TID for each command (not supported).  0x10 : Show logs for barrier commands.
 
 **Sample Output**
 
@@ -657,7 +666,7 @@ This example shows memory copy commands with full verbose output:
 Barrier Commands
 +++++++++++++++++
 
-Barrier commands are only enabled if HCC_PROFILE_VERBOSE 0x
+Barrier commands are only enabled if HCC_PROFILE_VERBOSE 0x10
 
 An example barrier command with full vebosity::
  

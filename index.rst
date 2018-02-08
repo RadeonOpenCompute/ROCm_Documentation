@@ -29,7 +29,7 @@ Important features include the following:
     * HSA signals and atomics
     * User-mode queues and DMA
     * Standardized loader and code-object format
-    * Dynamics and offline-compilation support
+    * Dynamic and offline-compilation support
     * Peer-to-peer multi-GPU operation with RDMA support
     * Profiler trace and event-collection API
     * Systems-management API and tools
