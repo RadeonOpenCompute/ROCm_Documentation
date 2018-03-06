@@ -13,7 +13,7 @@ ROCm is an extension of HSA platform architecture, so it shares the queueing mod
 
 The full list of HSA system architecture platform requirements are here: `HSA Sys Arch Features <http://www.hsafoundation.com/html/HSA_Library.htm#SysArch/Topics/01_Overview/list_of_requirements.htm>`_.
 
-The ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0) features for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capbilities needed for queuing and signaling memory operations.
+The ROCm Platform uses the new PCI Express 3.0 (PCIe 3.0) features for Atomic Read-Modify-Write Transactions which extends inter-processor synchronization mechanisms to IO to support the defined set of HSA capabilities needed for queuing and signaling memory operations.
 
 The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD, SWAP atomics. The AtomicsOps are initiated by the
 I/O device which support 32-bit, 64-bit and 128-bit operand which target address have to be naturally aligned to operation sizes.
@@ -81,7 +81,7 @@ In SuperMicro system in the system bios you need to see the following
 
    * Advanced->PCIe/PCI/PnP Configuration->MMIO High Size = 256G
 
-When we support Large Bar Capbility there is a Large Bar Vbios which also disable the IO bar.
+When we support Large Bar Capability there is a Large Bar Vbios which also disable the IO bar.
 
 For GFX9 and Vega10 which have Physical Address up 44 bit and 48 bit Virtual address.
 
@@ -136,7 +136,7 @@ Support SMP-type operations across a PCIe network to allow for things like offlo
 
   * AtomicOpCompletion – new completion to give the result so far atomic request and indicate that the atomicity of the transaction 	has been maintained.
 
-Since AtomicOps are not locked they don’t have the performance downsides of the PCI locked protocol. Compared to locked cycles, they provide “lower latency, higher scalability, advanced synchronization algorithms, and dramatically lower impact on other PCIe traffic.” The lock mechanism can still be used across a bridge to PCI or PCI-X to achieve the desired operation.
+Since AtomicOps are not locked they don't have the performance downsides of the PCI locked protocol. Compared to locked cycles, they provide “lower latency, higher scalability, advanced synchronization algorithms, and dramatically lower impact on other PCIe traffic.” The lock mechanism can still be used across a bridge to PCI or PCI-X to achieve the desired operation.
 
 AtomicOps can go from device to device, device to host, or host to device. Each completer indicates whether it supports this capability and guarantees atomic access if it does. The ability to route AtomicOps is also indicated in the registers for a given port.
 
