@@ -447,7 +447,7 @@ The following steps guide you through this example.
     
     bufX = cl::Buffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(cl_float) * length, pX);
 
-8. Create a program object from the kernel source string, build the program for our devices, and create a kernel object correspondingto the SAXPY kernel. (At this point, it is possible to create multiple kernel objects if there are more than one.)
+8. Create a program object from the kernel source string, build the program for our devices, and create a kernel object corresponding to the SAXPY kernel. (At this point, it is possible to create multiple kernel objects if there are more than one.)
 
    ::
    
@@ -719,7 +719,7 @@ Runtime Code –
 
 7. The results then are checked against the comparison value. This also establishes that the result is the same on both CPU and GPU, 	which can serve as the first verification test for newly written kernel code.
 
-8. Note the use of the debug buffer to obtain some runtime variables. Debug buffers also can be used to create short execution tracesfor each thread, assuming the device has enough memory.
+8. Note the use of the debug buffer to obtain some runtime variables. Debug buffers also can be used to create short execution traces for each thread, assuming the device has enough memory.
 
 9. You can use the Timer.cpp and Timer.h files from the TransferOverlap sample, which is in the SDK samples.
 
@@ -1592,7 +1592,7 @@ The commands can be broadly classified into three categories.
  * Memory commands (for example, clEnqueueReadBuffer(), etc.), and
  * Event commands (for example, clEnqueueWaitForEvents(), etc.
 
-As illustrated in Figure 3.1, the application can create multiple command queues (some in libraries, for different components of the application, etc.). These queues are muxed into one queue per device type. The figure shows command queues 1 and 3 merged into one CPU device queue (blue arrows); command queue 2 (and possibly others) are merged into the GPU device queue (red arrow). The device queue then schedules work onto the multiple compute resources present in the device. Here, K = kernel commands, M = memory commands, and E = event commands.
+As illustrated in Figure 3.1, the application can create multiple command queues (some in libraries, for different components of the application, etc.). These queues are mixed into one queue per device type. The figure shows command queues 1 and 3 merged into one CPU device queue (blue arrows); command queue 2 (and possibly others) are merged into the GPU device queue (red arrow). The device queue then schedules work onto the multiple compute resources present in the device. Here, K = kernel commands, M = memory commands, and E = event commands.
 
 
 .. image:: images/3.1.png
@@ -1813,7 +1813,7 @@ While running your application in the GPU Profile mode, CodeXL collects valuable
  .. image:: images/4.5.png
     :align: center
 
- * **performance counter:** view keernel performance bottlenecks
+ * **performance counter:** view kernel performance bottlenecks
 
 
 .. image:: images/4.6.png
@@ -2037,7 +2037,7 @@ To support template kernels, the same mechanism for kernel overloading is used. 
 
   attribute ((mangled_name(myMangledName)))
 
-The kernel mangled_name is used as a parameter to passed to t he clCreateKernel() API. This mechanism is needed to allow template kernels without changing the existing OpenCL kernel creation API. An implementation is not required to detect name collision with the user-specified kernel_mangled names involved.
+The kernel mangled_name is used as a parameter to passed to the clCreateKernel() API. This mechanism is needed to allow template kernels without changing the existing OpenCL kernel creation API. An implementation is not required to detect name collision with the user-specified kernel_mangled names involved.
 
 Exceptions
 **********
@@ -3861,7 +3861,7 @@ To use Win32 API for windowing in multi-GPU environment:
 
 1. Detect each display by using EnumDisplayDevices function. This function lets you obtain the information about display devices in the current session.
 
-2. To query all display devices in the current session, call this function in a loop, starting with DevNum set to 0, and incrementing DevNum until the function fails. To select all display devices in the desktop, use only the display devices that havethe DISPLAY_DEVICE_ATTACHED_TO_DESKTOP flag in the DISPLAY_DEVICE structure.
+2. To query all display devices in the current session, call this function in a loop, starting with DevNum set to 0, and incrementing DevNum until the function fails. To select all display devices in the desktop, use only the display devices that have the DISPLAY_DEVICE_ATTACHED_TO_DESKTOP flag in the DISPLAY_DEVICE structure.
 
 3. To get information on the display adapter, call EnumDisplayDevices with lpDevice set to NULL. For example, DISPLAY_DEVICE.DeviceString contains the adapter name.
 
@@ -4033,7 +4033,7 @@ Using X Window System
 
 4. Use XCreateColormap to create a color map of the specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it. Note that the specified window is only used to determine the screen.
 
-5. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, andcauses the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to siblings.
+5. Use XCreateWindow to create an unmapped sub-window for a specified parent window, returns the window ID of the created window, and causes the X server to generate a CreateNotify event. The created window is placed on top in the stacking order with respect to siblings.
 
 6. Use XMapWindow to map the window and all of its sub-windows that have had map requests. Mapping a window that has an unmapped ancestor does not display the window, but marks it as eligible for display when the ancestor becomes mapped. Such a window is called unviewable. When all its ancestors are mapped, the window becomes viewable and is visible on the screen if it is not    obscured by another window.
 
@@ -4410,10 +4410,10 @@ Pipe functions
 Enqueueing Kernels
 ******************
 
-============================================= ======================================================
+============================================= =======================================================
   enqueue_kernel 				Enqueue block as kernel
   get_kernel_work_group_size 			Query max work group size
-  get_kernel_preferred_work_group_size_m 	Query preferred divisor of work group size ultiple
+  get_kernel_preferred_work_group_size_m 	Query preferred divisor of work group size multiple
   enqueue_marker 				Enqueue a marker
   retain_event 					Increment refcount of event
   release_event 				Decrement refcount of event
@@ -4425,7 +4425,7 @@ Enqueueing Kernels
   ndrange_1D 					Create 1D NDRange
   ndrange_2D 					Create 2D NDRange
   ndrange_3D 					Create 3D NDRange
-============================================= ======================================================
+============================================= =======================================================
 
 
 Deprecated built-ins barrier

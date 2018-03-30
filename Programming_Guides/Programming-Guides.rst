@@ -538,7 +538,7 @@ HC supports the automatic synchronization behavior as in C++ AMP. In addition, H
 
 **Annotation of device functions**
 
-C++ AMP uses the restrict(amp) keyword to annotatate functions that runs on the device. ::
+C++ AMP uses the restrict(amp) keyword to annotate functions that runs on the device. ::
 
  void foo() restrict(amp) { .. } ... parallel_for_each(...,[=] () restrict(amp) { foo(); });
 
@@ -567,7 +567,7 @@ parallel_for_each(t_ex, [=](tiled_index<2> t_id) [[hc]] { ... });
 
 **Support for memory pointer**
 
-C++ AMP doens't support lambda capture of memory pointer into a GPU kernel.
+C++ AMP doesn't support lambda capture of memory pointer into a GPU kernel.
 
 HC supports capturing memory pointer by a GPU kernel.
 
@@ -628,10 +628,10 @@ This example shows profiled kernel commands with full verbose output::
 * PROFILE: always "profile:" to distinguish it from other output.
 * TYPE: the command type : kernel, copy, copyslo, or barrier. The examples and descriptions in this section are all kernel commands.
 * KERNEL_NAME: the (short) kernel name.
-* DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the acclerator device.
+* DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the accelerator device.
 * START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
 * STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* ID: command id in device.queue.cmd format. (if HCC_PROFILE_VERBOSE & 0x4). The cmdsequm is a unique mononotically increasing number per-queue, so the triple of device.queue.cmdseqnum uniquely identifies the command during the process execution.
+* ID: command id in device.queue.cmd format. (if HCC_PROFILE_VERBOSE & 0x4). The cmdsequm is a unique monotonically increasing number per-queue, so the triple of device.queue.cmdseqnum uniquely identifies the command during the process execution.
 
 Memory Copy Commands
 +++++++++++++++++++++
@@ -655,7 +655,7 @@ This example shows memory copy commands with full verbose output:
 	* Fast or Slow. Fast copies use the GPUs optimized copy routines from the hsa_amd_memory_copy routine. Slow copies typically involve unpinned host memory and can't take the fast path.
 	* For example `HostToDevice_async_fast.
 	
-* DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the acclerator device.
+* DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the accelerator device.
 * START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
 * STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
 * ID: command id in device.queue.cmd format. (if HCC_PROFILE_VERBOSE & 0x4). The cmdsequm is a unique mononotically increasing number per-queue, so the triple of device.queue.cmdseqnum uniquely identifies the command during the process execution.

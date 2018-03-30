@@ -1075,19 +1075,18 @@ Following is the list of supported integer intrinsics. Note that intrinsics are 
 +----------------------------------------------------------------------------------------------------------------------+
 | unsigned int __ffs(unsigned int x)                                                                                   |
 |                                                                                                                      |
-| Find the position of least signigicant bit set to 1 in a 32 bit unsigned integer.1                                   |
 +----------------------------------------------------------------------------------------------------------------------+
 | unsigned int __ffs(int x)                                                                                            |
 |                                                                                                                      |
-| Find the position of least signigicant bit set to 1 in a 32 bit signed integer.                                      |
+| Find the position of least significant bit set to 1 in a 32 bit signed integer.                                      |
 +----------------------------------------------------------------------------------------------------------------------+
 | unsigned int __ffsll(unsigned long long int x)                                                                       |
 |                                                                                                                      |
-| Find the position of least signigicant bit set to 1 in a 64 bit unsigned integer.1                                   |
+| Find the position of least significant bit set to 1 in a 64 bit unsigned integer.1                                   |
 +----------------------------------------------------------------------------------------------------------------------+
 | unsigned int __ffsll(long long int x)                                                                                |
 |                                                                                                                      |
-| Find the position of least signigicant bit set to 1 in a 64 bit signed integer.                                      |
+| Find the position of least significant bit set to 1 in a 64 bit signed integer.                                      |
 +----------------------------------------------------------------------------------------------------------------------+
 | unsigned int __popc ( unsigned int x )                                                                               |
 |                                                                                                                      |

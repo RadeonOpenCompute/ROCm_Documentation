@@ -80,7 +80,7 @@ For example, Foo in the code snippets below contains an array-typed member varia
  };
  
 
-A workaround is to provide a custom serializer on host side which appends the contents of the array as kernel arguments, and a custome deserializaer on the device path to reconstruct the array inside the GPU kernels. The deserializer can not be a function template, and should have scalar-typed parameters of the number equals to the length of the array-typed member variable. For example::
+A workaround is to provide a custom serializer on host side which appends the contents of the array as kernel arguments, and a custom deserializar on the device path to reconstruct the array inside the GPU kernels. The deserializer can not be a function template, and should have scalar-typed parameters of the number equals to the length of the array-typed member variable. For example::
   
  
  struct Foo {

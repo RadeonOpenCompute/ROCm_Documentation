@@ -160,6 +160,9 @@ set the GRUB_Default Edit: GRUB_DEFAULT=”Advanced options for Ubuntu>Ubuntu, w
 Installation Guide Fedora
 ##########################
 
+Installing on Fedora
+*********************
+
 Use the dnf (yum) repository for installation of rpm packages. To configure a system to use the ROCm rpm directory create the file /etc/yum.repos.d/rocm.repo with the following contents: ::
 
  [remote]
@@ -207,7 +210,7 @@ Run it:
 
 
 
-**To Uninstall the a Package** ::
+**To Uninstall the Package** ::
     
    sudo dnf remove ROCm 
 
@@ -215,7 +218,8 @@ Run it:
 :ref:`List-of-ROCm-Packages-for-Ubuntu-Fedora`
 
 
-**Installing development packages for cross compilation**
+Installing development packages for cross compilation
+******************************************************
 
 It is often useful to develop and test on different systems. In this scenario, you may prefer to avoid installing the ROCm Kernel to your development system.
 
@@ -227,8 +231,9 @@ In this case, install the development subset of packages: ::
 
 
 
-**FAQ on Installation**
-
+FAQ on Installation
+#####################
+Please refer the link for FAQ on Installation.
 :ref:`FAQ-on-Installation`
 
 

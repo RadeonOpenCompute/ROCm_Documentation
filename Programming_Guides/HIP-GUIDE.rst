@@ -1257,7 +1257,7 @@ Device-side dynamic global memory allocation is under development. HIP now inclu
 
 **__launch_bounds__**
 
-GPU multiprocessors have a fixed pool of resources (primarily registers and shared memory) which are shared by the actively running warps. Using more resources can increase IPC of the kernel but reduces the resources available for other warps and limits the number of warps that can be simulaneously running. Thus GPUs have a complex relationship between resource usage and performance.
+GPU multiprocessors have a fixed pool of resources (primarily registers and shared memory) which are shared by the actively running warps. Using more resources can increase IPC of the kernel but reduces the resources available for other warps and limits the number of warps that can be simultaneously running. Thus GPUs have a complex relationship between resource usage and performance.
 
 hip_launch_bounds allows the application to provide usage hints that influence the resources (primarily registers) used by the generated code. hip_launch_bounds is a function attribute that must be attached to a global function:
 
@@ -1278,10 +1278,10 @@ The compiler uses these parameters as follows:
 
    * The compiler uses the hints only to manage register usage, and does not automatically reduce shared memory or other resources.
    *  Compilation fails if compiler cannot generate a kernel which meets the requirements of the specified launch bounds.
-   * From MAX_THREADS_PER_BLOCK, the compiler derives the maximum number of warps/block that can be used at launch time. Values of   	  MAX_THREADS_PER_BLOCK less than the default allows the compiler to use a larger pool of registers : each warp uses registers, 	and this hint constains the launch to a warps/block size which is less than maximum.
-   * From MIN_WARPS_PER_EU, the compiler derives a maximum number of registers that can be used by the kernel (to meet the required   	   #simultaneous active blocks). If MIN_WARPS_PER_EU is 1, then the kernel can use all registers supported by the multiprocessor.
+   * From MAX_THREADS_PER_BLOCK, the compiler derives the maximum number of warps/block that can be used at launch time. Values of   	  MAX_THREADS_PER_BLOCK less than the default allows the compiler to use a larger pool of registers : each warp uses registers, and this hint contains the launch to a warps/block size which is less than maximum.
+   * From MIN_WARPS_PER_EU, the compiler derives a maximum number of registers that can be used by the kernel (to meet the required   	   simultaneous active blocks). If MIN_WARPS_PER_EU is 1, then the kernel can use all registers supported by the multiprocessor.
    * The compiler ensures that the registers used in the kernel is less than both allowed maximums, typically by spilling registers 	 (to shared or global memory), or by using more instructions.
-   * The compiler may use hueristics to increase register usage, or may simply be able to avoid spilling. The MAX_THREADS_PER_BLOCK 	 is particularly useful in this cases, since it allows the compiler to use more registers and avoid situations where the compiler 	   constrains the register usage (potentially spilling) to meet the requirements of a large block size that is never used at launch 	   time.
+   * The compiler may use heuristics to increase register usage, or may simply be able to avoid spilling. The MAX_THREADS_PER_BLOCK 	 is particularly useful in this cases, since it allows the compiler to use more registers and avoid situations where the compiler 	   constrains the register usage (potentially spilling) to meet the requirements of a large block size that is never used at launch 	   time.
 
 **CU and EU Definitions**
 
