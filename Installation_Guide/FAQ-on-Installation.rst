@@ -70,7 +70,6 @@ If the firmware version isn’t correct, please install updated firmware package
  update-initramfs -u
 
 **Fedora**
-
 ::
  sudo dracut --regenerate-all --force
 
@@ -92,14 +91,15 @@ This is not an issue with the YUM repository; it is caused by the size of the /b
  sudo dnf remove rocm
  rpm -qa | grep kfd | xargs sudo rpm –e
  sudo dnf install rocm
-
+ 
 Installing from an archived repository
 ****************************************
 
 The Radeon repo server stores several archived releases, supporting both debian and rpm repositories. These archives are located here at http://radeon.repo.com/rocm/archive. Users can install with an archive by downloading the desired archive and then updating the package configuration file to point at the localized repo.
 
 Debian Archive Example
-***********************
+*********************** 
+Here is an Example:
 ::
  cd /tmp && wget http://repo.radeon.com/rocm/archive/apt_1.6.0.tar.bz2
  tar -xvf apt_1.6.0.tar.bz2
