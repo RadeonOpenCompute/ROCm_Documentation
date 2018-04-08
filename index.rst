@@ -34,6 +34,10 @@ Important features include the following:
     * Profiler trace and event-collection API
     * Systems-management API and tools
 
+
+.. image:: ROCm_Core_Stack.png
+    :align: center
+    
 Solid Compilation Foundation and Language Support
 ####################################################
     * LLVM compiler foundation
