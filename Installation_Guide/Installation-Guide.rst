@@ -110,8 +110,7 @@ Install ROCm-kernel
 **Make sure to reboot the machine after installing the ROCm kernel package to force the new kernel to load on reboot**.
 You can verify the ROCm kernel is loaded by typing the following command at a prompt:
 
- ::
- 
+::
  lsmod | grep kfd
 
 Printed on the screen should be similar as follows:
