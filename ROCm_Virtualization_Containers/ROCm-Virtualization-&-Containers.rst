@@ -5,13 +5,15 @@
 ROCm Virtualization & Containers
 =================================
 
-KVM Passthrough
+PCIe Passthrough on KVM
 ================
+The following KVM-based instructions assume a headless host with an input/output memory management unit (IOMMU) to pass peripheral devices such as a GPU to guest virtual machines.  If you know your host supports IOMMU but the below command does not find "svm" or "vxm", you may need to enable IOMMU in your BIOS.
 
+    cat /proc/cpuinfo | grep -E "svm|vxm"
 
-Setup host passthrough mode
+Ubuntu 16.04
 ****************************
-Assume we use an intel system  that support VT-d , with fresh ubuntu 16.04 installed
+Assume we use an intel system that support VT-d , with fresh ubuntu 16.04 installed
  
 **a. Install necessary packages and prepare for pass through device**
 
@@ -72,6 +74,55 @@ Assume we use an intel system  that support VT-d , with fresh ubuntu 16.04 insta
 4. sudo reboot
 
 After reboot, start virt-manager and then start the VM, inside the VM , lspci -d 1002: should shows the pass throughed device.   
+
+Fedora 27 or CentOS 7 (1708)
+****************************
+From a fresh install of Fedora 27 or CentOS 7 (1708)
+ 
+**a. Install necessary packages and prepare for pass through device**
+
+1. Identity the vendor and device id(s) for the PCIe device(s) you wish to passthrough, e.g., 1002:6861 and 1002:aaf8 for an AMD Radeon Pro WX 9100 and its associated audio device,
+    lspci -nnk
+
+2. Install virtualization packages
+    sudo dnf install @virtualization
+    sudo usermod -G libvirt -a $(whoami)
+    sudo usermod -G kvm -a $(whoami)
+
+3. Enable IOMMU in the GRUB_CMDLINE_LINUX variable for your target kernel
+    a. For an AMD CPU
+        sudo sed 's/quiet/quiet amd_iommu=on iommu=pt/' /etc/sysconfig/grub
+    b. For an Intel CPU
+        sudo sed 's/quiet/quiet intel_iommu=on iommu=pt/' /etc/sysconfig/grub
+
+**b. Bind pass through device to vfio-pci**
+
+4. Preempt the host claiming the device by loading a stub driver
+    echo "options vfio-pci ids=1002:6861,1002:aaf8" | sudo tee -a /etc/modprobe.d/vfio.conf
+    echo "options vfio-pci disable_vga=1" | sudo tee -a /etc/modprobe.d/vfio.conf
+    sed 's/quiet/quiet rd.driver.pre=vfio-pci video=efifb:off/' /etc/sysconfig/grub
+    
+5. Update the kernel boot settings
+    sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+    echo 'add_drivers+="vfio vfio_iommu_type1 vfio_pci"' | sudo tee -a /etc/dracut.conf.d/vfio.conf
+    sudo dracut -f --kver `uname -r`
+
+6. Reboot and verify that vfio-pci driver has been loaded
+    lspci -nnk
+
+**c. Pass through device to guest VM**
+
+1. Within virt-manager the device should now appear in the list of available PCI devices
+
+Note: To pass a device within a particular IOMMU group, all devices within that IOMMU group must also be passed.  You may wish to refer to https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF for more details, such as the following script that lists all IOMMU groups and the devices within them.
+
+    #!/bin/bash
+    shopt -s nullglob
+    for d in /sys/kernel/iommu_groups/*/devices/*; do
+        n=${d#*/iommu_groups/*}; n=${n%%/*}
+	printf 'IOMMU Group %s ' "$n"
+	lspci -nns "${d##*/}"
+    done;
 
 		
 ROCm-Docker
