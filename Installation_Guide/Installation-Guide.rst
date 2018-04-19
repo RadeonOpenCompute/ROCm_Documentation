@@ -224,6 +224,8 @@ Google's repo tool allows you to manage multiple git repositories simultaneously
 
 Cloning the code
 ******************
+
+To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
  repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.7.1
@@ -232,6 +234,10 @@ Cloning the code
 These series of commands will pull all of the open source code associated with the ROCm 1.7 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
+
+Installing Kernel only
+***********************
+To Install only ROCk-kernel the following steps can be used from the link provided :ref:`ROCk-Kernel`
 
 FAQ on Installation
 #####################
