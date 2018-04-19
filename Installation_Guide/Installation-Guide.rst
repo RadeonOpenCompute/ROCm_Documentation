@@ -220,6 +220,7 @@ Google's repo tool allows you to manage multiple git repositories simultaneously
 ::
  curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
  chmod a+x ~/bin/repo
+
 .. note:: make sure ~/bin exists and it is part of your PATH
 
 Cloning the code
@@ -235,7 +236,7 @@ These series of commands will pull all of the open source code associated with t
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 
-Installing Kernel only
+Installing ROCk-Kernel only
 ***********************
 To Install only ROCk-kernel the following steps can be used from the link provided :ref:`ROCk-Kernel`
 

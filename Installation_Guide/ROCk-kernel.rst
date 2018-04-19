@@ -12,7 +12,7 @@ upgrade your base kernel to 4.13.0-32-generic, **reboot required**
  sudo apt update && sudo apt install linux-headers-4.13.0-32-generic linux-image-4.13.0-32-generic linux-image-extra-4.13.0-32-generic linux-signed-image-4.13.0-32-generic
  sudo reboot 
 
-Installtion steps:
+Installation steps:
 ###################
 
 Install the ROCm compute firmware and rock-dkms kernel modules, **reboot required**
