@@ -44,8 +44,8 @@ The latest ROCm platform - ROCm 1.7
 
 The latest tested version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available under the roc-1.7.x or rocm-1.7.x tag of the following GitHub repositories:
 
- * `ROCK-Kernel-Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.7.x>`_
- * `ROCR-Runtime <https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-1.7.x>`_
+ * :ref:`ROCK-Kernel-Driver`
+ * :ref:`ROCR-Runtime`
  * `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.7.x>`_
  * `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_
  * `HCC compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-1.7.x>`_
