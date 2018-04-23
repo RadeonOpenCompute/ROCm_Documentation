@@ -44,15 +44,15 @@ The latest ROCm platform - ROCm 1.7
 
 The latest tested version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available under the roc-1.7.x or rocm-1.7.x tag of the following GitHub repositories:
 
- * :ref:`ROCK-Kernel-Driver`
- * :ref:`ROCR-Runtime`
- * `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.7.x>`_
- * `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_
- * `HCC compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-1.7.x>`_
- * `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.7.x>`_
- * `HIP <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/tree/roc-1.7.x>`_
- * `HIP-Examples <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-1.7.x>`_
- * `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`_
+*  :ref:`ROCK-Kernel`
+*  :ref:`ROCR-Runtime`
+* `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.7.x>`_
+* `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_
+* `HCC compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-1.7.x>`_
+* `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.7.x>`_
+* `HIP <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/tree/roc-1.7.x>`_
+* `HIP-Examples <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-1.7.x>`_
+* `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`_
 
 Additionally, the following mirror repositories that support the HCC compiler are also available on GitHub, and frozen for the rocm-1.7.1 release:
 
