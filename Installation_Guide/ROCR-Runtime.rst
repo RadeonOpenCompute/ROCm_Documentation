@@ -1,4 +1,4 @@
-.. _ROCR-Runtime:
+.. _ROCr-Runtime:
 
 HSA Runtime API and runtime for ROCm
 ######################################

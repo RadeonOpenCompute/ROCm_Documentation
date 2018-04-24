@@ -1,4 +1,4 @@
-.. _ROCk-Kernel:
+.. _ROCk-kernel:
 
 ===============
 ROCk-Kernel

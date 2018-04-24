@@ -43,34 +43,43 @@ Or you can build from `source code <https://github.com/ROCmSoftwarePlatform/MIOp
 
 Deep Learning Framework support for ROCm
 *******************************************
-============ =============== =============== ===================== =====================================================
-Framework	Status		MIOpen 		Upstreamed  		Current Repository
-				Enabled		
-============ =============== =============== ===================== =====================================================
-Caffe      	Public    	Yes           	             	    https://github.com/ROCmSoftwarePlatform/hipCaffe
-Tensorflow  	Development	Yes            	CLA in Progress	    Notes: Working on NCCL and XLA enablement, Running
-Caffe2      	Upstreaming	Yes		CLA in Progress	    https://github.com/ROCmSoftwarePlatform/caffe2
-Torch HIP  	Upstreaming	Development	In process	    https://github.com/ROCmSoftwarePlatform/cutorch_hip
-HIPnn       	Upstreaming	Development     	            https://github.com/ROCmSoftwarePlatform/cunn_hip
-PyTorch     	Development	Development	 	 
-MxNet      	Development	Development  	             	    https://github.com/ROCmSoftwarePlatform/mxnet  
-CNTK      	Development	Development    	     
-Thrust 		Development	Development			https://github.com/ROCmSoftwarePlatform/Thrust
-============ =============== =============== ===================== =====================================================        	           
+
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| Framework  | Status      | MIOpen Enabled | Upstreamed     | Current Repository                                  |
++============+=============+================+================+=====================================================+
+| Caffe      | Public      | Yes            |                | https://github.com/ROCmSoftwarePlatform/hipCaffe    |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| Tensorflow | Development | Yes            | CLA inProgress | Notes: Working on NCCL and XLA enablement, Running  |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| Caffe2     | Upstreaming | Yes            | CLA inProgress | https://github.com/ROCmSoftwarePlatform/caffe2      |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| Torch      | HIP         | Upstreaming    | Development    | https://github.com/ROCmSoftwarePlatform/cutorch_hip |
+|            |             |                | inProgress     |                                                     |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| HIPnn      | Upstreaming | Development    |                | https://github.com/ROCmSoftwarePlatform/cunn_hip    |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| PyTorch    | Development | Development    |                |                                                     |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| MxNet      | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/mxnet       |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| CNTK       | Development | Development    |                |                                                     |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
+| Thrust     | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/Thrust      |
++------------+-------------+----------------+----------------+-----------------------------------------------------+
 
 Tutorials
 *************
 **hipCaffe**
 
-  * :ref:`caffe`
+ :ref:`caffe`
   
 **Thrust**
   
-  * :ref:`Thrust`
+ :ref:`Thrust`
   
 **MXNet**
   
-  * :ref:`MXNet`
+ :ref:`MXNet`
  
 
 

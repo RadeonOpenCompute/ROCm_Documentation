@@ -305,6 +305,7 @@ When using mpi as the launcher to run ucx_perftest, please make sure that your u
         Process OMPI jobid: [62403,1] App: 0 Process rank: 1
 
    =============================================================
+   
   +--------------+-----------------------------+---------------------+-----------------------+
   |              |       latency (usec)        |   bandwidth (MB/s)  |  message rate (msg/s) |
   +--------------+---------+---------+---------+----------+----------+-----------+-----------+
