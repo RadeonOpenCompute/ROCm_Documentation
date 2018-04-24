@@ -63,8 +63,7 @@ Deep Learning Framework support for ROCm
 | MxNet      | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/mxnet       |
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
 | CNTK       | Development | Development    |                |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Thrust     | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/Thrust      |
+|            |             |                |                |                                                     |
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
 
 Tutorials
@@ -72,10 +71,6 @@ Tutorials
 **hipCaffe**
 
 * :ref:`caffe`
-  
-**Thrust**
-  
-* :ref:`Native-thrust`
   
 **MXNet**
   

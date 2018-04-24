@@ -25,6 +25,11 @@ HIP Math API
 
 * :ref:`HIP-MATH`
 
+Thrust API's
+================
+
+* :ref:`Native-thrust`
+
 Math Libarary API's
 ====================
 * `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
@@ -32,6 +37,7 @@ Math Libarary API's
 *  :ref:`clBLAS`
 
 *  :ref:`clSPARSE_API`
+
 
 Deep Learning API's
 ====================

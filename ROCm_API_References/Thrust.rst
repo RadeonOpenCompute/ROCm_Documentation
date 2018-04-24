@@ -4,7 +4,7 @@
 Thrust
 ########
 
-HIP back-end for Thrust (alpha release).
+HIP back-end for Thrust
 
 Introduction
 ****************
@@ -47,28 +47,16 @@ Steps to follow:
  $ ./cu_to_cpp.sh
  $ ./script_compile_testing_hcc.sh
 
-Unit Testing
-************
-Run the following commands to perform detailed unit testing against different API's in Thrust.
-
-.. note:: Set HIP_PLATFORM to either NVCC or HCC depending on the platform being used
-
-Steps to follow:
-::
- $ export HIP_PLATFORM=hcc (For HCC Platform )
- $ export HIP_PLATFORM=nvcc ( For NVCC Platform)
- $ ./cu_to_cpp.sh
- $ ./script_compile_testing_hcc.sh
 
 
-Example Workloads
-*******************
-**Sample application**
+Sample applications
+*********************
 
-Here is a sample output of transform_iterator.cpp
+Here is a sample output of some applications exercising thrust API's :
+
+transform_iterator
 ::
  $ ./transform_iterator.out
- 
  values : 2 5 7 1 6 0 3 8
  clamped values : 2 5 5 1 5 1 3 5
  sum of clamped values : 27
@@ -77,15 +65,54 @@ Here is a sample output of transform_iterator.cpp
  negated sequence : -1 -1 -2 -3 -4 -5 -5 -5 -5 -5
  negated values : -2 -5 -7 -1 -6 0 -3 -8 
 
-
-Here is a sample output for a testcase **random.cpp**
+sort
 ::
- $ ./random.out 
- Running 51 unit tests.
- ...................................................
- ================================================================
- Totals: 0 failures, 0 known failures, 0 errors, and 51 passes.
- Time:  0.05 minutes
+ $ ./sort.cpp.out
+ sorting integers
+  79 78 62 78 94 40 86 57 40 16 28 54 77 87 93 98
+  16 28 40 40 54 57 62 77 78 78 79 86 87 93 94 98
+
+ sorting integers (descending)
+  79 78 62 78 94 40 86 57 40 16 28 54 77 87 93 98
+  98 94 93 87 86 79 78 78 77 62 57 54 40 40 28 16
+
+ sorting integers (user-defined comparison)
+  79 78 62 78 94 40 86 57 40 16 28 54 77 87 93 98
+  16 28 40 40 54 62 78 78 86 94 98 57 77 79 87 93
+
+ sorting floats
+  7.5 7.5 6.0 7.5 9.0 4.0 8.5 5.5 4.0 1.5 2.5 5.0 7.5 8.5 9.0 9.5
+  1.5 2.5 4.0 4.0 5.0 5.5 6.0 7.5 7.5 7.5 7.5 8.5 8.5 9.0 9.0 9.5
+
+ sorting pairs
+  (7,7) (5,7) (9,3) (8,5) (3,0) (2,4) (7,8) (9,9) (7,1) (1,9) (0,5) (3,6) (8,0) (7,6) (4,2) (8,3)
+  (0,5) (1,9) (2,4) (3,0) (3,6) (4,2) (5,7) (7,1) (7,6) (7,7) (7,8) (8,0) (8,3) (8,5) (9,3) (9,9)
+
+ key-value sorting
+  (79, 0) (78, 1) (62, 2) (78, 3) (94, 4) (40, 5) (86, 6) (57, 7) (40, 8) (16, 9) (28,10) (54,11) (77,12) (87,13) (93,14) (98,15)
+  (16, 9) (28,10) (40, 5) (40, 8) (54,11) (57, 7) (62, 2) (77,12) (78, 1) (78, 3) (79, 0) (86, 6) (87,13) (93,14) (94, 4) (98,15)
+
+ key-value sorting (descending)
+  (79, 0) (78, 1) (62, 2) (78, 3) (94, 4) (40, 5) (86, 6) (57, 7) (40, 8) (16, 9) (28,10) (54,11) (77,12) (87,13) (93,14) (98,15)
+  (98,15) (94, 4) (93,14) (87,13) (86, 6) (79, 0) (78, 1) (78, 3) (77,12) (62, 2) (57, 7) (54,11) (40, 5) (40, 8) (28,10) (16, 9)
+
+expand
+::
+ $ ./expand.cpp.out
+ Expanding values according to counts
+ counts 3 5 2 0 1 3 4 2 4 
+ values 1 2 3 4 5 6 7 8 9 
+ output 1 1 1 2 2 2 2 2 3 3 5 6 6 6 7 7 7 7 8 8 9 9 9 9 
+
+
+Known issues
+***************
+
+Currently thrust::sort and thrust::stable_sort_by_key are not supported on HIP/CUDA path. Due to this, the applications exercising these API's will display slight deviation from desired output on HIP/CUDA.
+
+see this `Ticket <https://github.com/ROCmSoftwarePlatform/cub-hip/issues/9>`_.
+
+There is a corner case issue while exercising API's in bucker_sort2d application on HIP/ROCm path.
 
 Dependency
 ************
@@ -173,7 +200,7 @@ A list of `Thrust API's supported on HIP/CUDA and HIP/ROCm.
 +--------+------------------------------------------------------+-------------+-----------+
 | 35     | thrust::copy                                         | Supported   | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
-| 36     | thrust::stable_sort_by_key                           | known issue | Supported |
+| 36     | thrust::stable_sort_by_key                           | Known issue | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
 | 37     | thrust::sequence                                     | Supported   | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
@@ -277,3 +304,4 @@ A list of `Thrust API's supported on HIP/CUDA and HIP/ROCm.
 Github
 *******
 For Github repository click here : `Thrust <https://github.com/ROCmSoftwarePlatform/Thrust>`_
+

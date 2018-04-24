@@ -54,6 +54,7 @@ The latest tested version of the drivers, tools, libraries and source code for t
  * `HIP-Examples <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-1.7.x>`_
  * `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`_
 
+ 
 Additionally, the following mirror repositories that support the HCC compiler are also available on GitHub, and frozen for the rocm-1.7.1 release:
 
  * `llvm <https://github.com/RadeonOpenCompute/llvm/tree/roc-1.7.x>`_

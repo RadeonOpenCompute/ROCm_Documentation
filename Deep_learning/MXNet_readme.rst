@@ -8,7 +8,7 @@ MXNet for Deep Learning
 ========================
 
 
-.. image:: mxnet_image1.png
+.. image:: MXNet_image1.png
   :align: centre
   
 
@@ -18,26 +18,6 @@ MXNet is also more than a deep learning project. It is also a collection of `blu
 
 Join the chat at https://gitter.im/dmlc/mxnet
 
-What's New
-###############
-
- * `Version 0.9.3 Release <https://github.com/ROCmSoftwarePlatform/mxnet/blob/master/docs/architecture/release_note_0_9.md>`_ - First 0.9 official release.
- * `Version 0.9.1 Release (NNVM refactor) <https://github.com/ROCmSoftwarePlatform/mxnet/blob/master/docs/architecture/release_note_0_9.md>`_ - NNVM branch is merged into master now. An official release will be made soon.
- * `Version 0.8.0 Release <https://github.com/dmlc/mxnet/releases/tag/v0.8.0>`_
- * `Updated Image Classification with new Pre-trained Models <https://github.com/ROCmSoftwarePlatform/mxnet/blob/master/example/image-classification>`_
- * `Python Notebooks for How to Use MXNet <https://github.com/dmlc/mxnet-notebooks>`_
- * `MKLDNN for Faster CPU Performance <https://github.com/ROCmSoftwarePlatform/mxnet/blob/master/MKL_README.md>`_
- * `MXNet Memory Monger, Training Deeper Nets with Sublinear Memory Cost <https://github.com/dmlc/mxnet-memonger>`_
- * `Tutorial for NVidia GTC 2016 <https://github.com/dmlc/mxnet-gtc-tutorial>`_
- * `Embedding Torch layers and functions in MXNet <http://mxnet.io/how_to/torch.html>`_
- * `MXNet.js: Javascript Package for Deep Learning in Browser (without server) <https://github.com/dmlc/mxnet.js/>`_
- * `Design Note: Design Efficient Deep Learning Data Loading Module <http://mxnet.io/architecture/note_data_loading.html>`_
- * `MXNet on Mobile Device <http://mxnet.io/how_to/smart_device.html>`_
- * `Distributed Training <http://mxnet.io/how_to/multi_devices.html>`_
- * `Guide to Creating New Operators (Layers) <http://mxnet.io/how_to/new_op.html>`_
- * `Go binding for inference <https://github.com/songtianyi/go-mxnet-predictor>`_
- * `Amalgamation and Go Binding for Predictors <https://github.com/jdeng/gomxnet/>`_ - Outdated
- * `Training Deep Net on 14 Million Images on A Single Machine <http://mxnet.io/tutorials/computer_vision/imagenet_full.html>`_
 
 Contents
 ***********
@@ -163,18 +143,3 @@ Install the MXNet Python binding
  $ cd python
  $ sudo python setup.py install 
 
-Ask Questions
-################
-Please use `mxnet/issues <https://github.com/dmlc/mxnet/issues>`_ for how to use mxnet and reporting bugs
-
-License
-*********
-© Contributors, 2015-2017. Licensed under an `Apache-2.0 <https://github.com/dmlc/mxnet/blob/master/LICENSE>`_ license.
-
-Reference Paper
-*****************
-Tianqi Chen, Mu Li, Yutian Li, Min Lin, Naiyan Wang, Minjie Wang, Tianjun Xiao, Bing Xu, Chiyuan Zhang, and Zheng Zhang. `MXNet: A Flexible and Efficient Machine Learning Library for Heterogeneous Distributed Systems <https://github.com/dmlc/web-data/raw/master/mxnet/paper/mxnet-learningsys.pdf>`_. In Neural Information Processing Systems, Workshop on Machine Learning Systems, 2015
-
-History
-**********
-MXNet emerged from a collaboration by the authors of `cxxnet <https://github.com/dmlc/cxxnet>`_, `minerva <https://github.com/dmlc/minerva>`_, and `purine2 <https://github.com/purine/purine2>`_. The project reflects what we have learned from the past projects. MXNet combines aspects of each of these projects to achieve flexibility, speed, and memory efficiency.
