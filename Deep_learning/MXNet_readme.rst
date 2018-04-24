@@ -12,34 +12,7 @@ MXNet for Deep Learning
   :align: centre
   
 
-MXNet is a deep learning framework designed for both efficiency and flexibility. It allows you to **mix** `symbolic and imperative programming<http://mxnet.io/architecture/index.html#deep-learning-system-design-concepts>`_ to **maximize** efficiency and productivity. At its core, MXNet contains a dynamic dependency scheduler that automatically parallelizes both symbolic and imperative operations on the fly. A graph optimization layer on top of that makes symbolic execution fast and memory efficient. MXNet is portable and lightweight, scaling effectively to multiple GPUs and multiple machines.
 
-MXNet is also more than a deep learning project. It is also a collection of `blue prints and guidelines <http://mxnet.io/architecture/index.html#deep-learning-system-design-concepts>`_ for building deep learning systems, and interesting insights of DL systems for hackers.
-
-Join the chat at https://gitter.im/dmlc/mxnet
-
-
-Contents
-***********
-
- * `Documentation and Tutorials <http://mxnet.io/>`_
- * `Design Notes <http://mxnet.io/architecture/index.html>`_
- * `Code Examples <https://github.com/ROCmSoftwarePlatform/mxnet/blob/master/example>`_
- * `Installation <http://mxnet.io/get_started/setup.html>`_
- * `Pretrained Models <https://github.com/dmlc/mxnet-model-gallery>`_
- * `Contribute to MXNet <http://mxnet.io/community/contribute.html>`_
- * `Frequent Asked Questions <http://mxnet.io/how_to/faq.html>`_
-
-Features
-**********
-
- * Design notes providing useful insights that can re-used by other DL projects
- * Flexible configuration for arbitrary computation graph
- * Mix and match imperative and symbolic programming to maximize flexibility and efficiency
- * Lightweight, memory efficient and portable to smart devices
- * Scales up to multi GPUs and distributed setting with auto parallelism
- * Support for Python, R, C++ and Julia
- * Cloud-friendly and directly compatible with S3, HDFS, and Azure
 
 Installation Guide for HIP Port
 ###################################
