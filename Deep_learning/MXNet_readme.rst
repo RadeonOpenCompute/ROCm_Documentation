@@ -1,19 +1,20 @@
-.. _MXNet:
+.. _mxnet:
 
-.. image:: mxnet_1.png
-  :align: left
+MXNET
+#######
 
-              for Deep Learning
-=====================================              
+========================
+MXNet for Deep Learning
+========================
 
 
-.. image:: mxnet_2.png
+.. image:: mxnet_image1.png
   :align: centre
   
 
 MXNet is a deep learning framework designed for both efficiency and flexibility. It allows you to **mix** `symbolic and imperative programming<http://mxnet.io/architecture/index.html#deep-learning-system-design-concepts>`_ to **maximize** efficiency and productivity. At its core, MXNet contains a dynamic dependency scheduler that automatically parallelizes both symbolic and imperative operations on the fly. A graph optimization layer on top of that makes symbolic execution fast and memory efficient. MXNet is portable and lightweight, scaling effectively to multiple GPUs and multiple machines.
 
-MXNet is also more than a deep learning project. It is also a collection of `blue prints and guidelines<http://mxnet.io/architecture/index.html#deep-learning-system-design-concepts>`_ for building deep learning systems, and interesting insights of DL systems for hackers.
+MXNet is also more than a deep learning project. It is also a collection of `blue prints and guidelines <http://mxnet.io/architecture/index.html#deep-learning-system-design-concepts>`_ for building deep learning systems, and interesting insights of DL systems for hackers.
 
 Join the chat at https://gitter.im/dmlc/mxnet
 

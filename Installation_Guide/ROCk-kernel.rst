@@ -1,4 +1,4 @@
-.. _ROCk-kernel:
+.. _kernel-installation:
 
 ===============
 ROCk-Kernel

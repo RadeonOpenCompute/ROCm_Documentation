@@ -71,15 +71,15 @@ Tutorials
 *************
 **hipCaffe**
 
- :ref:`caffe`
+* :ref:`caffe`
   
 **Thrust**
   
- :ref:`Thrust`
+* :ref:`Native-thrust`
   
 **MXNet**
   
- :ref:`MXNet`
+* :ref:`mxnet`
  
 
 

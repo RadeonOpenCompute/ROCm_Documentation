@@ -1,4 +1,8 @@
-.. _ROCK-Kernel:
+.. _OpenComute-kernel-deriver:
+
+=====================
+ROCk-Kernel-Driver
+=====================
 
 AMD Radeon Open Compute Kernel driver
 #######################################

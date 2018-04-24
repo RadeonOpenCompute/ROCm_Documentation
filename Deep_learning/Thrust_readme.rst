@@ -1,8 +1,8 @@
 
-.. _Thrust:
+.. _Native-thrust:
 
 Thrust
-##########
+########
 
 HIP back-end for Thrust (alpha release).
 
@@ -65,9 +65,22 @@ Example Workloads
 *******************
 **Sample application**
 
-here is a sample output for a testcase **random.cpp**
+Here is a sample output of transform_iterator.cpp
 ::
- $ ./random.cpp.out 
+ $ ./transform_iterator.out
+ 
+ values : 2 5 7 1 6 0 3 8
+ clamped values : 2 5 5 1 5 1 3 5
+ sum of clamped values : 27
+ sequence : 0 1 2 3 4 5 6 7 8 9
+ clamped sequence : 1 1 2 3 4 5 5 5 5 5
+ negated sequence : -1 -1 -2 -3 -4 -5 -5 -5 -5 -5
+ negated values : -2 -5 -7 -1 -6 0 -3 -8 
+
+
+Here is a sample output for a testcase **random.cpp**
+::
+ $ ./random.out 
  Running 51 unit tests.
  ...................................................
  ================================================================
@@ -122,7 +135,7 @@ A list of `Thrust API's supported on HIP/CUDA and HIP/ROCm.
 +--------+------------------------------------------------------+-------------+-----------+
 | 16     | thrust::device_free                                  | Supported   | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
-| 17     | thrust::sort                                         | In-progress | Supported |
+| 17     | thrust::sort                                         | Known issue | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
 | 18     | thrust::device_pointer_cast                          | Supported   | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
@@ -160,7 +173,7 @@ A list of `Thrust API's supported on HIP/CUDA and HIP/ROCm.
 +--------+------------------------------------------------------+-------------+-----------+
 | 35     | thrust::copy                                         | Supported   | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
-| 36     | thrust::stable_sort_by_key                           | In-progress | Supported |
+| 36     | thrust::stable_sort_by_key                           | known issue | Supported |
 +--------+------------------------------------------------------+-------------+-----------+
 | 37     | thrust::sequence                                     | Supported   | Supported |
 +--------+------------------------------------------------------+-------------+-----------+

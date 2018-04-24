@@ -1,4 +1,8 @@
-.. _ROCr-Runtime:
+.. _ROCrRuntime:
+
+==============
+ROCr-Runtime
+==============
 
 HSA Runtime API and runtime for ROCm
 ######################################
@@ -10,8 +14,8 @@ Initial target platform requirements
  * GPU: Fiji ASIC (AMD R9 Nano, R9 Fury and R9 Fury X)
  * GPU: Polaris ASIC (AMD RX480)
  
- Source code
- **************
+Source code
+**************
 The HSA core runtime source code for the ROCR runtime is located in the src subdirectory. Please consult the associated README.md file for contents and build instructions.
 
 Binaries for Ubuntu & Fedora and installation instructions
