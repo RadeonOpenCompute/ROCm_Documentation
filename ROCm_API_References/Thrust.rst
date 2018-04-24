@@ -1,7 +1,7 @@
 
 .. _Native-thrust:
 
-Thrust
+Thrust 
 ########
 
 HIP back-end for Thrust
@@ -54,7 +54,7 @@ Sample applications
 
 Here is a sample output of some applications exercising thrust API's :
 
-transform_iterator
+transform_iterator:
 ::
  $ ./transform_iterator.out
  values : 2 5 7 1 6 0 3 8
@@ -65,7 +65,7 @@ transform_iterator
  negated sequence : -1 -1 -2 -3 -4 -5 -5 -5 -5 -5
  negated values : -2 -5 -7 -1 -6 0 -3 -8 
 
-sort
+sort:
 ::
  $ ./sort.cpp.out
  sorting integers
@@ -96,7 +96,7 @@ sort
   (79, 0) (78, 1) (62, 2) (78, 3) (94, 4) (40, 5) (86, 6) (57, 7) (40, 8) (16, 9) (28,10) (54,11) (77,12) (87,13) (93,14) (98,15)
   (98,15) (94, 4) (93,14) (87,13) (86, 6) (79, 0) (78, 1) (78, 3) (77,12) (62, 2) (57, 7) (54,11) (40, 5) (40, 8) (28,10) (16, 9)
 
-expand
+expand:
 ::
  $ ./expand.cpp.out
  Expanding values according to counts

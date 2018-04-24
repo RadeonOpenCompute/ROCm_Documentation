@@ -25,12 +25,12 @@ HIP Math API
 
 * :ref:`HIP-MATH`
 
-Thrust API's
-================
+Thrust API Documentation
+==========================
 
 * :ref:`Native-thrust`
 
-Math Libarary API's
+Math Library API's
 ====================
 * `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
 
