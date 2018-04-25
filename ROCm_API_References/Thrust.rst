@@ -1,5 +1,5 @@
 
-.. _Native-thrust:
+.. _HIP-thrust:
 
 Thrust 
 ########
@@ -46,6 +46,7 @@ Steps to follow:
  $ cd examples
  $ ./cu_to_cpp.sh
  $ ./script_compile_testing_hcc.sh
+ $ ./script_run_hcc.sh
 
 
 

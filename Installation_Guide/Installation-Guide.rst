@@ -46,7 +46,7 @@ The latest tested version of the drivers, tools, libraries and source code for t
 
  * :ref:`OpenComute-kernel-deriver`
  * :ref:`ROCrRuntime`
- * `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.7.x>`_
+ * :ref:`ROCt`
  * `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_
  * `HCC compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-1.7.x>`_
  * `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.7.x>`_

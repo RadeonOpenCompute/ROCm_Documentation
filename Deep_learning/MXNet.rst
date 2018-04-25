@@ -3,11 +3,15 @@
 =========
 MXNet 
 =========
+
+
+.. image:: MXNet_image1.png
+  :align: centre
   
 Introduction
 ##############
 
-MXNet is a deep learning framework that has been ported to HIP. It works both on HIP/ROCm and HIP/CUDA platforms.
+MXNet is a deep learning framework that has been ported to the HIP port of MXNet. It works both on HIP/ROCm and HIP/CUDA platforms.
 Mxnet makes use of rocBLAS,rocRAND,rocFFT and MIOpen APIs.
 
 
@@ -77,7 +81,7 @@ To compile on NVCC PLATFORM:
 2. MXNet uses rocBLAS, rocFFT, rocRAND , MIOpen and lapack libraries for accelerated numerical computations. 
 
 Install the MXNet Python binding
-*********************************
+++++++++++++++++++++++++++++++++++++++
 
 **Step 1:** Install prerequisites - python, setup-tools, python-pip and numpy.
 ::
@@ -93,26 +97,6 @@ Install the MXNet Python binding
  $ cd example/
  $ cd application-folder/
  To run on gpu change mx.cpu() to mx.gpu() in python script(application)
- $ python <application-name>.py
-
-Known issues
-***************
-
-while compiling mxnet for nvcc(hip/cuda) path errors from thrust 
-::
- "/Thrust/thrust/system/cuda/detail/bulk/malloc.hpp:67:26: error: ‘s_data_segment_begin’ has not been declared" 
- "Thrust/thrust/system/cuda/detail/bulk/malloc.hpp:72:1: error: expected constructor, destructor, or type conversion before ‘class’"
-  "src/operator/tensor/matrix_op.cc:605:1: error: expected ‘}’ at end of input"
-
-
-**FIX**
-Replace Thrust/thrust/system/cuda/detail/bulk/malloc.hpp:67 with following code
-::
- #ifdef HIP_PLATFORM_NVCC
- extern shared int s_data_segment_begin[];
- #else
- HIP_DYNAMIC_SHARED( int, s_data_segment_begin)
- #endif 
-
+ $ python application-name.py
 
 

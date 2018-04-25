@@ -28,7 +28,7 @@ HIP Math API
 Thrust API Documentation
 ==========================
 
-* :ref:`Native-thrust`
+* :ref:`HIP-thrust`
 
 Math Library API's
 ====================
