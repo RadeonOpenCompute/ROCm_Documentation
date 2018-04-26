@@ -47,8 +47,8 @@ The latest tested version of the drivers, tools, libraries and source code for t
  * :ref:`OpenComute-kernel-deriver`
  * :ref:`ROCrRuntime`
  * :ref:`ROCt`
- * `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_
- * `HCC compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-1.7.x>`_
+ * :ref:`ROC-smi`
+ * :ref:`HCC-Compiler`
  * `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.7.x>`_
  * `HIP <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/tree/roc-1.7.x>`_
  * `HIP-Examples <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-1.7.x>`_
