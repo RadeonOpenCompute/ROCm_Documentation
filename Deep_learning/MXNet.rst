@@ -5,29 +5,29 @@ MXNet
 =========
 
 
-.. image:: MXNet_image1.png
-  :align: centre
-  
-Introduction
-##############
+.. image:: ../MXNet_image1.png
+    :align: centre
+    :width: 200pt
+   
 
 MXNet is a deep learning framework that has been ported to the HIP port of MXNet. It works both on HIP/ROCm and HIP/CUDA platforms.
 Mxnet makes use of rocBLAS,rocRAND,hcFFT and MIOpen APIs.
+
 
 
 Installation Guide for MXNet library
 #####################################
 
 Prerequisites
-++++++++++++++
+**************
 
 `GCC 4.8 <https://gcc.gnu.org/gcc-4.8/>`_ or later to compile C++ 11.
-
 `GNU Make <https://www.gnu.org/software/make/>`_
 
-**ROCm installation**
+ROCm installation
+********************
 
-`ROCm Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
+Follow the instructions from here -`ROCm Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
 
 **Install Dependencies to build mxnet for HIP/ROCm**
 ::
@@ -45,36 +45,32 @@ Install CUDA following the NVIDIA’s `installation guide <http://docs.nvidia.co
    * Make sure to add CUDA install path to LD_LIBRARY_PATH 
    * Example - export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
    
-Install the dependencies hipblas, rocrand, hcfft from source 
+Install the dependencies hipblas, rocrand, hcfft from source.
 
 Build the MXNet library
-*************************
+########################
+
 **Step 1:** Install build tools.
 ::
  $ sudo apt-get update
  $ sudo apt-get install -y build-essential 
  
 **Step 2:** Install OpenBLAS.
-
 MXNet uses BLAS and LAPACK libraries for accelerated numerical computations on CPU machine. There are several flavors of BLAS/LAPACK libraries - OpenBLAS, ATLAS and MKL. In this step we install OpenBLAS. You can choose to install ATLAS or MKL.
 ::
  $ sudo apt-get install -y libopenblas-dev liblapack-dev libomp-dev libatlas-dev libatlas-base-dev
 
-
 **Step 3:** Install `OpenCV <https://opencv.org/>`_
-
 MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  $ sudo apt-get install -y libopencv-dev
  
-
 **Step 4:** Download MXNet sources and build MXNet core shared library.
 ::
  $ git clone --recursive https://github.com/ROCmSoftwarePlatform/mxnet.git
  $ cd mxnet
 
 **Step 5:**
-
 **To compile on HCC PLATFORM(HIP/ROCm):**
 ::
  $ export HIP_PLATFORM=hcc
@@ -84,7 +80,6 @@ MXNet uses OpenCV for efficient image loading and augmentation operations.
  $ export HIP_PLATFORM=nvcc
  
 **Step 6:**
-
 If building on CPU:
 ::
  make -jn(n=number of cores) USE_CUDA=0
@@ -100,9 +95,7 @@ To enable MIOpen for higher acceleration :
  
 NOTE: Currently this feature is under development
 
-
 On succesfull compilation a library called libmxnet.so is created in mxnet/lib path.
-
 
 **Note:**
  1. USE_CUDA, USE_CUDNN flags can be changed in make/config.mk.
@@ -110,7 +103,7 @@ On succesfull compilation a library called libmxnet.so is created in mxnet/lib p
 
 
 Install the MXNet Python binding
-++++++++++++++++++++++++++++++++++++++
+##################################
 
 **Step 1:** Install prerequisites - python, setup-tools, python-pip and numpy.
 ::
