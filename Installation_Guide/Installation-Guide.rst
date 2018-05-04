@@ -39,7 +39,7 @@ Not supported or very limited support under ROCm
 
 **IPC support**
 
-The latest ROCm platform - ROCm 1.7
+The latest ROCm platform - ROCm 1.7.x
 ************************************
 
 The latest tested version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available under the roc-1.7.x or rocm-1.7.x tag of the following GitHub repositories:
@@ -84,7 +84,7 @@ The packages in the Debian repository have been signed to ensure package integri
 
 **Optional: Upgrade to 4.13 kernel**
 
-Although not required, it is recommended as of ROCm 1.7.1 that the system's kernel is upgraded to the latest 4.13 version available:
+Although not required, it is recommended as of ROCm 1.7.x that the system's kernel is upgraded to the latest 4.13 version available:
 ::
  sudo apt install linux-headers-4.13.0-32-generic linux-image-4.13.0-32-generic linux-image-extra-4.13.0-32-generic linux-signed-image-4.13.0-32-generic
  sudo reboot 
@@ -177,7 +177,7 @@ In this case, install the development subset of packages:
 
 #If you Plan to Run with X11 - we are seeing X freezes under load
 
-ROCm 1.7.1 a kernel parameter noretry has been set to 1 to improve overall system performance. However it has been proven to bring instability to graphics driver shipped with Ubuntu. This is an ongoing issue and we are looking into it.
+ROCm 1.7.x a kernel parameter noretry has been set to 1 to improve overall system performance. However it has been proven to bring instability to graphics driver shipped with Ubuntu. This is an ongoing issue and we are looking into it.
 
 Before that, please try apply this change by changing noretry bit to 0.
 ::
@@ -230,7 +230,7 @@ Cloning the code
 To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
- repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.7.1
+ repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.7.2
  repo sync
 
 These series of commands will pull all of the open source code associated with the ROCm 1.7 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
