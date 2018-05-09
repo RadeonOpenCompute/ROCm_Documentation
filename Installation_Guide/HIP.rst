@@ -1,5 +1,9 @@
 .. _ROCm-Developer-Tool-HIP:
 
+=====
+HIP
+=====
+
 What is this repository for?
 ##############################
 

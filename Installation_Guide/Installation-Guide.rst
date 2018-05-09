@@ -116,7 +116,7 @@ To Install the package:
  sudo apt update
  sudo apt install rocm-dkms
 
-**Next set your permsions**
+**Next set your permissions**
 
 With move to upstreaming the KFD driver and the support of DKMS, for all Console aka headless user, you will need to add all your users to the 'video" group by setting the Unix permissions
 
@@ -162,7 +162,8 @@ To un-install the entire rocm development package execute:
 ::
  sudo apt autoremove rocm-dkms
 
-**Installing development packages for cross compilation**
+Installing development packages for cross compilation
+*******************************************************
 
 It is often useful to develop and test on different systems. In this scenario, you may prefer to avoid installing the ROCm Kernel to your development system.
 

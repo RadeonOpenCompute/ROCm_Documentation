@@ -4,12 +4,6 @@
 MXNet 
 =========
 
-
-.. image:: ../MXNet_image1.png
-    :align: centre
-    :width: 200pt
-   
-
 MXNet is a deep learning framework that has been ported to the HIP port of MXNet. It works both on HIP/ROCm and HIP/CUDA platforms.
 Mxnet makes use of rocBLAS,rocRAND,hcFFT and MIOpen APIs.
 
@@ -50,27 +44,31 @@ Install the dependencies hipblas, rocrand, hcfft from source.
 Build the MXNet library
 ########################
 
-**Step 1:** Install build tools.
+**Step 1: Install build tools.**
 ::
  $ sudo apt-get update
  $ sudo apt-get install -y build-essential 
  
-**Step 2:** Install OpenBLAS.
+**Step 2: Install OpenBLAS.** 
 MXNet uses BLAS and LAPACK libraries for accelerated numerical computations on CPU machine. There are several flavors of BLAS/LAPACK libraries - OpenBLAS, ATLAS and MKL. In this step we install OpenBLAS. You can choose to install ATLAS or MKL.
 ::
  $ sudo apt-get install -y libopenblas-dev liblapack-dev libomp-dev libatlas-dev libatlas-base-dev
 
-**Step 3:** Install `OpenCV <https://opencv.org/>`_
+**Step 3: Install `OpenCV <https://opencv.org/>`_.**
 MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  $ sudo apt-get install -y libopencv-dev
  
-**Step 4:** Download MXNet sources and build MXNet core shared library.
+
+ 
+**Step 4: Download MXNet sources and build MXNet core shared library.**
 ::
  $ git clone --recursive https://github.com/ROCmSoftwarePlatform/mxnet.git
  $ cd mxnet
+ $ export PATH=/opt/rocm/bin:$PATH
 
 **Step 5:**
+
 **To compile on HCC PLATFORM(HIP/ROCm):**
 ::
  $ export HIP_PLATFORM=hcc
@@ -80,16 +78,16 @@ MXNet uses OpenCV for efficient image loading and augmentation operations.
  $ export HIP_PLATFORM=nvcc
  
 **Step 6:**
-If building on CPU:
+
+**If building on CPU:**
 ::
  make -jn(n=number of cores) USE_CUDA=0
  
-If building on GPU:
+**If building on GPU:**
 ::
  make -jn(n=number of cores) USE_CUDA=1
  
-**Step 7:**
-To enable MIOpen for higher acceleration :
+**Step 7: To enable MIOpen for higher acceleration :**
 ::
  make -jn(n=number of cores) USE_CUDNN=1  
  
@@ -105,16 +103,16 @@ On succesfull compilation a library called libmxnet.so is created in mxnet/lib p
 Install the MXNet Python binding
 ##################################
 
-**Step 1:** Install prerequisites - python, setup-tools, python-pip and numpy.
+**Step 1: Install prerequisites - python, setup-tools, python-pip and numpy.**
 ::
  $ sudo apt-get install -y python-dev python-setuptools python-numpy python-pip
 
-**Step 2:** Install the MXNet Python binding.
+**Step 2: Install the MXNet Python binding.**
 ::
  $ cd python
  $ sudo python setup.py install 
 
-**Step 3:** Execute sample example
+**Step 3: Execute sample example**
 ::
  $ cd example/
  $ cd bayesian-methods/
