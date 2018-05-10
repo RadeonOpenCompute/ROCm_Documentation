@@ -12,55 +12,55 @@ sysfs-class-kfd-topology-nodes-0-io_links-0,1
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/version_major
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Major version of the Bus interface
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/version_minor
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Minor version of the Bus interface
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/node_from
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	This is refering to the node where it is pointing to begining node
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/node_to
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	This refers to the Note it is pointing towards end point
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/weight
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Thread count for the link
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/min_latency
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	mininum Cost of time to transfer, described in nanoseconds
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/max_latency
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Maximum Cost of time to transfer, described in nanoseconds
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/min_bandwidth
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Minimum interface Bandwidth in MB/s
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/max_bandwidth
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Maximum interface Bandwidth in MB/s
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/recommended_transfer_size
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Recommended transfer size to reach maximum interface bandwidth in Bytes
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/flags
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	
+| Description:	Local use flag count used in compute
 
