@@ -215,14 +215,14 @@ system with the RHEL subscription server and attaching to a pool id.
 
 Second, enable the following repositories:
 ::
-sudo subscription-manager repos --enable rhel-7-server-rhscl-rpms
-sudo subscription-manager repos --enable rhel-7-server-optional-rpms
-sudo subscription-manager repos --enable rhel-7-server-extras-rpms
+ sudo subscription-manager repos --enable rhel-7-server-rhscl-rpms
+ sudo subscription-manager repos --enable rhel-7-server-optional-rpms
+ sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 
 
 Third, enable additional repositories by downloading and installing the epel-release-latest-7 repository RPM:
 ::
-sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 
 Install and setup Devtoolset-7
@@ -238,13 +238,13 @@ Note that devtoolset-7 is a Software Collections package, and is not supported b
 
 Installing kernel drivers on CentOS/RHEL 7.4 requires dkms tool being installed:
 ::
-sudo yum install -y epel-release
-sudo yum install -y dkms kernel-headers-`uname -r`
+ sudo yum install -y epel-release
+ sudo yum install -y dkms kernel-headers-`uname -r`
 
 
 Current release supports up to CentOS/RHEL 7.4. If for any reason the system needs to be updated to 7.5, don’t update the kernel. Add “--exclude=kernel*” flag to yum install. For example:
 ::
-sudo yum update --exclude=kernel*
+ sudo yum update --exclude=kernel*
 
 
 At this point they system can install ROCm using the DKMS drivers.
@@ -254,16 +254,16 @@ _______________________________
 
 At this point ROCm can be installed on the target system. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
 ::
-[ROCm]
-name=ROCm
-baseurl=http://repo.radeon.com/rocm/yum/rpm
-enabled=1
-gpgcheck=0
+ [ROCm]
+ name=ROCm
+ baseurl=http://repo.radeon.com/rocm/yum/rpm
+ enabled=1
+ gpgcheck=0
 
 
 The repo's URL should point to the location of the repositories repodata database. Install ROCm components using these commands:
 ::
-sudo yum install rocm-dkms
+ sudo yum install rocm-dkms
 
 
 The rock-dkms component should be installed and the /dev/kfd device should be available on reboot.
@@ -271,12 +271,12 @@ The rock-dkms component should be installed and the /dev/kfd device should be av
 Ensure that your user account is a member of the "video" or "wheel" group prior to using the ROCm driver.
 You can find which groups you are a member of with the following command:
 ::
-groups
+ groups
 
 To add yourself to the video (or wheel) group you will need the sudo password and can use the
 following command:
 ::
-sudo usermod -a -G video $LOGNAME 
+ sudo usermod -a -G video $LOGNAME 
 
 
 Compiling applications using hcc, hip, etc.
@@ -285,14 +285,14 @@ __________________________________________________
 To compile applications or samples, please use gcc-7.2 provided by the devtoolset-7 environment.
 To do this, compile all applications after running this command: 
 ::
-scl enable devtoolset-7 bash
+ scl enable devtoolset-7 bash
 
 How to un-install ROCm from CentOS/RHEL 7.4
 ______________________________________________
 
 To un-install the entire rocm development package execute:
 ::
-sudo yum autoremove rocm-dkms
+ sudo yum autoremove rocm-dkms
 
 
 
