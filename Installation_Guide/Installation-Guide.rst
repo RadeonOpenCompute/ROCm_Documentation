@@ -220,6 +220,7 @@ Second, enable the following repositories:
  sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 
 
+
 Third, enable additional repositories by downloading and installing the epel-release-latest-7 repository RPM:
 ::
  sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -241,6 +242,7 @@ Installing kernel drivers on CentOS/RHEL 7.4 requires dkms tool being installed:
  sudo yum install -y epel-release
  sudo yum install -y dkms kernel-headers-`uname -r`
 
+You can also follow RedHats way to downgrade kerenl and redhat rlease from 7.5 to 7.4  https://access.redhat.com/solutions/186763 via there instructions. 
 
 Current release supports up to CentOS/RHEL 7.4. If for any reason the system needs to be updated to 7.5, don’t update the kernel. Add “--exclude=kernel*” flag to yum install. For example:
 ::
