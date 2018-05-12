@@ -225,7 +225,8 @@ Third, enable additional repositories by downloading and installing the epel-rel
 sudo rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 
-*  Install and setup Devtoolset-7
+Install and setup Devtoolset-7
+__________________________________
 
 To setup the Devtoolset-7 environment, follow the instructions on this page:
 
@@ -249,6 +250,8 @@ sudo yum update --exclude=kernel*
 At this point they system can install ROCm using the DKMS drivers.
 
 Installing ROCm on the system
+_______________________________
+
 At this point ROCm can be installed on the target system. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
 ::
 [ROCm]
@@ -284,7 +287,8 @@ To do this, compile all applications after running this command:
 ::
 scl enable devtoolset-7 bash
 
-* How to un-install ROCm from CentOS/RHEL 7.4
+How to un-install ROCm from CentOS/RHEL 7.4
+______________________________________________
 
 To un-install the entire rocm development package execute:
 ::
@@ -295,7 +299,8 @@ sudo yum autoremove rocm-dkms
 Known Issues / Workarounds for Both Distros
 ************************************************
 
-* If you Plan to Run with X11 - we are seeing X freezes under load
+If you Plan to Run with X11 - we are seeing X freezes under load
+_____________________________________________________________________
 
 ROCm 1.8.x a kernel parameter noretry has been set to 1 to improve overall system performance. However it has been proven to bring instability to graphics driver shipped with Ubuntu. This is an ongoing issue and we are looking into it.
 
