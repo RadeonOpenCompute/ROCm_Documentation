@@ -305,7 +305,6 @@ _____________________________________________________________________
 ROCm 1.8.x a kernel parameter noretry has been set to 1 to improve overall system performance. However it has been proven to bring instability to graphics driver shipped with Ubuntu. This is an ongoing issue and we are looking into it.
 
 Before that, please try apply this change by changing noretry bit to 0.
-
 ::
  echo 0 | sudo tee /sys/module/amdkfd/parameters/noretry
 
