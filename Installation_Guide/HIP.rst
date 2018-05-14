@@ -103,17 +103,19 @@ Thus HIP source code can be compiled to run on either platform. Platform-specifi
 Examples and Getting Started:
 ##############################
 
- * A sample and `blog <http://gpuopen.com/hip-to-be-squared-an-introductory-hip-tutorial>`_ that uses hipify to convert a simple app from CUDA to HIP:
+* A sample and `blog <http://gpuopen.com/hip-to-be-squared-an-introductory-hip-tutorial>`_ that uses hipify to convert a simple app from CUDA to HIP:
 ::
+ 
  cd samples/01_Intro/square
  # follow README / blog steps to hipify the application.
 
- * A sample and `blog <http://gpuopen.com/platform-aware-coding-inside-hip/>`_ demonstrating platform specialization:
+* A sample and `blog <http://gpuopen.com/platform-aware-coding-inside-hip/>`_ demonstrating platform specialization:
 ::
+
  cd samples/01_Intro/bit_extract
  make
 
- * Guide to `Porting a New Cuda Project <https://github.com/ROCm-Developer-Tools/HIP/blob/roc-1.7.x/docs/markdown/hip_porting_guide.md#porting-a-new-cuda-project%22>`_
+* Guide to `Porting a New Cuda Project <https://github.com/ROCm-Developer-Tools/HIP/blob/roc-1.7.x/docs/markdown/hip_porting_guide.md#porting-a-new-cuda-project%22>`_
 
 More Examples
 ***************
@@ -143,3 +145,5 @@ Reporting an issue
 Use the `GitHub issue tracker <https://github.com/ROCm-Developer-Tools/HIP/issues>`_. If reporting a bug, include the output of "hipconfig --full" and samples/1_hipInfo/hipInfo (if possible).
 
 For More Info checkout GitHub Link `here <https://github.com/ROCm-Developer-Tools/HIP/tree/roc-1.7.x>`_
+
+

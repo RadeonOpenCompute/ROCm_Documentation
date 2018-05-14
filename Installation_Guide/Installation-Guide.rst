@@ -63,8 +63,7 @@ The latest tested version of the drivers, tools, libraries and source code for t
  * `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.8.x>`_
  * :ref:`ROCm-Developer-Tool-HIP`
  * `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-1.8.x>`_
- * `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`_
-
+ * :ref:`atmi`
  
 Additionally, the following mirror repositories that support the HCC compiler are also available on GitHub, and frozen for the rocm-1.8.0 release:
 

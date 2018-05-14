@@ -47,20 +47,22 @@ dGPU Config:
 
 Installing and configuring the kernel
 ****************************************
-.. note:: Binary packages are no longer part of this git repository. Please refer to the `ROCm project<https://github.com/RadeonOpenCompute/ROCm/wiki>`_ for instructions on configuring the AMD apt/yum package server
+.. note:: Binary packages are no longer part of this git repository. Please refer to the `ROCm project <https://github.com/RadeonOpenCompute/ROCm/wiki>`_ for instructions on configuring the AMD apt/yum package server
 
 Config files for building the kernel
-The configuration used to build our kernel can be re-created by running: .. epigraph:: make rock-rel_defconfig
+The configuration used to build our kernel can be re-created by running: `make rock-rel_defconfig`
 
 This config is based on the Ubuntu 14.04 build patches by Canonical.
 
 **Obtaining kernel and libhsakmt source code**
- * Source code used to build the kernel is in this repo. Source code to build libhsakmt is in the `ROCT-Thunk-Interface<https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface>`_ repository
+ * Source code used to build the kernel is in this repo. Source code to build libhsakmt is in the `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface>`_ repository
+
 LICENSE
 #########
-The following lists the different licenses that apply to the different components in this repository:
 
-the Linux kernel images are covered by the modified GPL license in COPYING
-the firmware image is covered by the license in LICENSE.ucode
+The following lists the different licenses that apply to the different components in this repository:
+ 
+| The Linux kernel images are covered by the modified GPL license in COPYING
+| The firmware image is covered by the license in LICENSE.ucode
 
 Link to go directly to the repository `ROCK-Kernel-Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.7.x>`_

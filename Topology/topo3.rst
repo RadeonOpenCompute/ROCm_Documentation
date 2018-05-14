@@ -7,7 +7,7 @@ sysfs-class-kfd-topology-nodes-0-io_links-0,1
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/type
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	This field gives information about type of link thats been established
+| Description:	Type of Memory thats been used.
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/version_major
 | Date:		May 2018
@@ -32,7 +32,7 @@ sysfs-class-kfd-topology-nodes-0-io_links-0,1
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/weight
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	Thread count for the link
+| Description:	Thread count for the link, weight factor (derived from CDIT)
 
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/min_latency
 | Date:		May 2018
@@ -62,5 +62,5 @@ sysfs-class-kfd-topology-nodes-0-io_links-0,1
 | What:		/sys/class/kfd/topology/nodes/0/io_links/0/flags
 | Date:		May 2018
 | KernelVersion:	4.13
-| Description:	Local use flag count used in compute
+| Description:	Local use flags count used in CPU
 
