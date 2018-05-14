@@ -1,4 +1,4 @@
-.. _sysfsclasskfdtopologynodes0membanks0:s
+.. _sysfsclasskfdtopologynodes0membanks0:
 
 sysfs-class-kfd-topology-nodes-0-membanks-0
 --------------------------------------------
