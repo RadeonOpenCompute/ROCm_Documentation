@@ -46,8 +46,13 @@ Steps to follow:
  $ cd examples
  $ ./cu_to_cpp.sh
  $ ./script_compile_testing_hcc.sh
- $ ./script_run_hcc.sh
+ 
 
+To execute applications:
+::
+  $ cd Thrust/
+  $ ./script_run_hcc.sh foldername (eg:examples/testing/performance)
+ 
 
 
 Sample applications
@@ -68,7 +73,7 @@ transform_iterator:
 
 sort:
 ::
- $ ./sort.cpp.out
+ $ ./sort.out
  sorting integers
   79 78 62 78 94 40 86 57 40 16 28 54 77 87 93 98
   16 28 40 40 54 57 62 77 78 78 79 86 87 93 94 98
@@ -99,11 +104,99 @@ sort:
 
 expand:
 ::
- $ ./expand.cpp.out
+ $ ./expand.out
  Expanding values according to counts
  counts 3 5 2 0 1 3 4 2 4 
  values 1 2 3 4 5 6 7 8 9 
  output 1 1 1 2 2 2 2 2 3 3 5 6 6 6 7 7 7 7 8 8 9 9 9 9 
+ 
+
+Unit Test
+************
+
+| The test suite consists of unit tests. 
+| Run the following commands to perform unit testing of different components of Thrust.
+
+.. note:: Set HIP_PLATFORM to either NVCC or HCC depending on the platform being used
+::
+  
+  $ cd Thrust/testing
+  $ ./cu_to_cpp.sh
+  $ ./script_compile_testing_hcc.sh
+
+To execute unit tests: 
+::
+  $ cd Thrust/
+  $ ./script_run_hcc.sh testing/
+
+Sample output of transform and Max element test cases
+::
+  
+ ./transform.out 
+ Running 34 unit tests.
+ ..................................
+ Totals: 0 failures, 0 known failures, 0 errors, and 34 passes.
+ Time: 0.366667 minutes
+ 
+ ./max_element.out
+ Running 7 unit tests.
+ ..................................
+ Totals: 0 failures, 0 known failures, 0 errors, and 7 passes.
+ Time: 0.0166667 minutes
+
+
+**Performance Tests**
+
+Run the following commands to exercise Performance tests in Thrust
+
+.. note:: Set HIP_PLATFORM to either NVCC or HCC depending on the platform being used
+
+::
+   
+  $ cd Thrust/performance
+  $ ./script_compile_performance.sh
+
+To execute performance tests: 
+:: 
+  $ cd Thrust/
+  $ ./script_run_hcc.sh performance/
+  
+
+::
+  
+  ./adjacent_difference.cpp.out
+   
+  <?xml version="1.0"?>
+  <testsuite name="adjacent_difference">
+  <platform>
+  <device name="Device 6863">
+  <property name="revision" value="3.0"/>
+  <property name="global memory" value="17163091968" units="bytes"/>
+  <property name="multiprocessors" value="64"/>
+  <property name="cores" value="512"/>
+  <property name="constant memory" value="16384" units="bytes"/>
+  <property name="shared memory per block" value="65536" units="bytes"/>
+  <property name="warp size" value="64"/>
+  <property name="max threads per block" value="1024"/>
+  <property name="clock rate" value="1.6" units="GHz"/>
+  </device>
+  <compilation>
+  <property name="host compiler" value="GCC 40201"/>
+  <property name="__DATE__" value="May 15 2018"/>
+  <property name="__TIME__" value="20:32:34"/>
+  </compilation>
+  </platform>
+  <test name="adjacent_difference_int_16777216">
+  <variable name="InputType" value="int"/>
+  <variable name="InputSize" value="16777216"/>
+  <result name="Time" value="0.000607142" units="seconds"/>
+  <result name="Throughput" value="27.6331" units="GOp/s"/>
+  <result name="Bandwidth" value="221.065" units="GBytes/s"/>
+  <status result="Success" message=""/>
+  </test>
+  </testsuite>
+  
+
 
 
 Known issues

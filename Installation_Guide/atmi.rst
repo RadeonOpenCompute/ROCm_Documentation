@@ -1,4 +1,5 @@
-.. _atmi:
+.. _Asynch:
+
 =====
 ATMI 
 =====
@@ -12,7 +13,7 @@ The below figure depicts the ATMI runtime workflow with CLOC as the compiler uti
 
 **atmi-workflow**
 
-.. image:: /atmi.png
+.. image:: atmi.png
 
 What's New?
 *************

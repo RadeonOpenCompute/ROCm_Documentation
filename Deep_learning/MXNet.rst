@@ -7,7 +7,9 @@ MXNet
 MXNet is a deep learning framework that has been ported to the HIP port of MXNet. It works both on HIP/ROCm and HIP/CUDA platforms.
 Mxnet makes use of rocBLAS,rocRAND,hcFFT and MIOpen APIs.
 
-.. image:: /MXNet_image1.png
+**MXNet**
+
+.. image:: MXNetimage1.png
 
 Installation Guide for MXNet library
 #####################################
