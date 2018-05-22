@@ -26,9 +26,10 @@ Current tested CPUs which support PCIe Gen3 + PCIe Atomics are:
  Comunity tested with Vega10 and ROCm 1.8 
   * Intel Xeon E5 v2 or newer CPUs;
 
-More information on  Fiji and Polaris Class GPU's the ROCm Platform leverages  PCIe Atomics (Fetch ADD, Compare and SWAP, Unconditional SWAP, AtomicsOpCompletion). `PCIe atomics <https://github.com/RadeonOpenCompute/RadeonOpenCompute.github.io/blob/master/ROCmPCIeFeatures.md>`_ are only supported on PCIe Gen3 Enabled CPUs and PCIe Gen3 Switches like Broadcom PLX. For Fiji and Polaris based GPU a slot attached either directly to the CPU's Root I/O controller or via a PCIe switch directly attached to the CPU's Root I/O controller. In our experience many issues stem from trying to use consumer motherboards which provide Physical x16 Connectors that are electrically connected as e.g. PCIe Gen2 x4. This typically occurs when connecting via the Southbridge PCIe I/O controller. 
- 
+For Fiji and Polaris GPU's the ROCm platform leverages PCIe Atomics (Fetch and Add, Compare and Swap, Unconditional Swap, AtomicsOp Completion). PCIe Atomics are only supported on PCIe Gen3 enabled CPUs and PCIe Gen3 switches like Broadcom PLX. When you install your GPUs make sure you install them in a fully PCIe Gen3 x16 or x8, x4 or x1 slot attached either directly to the CPU's Root I/O controller or via a PCIe switch directly attached to the CPU's Root I/O controller. In our experience many issues stem from trying to use consumer motherboards which provide physical x16 connectors that are electrically connected as e.g. PCIe Gen2 x4 connected via the Southbridge PCIe I/O controller.
+
 Experimental support for our GFX7 GPUs Radeon R9 290, R9 390, AMD FirePro S9150, S9170 note they do not support or take advantage of PCIe Atomics. However, we still recommend that you use a CPU from the list provided above.
+
 
 Not supported or very limited support under ROCm
 **************************************************
@@ -36,18 +37,41 @@ Not supported or very limited support under ROCm
 Limited Support 
 ________________
 
-* With ROCm 1.8 and Vega10 it should support  PCIe Gen 2 enabled CPUs such as the AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and Older Intel Xeon and Intel Core Architecture and Pentium CPUs. But we have done very limited testing. Since our test farm today has been catering to CPU listed above.  This is where we need comunity support. 
- * Thunderbolt 1,2 &. 3 enabled breakout boxes GPU's should now be able to work with ROCm. Thunderbolt 1 & 2 are PCIe Gen2 based. But we have done no testing on this config and would need comunity support do limited access to this type of equipment 
+* With ROCm 1.8 and Vega10 it should support PCIe Gen2 enabled CPUs such as the AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and older Intel Xeon and Intel Core Architecture and Pentium CPUs. But we have done very limited testing. Since our test farm today has been catering to CPU listed above. This is where we need community support.
+* Thunderbolt 1,2 and 3 enabled breakout boxes GPU's should now be able to work with ROCm. Thunderbolt 1 and 2 are PCIe Gen2 based. But we have done no testing on this config and would need comunity support do limited access to this type of equipment
 
 Not Supported 
 ______________
 
 * We also do not support AMD Carrizo and Kaveri APU as host for compliant dGPU attachments.
- * Thunderbolt 1 and 2 enabled GPU's are not supported by ROCm. Thunderbolt 1 & 2 are PCIe Gen2 based.
- * AMD Carrizo based APUs have limited support due to OEM & ODM's choices when it comes to some key configuration parameters. On point, we have observed that Carrizo Laptops, AIOs and Desktop systems showed inconsistencies in exposing and enabling the System BIOS parameters required by the ROCm stack. Before purchasing a Carrizo system for ROCm, please verify that the BIOS provides an option for enabling IOMMUv2. If this is the case, the final requirement is associated with correct CRAT table support - please inquire with the OEM about the latter.
- * AMD Merlin/Falcon Embedded System is also not currently supported by the public Repo.
- * AMD Raven Ridge APU are currently not supported
+* Thunderbolt 1 and 2 enabled GPU's are not supported by ROCm. Thunderbolt 1 & 2 are PCIe Gen2 based.
+* AMD Carrizo based APUs have limited support due to OEM & ODM's choices when it comes to some key configuration parameters. On point, we have observed that Carrizo Laptops, AIOs and Desktop systems showed inconsistencies in exposing and enabling the System BIOS parameters required by the ROCm stack. Before purchasing a Carrizo system for ROCm, please verify that the BIOS provides an option for enabling IOMMUv2. If this is the case, the final requirement is associated with correct CRAT table support - please inquire with the OEM about the latter.
+* AMD Merlin/Falcon Embedded System is also not currently supported by the public Repo.
+* AMD Raven Ridge APU are currently not supported
 
+
+New features to ROCm 1.8
+*************************
+
+DKMS driver installation
+__________________________
+
+* Debian packages are provided for DKMS on Ubuntu
+* RPM packages are provided for CentOS/RHEL 7.4 support
+* See the :ref:`ROCT` and :ref:`OpenComute-kernel-deriver` for additional documentation on driver setup
+
+New distribution suppport
+___________________________
+
+* Binary package support for Ubuntu 16.04
+* Binary package support for CentoOS 7.4
+* Binary package support for RHEL 7.4
+
+Improved OpenMPI via UCX support
+_________________________________
+
+* UCX support for OpenMPI
+* ROCm RDMA
 
 
 The latest ROCm platform - ROCm 1.8.x
@@ -57,7 +81,7 @@ The latest tested version of the drivers, tools, libraries and source code for t
 
  * :ref:`OpenComute-kernel-deriver`
  * :ref:`ROCrRuntime`
- * :ref:`ROCt`
+ * :ref:`ROCT`
  * :ref:`ROC-smi`
  * :ref:`HCC-Compiler`
  * `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.8.x>`_
@@ -84,7 +108,8 @@ The ROCm 1.8 platform has been tested on the following operating systems:
 Installing from AMD ROCm repositories
 ########################################
 
-AMD is hosting both debian and RPM repositories for the ROCm 1.8 packages at this time. The packages in the Debian repository have been signed to ensure package integrity.  The packages in the Debian repository have been signed to ensure package integrity. Directions for each repository are given below:
+| AMD is hosting both debian and RPM repositories for the ROCm 1.8 packages at this time. 
+| The packages in the Debian repository have been signed to ensure package integrity.  The packages in the Debian repository have been signed to ensure package integrity. Directions for each repository are given below:
 
 Installing from a debian repository
 #####################################
@@ -100,8 +125,8 @@ Installing from a debian repository
 
 Although not required, it is recommended as of ROCm 1.8.x that the system's kernel is upgraded to the latest 4.13 version available:
 ::
- sudo apt install linux-headers-4.13.0-32-generic linux-image-4.13.0-32-generic linux-image-extra-4.13.0-32-generic linux-signed-image-4.13.0-32-generic
- sudo reboot 
+  sudo apt install linux-headers-4.13.0-32-generic linux-image-4.13.0-32-generic linux-image-extra-4.13.0-32-generic linux-signed-image-4.13.0-32-generic
+  sudo reboot 
 
 Packaging server update
 ************************
@@ -109,6 +134,7 @@ The packaging server has been changed from the old http://packages.amd.com to th
 
 Debian repository - apt
 ************************
+
 **Add the ROCm apt repository**
 For Debian based systems, like Ubuntu, configure the Debian ROCm repository as follows:
 ::
@@ -123,7 +149,7 @@ Install or Update
 *******************
 Next, update the apt repository list and install/update the rocm package.
 
-.. warning:: Before proceeding, make sure to completely uninstall any previous ROCm package:
+.. warning:: Before proceeding, make sure to completely `uninstall any previous ROCm package <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#removing-pre-release-packages>`_.
 
 To Install the package:
 ::
@@ -143,6 +169,14 @@ To add yourself to the video group you will need the sudo password and can use t
  sudo usermod -a -G video $LOGNAME 
 
 Once complete, reboot your system.
+
+Upon Reboot run
+::
+  rocminfo
+  clinfo
+
+If you have an Install Issue please read this :ref:`FAQ-on-Installation`.
+
 
 We recommend you verify your installation to make sure everything completed successfully.
 
@@ -164,7 +198,7 @@ Run it:
 ::
  ./HelloWorld
 
-**Un-install**
+**How to un-install from Ubuntu 16.04**
 
 To un-install the entire rocm development package execute:
 ::
@@ -183,6 +217,8 @@ In this case, install the development subset of packages:
 .. note:: To execute ROCm enabled apps you will require a system with the full ROCm driver stack installed
 
 
+.. Removing pre-release::
+
 Removing pre-release packages
 *******************************
 If you installed any of the ROCm pre-release packages from github, they will need to be manually un-installed:
@@ -197,8 +233,7 @@ If possible, we would recommend starting with a fresh OS install.
 CentOS/RHEL 7 Support
 ************************
 
-Support for CentOS/RHEL 7 has been added in ROCm 1.8, but requires a special 
-runtime environment provided by the RHEL Software Collections and additional
+Support for CentOS/RHEL 7 has been added in ROCm 1.8, but requires a special runtime environment provided by the RHEL Software Collections and additional
 dkms support packages to properly install in run.
 
 Preparing RHEL 7 for installation
@@ -235,7 +270,8 @@ https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 
 Note that devtoolset-7 is a Software Collections package, and is not supported by AMD.
 
-* Prepare CentOS/RHEL 7.4 for DKMS Install
+Prepare CentOS/RHEL 7.4 for DKMS Install
+__________________________________________
 
 Installing kernel drivers on CentOS/RHEL 7.4 requires dkms tool being installed:
 ::
@@ -279,6 +315,10 @@ To add yourself to the video (or wheel) group you will need the sudo password an
 following command:
 ::
  sudo usermod -a -G video $LOGNAME 
+
+Current release supports up to CentOS/RHEL 7.4. If for any reason the system needs to be updated to 7.5, don’t update the kernel. Add “--exclude=kernel*” flag to yum install. For example:
+::
+  sudo yum update --exclude=kernel*
 
 
 Compiling applications using hcc, hip, etc.

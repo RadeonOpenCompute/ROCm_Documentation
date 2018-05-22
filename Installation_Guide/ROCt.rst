@@ -1,7 +1,12 @@
-.. _ROCt:
+.. _ROCT:
+
+=====================
+ROCT-Thunk-Interface
+=====================
 
 ROCt Library
-==============
+##############
+
 This repository includes the user-mode API interfaces used to interact with the ROCk driver. Currently supported agents include only the AMD/ATI Fiji family of discrete GPUs.
 
 Starting at 1.7 release, ROCt uses drm render device. This requires the user to belong to video group. Add the user account to video group with "sudo usermod -a -G video username" command if the user if not part of video group yet.
@@ -28,6 +33,8 @@ If the hsakmt-roct and hsakmt-roct-dev packages are desired:
   cmake ..
   make package
   make package-dev
+
+For Github repository link :  `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.8.x>`_
 
 Disclaimer
 ************
