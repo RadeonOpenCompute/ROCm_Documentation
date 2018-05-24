@@ -366,7 +366,7 @@ The ROCm platform relies on a few closed source components to provide legacy fun
  
 Getting ROCm source code
 ##########################
-Modifications can be made to the ROCm 1.7 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.7 manifest file to download the entire ROCm 1.7 source code.
+Modifications can be made to the ROCm 1.8 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.8 manifest file to download the entire ROCm 1.8 source code.
 
 Installing repo
 *****************
@@ -386,7 +386,7 @@ To Clone the code form ROCm, following steps can be used:
  repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.8.0
  repo sync
 
-These series of commands will pull all of the open source code associated with the ROCm 1.7 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
+These series of commands will pull all of the open source code associated with the ROCm 1.8 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 
