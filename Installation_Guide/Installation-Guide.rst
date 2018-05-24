@@ -383,7 +383,7 @@ Cloning the code
 To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
- repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.7.2
+ repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.8.0
  repo sync
 
 These series of commands will pull all of the open source code associated with the ROCm 1.7 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
