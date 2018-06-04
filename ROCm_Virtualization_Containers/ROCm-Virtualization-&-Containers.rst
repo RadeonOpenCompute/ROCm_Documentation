@@ -132,12 +132,12 @@ ROCm-Docker
 
 This repository contains a framework for building the software layers defined in the Radeon Open Compute Platform into portable docker images. The following are docker dependencies, which should be installed on the target machine.
 
- * Docker on Ubuntu systems or Fedora systems
+ * Docker on `Ubuntu <https://docs.docker.com/v1.8/installation/ubuntulinux/>`_ systems or `Fedora systems <https://docs.docker.com/v1.8/installation/fedora/>`_
  * Highly recommended: `Docker-Compose <https://docs.docker.com/compose/install/>`_ to simplify container management
    
 Docker Hub
 **********
-Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is hosted on `Docker Hub <https://hub.docker.com/r/rocm/rocm-terminal/>`_ . After the `ROCm kernel is installed <https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/README.md#install-rocm-kernel>`_ , pull the image from Docker Hub and create a new instance of a container.
+Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is hosted on `Docker Hub <https://hub.docker.com/r/rocm/rocm-terminal/>`_ . After the `ROCm kernel is installed <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/ROCK-Kernel-Driver_readme.html#opencomute-kernel-deriver>`_ , pull the image from Docker Hub and create a new instance of a container.
 
 ::
 

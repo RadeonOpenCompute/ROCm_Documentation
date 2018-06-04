@@ -342,7 +342,7 @@ Compilers
       * Visual Studio 14 (2015). (VS 2012 may also be supported; c++11 should no longer be required by Tensile. Need to verify.)
       * GCC 4.8
  * For Tensile_BACKEND = HIP
-      * ROCM 1.7.1
+      * ROCM 1.8
 
  .. _Installation:
 
@@ -528,7 +528,6 @@ After running the benchmark and generating library config files, you're ready to
     )
   target_link_libraries( TARGET Tensile )
 
-TODO: Where is the Tensile include directory?
 
  .. _Versioning:
 

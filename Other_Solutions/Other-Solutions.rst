@@ -161,13 +161,14 @@ OpenCL Debug Flags
 
 * AMD_OCL_WAIT_COMMAND=1  0 = OFF 1 = On 
 
-:ref:`PCIe-Debug`
+PCIe-Debug
 #################
+
+Refer here for :ref:`PCIe-Debug`
 
 **There’s some more information here on how to debug and profile HIP applications**
 
-
-* http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/HIP_Debugging.html#hip-debugging
-* http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#hip-profiling
+* `HIP-Debugging <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/HIP_Debugging.html#hip-debugging>`_
+* `HIP-Profiling <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#hip-profiling>`_
 
 

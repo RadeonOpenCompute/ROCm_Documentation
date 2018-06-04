@@ -569,28 +569,24 @@ MPI
  1. Get latest-and-gratest OpenMPI version:
 
 ::
-
   $ git clone https://github.com/open-mpi/ompi.git
 
- 2. Autogen:
+2. Autogen:
 
 ::
-
   $ cd ompi
   $ ./autogen.pl
 
- 3. Configure with UCX:
+3. Configure with UCX:
 
 ::
-
   $ mkdir build
   $ cd build
   ../configure --prefix=/your_install_path/ --with-ucx=/path_to_ucx_installation
 
- 4. Build:
+4. Build:
 
 ::
-
   $ make
   $ make install
 
@@ -630,26 +626,29 @@ IPC
 ====
 
 Introduction
+**************
+
+**IPC API**
+
+**New datatypes**
+
+::
  
-IPC API
-
-New datatypes
-
+ hsa_amd_ipc_memory_handle_t
  
-hsa_amd_ipc_memory_handle_t
-
-/** IPC memory handle to by passed from one process to another */
-typedef struct  hsa_amd_ipc_memory_handle_s {
+ /** IPC memory handle to by passed from one process to another */
+ typedef struct  hsa_amd_ipc_memory_handle_s {
+       uint64_t handle;
+ } hsa_amd_ipc_memory_handle_t;
+  
+ hsa_amd_ipc_signal_handle_t
+  
+ /** IPC signal  handle to by passed from one process to another */
+ typedef struct  hsa_amd_ipc_signal_handle_s {
       uint64_t handle;
-} hsa_amd_ipc_memory_handle_t;
- 
-hsa_amd_ipc_signal_handle_t
- 
-/** IPC signal  handle to by passed from one process to another */
-typedef struct  hsa_amd_ipc_signal_handle_s {
-     uint64_t handle;
-} hsa_amd_ipc_signal_handle_t;
- 
+ } hsa_amd_ipc_signal_handle_t;
+
+  
 Memory sharing API
 
 Allows sharing of HSA allocated memory between different processes.
@@ -739,8 +738,8 @@ Query   API
 Query memory information
 
 Allows query information about memory resource based on address. It is partially overlapped with the following requirement  Memory info interface so it may be possible to merge those two interfaces.
- 
-typedef enum hsa_amd_address_info_s {
+::
+ typedef enum hsa_amd_address_info_s {
      
      /* Return uint32_t  / boolean if address was allocated via  HSA stack */
      HSA_AMD_ADDRESS_HSA_ALLOCATED = 0x1,
@@ -754,12 +753,14 @@ typedef enum hsa_amd_address_info_s {
      /** Return size of allocation   */
      HSA_AMD_ADDRESS_ALLOC_SIZE = 0x4
  
- } hsa_amd_address_info_t;
- 
- 
+  } hsa_amd_address_info_t;
+
+  
 hsa_status_t HSA_API 
+
 hsa_amd_get_address_info(void *ptr,  hsa_amd_address_info_t attribute,   void* value);
+
 where: 
       ptr         - Address information about which to query
       attribute   - Attribute to query
- ::
+

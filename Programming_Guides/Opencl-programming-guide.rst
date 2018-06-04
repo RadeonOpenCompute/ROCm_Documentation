@@ -2178,7 +2178,7 @@ The following sections highlight the salient features of OpenCL 2.0 and provide 
   * Non-uniform work group size
 
 Sample code is included wherever appropriate; complete samples illustrating the
-OpenCL 2.0 and 2.1 features are provided with the ROCm 1.7 OpenCL Language Runtime and Compiler .
+OpenCL 2.0 and 2.1 features are provided with the ROCm 1.8 OpenCL Language Runtime and Compiler .
 
 For guidelines on how to migrate from OpenCL 1.2 to OpenCL 2.1 and for information about querying for image- and device-specific extensions, see Portability considerations.
 

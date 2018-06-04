@@ -4,7 +4,7 @@
 clsPARSE
 ===========
  
- * `clSPARSE github <https://github.com/clMathLibraries/clSPARSE>`_
+For Github repository `clSPARSE <https://github.com/clMathLibraries/clSPARSE>`_
 
 an OpenCL™ library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
 

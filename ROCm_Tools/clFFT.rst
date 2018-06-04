@@ -4,7 +4,7 @@
 clFFT
 ==========
 
- * `clFFT github <https://github.com/clMathLibraries/clFFT>`_
+For Github Repository`clFFT <https://github.com/clMathLibraries/clFFT>`_
 
 clFFT is a software library containing FFT functions written in OpenCL. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and heterogeneous programming.
 

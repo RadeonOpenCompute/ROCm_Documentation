@@ -10,6 +10,26 @@ API design
 **************
 Please refer to the :ref:`rocFFTAPI` for current documentation. Work in progress.
 
+Installing pre-built packages
+*******************************
+Download pre-built packages either from `ROCm's package servers <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
+::
+ sudo apt update && sudo apt install rocfft
+
+Quickstart rocFFT build
+************************
+Bash helper build script (Ubuntu only)
+The root of this repository has a helper bash script install.sh to build and install rocFFT on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install. A few commands in the script need sudo access, so it may prompt you for a password.
+* ``./install -h`` -- shows help
+* ``./install -id`` -- build library, build dependencies and install globally (-d flag only needs to be specified once on a system)
+* ``./install -c --cuda`` -- build library and clients for cuda backend into a local directory
+Manual build (all supported platforms)
+If you use a distro other than Ubuntu, or would like more control over the build process, the `rocfft build wiki <https://github.com/ROCmSoftwarePlatform/rocFFT/wiki/Build>`_ has helpful information on how to configure cmake and manually build.
+
+Library and API Documentation
+Please refer to the Library documentation for current documentation.
+
+
 Example
 *********
 The following is a simple example code that shows how to use rocFFT to compute a 1D single precision 16-point complex forward transform.
