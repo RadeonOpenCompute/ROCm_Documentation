@@ -5,85 +5,17 @@
 ROCm Tools
 =====================
 
-
-HCC
-=====
+HCC  
+====
 
 **HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute**
 
+This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as C++ AMP, HC, C++ 17 ParallelSTL, or OpenMP, and transforms it into the AMD GCN ISA.
 
-HCC supports heterogeneous offload to AMD APUs and discrete GPUs via HSA enabled runtimes and drivers. It is an ISO compliant C++ 11/14 compiler. It is based on Clang, the LLVM Compiler Infrastructure and the “libc++” C++ standard library.
-
-Accelerator Modes Supported
-##############################
-
-`HC (Heterogeneous Compute) C++ API <https://scchan.github.io/hcc>`_
-**************************************************************************
-Inspired by C++ AMP and C++14, this is the default C++ compute API for the HCC compiler. HC has some important differences from C++ AMP including removing the “restrict” keyword, supporting additional data types in kernels, providing more control over synchronization and data movement, and providing pointer-based memory allocation. It is designed to expose cutting edge compute capabilities on Boltzmann and HSA devices to developers while offering the productivity and usability of C++.
-
-`HIP <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip-programming-guide.html>`_
-************************************************************************************************************
-HIP provides a set of tools and API for converting CUDA applications into a portable C++ API. An application using the HIP API could be compiled by hcc to target AMD GPUs. Please refer to HIP's repository for more information.
-
-`C++ AMP <http://download.microsoft.com/download/2/2/9/22972859-15C2-4D96-97AE-93344241D56C/CppAMPOpenSpecificationV12.pdf>`_
-*********************************************************************************************************************************
-Microsoft C++ AMP is a C++ accelerator API with support for GPU offload. This mode is compatible with Version 1.2 of the C++ AMP specification.
-
-`C++ Parallel STL <http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3960.pdf>`_
-******************************************************************************************
-HCC provides an initial implementation of the parallel algorithms described in the ISO C++ Extensions for Parallelism, which enables parallel acceleration for certain STL algorithms.
-
-OpenMP
-*********
-HCC supports `OpenMP 3.1 <https://hpc-forge.cineca.it/files/CoursesDev/public/2016/Bologna/Introduction_to_Parallel_Computing_with_MPI_and_OpenMP/openmp.pdf>`_ on CPU. The support for `OpenMP 4.x <http://www.openmp.org/wp-content/uploads/openmp-4.5.pdf>`_ accelerator offloading is currently in development.
-
-
-Platform Requirements
-#######################
-
-Accelerated applications could be run on Radeon discrete GPUs from the Fiji family (AMD R9 Nano, R9 Fury, R9 Fury X, FirePro S9300 x2, Polaris 10, Polaris 11) paired with an Intel Haswell CPU or newer. HCC would work with AMD HSA APUs (Kaveri, Carrizo); however, they are not our main support platform and some of the more advanced compute capabilities may not be available on the APUs.
-
-HCC currently only works on Linux and with the open source ROCK kernel driver and the ROCR runtime (see Installation for details). It will not work with the closed source AMD graphics driver.
-
-Compiler Backends
-###################
-
-This backend compiles GPU kernels into native GCN ISA, which could be directly execute on the GPU hardware. It's being actively developed by the Radeon Technology Group in LLVM.
-
-
-Installation
-############
-
-**Prerequisites**
-
-Before continuing with the installation, please make sure any previously installed hcc compiler has been removed from on your system.
-Install `ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_ and make sure it works correctly.
-
-Ubuntu
-*********
-
-**Ubuntu 14.04**
-
-Support for 14.04 has been deprecated.
-
-**Ubuntu 16.04**
-
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package
-
-**Fedora 24**
-
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
-
-**RHEL 7.4/CentOS 7**
-
-Currently, HCC support for RHEL 7.4 and CentOS 7 is experimental and the compiler has to be built from source. Note: CentOS 7 cmake is outdated, will need to use alternate cmake3.
-
-**openSUSE Leap 42.3**
-
-Currently, HCC support for openSUSE is experimental and the compiler has to be built from source.
+The project is based on LLVM+CLANG. For more information, please visit the :ref:`HCCwiki`
 
 Download HCC
-**************
+###############
 
 The project now employs git submodules to manage external components it depends upon. It it advised to add --recursive when you clone the project so all submodules are fetched automatically.
 
@@ -92,107 +24,52 @@ For example: ::
   # automatically fetches all submodules
   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
 
+For more information about git submodules, please refer to `git documentation <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_.
 
-Building HCC from Source
-########################
-First, install the build dependencies: 
+
+Build HCC from source
+#######################
+
+To configure and build HCC from source, use the following steps:
 ::
-  # Ubuntu 14.04
-  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib libc++-dev libc++1 libc++abi-dev libc++abi1 python findutils libelf1 libpci3 file debianutils libunwind8-dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
+  mkdir -p build; cd build
+  cmake -DCMAKE_BUILD_TYPE=Release ..
+  make
 
-::  
-
-  # Ubuntu 16.04
-  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib python findutils libelf1 libpci3 file debianutils libunwind- dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
-
+To install it, use the following steps:
 ::
+  sudo make install
 
-  # Fedora 24
-  sudo dnf install git cmake make gcc-c++ python findutils elfutils-libelf pciutils-libs file pth rpm-build libunwind-devel hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkgconfig rocm-utils
+Use HCC
+########
+
+For C++AMP source codes:
 ::
+  hcc `clamp-config --cxxflags --ldflags` foo.cpp
 
-  # CentOS 7
-  sudo yum install git cmake3 make gcc-c++ python findutils elfutils-libelf pciutils-libs file pth rpm-build libunwind-devel redhat-lsb-core libcxx libcxxabi hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkgconfig rocm-utils
-
+For HC source codes:
 ::
+  hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
-  # openSUSE Leap 42.3
-  sudo zypper install git cmake make gcc-c++ python python-xml findutils elfutils pciutils-devel file rpm-build libunwind-devel pkg-config libpth-devel
-   
-  # install libc++ from OSB
-  sudo zypper addrepo -f http://download.opensuse.org/repositories/devel:/tools:/compiler/openSUSE_Leap_42.3/ devel_tools_compiler
-  sudo zypper update
-  sudo zypper install libc++-devel
+In case you build HCC from source and want to use the compiled binaries directly in the build directory:
 
-
-Clone the HCC source tree: 
+For C++AMP source codes:
 ::
-  # automatically fetches all submodules
-  git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
+  # notice the --build flag
+  bin/hcc `bin/clamp-config --build --cxxflags --ldflags` foo.cpp
 
-Create a build directory and run cmake to configure the build: 
+For HC source codes:
 ::
-  mkdir build; cd build
-  cmake ../hcc
-
-Compile HCC: 
-::
-  make -j
-
-Run the unit tests: 
-:: 
-  make test
-
-Create an installer package (DEB or RPM file)
-::
-  make package
-
-How to use HCC
-##############
-Here's a simple `saxpy example <https://gist.github.com/scchan/540d410456e3e2682dbf018d3c179008>`_ written with the hc API.
-
-**Compiling Your First HCC Program**
-
-To compile and link in a single step:
-::
- # Assume HCC is installed and added to PATH
- # Notice the the hcc-config command is between two backticks 
- hcc `hcc-config --cxxflags --ldflags` saxpy.cpp -o saxpy
-
-To build with separate compile and link steps:
-::
- # Assume HCC is installed and added to PATH
- # Notice the the hcc-config command is between two backticks 
- hcc `hcc-config --cxxflags` saxpy.cpp -c -o saxpy.cpp.o
- hcc `hcc-config --ldflags` saxpy.cpp.o -o saxpy
-
-**Compiling for Different GPU Architectures**
-
-By default, HCC would auto-detect all the GPUs available it's running on and set the correct GPU architectures. Users could use the --amdgpu-target=<GCN Version> option to compile for a specific architecture and to disable the auto-detection. The following table shows the different versions currently supported by HCC.
-
-There exists an environment variable HCC_AMDGPU_TARGET to override the default GPU architecture globally for HCC; however, the usage of this environment variable is NOT recommended as it is unsupported and it will be deprecated in a future release.
-
-============ ================== ==============================================================
-GCN Version   GPU/APU Family       Examples of Radeon GPU
-       
-============ ================== ==============================================================
-gfx701        GFX7               FirePro W8100, FirePro W9100, Radeon R9 290, Radeon R9 390
-
-gfx801        Carrizo APU        FX-8800P
-
-gfx803        GFX8               R9 Fury, R9 Fury X, R9 Nano, FirePro S9300 x2, Radeon RX 480,
-                                 Radeon RX 470, Radeon RX 460
-
-gfx900        GFX9                 Vega10
-
-============ ================== ============================================================== 
+  # notice the --build flag
+  bin/hcc `bin/hcc-config --build --cxxflags --ldflags` foo.cpp
 
 
 Multiple ISA
 ###############
 HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways:
-**use :: --amdgpu-target= command line option**
-It's possible to specify multiple --amdgpu-target=option.
+**use :: ``--amdgpu-target=`` command line option**
+
+It's possible to specify multiple ``--amdgpu-target=``option.
 
 Example: ::
 
@@ -205,19 +82,21 @@ Example: ::
     --amdgpu-target=gfx803 \
     foo.cpp
 
-use 'HCC_AMDGPU_TARGET env var'.
-use *,* to delimit each AMDGPU target in HCC. Example: ::
+**use ``HCC_AMDGPU_TARGET`` env var**
+
+use ``,`` to delimit each AMDGPU target in HCC. Example: 
+::
   
   export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
   # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
   # be produced
   hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
-configure **HCC** : use CMake **HSA_AMDGPU_GPU_TARGET** variable
+**configure HCC use CMake ``HSA_AMDGPU_GPU_TARGET`` variable**
 
 If you build HCC from source, it's possible to configure it to automatically produce multiple ISAs via `HSA_AMDGPU_GPU_TARGET` CMake variable.
 
-Use *;* to delimit each AMDGPU target. 
+Use ``;`` to delimit each AMDGPU target. 
 Example: ::
 
  # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
@@ -228,10 +107,10 @@ Example: ::
     -DHSA_AMDGPU_GPU_TARGET="gfx701;gfx801;gfx802;gfx803" \
     ../hcc
 
-**CodeXL Activity Logger**
-###########################
+CodeXL Activity Logger
+#########################
 
-To enable the CodeXL Activity Logger, use the  USE_CODEXL_ACTIVITY_LOGGER environment variable.
+To enable the `CodeXL Activity Logger <https://github.com/RadeonOpenCompute/ROCm-Profiler/tree/master/CXLActivityLogger>`_, use the  ``USE_CODEXL_ACTIVITY_LOGGER`` environment variable.
 
 Configure the build in the following way: ::
 
@@ -242,17 +121,27 @@ Configure the build in the following way: ::
     -DUSE_CODEXL_ACTIVITY_LOGGER=1 \
     <ToT HCC checkout directory>
 
-In your application compiled using hcc, include the CodeXL Activiy Logger header: ::
- 
+In your application compiled using hcc, include the CodeXL Activiy Logger header: 
+::
   #include <CXLActivityLogger.h>
 
-For information about the usage of the Activity Logger for profiling, please refer to its documentation.
+For information about the usage of the Activity Logger for profiling, please refer to its `documentation <https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/CXLActivityLogger/doc/AMDTActivityLogger.pdf>`_.
 
+HCC with ThinLTO Linking
+#########################
 
+To enable the ThinLTO link time, use the ``KMTHINLTO`` environment variable.
 
-API documentation
-####################
-`API reference of HCC <https://scchan.github.io/hcc/>`_
+Set up your environment in the following way:
+::
+  export KMTHINLTO=1
+
+**ThinLTO Phase 1 - Implemented**
+
+For applications compiled using hcc, ThinLTO could significantly improve link-time performance. This implementation will maintain kernels in their .bc file format, create module-summaries for each, perform llvm-lto's cross-module function importing and then perform clamp-device (which uses opt and llc tools) on each of the kernel files. These files are linked with lld into one .hsaco per target specified.
+
+**ThinLTO Phase 2 - Under development**
+This ThinLTO implementation which will use llvm-lto LLVM tool to replace clamp-device bash script. It adds an optllc option into ThinLTOGenerator, which will perform in-program opt and codegen in parallel.
 
 
 
@@ -618,14 +507,17 @@ To run the ROCm debugger, you'd also need to get the ROCm GPU Debug SDK.
 
 Before running the rocm debugger, the LD_LIBRARY_PATH should include paths to
 
-    The ROCm GPU Debug Agent library built in the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
-    The ROCm GPU Debugging library binary shippped with the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
-    Before running ROCm-GDB, please update your .gdbinit file with text in gpudebugsdk/src/HSADebugAgent/gdbinit. The rocmConfigure function in the ~/.gdbinit sets up gdb internals for supporting GPU kernel debug.
-    The gdb executable should be run from within the rocm-gdb-local script. The ROCm runtime requires certain environment variables to enable kernel debugging and this is set up by the rocm-gdb-local script.
+  | The ROCm GPU Debug Agent library built in the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
+  | The ROCm GPU Debugging library binary shippped with the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
+  | Before running ROCm-GDB, please update your .gdbinit file with text in gpudebugsdk/src/HSADebugAgent/gdbinit. The rocmConfigure function in the ~/.gdbinit sets up gdb internals for supporting GPU kernel debug.
+  | The gdb executable should be run from within the rocm-gdb-local script. The ROCm runtime requires certain environment variables to enable kernel debugging and this is set up by the rocm-gdb-local script.
 
-./rocm-gdb-local < sample application>
+::
+  
+  ./rocm-gdb-local < sample application>
 
-    A brief tutorial on how to debug GPU applications using ROCm-GDB :ref:`ROCm-Tools/rocm-debug`
+
+A brief tutorial on how to debug GPU applications using ROCm-GDB :ref:`rocm-debug`
 
 ROCm Debugger API
 ##################
@@ -634,14 +526,14 @@ The ROCm Debugger provides a gdb-based debugging environment for debugging host 
 
 There are two packages included in this release:
 
-   * ROCm gdb package that contains the rocm-gdb tool
-       * based on GDB 7.11, the GNU source-level debugger
-   * ROCm GPU Debug SDK package that contains the necessary header, library and sample files to run the rocm-gdb tool
+* ROCm gdb package that contains the rocm-gdb tool
+    * based on GDB 7.11, the GNU source-level debugger
+* ROCm GPU Debug SDK package that contains the necessary header, library and sample files to run the rocm-gdb tool
 
 The ROCm Debugger extends the existing `HSA Debugger <https://github.com/HSAFoundation/HSA-Debugger-AMD>`_ with new features for 
 ROCm .
 
- * `AMDGPUDebugAPISpecification.pdf <https://github.com/RadeonOpenCompute/ROCm-GPUDebugSDK/blob/master/docs/		AMDGPUDebugAPISpecification.pdf>`_
+ * `AMDGPUDebugAPISpecification.pdf <https://github.com/RadeonOpenCompute/ROCm-GPUDebugSDK/blob/master/docs/AMDGPUDebugAPISpecification.pdf>`_
 
 Major Features
 ###############
@@ -731,9 +623,9 @@ Installation
 First, make sure that the ROCm platform is setup correctly.
 
    * `Install ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#>`_
-   *  Verify the setup by running HSAIL vector_copy sample successfully
-       * Note that with the default vector_copy sample, you can't single step within the GPU kernel as the GPU kernel is not compiled with 		 debugging support.
-       * As part of the ROCm debugger package, there is a sample MatrixMultiplication that can be used with rocm-gdb.
+   * Verify the setup by running HSAIL vector_copy sample successfully
+     * Note that with the default vector_copy sample, you can't single step within the GPU kernel as the GPU kernel is not compiled with 		 debugging support.
+     * As part of the ROCm debugger package, there is a sample MatrixMultiplication that can be used with rocm-gdb.
    * Install c++filt using sudo apt-get install binutils
 
 ROCm Debugger Installation
@@ -747,11 +639,11 @@ ROCm Debugger Installation
 2. Verify the setup
 
    * Run the MatrixMultiplication sample provided in the GPU Debug SDK package
-       ::  cd /opt/rocm/gpudebugsdk/samples/MatrixMultiplication
-       ::  make
+         *  ``cd /opt/rocm/gpudebugsdk/samples/MatrixMultiplication``
+         *  ``make``
          *  The Makefile assumes that the hsa header files are located at /opt/rocm/hsa/include. If you encounter a compilation failure, please 	    update the HSADIR within the Makefile to the directory of the hsa header files in the system.
          *  Note that matrixMul_kernel.hsail is included for reference only. This sample will load the pre-built brig binary 		 	     (matrixMul_kernel.brig) to run the kernel.
-    * /opt/rocm/bin/rocm-gdb MatrixMul
+    * ``/opt/rocm/bin/rocm-gdb MatrixMul``
          *  Tips: include the /opt/rocm/bin in your PATH environment variable
 
 Usage Examples
@@ -765,6 +657,8 @@ Known Issues
    * Debugging HSAIL kernels that contain HSAIL function calls are not supported
    * Using rocm-gdb objects in python scripts is not yet supported
    * Single stepping branch instructions could require multiple step commands
+
+--------------------------------------------------------------------------------------------------------------
 
 ROCm-Profiler
 ==============
@@ -1010,4 +904,5 @@ Libraries
 
 * :ref:`clSPARSE`
 
-* :ref:`clRNG`
+* :ref:`cl1RNG`
+

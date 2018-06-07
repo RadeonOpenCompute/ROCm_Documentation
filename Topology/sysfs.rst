@@ -18,7 +18,7 @@ Depending on the platform, the data should be grouped hierarchically to correspo
 
 .. image:: simple_platform.png
 
-Each of these nodes is interconnected with other nodes in more advanced systems to the level necessary to adequately describe the HSA system topology.
+Each of these nodes is interconnected with other nodes in more advanced systems to the level necessary to adequately describe the topology.
 
 .. image:: More_advanced_topology.png
 

@@ -1,4 +1,4 @@
-.. _clRNG:
+.. _cl1RNG:
 
 =========
 clRNG

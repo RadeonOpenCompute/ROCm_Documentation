@@ -1,4 +1,4 @@
-.. _clsPARSE:
+.. _clSPARSE:
 
 ===========
 clsPARSE

@@ -8,16 +8,16 @@ GCN ISA Manuals
 GCN 1.1
 ========
 
-ISA Manual for Hawaii :download:`pdf </GCN_ISA_Manuals/AMD_Sea_Islands_Instruction_Set_Architecture.pdf>`
+ISA Manual for Hawaii :download:`pdf </GCN_ISA_Manuals/AMD_Sea_Islands_Instruction_Set_Architecture.pdf>`_
 
 
 GCN 2.0
 ========
-ISA Manual for Fiji and Polaris :download:`pdf </GCN_ISA_Manuals//AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`
+ISA Manual for Fiji and Polaris :download:`pdf </GCN_ISA_Manuals//AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
 
 
 Vega
-====
+=====
 
 * :ref:`testdocbook`
 
