@@ -1,7 +1,7 @@
 .. _clSPARSE:
 
 ===========
-clsPARSE
+clSPARSE
 ===========
  
 For Github repository `clSPARSE <https://github.com/clMathLibraries/clSPARSE>`_
