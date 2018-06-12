@@ -16,12 +16,9 @@ The document specifies the instructions (include the format of each type of inst
 
 The main purposes of this document are to:
 
-1. Specify the language constructs and behavior, including the
-   organization of each type of instruction in both text syntax and
-   binary format.
+1. Specify the language constructs and behavior, including the organization of each type of instruction in both text syntax and binary format.
 
-2. Provide a reference of instruction operation that compiler writers
-   can use to maximize performance of the processor.
+2. Provide a reference of instruction operation that compiler writers can use to maximize performance of the processor.
 
 Audience
 --------
@@ -31,8 +28,7 @@ This document is intended for programmers writing application and system softwar
 Organization
 ------------
 
-| This document begins with an overview of the AMD GCN processors'
-  hardware and programming environment (Chapter 1).
+| This document begins with an overview of the AMD GCN processor's hardware and programming environment (Chapter 1).
 | Chapter 2 describes the organization of GCN programs.
 | Chapter 3 describes the program state that is maintained.
 | Chapter 4 describes the program flow.
@@ -42,12 +38,9 @@ Organization
 | Chapter 8 describes the vector memory operations.
 | Chapter 9 provides information about the flat memory instructions.
 | Chapter 10 describes the data share operations.
-| Chapter 11 describes exporting the parameters of pixel color and
-  vertex shaders.
-| Chapter 12 describes instruction details, first by the microcode
-  format to which they belong, then in alphabetic order.
-| Finally, Chapter 13 provides a detailed specification of each
-  microcode format.
+| Chapter 11 describes exporting the parameters of pixel color and vertex shaders.
+| Chapter 12 describes instruction details, first by the microcode format to which they belong, then in alphabetic order.
+| Finally, Chapter 13 provides a detailed specification of each microcode format.
 
 Conventions
 -----------
@@ -96,7 +89,7 @@ Related Documents
 
 -  OpenGL Programming Guide, at http://www.glprogramming.com/red/
 
--  Microsoft DirectX Reference Website, here at `DirectX <https://msdn.microsoft.com/en-us/library/windows/desktop/ee663274(v=vs.85)>`_.
+-  Microsoft DirectX Reference Website, here at `DirectX <https://msdn.microsoft.com/en-us/library/windows/desktop/ee663274(v=vs.85)>`_
 
 -  GPGPU: http://www.gpgpu.org
 

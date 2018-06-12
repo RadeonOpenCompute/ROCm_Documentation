@@ -1,10 +1,10 @@
-.. _PCLe-features:
+.. _PCIe-features:
 
-PCLe Features
+PCIe Features
 ###############
 
 
-ROCm Use of Advanced PCIe Features and Overview of How BAR Memory is Used In ROCm Enabled System.
+ROCm Use of Advanced PCIe Features and Overview of How BAR Memory is Used In ROCm Enabled System
 **************************************************************************************************
 
 ROCm is an extension of HSA platform architecture, so it shares the queueing model, memory model, signaling and synchronization protocols. Platform atomics are integral to perform queuing and signaling memory operations where there may be multiple-writers across CPU and GPU agents.
@@ -35,31 +35,31 @@ To understand more about how PCIe Atomic operations work `PCIe Atomics <https://
 
 There are also a number of papers which talk about these new capabilities:
 
-* `Atomic Read Modify Write Primitives by Intel <https://www.intel.es/content/dam/doc/white-paper/atomic-read-modify-write-primitives-i-o-devices-paper.pdf>`_.
-* `PCI express 3 Accelerator Whitepaper by Intel <https://www.intel.sg/content/dam/doc/white-paper/pci-express3-accelerator-white-paper.pdf>`_.
-* `Intel PCIe Generation 3 Hotchips Paper <https://www.hotchips.org/wp-content/uploads/hc_archives/hc21/1_sun/HC21.23.1.SystemInterconnectTutorial-Epub/HC21.23.131.Ajanovic-Intel-PCIeGen3.pdf>`_.
-* `PCIe Generation 4 Base Specification includes Atomics Operation <http://composter.com.ua/documents/PCI_Express_Base_Specification_Revision_4.0.Ver.0.3.pdf>`_.
+* `Atomic Read Modify Write Primitives by Intel <https://www.intel.es/content/dam/doc/white-paper/atomic-read-modify-write-primitives-i-o-devices-paper.pdf>`_
+* `PCI express 3 Accelerator Whitepaper by Intel <https://www.intel.sg/content/dam/doc/white-paper/pci-express3-accelerator-white-paper.pdf>`_
+* `Intel PCIe Generation 3 Hotchips Paper <https://www.hotchips.org/wp-content/uploads/hc_archives/hc21/1_sun/HC21.23.1.SystemInterconnectTutorial-Epub/HC21.23.131.Ajanovic-Intel-PCIeGen3.pdf>`_
+* `PCIe Generation 4 Base Specification includes Atomics Operation <http://composter.com.ua/documents/PCI_Express_Base_Specification_Revision_4.0.Ver.0.3.pdf>`_
 
 Other I/O devices with PCIe Atomics support
 
-* `Mellanox ConnectX-5 InfiniBand Card<http://www.mellanox.com/related-docs/prod_adapter_cards/PB_ConnectX-5_VPI_Card.pdf>`_.
-* `Cray Aries Interconnect <http://www.hoti.org/hoti20/slides/Bob_Alverson.pdf>`_.
-* `Xilinx PCIe Ultrascale Whitepaper <https://www.xilinx.com/support/documentation/white_papers/wp464-PCIe-ultrascale.pdf>`_.
-* `Xilinx 7 Series Devices <https://www.xilinx.com/support/documentation/ip_documentation/pcie_7x/v3_1/pg054-7series-pcie.pdf>`_.
+* `Mellanox ConnectX-5 InfiniBand Card <http://www.mellanox.com/related-docs/prod_adapter_cards/PB_ConnectX-5_VPI_Card.pdf>`_
+* `Cray Aries Interconnect <http://www.hoti.org/hoti20/slides/Bob_Alverson.pdf>`_
+* `Xilinx PCIe Ultrascale Whitepaper <https://www.xilinx.com/support/documentation/white_papers/wp464-PCIe-ultrascale.pdf>`_
+* `Xilinx 7 Series Devices <https://www.xilinx.com/support/documentation/ip_documentation/pcie_7x/v3_1/pg054-7series-pcie.pdf>`_
 
 Future bus technology with richer I/O Atomics Operation Support
 
-* `GenZ <http://genzconsortium.org/faq/gen-z-technology/#33>`_.
+* `GenZ <http://genzconsortium.org/faq/gen-z-technology/#33>`_
 
 New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
 
-* `Mellanox Bluefield SOC <http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_.
-* `Cavium Thunder X2 <http://www.cavium.com/ThunderX2_ARM_Processors.html>`_.
+* `Mellanox Bluefield SOC <http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_
+* `Cavium Thunder X2 <http://www.cavium.com/ThunderX2_ARM_Processors.html>`_
 
 In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:  
 
-1.write to another GPU memory,
-2.then write to system memory to indicate transfer complete.
+1. write to another GPU memory
+2. then write to system memory to indicate transfer complete
 
 They are routed off to different ends of the computer but we want to make sure the write to system memory to indicate transfer complete occurs AFTER P2P write to GPU has complete.
 

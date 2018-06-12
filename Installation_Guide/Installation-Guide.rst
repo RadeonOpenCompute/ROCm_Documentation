@@ -6,7 +6,7 @@ Installation Guide
 ===================
             
 ROCm 1.8
-###########
+
 
 Supported CPUs
 ****************
@@ -34,14 +34,12 @@ Experimental support for our GFX7 GPUs Radeon R9 290, R9 390, AMD FirePro S9150,
 Not supported or very limited support under ROCm
 **************************************************
 
-Limited Support 
-________________
+**Limited Support **
 
 * With ROCm 1.8 and Vega10 it should support PCIe Gen2 enabled CPUs such as the AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and older Intel Xeon and Intel Core Architecture and Pentium CPUs. But we have done very limited testing. Since our test farm today has been catering to CPU listed above. This is where we need community support.
 * Thunderbolt 1,2 and 3 enabled breakout boxes GPU's should now be able to work with ROCm. Thunderbolt 1 and 2 are PCIe Gen2 based. But we have done no testing on this config and would need comunity support do limited access to this type of equipment
 
-Not Supported 
-______________
+**Not Supported **
 
 * We also do not support AMD Carrizo and Kaveri APU as host for compliant dGPU attachments.
 * Thunderbolt 1 and 2 enabled GPU's are not supported by ROCm. Thunderbolt 1 & 2 are PCIe Gen2 based.
@@ -53,22 +51,19 @@ ______________
 New features to ROCm 1.8
 *************************
 
-DKMS driver installation
-__________________________
+**DKMS driver installation**
 
 * Debian packages are provided for DKMS on Ubuntu
 * RPM packages are provided for CentOS/RHEL 7.4 support
 * See the :ref:`ROCT` and :ref:`OpenComute-kernel-deriver` for additional documentation on driver setup
 
-New distribution suppport
-___________________________
+**New distribution suppport**
 
 * Binary package support for Ubuntu 16.04
 * Binary package support for CentoOS 7.4
 * Binary package support for RHEL 7.4
 
-Improved OpenMPI via UCX support
-_________________________________
+**Improved OpenMPI via UCX support**
 
 * UCX support for OpenMPI
 * ROCm RDMA
@@ -231,7 +226,7 @@ If possible, we would recommend starting with a fresh OS install.
 
 
 CentOS/RHEL 7 Support
-************************
+#########################
 
 Support for CentOS/RHEL 7 has been added in ROCm 1.8, but requires a special runtime environment provided by the RHEL Software Collections and additional
 dkms support packages to properly install in run.
@@ -391,7 +386,7 @@ These series of commands will pull all of the open source code associated with t
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 
 Installing ROCk-Kernel only
-***********************
+#############################
 To Install only ROCk-kernel the following steps can be used from the link provided :ref:`kernel-installation`
 
 FAQ on Installation
