@@ -13,7 +13,7 @@ ISA Manual for Hawaii `pdf <http://developer.amd.com/wordpress/media/2013/07/AMD
 GCN 2.0
 ========
 
-ISA Manual for Fiji and Polaris `pdf </GCN_ISA_Manuals//AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
+ISA Manual for Fiji and Polaris `pdf <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
 
 
 Vega

@@ -3,7 +3,8 @@
 HIP MATH APIs Documentation 
 ############################
 HIP supports most of the device functions supported by CUDA. Way to find the unsupported one is to search for the function and check its description
-.. Note:: This document is not human generated. Any changes to this file will be discarded. Please make changes to Python3 script docs/markdown/device_md_gen.py
+
+.. note:: This document is not human generated. Any changes to this file will be discarded. Please make changes to Python3 script docs/markdown/device_md_gen.py
 
 For Developers
 

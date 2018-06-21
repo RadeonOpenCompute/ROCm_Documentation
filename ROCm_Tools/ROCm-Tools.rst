@@ -902,7 +902,7 @@ Libraries
 
 * :ref:`clBLA`
 
-* :ref:`clSPARSE`
+* :ref:`clSparse1`
 
 * :ref:`cl1RNG`
 
