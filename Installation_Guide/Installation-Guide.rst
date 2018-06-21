@@ -1,12 +1,11 @@
-
 .. _Installation-Guide:
 
 ===================
 Installation Guide
 ===================
             
-ROCm 1.8
-
+Quick Start on ROCm 1.8
+#########################
 
 Supported CPUs
 ****************
@@ -34,12 +33,12 @@ Experimental support for our GFX7 GPUs Radeon R9 290, R9 390, AMD FirePro S9150,
 Not supported or very limited support under ROCm
 **************************************************
 
-**Limited Support **
+**Limited Support**
 
 * With ROCm 1.8 and Vega10 it should support PCIe Gen2 enabled CPUs such as the AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and older Intel Xeon and Intel Core Architecture and Pentium CPUs. But we have done very limited testing. Since our test farm today has been catering to CPU listed above. This is where we need community support.
 * Thunderbolt 1,2 and 3 enabled breakout boxes GPU's should now be able to work with ROCm. Thunderbolt 1 and 2 are PCIe Gen2 based. But we have done no testing on this config and would need comunity support do limited access to this type of equipment
 
-**Not Supported **
+**Not Supported**
 
 * We also do not support AMD Carrizo and Kaveri APU as host for compliant dGPU attachments.
 * Thunderbolt 1 and 2 enabled GPU's are not supported by ROCm. Thunderbolt 1 & 2 are PCIe Gen2 based.
@@ -386,12 +385,13 @@ These series of commands will pull all of the open source code associated with t
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 
 Installing ROCk-Kernel only
-#############################
+##############################
 To Install only ROCk-kernel the following steps can be used from the link provided :ref:`kernel-installation`
 
 FAQ on Installation
-#####################
+######################
 Please refer the link for FAQ on Installation.
 :ref:`FAQ-on-Installation`
+
 
 
