@@ -1,3 +1,4 @@
+
 .. _Installation-Guide:
 
 ===================
@@ -22,8 +23,8 @@ Current tested CPUs which support PCIe Gen3 + PCIe Atomics are:
  * AMD Ryzen CPUs;
  * AMD EPYC CPU's
  
- Comunity tested with Vega10 and ROCm 1.8 
-  * Intel Xeon E5 v2 or newer CPUs;
+Comunity tested with Vega10 and ROCm 1.8 
+ * Intel Xeon E5 v2 or newer CPUs;
 
 For Fiji and Polaris GPU's the ROCm platform leverages PCIe Atomics (Fetch and Add, Compare and Swap, Unconditional Swap, AtomicsOp Completion). PCIe Atomics are only supported on PCIe Gen3 enabled CPUs and PCIe Gen3 switches like Broadcom PLX. When you install your GPUs make sure you install them in a fully PCIe Gen3 x16 or x8, x4 or x1 slot attached either directly to the CPU's Root I/O controller or via a PCIe switch directly attached to the CPU's Root I/O controller. In our experience many issues stem from trying to use consumer motherboards which provide physical x16 connectors that are electrically connected as e.g. PCIe Gen2 x4 connected via the Southbridge PCIe I/O controller.
 
@@ -392,6 +393,5 @@ FAQ on Installation
 ######################
 Please refer the link for FAQ on Installation.
 :ref:`FAQ-on-Installation`
-
 
 

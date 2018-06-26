@@ -1,18 +1,18 @@
 
 .. _Other-Solutions:
 
-=====================
+
 System Level Debug
 =====================
 
 ROCm Language & System Level Debug, Flags and Environment Variables 
 #####################################################################
 
-Kernel options to avoid Ethernet port getting renamed every time you change graphics cards
-net.ifnames=0 biosdevname=0
+| Kernel options to avoid Ethernet port getting renamed every time you change graphics cards
+| net.ifnames=0 biosdevname=0
 
 ROCr Error Code
-################
+******************
 
 * 2  Invalid Dimension
 * 4 Invalid Group Memory 
@@ -23,12 +23,13 @@ ROCr Error Code
 * 0x80000000  Debug Trap 
 
 Command to dump firmware version and get Linux Kernel version 
-##############################################################
+*****************************************************************
+
 * sudo cat /sys/kernel/debug/dri/1/amdgpu_firmware_info 
 * uname -a  
 
 Debug Flags 
-############
+***************
 
 Debug messages when developing/debugging base ROCm dirver. You could enable the printing from libhsakmt.so by setting an environment variable, HSAKMT_DEBUG_LEVEL. Available debug levels are 3~7. The higher level you set, the more messages will print.
 
@@ -39,18 +40,16 @@ Debug messages when developing/debugging base ROCm dirver. You could enable the 
 * export HSAKMT_DEBUG_LEVEL=7 : Everything including pr_debug will print.
 
 
-
 ROCr level env variable for debug 
-###################################
+************************************
+
 * HSA_ENABLE_SDMA=0
 * HSA_ENABLE_INTERRUPT=0
 * HSA_SVM_GUARD_PAGES=0
 * HSA_DISABLE_CACHE=1
 
 Turn Off Page Retry on GFX9/Vega devices
-#######
-
-
+**********************
 
   * sudo –s
   * echo 1 > /sys/module/amdkfd/parameters/noretry
@@ -58,7 +57,7 @@ Turn Off Page Retry on GFX9/Vega devices
 
 
 HCC Debug Enviroment Varibles
-##############################
+********************************
 
 +-------------------------------------+----------------------------------------------------------------------------------------------+
 | HCC_PRINT_ENV=1                     | will print usage and current values for the HCC and HIP env variables.                       |
@@ -98,7 +97,7 @@ HCC Debug Enviroment Varibles
 
 
 HIP Environment Varibles
-#######################
+*************************
 
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_PRINT_ENV=1              | Print HIP environment variables.                                                                    |
@@ -157,12 +156,12 @@ HIP Environment Varibles
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 
 OpenCL Debug Flags
-#######
+********************
 
-* AMD_OCL_WAIT_COMMAND=1  0 = OFF 1 = On 
+* AMD_OCL_WAIT_COMMAND=1  (0 = OFF, 1 = On)
 
 PCIe-Debug
-#################
+*************
 
 Refer here for :ref:`PCIe-Debug`
 

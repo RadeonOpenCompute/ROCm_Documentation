@@ -322,49 +322,42 @@ OpenMPI and OpenSHMEM with UCX
 
 Requirements: Autoconf 2.63 and above.
 
- 1. Get latest version of the UCX code
-
+1. Get latest version of the UCX code
 ::
   
   $ git clone https://github.com/openucx/ucx.git ucx
   $ cd ucx
  
- 2. Run autogen:
- 
+2. Run autogen:
 ::
  
    $ ./autogen.sh
 
- 3. This step is only required for OpenPOWER platforms - Power 8 On Ubuntu platform the config.guess file is a bit outdated and does 	 not have support for power. In order to resolve the issue you have to download an updated config.guess. From the root of the    	project:
-
+3. This step is only required for OpenPOWER platforms - Power 8 On Ubuntu platform the config.guess file is a bit outdated and does 	 not have support for power. In order to resolve the issue you have to download an updated config.guess. From the root of the    	project:
 ::
 
    $ wget https://github.com/shamisp/ucx/raw/topic/power8-config/config.guess
 
- 4. Configure:
-
+4. Configure:
 ::
 
   $ mkdir build
   $ cd build
   $ ../configure --prefix=/your_install_path
 
-Note: For best performance configuration, use ../contrib/configure-release.
-This will strip all debugging and profiling code.
+.. Note:: For best performance configuration, use ../contrib/configure-release. This will strip all debugging and profiling code.
 
- 5. Build and install:
-
+5. Build and install:
 ::
 
   $ make
   $ make install
 
- 7. Running unit tests (using `google test <https://github.com/google/googletest>`_).
-    This only work if gtest was installed and detected on your platform, and --enable-gtest was passed to configure:
-
-::
-
-$ make -C test/gtest test
+6. Running unit tests (using `google test <https://github.com/google/googletest>`_).
+   This only work if gtest was installed and detected on your platform, and --enable-gtest was passed to configure:
+   ::
+     $ make -C test/gtest test
+     
 
 Interface to ROCm
 ********************
@@ -374,11 +367,10 @@ Interface to ROCm
 Documentation
 *****************
 
-`Slides <http://www.openucx.org/wp-content/uploads/2015/08/UCX_OpenSHMEM_2015.pdf>`_
------------------------------------------------------------------------------------------
+* `Slides <http://www.openucx.org/wp-content/uploads/2015/08/UCX_OpenSHMEM_2015.pdf>`_
 
-`API documentation (v1.2) <https://github.com/openucx/ucx/wiki/ucx.pdf>`_
-------------------------------------------------------------------------------
+* `API documentation (v1.2) <https://github.com/openucx/ucx/wiki/ucx.pdf>`_
+
 
 High Level Design
 ---------------------
@@ -566,26 +558,22 @@ MPI
 =====
 **OpenMPI and OpenSHMEM installation**
 
- 1. Get latest-and-gratest OpenMPI version:
-
+1. Get latest-and-gratest OpenMPI version:
 ::
   $ git clone https://github.com/open-mpi/ompi.git
 
 2. Autogen:
-
 ::
   $ cd ompi
   $ ./autogen.pl
 
-3. Configure with UCX:
-
+3. Configure with UCX
 ::
   $ mkdir build
   $ cd build
   ../configure --prefix=/your_install_path/ --with-ucx=/path_to_ucx_installation
 
 4. Build:
-
 ::
   $ make
   $ make install
@@ -600,13 +588,12 @@ Example of the command line (for InfiniBand RC + shared memory):
 
 **Open MPI runtime optimizations for UCX**
 
- * By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress   	 function. In order to workaround this issue you may try to disable certain BTLs.
+ * By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress function. In order to workaround this issue you may try to disable certain BTLs.
 
 ::
-
   $ mpirun -np 2 -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
 
- * OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer   	mechanism and there fore reduces software overheads in OpenMPI progress
+ * OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer mechanism and there fore reduces software overheads in OpenMPI progress
 
 **MPI and OpenSHMEM release versions tested with UCX master**
 
@@ -628,7 +615,8 @@ IPC
 Introduction
 **************
 
-**IPC API**
+IPC API
++++++++++
 
 **New datatypes**
 
@@ -649,95 +637,96 @@ Introduction
  } hsa_amd_ipc_signal_handle_t;
 
   
-Memory sharing API
+**Memory sharing API**
 
 Allows sharing of HSA allocated memory between different processes.
 
-hsa_amd_ipc_get_memory_handle
+|    hsa_amd_ipc_get_memory_handle
 
 The purpose of this API is to get / export an IPC handle for an existing allocation from pool.
 
-hsa_status_t HSA_API  
+**hsa_status_t HSA_API  **
 
-hsa_amd_ipc_get_memory_handle(void *ptr, hsa_amd_ipc_memory_handle_t *ipc_handle);
+| hsa_amd_ipc_get_memory_handle(void *ptr, hsa_amd_ipc_memory_handle_t *ipc_handle);
  
- where:
-     IN:    ptr - Pointer to memory previously allocated via hsa_amd_memory_pool_allocate() call
-     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
-                         Application must pass this handle to another process.      
+| where:
+|     IN:    ptr - Pointer to memory previously allocated via hsa_amd_memory_pool_allocate() call
+|     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
+|                         Application must pass this handle to another process.      
  
-hsa_amd_ipc_close_memory_handle
+| hsa_amd_ipc_close_memory_handle
+| Close IPC memory handle previously received via "hsa_amd_ipc_get_memory_handle()" call .
 
-Close IPC memory handle previously received via "hsa_amd_ipc_get_memory_handle()" call .
+**hsa_status_t HSA_API  **
 
-hsa_status_t HSA_API  
+| hsa_amd_ipc_close_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle);
 
-hsa_amd_ipc_close_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle);
+| where:
+|    IN: ipc_handle - IPC Handle to close
+
  
- where:
-     IN: ipc_handle - IPC Handle to close
+| hsa_amd_ipc_open_memory_handle
 
+| Open / import an IPC memory handle exported from another process and return address to be used in the current process.
+
+**hsa_status_t HSA_API  **
+
+| hsa_amd_ipc_open_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle, void **ptr);
  
-hsa_amd_ipc_open_memory_handle
+| where:
+|     IN:   ipc_handle - IPC Handle
+|     OUT:  ptr        - Address which could be used in the given process for access to the memory
 
-Open / import an IPC memory handle exported from another process and return address to be used in the current process.
+|Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
 
-hsa_status_t HSA_API  
-
-hsa_amd_ipc_open_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle, void **ptr);
- 
- where:
-     IN:   ipc_handle - IPC Handle
-     OUT:  ptr        - Address which could be used in the given process for access to the memory
-
-Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
-Signal sharing  API
+**Signal sharing  API**
 
 Allows sharing of HSA signals  between different processes.
+
 hsa_amd_ipc_get_signal_handle
 
 The purpose of this API is to get / export an IPC handle for an existing signal.
 
-hsa_status_t HSA_API  
+**hsa_status_t HSA_API**
 
-hsa_amd_ipc_get_signal_handle(hsa_signal_t signal, hsa_amd_ipc_signal_handle_t *ipc_handle);
+| hsa_amd_ipc_get_signal_handle(hsa_signal_t signal, hsa_amd_ipc_signal_handle_t *ipc_handle);
  
- where:
-     IN:    signal     - Signal handle created as the result of hsa_signal_create() call.
-     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
+| where:
+|     IN:    signal     - Signal handle created as the result of hsa_signal_create() call.
+|     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
                          Application must pass this handle to another process.      
  
-hsa_amd_ipc_close_signal_handle
+| hsa_amd_ipc_close_signal_handle
 
 Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
-hsa_status_t HSA_API  
 
-hsa_amd_ipc_close_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle);
+**hsa_status_t HSA_API**
+
+| hsa_amd_ipc_close_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle);
  
- where:
-     IN: ipc_handle - IPC Handle to close
+| where:
+|     IN: ipc_handle - IPC Handle to close
 
  
-hsa_amd_ipc_open_signal_handle
+| hsa_amd_ipc_open_signal_handle
 
-Open / import an IPC signal handle exported from another process and return address to be used in the current process.
-hsa_status_t HSA_API  
+|Open / import an IPC signal handle exported from another process and return address to be used in the current process.
 
-hsa_amd_ipc_open_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle, hsa_signal_t &signal);
+**hsa_status_t HSA_API**
+
+| hsa_amd_ipc_open_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle, hsa_signal_t &signal);
  
- where:
-     IN:   ipc_handle - IPC Handle
-     OUT:  signal     - Signal handle to be used in the current process
+| where:
+|     IN:   ipc_handle - IPC Handle
+|     OUT:  signal     - Signal handle to be used in the current process
 
 Client should call hsa_signal_destroy() when access to this resource is not needed any more.
 
-:: 
 
-Query   API
+**Query API**
+| Query memory information
 
-Query memory information
-
-Allows query information about memory resource based on address. It is partially overlapped with the following requirement  Memory info interface so it may be possible to merge those two interfaces.
+Allows query information about memory resource based on address. It is partially overlapped with the following requirement Memory info interface so it may be possible to merge those two interfaces.
 ::
  typedef enum hsa_amd_address_info_s {
      
@@ -755,12 +744,12 @@ Allows query information about memory resource based on address. It is partially
  
   } hsa_amd_address_info_t;
 
-  
-hsa_status_t HSA_API 
 
-hsa_amd_get_address_info(void *ptr,  hsa_amd_address_info_t attribute,   void* value);
+**hsa_status_t HSA_API**
 
-where: 
-      ptr         - Address information about which to query
-      attribute   - Attribute to query
+| hsa_amd_get_address_info(void *ptr,  hsa_amd_address_info_t attribute,   void* value);
+
+| where: 
+|      ptr         - Address information about which to query
+|      attribute   - Attribute to query
 

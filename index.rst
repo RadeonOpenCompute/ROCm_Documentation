@@ -50,7 +50,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :maxdepth: 6
    :hidden:
    
-
+   ROCm
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
    Programming_Guides/Programming-Guides

@@ -15,7 +15,7 @@ ROCm Code Object Format
 
 * :ref:`ROCm-Codeobj-format`
 
-ROC Device Library
+ROCm Device Library
 ##################
 
 
