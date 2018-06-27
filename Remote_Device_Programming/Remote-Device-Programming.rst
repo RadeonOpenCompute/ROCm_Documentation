@@ -5,7 +5,6 @@
 Remote Device Programming
 ==========================
 
-
 ROCnRDMA
 =========
 ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU  memory. It allows direct path for data exchange (peer-to-peer) using the standard features of PCI Express. 
@@ -583,17 +582,16 @@ MPI
 Example of the command line (for InfiniBand RC + shared memory):
 
 ::
-
-   $ mpirun -np 2 -mca pml ucx -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
+  $ mpirun -np 2 -mca pml ucx -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
 
 **Open MPI runtime optimizations for UCX**
 
- * By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress function. In order to workaround this issue you may try to disable certain BTLs.
+* By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress function. In order to workaround this issue you may try to disable certain BTLs.
 
 ::
   $ mpirun -np 2 -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
 
- * OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer mechanism and there fore reduces software overheads in OpenMPI progress
+* OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer mechanism and there fore reduces software overheads in OpenMPI progress
 
 **MPI and OpenSHMEM release versions tested with UCX master**
 
@@ -641,14 +639,12 @@ IPC API
 
 Allows sharing of HSA allocated memory between different processes.
 
-|    hsa_amd_ipc_get_memory_handle
+| hsa_amd_ipc_get_memory_handle
+| The purpose of this API is to get / export an IPC handle for an existing allocation from pool.
 
-The purpose of this API is to get / export an IPC handle for an existing allocation from pool.
-
-**hsa_status_t HSA_API  **
+**hsa_status_t HSA_API**
 
 | hsa_amd_ipc_get_memory_handle(void *ptr, hsa_amd_ipc_memory_handle_t *ipc_handle);
- 
 | where:
 |     IN:    ptr - Pointer to memory previously allocated via hsa_amd_memory_pool_allocate() call
 |     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
@@ -657,73 +653,63 @@ The purpose of this API is to get / export an IPC handle for an existing allocat
 | hsa_amd_ipc_close_memory_handle
 | Close IPC memory handle previously received via "hsa_amd_ipc_get_memory_handle()" call .
 
-**hsa_status_t HSA_API  **
+**hsa_status_t HSA_API**
 
 | hsa_amd_ipc_close_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle);
-
 | where:
 |    IN: ipc_handle - IPC Handle to close
 
  
 | hsa_amd_ipc_open_memory_handle
-
 | Open / import an IPC memory handle exported from another process and return address to be used in the current process.
 
-**hsa_status_t HSA_API  **
+**hsa_status_t HSA_API**
 
 | hsa_amd_ipc_open_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle, void **ptr);
- 
 | where:
 |     IN:   ipc_handle - IPC Handle
 |     OUT:  ptr        - Address which could be used in the given process for access to the memory
 
-|Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
+| Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
 
-**Signal sharing  API**
+**Signal sharing API**
 
-Allows sharing of HSA signals  between different processes.
+| Allows sharing of HSA signals  between different processes.
 
-hsa_amd_ipc_get_signal_handle
-
-The purpose of this API is to get / export an IPC handle for an existing signal.
+| hsa_amd_ipc_get_signal_handle
+| The purpose of this API is to get / export an IPC handle for an existing signal.
 
 **hsa_status_t HSA_API**
 
 | hsa_amd_ipc_get_signal_handle(hsa_signal_t signal, hsa_amd_ipc_signal_handle_t *ipc_handle);
- 
 | where:
 |     IN:    signal     - Signal handle created as the result of hsa_signal_create() call.
 |     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
                          Application must pass this handle to another process.      
  
 | hsa_amd_ipc_close_signal_handle
-
-Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
+|Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
 
 **hsa_status_t HSA_API**
 
 | hsa_amd_ipc_close_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle);
- 
 | where:
 |     IN: ipc_handle - IPC Handle to close
 
- 
 | hsa_amd_ipc_open_signal_handle
-
 |Open / import an IPC signal handle exported from another process and return address to be used in the current process.
 
 **hsa_status_t HSA_API**
 
 | hsa_amd_ipc_open_signal_handle(hsa_amd_ipc_signal_handle_t ipc_handle, hsa_signal_t &signal);
- 
 | where:
 |     IN:   ipc_handle - IPC Handle
 |     OUT:  signal     - Signal handle to be used in the current process
 
 Client should call hsa_signal_destroy() when access to this resource is not needed any more.
 
-
 **Query API**
+
 | Query memory information
 
 Allows query information about memory resource based on address. It is partially overlapped with the following requirement Memory info interface so it may be possible to merge those two interfaces.
@@ -748,7 +734,6 @@ Allows query information about memory resource based on address. It is partially
 **hsa_status_t HSA_API**
 
 | hsa_amd_get_address_info(void *ptr,  hsa_amd_address_info_t attribute,   void* value);
-
 | where: 
 |      ptr         - Address information about which to query
 |      attribute   - Attribute to query

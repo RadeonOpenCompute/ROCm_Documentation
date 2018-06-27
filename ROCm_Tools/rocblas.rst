@@ -11,8 +11,8 @@ A BLAS implementation on top of AMD's Radeon Open Compute `ROCm <http://rocm-doc
 Installing pre-built packages
 *******************************
 Download pre-built packages either from `ROCm's package servers <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_ or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
-
-  * sudo apt update && sudo apt install rocblas
+::
+  sudo apt update && sudo apt install rocblas
 
 Quickstart rocBLAS build
 *************************
@@ -20,9 +20,9 @@ Quickstart rocBLAS build
 **Bash helper build script (Ubuntu only)**
 
 The root of this repository has a helper bash script install.sh to build and install rocBLAS on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install. A few commands in the script need sudo access, so it may prompt you for a password.
-
- * ./install -h -- shows help
- * ./install -id -- build library, build dependencies and install (-d flag only needs to be passed once on a system)
+::
+  ./install -h -- shows help
+  ./install -id -- build library, build dependencies and install (-d flag only needs to be passed once on a system)
 
 Manual build (all supported platforms)
 ****************************************
@@ -74,3 +74,4 @@ rocBLAS assumes matrices A and vectors x, y are allocated in GPU memory space fi
 Asynchronous API
 ********************
 Except a few routines (like TRSM) having memory allocation inside preventing asynchronicity, most of the library routines (like BLAS-1 SCAL, BLAS-2 GEMV, BLAS-3 GEMM) are configured to operate in asynchronous fashion with respect to CPU, meaning these library functions return immediately.
+

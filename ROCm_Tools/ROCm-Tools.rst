@@ -507,10 +507,10 @@ To run the ROCm debugger, you'd also need to get the ROCm GPU Debug SDK.
 
 Before running the rocm debugger, the LD_LIBRARY_PATH should include paths to
 
-  | The ROCm GPU Debug Agent library built in the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
-  | The ROCm GPU Debugging library binary shippped with the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
-  | Before running ROCm-GDB, please update your .gdbinit file with text in gpudebugsdk/src/HSADebugAgent/gdbinit. The rocmConfigure function in the ~/.gdbinit sets up gdb internals for supporting GPU kernel debug.
-  | The gdb executable should be run from within the rocm-gdb-local script. The ROCm runtime requires certain environment variables to enable kernel debugging and this is set up by the rocm-gdb-local script.
+  | - The ROCm GPU Debug Agent library built in the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
+  | - The ROCm GPU Debugging library binary shippped with the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
+  | - Before running ROCm-GDB, please update your .gdbinit file with text in gpudebugsdk/src/HSADebugAgent/gdbinit. The rocmConfigure function in the ~/.gdbinit sets up gdb internals for supporting GPU kernel debug.
+  | - The gdb executable should be run from within the rocm-gdb-local script. The ROCm runtime requires certain environment variables to enable kernel debugging and this is set up by the rocm-gdb-local script.
 
 ::
   
@@ -520,7 +520,7 @@ Before running the rocm debugger, the LD_LIBRARY_PATH should include paths to
 A brief tutorial on how to debug GPU applications using ROCm-GDB :ref:`rocm-debug`
 
 ROCm Debugger API
-##################
+==================
 
 The ROCm Debugger provides a gdb-based debugging environment for debugging host application and GPU kernels running on Radeon Open Compute platforms (ROCm). It can support all language runtimes (such as HIP and HCC) built on top of ROCm. Initially, the debugging support within the GPU kernels starts with the HSAIL 1.0 programming language. This support requires a kernel compilation path that goes through HSAIL kernel (such as through HCC-HSAIL or `libHSAIL/HSAILAsm <https://github.com/HSAFoundation/HSAIL-Tools>`_).
 
@@ -530,8 +530,7 @@ There are two packages included in this release:
     * based on GDB 7.11, the GNU source-level debugger
 * ROCm GPU Debug SDK package that contains the necessary header, library and sample files to run the rocm-gdb tool
 
-The ROCm Debugger extends the existing `HSA Debugger <https://github.com/HSAFoundation/HSA-Debugger-AMD>`_ with new features for 
-ROCm .
+The ROCm Debugger extends the existing `HSA Debugger <https://github.com/HSAFoundation/HSA-Debugger-AMD>`_ with new features for ROCm
 
  * `AMDGPUDebugAPISpecification.pdf <https://github.com/RadeonOpenCompute/ROCm-GPUDebugSDK/blob/master/docs/AMDGPUDebugAPISpecification.pdf>`_
 
@@ -545,39 +544,40 @@ Major Features
 
 **What's New in May 2017 Release (version 1.5)**
 
-    Compatible with `ROCm 1.5 release <https://github.com/RadeonOpenCompute/ROCm>`_
-    Added the info rocm devices command to show the available devices in the system
+ * Compatible with `ROCm 1.5 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.5.0>`_
+ * Added the info rocm devices command to show the available devices in the system
 
 **What's New in Dec 2016 Release (version 1.4)**
 
-    Compatible with `ROCm 1.4 release <https://github.com/RadeonOpenCompute/ROCm>`_
-    Support for demangling kernel names of HIP and HCC kernels (requires clang_tot_upgrade branch of HCC). Also requires c++filt to be intalled on the system. c++filt can be installed using sudo apt-get install binutils
+ * Compatible with `ROCm 1.4 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.4.0>`_
+ * Support for demangling kernel names of HIP and HCC kernels (requires clang_tot_upgrade branch of HCC). Also requires c++filt to be intalled on the system. c++filt can be installed using sudo apt-get install binutils
 
 **What's New in Nov 2016 Release (version 1.3)**
 
-    Compatible with `ROCm 1.3 release <https://github.com/RadeonOpenCompute/ROCm>`_
-    Support for AMD code object loader extension
-    Initial support for Polaris GPUs
-    Detect and gracefully fail on unsupported devices
+ * Compatible with `ROCm 1.3 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.3.0>`_
+ * Support for AMD code object loader extension
+ * Initial support for Polaris GPUs
+ * Detect and gracefully fail on unsupported devices
 
 **What's New in Aug 2016 Release (version 1.2)**
 
-    Compatible with `ROCm 1.2 release <https://github.com/RadeonOpenCompute/ROCm>`_
-    Update gdb base to gdb v7.11.
-    Initial support for provided GPU debug information via the GDB machine interface
-    Support for debugging applications that use SIGUSR2. (Provided by Pull Request#1 from Didier Nadeaud)
-    Add support to report HSAIL source text along with line number when single stepping.
+ * Compatible with `ROCm 1.2 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.2.0>`_
+ * Update gdb base to gdb v7.11.
+ * Initial support for provided GPU debug information via the GDB machine interface
+ * Support for debugging applications that use SIGUSR2. (Provided by Pull Request#1 from Didier Nadeaud)
+ * Add support to report HSAIL source text along with line number when single stepping.
 
 **What's New in April 2016 Release (version 1.0)**
 
-    Compatible with `ROCm 1.0 release <https://github.com/RadeonOpenCompute/ROCm>`_
-    Support 6th Generation AMD A-series APU processors (codenamed “Carrizo”)
-    Support AMD Radeon™ R9 Fury, Fury X and Fury Nano GPUs (codenamed “Fiji”)
-    Support CodeXL 2.0
-    Add support to gdb disassemble command to disassemble and show the GPU isa disassembly text
-    Add ability to trace GPU kernel launches
-    Add gdb help rocm command to show the list of rocm debugging related commands
-    Add support to report the hardware slot scheduling information for wavefronts
+ * Compatible with `ROCm 1.0 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.0.0>`_
+ * Support 6th Generation AMD A-series APU processors (codenamed “Carrizo”)
+ * Support AMD Radeon™ R9 Fury, Fury X and Fury Nano GPUs (codenamed “Fiji”)
+ * Support CodeXL 2.0
+ * Add support to gdb disassemble command to disassemble and show the GPU isa disassembly text
+ * Add ability to trace GPU kernel launches
+ * Add gdb help rocm command to show the list of rocm debugging related commands
+ * Add support to report the hardware slot scheduling information for wavefronts
+
 
 System Requirements
 #####################
@@ -585,9 +585,9 @@ System Requirements
        * CPU: CPUs with PCIe Gen3 Atomics: Haswell-class Intel(c) Core CPUs v3 or newer and Intel Xeon E5 v3 or newer.
        * GPU: AMD Radeon™ R9 Fury, Fury X and Fury Nano GPUs (codenamed “Fiji”)
        * Refer to the `ROCm platform requirements <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#supported-gpus>`_ for additional information
-   * or 6th Generation AMD A-series APU processors (codenamed “Carrizo”).
-   * OS: 64-bit Ubuntu 14.04 and Fedora 23
-   * `ROCm 1.2 platform <https://github.com/RadeonOpenCompute/ROCm>`_
+  * or 6th Generation AMD A-series APU processors (codenamed “Carrizo”).
+  * OS: 64-bit Ubuntu 14.04 and Fedora 23
+  * `ROCm 1.2 platform <https://github.com/RadeonOpenCompute/ROCm>`_
 
 To debug within a GPU kernel, the GPU kernel must be assembled using the latest `LibHSAIL/HSAILAsm <https://github.com/HSAFoundation/HSAIL-Tools>`_ (from April 4th 2016 or newer) built with BUILD_WITH_LIBBRIGDWARF=1.
 

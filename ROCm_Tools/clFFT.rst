@@ -4,7 +4,7 @@
 clFFT
 ==========
 
-For Github Repository`clFFT <https://github.com/clMathLibraries/clFFT>`_
+For Github Repository `clFFT <https://github.com/clMathLibraries/clFFT>`_
 
 clFFT is a software library containing FFT functions written in OpenCL. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and heterogeneous programming.
 
@@ -13,7 +13,7 @@ Pre-built binaries are available here.
 What's New
 **************
 * Support for powers of 11&13 size transforms
-* Support for 1D large size transforms with no extra memory allocation requirement with environment flag 	      	       	CLFFT_REQUEST_LIB_NOMEMALLOC=1 for complex FFTs of powers of 2,3,5,10 sizes
+* Support for 1D large size transforms with no extra memory allocation requirement with environment flag CLFFT_REQUEST_LIB_NOMEMALLOC=1 for complex FFTs of powers of 2,3,5,10 sizes
 
 Note
 ******
@@ -33,7 +33,7 @@ The clFFT library is an open source OpenCL library implementation of discrete Fa
 
  * supports 1D, 2D, and 3D transforms with a batch size that can be greater than 1.
 
- * supports planar (real and complex components in separate arrays) and interleaved (real and complex components as a pair contiguous 	 in memory) formats.
+ * supports planar (real and complex components in separate arrays) and interleaved (real and complex components as a pair contiguous in memory) formats.
 
  * supports dimension lengths that can be any combination of powers of 2, 3, 5, 7, 11 and 13.
 

@@ -24,10 +24,10 @@ Quick Start Guide
 | `Getting ROCm source code <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#getting-rocm-source-code>`_
 | This guide discusses how to modifying the open source code base and rebuilding the components of ROCm latest version.
 
-| `Installing ROCk-Kernel only <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-rock-kernel-only>`_
+| `Installing ROCk-Kernel only <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/ROCk-kernel.html#rock-kernel>`_
 | This guide discusses how to install ROCm Kernel into the system.
 
-| `FAQ on Installation <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#faq-on-installation>`_
+| `FAQ on Installation <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/FAQ-on-Installation.html#faq-on-installation>`_
 | This section provides answers for various frequently asked questions regarding the installation steps and issues that can be faced during installation.
 
 

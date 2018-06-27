@@ -44,8 +44,8 @@ Next, update the apt-get repository list and install/update the rocm package:
 
  .. WARNING::
        Before proceeding, make sure to completely uninstall any pre-release ROCm packages
-::
 
+::
   sudo apt-get update
   sudo apt-get install rocm
 
@@ -53,7 +53,6 @@ Next, update the apt-get repository list and install/update the rocm package:
 Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
 
 :: 
-
   sudo vi /etc/default/grub
   sudo update-grub
 
@@ -89,10 +88,9 @@ You can adjust the installation destination (the "prefix") by passing the -DCMAK
 Build and Run hipeigen direct tests
 *************************************
 To build the direct tests for hipeigen:
-
 ::
   cd build_dir
   make check -j $(nproc)
 
-All direct tests should pass with ROCm1.8
 
+Note: All direct tests should pass with ROCm1.8
