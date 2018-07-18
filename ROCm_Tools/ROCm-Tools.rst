@@ -892,13 +892,13 @@ Libraries
 
 * :ref:`hcFFT`
 
-* :ref:`hipBLAS`
+* :ref:`HIP8LAS`
 
 * :ref:`hcRNG`
 
 * :ref:`hipeigen`
 
-* :ref:`clFFT`
+* :ref:`c1FFT`
 
 * :ref:`clBLA`
 

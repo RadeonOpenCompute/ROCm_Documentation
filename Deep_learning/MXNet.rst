@@ -9,7 +9,7 @@ Mxnet makes use of rocBLAS,rocRAND,hcFFT and MIOpen APIs.
 
 **MXNet**
 
-.. image:: MXNetimage1.png
+.. image:: MXNet_image1.png
 
 Installation Guide for MXNet library
 #####################################

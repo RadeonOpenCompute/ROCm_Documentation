@@ -1,5 +1,7 @@
 .. _hipBLAS:
 
+.. _hip8LAS:
+
 ========
 hipBLAS
 ========

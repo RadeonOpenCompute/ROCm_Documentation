@@ -582,13 +582,16 @@ MPI
 Example of the command line (for InfiniBand RC + shared memory):
 
 ::
+  
   $ mpirun -np 2 -mca pml ucx -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
+
 
 **Open MPI runtime optimizations for UCX**
 
 * By default OpenMPI enables build-in transports (BTLs), which may result in additional software overheads in the OpenMPI progress function. In order to workaround this issue you may try to disable certain BTLs.
 
 ::
+
   $ mpirun -np 2 -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
 
 * OpenMPI version https://github.com/open-mpi/ompi/commit/066370202dcad8e302f2baf8921e9efd0f1f7dfc leverages more efficient timer mechanism and there fore reduces software overheads in OpenMPI progress
@@ -649,7 +652,7 @@ Allows sharing of HSA allocated memory between different processes.
 |     IN:    ptr - Pointer to memory previously allocated via hsa_amd_memory_pool_allocate() call
 |     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
 |                         Application must pass this handle to another process.      
- 
+| 
 | hsa_amd_ipc_close_memory_handle
 | Close IPC memory handle previously received via "hsa_amd_ipc_get_memory_handle()" call .
 
@@ -658,8 +661,8 @@ Allows sharing of HSA allocated memory between different processes.
 | hsa_amd_ipc_close_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle);
 | where:
 |    IN: ipc_handle - IPC Handle to close
-
- 
+|
+| 
 | hsa_amd_ipc_open_memory_handle
 | Open / import an IPC memory handle exported from another process and return address to be used in the current process.
 
@@ -668,14 +671,14 @@ Allows sharing of HSA allocated memory between different processes.
 | hsa_amd_ipc_open_memory_handle(hsa_amd_ipc_memory_handle_t ipc_handle, void **ptr);
 | where:
 |     IN:   ipc_handle - IPC Handle
-|     OUT:  ptr        - Address which could be used in the given process for access to the memory
-
+|     OUT:  ptr- Address which could be used in the given process for access to the memory
+|
 | Client should call hsa_amd_memory_pool_free() when access to this resource is not needed any more.
 
 **Signal sharing API**
 
 | Allows sharing of HSA signals  between different processes.
-
+|
 | hsa_amd_ipc_get_signal_handle
 | The purpose of this API is to get / export an IPC handle for an existing signal.
 
@@ -685,10 +688,10 @@ Allows sharing of HSA allocated memory between different processes.
 | where:
 |     IN:    signal     - Signal handle created as the result of hsa_signal_create() call.
 |     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
-                         Application must pass this handle to another process.      
- 
+|                         Application must pass this handle to another process.      
+| 
 | hsa_amd_ipc_close_signal_handle
-|Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
+| Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
 
 **hsa_status_t HSA_API**
 
@@ -697,7 +700,7 @@ Allows sharing of HSA allocated memory between different processes.
 |     IN: ipc_handle - IPC Handle to close
 
 | hsa_amd_ipc_open_signal_handle
-|Open / import an IPC signal handle exported from another process and return address to be used in the current process.
+| Open / import an IPC signal handle exported from another process and return address to be used in the current process.
 
 **hsa_status_t HSA_API**
 
