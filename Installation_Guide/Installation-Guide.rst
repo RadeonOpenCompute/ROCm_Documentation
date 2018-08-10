@@ -136,9 +136,9 @@ For Debian based systems, like Ubuntu, configure the Debian ROCm repository as f
  wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
  sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 
-The gpg key might change, so it may need to be updated when installing a new release. The current rocm.gpg.key is not avialable in a standard key ring distribution, but has the following sha1sum hash:
+The gpg key might change, so it may need to be updated when installing a new release. If the key signature verification fails when you attempt to update, please re-add the key from ROCm apt repository. The current rocm.gpg.key is not avialable in a standard key ring distribution, but has the following sha1sum hash:
 ::
- f0d739836a9094004b0a39058d046349aacc1178 rocm.gpg.key
+f7f8147431c75e505c58a6f3a3548510869357a6 rocm.gpg.key
 
 Install or Update
 *******************
