@@ -202,7 +202,7 @@ Notes
 
 
 
-HC Programing Guide
+HC Programming Guide
 ===================
 
 **What is the Heterogeneous Compute (HC) API ?**
@@ -444,7 +444,7 @@ In your application compiled using hcc, include the CodeXL Activiy Logger header
  
   #include <CXLActivityLogger.h>
 
-For information about the usage of the Activity Logger for profiling, please refer to its documentation.
+For information about the usage of the Activity Logger for profiling, please refer to `documentation <https://documentation.help/CodeXL/amdtactivitylogger-library.htm>`_
 
 
 
@@ -471,14 +471,6 @@ Concurrency::array_view     	 hc::array_view
 
 =============================== ======================= 
 
-How to build programs with HC API
-##################################
-
-Use ``hcc-config``, instead of ``clamp-config``, or you could manually add ``-hc`` when you invoke clang++. Also, ``hcc`` is added as an alias for ``clang++``.
-
-For example::
- 
- hcchcc-config –cxxflags –ldflagsfoo.cpp -o foo 
 
 HCC built-in macros
 #######################
@@ -528,7 +520,7 @@ HC-specific features
 
 Differences between HC API and C++ AMP
 #########################################
-Despite HC and C++ AMP share a lot of similarities in terms of programming constructs (e.g. parallel_for_each, array, array_view, etc.), there are several significant differences between the two APIs.
+Despite HC and C++ AMP sharing many similar program constructs (e.g. parallel_for_each, array, array_view, etc.), there are several significant differences between the two APIs.
 
 **Support for explicit asynchronous parallel_for_each**
 In C++ AMP, the parallel_for_each appears as a synchronous function call in a program (i.e. the host waits for the kernel to complete); howevever, the compiler may optimize it to execute the kernel asynchronously and the host would synchronize with the device on the first access of the data modified by the kernel. For example, if a parallel_for_each writes the an array_view, then the first access to this array_view on the host after the parallel_for_each would block until the parallel_for_each completes.
@@ -538,12 +530,12 @@ HC supports the automatic synchronization behavior as in C++ AMP. In addition, H
 
 **Annotation of device functions**
 
-C++ AMP uses the restrict(amp) keyword to annotate functions that runs on the device. ::
-
+C++ AMP uses the restrict(amp) keyword to annotate functions that runs on the device. 
+::
  void foo() restrict(amp) { .. } ... parallel_for_each(...,[=] () restrict(amp) { foo(); });
 
-HC uses a function attribute ([[hc]] or __attribute__((hc)) ) to annotate a device function. ::
-
+HC uses a function attribute ([[hc]] or __attribute__((hc)) ) to annotate a device function. 
+::
   void foo() [[hc]] { .. } ... parallel_for_each(...,[=] () [[hc]] { foo(); }); 
 
 The [[hc]] annotation for the kernel function called by parallel_for_each is optional as it is automatically annotated as a device function by the hcc compiler. The compiler also supports partial automatic [[hc]] annotation for functions that are called by other device functions within the same source file:
@@ -557,13 +549,25 @@ C++ AMP doesn't support dynamic tile size. The size of each tile dimensions has 
 
  `extent<2> <http://scchan.github.io/hcc/classConcurrency_1_1extent.html>`_  ex(x, y) 
 
- create a tile extent of 8x8 from the extent object  note that the tile dimensions have to be constant values tiled_extent<8,8> t_ex(ex);
+ To create a tile extent of 8x8 from the extent object,note that the tile dimensions have to be constant values:
 
-parallel_for_each(t_ex, [=](tiled_index<8,8> t_id) restrict(amp) { ... }); HC supports both static and dynamic tile size: 
-`extent<2> <http://scchan.github.io/hcc/classConcurrency_1_1extent.html>`_ ex(x,y)
+   tiled_extent<8,8> t_ex(ex)
 
-create a tile extent from dynamically calculated values  note that the the tiled_extent template takes the rank instead of dimensions tx = test_x ? tx_a : tx_b; ty = test_y ? ty_a : ty_b; tiled_extent<2> t_ex(ex, tx, ty);
-parallel_for_each(t_ex, [=](tiled_index<2> t_id) [[hc]] { ... });
+parallel_for_each(t_ex, [=](tiled_index<8,8> t_id) restrict(amp) { ... }); 
+
+    HC supports both static and dynamic tile size: 
+
+   `extent<2> <http://scchan.github.io/hcc/classConcurrency_1_1extent.html>`_ ex(x,y)
+
+To create a tile extent from dynamically calculated values,note that the the tiled_extent template takes the rank instead of dimensions 
+
+         tx = test_x ? tx_a : tx_b; 
+
+         ty = test_y ? ty_a : ty_b; 
+
+         tiled_extent<2> t_ex(ex, tx, ty);
+
+         parallel_for_each(t_ex, [=](tiled_index<2> t_id) [[hc]] { ... });
 
 **Support for memory pointer**
 
@@ -593,9 +597,14 @@ Some other useful features:
 **Enable and configure**
 
 
-HCC_PROFILE=1 shows a summary of kernel and data commands when hcc exits (under development). HCC_PROFILE=2 enables a profile message after each command (kernel or data movement) completes.
+| HCC_PROFILE=1 shows a summary of kernel and data commands when hcc exits (under development).
+| HCC_PROFILE=2 enables a profile message after each command (kernel or data movement) completes.
 
-Additionally, the HCC_PROFILE_VERBOSE variable controls the information shown in the profile log. This is a bit-vector: 0x2 : Show start and stop timestamps for each command. 0x4 : Show the device.queue.cmdseqnum for each command. 0x8 : Show the short CPU TID for each command (not supported).  0x10 : Show logs for barrier commands.
+| Additionally, the HCC_PROFILE_VERBOSE variable controls the information shown in the profile log. This is a bit-vector: 
+| 0x2 : Show start and stop timestamps for each command. 
+| 0x4 : Show the device.queue.cmdseqnum for each command. 
+| 0x8 : Show the short CPU TID for each command (not supported).  
+| 0x10 : Show logs for barrier commands.
 
 **Sample Output**
 
