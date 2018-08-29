@@ -1,8 +1,8 @@
 
-.. _ROCm-GPU-Tunning-Guides:
+.. _ROCm-GPU-Tuning-Guides:
 
 ========================
-ROCm GPU Tunning Guides
+ROCm GPU Tuning Guides
 ========================
 
 
