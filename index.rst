@@ -58,7 +58,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    GCN_ISA_Manuals/GCN-ISA-Manuals
    ROCm_API_References/ROCm-API-References
    ROCm_Tools/ROCm-Tools
-   ROCm_Libraries/ROCm-Libraries
+   ROCm_Libraries/ROCm_Libraries
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers

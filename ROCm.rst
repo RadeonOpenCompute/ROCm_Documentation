@@ -136,8 +136,41 @@ Quick Start Guide
 | `ROCm Binary Utilities <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-binary-utilities>`_
 | -- In-progess
 
-| `Libraries <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#libraries>`_
-| Here There is a list of Various ROCm libraries and HIP libraries complete documentaion can be seen documented.
+
+`ROCm Libraries <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm-Libraries.html>`_
+*************
+| `rocFFT <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocFFT.html#rocfft>`_
+| This section provides details on rocFFT,it is a AMD's software library and also be compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
+
+|`rocBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocblas.html#rocblas>`_
+| This section provieds details on rocBLAS,It is a library for BLAS on ROCm.rocBLAS is implemented in the HIP programming language and optimized for AMD’s latest discrete GPUs.
+
+| `hipBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/hipBLAS.html#hip8las>`_
+| This section provides details on hipBLAS,It is a BLAS marshalling library, with multiple supported backends.hipBLAS exports an interface that does not require the client to change.Currently,it supports :ref:`rocblas`and cuBLAS as backends.
+
+| `hcRNG <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/hcRNG.html#hcrng>`_
+| This section provieds details on hcRNG.It is a software library ,where uniform random number generators targeting the AMD heterogeneous hardware via HCC compiler runtime is implemented..
+
+| `hipeigen <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/hipeigen.html#hipeigen>`_
+| This section provieds details on Eigen.It is a C++ template library which provides linear algebra for  matrices, vectors, numerical solvers, and related algorithms.
+
+| `clFFT <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/clFFT.html#c1fft>`_
+| This section provieds details on clFFT.It is a software library which contains  FFT functions written in OpenCL,and clFFt also supports running on CPU devices to facilitate debugging and heterogeneous programming.
+
+| `clBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/clBLA.html#clbla>`_
+| This section provieds details on clBLAS.It makes easier for developers to utilize the inherent performance and power efficiency benefits of heterogeneous computing.
+
+| `clSPARSE <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/clSPARSE.html#clsparse1>`_
+| This section provides details on clSPARSE,It is an OpenCL library which implements Sparse linear algebra routines. 
+
+| `clRNG <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/clRNG.html#cl1rng>`_
+| This section provides details on clRNG,This is a  library  for uniform random number generation in OpenCL.. 
+
+| `hcFFT <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/hcFFT.html#hcfft>`_
+| This section provides details on hcFFT,It hosts the HCC based FFT Library and  targets  GPU acceleration of FFT routines on AMD devices.
+
+| `Tensile <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/tensile.html#tensile>`_
+| This section provieds details on Tensile.It is a tool for creating a benchmark-driven backend library for GEMMs,N-dimensional tensor contractions and  multiplies two multi-dimensional objects together on a GPU..
 
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
 ************************
