@@ -93,39 +93,38 @@ This is not an issue with the YUM repository; it is caused by the size of the /b
  sudo dnf install rocm
  
 Installing from an archived repository
-****************************************
+**************************************
 
-The Radeon repo server stores several archived releases, supporting both debian and rpm repositories. These archives are located here at http://radeon.repo.com/rocm/archive. Users can install with an archive by downloading the desired archive and then updating the package configuration file to point at the localized repo.
+The Radeon repo server stores several archived releases, supporting both debian and rpm repositories. These archives are located here at http://repo.radeon.com/rocm/archive. Users can install with an archive by downloading the desired archive and then updating the package configuration file to point at the localized repo.
 
 Debian Archive Example
 *********************** 
 Here is an Example:
 ::
- cd /tmp && wget http://repo.radeon.com/rocm/archive/apt_1.6.0.tar.bz2
- tar -xvf apt_1.6.0.tar.bz2
- sudo sh -c "echo deb [amd64] file://tmp/apt_1.6.0 xenial main" > /etc/apt/sources.list.d/rocm.list
- sudo apt-get update && sudo apt-get install rocm
+
+  cd /temp && wget http://repo.radeon.com/rocm/archive/apt_1.6.3.tar.bz2
+  tar -xvf apt_1.6.3.tar.bz2
+  sudo echo “deb [amd64] file://temp/apt_1.6.3 xenial main” > /etc/apt/sources.lists.d/rocm.local.list
+  sudo apt-get update && sudo apt-get install rocm
 
 Users should make sure that no other list files contain another rocm repo configuration.
 
 RPM Archive Example
 ********************
+Add a /etc/yum.d/rocm.local.repo file with the following contents: ::
 
-Add a /etc/yum.d/rocm.local.repo file with the following contents:
-::
- [remote]
- name=ROCm Repo
- baseurl=file://tmp/yum_1.6.0/
- enabled=1
- gpgcheck=0
- cd /tmp && wget http://radeon.repo.com/rocm/archive/yum_1.6.0.tar.bz2
- tar –xvf yum_1.6.0.tar.bz2
+  [remote]
+  name=ROCm Repo
+  baseurl=file://packages.amd.com/rocm/yum/rpm/
+  enabled=1
+  gpgcheck=0
+  cd /temp && wget http://repo.radeon.com/rocm/archive/yum_1.6.3.tar.bz2
+  tar –xvf yum_1.6.3.tar.bz2
 
-Then execute:
-::
- sudo dnf clean all
- sudo dnf install rocm
- 
+Then execute: ::
+
+  sudo dnf clean all
+  sudo dnf install rocm
+
+
 Again, users should make sure that no other repo files contain another rocm repo reference.
-
-
