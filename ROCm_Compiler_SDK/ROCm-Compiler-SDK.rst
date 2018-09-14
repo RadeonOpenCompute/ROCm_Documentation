@@ -15,7 +15,7 @@ ROCm Code Object Format
 
 * :ref:`ROCm-Codeobj-format`
 
-ROC Device Library
+ROCm Device Library
 ##################
 
 
@@ -133,7 +133,7 @@ Tests for OpenCL conformance kernels can be enabled by specifying -DOCL_CONFORMA
 ROCr Runtime
 #############
 
-`ROCr Runtime <https://github.com/RadeonOpenCompute/ROCR-Runtime>`_
+Github link of ROCr Runtime check `Here <https://github.com/RadeonOpenCompute/ROCR-Runtime>`_
 
 HSA Runtime API and runtime for ROCm
 *************************************
@@ -165,9 +165,8 @@ Runtime extension package:
 
 The contents of these packages are installed in /opt/rocm/hsa and /opt/rocm by default. The core runtime package depends on the hsakmt-roct-dev package
 
-Installation instructions can be found in the ROCm manifest repository README.md:
+Installation instructions can be found in the `ROCm Documentation <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_
 
-https://github.com/RadeonOpenCompute/ROCm
 
 Infrastructure
 ***************

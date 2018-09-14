@@ -12,14 +12,10 @@ We are excited to present ROCm, the first open-source HPC/Hyperscale-class platf
 
 **ROCm has a rich system run time** with the critical features that large-scale application, compiler and language-run-time development requires.
 
-**HSA Compliant Runtime and Driver for AMD RADEON GPU’s**
-  .. image:: HSA.jpeg
-      :width: 200px
-      :height: 100px
 
 Going to 11: Amping Up the Programming-Language Run-Time Foundation
 ####################################################################
-The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continum’s Anaconda Python.
+The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
 
 .. image:: ROCm_Stack.png
     :align: center
@@ -33,11 +29,15 @@ Important features include the following:
     * HSA signals and atomics
     * User-mode queues and DMA
     * Standardized loader and code-object format
-    * Dynamics and offline-compilation support
+    * Dynamic and offline-compilation support
     * Peer-to-peer multi-GPU operation with RDMA support
     * Profiler trace and event-collection API
     * Systems-management API and tools
 
+
+.. image:: ROCm_Core_Stack.png
+    :align: center
+    
 Solid Compilation Foundation and Language Support
 ####################################################
     * LLVM compiler foundation
@@ -50,7 +50,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :maxdepth: 6
    :hidden:
    
-
+   ROCm
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
    Programming_Guides/Programming-Guides
@@ -58,11 +58,14 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    GCN_ISA_Manuals/GCN-ISA-Manuals
    ROCm_API_References/ROCm-API-References
    ROCm_Tools/ROCm-Tools
+   ROCm_Libraries/ROCm_Libraries
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
    Remote_Device_Programming/Remote-Device-Programming
+   Deep_learning/Deep-learning
    Other_Solutions/Other-Solutions
+   Tutorial/Tutorial
    ROCm_Glossary/ROCm-Glossary
 
 

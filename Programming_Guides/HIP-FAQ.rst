@@ -33,7 +33,7 @@ At a high-level, the following features are not supported:
    * Graphics interoperability with OpenGL or Direct3D
    * CUDA Driver API
    * CUDA IPC Functions (Under Development)
-   * CUDA array, mipmappedArray and pitched memory
+   * CUDA array, hipmappedArray and pitched memory
    * MemcpyToSymbol functions
    * Queue priority controls
 
@@ -120,7 +120,7 @@ As a result, the OpenCL syntax is different from CUDA, and the porting tools hav
 
 **Does Hipify automatically convert all source code?**
 
-Typically, hipify can automatically convert almost all run-time code, and the coordinate indexing device code ( threadIdx.x -> hipThreadIdx_x ).
+Typically, hipify can automatically convert almost all runtime code, and the coordinate indexing device code ( threadIdx.x -> hipThreadIdx_x ).
 Most device code needs no additional conversion, since HIP and CUDA have similar names for math and built-in functions. The hipify-clang tool will automatically modify the kernel signature as needed (automating a step that used to be done manually) Additional porting may be required to deal with architecture feature queries or with CUDA capabilities that HIP doesn't support. In general, developers should always expect to perform some platform-specific tuning and optimization.
 
 **What is NVCC?**
@@ -139,11 +139,11 @@ In addition, HIP defines portable mechanisms to query architectural features, an
 
 **Can I develop HIP code on an Nvidia CUDA platform?**
 
-Yes. HIP's CUDA path only exposes the APIs and functionality that work on both NVCC and HCC back-ends. "Extra" APIs, parameters, and features which exist in CUDA but not in HCC will typically result in compile- or run-time errors. Developers need to use the HIP API for most accelerator code, and bracket any CUDA-specific code with preprocessor conditionals. Developers concerned about portability should of course run on both platforms, and should expect to tune for performance. In some cases CUDA has a richer set of modes for some APIs, and some C++ capabilities such as virtual functions - see the HIP @API documentation for more details.
+Yes. HIP's CUDA path only exposes the APIs and functionality that work on both NVCC and HCC back-ends. "Extra" APIs, parameters, and features which exist in CUDA but not in HCC will typically result in compile- or runtime errors. Developers need to use the HIP API for most accelerator code, and bracket any CUDA-specific code with preprocessor conditionals. Developers concerned about portability should of course run on both platforms, and should expect to tune for performance. In some cases CUDA has a richer set of modes for some APIs, and some C++ capabilities such as virtual functions - see the HIP @API documentation for more details.
 
 **Can I develop HIP code on an AMD HCC platform?**
 
-Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile- or run-time errors. Developers must use the HIP API for most accelerator code and bracket any HCC-specific code with preprocessor conditionals. Those concerned about portability should, of course, test their code on both platforms and should tune it for performance. Typically, HCC supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the hc path.
+Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile- or runtime errors. Developers must use the HIP API for most accelerator code and bracket any HCC-specific code with preprocessor conditionals. Those concerned about portability should, of course, test their code on both platforms and should tune it for performance. Typically, HCC supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the hc path.
 
 **Can a HIP binary run on both AMD and Nvidia platforms?**
 
@@ -151,7 +151,7 @@ HIP is a source-portable language that can be compiled to run on either the HCC 
 
 **What's the difference between HIP and hc?**
 
-HIP is a portable C++ language that supports a strong subset of the CUDA run-time APIs and device-kernel language. It's designed to simplify CUDA conversion to portable C++. HIP provides a C-compatible run-time API, C-compatible kernel-launch mechanism, C++ kernel language and pointer-based memory management.
+HIP is a portable C++ language that supports a strong subset of the CUDA runtime APIs and device-kernel language. It's designed to simplify CUDA conversion to portable C++. HIP provides a C-compatible runtime API, C-compatible kernel-launch mechanism, C++ kernel language and pointer-based memory management.
 
 A C++ dialect, hc is supported by the AMD HCC compiler. It provides C++ run time, C++ kernel-launch APIs (parallel_for_each), C++ kernel language, and several memory-management options, including pointers, arrays and array_view (with implicit data synchronization). It's intended to be a leading indicator of the ISO C++ standard.
 
@@ -200,4 +200,4 @@ Unlike CUDA, in HCC, for functions defined in the header files, the keyword of "
 
 **How do I disable HIP Generic Grid Launch option?**
 
-Generic Grid Launch(GGL) is currently the default method for hip kernel launch. To disable it and use the legancy grid launch method, please either change the default value of GENERIC_GRID_LAUNCH to 0 in the following to header files and rebuild HIP: $HIP/include/hip/hcc_detail/hip_runtime_api.h $HIP/include/hip/hcc_detail/host_defines.h Or pass "-DGENERIC_GRID_LAUNCH=0" to hipcc at application compilation time.
+Generic Grid Launch(GGL) is currently the default method for hip kernel launch. To disable it and use the legacy grid launch method, please either change the default value of GENERIC_GRID_LAUNCH to 0 in the following to header files and rebuild HIP: $HIP/include/hip/hcc_detail/hip_runtime_api.h $HIP/include/hip/hcc_detail/host_defines.h Or pass "-DGENERIC_GRID_LAUNCH=0" to hipcc at application compilation time.

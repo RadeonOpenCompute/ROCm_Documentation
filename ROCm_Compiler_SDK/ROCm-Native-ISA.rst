@@ -43,6 +43,7 @@ GCN Native ISA LLVM Code Generator
        * :ref:`Unspecified OS`
            * :ref:`Trap Handler ABI2`
      * :ref:`Source Languages`
+        
        * :ref:`OpenCL`
        * :ref:`HCC`
        * :ref:`Assembler`

@@ -3,8 +3,8 @@
 documentation
 ==============
 
-Introduction
-#############
+OCML User Guide
+################
 What Is OCML
 **************
 OCML is an LLVM-IR bitcode library designed to relieve language compiler and runtime implementers of the burden of implementing efficient and accurate mathematical functions. It is essentially a “libm” in intermediate representation with a fixed, simple API that can be linked in to supply the implementations of most standard low-level mathematical functions provided by the language.

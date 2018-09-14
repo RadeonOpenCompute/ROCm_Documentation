@@ -1,7 +1,7 @@
 .. _HIP-GUIDE:
 
-HIP_GUIDE
-==========
+HIP Programming Guide
+========================
 
 HIP provides a C++ syntax that is suitable for compiling most code that commonly appears in compute kernels, including classes, namespaces, operator overloading, templates and more. Additionally, it defines other language features designed specifically to target accelerators, such as the following:
 
@@ -85,7 +85,7 @@ The hipLaunchKernel macro always starts with the five parameters specified above
  .. _Kernel:
 
 Kernel-Launch Example
-~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++
  
  ::
  
@@ -203,7 +203,7 @@ HIP supports the following short vector formats:
  .. _dim3:
 
 dim3
-~~~~
++++++++
 dim3 is a three-dimensional integer vector type commonly used to specify grid and group dimensions. Unspecified dimensions are initialized to 1. ::
 
  typedef struct dim3 {
@@ -240,417 +240,863 @@ hcc supports a set of math operations callable from the device.
 
 Following is the list of supported single precision mathematical functions.
 
- +---------------------------------------------------------------------------+-------------------+---------------------+
- |              Function 			       			     | Supported on Host | Supported on Device | 	  	     
- +===========================================================================+===================+=====================+
- | | float acosf ( float x ):					             |                   |                     |        
- | | Calculate the arc cosine of the input argum                             |        ✓              |                     |
- +---------------------------------------------------------------------------+-------------------+---------------------+
+
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| Function                                                                                           | Supported on Host | Supported on Device |
++====================================================================================================+===================+=====================+
+| float acosf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc cosine of the input argument.                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float acoshf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the nonnegative arc hyperbolic cosine of the input argument.                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float asinf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc sine of the input argument.                                                      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float asinhf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc hyperbolic sine of the input argument.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float atan2f ( float y, float x )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc tangent of the ratio of first and second input arguments.                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float atanf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc tangent of the input argument.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float atanhf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc hyperbolic tangent of the input argument.                                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float cbrtf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the cube root of the input argument.                                                     |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float ceilf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate ceiling of the input argument.                                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float copysignf ( float x, float y )                                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Create value with given magnitude, copying sign of second value.                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float cosf ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the cosine of the input argument.                                                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float coshf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the hyperbolic cosine of the input argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float erfcf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the complementary error function of the input argument.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float erff ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the error function of the input argument.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float exp10f ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 10 exponential of the input argument.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float exp2f ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 2 exponential of the input argument.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float expf ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base e exponential of the input argument.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float expm1f ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base e exponential of the input argument, minus 1.                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fabsf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the absolute value of its argument.                                                      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fdimf ( float x, float y )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute the positive difference between x and y.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float floorf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the largest integer less than or equal to x.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fmaf ( float x, float y, float z )                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute x × y + z as a single operation.                                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fmaxf ( float x, float y )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine the maximum numeric value of the arguments.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fminf ( float x, float y )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine the minimum numeric value of the arguments.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fmodf ( float x, float y )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the floating-point remainder of x / y.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float frexpf ( float x, int* nptr )                                                                | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Extract mantissa and exponent of a floating-point value.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float hypotf ( float x, float y )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of two arguments.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| int ilogbf ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute the unbiased integer exponent of the argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 isfinite ( float a )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine whether argument is finite.                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 isinf ( float a )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine whether argument is infinite.                                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 isnan ( float a )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine whether argument is a NaN.                                                               |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float ldexpf ( float x, int exp )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of x ⋅ 2exp.                                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float log10f ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 10 logarithm of the input argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float log1pf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of loge( 1 + x ).                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float logbf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the floating point representation of the exponent of the input argument.                 |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float log2f ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 2 logarithm of the input argument.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float logf ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the natural logarithm of the input argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float modff ( float x, float* iptr )                                                               | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Break down the input argument into fractional and integral parts.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float nanf ( const char* tagp )                                                                    | ✗                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Returns "Not a Number"" value."                                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float nearbyintf ( float x )                                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round the input argument to the nearest integer.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float powf ( float x, float y )                                                                    | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of first argument to the power of second argument.                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float remainderf ( float x, float y )                                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute single-precision floating-point remainder.                                                 |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float remquof ( float x, float y, int* quo )                                                       | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Compute single-precision floating-point remainder and part of quotient.                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float roundf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round to nearest integer value in floating-point.                                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float scalbnf ( float x, int n )                                                                   | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Scale floating-point input by integer power of two.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 signbit ( float a )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Return the sign bit of the input.                                                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| void sincosf ( float x, float* sptr, float* cptr )                                                 | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine and cosine of the first input argument.                                         |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float sinf ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine of the input argument.                                                          |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float sinhf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the hyperbolic sine of the input argument.                                               |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float sqrtf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the input argument.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float tanf ( float x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the tangent of the input argument.                                                       |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float tanhf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the hyperbolic tangent of the input argument.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float truncf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Truncate input argument to the integral part.                                                      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float tgammaf ( float x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the gamma function of the input argument.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float erfcinvf ( float y )                                                                         | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the inverse complementary function of the input argument.                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float erfcxf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the scaled complementary error function of the input argument.                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float erfinvf ( float y )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the inverse error function of the input argument.                                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float fdividef ( float x, float y )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Divide two floating point values.                                                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float frexpf ( float x, int *nptr )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Extract mantissa and exponent of a floating-point value.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float j0f ( float x )                                                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the first kind of order 0 for the input argument.    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float j1f ( float x )                                                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the first kind of order 1 for the input argument.    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float jnf ( int n, float x )                                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the first kind of order n for the input argument.    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float lgammaf ( float x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the natural logarithm of the absolute value of the gamma function of the input argument. |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long long int llrintf ( float x )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round input to nearest integer value.                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long long int llroundf ( float x )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round to nearest integer value.                                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long int lrintf ( float x )                                                                        | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round input to nearest integer value.                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long int lroundf ( float x )                                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round to nearest integer value.                                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float modff ( float x, float *iptr )                                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Break down the input argument into fractional and integral parts.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float nextafterf ( float x, float y )                                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Returns next representable single-precision floating-point value after argument.                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float norm3df ( float a, float b, float c )                                                        | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of three coordinates of the argument.              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float norm4df ( float a, float b, float c, float d )                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of four coordinates of the argument.               |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float normcdff ( float y )                                                                         | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the standard normal cumulative distribution function.                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float normcdfinvf ( float y )                                                                      | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the inverse of the standard normal cumulative distribution function.                     |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float normf ( int dim, const float *a )                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of any number of coordinates.                      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float rcbrtf ( float x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the reciprocal cube root function.                                                       |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float remquof ( float x, float y, int *quo )                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute single-precision floating-point remainder and part of quotient.                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float rhypotf ( float x, float y )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate one over the square root of the sum of squares of two arguments.                         |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float rintf ( float x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round input to nearest integer value in floating-point.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float rnorm3df ( float a, float b, float c )                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate one over the square root of the sum of squares of three coordinates of the argument.     |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float rnorm4df ( float a, float b, float c, float d )                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate one over the square root of the sum of squares of four coordinates of the argument.      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float rnormf ( int dim, const float *a )                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the reciprocal of square root of the sum of squares of any number of coordinates.        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float scalblnf ( float x, long int n )                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Scale floating-point input by integer power of two.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| void sincosf ( float x, float *sptr, float *cptr )                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine and cosine of the first input argument.                                         |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| void sincospif ( float x, float *sptr, float *cptr )                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine and cosine of the first input argument multiplied by PI.                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float y0f ( float x )                                                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the second kind of order 0 for the input argument.   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float y1f ( float x )                                                                              | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the second kind of order 1 for the input argument.   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float ynf ( int n, float x )                                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the second kind of order n for the input argument.   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
 
 
-[1] __RETURN_TYPE is dependent on compiler. It is usually 'int' for C compilers and 'bool' for C++ compilers. ↩
+[1] __RETURN_TYPE is dependent on compiler. It is usually 'int' for C compilers and 'bool' for C++ compilers. 
 
 **Double Precision Mathematical Functions**
 
 Following is the list of supported double precision mathematical functions.
 
 
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|           Function 							      |	Supported on Host |  Supported on Device |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-| | double acos ( double x )						      |                   |                      |
-| | Calculate the arc cosine of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double acosh ( double x )						      |                   |                      |
-|Calculate the nonnegative arc hyperbolic cosine of the input argument.       |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double asin ( double x )						      |                   |                      |
-|Calculate the arc sine of the input argument. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double asinh ( double x )						      |                   |                      |
-|Calculate the arc hyperbolic sine of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double atan ( double x )						      |                   |                      |
-|Calculate the arc tangent of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double atan2 ( double y, double x )					      |                   |                      |
-|Calculate the arc tangent of the ratio of first and second input arguments.  |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double atanh ( double x )						      |                   |                      |
-|Calculate the arc hyperbolic tangent of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double cbrt ( double x )						      |                   |                      |
-|Calculate the cube root of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double ceil ( double x )			 			      |                   |                      |
-|Calculate ceiling of the input argument. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double copysign ( double x, double y )				              |                   |                      |
-|Create value with given magnitude, copying sign of second value. 	      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double cos ( double x )						      |                   |                      |
-|Calculate the cosine of the input argument. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double cosh ( double x )						      |                   |                      |
-|Calculate the hyperbolic cosine of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double erf ( double x )						      |                   |                      |
-|Calculate the error function of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double erfc ( double x )						      |                   |                      |
-|Calculate the complementary error function of the input argument. 	      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double exp ( double x )						      |                   |                      |
-|Calculate the base e exponential of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double exp10 ( double x )						      |                   |                      |
-|Calculate the base 10 exponential of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double exp2 ( double x )					              |                   |                      |
-|Calculate the base 2 exponential of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double expm1 ( double x )					              |                   |                      |
-|Calculate the base e exponential of the input argument, minus 1. 	      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double fabs ( double x )					  	      |                   |                      |
-|Calculate the absolute value of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double fdim ( double x, double y )				   	      |                   |                      |
-|Compute the positive difference between x and y. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double floor ( double x )						      |                   |                      |
-|Calculate the largest integer less than or equal to x. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double fma ( double x, double y, double z )				      |                   |                      |
-|Compute x × y + z as a single operation. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double fmax ( double , double )					      |                   |                      |
-|Determine the maximum numeric value of the arguments. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double fmin ( double x, double y )					      |                   |                      |
-|Determine the minimum numeric value of the arguments. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double fmod ( double x, double y )					      |                   |                      |
-|Calculate the floating-point remainder of x / y. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double frexp ( double x, int* nptr )				   	      |                   |                      |
-|Extract mantissa and exponent of a floating-point value. 		      | 	✓ 	   |           ✗              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double hypot ( double x, double y )					      |                   |                      |
-|Calculate the square root of the sum of squares of two arguments.            |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|int ilogb ( double x )							      |                   |                      |
-|Compute the unbiased integer exponent of the argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|__RETURN_TYPE1 isfinite ( double a )					      |                   |                      |
-|Determine whether argument is finite. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|__RETURN_TYPE1 isinf ( double a )				 	      |                   |                      |
-|Determine whether argument is infinite. 				      |	       ✓              |           ✓              |+-----------------------------------------------------------------------------+-------------------+----------------------+
-|__RETURN_TYPE1 isnan ( double a )					      |                   |                      |
-|Determine whether argument is a NaN. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double ldexp ( double x, int exp )					      |                   |                      |
-|Calculate the value of x ⋅ 2exp. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double log ( double x )						      |                   |                      |
-|Calculate the base e logarithm of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double log10 ( double x )						      |                   |                      |
-|Calculate the base 10 logarithm of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double log1p ( double x )						      |                   |                      |
-|Calculate the value of loge( 1 + x ). 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double log2 ( double x )						      |                   |                      |
-|Calculate the base 2 logarithm of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double logb ( double x )						      |                   |                      |
-|Calculate the floating point representation of the exponent of		      |	       ✓              |           ✓              |
-|the input argument. 							      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double modf ( double x, double* iptr )					      |                   |                      |
-|Break down the input argument into fractional and integral parts. 	      |        ✓ 	   |	      ✗              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double nan ( const char* tagp )					      |                   |                      |
-|Returns "Not a Number" value. 						      |        ✗              |	      ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double nearbyint ( double x )						      |                   |                      |
-|Round the input argument to the nearest integer. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double pow ( double x, double y )					      |                   |                      |
-|Calculate the value of first argument to the power of second argument.       |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double remainder ( double x, double y )				      |                   |                      |
-|Compute double-precision floating-point remainder. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double remquo ( double x, double y, int* quo )				      |                   |                      |
-|Compute double-precision floating-point remainder and part of quotient.      |        ✓ 	   |	      ✗              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double round ( double x )						      |                   |                      |
-|Round to nearest integer value in floating-point. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double scalbn ( double x, int n )					      |                   |                      |
-|Scale floating-point input by integer power of two. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|__RETURN_TYPE1 signbit ( double a )					      |                   |                      |
-|Return the sign bit of the input. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double sin ( double x )					              |                   |                      |
-|Calculate the sine of the input argument. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|void sincos ( double x, double* sptr, double* cptr )			      |                   |                      |
-|Calculate the sine and cosine of the first input argument. 		      |        ✓ 	   |           ✗              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double sinh ( double x )				  		      |                   |                      |
-|Calculate the hyperbolic sine of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double sqrt ( double x )						      |                   |                      |
-|Calculate the square root of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double tan ( double x )						      |                   |                      |
-|Calculate the tangent of the input argument. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double tanh ( double x )						      |                   |                      |
-|Calculate the hyperbolic tangent of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double tgamma ( double x )						      |                   |                      |
-|Calculate the gamma function of the input argument. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double trunc ( double x )						      |                   |                      |
-|Truncate input argument to the integral part. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double erfcinv ( double y )						      |                   |                      |
-|Calculate the inverse complementary function of the input argument. 	      |        ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double erfcx ( double x )						      |                   |                      |
-|Calculate the scaled complementary error function of the input argument.     |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double erfinv ( double y )						      |                   |                      |
-|Calculate the inverse error function of the input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double frexp ( float x, int *nptr )					      |                   |                      |
-|Extract mantissa and exponent of a floating-point value. 	      	      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double j0 ( double x )							      |                   |                      |
-|Calculate the value of the Bessel function of the first kind of order 0 for  |	       ✓              |           ✓              |
-|the input argument. 							      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double j1 ( double x )							      |                   |                      |
-|Calculate the value of the Bessel function of the first kind of order 1 for  |	       ✓              |           ✓              |
-|the input argument. 							      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double jn ( int n, double x )						      |                   |                      |
-|Calculate the value of the Bessel function of the first kind of order n for  |	       ✓              |           ✓              |
-|the input argument. 							      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double lgamma ( double x )						      |                   |                      |
-|Calculate the natural logarithm of the absolute value of the gamma function  |	       ✓              |           ✓              |
-|of the input argument. 						      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|long long int llrint ( double x )					      |                   |                      |
-|Round input to nearest integer value. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|long long int llround ( double x )					      |                   |                      |
-|Round to nearest integer value. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|long int lrint ( double x )						      |                   |                      |
-|Round input to nearest integer value. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|long int lround ( double x )						      |                   |                      |
-|Round to nearest integer value. 					      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double modf ( double x, double *iptr )					      |                   |                      |
-|Break down the input argument into fractional and integral parts. 	      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double nextafter ( double x, double y )				      |                   |                      |
-|Returns next representable single-precision floating-point value after       |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double norm3d ( double a, double b, double c )				      |                   |                      |
-|Calculate the square root of the sum of squares of three coordinates         |	       ✓              |           ✓              |
-|of the argument. 							      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|float norm4d ( double a, double b, double c, double d )		      |                   |                      |
-|Calculate the square root of the sum of squares of four coordinates          |	       ✓              |           ✓              |
-|of the argument. 							      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double normcdf ( double y )						      |                   |                      |
-|Calculate the standard normal cumulative distribution function. 	      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double normcdfinv ( double y )						      |                   |                      |
-|Calculate the inverse of the standard normal cumulative distribution         |	       ✓              |           ✓              |
-|function. 	                                                              |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double rcbrt ( double x )						      |                   |                      |
-|Calculate the reciprocal cube root function. 				      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double remquo ( double x, double y, int *quo )				      |                   |                      |
-|Compute single-precision floating-point remainder and part of quotient.      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double rhypot ( double x, double y )					      |                   |                      |
-|Calculate one over the square root of the sum of squares of two arguments.   |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double rint ( double x )						      |                   |                      |
-|Round input to nearest integer value in floating-point. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double rnorm3d ( double a, double b, double c )			      |                   |                      |
-|Calculate one over the square root of the sum of squares of three            |	       ✓              |           ✓              |
-|coordinates of the argument. 					              |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double rnorm4d ( double a, double b, double c, double d )		      |                   |                      |
-|Calculate one over the square root of the sum of squares of four             |	       ✓              |           ✓              |
-|coordinates of the argument. 						      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double rnorm ( int dim, const double *a )				      |                   |                      |
-|Calculate the reciprocal of square root of the sum of squares of  	      |	       ✓              |           ✓              |
-|any number of coordinates. 						      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double scalbln ( double x, long int n )				      |                   |                      |
-|Scale floating-point input by integer power of two. 			      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|void sincos ( double x, double *sptr, double *cptr )			      |                   |                      |
-|Calculate the sine and cosine of the first input argument. 		      |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|void sincospi ( double x, double *sptr, double *cptr )  		      |                   |                      |	
-|Calculate the sine and cosine of the first input argument multiplied by PI.  |	       ✓              |           ✓              |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double y0f ( double x )                                                      |                   |                      |   
-|Calculate the value of the Bessel function of the second kind of order 0     |	       ✓              |           ✓              |
-|for the input argument. 						      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double y1 ( double x )							      |                   |                      |
-|Calculate the value of the Bessel function of the second kind of order 1     |	       ✓              |           ✓              |
-|for the input argument. 						      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
-|double yn ( int n, double x )						      |                   |                      |
-|Calculate the value of the Bessel function of the second kind of order n     |	       ✓              |           ✓              |
-|for the input argument. 						      |                   |                      |
-+-----------------------------------------------------------------------------+-------------------+----------------------+
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| Function                                                                                           | Supported on Host | Supported on Device |
++====================================================================================================+===================+=====================+
+| double acos ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc cosine of the input argument.                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double acosh ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the nonnegative arc hyperbolic cosine of the input argument.                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double asin ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc sine of the input argument.                                                      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double asinh ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc hyperbolic sine of the input argument.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double atan ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc tangent of the input argument.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double atan2 ( double y, double x )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc tangent of the ratio of first and second input arguments.                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double atanh ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the arc hyperbolic tangent of the input argument.                                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double cbrt ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the cube root of the input argument.                                                     |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double ceil ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate ceiling of the input argument.                                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double copysign ( double x, double y )                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Create value with given magnitude, copying sign of second value.                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double cos ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the cosine of the input argument.                                                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double cosh ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the hyperbolic cosine of the input argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double erf ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the error function of the input argument.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double erfc ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the complementary error function of the input argument.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double exp ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base e exponential of the input argument.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double exp10 ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 10 exponential of the input argument.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double exp2 ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 2 exponential of the input argument.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double expm1 ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base e exponential of the input argument, minus 1.                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double fabs ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the absolute value of the input argument.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double fdim ( double x, double y )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute the positive difference between x and y.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double floor ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the largest integer less than or equal to x.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double fma ( double x, double y, double z )                                                        | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute x × y + z as a single operation.                                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double fmax ( double , double )                                                                    | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine the maximum numeric value of the arguments.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double fmin ( double x, double y )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine the minimum numeric value of the arguments.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double fmod ( double x, double y )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the floating-point remainder of x / y.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double frexp ( double x, int* nptr )                                                               | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Extract mantissa and exponent of a floating-point value.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double hypot ( double x, double y )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of two arguments.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| int ilogb ( double x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute the unbiased integer exponent of the argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 isfinite ( double a )                                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine whether argument is finite.                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 isinf ( double a )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine whether argument is infinite.                                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 isnan ( double a )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Determine whether argument is a NaN.                                                               |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double ldexp ( double x, int exp )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of x ⋅ 2exp.                                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double log ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base e logarithm of the input argument.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double log10 ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 10 logarithm of the input argument.                                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double log1p ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of loge( 1 + x ).                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double log2 ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the base 2 logarithm of the input argument.                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double logb ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the floating point representation of the exponent of the input argument.                 |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double modf ( double x, double* iptr )                                                             | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Break down the input argument into fractional and integral parts.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double nan ( const char* tagp )                                                                    | ✗                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Returns "Not a Number"" value."                                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double nearbyint ( double x )                                                                      | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round the input argument to the nearest integer.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double pow ( double x, double y )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of first argument to the power of second argument.                             |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double remainder ( double x, double y )                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute double-precision floating-point remainder.                                                 |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double remquo ( double x, double y, int* quo )                                                     | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Compute double-precision floating-point remainder and part of quotient.                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double round ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round to nearest integer value in floating-point.                                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double scalbn ( double x, int n )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Scale floating-point input by integer power of two.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| __RETURN_TYPE1 signbit ( double a )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Return the sign bit of the input.                                                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double sin ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine of the input argument.                                                          |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| void sincos ( double x, double* sptr, double* cptr )                                               | ✓                 | ✗                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine and cosine of the first input argument.                                         |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double sinh ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the hyperbolic sine of the input argument.                                               |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double sqrt ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the input argument.                                                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double tan ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the tangent of the input argument.                                                       |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double tanh ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the hyperbolic tangent of the input argument.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double tgamma ( double x )                                                                         | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the gamma function of the input argument.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double trunc ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Truncate input argument to the integral part.                                                      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double erfcinv ( double y )                                                                        | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the inverse complementary function of the input argument.                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double erfcx ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the scaled complementary error function of the input argument.                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double erfinv ( double y )                                                                         | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the inverse error function of the input argument.                                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double frexp ( float x, int *nptr )                                                                | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Extract mantissa and exponent of a floating-point value.                                           |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double j0 ( double x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the first kind of order 0 for the input argument.    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double j1 ( double x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the first kind of order 1 for the input argument.    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double jn ( int n, double x )                                                                      | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the first kind of order n for the input argument.    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double lgamma ( double x )                                                                         | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the natural logarithm of the absolute value of the gamma function of the input argument. |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long long int llrint ( double x )                                                                  | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round input to nearest integer value.                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long long int llround ( double x )                                                                 | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round to nearest integer value.                                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long int lrint ( double x )                                                                        | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round input to nearest integer value.                                                              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| long int lround ( double x )                                                                       | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round to nearest integer value.                                                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double modf ( double x, double *iptr )                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Break down the input argument into fractional and integral parts.                                  |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double nextafter ( double x, double y )                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Returns next representable single-precision floating-point value after argument.                   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double norm3d ( double a, double b, double c )                                                     | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of three coordinates of the argument.              |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| float norm4d ( double a, double b, double c, double d )                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the square root of the sum of squares of four coordinates of the argument.               |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double normcdf ( double y )                                                                        | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the standard normal cumulative distribution function.                                    |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double normcdfinv ( double y )                                                                     | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the inverse of the standard normal cumulative distribution function.                     |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double rcbrt ( double x )                                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the reciprocal cube root function.                                                       |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double remquo ( double x, double y, int *quo )                                                     | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Compute single-precision floating-point remainder and part of quotient.                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double rhypot ( double x, double y )                                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate one over the square root of the sum of squares of two arguments.                         |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double rint ( double x )                                                                           | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Round input to nearest integer value in floating-point.                                            |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double rnorm3d ( double a, double b, double c )                                                    | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate one over the square root of the sum of squares of three coordinates of the argument.     |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double rnorm4d ( double a, double b, double c, double d )                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate one over the square root of the sum of squares of four coordinates of the argument.      |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double rnorm ( int dim, const double *a )                                                          | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the reciprocal of square root of the sum of squares of any number of coordinates.        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double scalbln ( double x, long int n )                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Scale floating-point input by integer power of two.                                                |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| void sincos ( double x, double *sptr, double *cptr )                                               | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine and cosine of the first input argument.                                         |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| void sincospi ( double x, double *sptr, double *cptr )                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the sine and cosine of the first input argument multiplied by PI.                        |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double y0f ( double x )                                                                            | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the second kind of order 0 for the input argument.   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double y1 ( double x )                                                                             | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the second kind of order 1 for the input argument.   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
+| double yn ( int n, double x )                                                                      | ✓                 | ✓                   |
+|                                                                                                    |                   |                     |
+| Calculate the value of the Bessel function of the second kind of order n for the input argument.   |                   |                     |
++----------------------------------------------------------------------------------------------------+-------------------+---------------------+
 
-[1] __RETURN_TYPE is dependent on compiler. It is usually 'int' for C compilers and 'bool' for C++ compilers. ↩\
+[1] __RETURN_TYPE is dependent on compiler. It is usually 'int' for C compilers and 'bool' for C++ compilers. 
 
 **Integer Intrinsics**
 
 Following is the list of supported integer intrinsics. Note that intrinsics are supported on device only.
 
-+-------------------------------------------------------------------------------------------------------------------+
-|			               Function									    |
-+===================================================================================================================+
-| | unsigned int __brev ( unsigned int x )									    |
-| | Reverse the bit order of a 32 bit unsigned integer.							            |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned long long int __brevll ( unsigned long long int x ) 						    |
-| | Reverse the bit order of a 64 bit unsigned integer. 							    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | int __clz ( int x ) 										            |
-| | Return the number of consecutive high-order zero bits in a 32 bit integer.					    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __clz(unsigned int x) 										    |
-| | Return the number of consecutive high-order zero bits in 32 bit unsigned integer.				    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | int __clzll ( long long int x ) 										    |
-| | Count the number of consecutive high-order zero bits in a 64 bit integer.					    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __clzll(long long int x) 									    |
-| | Return the number of consecutive high-order zero bits in 64 bit signed integer.				    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __ffs(unsigned int x)   									    |
-| | Find the position of least signigicant bit set to 1 in a 32 bit unsigned integer.1			            |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __ffs(int x) 											    |
-| | Find the position of least signigicant bit set to 1 in a 32 bit signed integer.				    |
-+-------------------------------------------------------------------------------------------------------------------+		
-| | unsigned int __ffsll(unsigned long long int x) 							            |
-| | Find the position of least signigicant bit set to 1 in a 64 bit unsigned integer.1				    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __ffsll(long long int x) 									    |
-| | Find the position of least signigicant bit set to 1 in a 64 bit signed integer.				    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __popc ( unsigned int x ) 									    |
-| | Count the number of bits that are set to 1 in a 32 bit integer.  						    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | int __popcll ( unsigned long long int x )									    |
-| | Count the number of bits that are set to 1 in a 64 bit integer.						    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | int __mul24 ( int x, int y )										    |
-| | Multiply two 24bit integers.										    |
-+-------------------------------------------------------------------------------------------------------------------+
-| | unsigned int __umul24 ( unsigned int x, unsigned int y )							    |
-| | Multiply two 24bit unsigned integers.								 	    |
-+-------------------------------------------------------------------------------------------------------------------+
-|The hcc implementation of __ffs() and __ffsll() contains code to add a constant +1 to produce the ffs result format|
-+-------------------------------------------------------------------------------------------------------------------+
-|For the cases where this overhead is not acceptable and programmer is willing to specialize for the platform,      |
-+-------------------------------------------------------------------------------------------------------------------+
-|hcc provides hc::__lastbit_u32_u32(unsigned int input) and hc::__lastbit_u32_u64(unsigned long long int input).    |
-+-------------------------------------------------------------------------------------------------------------------+
-|The index returned by _lastbit instructions starts at -1, while for ffs the index starts at 0.                     |
-+-------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+| Function                                                                                                             |
++======================================================================================================================+
+| unsigned int __brev  ( unsigned int x )                                                                              |
+|                                                                                                                      |
+| Reverse the bit order of a 32 bit unsigned integer.                                                                  |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned long long int __brevll ( unsigned long long int x )                                                         |
+|                                                                                                                      |
+| Reverse the bit order of a 64 bit unsigned integer.                                                                  |
++----------------------------------------------------------------------------------------------------------------------+
+| int __clz ( int x )                                                                                                  |
+|                                                                                                                      |
+| Return the number of consecutive high-order zero bits in a 32 bit integer.                                           |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __clz(unsigned int x)                                                                                   |
+|                                                                                                                      |
+| Return the number of consecutive high-order zero bits in 32 bit unsigned integer.                                    |
++----------------------------------------------------------------------------------------------------------------------+
+| int __clzll ( long long int x )                                                                                      |
+|                                                                                                                      |
+| Count the number of consecutive high-order zero bits in a 64 bit integer.                                            |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __clzll(long long int x)                                                                                |
+|                                                                                                                      |
+| Return the number of consecutive high-order zero bits in 64 bit signed integer.                                      |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __ffs(unsigned int x)                                                                                   |
+|                                                                                                                      |
+| Find the position of least signigicant bit set to 1 in a 32 bit unsigned integer.1                                   |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __ffs(int x)                                                                                            |
+|                                                                                                                      |
+| Find the position of least signigicant bit set to 1 in a 32 bit signed integer.                                      |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __ffsll(unsigned long long int x)                                                                       |
+|                                                                                                                      |
+| Find the position of least signigicant bit set to 1 in a 64 bit unsigned integer.1                                   |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __ffsll(long long int x)                                                                                |
+|                                                                                                                      |
+| Find the position of least signigicant bit set to 1 in a 64 bit signed integer.                                      |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __popc ( unsigned int x )                                                                               |
+|                                                                                                                      |
+| Count the number of bits that are set to 1 in a 32 bit integer.                                                      |
++----------------------------------------------------------------------------------------------------------------------+
+| int __popcll ( unsigned long long int x )                                                                            |
+|                                                                                                                      |
+| Count the number of bits that are set to 1 in a 64 bit integer.                                                      |
++----------------------------------------------------------------------------------------------------------------------+
+| int __mul24 ( int x int y )                                                                                          |
+|                                                                                                                      |
+| Multiply two 24bit integers.                                                                                         |
++----------------------------------------------------------------------------------------------------------------------+
+| unsigned int __umul24 ( unsigned int x unsigned int y )                                                              |
+|                                                                                                                      |
+| Multiply two 24bit unsigned integers.                                                                                |
++----------------------------------------------------------------------------------------------------------------------+
+| [1]                                                                                                                  |
++----------------------------------------------------------------------------------------------------------------------+
+| The hcc implementation of __ffs() and __ffsll() contains code to add a constant +1 to produce the ffs result format. |
++----------------------------------------------------------------------------------------------------------------------+
+| For the cases where this overhead is not acceptable and programmer is willing to specialize for the platform         |
++----------------------------------------------------------------------------------------------------------------------+
+| hcc provides hc::__lastbit_u32_u32(unsigned int input) and hc::__lastbit_u32_u64(unsigned long long int input).      |
++----------------------------------------------------------------------------------------------------------------------+
+| The index returned by _lastbit instructions starts at -1 while for ffs the index starts at 0.                        |
++----------------------------------------------------------------------------------------------------------------------+
 
 
 **Floating-point Intrinsics**
 
 Following is the list of supported floating-point intrinsics. Note that intrinsics are supported on device only.
 
-+---------------------------------------------------------------------------------------------------------------------+
-|                                             Function								      |
-+=====================================================================================================================+
-| | float __cosf ( float x )                                                                                          |
-| | Calculate the fast approximate cosine of the input argument.                                                      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __expf ( float x )                                                                                          |
-| | Calculate the fast approximate base e exponential of the input argument.                                          |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __frsqrt_rn ( float x ) 										      |
-| | Compute 1 / √x in round-to-nearest-even mode.								      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __fsqrt_rd ( float x ) 										      |
-| | Compute √x in round-down mode.										      |		
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __fsqrt_rn ( float x ) 										      |
-| | Compute √x in round-to-nearest-even mode.									      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __fsqrt_ru ( float x ) 										      |
-| | Compute √x in round-up mode.										      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __fsqrt_rz ( float x ) 										      |
-| | Compute √x in round-towards-zero mode.									      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __log10f ( float x ) 											      |
-| | Calculate the fast approximate base 10 logarithm of the input argument.					      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __log2f ( float x ) 											      |
-| | Calculate the fast approximate base e logarithm of the input argument.					      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __powf ( float x, float y )  										      |
-| | Calculate the fast approximate of xy.                                                                             |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __sinf ( float x ) 											      |
-| | Calculate the fast approximate sine of the input argument.							      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | float __tanf ( float x ) 											      |
-| | Calculate the fast approximate tangent of the input argument.						      |	
-+---------------------------------------------------------------------------------------------------------------------+
-| | double __dsqrt_rd ( double x ) 										      |
-| | Compute √x in round-down mode.										      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | double __dsqrt_rn ( double x ) 										      |
-| | Compute √x in round-to-nearest-even mode.									      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | double __dsqrt_ru ( double x ) 										      |
-| | Compute √x in round-up mode.										      |
-+---------------------------------------------------------------------------------------------------------------------+
-| | double __dsqrt_rz ( double x ) 										      |
-| | Compute √x in round-towards-zero mode.                                                                            |
-+---------------------------------------------------------------------------------------------------------------------+
-||The hcc implementation of __ffs() and __ffsll() contains code to add a constant +1 to produce the ffs result format.|
-+---------------------------------------------------------------------------------------------------------------------+
-|For the cases where this overhead is not acceptable and programmer is willing to specialize for the platform,        |
-+---------------------------------------------------------------------------------------------------------------------+
-|hcc provides hc::__lastbit_u32_u32(unsigned int input) and hc::__lastbit_u32_u64(unsigned long long int input).      |
-+---------------------------------------------------------------------------------------------------------------------+
-|The index returned by _lastbit instructions starts at -1, while for ffs the index starts at 0.                       |
-+---------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------+
+|  Function                                                                  |
++============================================================================+
+|  float __cosf ( float x )                                                  |
+|                                                                            |
+|  Calculate the fast approximate cosine of the input argument.              |
++----------------------------------------------------------------------------+
+|  float __expf ( float x )                                                  |
+|                                                                            |
+|  Calculate the fast approximate base e exponential of the input argument.  |
++----------------------------------------------------------------------------+
+|  float __frsqrt_rn ( float x )                                             |
+|                                                                            |
+|  Compute 1/√x in round-to-nearest-even mode.                               |
++----------------------------------------------------------------------------+
+|  float __fsqrt_rd ( float x )                                              |
+|                                                                            |
+|  Compute √x in round-down mode.                                            |
++----------------------------------------------------------------------------+
+|  float __fsqrt_rn ( float x )                                              |
+|                                                                            |
+|  Compute √x in round-to-nearest-even mode.                                 |
++----------------------------------------------------------------------------+
+|  float __fsqrt_ru ( float x )                                              |
+|                                                                            |
+|  Compute √x in round-up mode.                                              |
++----------------------------------------------------------------------------+
+|  float __fsqrt_rz ( float x )                                              |
+|                                                                            |
+|  Compute √x in round-towards-zero mode.                                    |
++----------------------------------------------------------------------------+
+|  float __log10f ( float x )                                                |
+|                                                                            |
+|  Calculate the fast approximate base 10 logarithm of the input argument.   |
++----------------------------------------------------------------------------+
+|  float __log2f ( float x )                                                 |
+|                                                                            |
+|  Calculate the fast approximate base 2 logarithm of the input argument.    |
++----------------------------------------------------------------------------+
+|  float __logf ( float x )                                                  |
+|                                                                            |
+|  Calculate the fast approximate base e logarithm of the input argument.    |
++----------------------------------------------------------------------------+
+|  float __powf ( float x float y )                                          |
+|                                                                            |
+|  Calculate the fast approximate of xy.                                     |
++----------------------------------------------------------------------------+
+|  float __sinf ( float x )                                                  |
+|                                                                            |
+|  Calculate the fast approximate sine of the input argument.                |
++----------------------------------------------------------------------------+
+|  float __tanf ( float x )                                                  |
+|                                                                            |
+|  Calculate the fast approximate tangent of the input argument.             |
++----------------------------------------------------------------------------+
+|  double __dsqrt_rd ( double x )                                            |
+|                                                                            |
+|  Compute  √x in round-down mode.                                           |
++----------------------------------------------------------------------------+
+|  double __dsqrt_rn ( double x )                                            |
+|                                                                            |
+|  Compute  √x in round-to-nearest-even mode.                                |
++----------------------------------------------------------------------------+
+|  double __dsqrt_ru ( double x )                                            |
+|                                                                            |
+|  Compute  √x in round-up mode.                                             |
++----------------------------------------------------------------------------+
+|  double __dsqrt_rz ( double x )                                            |
+|                                                                            |
+|  Compute  √x in round-towards-zero mode.                                   |
++----------------------------------------------------------------------------+
 
 Texture Functions
 ******************
@@ -675,67 +1121,69 @@ Atomic functions execute as read-modify-write operations residing in global or s
 
 HIP supports the following atomic operations.
 
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-|		Function								        |Support in HIP |Support in CUDA |
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicAdd(int* address, int val) 							        |   ✓                |      ✓            |   +-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicAdd(unsigned int* address,unsigned int val)				|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicAdd(unsigned long long int* address,unsigned long long int val)	|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| float atomicAdd(float* address, float val)							|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicSub(int* address, int val)								|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicSub(unsigned int* address,unsigned int val)			        |   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicExch(int* address, int val)								|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicExch(unsigned int* address,unsigned int val)				|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicExch(unsigned long long int* address,unsigned long long int val)	|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| float atomicExch(float* address, float val)							|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicMin(int* address, int val)								|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicMin(unsigned int* address,unsigned int val)				|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicMin(unsigned long long int* address,unsigned long long int val)	|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicMax(int* address, int val)								|   ✓                |      ✓            |+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicMax(unsigned int* address,unsigned int val)				|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicMax(unsigned long long int* address,unsigned long long int val)	|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicInc(unsigned int* address)							|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicDec(unsigned int* address)							|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicCAS(int* address, int compare, int val)						|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicCAS(unsigned int* address,unsigned int compare,unsigned int val)	        |   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-|  compare,unsigned long long int val)                                                          |               |                |
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicAnd(int* address, int val)								|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicAnd(unsigned int* address,unsigned int val)				|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicAnd(unsigned long long int* address,unsigned long long int val)	|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicOr(int* address, int val)								|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicOr(unsigned int* address,unsigned int val)					|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicOr(unsigned long long int* address,unsigned long long int val)	|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| int atomicXor(int* address, int val)								|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned int atomicXor(unsigned int* address,unsigned int val)				|   ✓                |      ✓            |   
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
-| unsigned long long int atomicXor(unsigned long long int* address,unsigned long long int val))	|   ✓                |      ✓            |    
-+-----------------------------------------------------------------------------------------------+---------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| Function                                                                                                                    | Supported in HIP | Supported in CUDA |
++=============================================================================================================================+==================+===================+
+| int atomicAdd(int* address, int val)                                                                                        | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicAdd(unsigned int* address,unsigned int val)                                                              | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicAdd(unsigned long long int* address,unsigned long long int val)                                | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| float atomicAdd(float* address, float val)                                                                                  | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicSub(int* address, int val)                                                                                        | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicSub(unsigned int* address,unsigned int val)                                                              | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicExch(int* address, int val)                                                                                       | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicExch(unsigned int* address,unsigned int val)                                                             | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicExch(unsigned long long int* address,unsigned long long int val)                               | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| float atomicExch(float* address, float val)                                                                                 | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicMin(int* address, int val)                                                                                        | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicMin(unsigned int* address,unsigned int val)                                                              | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicMin(unsigned long long int* address,unsigned long long int val)                                | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicMax(int* address, int val)                                                                                        | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicMax(unsigned int* address,unsigned int val)                                                              | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicMax(unsigned long long int* address,unsigned long long int val)                                | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicInc(unsigned int* address)                                                                               | ✗                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicDec(unsigned int* address)                                                                               | ✗                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicCAS(int* address, int compare, int val)                                                                           | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicCAS(unsigned int* address,unsigned int compare,unsigned int val)                                         | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicCAS(unsigned long long int* address,unsigned long long int compare,unsigned long long int val) | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicAnd(int* address, int val)                                                                                        | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicAnd(unsigned int* address,unsigned int val)                                                              | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicAnd(unsigned long long int* address,unsigned long long int val)                                | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicOr(int* address, int val)                                                                                         | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicOr(unsigned int* address,unsigned int val)                                                               | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicOr(unsigned long long int* address,unsigned long long int val)                                 | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| int atomicXor(int* address, int val)                                                                                        | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned int atomicXor(unsigned int* address,unsigned int val)                                                              | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
+| unsigned long long int atomicXor(unsigned long long int* address,unsigned long long int val))                               | ✓                | ✓                 |
++-----------------------------------------------------------------------------------------------------------------------------+------------------+-------------------+
 
 
 
@@ -746,14 +1194,14 @@ HIP supports the following atomic operations.
  .. _WarpCross:
 
 Warp Cross Lane Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~
+****************************
 
 Warp cross-lane functions operate across all lanes in a warp. The hardware guarantees that all warp lanes will execute in lockstep, so additional synchronization is unnecessary, and the instructions use no shared memory.
 
-Note that Nvidia and AMD devices have different warp sizes, so portable code should use the warpSize built-ins to query the warp size. Hipified code from the Cuda path requires careful review to ensure it doesn’t assume a waveSize of 32. "Wave-aware" code that assumes a waveSize of 32 will run on a wave-64 machine, but it will utilize only half of the machine resources. In addition to the warpSize device function, host code can obtain the warpSize from the device properties: ::
-
-	cudaDeviceProp props;
-	cudaGetDeviceProperties(&props, deviceID);
+Note that Nvidia and AMD devices have different warp sizes, so portable code should use the warpSize built-ins to query the warp size. Hipified code from the Cuda path requires careful review to ensure it doesn’t assume a waveSize of 32. "Wave-aware" code that assumes a waveSize of 32 will run on a wave-64 machine, but it will utilize only half of the machine resources. In addition to the warpSize device function, host code can obtain the warpSize from the device properties::
+    
+    cudaDeviceProp props;
+    cudaGetDeviceProperties(&props, deviceID);
     int w = props.warpSize;  
     // implement portable algorithm based on w (rather than assume 32 or 64)
 
@@ -776,7 +1224,7 @@ __ballot provides a bit mask containing the 1-bit predicate value from each lane
 
 
 Warp Shuffle Functions
-~~~~~~~~~~~~~~~~~~~~~~
+************************
 
 Half-float shuffles are not supported. The default width is warpSize---see :ref:`WarpCross` . Applications should not assume the warpSize is 32 or 64.
  
@@ -809,15 +1257,15 @@ Device-side dynamic global memory allocation is under development. HIP now inclu
 
 **__launch_bounds__**
 
-GPU multiprocessors have a fixed pool of resources (primarily registers and shared memory) which are shared by the actively running warps. Using more resources can increase IPC of the kernel but reduces the resources available for other warps and limits the number of warps that can be simulaneously running. Thus GPUs have a complex relationship between resource usage and performance.
+GPU multiprocessors have a fixed pool of resources (primarily registers and shared memory) which are shared by the actively running warps. Using more resources can increase IPC of the kernel but reduces the resources available for other warps and limits the number of warps that can be simultaneously running. Thus GPUs have a complex relationship between resource usage and performance.
 
 hip_launch_bounds allows the application to provide usage hints that influence the resources (primarily registers) used by the generated code. hip_launch_bounds is a function attribute that must be attached to a global function:
 
 ::
 
   __global__ void `__launch_bounds__`(MAX_THREADS_PER_BLOCK, MIN_WARPS_PER_EU) MyKernel(...) ...
-  MyKernel(hipGridLaunch lp, ...) 
-  ...
+    MyKernel(hipGridLaunch lp, ...) 
+    ...
 
 launch_bounds supports two parameters:
 
@@ -830,10 +1278,10 @@ The compiler uses these parameters as follows:
 
    * The compiler uses the hints only to manage register usage, and does not automatically reduce shared memory or other resources.
    *  Compilation fails if compiler cannot generate a kernel which meets the requirements of the specified launch bounds.
-   * From MAX_THREADS_PER_BLOCK, the compiler derives the maximum number of warps/block that can be used at launch time. Values of   	  MAX_THREADS_PER_BLOCK less than the default allows the compiler to use a larger pool of registers : each warp uses registers, 	and this hint constains the launch to a warps/block size which is less than maximum.
-   * From MIN_WARPS_PER_EU, the compiler derives a maximum number of registers that can be used by the kernel (to meet the required   	   #simultaneous active blocks). If MIN_WARPS_PER_EU is 1, then the kernel can use all registers supported by the multiprocessor.
+   * From MAX_THREADS_PER_BLOCK, the compiler derives the maximum number of warps/block that can be used at launch time. Values of   	  MAX_THREADS_PER_BLOCK less than the default allows the compiler to use a larger pool of registers : each warp uses registers, and this hint contains the launch to a warps/block size which is less than maximum.
+   * From MIN_WARPS_PER_EU, the compiler derives a maximum number of registers that can be used by the kernel (to meet the required   	   simultaneous active blocks). If MIN_WARPS_PER_EU is 1, then the kernel can use all registers supported by the multiprocessor.
    * The compiler ensures that the registers used in the kernel is less than both allowed maximums, typically by spilling registers 	 (to shared or global memory), or by using more instructions.
-   * The compiler may use hueristics to increase register usage, or may simply be able to avoid spilling. The MAX_THREADS_PER_BLOCK 	 is particularly useful in this cases, since it allows the compiler to use more registers and avoid situations where the compiler 	   constrains the register usage (potentially spilling) to meet the requirements of a large block size that is never used at launch 	   time.
+   * The compiler may use heuristics to increase register usage, or may simply be able to avoid spilling. The MAX_THREADS_PER_BLOCK 	 is particularly useful in this cases, since it allows the compiler to use more registers and avoid situations where the compiler 	   constrains the register usage (potentially spilling) to meet the requirements of a large block size that is never used at launch 	   time.
 
 **CU and EU Definitions**
 
@@ -846,10 +1294,11 @@ CUDA defines a __launch_bounds which is also designed to control occupancy: ::
    __launch_bounds(MAX_THREADS_PER_BLOCK, MIN_BLOCKS_PER_MULTIPROCESSOR)
 
    * The second parameter __launch_bounds parameters must be converted to the format used __hip_launch_bounds, which uses warps and 	 execution-units rather than blocks and multi-processors ( This conversion is performed automatically by the clang hipify tools.)
- 
+
  ::
    
-   MIN_WARPS_PER_EXECUTION_UNIT = (MIN_BLOCKS_PER_MULTIPROCESSOR * MAX_THREADS_PER_BLOCK) / 32
+   MIN_WARPS_PER_EXECUTION_UNIT = (MIN_BLOCKS_PER_MULTIPROCESSOR * MAX_THREADS_PER_BLOCK)/32
+
 
 The key differences in the interface are:
 
@@ -867,18 +1316,19 @@ The register keyword is deprecated in C++, and is silently ignored by both nvcc 
 
 Pragma Unroll
 **************
-Unroll with a bounds that is known at compile-time is supported. For example: ::
+Unroll with a bounds that is known at compile-time is supported. For example::
 
   #pragma unroll 16 /* hint to compiler to unroll next loop by 16 */
   for (int i=0; i<16; i++) ...
 
 :: 
- 
+  
   #pragma unroll 1  /* tell compiler to never unroll the loop */
   for (int i=0; i<16; i++) ...
 
-Unbounded loop unroll is under development on HCC compiler. ::
-
+Unbounded loop unroll is under development on HCC compiler. 
+::
+  
   #pragma unroll /* hint to compiler to completely unroll next loop. */
   for (int i=0; i<16; i++) ...
 
@@ -892,7 +1342,7 @@ The following C++ features are not supported:
 
   * Run-time-type information (RTTI)
   * Virtual functions
-  * Try/catch
+  * Try / catch
 
 Kernel Compilation
 *******************
@@ -907,6 +1357,8 @@ hipcc now supports compiling C++/HIP kernels to binary code objects. The user ca
    
    [INPUT FILE] = Name of the file containing kernels
    [OUTPUT FILE] = Name of the generated code object file
-   Note that one important fact to remember when using binary code objects is that the number of arguments to the kernel are         	different on HCC and NVCC path. Refer to the sample in samples/0_Intro/module_api for differences in the arguments to be passed to 	 the kernel.
+
+
+Note that one important fact to remember when using binary code objects is that the number of arguments to the kernel are different on HCC and NVCC path. Refer to the sample in samples/0_Intro/module_api for differences in the arguments to be passed to the kernel.
 
 

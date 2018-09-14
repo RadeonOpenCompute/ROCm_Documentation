@@ -7,7 +7,6 @@ HIP Porting Guide
 ~~~~~~~~~~~~~~~~~
 
 In addition to providing a portable C++ programming environment for GPUs, HIP is designed to ease the porting of existing CUDA code into the HIP environment. This section describes the available tools and provides practical suggestions on how to port CUDA code and work through common issues.
-
          
 
 Porting a New Cuda Project
@@ -48,17 +47,13 @@ hipexamine scans each code file (cpp, c, h, hpp, etc) found in the specified dir
 
    * Files with no CUDA code (ie kmeans.h) print one line summary just listing the source file name.
    * Files with CUDA code print a summary of what was found - for example the kmeans_cuda_kernel.cu file:
+     :: 
+    
+      info: hipify ./kmeans_cuda_kernel.cu =====>
+      info: converted 40 CUDA->HIP refs( dev:0 mem:0 kern:0 builtin:37 math:0 stream:0 event:0 
 
-::
-  
-  info: hipify ./kmeans_cuda_kernel.cu =====>
-  info: converted 40 CUDA->HIP refs( dev:0 mem:0 kern:0 builtin:37 math:0 stream:0 event:0 
-
-
-
-  * Some of the most interesting information in kmeans_cuda_kernel.cu : * How many CUDA calls were converted to HIP (40) * Breakdown of the 	    	different CUDA functionality used (dev:0 mem:0 etc). This file uses many CUDA builtins (37) and texture functions (3). * Warning for code that  	looks like CUDA API but was not converted (0 in this file). * Count Lines-of-Code (LOC) - 185 for this file.
-
-  * hipexamine also presents a summary at the end of the process for the statistics collected across all files. This has similar format to the 	    	per-file reporting, and also includes a list of all kernels which have been called. An example from above:
+   * Some of the most interesting information in kmeans_cuda_kernel.cu : * How many CUDA calls were converted to HIP (40) * Breakdown of the 	    	different CUDA functionality used (dev:0 mem:0 etc). This file uses many CUDA builtins (37) and texture functions (3). * Warning for code that  	looks like CUDA API but was not converted (0 in this file). * Count Lines-of-Code (LOC) - 185 for this file.
+   * hipexamine also presents a summary at the end of the process for the statistics collected across all files. This has similar format to the 	    	per-file reporting, and also includes a list of all kernels which have been called. An example from above:
 
 :: 
 
@@ -133,9 +128,10 @@ Both nvcc and hcc make two passes over the code: one for host code and one for d
 ::
  
   // #ifdef __CUDA_ARCH__  
+  
   #if __HIP_DEVICE_COMPILE__
 
-Unlike __CUDA_ARCH__, the __HIP_DEVICE_COMPILE__ value is 1 or undefined, and it doesn�t represent the feature capability of the target device.
+Unlike __CUDA_ARCH__, the __HIP_DEVICE_COMPILE__ value is 1 or undefined, and it doesn't represent the feature capability of the target device.
 
 Compiler Defines: Summary
 *************************
@@ -201,7 +197,7 @@ Some Cuda code tests __CUDA_ARCH__ for a specific value to determine whether the
 
 
 
-This type of code requires special attention, since hcc/AMD and nvcc/Cuda devices have different architectural capabilities. Moreover, you can�t determine the presence of a feature using a simple comparison against an architecture�s version number. HIP provides a set of defines and device properties to query whether a specific architectural feature is supported.
+This type of code requires special attention, since hcc/AMD and nvcc/Cuda devices have different architectural capabilities. Moreover, you can't determine the presence of a feature using a simple comparison against an architecture's version number. HIP provides a set of defines and device properties to query whether a specific architectural feature is supported.
 
 The __HIP_ARCH_* defines can replace comparisons of __CUDA_ARCH__ values:
 
@@ -342,7 +338,7 @@ hipcc adds the necessary libraries for HIP as well as for the accelerator compil
 
 -lm Option
 **********
-hipcc adds -lm by default to the link command.
+hipcc adds ``-lm`` by default to the link command.
 
 Linking Code With Other Compilers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -391,7 +387,7 @@ You can capture the hipconfig output and passed it to the standard compiler; bel
   CPPFLAGS += $(shell $(HIP_PATH)/bin/hipconfig --cpp_config)
 
 nvcc includes some headers by default. However, HIP does not include default headers, and instead all required files must be explicitly included.
-Specifically, files that call HIP run-time APIs or define HIP kernels must explicitly include the appropriate HIP headers. If the compilation process reports that it cannot find necessary APIs (for example, "error: identifier �hipSetDevice� is undefined"), ensure that the file includes hip_runtime.h (or hip_runtime_api.h, if appropriate). The hipify script automatically converts "cuda_runtime.h" to "hip_runtime.h," and it converts "cuda_runtime_api.h" to "hip_runtime_api.h", but it may miss nested headers or macros.
+Specifically, files that call HIP run-time APIs or define HIP kernels must explicitly include the appropriate HIP headers. If the compilation process reports that it cannot find necessary APIs (for example, "error: identifier 'hipSetDevice' is undefined"), ensure that the file includes hip_runtime.h (or hip_runtime_api.h, if appropriate). The hipify script automatically converts "cuda_runtime.h" to "hip_runtime.h," and it converts "cuda_runtime_api.h" to "hip_runtime_api.h", but it may miss nested headers or macros.
 
 **cuda.h**
 
@@ -542,7 +538,7 @@ environment variables and their current values:
 
   * HIP_TRACE_API = 1: trace each HIP API call. Print the function name and return code to stderr as the program executes.
 
-  * HIP_LAUNCH_BLOCKING = 0: make HIP APIs �host-synchronous� so they are blocked until any kernel launches or data-copy commands are complete (an 	alias is CUDA_LAUNCH_BLOCKING)
+  * HIP_LAUNCH_BLOCKING = 0: make HIP APIs 'host-synchronous' so they are blocked until any kernel launches or data-copy commands are complete (an 	alias is CUDA_LAUNCH_BLOCKING)
 
   * KMDUMPISA = 1 : Will dump the GCN ISA for all kernels into the local directory. (This flag is provided by HCC).
 
@@ -561,14 +557,13 @@ To see the detailed commands that hipcc issues, set the environment variable HIP
 
 **/usr/include/c++/v1/memory:5172:15: error: call to implicitly deleted default constructor of 'std::__1::bad_weak_ptr' throw bad_weak_ptr**();**
 
-If you pass a ".cu" file, hcc will attempt to compile it as a Cuda language file. You must tell hcc that it�s in fact a C++ file: use the "-x c++" option.
+If you pass a ``.cu`` file, hcc will attempt to compile it as a Cuda language file. You must tell hcc that it's in fact a C++ file: use the ``-x c++`` option.
 
 HIP Environment Variables
 **************************
-On the HCC path, HIP provides a number of environment variables that control the behavior of HIP. Some of these are useful for application development (for example HIP_VISIBLE_DEVICES, HIP_LAUNCH_BLOCKING), some are useful for performance tuning or experimentation (for example HIP_STAGING*), and some are useful for debugging (HIP_DB). You can see the environment variables supported by HIP as well as their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application. For example:
-
-::
-
+On the HCC path, HIP provides a number of environment variables that control the behavior of HIP. Some of these are useful for application development (for example HIP_VISIBLE_DEVICES, HIP_LAUNCH_BLOCKING), some are useful for performance tuning or experimentation (for example ``HIP_STAGING*`` ), and some are useful for debugging (HIP_DB). You can see the environment variables supported by HIP as well as their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application. 
+For example::
+  
   $ HIP_PRINT_ENV=1 ./myhipapp
   HIP_PRINT_ENV                  =  1 : Print HIP environment variables.
   HIP_LAUNCH_BLOCKING            =  0 : Make HIP APIs 'host-synchronous', so they block until any kernel launches or data copy commands complete.   	Alias: CUDA_LAUNCH_BLOCKING.
@@ -583,20 +578,3 @@ On the HCC path, HIP provides a number of environment variables that control the
 See the utils/vim or utils/gedit directories to add handy highlighting to hip files.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		

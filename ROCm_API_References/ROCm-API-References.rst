@@ -9,33 +9,35 @@ ROCm API References
 ROCr System Runtime API
 ========================
 
-* `ROCr System Runtime API <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/README.md>`_
+*  :ref:`ROCr-API`
 
 HCC Language Runtime API
 ========================
 
-* `HCC API <https://scchan.github.io/hcc/>`_
+* :ref:`HCC-API`
 
 HIP Language Runtime API
 ========================
-
-* `HIP API <http://rocm-developer-tools.github.io/HIP/>`_
-
-HIP Device Runtime API
-======================
+* :ref:`HIP-API`
 
 HIP Math API
 ====================
 
-* :ref:`HIP-Math-API`
+* :ref:`HIP-MATH`
 
+Thrust API Documentation
+==========================
+
+* :ref:`HIP-thrust`
 
 Math Library API's
 ====================
+* `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
 
-* `rocBLAS API <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki>`_
-* `rocFFT API <https://github.com/ROCmSoftwarePlatform/rocFFT/wiki>`_
-* `Tensile API <https://github.com/ROCmSoftwarePlatform/Tensile>`_
+*  :ref:`clBLAS`
+
+*  :ref:`clSPARSE_API`
+
 
 Deep Learning API's
 ====================
