@@ -54,7 +54,7 @@ Future bus technology with richer I/O Atomics Operation Support
 
   * `GenZ <http://genzconsortium.org/faq/gen-z-technology/#33/>`_
 
-New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
+New PCIe Endpoints with support beyond AMD Ryzen and EPYC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
 
   * `Mellanox Bluefield SOC <http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_
   * `Cavium Thunder X2 <http://www.cavium.com/ThunderX2_ARM_Processors.html>`_
