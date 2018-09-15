@@ -8,20 +8,6 @@ Installation Guide
 Current ROCm Version: 1.9.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `Hardware Support <#hardware-support>`__
--  `Supported GPUs <#supported-gpus>`__
--  `Supported CPUs <#supported-cpus>`__
--  `Not supported or very limited support under
-   ROCm <#not-supported-or-very-limited-support-under-rocm>`__
--  `Software Support <#software-support>`__
--  `Installing from AMD ROCm
-   repositories <#installing-from-amd-rocm-repositories>`__
--  `Ubuntu Support - Installing from a Debian
-   repository <#ubuntu-support---installing-from-a-debian-repository>`__
--  `CentOS/RHEL 7 (both 7.4 and 7.5)
-   Support <#centosrhel-7-both-74-and-75-support>`__
--  `Known Issues / Workarounds <#known-issues--workarounds>`__
-
 Hardware Support
 ~~~~~~~~~~~~~~~~
 
