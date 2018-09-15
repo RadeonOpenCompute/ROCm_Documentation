@@ -12,14 +12,14 @@ Quick Start Guide
 `Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_
 ************************
 
-| `Quick Start on ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#quick-start-on-rocm-1-8>`_
-| This guide provides the minimal Information about ROCm latest version
-
 | `Installing from AMD ROCm repositories <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
 | This guide discusses how to install and check for correct operation of ROCm using AMD ROCm Repository.
 
-| `Installing from a debian repository <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-a-debian-repository>`_
-| This guide discusses how to install and check for correct operation of ROCm using Debian repository.
+| `Installing from a Debian repository <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#ubuntu-support-installing-from-a-debian-repository>`_
+| This guide discusses how to install and check for correct operation of ROCm using Debian repository on Ubuntu.
+
+| `Installing from an yum repository <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#centos-rhel-7-both-7-4-and-7-5-support>`__
+| This guide describes how to install and check for correct operation of ROCm using yum on RHEL and CentOS 7.5.
 
 | `Getting ROCm source code <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#getting-rocm-source-code>`_
 | This guide discusses how to modifying the open source code base and rebuilding the components of ROCm latest version.
