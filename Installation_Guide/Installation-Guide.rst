@@ -570,17 +570,17 @@ without PCIe atomics, you must turn off SDMA functionality.
 
 
 Closed source components
-***************************
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 The ROCm platform relies on a few closed source components to provide legacy functionality like HSAIL finalization and debugging/profiling support. These components are only available through the ROCm repositories, and will either be deprecated or become open source components in the future. These components are made available in the following packages:
 
  * hsa-ext-rocr-dev
  
 Getting ROCm source code
-##########################
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 Modifications can be made to the ROCm 1.8 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.8 manifest file to download the entire ROCm 1.8 source code.
 
 Installing repo
-*****************
+^^^^^^^^^^^^^^^^^
 Google's repo tool allows you to manage multiple git repositories simultaneously. You can install it by executing the following commands:
 ::
  curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
@@ -589,7 +589,7 @@ Google's repo tool allows you to manage multiple git repositories simultaneously
 .. note:: make sure ~/bin exists and it is part of your PATH
 
 Cloning the code
-******************
+^^^^^^^^^^^^^^^^^
 
 To Clone the code form ROCm, following steps can be used:
 ::
@@ -602,10 +602,10 @@ These series of commands will pull all of the open source code associated with t
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 
 Installing ROCk-Kernel only
-##############################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To Install only ROCk-kernel the following steps can be used from the link provided :ref:`kernel-installation`
 
 FAQ on Installation
-######################
+~~~~~~~~~~~~~~~~~~~~~~
 Please refer the link for FAQ on Installation.
 :ref:`FAQ-on-Installation`
