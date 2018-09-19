@@ -464,201 +464,230 @@ References
        *  `AMD GCN3 Instruction Set Architecture (2016) <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
        *  `AMD_Southern_Islands_Instruction_Set_Architecture <https://developer.amd.com/wordpress/media/2012/12/AMD_Southern_Islands_Instruction_Set_Architecture.pdf>`_
 
+ROCr Debug Agent
+================
+
+The ROCr Debug Agent is a library that can be loaded by ROCm Platform
+Runtime to provide the following functionality:
+
+-  Print the state of wavefronts that report memory violation or upon
+   executing a ``s_trap 2`` instruction.
+-  Allows SIGINT (``ctrl c``) or SIGTERM (``kill -15``) to print
+   wavefront state of aborted GPU dispatches.
+-  It is enabled on Vega10 GPUs on ROCm1.9.
+
+Usage
+*****
+
+To use the ROCr Debug Agent set the following environment variable:
+
+.. code:: sh
+
+   export HSA_TOOLS_LIB=librocr_debug_agent64.so
+
+This will use the ROCr Debug Agent library installed at
+/opt/rocm/lib/librocr_debug_agent64.so by default since the ROCm
+installation adds /opt/rocm/lib to the system library path. To use a
+different version set the LD_LIBRARY_PATH, for example:
+
+.. code:: sh
+
+   export LD_LIBRARY_PATH=/path_to_directory_containing_librocr_debug_agent64.so
+
+To display the machine code instructions of wavefronts, together with
+the source text location, the ROCr Debug Agent using the llvm-objdump
+tool. Ensure that a version that supports AMD GCN GPUs is on your
+’$PATH`. For example, for the ROCm1.9:
+
+.. code:: sh
+
+   export PATH=/opt/rocm/opencl/bin/x86_64/:$PATH
+
+Execute your application.
+
+If the application encounters a GPU error it will display the wavefront
+state of the GPU to ``stdout``. Possible error states include:
+
+-  The GPU executes a memory instruction that causes a memory violation.
+   This is reported as an XNACK error state.
+-  Queue error.
+-  The GPU executes an ``S_TRAP`` instruction. The ``__builtin_trap()``
+   language builtin can be used to generate a ``S_TRAP``.
+-  A SIGINT (``ctrl c``) or SIGTERM (``kill -15``) signal is sent to the
+   application while executing GPU code. Enabled if environment variable
+   ``ROCM_DEBUG_ENABLE_LINUX_SIGNALS=0``.
+
+For example, a sample print out for GPU memory fault is:
+
+::
+
+   Memory access fault by GPU agent: AMD gfx900
+   Node: 1
+   Address: 0x18DB4xxx (page not present;write access to a read-only page;)
+
+   64 wavefront(s) found in XNACK error state @PC: 0x0000001100E01310
+   printing the first one:
+
+      EXEC: 0xFFFFFFFFFFFFFFFF
+    STATUS: 0x00412460
+   TRAPSTS: 0x30000000
+        M0: 0x00001010
+
+        s0: 0x00C00000    s1: 0x80000010    s2: 0x10000000    s3: 0x00EA4FAC
+        s4: 0x17D78400    s5: 0x00000000    s6: 0x01039000    s7: 0x00000000
+        s8: 0x00000000    s9: 0x00000000   s10: 0x17D78400   s11: 0x04000000
+       s12: 0x00000000   s13: 0x00000000   s14: 0x00000000   s15: 0x00000000
+       s16: 0x0103C000   s17: 0x00000000   s18: 0x00000000   s19: 0x00000000
+       s20: 0x01037060   s21: 0x00000000   s22: 0x00000000   s23: 0x00000011
+       s24: 0x00004000   s25: 0x00010000   s26: 0x04C00000   s27: 0x00000010
+       s28: 0xFFFFFFFF   s29: 0xFFFFFFFF   s30: 0x00000000   s31: 0x00000000
+
+   Lane 0x0
+        v0: 0x00000003    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+   Lane 0x1
+        v0: 0x00000004    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+   Lane 0x2
+        v0: 0x00000005    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+   Lane 0x3
+        v0: 0x00000006    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+
+       .
+       .
+       .
+
+   Lane 0x3C
+        v0: 0x0000001F    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+   Lane 0x3D
+        v0: 0x00000020    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+   Lane 0x3E
+        v0: 0x00000021    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+   Lane 0x3F
+        v0: 0x00000022    v1: 0x18DB4400    v2: 0x18DB4400    v3: 0x00000000
+        v4: 0x00000000    v5: 0x00000000    v6: 0x00700000    v7: 0x00800000
+
+   Faulty Code Object:
+
+   /tmp/ROCm_Tmp_PID_5764/ROCm_Code_Object_0:      file format ELF64-amdgpu-hsacobj
+
+   Disassembly of section .text:
+   the_kernel:
+   ; /home/qingchuan/tests/faulty_test/vector_add_kernel.cl:12
+   ; d[100000000] = ga[gid & 31];
+           v_mov_b32_e32 v1, v2                                       // 0000000012F0: 7E020302
+           v_mov_b32_e32 v4, v3                                       // 0000000012F4: 7E080303
+           v_add_i32_e32 v1, vcc, s10, v1                             // 0000000012F8: 3202020A
+           v_mov_b32_e32 v5, s22                                      // 0000000012FC: 7E0A0216
+           v_addc_u32_e32 v4, vcc, v4, v5, vcc                        // 000000001300: 38080B04
+           v_mov_b32_e32 v2, v1                                       // 000000001304: 7E040301
+           v_mov_b32_e32 v3, v4                                       // 000000001308: 7E060304
+           s_waitcnt lgkmcnt(0)                                       // 00000000130C: BF8CC07F
+           flat_store_dword v[2:3], v0                                // 000000001310: DC700000 00000002
+   ; /home/qingchuan/tests/faulty_test/vector_add_kernel.cl:13
+   ; }
+           s_endpgm                                                   // 000000001318: BF810000
+
+   Faulty PC offset: 1310
+
+   Aborted (core dumped)
+
+Options
+*******
+
+Dump Output
+-----------
+
+By default the wavefront dump is sent to ``stdout``.
+
+To save to a file use:
+
+.. code:: sh
+
+   export ROCM_DEBUG_WAVE_STATE_DUMP=file
+
+This will create a file called ``ROCm_Wave_State_Dump`` in code object
+directory (see below).
+
+To return to the default ``stdout`` use:
+
+.. code:: sh
+
+   export ROCM_DEBUG_WAVE_STATE_DUMP=stdout
+
+Linux Signal Control
+--------------------
+
+The following environment variable can be used to enable dumping
+wavefront states when SIGINT (``ctrl c``) or SIGTERM (``kill -15``) is
+sent to the application:
+
+.. code:: sh
+
+   export ROCM_DEBUG_ENABLE_LINUX_SIGNALS=1
+
+The following will disable this behavior:
+
+.. code:: sh
+
+   export ROCM_DEBUG_ENABLE_LINUX_SIGNALS=0
+
+Code Object Saving
+------------------
+
+When the ROCr Debug Agent is enabled, each GPU code object loaded by the
+ROCm Platform Runtime will be saved in a file in the code object
+directory. By default the code object directory is
+``/tmp/ROCm_Tmp_PID_XXXX/`` where ``XXXX`` is the application process
+ID. The code object directory can be specified using the following
+environent variable:
+
+.. code:: sh
+
+   export ROCM_DEBUG_SAVE_CODE_OBJECT=code_object_directory
+
+This will use the path ``/code_object_directory``.
+
+Loaded code objects will be saved in files named ``ROCm_Code_Object_N``
+where N is a unique integer starting at 0 of the order in which the code
+object was loaded.
+
+If the default code object directory is used, then the saved code object
+file will be deleted when it is unloaded with the ROCm Platform Runtime,
+and the complete code object directory will be deleted when the
+application exits normally. If a code object directory path is specified
+then neither the saved code objects, nor the code object directory will
+be deleted.
+
+Logging
+-------
+
+By default ROCr Debug Aget logging is disabled. It can be enabled to
+display to ``stdout`` using:
+
+.. code:: sh
+
+   export ROCM_DEBUG_ENABLE_AGENTLOG=stdout
+
+Or to a file using:
+
+.. code:: sh
+
+   export ROCM_DEBUG_ENABLE_AGENTLOG=<filename>
+
+Which will write to the file ``<filename>_AgentLog_PID_XXXX.log``.
+
 ROCm-GDB
 =========
 
-The ROCm-GDB repository includes the source code for ROCm-GDB. ROCm-GDB is a modified version of GDB 7.11 that supports debugging GPU kernels on Radeon Open Compute platforms (ROCm).
-
-Package Contents
-##################
-The ROCm-GDB repository includes
-
-   * A modified version of gdb-7.11 to support GPU debugging. Note the main ROCm specific files are located in gdb-7.11/gdb with the 	  rocm-* prefix.
-   * The ROCm debug facilities library located in amd/HwDbgFacilities/. This library provides symbol processing for GPU kernels.
-
-Build Steps
-############
- 
-1. Clone the ROCm-GDB repository
-
-::
-   
-    git clone https://github.com/RadeonOpenCompute/ROCm-GDB.git
-
-2. The gdb build has been modified with new files and configure settings to enable GPU debugging. The scripts below should be run to 	  compile gdb. The run_configure_rocm.sh script calls the GNU autotools configure with additional parameters. The   	 	    	run_configure_rocm.sh script will create the build directory to build the gdb executable in a out of source manner
-
-::
-
-    ./run_configure_rocm.sh debug
-
-3.    The run_configure_rocm.sh script also generates the run_make_rocm.sh which sets environment variables for the Make step
-
-::
-   
-   ./run_make_rocm.sh
-
-
-Running ROCm-GDB
-################
-
-The run_make_rocm.sh script builds the gdb executable which will be located in build/gdb/
-
-To run the ROCm debugger, you'd also need to get the ROCm GPU Debug SDK.
-
-Before running the rocm debugger, the LD_LIBRARY_PATH should include paths to
-
-  | - The ROCm GPU Debug Agent library built in the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
-  | - The ROCm GPU Debugging library binary shippped with the ROCm GPU Debug SDK (located in gpudebugsdk/lib/x86_64)
-  | - Before running ROCm-GDB, please update your .gdbinit file with text in gpudebugsdk/src/HSADebugAgent/gdbinit. The rocmConfigure function in the ~/.gdbinit sets up gdb internals for supporting GPU kernel debug.
-  | - The gdb executable should be run from within the rocm-gdb-local script. The ROCm runtime requires certain environment variables to enable kernel debugging and this is set up by the rocm-gdb-local script.
-
-::
-  
-  ./rocm-gdb-local < sample application>
-
-
-A brief tutorial on how to debug GPU applications using ROCm-GDB :ref:`rocm-debug`
-
-ROCm Debugger API
-==================
-
-The ROCm Debugger provides a gdb-based debugging environment for debugging host application and GPU kernels running on Radeon Open Compute platforms (ROCm). It can support all language runtimes (such as HIP and HCC) built on top of ROCm. Initially, the debugging support within the GPU kernels starts with the HSAIL 1.0 programming language. This support requires a kernel compilation path that goes through HSAIL kernel (such as through HCC-HSAIL or `libHSAIL/HSAILAsm <https://github.com/HSAFoundation/HSAIL-Tools>`_).
-
-There are two packages included in this release:
-
-* ROCm gdb package that contains the rocm-gdb tool
-    * based on GDB 7.11, the GNU source-level debugger
-* ROCm GPU Debug SDK package that contains the necessary header, library and sample files to run the rocm-gdb tool
-
-The ROCm Debugger extends the existing `HSA Debugger <https://github.com/HSAFoundation/HSA-Debugger-AMD>`_ with new features for ROCm
-
- * `AMDGPUDebugAPISpecification.pdf <https://github.com/RadeonOpenCompute/ROCm-GPUDebugSDK/blob/master/docs/AMDGPUDebugAPISpecification.pdf>`_
-
-Major Features
-###############
-   * Seamless host application and GPU kernel source debugging using a familiar gdb-based debugging environment on ROCm
-   * Set GPU kernel breakpoints, single stepping and inspect registers within HSAIL kernel source
-   * View active GPU states (active work-groups, work-items and wavefronts information)
-   * Disassemble GPU kernel at GPU kernel function and source breakpoint
-   * Trace GPU kernel launches into an output file
-
-**What's New in May 2017 Release (version 1.5)**
-
- * Compatible with `ROCm 1.5 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.5.0>`_
- * Added the info rocm devices command to show the available devices in the system
-
-**What's New in Dec 2016 Release (version 1.4)**
-
- * Compatible with `ROCm 1.4 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.4.0>`_
- * Support for demangling kernel names of HIP and HCC kernels (requires clang_tot_upgrade branch of HCC). Also requires c++filt to be intalled on the system. c++filt can be installed using sudo apt-get install binutils
-
-**What's New in Nov 2016 Release (version 1.3)**
-
- * Compatible with `ROCm 1.3 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.3.0>`_
- * Support for AMD code object loader extension
- * Initial support for Polaris GPUs
- * Detect and gracefully fail on unsupported devices
-
-**What's New in Aug 2016 Release (version 1.2)**
-
- * Compatible with `ROCm 1.2 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.2.0>`_
- * Update gdb base to gdb v7.11.
- * Initial support for provided GPU debug information via the GDB machine interface
- * Support for debugging applications that use SIGUSR2. (Provided by Pull Request#1 from Didier Nadeaud)
- * Add support to report HSAIL source text along with line number when single stepping.
-
-**What's New in April 2016 Release (version 1.0)**
-
- * Compatible with `ROCm 1.0 release <https://github.com/RadeonOpenCompute/ROCm/tree/roc-1.0.0>`_
- * Support 6th Generation AMD A-series APU processors (codenamed “Carrizo”)
- * Support AMD Radeon™ R9 Fury, Fury X and Fury Nano GPUs (codenamed “Fiji”)
- * Support CodeXL 2.0
- * Add support to gdb disassemble command to disassemble and show the GPU isa disassembly text
- * Add ability to trace GPU kernel launches
- * Add gdb help rocm command to show the list of rocm debugging related commands
- * Add support to report the hardware slot scheduling information for wavefronts
-
-
-System Requirements
-#####################
-  * Boltzmann system
-       * CPU: CPUs with PCIe Gen3 Atomics: Haswell-class Intel(c) Core CPUs v3 or newer and Intel Xeon E5 v3 or newer.
-       * GPU: AMD Radeon™ R9 Fury, Fury X and Fury Nano GPUs (codenamed “Fiji”)
-       * Refer to the `ROCm platform requirements <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#supported-gpus>`_ for additional information
-  * or 6th Generation AMD A-series APU processors (codenamed “Carrizo”).
-  * OS: 64-bit Ubuntu 14.04 and Fedora 23
-  * `ROCm 1.2 platform <https://github.com/RadeonOpenCompute/ROCm>`_
-
-To debug within a GPU kernel, the GPU kernel must be assembled using the latest `LibHSAIL/HSAILAsm <https://github.com/HSAFoundation/HSAIL-Tools>`_ (from April 4th 2016 or newer) built with BUILD_WITH_LIBBRIGDWARF=1.
-
-Package Contents
-####################
-The directory structure of the ROCm Debugger packages:
-
-   * gpudebugsdk
-       * include
-           * AMDGPUDebug.h, FacilitiesInterface.h
-       * bin/x86_64
-           * amd-debug-lock, rocm-gdb-debug-flags.sh
-       * lib/x86_64
-           * libAMDGPUDebugHSA-x64.so, libAMDHSADebugAgent-x64.so, libAMDHwDbgFacilities-x64.so
-       * samples
-           * Common
-               * HSAResourceManager.h, HSAResourceManager.cpp, HSAExtensionFinalizer.h, HSAExtensionFinalizer.cpp
-           * MatrixMultiplication
-               * Makefile, MatrixMul.cpp, matrixMul_kernel.brig, matrixMul_kernel.hsail
-       * LICENSE.txt
-   * gdb
-       * bin/x86_64
-           * rocm-gdb, amd-gdb, .gdbinit, data-directory
-       * LICENSE.txt
-   * ubuntu
-       * rocm-gpudebugsdk_<VERSION>_amd64.deb
-       * rocm-gdb_<VERSION>_amd64.deb
-
-If you download the ROCm Debugger packages or files separately, you must create the same directory structure as shown above in order to run rocm-gdb successfully.
-
-Installation
-##############
-First, make sure that the ROCm platform is setup correctly.
-
-   * `Install ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#>`_
-   * Verify the setup by running HSAIL vector_copy sample successfully
-     * Note that with the default vector_copy sample, you can't single step within the GPU kernel as the GPU kernel is not compiled with 		 debugging support.
-     * As part of the ROCm debugger package, there is a sample MatrixMultiplication that can be used with rocm-gdb.
-   * Install c++filt using sudo apt-get install binutils
-
-ROCm Debugger Installation
-****************************
-1. If you did not install ROCm Debugger as part of the ROCm installation, you can download the ROCm Debugger debian packages 	 
-   (rocm-gpudebugsdk_<VERSION>_amd64.deb and rocm-gdb_<VERSION>_amd64.deb) independently and install them as follows.
-       * sudo dpkg -i rocm-gpudebugsdk_<VERSION>_amd64.deb
-       * sudo dpkg -i rocm-gdb_<VERSION>_amd64.deb
-           * The installed files will be placed in /opt/rocm/gpudebugsdk and /opt/rocm/gdb folders.
-       * Note that both rocm-gpudebugsdk and rocm-gdb debian packages are included as part of the ROCm repo install.
-2. Verify the setup
-
-   * Run the MatrixMultiplication sample provided in the GPU Debug SDK package
-         *  ``cd /opt/rocm/gpudebugsdk/samples/MatrixMultiplication``
-         *  ``make``
-         *  The Makefile assumes that the hsa header files are located at /opt/rocm/hsa/include. If you encounter a compilation failure, please 	    update the HSADIR within the Makefile to the directory of the hsa header files in the system.
-         *  Note that matrixMul_kernel.hsail is included for reference only. This sample will load the pre-built brig binary 		 	     (matrixMul_kernel.brig) to run the kernel.
-    * ``/opt/rocm/bin/rocm-gdb MatrixMul``
-         *  Tips: include the /opt/rocm/bin in your PATH environment variable
-
-Usage Examples
-################
-Check out the :ref:`tutorial` for some usage examples.
-
-Known Issues
-###############
-   * Debugging hsa code objects that contain more than one BRIG module are not supported
-   * Debugging HSAIL kernels that contain global (or read only) variables are not supported
-   * Debugging HSAIL kernels that contain HSAIL function calls are not supported
-   * Using rocm-gdb objects in python scripts is not yet supported
-   * Single stepping branch instructions could require multiple step commands
-
---------------------------------------------------------------------------------------------------------------
+The ROCm-GDB is being revised to work with the ROCr Debug Agent to
+support debugging GPU kernels on Radeon Open Compute platforms (ROCm)
+and will be available in an upcoming release.
 
 ROCm-Profiler
 ==============
