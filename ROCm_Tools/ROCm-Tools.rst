@@ -614,11 +614,12 @@ To save to a file use:
 This will create a file called ``ROCm_Wave_State_Dump`` in code object
 directory (see below).
 
-To return to the default ``stdout`` use:
+To return to the default ``stdout`` use either of the following:
 
 .. code:: sh
 
    export ROCM_DEBUG_WAVE_STATE_DUMP=stdout
+   unset ROCM_DEBUG_WAVE_STATE_DUMP
 
 Linux Signal Control
 --------------------
@@ -631,11 +632,12 @@ sent to the application:
 
    export ROCM_DEBUG_ENABLE_LINUX_SIGNALS=1
 
-The following will disable this behavior:
+Either of the following will disable this behavior:
 
 .. code:: sh
 
    export ROCM_DEBUG_ENABLE_LINUX_SIGNALS=0
+   unset ROCM_DEBUG_ENABLE_LINUX_SIGNALS
 
 Code Object Saving
 ------------------
@@ -664,10 +666,16 @@ application exits normally. If a code object directory path is specified
 then neither the saved code objects, nor the code object directory will
 be deleted.
 
+To return to using the default code object directory use:
+
+.. code:: sh
+
+   unset ROCM_DEBUG_SAVE_CODE_OBJECT
+
 Logging
 -------
 
-By default ROCr Debug Aget logging is disabled. It can be enabled to
+By default ROCr Debug Agent logging is disabled. It can be enabled to
 display to ``stdout`` using:
 
 .. code:: sh
@@ -681,6 +689,12 @@ Or to a file using:
    export ROCM_DEBUG_ENABLE_AGENTLOG=<filename>
 
 Which will write to the file ``<filename>_AgentLog_PID_XXXX.log``.
+
+To disable logging use:
+
+.. code:: sh
+
+   unset ROCM_DEBUG_ENABLE_AGENTLOG
 
 ROCm-GDB
 =========
