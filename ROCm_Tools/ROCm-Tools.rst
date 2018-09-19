@@ -514,8 +514,8 @@ state of the GPU to ``stdout``. Possible error states include:
 -  The GPU executes an ``S_TRAP`` instruction. The ``__builtin_trap()``
    language builtin can be used to generate a ``S_TRAP``.
 -  A SIGINT (``ctrl c``) or SIGTERM (``kill -15``) signal is sent to the
-   application while executing GPU code. Enabled if environment variable
-   ``ROCM_DEBUG_ENABLE_LINUX_SIGNALS=0``.
+   application while executing GPU code. Enabled by the
+   ``ROCM_DEBUG_ENABLE_LINUX_SIGNALS`` environment variable.
 
 For example, a sample print out for GPU memory fault is:
 
