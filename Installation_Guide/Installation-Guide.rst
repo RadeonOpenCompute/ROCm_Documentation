@@ -24,12 +24,14 @@ domains, we offer official support for a selection of AMD GPUs that are
 designed to offer good performance and price in these domains.
 
 ROCm officially supports AMD GPUs that have use following chips:
+
 * GFX8 GPUs
    - "Fiji" chips, such as on the the AMD Radeon R9 Fury X and Radeon Instinct MI8
-    - "Polaris 10" chips, such as on the AMD Radeon RX 580 and Radeon Instinct MI6
-    - "Polaris 11" chips, such as on the AMD Radeon RX 570 and Radeon Pro WX 4100
-  * GFX9 GPUs
-    - "Vega 10" chips, such as on the AMD Radeon Radeon RX Vega 64 and Radeon Instinct MI25
+   - "Polaris 10" chips, such as on the AMD Radeon RX 580 and Radeon Instinct MI6
+   - "Polaris 11" chips, such as on the AMD Radeon RX 570 and Radeon Pro WX 4100
+    
+* GFX9 GPUs
+   - "Vega 10" chips, such as on the AMD Radeon Radeon RX Vega 64 and Radeon Instinct MI25
 
 ROCm is a collection of software ranging from drivers and runtimnes to
 libraries and developer tools. Some of this software may work with more
@@ -37,6 +39,7 @@ GPUs than the "officially supported" list above, though AMD does not
 make any official claims of support for these devices on the ROCm
 software platform. The following list of GPUs are likely to work within
 ROCm, though full support is not guaranteed:
+
 * GFX7 GPUs
    - "Hawaii" chips, such as the AMD Radeon R9 390X and FirePro W9100
 
@@ -61,15 +64,16 @@ gen 3 and PCIe atomics. The CPU root must indicate PCIe AtomicOp
 Completion capabilities and any intermediate switch must indicate PCIe
 AtomicOp Routing capabilities.
 
-| Current CPUs which support PCIe Gen3 + PCIe Atomics are:
-  * AMD Ryzen CPUs
-  * AMD Ryzen APUs
-  * AMD Ryzen Threadripper CPUs
-  * AMD EPYC CPUs
-  * Intel Xeon E7 v3 or newer CPUs
-  * Intel Xeon E5 v3 or newer CPUs
-  * Intel Xeon E3 v3 or newer CPUs
-  * Intel Core i7 v4, Core i5 v4,  Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
+Current CPUs which support PCIe Gen3 + PCIe Atomics are:
+
+* AMD Ryzen CPUs
+* AMD Ryzen APUs
+* AMD Ryzen Threadripper CPUs
+* AMD EPYC CPUs
+* Intel Xeon E7 v3 or newer CPUs
+* Intel Xeon E5 v3 or newer CPUs
+* Intel Xeon E3 v3 or newer CPUs
+* Intel Core i7 v4, Core i5 v4,  Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
 
 Beginning with ROCm 1.8, we have relaxed the requirements for PCIe
 Atomics on GFX9 GPUs such as Vega 10. We have similarly opened up more
