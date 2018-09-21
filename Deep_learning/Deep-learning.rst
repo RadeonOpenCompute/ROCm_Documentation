@@ -23,7 +23,7 @@ Porting from cuDNN to MIOpen
 ****************************
 The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf>`_ highlights the key differences between the current cuDNN and MIOpen APIs.
 
-The ROCm 1.8 has prebuilt packages for MIOpen
+The ROCm 1.9 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
 

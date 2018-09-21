@@ -726,7 +726,7 @@ What's New
 **********
    * Version 5.1 (6/28/17)
        * Adds support for additional GPUs, including Vega series GPUs
-       * ROCm/HSA: Support for ROCm 1.8
+       * ROCm/HSA: Support for ROCm 1.9
        * Improves display of pointer parameters for some HSA APIs in the ATP file
        * Fixes an issue with parsing an ATP file which has non-ascii characters (affected Summary page generation and display within 		 CodeXL)
 
@@ -735,7 +735,7 @@ System Requirements
   * An AMD Radeon GCN-based GPU or APU
   * Radeon Software Crimson ReLive Edition 17.4.3 or later (Driver Packaging Version 17.10 or later).
       *  For Vega support, a driver with Driver Packaging Version 17.20 or later is required
-  * ROCm 1.8 See system requirements for ROCm: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html and https://rocm.github.io/hardware.html.
+  * ROCm 1.9 See system requirements for ROCm: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html and https://rocm.github.io/hardware.html.
   * Windows 7, 8.1, and 10
       *  For Windows, the Visual C++ Redistributable for Visual Studio 2015 is required. It can be downloaded from https://www.microsoft.com/en-us/download/details.aspx?id=48145
   * Ubuntu (14.04 and later, 16.04 or later for ROCm support) and RHEL (7 and later) distributions

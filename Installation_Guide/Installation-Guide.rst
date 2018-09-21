@@ -381,7 +381,7 @@ If possible, we would recommend starting with a fresh OS install.
 CentOS/RHEL 7 (both 7.4 and 7.5) Support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Support for CentOS/RHEL 7 has been added in ROCm 1.8, but requires a
+Support for CentOS/RHEL 7 has been added in ROCm 1.9, but requires a
 special runtime environment provided by the RHEL Software Collections
 and additional dkms support packages to properly install in run.
 
@@ -478,12 +478,10 @@ password and can use the following command:
 
     sudo usermod -a -G video $LOGNAME 
 
-Current release supports up to CentOS/RHEL 7.4 and 7.5. Users should
-update to the latest version of the OS:
+**:note:** 
+It is recommended to completely remove Mellanox OFED drivers and ROCm packages if users have to upgrade from CentOS7.4 to CentOS7.5
 
-.. code:: shell
-
-    sudo yum update
+It is Recommended to install with CentOS 7.5 if applicable. CentOS 7.4 kernel will upgrade to 3.10.0-862 just with **sudo yum update**
 
 Performing an OpenCL-only Installation of ROCm
                                               
@@ -547,7 +545,7 @@ The ROCm platform relies on a few closed source components to provide functional
  
 Getting ROCm source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Modifications can be made to the ROCm 1.8 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.8 manifest file to download the entire ROCm 1.8 source code.
+Modifications can be made to the ROCm 1.9 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.9 manifest file to download the entire ROCm 1.9 source code.
 
 Installing repo
 ^^^^^^^^^^^^^^^^^
@@ -564,10 +562,10 @@ Cloning the code
 To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
- repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.8.0
+ repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.0
  repo sync
 
-These series of commands will pull all of the open source code associated with the ROCm 1.8 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
+These series of commands will pull all of the open source code associated with the ROCm 1.9 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 

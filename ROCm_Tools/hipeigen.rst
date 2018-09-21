@@ -19,7 +19,7 @@ To insatll rocm, please follow:
 
 Installing from AMD ROCm repositories
 **************************************
-AMD is hosting both debian and rpm repositories for the ROCm 1.8 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
+AMD is hosting both debian and rpm repositories for the ROCm 1.9 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
 
 * Debian repository - apt-get
 * Add the ROCm apt repository
@@ -93,4 +93,4 @@ To build the direct tests for hipeigen:
   make check -j $(nproc)
 
 
-Note: All direct tests should pass with ROCm1.8
+Note: All direct tests should pass with ROCm1.9
