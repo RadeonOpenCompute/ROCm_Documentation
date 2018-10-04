@@ -528,6 +528,7 @@ To test the built library:
 
 Profiling Tool 'rocprof' Usage
 ##############################
+
 ::
   rpl_run.sh [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
 
