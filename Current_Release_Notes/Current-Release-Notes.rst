@@ -39,7 +39,7 @@ front-end for rocProfiler, enables: \* Cmd-line tool for dumping public
 per kernel perf-counters/metrics and kernel timestamps \* Input file
 with counters list and kernels selecting parameters \* Multiple counters
 groups and app runs supported \* Output results in CSV format The tool
-location is: /opt/rocm/rocprofiler/bin/rpl\_run.sh
+location is: /opt/rocm/bin/rpl\_run.sh
 
 Preview for rocr Debug Agent rocr\_debug\_agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
