@@ -5,6 +5,16 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 1.9.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added DPM support to Vega 7nm
+^^^^^^^^^^^^^^^^^^^^
+Dynamic Power Management feature is enabled on Vega 7nm.
+ 
+Fix for 'ROCm profiling' that used to fail with a "Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1" error
+^^^^^^^^^^^^^^^^^^^^
+
 New features and enhancements in ROCm 1.9.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
