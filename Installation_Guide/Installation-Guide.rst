@@ -5,7 +5,7 @@
 Installation Guide
 ===================
             
-Current ROCm Version: 1.9.0
+Current ROCm Version: 1.9.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware Support
@@ -131,7 +131,7 @@ Not supported
              
 
 -  "Tonga", "Iceland", "Polaris 12", and "Vega M" GPUs are not supported
-   in ROCm 1.9.0
+   in ROCm 1.9.x
 -  We do not support GFX8-class GPUs (Fiji, Polaris, etc.) on CPUs that
    do not have PCIe Gen 3 with PCIe atomics.
 -  As such, do not support AMD Carrizo and Kaveri APUs as hosts for such
@@ -156,7 +156,7 @@ Software Support
 
 The latest tested version of the drivers, tools, libraries and source
 code for the ROCm platform have been released and are available under
-the roc-1.9.0 or rocm-1.9.x tag of the following GitHub repositories:
+the roc-1.9.1 or rocm-1.9.x tag of the following GitHub repositories:
 
 -  `ROCK-Kernel-Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.9.x>`__
 -  `ROCR-Runtime <https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-1.9.x>`__
@@ -170,7 +170,7 @@ the roc-1.9.0 or rocm-1.9.x tag of the following GitHub repositories:
 -  `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`__
 
 Additionally, the following mirror repositories that support the HCC
-compiler are also available on GitHub, and frozen for the rocm-1.9.0
+compiler are also available on GitHub, and frozen for the rocm-1.9.1
 release:
 
 -  `llvm <https://github.com/RadeonOpenCompute/llvm/tree/roc-1.9.x>`__
@@ -181,15 +181,16 @@ release:
 Supported Operating Systems - New operating systems available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROCm 1.9.0 platform has been tested on the following operating
-systems: \* Ubuntu 16.04 &. 18.04 \* CentOS 7.4 &. 7.5 (Using
-devetoolset-7 runtime support) \* RHEL 7.4. &. 7.5 (Using devetoolset-7
-runtime support)
+The ROCm 1.9.1 platform has been tested on the following operating
+systems:
+- Ubuntu 16.04 & 18.04 (Version 16.04.3 and newer or kernels 4.13 and newer)
+- CentOS 7.4 & 7.5 (Using devetoolset-7 runtime support)
+- RHEL 7.4. & 7.5 (Using devetoolset-7 runtime support)
 
 Installing from AMD ROCm repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD is hosting both Debian and RPM repositories for the ROCm 1.9.0
+AMD is hosting both Debian and RPM repositories for the ROCm 1.9.1
 packages at this time.
 
 The packages in the Debian repository have been signed to ensure package
@@ -381,7 +382,7 @@ If possible, we would recommend starting with a fresh OS install.
 CentOS/RHEL 7 (both 7.4 and 7.5) Support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Support for CentOS/RHEL 7 has been added in ROCm 1.9, but requires a
+Support for CentOS/RHEL 7 has been added in ROCm 1.8, but requires a
 special runtime environment provided by the RHEL Software Collections
 and additional dkms support packages to properly install in run.
 
@@ -562,7 +563,7 @@ Cloning the code
 To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
- repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.0
+ repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.1
  repo sync
 
 These series of commands will pull all of the open source code associated with the ROCm 1.9 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
