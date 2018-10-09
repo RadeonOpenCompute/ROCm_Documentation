@@ -132,7 +132,7 @@ ROCm-Docker
 
 This repository contains a framework for building the software layers defined in the Radeon Open Compute Platform into portable docker images. The following are docker dependencies, which should be installed on the target machine.
 
- * Docker on `Ubuntu <https://docs.docker.com/v1.9/installation/ubuntulinux/>`_ systems or `Fedora systems <https://docs.docker.com/v1.9/installation/fedora/>`_
+ * Docker on `Ubuntu <https://docs.docker.com/v1.9.1/installation/ubuntulinux/>`_ systems or `Fedora systems <https://docs.docker.com/v1.9.1/installation/fedora/>`_
  * Highly recommended: `Docker-Compose <https://docs.docker.com/compose/install/>`_ to simplify container management
    
 Docker Hub

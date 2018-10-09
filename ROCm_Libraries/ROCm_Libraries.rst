@@ -357,10 +357,10 @@ Installation
 
 The following are the steps to use the library
 
-  * ROCM 1.9 Kernel, Driver and Compiler Installation (if not done until now)
+  * ROCM 1.9.1 Kernel, Driver and Compiler Installation (if not done until now)
   * Library installation.
 
-**ROCM 1.9 Installation**
+**ROCM 1.9.1 Installation**
 
 To Know more about ROCM refer https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html
 
@@ -526,7 +526,7 @@ To insatll rocm, please follow:
 
 Installing from AMD ROCm repositories
 #########################################
-AMD is hosting both debian and rpm repositories for the ROCm 1.9 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
+AMD is hosting both debian and rpm repositories for the ROCm 1.9.1 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
 
 * Debian repository - apt-get
 * Add the ROCm apt repository
@@ -600,7 +600,7 @@ To build the direct tests for hipeigen:
   make check -j $(nproc)
 
 
-Note: All direct tests should pass with ROCm1.9
+Note: All direct tests should pass with ROCm1.9.1
 
 
 
@@ -1264,10 +1264,10 @@ Installation
 
 The following are the steps to use the library
 
- * ROCM 1.9 Kernel, Driver and Compiler Installation (if not done until now)
+ * ROCM 1.9.1 Kernel, Driver and Compiler Installation (if not done until now)
  * Library installation.
 
-**ROCM 1.9 Installation**
+**ROCM 1.9.1 Installation**
 
 To Know more about ROCM refer 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
@@ -1811,7 +1811,7 @@ Dependencies
       * Visual Studio 14 (2015). (VS 2012 may also be supported; c++11 should no longer be required by Tensile. Need to verify.)
       * GCC 4.8
  * For Tensile_BACKEND = HIP
-      * ROCM 1.9
+      * ROCM 1.9.1
 
 **Installation**
 
