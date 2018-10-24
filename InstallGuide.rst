@@ -58,12 +58,16 @@ gen 3 and PCIe atomics. The CPU root must indicate PCIe AtomicOp
 Completion capabilities and any intermediate switch must indicate PCIe
 AtomicOp Routing capabilities.
 
-| Current CPUs which support PCIe Gen3 + PCIe Atomics are: \* AMD Ryzen
-  CPUs; \* AMD Ryzen APUs; \* AMD Ryzen Threadripper CPUs \* AMD EPYC
-  CPUs;
-| \* Intel Xeon E7 v3 or newer CPUs; \* Intel Xeon E5 v3 or newer CPUs;
-  \* Intel Xeon E3 v3 or newer CPUs; \* Intel Core i7 v4, Core i5 v4,
-  Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
+| Current CPUs which support PCIe Gen3 + PCIe Atomics are:
+* AMD Ryzen CPUs
+* AMD Ryzen APUs
+* AMD Ryzen Threadripper CPU
+* AMD EPYC CPUs
+* Intel Xeon E7 v3 or newer CPUs
+* Intel Xeon E5 v3 or newer CPUs
+* Intel Xeon E3 v3 or newer CPUs
+* Intel Core i7 v4, Core i5 v4, Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
+* Some Ivy Bridge-E systems
 
 Beginning with ROCm 1.8, we have relaxed the requirements for PCIe
 Atomics on GFX9 GPUs such as Vega 10. We have similarly opened up more
