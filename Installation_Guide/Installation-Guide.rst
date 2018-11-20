@@ -64,8 +64,7 @@ gen 3 and PCIe atomics. The CPU root must indicate PCIe AtomicOp
 Completion capabilities and any intermediate switch must indicate PCIe
 AtomicOp Routing capabilities.
 
-Current CPUs which support PCIe Gen3 + PCIe Atomics are:
-
+| Current CPUs which support PCIe Gen3 + PCIe Atomics are:
 * AMD Ryzen CPUs
 * AMD Ryzen APUs
 * AMD Ryzen Threadripper CPUs
@@ -73,7 +72,8 @@ Current CPUs which support PCIe Gen3 + PCIe Atomics are:
 * Intel Xeon E7 v3 or newer CPUs
 * Intel Xeon E5 v3 or newer CPUs
 * Intel Xeon E3 v3 or newer CPUs
-* Intel Core i7 v4, Core i5 v4,  Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
+* Intel Core i7 v4, Core i5 v4, Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
+* Some Ivy Bridge-E systems
 
 Beginning with ROCm 1.8, we have relaxed the requirements for PCIe
 Atomics on GFX9 GPUs such as Vega 10. We have similarly opened up more
@@ -113,7 +113,7 @@ Not supported or very limited support under ROCm
 Limited support
                
 
--  ROCm 1.9 and Vega10 should support PCIe Gen2 enabled CPUs such as the
+-  ROCm 1.9.1 and Vega10 should support PCIe Gen2 enabled CPUs such as the
    AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and
    older Intel Xeon and Intel Core Architecture and Pentium CPUs.
    However, we have done very limited testing on these configurations,
@@ -546,7 +546,7 @@ The ROCm platform relies on a few closed source components to provide functional
  
 Getting ROCm source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Modifications can be made to the ROCm 1.9 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.9 manifest file to download the entire ROCm 1.9 source code.
+Modifications can be made to the ROCm 1.9.1 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.9.1 manifest file to download the entire ROCm 1.9.1 source code.
 
 Installing repo
 ^^^^^^^^^^^^^^^^^
@@ -566,7 +566,7 @@ To Clone the code form ROCm, following steps can be used:
  repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.1
  repo sync
 
-These series of commands will pull all of the open source code associated with the ROCm 1.9 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
+These series of commands will pull all of the open source code associated with the ROCm 1.9.1 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 
