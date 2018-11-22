@@ -5,7 +5,7 @@
 Installation Guide
 ===================
             
-Current ROCm Version: 1.9.1
+Current ROCm Version: 1.9.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware Support
@@ -113,7 +113,7 @@ Not supported or very limited support under ROCm
 Limited support
                
 
--  ROCm 1.9.1 and Vega10 should support PCIe Gen2 enabled CPUs such as the
+-  ROCm 1.9.2 and Vega10 should support PCIe Gen2 enabled CPUs such as the
    AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and
    older Intel Xeon and Intel Core Architecture and Pentium CPUs.
    However, we have done very limited testing on these configurations,
@@ -156,7 +156,7 @@ Software Support
 
 The latest tested version of the drivers, tools, libraries and source
 code for the ROCm platform have been released and are available under
-the roc-1.9.1 or rocm-1.9.x tag of the following GitHub repositories:
+the roc-1.9.2 or rocm-1.9.x tag of the following GitHub repositories:
 
 -  `ROCK-Kernel-Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.9.x>`__
 -  `ROCR-Runtime <https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-1.9.x>`__
@@ -170,7 +170,7 @@ the roc-1.9.1 or rocm-1.9.x tag of the following GitHub repositories:
 -  `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`__
 
 Additionally, the following mirror repositories that support the HCC
-compiler are also available on GitHub, and frozen for the rocm-1.9.1
+compiler are also available on GitHub, and frozen for the rocm-1.9.2
 release:
 
 -  `llvm <https://github.com/RadeonOpenCompute/llvm/tree/roc-1.9.x>`__
@@ -181,7 +181,7 @@ release:
 Supported Operating Systems - New operating systems available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROCm 1.9.1 platform has been tested on the following operating
+The ROCm 1.9.2 platform has been tested on the following operating
 systems:
 - Ubuntu 16.04 & 18.04 (Version 16.04.3 and newer or kernels 4.13 and newer)
 - CentOS 7.4 & 7.5 (Using devetoolset-7 runtime support)
@@ -190,7 +190,7 @@ systems:
 Installing from AMD ROCm repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD is hosting both Debian and RPM repositories for the ROCm 1.9.1
+AMD is hosting both Debian and RPM repositories for the ROCm 1.9.2
 packages at this time.
 
 The packages in the Debian repository have been signed to ensure package
@@ -546,7 +546,7 @@ The ROCm platform relies on a few closed source components to provide functional
  
 Getting ROCm source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Modifications can be made to the ROCm 1.9.1 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.9.1 manifest file to download the entire ROCm 1.9.1 source code.
+Modifications can be made to the ROCm 1.9.2 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.9.2 manifest file to download the entire ROCm 1.9.2 source code.
 
 Installing repo
 ^^^^^^^^^^^^^^^^^
@@ -563,10 +563,10 @@ Cloning the code
 To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
- repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.1
+ repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.2
  repo sync
 
-These series of commands will pull all of the open source code associated with the ROCm 1.9.1 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
+These series of commands will pull all of the open source code associated with the ROCm 1.9.2 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 

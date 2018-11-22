@@ -609,7 +609,7 @@ Runtime to provide the following functionality:
    executing a ``s_trap 2`` instruction.
 -  Allows SIGINT (``ctrl c``) or SIGTERM (``kill -15``) to print
    wavefront state of aborted GPU dispatches.
--  It is enabled on Vega10 GPUs on ROCm1.9.1.
+-  It is enabled on Vega10 GPUs on ROCm1.9.2.
 
 Usage
 *****
@@ -632,7 +632,7 @@ different version set the LD_LIBRARY_PATH, for example:
 To display the machine code instructions of wavefronts, together with
 the source text location, the ROCr Debug Agent uses the llvm-objdump
 tool. Ensure that a version that supports AMD GCN GPUs is on your
-’$PATH`. For example, for ROCm 1.9.1:
+’$PATH`. For example, for ROCm 1.9.2:
 
 .. code:: sh
 
@@ -854,26 +854,27 @@ Major Features
    * Query the hardware performance counters on an AMD Radeon graphics card.
    * Use the CXLActivityLogger API to trace and measure the execution of segments in the program.
    * Display the IL/HSAIL and ISA (hardware disassembly) code of OpenCL™ kernels.
-   * Calculate kernel occupancy information, which estimates the number of in-flight wavefronts on a compute unit as a percentage of 	  the theoretical maximum number of wavefronts that the compute unit can support.
-     When used with CodeXL, all profiler data can be visualized in a user-friendly graphical user interface.
+   * Calculate kernel occupancy information, which estimates the number of in-flight wavefronts on a compute unit as a percentage of the theoretical maximum number of wavefronts that the compute unit can support.
+   * When used with CodeXL, all profiler data can be visualized in a user-friendly graphical user interface.
 
 What's New
 **********
-   * Version 5.1 (6/28/17)
+   * Version 5.5 (8/22/18)
        * Adds support for additional GPUs, including Vega series GPUs
-       * ROCm/HSA: Support for ROCm 1.9.1
+       * ROCm/HSA: Support for ROCm 1.9.2
        * Improves display of pointer parameters for some HSA APIs in the ATP file
        * Fixes an issue with parsing an ATP file which has non-ascii characters (affected Summary page generation and display within 		 CodeXL)
-
+       * ROCm/HSA: Fixes several issues with incorrect or missing data transfer timestamps.
+       
 System Requirements
 ********************
   * An AMD Radeon GCN-based GPU or APU
-  * Radeon Software Crimson ReLive Edition 17.4.3 or later (Driver Packaging Version 17.10 or later).
+  * Radeon Software Adrenaline Edition 18.8.1 or later (Driver Packaging Version 18.30 or later).
       *  For Vega support, a driver with Driver Packaging Version 17.20 or later is required
-  * ROCm 1.9.1 See system requirements for ROCm: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html and https://rocm.github.io/hardware.html.
+  * ROCm 1.9.2 See system requirements for ROCm: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html and https://rocm.github.io/hardware.html.
   * Windows 7, 8.1, and 10
       *  For Windows, the Visual C++ Redistributable for Visual Studio 2015 is required. It can be downloaded from https://www.microsoft.com/en-us/download/details.aspx?id=48145
-  * Ubuntu (14.04 and later, 16.04 or later for ROCm support) and RHEL (7 and later) distributions
+  * Ubuntu (16.04 and later) and RHEL (7 and later) distributions
 
 Cloning the Repository
 ***********************

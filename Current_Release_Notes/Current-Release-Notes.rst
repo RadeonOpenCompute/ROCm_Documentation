@@ -5,6 +5,27 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 1.9.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+RDMA(MPI) support on Vega 7nm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  Support ROCnRDMA based on Mellanox InfiniBand.
+
+Improvements to HCC
+^^^^^^^^^^^^^^^^^^^
+
+-  Improved link time optimization.
+
+Improvements to ROCProfiler tool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  General bug fixes and implemented versioning APIs.
+
+Critical bug fixes
+^^^^^^^^^^^^^^^^^^
+
 New features and enhancements in ROCm 1.9.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
