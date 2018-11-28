@@ -497,7 +497,7 @@ following installation command **instead** of the command to install
 
 .. code:: shell
 
-    sudo yum install rock-dkms rocm-opencl
+    sudo yum install rock-dkms rocm-opencl rocm-opencl-devel
 
 Compiling applications using hcc, hip, etc.
 '''''''''''''''''''''''''''''''''''''''''''
