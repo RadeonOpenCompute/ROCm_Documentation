@@ -16,9 +16,11 @@ Download HCC
 The project now employs git submodules to manage external components it depends upon. It it advised to add --recursive when you clone the project so all submodules are fetched automatically.
 
 For example:
-::
- # automatically fetches all submodules
- git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
+
+.. code:: sh
+
+    # automatically fetches all submodules
+    git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
 
 For more information about git submodules, please refer to `git documentation <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_.
 
@@ -26,37 +28,53 @@ Build HCC from source
 ########################
 
 To configure and build HCC from source, use the following steps:
-::
- mkdir -p build; cd build
- cmake -DCMAKE_BUILD_TYPE=Release ..
- make
+
+.. code:: sh
+
+    mkdir -p build; cd build
+    cmake -DCMAKE_BUILD_TYPE=Release ..
+    make
 
 To install it, use the following steps:
-::
- sudo make install
+
+.. code:: sh
+
+    sudo make install
 
 Use HCC
 ##########
 
 For C++AMP source codes:
-::
- hcc `clamp-config --cxxflags --ldflags` foo.cpp
+
+.. code:: sh
+
+    hcc `clamp-config --cxxflags --ldflags` foo.cpp
+
+**WARNING: From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
 For HC source codes:
-::
- hcc `hcc-config --cxxflags --ldflags` foo.cpp
+
+.. code:: sh
+
+    hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
 In case you build HCC from source and want to use the compiled binaries directly in the build directory:
 
 For C++AMP source codes:
-::
- # notice the --build flag
- bin/hcc `bin/clamp-config --build --cxxflags --ldflags` foo.cpp
+
+.. code:: sh
+
+    # notice the --build flag
+    bin/hcc `bin/clamp-config --build --cxxflags --ldflags` foo.cpp
+
+**WARNING: From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
 For HC source codes:
-::
- # notice the --build flag
- bin/hcc `bin/hcc-config --build --cxxflags --ldflags` foo.cpp
+
+.. code:: sh
+
+    # notice the --build flag
+    bin/hcc `bin/hcc-config --build --cxxflags --ldflags` foo.cpp
 
 Multiple ISA
 #################
@@ -66,26 +84,30 @@ use --amdgpu-target= command line option
 *******************************************
 
 It's possible to specify multiple **--amdgpu-target=**  option. Example:
-::
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
- # be produced
- hcc `hcc-config --cxxflags --ldflags` \
-    --amdgpu-target=gfx701 \
-    --amdgpu-target=gfx801 \
-    --amdgpu-target=gfx802 \
-    --amdgpu-target=gfx803 \
-    foo.cpp
+
+.. code:: sh
+
+    # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
+    # be produced
+    hcc `hcc-config --cxxflags --ldflags` \
+        --amdgpu-target=gfx701 \
+        --amdgpu-target=gfx801 \
+        --amdgpu-target=gfx802 \
+        --amdgpu-target=gfx803 \
+        foo.cpp
 
 
 use HCC_AMDGPU_TARGET env var
 ********************************
 
 Use , to delimit each AMDGPU target in HCC. Example:
-::
- export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
- # be produced
- hcc `hcc-config --cxxflags --ldflags` foo.cpp
+
+.. code:: sh
+
+    export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
+    # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
+    # be produced
+    hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
 
 configure HCC use CMake HSA_AMDGPU_GPU_TARGET variable
@@ -94,14 +116,16 @@ configure HCC use CMake HSA_AMDGPU_GPU_TARGET variable
 If you build HCC from source, it's possible to configure it to automatically produce multiple ISAs via HSA_AMDGPU_GPU_TARGET CMake variable.
 
 Use ; to delimit each AMDGPU target. Example:
-::
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
- # be produced by default
- cmake \
-     -DCMAKE_BUILD_TYPE=Release \
-     -DROCM_DEVICE_LIB_DIR=~hcc/ROCm-Device-Libs/build/dist/lib \
-     -DHSA_AMDGPU_GPU_TARGET="gfx701;gfx801;gfx802;gfx803" \
-     ../hcc
+
+.. code:: sh
+
+    # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
+    # be produced by default
+    cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DROCM_DEVICE_LIB_DIR=~hcc/ROCm-Device-Libs/build/dist/lib \
+        -DHSA_AMDGPU_GPU_TARGET="gfx701;gfx801;gfx802;gfx803" \
+        ../hcc
 
 
 CodeXL Activity Logger
@@ -110,18 +134,22 @@ CodeXL Activity Logger
 To enable the `CodeXL Activity Logger <https://github.com/RadeonOpenCompute/ROCm-Profiler/tree/master/CXLActivityLogger>`_, use the USE_CODEXL_ACTIVITY_LOGGER environment variable.
 
 Configure the build in the following way:
-::
- cmake \
-     -DCMAKE_BUILD_TYPE=Release \
-     -DHSA_AMDGPU_GPU_TARGET=<AMD GPU ISA version string> \
-     -DROCM_DEVICE_LIB_DIR=<location of the ROCm-Device-Libs bitcode> \
-     -DUSE_CODEXL_ACTIVITY_LOGGER=1 \
-     <ToT HCC checkout directory>
+
+.. code:: sh
+
+    cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DHSA_AMDGPU_GPU_TARGET=<AMD GPU ISA version string> \
+        -DROCM_DEVICE_LIB_DIR=<location of the ROCm-Device-Libs bitcode> \
+        -DUSE_CODEXL_ACTIVITY_LOGGER=1 \
+        <ToT HCC checkout directory>
 
 
 In your application compiled using hcc, include the CodeXL Activity Logger header:
-::
- #include <CXLActivityLogger.h>
+
+.. code:: cpp
+
+    #include <CXLActivityLogger.h>
 
 
 For information about the usage of the Activity Logger for profiling, please refer to its `documentation <https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/CXLActivityLogger/doc/AMDTActivityLogger.pdf>`_.
@@ -132,8 +160,10 @@ HCC with ThinLTO Linking
 To enable the ThinLTO link time, use the KMTHINLTO environment variable.
 
 Set up your environment in the following way:
-::
- export KMTHINLTO=1
+
+.. code:: sh
+
+    export KMTHINLTO=1
 
 ThinLTO Phase 1 - Implemented
 ********************************
