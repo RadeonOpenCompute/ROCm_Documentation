@@ -5,7 +5,7 @@
 ROCm Tools
 =====================
 
-HCC  
+HCC
 ====
 
 **HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute**
@@ -19,7 +19,9 @@ Download HCC
 
 The project now employs git submodules to manage external components it depends upon. It it advised to add --recursive when you clone the project so all submodules are fetched automatically.
 
-For example: ::
+For example:
+
+.. code:: sh
 
   # automatically fetches all submodules
   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
@@ -31,35 +33,51 @@ Build HCC from source
 #######################
 
 To configure and build HCC from source, use the following steps:
-::
+
+.. code:: sh
+
   mkdir -p build; cd build
   cmake -DCMAKE_BUILD_TYPE=Release ..
   make
 
 To install it, use the following steps:
-::
+
+.. code:: sh
+
   sudo make install
 
 Use HCC
 ########
 
 For C++AMP source codes:
-::
+
+.. code:: sh
+
   hcc `clamp-config --cxxflags --ldflags` foo.cpp
 
+**WARNING: From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
+
 For HC source codes:
-::
+
+.. code:: sh
+
   hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
 In case you build HCC from source and want to use the compiled binaries directly in the build directory:
 
 For C++AMP source codes:
-::
+
+.. code:: sh
+
   # notice the --build flag
   bin/hcc `bin/clamp-config --build --cxxflags --ldflags` foo.cpp
 
+**WARNING: From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
+
 For HC source codes:
-::
+
+.. code:: sh
+
   # notice the --build flag
   bin/hcc `bin/hcc-config --build --cxxflags --ldflags` foo.cpp
 
@@ -71,9 +89,11 @@ HCC now supports having multiple GCN ISAs in one executable file. You can do it 
 
 It's possible to specify multiple ``--amdgpu-target=``option.
 
-Example: ::
+Example:
 
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
+.. code:: sh
+
+ # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
  # be produced
   hcc `hcc-config --cxxflags --ldflags` \
     --amdgpu-target=gfx701 \
@@ -84,11 +104,12 @@ Example: ::
 
 **use ``HCC_AMDGPU_TARGET`` env var**
 
-use ``,`` to delimit each AMDGPU target in HCC. Example: 
-::
-  
+use ``,`` to delimit each AMDGPU target in HCC. Example:
+
+.. code:: sh
+
   export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
-  # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
+  # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
   # be produced
   hcc `hcc-config --cxxflags --ldflags` foo.cpp
 
@@ -96,10 +117,12 @@ use ``,`` to delimit each AMDGPU target in HCC. Example:
 
 If you build HCC from source, it's possible to configure it to automatically produce multiple ISAs via `HSA_AMDGPU_GPU_TARGET` CMake variable.
 
-Use ``;`` to delimit each AMDGPU target. 
-Example: ::
+Use ``;`` to delimit each AMDGPU target.
+Example:
 
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would 
+.. code:: sh
+
+ # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
  # be produced by default
  cmake \
     -DCMAKE_BUILD_TYPE=Release \
@@ -112,7 +135,9 @@ CodeXL Activity Logger
 
 To enable the `CodeXL Activity Logger <https://github.com/RadeonOpenCompute/ROCm-Profiler/tree/master/CXLActivityLogger>`_, use the  ``USE_CODEXL_ACTIVITY_LOGGER`` environment variable.
 
-Configure the build in the following way: ::
+Configure the build in the following way:
+
+.. code:: sh
 
   cmake \
     -DCMAKE_BUILD_TYPE=Release \
@@ -121,8 +146,10 @@ Configure the build in the following way: ::
     -DUSE_CODEXL_ACTIVITY_LOGGER=1 \
     <ToT HCC checkout directory>
 
-In your application compiled using hcc, include the CodeXL Activiy Logger header: 
-::
+In your application compiled using hcc, include the CodeXL Activiy Logger header:
+
+.. code:: sh
+
   #include <CXLActivityLogger.h>
 
 For information about the usage of the Activity Logger for profiling, please refer to its `documentation <https://github.com/RadeonOpenCompute/ROCm-Profiler/blob/master/CXLActivityLogger/doc/AMDTActivityLogger.pdf>`_.
@@ -133,7 +160,9 @@ HCC with ThinLTO Linking
 To enable the ThinLTO link time, use the ``KMTHINLTO`` environment variable.
 
 Set up your environment in the following way:
-::
+
+.. code:: sh
+
   export KMTHINLTO=1
 
 **ThinLTO Phase 1 - Implemented**
@@ -161,7 +190,7 @@ DS Permute Instructions
 **************************
 Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says “put my lane data in lane i,” and ds_bpermute_b32 says “read data from lane i.” The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
 
-::
+.. code:: cpp
 
   __kernel void hello_world(__global const uint * in, __global const uint * index, __global uint * out)
   {
@@ -173,7 +202,7 @@ Passing Parameters to a Kernel
 *******************************
 Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
 
-::
+.. code:: cpp
 
   /*
   * This is the host-side representation of the kernel arguments that the simplePermute kernel expects.
@@ -193,7 +222,7 @@ Formal HSA arguments are passed to a kernel using a special read-only memory seg
   aql->kernarg_address = args;
   /*
   * Write the args directly to the kernargs buffer;
-  * the code assumes that memory is already allocated for the 
+  * the code assumes that memory is already allocated for the
   * buffers that in_ptr, index_ptr and out_ptr point to
   */
   args->in = in_ptr;
@@ -202,7 +231,7 @@ Formal HSA arguments are passed to a kernel using a special read-only memory seg
 
 The host program should also allocate memory for the in, index and out buffers. In the GitHub repository, all the run-time-related  stuff is hidden in the Dispatch and Buffer classes, so the sample code looks much cleaner:
 
-::
+.. code:: cpp
 
   // Create Kernarg segment
   if (!AllocateKernarg(3 * sizeof(void*))) { return false; }
@@ -234,7 +263,7 @@ Initial Wavefront and Register State To launch a kernel in real hardware, the ru
    .text
    .p2align 8
    .amdgpu_hsa_kernel hello_world
- 
+
    hello_world:
 
    .amd_kernel_code_t
@@ -337,7 +366,7 @@ Compiling GCN ASM Kernel Into Hsaco
 **************************************
 The next step is to produce a Hsaco from the ASM source. LLVM has added support for the AMDGCN assembler, so you can use Clang to do all the necessary magic:
 
-::
+.. code:: sh
 
   clang -x assembler -target amdgcn--amdhsa -mcpu=fiji -c -o test.o asm_source.s
 
@@ -378,10 +407,10 @@ Top-level CMakeLists.txt is provided to build everything included. The following
 
 To build everything, create build directory and run cmake and make:
 
-::
+.. code:: sh
 
   mkdir build
-  cd build  
+  cd build
   cmake -DLLVM_DIR=/srv/git/llvm.git/build ..
   make
 
@@ -391,20 +420,26 @@ Use cases
 **********
 **Assembling to code object with llvm-mc from command line**
 
-The following llvm-mc command line produces ELF object asm.o from assembly source asm.s: ::
+The following llvm-mc command line produces ELF object asm.o from assembly source asm.s:
+
+.. code:: sh
 
   llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
 
 **Assembling to raw instruction stream with llvm-mc from command line**
 
-It is possible to extract contents of .text section after assembling to code object: ::
+It is possible to extract contents of .text section after assembling to code object:
+
+.. code:: sh
 
   llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
   objdump -h asm.o | grep .text | awk '{print "dd if='asm.o' of='asm' bs=1 count=$[0x" $3 "] skip=$[0x" $6 "]"}' | bash
 
 **Disassembling code object from command line**
 
-The following command line may be used to dump contents of code object: ::
+The following command line may be used to dump contents of code object:
+
+.. code:: sh
 
   llvm-objdump -disassemble -mcpu=fiji asm.o
 
@@ -412,7 +447,9 @@ This includes text disassembly of .text section.
 
 **Disassembling raw instruction stream from command line**
 
-The following command line may be used to disassemble raw instruction stream (without ELF structure): ::
+The following command line may be used to disassemble raw instruction stream (without ELF structure):
+
+.. code:: sh
 
   hexdump -v -e '/1 "0x%02X "' asm | llvm-mc -arch=amdgcn -mcpu=fiji -disassemble
 
@@ -431,7 +468,9 @@ Refer to examples/api/disassemble.
 Note that normally standard lld and Code Object version 2 should be used which is closer to standard ELF format.
 
 amdphdrs (now obsolete) is complimentary utility that can be used to produce AMDGPU Code Object version 1.
-For example, given assembly source in asm.s, the following will assemble it and link using amdphdrs: ::
+For example, given assembly source in asm.s, the following will assemble it and link using amdphdrs:
+
+.. code:: sh
 
   llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
   andphdrs asm.o asm.co
@@ -443,29 +482,41 @@ Differences between LLVM AMDGPU Assembler and AMD SP3 assembler
 SP3 supports proprietary set of macros/tools. sp3_to_mc.pl script attempts to translate them into GAS syntax understood by llvm-mc.
 flat_atomic_cmpswap instruction has 32-bit destination
 
-LLVM AMDGPU: ::
+LLVM AMDGPU:
+
+::
 
   flat_atomic_cmpswap v7, v[9:10], v[7:8]
 
-SP3: ::
+SP3:
+
+::
 
   flat_atomic_cmpswap v[7:8], v[9:10], v[7:8]
 
 Atomic instructions that return value should have glc flag explicitly
 
-LLVM AMDGPU: flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3] glc
+LLVM AMDGPU:
 
-SP3 flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3]
+::
+
+  flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3] glc
+
+SP3:
+
+::
+
+  flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3]
 
 References
 ***********
    *  `LLVM Use Guide for AMDGPU Back-End <http://llvm.org/docs/AMDGPUUsage.html>`_
-   *  AMD ISA Documents 
+   *  AMD ISA Documents
        *  `AMD GCN3 Instruction Set Architecture (2016) <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
        *  `AMD_Southern_Islands_Instruction_Set_Architecture <https://developer.amd.com/wordpress/media/2012/12/AMD_Southern_Islands_Instruction_Set_Architecture.pdf>`_
 
 
-ROC Profiler  
+ROC Profiler
 ============
 
 HW specific low-level performance analysis API, 'rocprofiler' library and 'rocprof' tool for profiling of GPU compute applications. The profiling includes HW performance counters with complex performance metrics and HW traces.
@@ -482,7 +533,9 @@ Download
 ########
 
 To clone ROC Profiler from GitHub use the folowing command:
-::
+
+.. code:: sh
+
   git clone https://github.com/ROCmSoftwarePlatform/rocprofiler
 
 The library source tree:
@@ -507,13 +560,17 @@ Build
 #####
 
 Build environment:
-::
+
+.. code:: sh
+
   export CMAKE_PREFIX_PATH=<path to hsa-runtime includes>:<path to hsa-runtime library>
   export CMAKE_BUILD_TYPE=<debug|release> # release by default
   export CMAKE_DEBUG_TRACE=1 # to enable debug tracing
-  
+
 To configure, build, install to /opt/rocm/rocprofiler:
-::
+
+.. code:: sh
+
   mkdir -p build
   cd build
   export CMAKE_PREFIX_PATH=/opt/rocm/lib:/opt/rocm/include/hsa
@@ -522,7 +579,9 @@ To configure, build, install to /opt/rocm/rocprofiler:
   sudo make install
 
 To test the built library:
-::
+
+.. code:: sh
+
   cd build
   ./run.sh
 
@@ -530,7 +589,9 @@ Profiling Tool 'rocprof' Usage
 ##############################
 
 The following shows the command-line usage of the 'rocprof' tool:
-::
+
+.. code:: sh
+
   rpl_run.sh [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
 
   Options:
@@ -632,7 +693,7 @@ different version set the LD_LIBRARY_PATH, for example:
 To display the machine code instructions of wavefronts, together with
 the source text location, the ROCr Debug Agent uses the llvm-objdump
 tool. Ensure that a version that supports AMD GCN GPUs is on your
-’$PATH`. For example, for ROCm 1.9.2:
+``$PATH``. For example, for ROCm 1.9.2:
 
 .. code:: sh
 
@@ -865,7 +926,7 @@ What's New
        * Improves display of pointer parameters for some HSA APIs in the ATP file
        * Fixes an issue with parsing an ATP file which has non-ascii characters (affected Summary page generation and display within 		 CodeXL)
        * ROCm/HSA: Fixes several issues with incorrect or missing data transfer timestamps.
-       
+
 System Requirements
 ********************
   * An AMD Radeon GCN-based GPU or APU
@@ -928,7 +989,7 @@ Known Issues
        * When collecting a trace for an application that performs memory transfers using hsa_amd_memory_async_copy, if the 		 application asks for the data transfer timestamps directly, it will not get correct timestamps. The profiler will show the 		 correct timestamps, however.
        * When collecting an aql packet trace, if the application asks for the kernel dispatch timestamps directly, it will not get 		 correct timestamps. The profiler will show the correct timestamps, however.
        * When the rocm-profiler package (.deb or .rpm) is installed along with rocm, it may not be able to generate the default 	 single-pass counter files. If you do not see counter files in /opt/rocm/profiler/counterfiles, you can generate them 		 manually with this command: "sudo /opt/rocm/profiler/bin/CodeXLGpuProfiler --list --outputfile /opt/rocm/profiler/	  	   counterfiles/counters --maxpassperfile 1"
-       
+
 CodeXL
 =========
 CodeXL is a comprehensive tool suite that enables developers to harness the benefits of CPUs, GPUs and APUs. It includes powerful GPU debugging, comprehensive GPU and CPU profiling, DirectX12® Frame Analysis, static OpenCL™, OpenGL®, Vulkan® and DirectX® kernel/shader analysis capabilities, and APU/CPU/GPU power profiling, enhancing accessibility for software developers to enter the era of heterogeneous computing. CodeXL is available both as a Visual Studio® extension and a standalone user interface application for Windows® and Linux®.

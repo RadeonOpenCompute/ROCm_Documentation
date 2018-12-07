@@ -5,6 +5,14 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.0 (*Work In Progress*)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Removed features
+^^^^^^^^^^^^^^^^
+
+- HCC: removed support for C++AMP
+
 New features and enhancements in ROCm 1.9.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -30,11 +38,11 @@ New features and enhancements in ROCm 1.9.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Added DPM support to Vega 7nm
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Dynamic Power Management feature is enabled on Vega 7nm.
- 
-Fix for 'ROCm profiling' that used to fail with a "Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1" error
-^^^^^^^^^^^^^^^^^^^^
+
+Fix for 'ROCm profiling' "Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1" error
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 New features and enhancements in ROCm 1.9.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,6 +111,6 @@ To try ROCm with an upstream kernel, install ROCm as normal, but do not
 install the rock-dkms package. Also add a udev rule to control /dev/kfd
 permissions:
 
-::
+.. code:: sh
 
     echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
