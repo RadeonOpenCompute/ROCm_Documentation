@@ -1997,5 +1997,370 @@ Tensile follows semantic versioning practices, i.e. Major.Minor.Patch, in Benchm
 * Minor: Tensile increments the minor version when new kernel, solution or benchmarking features are introduced in a backwards-	      	compatible manner.
 * Patch: Bug fixes or minor improvements.
 
+***************
+rocALUTION
+***************
+
+Introduction
+############
+
+Overview
+########
+rocALUTION is a sparse linear algebra library with focus on exploring fine-grained parallelism, targeting modern processors and accelerators including multi/many-core CPU and GPU platforms. The main goal of this package is to provide a portable library for iterative sparse methods on state of the art hardware. rocALUTION can be seen as middle-ware between different parallel backends and application specific packages.
+
+The major features and characteristics of the library are
+
+* Various backends
+    * Host - fallback backend, designed for CPUs
+    * GPU/HIP - accelerator backend, designed for HIP capable AMD GPUs
+    * OpenMP - designed for multi-core CPUs
+    * MPI - designed for multi-node and multi-GPU configurations
+* Easy to use
+    The syntax and structure of the library provide easy learning curves. With the help of the examples, anyone can try out the library - no knowledge in HIP, OpenMP or MPI programming required.
+* No special hardware requirements
+    There are no hardware requirements to install and run rocALUTION. If a GPU device and HIP is available, the library will use them.
+* Variety of iterative solvers
+    * Fixed-Point iteration - Jacobi, Gauss-Seidel, Symmetric-Gauss Seidel, SOR and SSOR
+    * Krylov subspace methods - CR, CG, BiCGStab, BiCGStab(l), GMRES, IDR, QMRCGSTAB, Flexible CG/GMRES
+    * Mixed-precision defect-correction scheme
+    * Chebyshev iteration
+    * Multiple MultiGrid schemes, geometric and algebraic
+* Various preconditioners
+    * Matrix splitting - Jacobi, (Multi-colored) Gauss-Seidel, Symmetric Gauss-Seidel, SOR, SSOR
+    * Factorization - ILU(0), ILU(p) (based on levels), ILU(p,q) (power(q)-pattern method), Multi-Elimination ILU (nested/recursive), ILUT (based on threshold) and IC(0)
+    * Approximate Inverse - Chebyshev matrix-valued polynomial, SPAI, FSAI and TNS
+    * Diagonal-based preconditioner for Saddle-point problems
+    * Block-type of sub-preconditioners/solvers
+    * Additive Schwarz and Restricted Additive Schwarz
+    * Variable type preconditioners
+* Generic and robust design
+    rocALUTION is based on a generic and robust design allowing expansion in the direction of new solvers and preconditioners and support for various hardware types. Furthermore, the design of the library allows the use of all solvers as preconditioners in other solvers. For example you can easily define a CG solver with a Multi-Elimination preconditioner, where the last-block is preconditioned with another Chebyshev iteration method which is preconditioned with a multi-colored Symmetric Gauss-Seidel scheme.
+* Portable code and results
+    All code based on rocALUTION is portable and independent of HIP or OpenMP. The code will compile and run everywhere. All solvers and preconditioners are based on a single source code, which delivers portable results across all supported backends (variations are possible due to different rounding modes on the hardware). The only difference which you can see for a hardware change is the performance variation.
+* Support for several sparse matrix formats
+    Compressed Sparse Row (CSR), Modified Compressed Sparse Row (MCSR), Dense (DENSE), Coordinate (COO), ELL, Diagonal (DIA), Hybrid format of ELL and COO (HYB).
+
+The code is open-source under MIT license and hosted on here: https://github.com/ROCmSoftwarePlatform/rocALUTION
+
+Building and Installing
+#######################
+
+Installing from AMD ROCm repositories
+#####################################
+TODO, not yet available
+
+Building rocALUTION from Open-Source repository
+###############################################
+
+Download rocALUTION
+###################
+The rocALUTION source code is available at the `rocALUTION github page <https://github.com/ROCmSoftwarePlatform/rocALUTION>`_.
+Download the master branch using:
+
+::
+
+  git clone -b master https://github.com/ROCmSoftwarePlatform/rocALUTION.git
+  cd rocALUTION
+
+
+Note that if you want to contribute to rocALUTION, you will need to checkout the develop branch instead of the master branch. See :ref:`rocalution_contributing` for further details.
+Below are steps to build different packages of the library, including dependencies and clients.
+It is recommended to install rocALUTION using the *install.sh* script.
+
+Using *install.sh* to build dependencies + library
+##################################################
+The following table lists common uses of *install.sh* to build dependencies + library. Accelerator support via HIP and OpenMP will be enabled by default, whereas MPI is disabled.
+
+===================== ====
+Command               Description
+===================== ====
+`./install.sh -h`     Print help information.
+`./install.sh -d`     Build dependencies and library in your local directory. The `-d` flag only needs to be |br| used once. For subsequent invocations of *install.sh* it is not necessary to rebuild the |br| dependencies.
+`./install.sh`        Build library in your local directory. It is assumed dependencies are available.
+`./install.sh -i`     Build library, then build and install rocALUTION package in `/opt/rocm/rocalution`. You will |br| be prompted for sudo access. This will install for all users.
+`./install.sh --host` Build library in your local directory without HIP support. It is assumed dependencies |br| are available.
+`./install.sh --mpi`  Build library in your local directory with HIP and MPI support. It is assumed |br| dependencies are available.
+===================== ====
+
+Using *install.sh* to build dependencies + library + client
+###########################################################
+The client contains example code, unit tests and benchmarks. Common uses of *install.sh* to build them are listed in the table below.
+
+=================== ====
+Command             Description
+=================== ====
+`./install.sh -h`   Print help information.
+`./install.sh -dc`  Build dependencies, library and client in your local directory. The `-d` flag only needs to |br| be used once. For subsequent invocations of *install.sh* it is not necessary to rebuild the |br| dependencies.
+`./install.sh -c`   Build library and client in your local directory. It is assumed dependencies are available.
+`./install.sh -idc` Build library, dependencies and client, then build and install rocALUTION package in |br| `/opt/rocm/rocalution`. You will be prompted for sudo access. This will install for all users.
+`./install.sh -ic`  Build library and client, then build and install rocALUTION package in |br| `opt/rocm/rocalution`. You will be prompted for sudo access. This will install for all users.
+=================== ====
+
+Using individual commands to build rocALUTION
+#############################################
+CMake 3.5 or later is required in order to build rocALUTION.
+
+rocALUTION can be built with cmake using the following commands:
+
+::
+
+  # Create and change to build directory
+  mkdir -p build/release ; cd build/release
+
+  # Default install path is /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to adjust it
+  cmake ../.. -DSUPPORT_HIP=ON \
+              -DSUPPORT_MPI=OFF \
+              -DSUPPORT_OMP=ON
+
+  # Compile rocALUTION library
+  make -j$(nproc)
+
+  # Install rocALUTION to /opt/rocm
+  sudo make install
+
+GoogleTest is required in order to build rocALUTION client.
+
+rocALUTION with dependencies and client can be built using the following commands:
+
+::
+
+  # Install googletest
+  mkdir -p build/release/deps ; cd build/release/deps
+  cmake ../../../deps
+  sudo make -j$(nproc) install
+
+  # Change to build directory
+  cd ..
+
+  # Default install path is /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to adjust it
+  cmake ../.. -DBUILD_CLIENTS_TESTS=ON \
+              -DBUILD_CLIENTS_SAMPLES=ON
+
+  # Compile rocALUTION library
+  make -j$(nproc)
+
+  # Install rocALUTION to /opt/rocm
+  sudo make install
+
+The compilation process produces a shared library file *librocalution.so* and *librocalution_hip.so* if HIP support is enabled. Ensure that the library objects can be found in your library path. If you do not copy the library to a specific location you can add the path under Linux in the *LD_LIBRARY_PATH* variable.
+
+::
+
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<path_to_rocalution>
+
+Common build problems
+#####################
+#. **Issue:** HIP (/opt/rocm/hip) was built using hcc 1.0.xxx-xxx-xxx-xxx, but you are using /opt/rocm/bin/hcc with version 1.0.yyy-yyy-yyy-yyy from hipcc (version mismatch). Please rebuild HIP including cmake or update HCC_HOME variable.
+
+   **Solution:** Download HIP from github and use hcc to `build from source <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and then use the built HIP instead of /opt/rocm/hip.
+
+#. **Issue:** For Carrizo - HCC RUNTIME ERROR: Failed to find compatible kernel
+
+   **Solution:** Add the following to the cmake command when configuring: `-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"`
+
+#. **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Failed to find compatible kernel
+
+   **Solution:** `export HCC_AMDGPU_TARGET=gfx900`
+
+#. **Issue:** Could not find a package configuration file provided by "ROCM" with any of the following names:
+              ROCMConfig.cmake |br|
+              rocm-config.cmake
+
+   **Solution:** Install `ROCm cmake modules <https://github.com/RadeonOpenCompute/rocm-cmake>`_
+
+#. **Issue:** Could not find a package configuration file provided by "ROCSPARSE" with any of the following names:
+              ROCSPARSE.cmake |br|
+              rocsparse-config.cmake
+
+   **Solution:** Install `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_
+
+#. **Issue:** Could not find a package configuration file provided by "ROCBLAS" with any of the following names:
+              ROCBLAS.cmake |br|
+              rocblas-config.cmake
+
+   **Solution:** Install `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
+
+Simple Test
+###########
+You can test the installation by running a CG solver on a Laplace matrix. After compiling the library you can perform the CG solver test by executing
+
+::
+
+  cd rocALUTION/build/release/examples
+
+  wget ftp://math.nist.gov/pub/MatrixMarket2/Harwell-Boeing/laplace/gr_30_30.mtx.gz
+  gzip -d gr_30_30.mtx.gz
+
+  ./cg gr_30_30.mtx
+
+For more information regarding rocALUTION library and corresponding API documentation, refer 
+`rocALUTION <https://rocalution.readthedocs.io/en/latest/library.html>`_
+
+
+****************
+rocSPARCE
+****************
+Introduction
+#############
+rocSPARSE is a library that contains basic linear algebra subroutines for sparse matrices and vectors written in HiP for GPU devices. It is designed to be used from C and C++ code.
+
+The code is open and hosted here: https://github.com/ROCmSoftwarePlatform/rocSPARSE
+
+Device and Stream Management
+############################
+*hipSetDevice()* and *hipGetDevice()* are HIP device management APIs. They are NOT part of the rocSPARSE API.
+
+Asynchronous Execution
+######################
+All rocSPARSE library functions, unless otherwise stated, are non blocking and executed asynchronously with respect to the host. They may return before the actual computation has finished. To force synchronization, *hipDeviceSynchronize()* or *hipStreamSynchronize()* can be used. This will ensure that all previously executed rocSPARSE functions on the device / this particular stream have completed.
+
+HIP Device Management
+#####################
+Before a HIP kernel invocation, users need to call *hipSetDevice()* to set a device, e.g. device 1. If users do not explicitly call it, the system by default sets it as device 0. Unless users explicitly call *hipSetDevice()* to set to another device, their HIP kernels are always launched on device 0.
+
+The above is a HIP (and CUDA) device management approach and has nothing to do with rocSPARSE. rocSPARSE honors the approach above and assumes users have already set the device before a rocSPARSE routine call.
+
+HIP Stream Management
+#####################
+HIP kernels are always launched in a queue (also known as stream).
+
+If users do not explicitly specify a stream, the system provides a default stream, maintained by the system. Users cannot create or destroy the default stream. However, users can freely create new streams (with *hipStreamCreate()*) and bind it to the rocSPARSE handle. HIP kernels are invoked in rocSPARSE routines. The rocSPARSE handle is always associated with a stream, and rocSPARSE passes its stream to the kernels inside the routine. One rocSPARSE routine only takes one stream in a single invocation. If users create a stream, they are responsible for destroying it.
+
+Multiple Streams and Multiple Devices
+#####################################
+If the system under test has multiple HIP devices, users can run multiple rocSPARSE handles concurrently, but can NOT run a single rocSPARSE handle on different discrete devices. Each handle is associated with a particular singular device, and a new handle should be created for each additional device.
+
+Building and Installing
+#######################
+
+Installing from AMD ROCm repositories
+#####################################
+rocSPARSE can be installed from `AMD ROCm repositories <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_ by
+
+::
+
+  sudo apt install rocsparse
+
+
+Building rocSPARSE from Open-Source repository
+##############################################
+
+Download rocSPARSE
+##################
+The rocSPARSE source code is available at the `rocSPARSE github page <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_.
+Download the master branch using:
+
+::
+
+  git clone -b master https://github.com/ROCmSoftwarePlatform/rocSPARSE.git
+  cd rocSPARSE
+
+
+Note that if you want to contribute to rocSPARSE, you will need to checkout the develop branch instead of the master branch.
+
+Below are steps to build different packages of the library, including dependencies and clients.
+It is recommended to install rocSPARSE using the *install.sh* script.
+
+Using *install.sh* to build dependencies + library
+##################################################
+The following table lists common uses of *install.sh* to build dependencies + library.
+
+================= ====
+Command           Description
+================= ====
+`./install.sh -h` Print help information.
+`./install.sh -d` Build dependencies and library in your local directory. The `-d` flag only needs to be |br| used once. For subsequent invocations of *install.sh* it is not necessary to rebuild the |br| dependencies.
+`./install.sh`    Build library in your local directory. It is assumed dependencies are available.
+`./install.sh -i` Build library, then build and install rocSPARSE package in `/opt/rocm/rocsparse`. You will be |br| prompted for sudo access. This will install for all users.
+================= ====
+
+Using *install.sh* to build dependencies + library + client
+###########################################################
+The client contains example code, unit tests and benchmarks. Common uses of *install.sh* to build them are listed in the table below.
+
+=================== ====
+Command             Description
+=================== ====
+`./install.sh -h`   Print help information.
+`./install.sh -dc`  Build dependencies, library and client in your local directory. The `-d` flag only needs to be |br| used once. For subsequent invocations of *install.sh* it is not necessary to rebuild the |br| dependencies.
+`./install.sh -c`   Build library and client in your local directory. It is assumed dependencies are available.
+`./install.sh -idc` Build library, dependencies and client, then build and install rocSPARSE package in |br| `/opt/rocm/rocsparse`. You will be prompted for sudo access. This will install for all users.
+`./install.sh -ic`  Build library and client, then build and install rocSPARSE package in `opt/rocm/rocsparse`. |br| You will be prompted for sudo access. This will install for all users.
+=================== ====
+
+Using individual commands to build rocSPARSE
+############################################
+CMake 3.5 or later is required in order to build rocSPARSE.
+The rocSPARSE library contains both, host and device code, therefore the HCC compiler must be specified during cmake configuration process.
+
+rocSPARSE can be built using the following commands:
+
+::
+
+  # Create and change to build directory
+  mkdir -p build/release ; cd build/release
+
+  # Default install path is /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to adjust it
+  CXX=/opt/rocm/bin/hcc cmake ../..
+
+  # Compile rocSPARSE library
+  make -j$(nproc)
+
+  # Install rocSPARSE to /opt/rocm
+  sudo make install
+
+Boost and GoogleTest is required in order to build rocSPARSE client.
+
+rocSPARSE with dependencies and client can be built using the following commands:
+
+::
+
+  # Install boost on Ubuntu
+  sudo apt install libboost-program-options-dev
+  # Install boost on Fedora
+  sudo dnf install boost-program-options
+
+  # Install googletest
+  mkdir -p build/release/deps ; cd build/release/deps
+  cmake -DBUILD_BOOST=OFF ../../../deps
+  sudo make -j$(nproc) install
+
+  # Change to build directory
+  cd ..
+
+  # Default install path is /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to adjust it
+  CXX=/opt/rocm/bin/hcc cmake ../.. -DBUILD_CLIENTS_TESTS=ON \
+                                    -DBUILD_CLIENTS_BENCHMARKS=ON \
+                                    -DBUILD_CLIENTS_SAMPLES=ON
+
+  # Compile rocSPARSE library
+  make -j$(nproc)
+
+  # Install rocSPARSE to /opt/rocm
+  sudo make install
+
+Common build problems
+#####################
+#. **Issue:** HIP (/opt/rocm/hip) was built using hcc 1.0.xxx-xxx-xxx-xxx, but you are using /opt/rocm/bin/hcc with version 1.0.yyy-yyy-yyy-yyy from hipcc (version mismatch). Please rebuild HIP including cmake or update HCC_HOME variable.
+
+   **Solution:** Download HIP from github and use hcc to `build from source <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and then use the built HIP instead of /opt/rocm/hip.
+
+#. **Issue:** For Carrizo - HCC RUNTIME ERROR: Failed to find compatible kernel
+
+   **Solution:** Add the following to the cmake command when configuring: `-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"`
+
+#. **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Failed to find compatible kernel
+
+   **Solution:** `export HCC_AMDGPU_TARGET=gfx900`
+
+#. **Issue:** Could not find a package configuration file provided by "ROCM" with any of the following names:
+              ROCMConfig.cmake |br|
+              rocm-config.cmake
+
+   **Solution:** Install `ROCm cmake modules <https://github.com/RadeonOpenCompute/rocm-cmake>`_
+
+Regarding more information about rocSPARSE and it's functions, corresponding API's, Please refer 
+`rocsparse <https://rocsparse.readthedocs.io/en/latest/library.html>`_
+
 
 
