@@ -69,6 +69,332 @@ Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’
 
 Or you can build from `source code <https://github.com/ROCmSoftwarePlatform/MIOpen>`_
 
+
+Building PyTorch for ROCm
+**************************
+
+This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://rocm.github.io/ROCmInstall.html>`_ for supported operating systems and general information on the ROCm software stack.
+
+A ROCm install version 1.9.2 is required currently.
+
+1. Install or update rocm-dev on the host system:
+
+::
+
+  sudo apt-get install rocm-dev
+  or
+  sudo apt-get update
+  sudo apt-get upgrade
+
+Recommended:Install using published PyTorch ROCm docker image:
+**************************************************************
+
+2. Obtain docker image:
+
+::
+
+  docker pull rocm/pytorch:rocm1.9.2
+
+3. Clone PyTorch repository on the host:
+
+::
+
+  cd ~
+  git clone https://github.com/pytorch/pytorch.git
+  cd pytorch
+  git submodule init
+  git submodule update
+
+4. Start a docker container using the downloaded image:
+
+::
+
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm1.9.2
+
+Note: This will mount your host home directory on /data in the container.
+
+5. Change to previous PyTorch checkout from within the running docker:
+
+::
+
+  cd /data/pytorch
+
+6. Build PyTorch for ROCm:
+
+Unless you are running a gfx900/Vega10-type GPU (MI25, Vega56, Vega64,...), explicitly export the GPU architecture to build for, e.g.:
+export HCC_AMDGPU_TARGET=gfx906
+
+then
+::
+
+  .jenkins/pytorch/build.sh
+
+This will first hipify the PyTorch sources and then compile using 4 concurrent jobs, needing 16 GB of RAM to be available to the docker image.
+
+7. Confirm working installation:
+
+::
+
+  PYTORCH_TEST_WITH_ROCM=1 python test/run_test.py --verbose
+
+No tests will fail if the compilation and installation is correct.
+
+8. Install torchvision:
+
+::
+
+  pip install torchvision
+
+This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
+
+9. Commit the container to preserve the pytorch install (from the host):
+
+::
+
+  sudo docker commit <container_id> -m 'pytorch installed'
+
+Option 2: Install using PyTorch upstream docker file
+****************************************************
+
+2. Clone PyTorch repository on the host:
+
+::
+
+  cd ~
+  git clone https://github.com/pytorch/pytorch.git
+  cd pytorch
+  git submodule init
+  git submodule update
+
+3. Build PyTorch docker image:
+
+::
+  
+  cd pytorch/docker/caffe2/jenkins
+  ./build.sh py2-clang7-rocmdeb-ubuntu16.04
+
+This should complete with a message "Successfully built <image_id>"
+Note here that other software versions may be chosen, such setups are currently not tested though!
+
+4. Start a docker container using the new image:
+
+::
+
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video <image_id>
+
+Note: This will mount your host home directory on /data in the container.
+
+5. Change to previous PyTorch checkout from within the running docker:
+
+::
+
+  cd /data/pytorch
+
+6. Build PyTorch for ROCm:
+
+Unless you are running a gfx900/Vega10-type GPU (MI25, Vega56, Vega64,...), explicitly export the GPU architecture to build for, e.g.:
+export HCC_AMDGPU_TARGET=gfx906
+
+then
+::
+
+  .jenkins/pytorch/build.sh
+
+This will first hipify the PyTorch sources and then compile using 4 concurrent jobs, needing 16 GB of RAM to be available to the docker image.
+
+7. Confirm working installation:
+
+::
+
+  PYTORCH_TEST_WITH_ROCM=1 python test/run_test.py --verbose
+
+No tests will fail if the compilation and installation is correct.
+
+8. Install torchvision:
+
+::
+
+  pip install torchvision
+
+This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
+
+9. Commit the container to preserve the pytorch install (from the host):
+
+::
+
+  sudo docker commit <container_id> -m 'pytorch installed'
+
+Option 3: Install using minimal ROCm docker file
+************************************************
+
+2. Download pytorch dockerfile:
+
+`Dockerfile <https://github.com/ROCmSoftwarePlatform/pytorch/wiki/Dockerfile>`_
+
+3. Build docker image:
+
+::
+
+  cd pytorch_docker
+  sudo docker build .
+
+This should complete with a message "Successfully built <image_id>"
+
+4. Start a docker container using the new image:
+
+::
+
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video <image_id>
+
+Note: This will mount your host home directory on /data in the container.
+
+5. Clone pytorch master (on to the host):
+
+::
+  
+  cd ~
+  git clone https://github.com/pytorch/pytorch.git or git clone https://github.com/ROCmSoftwarePlatform/pytorch.git
+  cd pytorch
+  git submodule init
+  git submodule update
+
+6. Run "hipify" to prepare source code (in the container):
+
+::
+
+  cd /data/pytorch/
+  python tools/amd_build/build_pytorch_amd.py
+  python tools/amd_build/build_caffe2_amd.py
+
+7. Build and install pytorch:
+
+Unless you are running a gfx900/Vega10-type GPU (MI25, Vega56, Vega64,...), explicitly export the GPU architecture to build for, e.g.:
+export HCC_AMDGPU_TARGET=gfx906
+
+then
+::
+
+  USE_ROCM=1 MAX_JOBS=4 python setup.py install --user 
+
+UseMAX_JOBS=n to limit peak memory usage. If building fails try falling back to fewer jobs. 4 jobs assume available main memory of 16 GB or larger.
+
+8. Confirm working installation:
+
+::
+
+  PYTORCH_TEST_WITH_ROCM=1 python test/run_test.py --verbose
+
+No tests will fail if the compilation and installation is correct.
+
+9. Install torchvision:
+
+::
+
+  pip install torchvision
+
+This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
+
+10. Commit the container to preserve the pytorch install (from the host):
+
+::
+
+  sudo docker commit <container_id> -m 'pytorch installed'
+
+Try PyTorch examples
+*************************
+
+1. Clone the PyTorch examples repository:
+
+::
+
+  git clone https://github.com/pytorch/examples.git
+
+2. Run individual example: MNIST
+
+::
+
+  cd examples/mnist
+
+Follow instructions in README.md, in this case:
+::
+
+  pip install -r requirements.txt python main.py
+
+3. Run individual example: Try ImageNet training
+
+::
+
+  cd ../imagenet
+
+Follow instructions in README.md.
+
+Building Caffe2 for ROCm
+**************************
+This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-1.9.2 drivers installed. Please refer to ROCm install to install ROCm software stack. If your host system doesn't have docker installed, please refer to docker install. It is recommended to add the user to the docker group to run docker as a non-root user, please refer here.
+
+This guide provides two options to run Caffe2.
+    1. Launch the docker container using a docker image with Caffe2 installed.
+    2. Build Caffe2 from source inside a Caffe2 ROCm docker image.
+
+Option 1: Docker image with Caffe2 installed:
+********************************************
+This option provides a docker image which has Caffe2 installed. Users can launch the docker container and train/run deep learning models directly. This docker image will run on both gfx900(Vega10-type GPU - MI25, Vega56, Vega64,...) and gfx906(Vega20-type GPU - MI50, MI60)
+
+   * Launch the docker container
+
+::
+
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/caffe2:238-1.9.2
+
+This will automatically download the image if it does not exist on the host. You can also pass -v argument to mount any data directories on to the container.
+
+Option 2: Install using Caffe2 ROCm docker image:
+*************************************************
+1.  Clone PyTorch repository on the host:
+::
+
+  cd ~
+  git clone --recurse-submodules https://github.com/pytorch/pytorch.git
+  cd pytorch
+  sgit submodule update --init --recursive
+
+2. Launch the docker container
+
+::
+
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/caffe2:unbuilt-238-1.9.2
+
+3. Build Caffe2 from source
+
+If running on gfx900/vega10-type GPU(MI25, Vega56, Vega64,...)
+::
+
+  .jenkins/caffe2/build.sh
+
+If running on gfx906/vega20-type GPU(MI50, MI60)HCC_AMDGPU_TARGET=gfx906 
+::
+
+  .jenkins/caffe2/build.sh
+
+Test the Caffe2 Installation
+******************************
+To validate Caffe2 installation, for both options, run
+
+1. Test Command
+::
+
+  cd build_caffe2 && python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
+
+If the test fails, make sure the following environment variables are set. LD_LIBRARY_PATH=/pytorch/build_caffe2/lib
+::
+
+  PYTHONPATH=/pytorch/build_caffe2
+
+2. Running unit tests in Caffe2
+::
+
+  .jenkins/caffe2/test.sh
+
 Deep Learning Framework support for ROCm
 *******************************************
 
