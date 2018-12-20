@@ -5,22 +5,18 @@
 Installation Guide
 ===================
             
-Current ROCm Version: 1.9.2
+Current ROCm Version: 2.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware Support
 ~~~~~~~~~~~~~~~~
 
-ROCm is focused on using AMD GPUs to accelerate computational tasks,
-such as machine learning, engineering workloads, and scientific
-computing. In order to focus our development efforts on these domains of
-interest, ROCm
+ROCm is focused on using AMD GPUs to accelerate computational tasks, such as machine learning, engineering workloads, and scientific computing. In order to focus our development efforts on these domains of interest, ROCm supports a targeted set of hardware configurations which are detailed further in this section.
 
 Supported GPUs
 ^^^^^^^^^^^^^^
 
-Because the ROCm Platform has a focus on particular computational
-domains, we offer official support for a selection of AMD GPUs that are
+Because the ROCm Platform has a focus on particular computational domains, we offer official support for a selection of AMD GPUs that are
 designed to offer good performance and price in these domains.
 
 ROCm officially supports AMD GPUs that have use following chips:
@@ -33,36 +29,24 @@ ROCm officially supports AMD GPUs that have use following chips:
 * GFX9 GPUs
    - "Vega 10" chips, such as on the AMD Radeon Radeon RX Vega 64 and Radeon Instinct MI25
 
-ROCm is a collection of software ranging from drivers and runtimnes to
-libraries and developer tools. Some of this software may work with more
-GPUs than the "officially supported" list above, though AMD does not
-make any official claims of support for these devices on the ROCm
-software platform. The following list of GPUs are likely to work within
-ROCm, though full support is not guaranteed:
+ROCm is a collection of software ranging from drivers and runtimnes to libraries and developer tools. Some of this software may work with more
+GPUs than the "officially supported" list above, though AMD does not make any official claims of support for these devices on the ROCm software platform. The following list of GPUs are likely to work within ROCm, though full support is not guaranteed:
 
 * GFX7 GPUs
    - "Hawaii" chips, such as the AMD Radeon R9 390X and FirePro W9100
 
-As described in the next section, GFX8 GPUs require PCIe gen 3 with
-support for PCIe atomics. This requires both CPU and motherboard
-support. GFX9 GPUs, by default, also require PCIe gen 3 with support for
-PCIe atomics; but they can operate in most cases without this capability.
+As described in the next section, GFX8 GPUs require PCIe gen 3 with support for PCIe atomics. This requires both CPU and motherboard
+support. GFX9 GPUs, by default, also require PCIe gen 3 with support for PCIe atomics; but they can operate in most cases without this capability.
 
-At this time, the integrated GPUs in AMD APUs are not officially
-supported targets for ROCm.
+At this time, the integrated GPUs in AMD APUs are not officially supported targets for ROCm.
 
-For a more detailed list of hardware support, please see `the following
-documentation <https://rocm.github.io/hardware.html>`__.
+For a more detailed list of hardware support, please see `the following documentation <https://rocm.github.io/hardware.html>`__.
 
 Supported CPUs
 ^^^^^^^^^^^^^^
 
-As described above, GFX8 and GFX9 GPUs require PCI Express 3.0 with PCIe
-atomics in the default ROCm configuration. In particular, the CPU and
-every active PCIe point between the CPU and GPU require support for PCIe
-gen 3 and PCIe atomics. The CPU root must indicate PCIe AtomicOp
-Completion capabilities and any intermediate switch must indicate PCIe
-AtomicOp Routing capabilities.
+As described above, GFX8 and GFX9 GPUs require PCI Express 3.0 with PCIe atomics in the default ROCm configuration. In particular, the CPU and
+every active PCIe point between the CPU and GPU require support for PCIe gen 3 and PCIe atomics. The CPU root must indicate PCIe AtomicOp Completion capabilities and any intermediate switch must indicate PCIe AtomicOp Routing capabilities.
 
 | Current CPUs which support PCIe Gen3 + PCIe Atomics are:
 * AMD Ryzen CPUs
@@ -75,45 +59,30 @@ AtomicOp Routing capabilities.
 * Intel Core i7 v4, Core i5 v4, Core i3 v4 or newer CPUs (i.e. Haswell family or newer).
 * Some Ivy Bridge-E systems
 
-Beginning with ROCm 1.8, we have relaxed the requirements for PCIe
-Atomics on GFX9 GPUs such as Vega 10. We have similarly opened up more
-options for number of PCIe lanes. GFX9 GPUs can now be run on CPUs
-without PCIe atomics and on older PCIe generations such as gen 2.
-This is not supported on GPUs below GFX9, e.g.
-GFX8 cards in Fiji and Polaris families.
+Beginning with ROCm 1.8, we have relaxed the requirements for PCIe Atomics on GFX9 GPUs such as Vega 10. We have similarly opened up more
+options for number of PCIe lanes. GFX9 GPUs can now be run on CPUs without PCIe atomics and on older PCIe generations such as gen 2.
+This is not supported on GPUs below GFX9, e.g. GFX8 cards in Fiji and Polaris families.
 
-If you are using any PCIe switches in your system, please note that PCIe
-Atomics are only supported on some switches, such as Boradcom PLX. When
-you install your GPUs, make sure you install them in a fully PCIe Gen3
-x16 or x8, x4 or x1 slot attached either directly to the CPU's Root I/O
-controller or via a PCIe switch directly attached to the CPU's Root I/O
-controller.
+If you are using any PCIe switches in your system, please note that PCIe Atomics are only supported on some switches, such as Boradcom PLX. When you install your GPUs, make sure you install them in a fully PCIe Gen3 x16 or x8, x4 or x1 slot attached either directly to the CPU's Root I/O controller or via a PCIe switch directly attached to the CPU's Root I/O controller.
 
-In our experience, many issues stem from trying to use consumer
-motherboards which provide physical x16 connectors that are electrically
-connected as e.g. PCIe Gen2 x4, PCIe slots connected via the Southbridge
-PCIe I/O controller, or PCIe slots connected through a PCIe switch that
-does not support PCIe atomics.
+In our experience, many issues stem from trying to use consumer motherboards which provide physical x16 connectors that are electrically
+connected as e.g. PCIe Gen2 x4, PCIe slots connected via the Southbridge PCIe I/O controller, or PCIe slots connected through a PCIe switch that does not support PCIe atomics.
 
-If you attempt to run ROCm on a system without proper PCIe atomic
-support, you may see an error in the kernel log (``dmesg``):
+If you attempt to run ROCm on a system without proper PCIe atomic support, you may see an error in the kernel log (``dmesg``):
 
 ::
 
     kfd: skipped device 1002:7300, PCI rejects atomics
 
-Experimental support for our Hawaii (GFX7) GPUs (Radeon R9 290, R9 390,
-FirePro W9100, S9150, S9170) does not require or take advantage of PCIe
-Atomics. However, we still recommend that you use a CPU from the list
-provided above for compatibility purposes.
+Experimental support for our Hawaii (GFX7) GPUs (Radeon R9 290, R9 390, FirePro W9100, S9150, S9170) does not require or take advantage of PCIe
+Atomics. However, we still recommend that you use a CPU from the list provided above for compatibility purposes.
 
 Not supported or very limited support under ROCm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Limited support
-               
-
--  ROCm 1.9.2 and Vega10 should support PCIe Gen2 enabled CPUs such as the
+        
+-  ROCm 2.0 and Vega10 should support PCIe Gen2 enabled CPUs such as the
    AMD Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and
    older Intel Xeon and Intel Core Architecture and Pentium CPUs.
    However, we have done very limited testing on these configurations,
@@ -129,9 +98,8 @@ Limited support
 
 Not supported
              
-
 -  "Tonga", "Iceland", "Polaris 12", and "Vega M" GPUs are not supported
-   in ROCm 1.9.x
+   in ROCm 2.0
 -  We do not support GFX8-class GPUs (Fiji, Polaris, etc.) on CPUs that
    do not have PCIe Gen 3 with PCIe atomics.
 -  As such, do not support AMD Carrizo and Kaveri APUs as hosts for such
@@ -156,32 +124,32 @@ Software Support
 
 The latest tested version of the drivers, tools, libraries and source
 code for the ROCm platform have been released and are available under
-the roc-1.9.2 or rocm-1.9.x tag of the following GitHub repositories:
+the roc-2.0 or rocm-2.0 tag of the following GitHub repositories:
 
--  `ROCK-Kernel-Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-1.9.x>`__
--  `ROCR-Runtime <https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-1.9.x>`__
--  `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.9.x>`__
--  `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.9.x>`__
+-  `ROCK-Kernel-Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.x>`__
+-  `ROCR-Runtime <https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.x>`__
+-  `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.x>`__
+-  `ROC-smi <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.x>`__
 -  `HCC
-   compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-1.9.x>`__
--  `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-1.9.x>`__
--  `HIP <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/tree/roc-1.9.x>`__
--  `HIP-Examples <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-1.9.x>`__
+   compiler <https://github.com/RadeonOpenCompute/hcc/tree/roc-2.x>`__
+-  `compiler-runtime <https://github.com/RadeonOpenCompute/compiler-rt/tree/roc-2.x>`__
+-  `HIP <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/tree/roc-2.x>`__
+-  `HIP-Examples <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP-Examples/tree/roc-2.x>`__
 -  `atmi <https://github.com/RadeonOpenCompute/atmi/tree/0.3.7>`__
 
 Additionally, the following mirror repositories that support the HCC
-compiler are also available on GitHub, and frozen for the rocm-1.9.2
+compiler are also available on GitHub, and frozen for the rocm-2.0
 release:
 
--  `llvm <https://github.com/RadeonOpenCompute/llvm/tree/roc-1.9.x>`__
--  `ldd <https://github.com/RadeonOpenCompute/lld/tree/roc-1.9.x>`__
--  `hcc-clang-upgrade <https://github.com/RadeonOpenCompute/hcc-clang-upgrade/tree/roc-1.9.x>`__
--  `ROCm-Device-Libs <https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-1.9.x>`__
+-  `llvm <https://github.com/RadeonOpenCompute/llvm/tree/roc-2.x>`__
+-  `ldd <https://github.com/RadeonOpenCompute/lld/tree/roc-2.x>`__
+-  `hcc-clang-upgrade <https://github.com/RadeonOpenCompute/hcc-clang-upgrade/tree/roc-2.x>`__
+-  `ROCm-Device-Libs <https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-2.x>`__
 
 Supported Operating Systems - New operating systems available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROCm 1.9.2 platform has been tested on the following operating
+The ROCm 2.0 platform has been tested on the following operating
 systems:
 - Ubuntu 16.04 & 18.04 (Version 16.04.3 and newer or kernels 4.13 and newer)
 - CentOS 7.4 & 7.5 (Using devetoolset-7 runtime support)
@@ -190,7 +158,7 @@ systems:
 Installing from AMD ROCm repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD is hosting both Debian and RPM repositories for the ROCm 1.9.2
+AMD is hosting both Debian and RPM repositories for the ROCm 2.0
 packages at this time.
 
 The packages in the Debian repository have been signed to ensure package
@@ -546,7 +514,7 @@ The ROCm platform relies on a few closed source components to provide functional
  
 Getting ROCm source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Modifications can be made to the ROCm 1.9.2 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 1.9.2 manifest file to download the entire ROCm 1.9.2 source code.
+Modifications can be made to the ROCm 2.0 components by modifying the open source code base and rebuilding the components. Source code can be cloned from each of the GitHub repositories using git, or users can use the repo command and the ROCm 2.0 manifest file to download the entire ROCm 2.0 source code.
 
 Installing repo
 ^^^^^^^^^^^^^^^^^
@@ -563,10 +531,10 @@ Cloning the code
 To Clone the code form ROCm, following steps can be used:
 ::
  mkdir ROCm && cd ROCm
- repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-1.9.2
+ repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-2.0
  repo sync
 
-These series of commands will pull all of the open source code associated with the ROCm 1.9.2 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
+These series of commands will pull all of the open source code associated with the ROCm 2.0 release. Please ensure that ssh-keys are configured for the target machine on GitHub for your GitHub ID.
 
  * OpenCL Runtime and Compiler will be submitted to the Khronos Group, prior to the final release, for conformance testing.
 

@@ -5,8 +5,62 @@
 Current Release Notes
 =====================
 
-New features and enhancements in ROCm 2.0 (*Work In Progress*)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+New features and enhancements in ROCm 2.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Adds support for RHEL 7.6 / CentOS 7.6 and Ubuntu 18.04.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Adds support for Vega 7nm
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Introduces MIVisionX
+^^^^^^^^^^^^^^^^^^^^^
+A comprehensive computer vision and machine intelligence libraries, utilities and applications bundled into a single toolkit.
+
+Improvements to ROCm Libraries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   * rocSPARSE & hipSPARSE
+   * rocBLAS with improved DGEMM efficiency on Vega 7nm
+
+MIOpen
+^^^^^^^^
+    * This release contains general bug fixes and an updated performance database
+    * Group convolutions backwards weights performance has been improved
+    * RNNs now support fp16
+
+Tensorflow multi-gpu and Tensorflow FP16 support for Vega 7nm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * TensorFlow v1.12 is enabled with fp16 support
+
+PyTorch/Caffe2 with Vega 7nm Support
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * fp16 support is enabled
+    * Several bug fixes and performance enhancements
+    * Known Issue: breaking changes are introduced in ROCm 2.0 which are not addressed upstream yet. Meanwhile, please continue to use ROCm fork at https://github.com/ROCmSoftwarePlatform/pytorch
+
+Improvements to ROCProfiler tool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    * Support for Vega 7nm
+
+Support for hipStreamCreateWithPriority
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    * Creates a stream with the specified priority. It creates a stream on which enqueued kernels have a different priority for execution compared to kernels enqueued on normal priority streams. The priority could be higher or lower than normal priority streams.
+
+OpenCL 2.0 support
+^^^^^^^^^^^^^^^^^^
+    * ROCm 2.0 introduces full support for kernels written in the OpenCL 2.0 C language on certain devices and systems.  Applications can detect this support by calling the “clGetDeviceInfo” query function with “parame_name” argument set to “CL_DEVICE_OPENCL_C_VERSION”.  In order to make use of OpenCL 2.0 C language features, the application must include the option “-cl-std=CL2.0” in options passed to the runtime API calls responsible for compiling or building device programs.  The complete specification for the OpenCL 2.0 C language can be obtained using the following link: https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf
+
+Improved Virtual Addressing (48 bit VA) management for Vega 10 and later GPUs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    * Fixes Clang AddressSanitizer and potentially other 3rd-party memory debugging tools with ROCm
+    * Small performance improvement on workloads that do a lot of memory management
+    * Removes virtual address space limitations on systems with more VRAM than system memory
+
+Kubernetes support
+^^^^^^^^^^^^^^^^^^^
 
 Removed features
 ^^^^^^^^^^^^^^^^

@@ -100,10 +100,10 @@ Installation steps
 ********************
 The following are the steps to use the library
 
-  * ROCM 1.9.2 Kernel, Driver and Compiler Installation (if not done until now)
+  * ROCM 2.0 Kernel, Driver and Compiler Installation (if not done until now)
   * Library installation.
 
-ROCM 1.9.2 Installation
+ROCM 2.0 Installation
 ************************
 To Know more about ROCM refer https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html
 
