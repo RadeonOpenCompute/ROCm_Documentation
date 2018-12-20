@@ -2199,7 +2199,7 @@ For more information regarding rocALUTION library and corresponding API document
 
 
 ****************
-rocSPARCE
+rocSPARSE
 ****************
 Introduction
 #############

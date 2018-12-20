@@ -178,7 +178,7 @@ GCN Assembler and Disassembler
 ==============================
 
 The Art of AMDGCN Assembly: How to Bend the Machine to Your Will
-******************************************************************
+*****************************************************************
 The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
 
  * The program may be written in a high level language that does not expose all of the features available on the hardware.
@@ -1132,14 +1132,15 @@ AMD OpenVX is a highly optimized open source implementation of the Khronos OpenV
 
 The amd_openvx project consists of the following components:
 
-   * OpenVX: AMD OpenVX library
+   * **OpenVX**: AMD OpenVX library
 The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. Look into github amd_openvx_extensions folder for additional OpenVX modules and utilities.
-   * vx_nn: OpenVX neural network module that was built on top of MIOpen
-   * vx_loomsl: Radeon LOOM stitching library for live 360 degree video applications
-   * vx_opencv: OpenVX module that implemented a mechanism to access OpenCV functionality as OpenVX kernels
+   * **vx_nn**: OpenVX neural network module that was built on top of MIOpen
+   * **vx_loomsl**: Radeon LOOM stitching library for live 360 degree video applications
+   * **vx_opencv**: OpenVX module that implemented a mechanism to access OpenCV functionality as OpenVX kernels
 
 Features
-########
+--------
+
 
    * The code is highly optimized for both x86 CPU and OpenCL for GPU
    * Supported hardware spans the range from low power embedded APUs (like the new G series) to laptop, desktop and workstation graphics
@@ -1147,8 +1148,9 @@ Features
    * Includes a “graph optimizer” that looks at the entire processing pipeline and removes/replaces/merges functions to improve performance and minimize bandwidth at runtime
    * Scripting support allows for rapid prototyping, without re-compiling at production performance levels.
 
-Pre-requisites
-##############
+Pre-requisites:
+---------------
+
 
    * CPU: SSE4.1 or above CPU, 64-bit.
    * GPU: Radeon Professional Graphics Cards or Vega Family of Products (16GB required for vx_loomsl and vx_nn libraries) 
@@ -1158,7 +1160,7 @@ Pre-requisites
       * Set OpenCV_DIR environment variable to OpenCV/build folder.
 
 Build Instructions
-##################
+------------------
 
 Build this project to generate AMD OpenVX library and RunVX executable.
    * Refer to `openvx/include/VX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/openvx/include/VX/>`_ for Khronos OpenVX standard header files.
@@ -1167,7 +1169,7 @@ Build this project to generate AMD OpenVX library and RunVX executable.
    * Refer to `runcl/README.md <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/runcl/README.md>`_ for RunCL details.
 
 Build using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
-######################################################################
+-----------------------------------------------------------------------
 
    * Install OpenCV 3 with contrib `download <https://github.com/opencv/opencv/releases>`_ for RunVX tool to support camera capture and image display (optional)
    * OpenCV_DIR environment variable should point to OpenCV/build folder
@@ -1175,7 +1177,7 @@ Build using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
    * f AMD GPU (or OpenCL) is not available, set build flag ENABLE_OPENCL=0 in openvx/openvx.vcxproj and runvx/runvx.vcxproj.
 
 Build using CMake
-##################
+-------------------
 
    * Install CMake 2.8 or newer `download <cmake.org/download/>`_.
    * Install OpenCV 3 with contrib `download <https://github.com/opencv/opencv/releases>`_ for RunVX tool to support camera capture and image display (optional)
@@ -1194,7 +1196,7 @@ The OpenVX framework provides a mechanism to add new vision functions to OpenVX 
    * `amd_opencv <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_opencv/#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
 
 Radeon Loom Stitching Library (vx_loomsl)
-#########################################
+------------------------------------------
 
 Radeon Loom Stitching Library (beta preview) is a highly optimized library for 360 degree video stitching applications. This library consists of:
 
@@ -1205,8 +1207,7 @@ The `loom_shell <https://gpuopen-professionalcompute-libraries.github.io/MIVisio
 
 This software is provided under a MIT-style license, see the file COPYRIGHT.txt for details.
 
-Features
-#########
+**Features**
 
    * Real-time live 360 degree video stitching optimized for Radeon Pro Graphics
    * Upto 31 cameras
@@ -1216,8 +1217,7 @@ Features
    * Support for 3rd party LoomIO plug-ins for camera capture and stitched output
    * Support PtGui project export/import for camera calibration
 
-Live Stitch API: Simple Example
-################################
+**Live Stitch API: Simple Example**
 
 Let’s consider a 360 rig that has 3 1080p cameras with Circular FishEye lenses. The below example demonstrates how to stitch images from these cameras into a 4K Equirectangular buffer.
 
@@ -1271,8 +1271,8 @@ Let’s consider a 360 rig that has 3 1080p cameras with Circular FishEye lenses
     }
 
 
-Live Stitch API: Real-time Live Stitch using LoomIO
-####################################################
+**Live Stitch API: Real-time Live Stitch using LoomIO**
+
 
 This example makes use of a 3rd party LoomIO plug-ins for live camera capture and display.
 
@@ -1308,12 +1308,11 @@ This example makes use of a 3rd party LoomIO plug-ins for live camera capture an
 
 
 OpenVX Neural Network Extension Library (vx_nn)
-################################################
+------------------------------------------------
 
 vx_nn is an OpenVX Neural Network extension module. This implementation supports only floating-point tensor datatype and does not support 8-bit and 16-bit fixed-point datatypes specified in the OpenVX specification.
 
-List of supported tensor and neural network layers:
-###################################################
+**List of supported tensor and neural network layers:**
 
 | Layer name | Function|Kernel name | | ——|—————|———— | |
 Activation|vxActivationLayer|org.khronos.nn_extension.activation_layer | | 
@@ -1339,8 +1338,8 @@ Subtract|vxTensorSubtractNode|org.khronos.openvx.tensor_subtract | | Upsample Ne
 Neighborhood|vxUpsampleNearestLayer|com.amd.nn_extension.upsample_nearest_layer |
 
 
-Example 1: Convert an image to a tensor of type float32
-########################################################
+**Example 1: Convert an image to a tensor of type float32**
+
 
 Use the below GDF with RunVX.
 
@@ -1357,8 +1356,7 @@ Use the below GDF with RunVX.
   write output input.f32
 
 
-Example 2: 2x2 Upsample a tensor of type float32
-#################################################
+**Example 2: 2x2 Upsample a tensor of type float32**
 
 Use the below GDF with RunVX.
 
@@ -1373,12 +1371,11 @@ Use the below GDF with RunVX.
 
   
 AMD Module for OpenCV-interop from OpenVX (vx_opencv)
-#####################################################
+------------------------------------------------------
 
 The vx_opencv is an OpenVX module that implemented a mechanism to access OpenCV functionality as OpenVX kernels. These kernels can be access from within OpenVX framework using OpenVX API call `vxLoadKernels <https://www.khronos.org/registry/OpenVX/specs/1.0.1/html/da/d83/group__group__user__kernels.html#gae00b6343fbb0126e3bf0f587b09393a3>`_ (context, “vx_opencv”).
 
-List of OpenCV-interop kernels
-###############################
+**List of OpenCV-interop kernels**
 
 The following is a list of OpenCV functions that have been included in the vx_opencv module.
 
@@ -1442,52 +1439,48 @@ The following is a list of OpenCV functions that have been included in the vx_op
 
 
 Build Instructions
-###################
+```````````````````
 
-Pre-requisites
-##############
+**Pre-requisites**
+
 
    * OpenCV 3 `download <https://github.com/opencv/opencv/releases>`_.
    * CMake 2.8 or newer `download <https://cmake.org/download/>`_.
    * Build amdovx-core project at the same level folder as amdovx-modules build folder
    * OpenCV_DIR environment variable should point to OpenCV/build folder
 
-Build using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
-######################################################################
+**Build using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7**
 
 Use amdovx-modules/vx_opencv/vx_opencv.sln to build for x64 platform
 
-Build using CMake on Linux (Ubuntu 15.10 64-bit)
-################################################
+**Build using CMake on Linux (Ubuntu 15.10 64-bit)**
 
    * Use CMake to configure and generate Makefile
 
 Applications
-#############
+##############
 
 MIVisionX has a number of applications built on top of OpenVX modules, it uses AMD optimized libraries to build applications which can be used to prototype or used as models to develop a product.
 
 Cloud Inference Application (cloud_inference)
-#############################################
+----------------------------------------------
 
    * `Cloud Inference Server <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/server_app/#anninferenceserver>`_: sample Inference Server
    * `Cloud Inference Client <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/#anninferenceapp>`_: sample Inference Client Application
 
 
 Convert Neural Net models into AMD NNIR and OpenVX Code
-*******************************************************
+---------------------------------------------------------
 
 This tool converts `ONNX <https://onnx.ai>`_  or `Caffe <http://caffe.berkeleyvision.org/>`_ models to AMD NNIR format and OpenVX code.
 
 You need MIVisionX libraries to be able to build and run the generated OpenVX code.
 
-Dependencies
-############
+**Dependencies**
    * numpy
    * onnx (0.2.1+)
 
-How to use?
-############
+**How to use?**
 
 To convert an ONNX model into AMD NNIR model:
 
@@ -1544,8 +1537,7 @@ Usage: python nnir2openvx.py [OPTIONS] <nnirInputFolder> <outputFolder>
     R1 G1 B1 A1
     ...
 
-Here are few examples of OpenVX C code generation
-##################################################
+**Here are few examples of OpenVX C code generation**
 
 Generate OpenVX and test code that can be used dump and compare raw tensor data:
 
@@ -1638,10 +1630,9 @@ Usage: anntest <weights.bin> [<input-data-file(s)> [<output-data-file(s)>]]]
 ...
 
 Currently supported
-####################
+-------------------
 
-Models
-#######
+**Models**
 
 Support the below models from https://github.com/onnx/models
 
@@ -1651,8 +1642,7 @@ Support the below models from https://github.com/onnx/models
    * densenet
    * sqeezenet
 
-Operators
-##########
+**Operators**
 
 Supported ONNX operators are:
 
@@ -1671,8 +1661,7 @@ Supported ONNX operators are:
    * Softmax
    * Dropout
 
-License
-########
+**License**
 
 Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
 
@@ -1680,17 +1669,16 @@ Use of this source code is governed by the MIT License that can be found in the 
 
 
 Samples
-********
+########
 
 MIVisionX samples using OpenVX and OpenVX extension libraries
 
 GDF - Graph Description Format
-###############################
+-------------------------------
 
 MIVisionX samples using runvx with GDF
 
-skintonedetect.gdf
-###################
+**skintonedetect.gdf**
 
 usage:
 
@@ -1698,8 +1686,7 @@ usage:
 
   runvx skintonedetect.gdf
 
-canny.gdf
-##########
+**canny.gdf**
 
 usage:
 
@@ -1707,8 +1694,7 @@ usage:
 
   runvx canny.gdf
 
-skintonedetect-LIVE.gdf
-#######################
+**skintonedetect-LIVE.gdf**
 
 Using live camera
 
@@ -1718,8 +1704,7 @@ usage:
 
   runvx -frames:live skintonedetect-LIVE.gdf
 
-canny-LIVE.gdf
-##############
+**canny-LIVE.gdf**
 
 Using live camera
 
@@ -1729,8 +1714,8 @@ usage:
  
   runvx -frames:live canny-LIVE.gdf
 
-OpenCV_orb-LIVE.gdf
-###################
+**OpenCV_orb-LIVE.gdf**
+
 
 Using live camera
 
@@ -1741,14 +1726,14 @@ usage:
   runvx -frames:live OpenCV_orb-LIVE.gdf
 
 MIVisionX Toolkit
-******************
+##################
 
 AMD MIVisionX Toolkit, is a comprehensive set of help tools for neural net creation, development, training and deployment. The Toolkit provides you with help tools to design, develop, quantize, prune, retrain, and infer your neural network work in any framework. The Toolkit is designed to help you deploy your work to any AMD or 3rd party hardware, from embedded to servers.
 
 MIVisionX provides you with tools for accomplishing your tasks throughout the whole neural net life-cycle, from creating a model to deploying them for your target platforms.
 
 Utilities
-**********
+#########
 
 MIVisionX has utility applications which could be used by developers to test, quick prototype or develop sample applications.
 
@@ -1763,7 +1748,7 @@ If you’re interested in Neural Network Inference, start with the sample cloud 
      :align: center
 
 Pre-requisites
-**************
+###############
 
    * CPU: SSE4.1 or above CPU, 64-bit
    * GPU: Radeon Instinct or Vega Family of Products (16GB recommended)
@@ -1777,10 +1762,10 @@ Pre-requisites
        * Set OpenCV_DIR environment variable to OpenCV/build folder
 
 Pre-requisites setup script - MIVisionX-setup.py
-#################################################
+-------------------------------------------------
 
 Prerequisites for running the scripts
-######################################
+---------------------------------------
 
    * ubuntu 16.04/18.04
    * ROCm supported hardware
@@ -1795,9 +1780,11 @@ usage:
   python MIVisionX-setup.py -s [sudo password - required] -d [setup directory - optional (default:~/)] -m [MIOpen Version - optional (default:1.6.0)]
 
 
-Build using CMake on Linux (Ubuntu 16.04 64-bit) with ROCm
-***********************************************************
+Build MIVisionX
+###############
 
+Build using CMake on Linux (Ubuntu 16.04 64-bit) with ROCm
+------------------------------------------------------------
 
    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
    * git clone, build and install other ROCm projects (using cmake and % make install) in the below order for vx_nn.
@@ -1816,24 +1803,137 @@ Build using CMake on Linux (Ubuntu 16.04 64-bit) with ROCm
    * add the installed executable path to PATH environment variable (default /opt/rocm/mivisionx/bin)
 
 Build annInferenceApp using Qt Creator
-#######################################
+---------------------------------------
 
    * build `annInferenceApp.pro <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.pro>`_ using Qt Creator
    * or use `annInferenceApp.py <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.py>`_ for simple tests
 
 Build Radeon LOOM using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
-***********************************************************************************
+-----------------------------------------------------------------------------------
 
    * Use `loom.sln <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/vx_loomsl.sln>`_ to build x64 platform
 
 
+Docker
+######
+
+MIVisionX provides developers with docker images for Ubuntu 16.04, Ubuntu 18.04, CentOS 7.5, & CentOS 7.6. Using docker images developers can quickly prototype and build applications without having to be locked into a single system setup or lose valuable time figuring out the dependencies of the underlying software.
+
+MIVisionX Docker
+----------------
+
+   * `Ubuntu 16.04 <https://hub.docker.com/r/kiritigowda/mivisionx-ubuntu-16.04>`_
+   * `Ubuntu 18.04 <https://hub.docker.com/r/kiritigowda/mivisionx-ubuntu-18.04>`_
+   * `CentOS 7.5 <https://hub.docker.com/r/kiritigowda/centos>`_
+   * `CentOS 7.6 <https://hub.docker.com/r/kiritigowda/centos>`_
+
+Docker Workflow Sample on Ubuntu 16.04
+----------------------------------------
+
+**Prerequisites**
+
+   * Ubuntu 16.04
+   * `rocm supported hardware <https://rocm.github.io/hardware.html>`_
 
 
+Workflow
+--------
+
+**Step 1 - Install rocm-dkms**
+
+::
+
+   sudo apt update
+   sudo apt dist-upgrade
+   sudo apt install libnuma-dev
+   sudo reboot
+
+::
+
+   wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+   echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+   sudo apt update
+   sudo apt install rocm-dkms
+   sudo reboot
 
 
+**Step 2 - Setup Docker**
+
+::
+
+   sudo apt-get install curl
+   sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   sudo apt-get update
+   apt-cache policy docker-ce
+   sudo apt-get install -y docker-ce
+   sudo systemctl status docker
+
+**Step 3 - Get Docker Image**
+
+::
+
+   sudo docker pull kiritigowda/mivisionx-ubuntu-16.04
+
+**Step 4 - Run the docker image**
+
+::
+
+   sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host kiritigowda/mivisionx-ubuntu-16.04
+
+   * Optional: Map localhost directory on the docker image 
+      * option to map the localhost directory with trained caffe models to be accessed on the docker image.
+      * usage: -v {LOCAL_HOST_DIRECTORY_PATH}:{DOCKER_DIRECTORY_PATH} 
+       ::
+     
+        sudo docker run -it -v /home/:/root/hostDrive/ --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host kiritigowda/mivisionx-ubuntu-16.04
 
 
+Release Notes
+##############
 
+Supported Neural Net Layers
+----------------------------
+   
+::
+
+   Layer name
+   Activation
+   Argmax
+   Batch Normalization
+   Concat
+   Convolution
+   Deconvolution
+   Fully Connected
+   Local Response Normalization (LRN)
+   Pooling
+   Scale
+   Slice
+   Softmax
+   Tensor Add
+   Tensor Convert Depth
+   Tensor Convert from Image
+   Tensor Convert to Image
+   Tensor Multiply
+   Tensor Subtract
+   Upsample Nearest Neighborhood
+
+Known issues
+-------------
+
+   * ROCm - 1.8.151 performance degradation
+
+Tested configurations
+----------------------
+
+    * Linux: Ubuntu - 16.04/18.04 & CentOS - 7.5/7.6
+    * ROCm: rocm-dkms - 1.9.307
+    * rocm-cmake - github master:ac45c6e
+    * MIOpenGEMM - 1.1.5
+    * MIOpen - 1.6.0
+    * Protobuf - V3.5.2
+    * OpenCV - 3.3.0
+    * Dependencies for all the above packages
 
 
 
