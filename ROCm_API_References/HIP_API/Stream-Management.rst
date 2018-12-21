@@ -11,6 +11,14 @@ hipStreamCreateWithFlags
 -------------------------
 .. doxygenfunction:: hipStreamCreateWithFlags
 
+hipStreamCreateWithPriority
+----------------------------
+.. doxygenfunction:: hipStreamCreateWithPriority
+
+hipDeviceGetStreamPriorityRange
+--------------------------------
+.. doxygenfunction:: hipDeviceGetStreamPriorityRange
+
 hipStreamDestroy 
 ----------------
 .. doxygenfunction:: hipStreamDestroy 
@@ -30,6 +38,10 @@ hipStreamWaitEvent
 hipStreamGetFlags
 ----------------
 .. doxygenfunction:: hipStreamGetFlags
+
+hipStreamGetPriority
+---------------------
+.. doxygenfunction:: hipStreamGetPriority
 
 hipStreamAddCallback 
 ---------------------
