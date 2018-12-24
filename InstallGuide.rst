@@ -21,45 +21,63 @@ Because the ROCm Platform has a focus on particular computational
 domains, we offer official support for a selection of AMD GPUs that are
 designed to offer good performance and price in these domains.
 
-ROCm officially supports AMD GPUs that have use following chips: \* GFX8
-GPUs \* "Fiji" chips, such as on the the AMD Radeon R9 Fury X and Radeon
-Instinct MI8 \* "Polaris 10" chips, such as on the AMD Radeon RX 580 and
-Radeon Instinct MI6 \* "Polaris 11" chips, such as on the AMD Radeon RX
-570 and Radeon Pro WX 4100 \* GFX9 GPUs \* "Vega 10" chips, such as on
-the AMD Radeon Radeon RX Vega 64 and Radeon Instinct MI25
+ROCm officially supports AMD GPUs that use following chips:
 
-ROCm is a collection of software ranging from drivers and runtimnes to
+-  GFX8 GPUs
+
+   -  “Fiji” chips, such as on the AMD Radeon R9 Fury X and Radeon
+      Instinct MI8
+   -  “Polaris 10” chips, such as on the AMD Radeon RX 580 and Radeon
+      Instinct MI6
+   -  “Polaris 11” chips, such as on the AMD Radeon RX 570 and Radeon
+      Pro WX 4100
+   -  “Polaris 12” chips, such as on the AMD Radeon RX 550 and Radeon RX
+      540
+
+-  GFX9 GPUs
+
+   -  “Vega 10” chips, such as on the AMD Radeon RX Vega 64 and Radeon
+      Instinct MI25
+   -  “Vega 7nm” chips
+
+ROCm is a collection of software ranging from drivers and runtimes to
 libraries and developer tools. Some of this software may work with more
-GPUs than the "officially supported" list above, though AMD does not
+GPUs than the “officially supported” list above, though AMD does not
 make any official claims of support for these devices on the ROCm
-software platform. The following list of GPUs are likely to work within
-ROCm, though full support is not guaranteed: \* GFX7 GPUs \* "Hawaii"
-chips, such as the AMD Radeon R9 390X and FirePro W9100
+software platform. The following list of GPUs are enabled in the ROCm
+software, though full support is not guaranteed:
 
-As described in the next section, GFX8 GPUs require PCIe gen 3 with
-support for PCIe atomics. This requires both CPU and motherboard
-support. GFX9 GPUs, by default, also require PCIe gen 3 with support for
-PCIe atomics; if you want to avoid using PCIe atomics, please set the
-environment variable ``HSA_ENABLE_SDMA=0``. GFX7 GPUs do not require
-PCIe atomics.
+-  GFX7 GPUs
 
-At this time, the integrated GPUs in AMD APUs are not officially supported targets for ROCm.
-As descried below, "Carrizo", "Bristol Ridge", and "Raven Ridge" APUs are enabled in our upstream drivers and OpenCL runtime.
-However, they are not enabled in our HCC or HIP runtimes, and may not work due to motherboard or OEM hardware limitations.
-As such, they are not yet officially supported targets for ROCm.
+   -  “Hawaii” chips, such as the AMD Radeon R9 390X and FirePro W9100
+
+As described in the next section, GFX8 GPUs require PCI Express 3.0
+(PCIe 3.0) with support for PCIe atomics. This requires both CPU and
+motherboard support. GFX9 GPUs, by default, also require PCIe 3.0 with
+support for PCIe atomics, but they can operate in most cases without
+this capability.
+
+At this time, the integrated GPUs in AMD APUs are not officially
+supported targets for ROCm. As descried below, “Carrizo”, “Bristol
+Ridge”, and “Raven Ridge” APUs are enabled in our upstream drivers and
+the ROCm OpenCL runtime. However, they are not enabled in our HCC or HIP
+runtimes, and may not work due to motherboard or OEM hardware
+limitations. As such, they are not yet officially supported targets for
+ROCm.
 
 For a more detailed list of hardware support, please see `the following
-documentation <https://rocm.github.io/hardware.html>`__.
+documentation`_.
+
+.. _the following documentation: https://rocm.github.io/hardware.html
 
 Supported CPUs
 ^^^^^^^^^^^^^^
 
-As described above, GFX8 and GFX9 GPUs require PCI Express 3.0 with PCIe
-atomics in the default ROCm configuration. In particular, the CPU and
-every active PCIe point between the CPU and GPU require support for PCIe
-gen 3 and PCIe atomics. The CPU root must indicate PCIe AtomicOp
-Completion capabilities and any intermediate switch must indicate PCIe
-AtomicOp Routing capabilities.
+As described above, GFX8 GPUs require PCIe 3.0 with PCIe atomics in
+order to run ROCm. In particular, the CPU and every active PCIe point
+between the CPU and GPU require support for PCIe 3.0 and PCIe atomics.
+The CPU root must indicate PCIe AtomicOp Completion capabilities and any
+intermediate switch must indicate PCIe AtomicOp Routing capabilities.
 
 Current CPUs which support PCIe Gen3 + PCIe Atomics are:
 
@@ -97,7 +115,7 @@ support, you may see an error in the kernel log (``dmesg``):
 
 ::
 
-    kfd: skipped device 1002:7300, PCI rejects atomics
+   kfd: skipped device 1002:7300, PCI rejects atomics
 
 Experimental support for our Hawaii (GFX7) GPUs (Radeon R9 290, R9 390,
 FirePro W9100, S9150, S9170) does not require or take advantage of PCIe
