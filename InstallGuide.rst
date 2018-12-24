@@ -562,7 +562,7 @@ following installation command **instead** of the command to install
 
 .. code:: shell
 
-   sudo apt-get install dkms rock-dkms rocm-opencl
+   sudo apt-get install dkms rock-dkms rocm-opencl-dev
 
 How to uninstall from Ubuntu 16.04 or Ubuntu 18.04
 ''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -773,7 +773,7 @@ following installation command **instead** of the command to install
 
 .. code:: shell
 
-   sudo yum install rock-dkms rocm-opencl
+   sudo yum install rock-dkms rocm-opencl-devel
 
 Compiling applications using HCC, HIP, and other ROCm software
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
