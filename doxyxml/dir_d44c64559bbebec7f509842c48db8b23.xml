@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>/home/tcs/hip_api_doxygen_test/HIP/include</compoundname>
+    <innerdir refid="dir_82c4e5e99cd964a390bd8b007f79d8a6">/home/tcs/hip_api_doxygen_test/HIP/include/hip</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/tcs/hip_api_doxygen_test/HIP/include/"/>
+  </compounddef>
+</doxygen>
