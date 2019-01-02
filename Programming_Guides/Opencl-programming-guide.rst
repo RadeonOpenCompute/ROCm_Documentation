@@ -1,6 +1,6 @@
 .. _Opencl-programming-guide:
 
-OPENCL Programming Guide
+OpenCL Programming Guide
 ========================
 
 
@@ -31,7 +31,6 @@ OPENCL Programming Guide
    
    * :ref:`Profiling_OpenCL`
 	* :ref:`AMD-CodeXL-GPU`
-
    
    * :ref:`OpenCL_static` 
 	* :ref:`Overview`
@@ -44,7 +43,7 @@ OPENCL Programming Guide
 	* :ref:`Shared-virtual-Memory`
 	* :ref:`Generi`
 	* :ref:`Device-side-enqueue`	
-	* :ref:`Atomi`
+	* :ref:`Atomics`
 	* :ref:`Pipes`
 	* :ref:`Program-scope-global-Variables`
 	* :ref:`Image-Enhancements`
@@ -297,95 +296,84 @@ This sample shows a minimalist OpenCL C program that sets a given buffer to some
   #include <stdio.h>
 
   #define NWITEMS 512
-  // A simple memset kernel const char *source =
-  kernel void memset(   global uint *dst )	
-  {
-   dst[get_global_id(0)] = get_global_id(0);	
-   }	;
+  // A simple memset kernel
+  const char *source =
+  "kernel void memset(   global uint *dst )		\n"
+  "{							\n"
+  "    dst[get_global_id(0)] = get_global_id(0);	\n"
+  "}							\n";
 
   int main(int argc, char ** argv)
   {
-  // 1. Get a platform. cl_platform_id platform; clGetPlatformIDs( 1, &platform, NULL );
-  // 2. Find a gpu device. cl_device_id device;
-  clGetDeviceIDs( platform, CL_DEVICE_TYPE_GPU,
-  1,
-  &device, NULL);
- 
+    // 1. Get a platform.
+    cl_platform_id platform;
+    clGetPlatformIDs( 1, &platform, NULL );
 
+    // 2. Find a gpu device.
+    cl_device_id device;
+    clGetDeviceIDs( platform,
+                    CL_DEVICE_TYPE_GPU,
+                    1,
+                    &device, NULL);
 
-::
+    // 3. Create a context and command queue on that device.
+    cl_context context = clCreateContext( NULL,
+                                          1,
+                                          &device,
+                                          NULL, NULL, NULL);
 
-    //
-    // Copyright (c) 2010 Advanced Micro Devices, Inc. All rights reserved.
-    //
+    cl_command_queue queue = clCreateCommandQueue( context,
+                                                   device,
+                                                   0, NULL );
 
-   // A minimalist OpenCL program.
+    // 4. Perform runtime source compilation, and obtain kernel entry point.
+    cl_program program = clCreateProgramWithSource( context,
+                                                    1,
+                                                    &source,
+                                                    NULL, NULL );
 
-   #include <CL/cl.h>
-   #include <stdio.h>
+    clBuildProgram( program, 1, &device, NULL, NULL, NULL );
 
-   #define NWITEMS 512
-   // A simple memset kernel const char *source =
-   kernel void memset(   global uint *dst )	
-   {	
-   dst[get_global_id(0)] = get_global_id(0);	
-   };
+    cl_kernel kernel = clCreateKernel( program, "memset", NULL );
 
-   int main(int argc, char ** argv)
-   {
-   // 1. Get a platform. cl_platform_id platform; clGetPlatformIDs( 1, &platform, NULL );
-   // 2. Find a gpu device.
+    // 5. Create a data buffer.
+    cl_mem buffer = clCreateBuffer( context,
+                                    CL_MEM_WRITE_ONLY,
+                                    NWITEMS * sizeof(cl_uint),
+                                    NULL, NULL );
 
-   cl_device_id device;
+    // 6. Launch the kernel. Let OpenCL pick the local work size.
+    size_t global_work_size = NWITEMS;
+    clSetKernelArg(kernel, 0, sizeof(buffer), (void*) &buffer);
 
-   clGetDeviceIDs( platform, CL_DEVICE_TYPE_GPU,
-   1,
-   &device,
-   NULL);
-   // 3. Create a context and command queue on that device. cl_context context = clCreateContext( NULL,
-   1,
-   &device,
-   NULL, NULL, NULL);
+    clEnqueueNDRangeKernel( queue,
+                            kernel,
+                            1,
+                            NULL,
+                            &global_work_size,
+                            NULL,
+                            0,
+                            NULL, NULL);
 
-   cl_command_queue queue = clCreateCommandQueue( context, device,
-   0, NULL );
-   // 4. Perform runtime source compilation, and obtain kernel entry point. cl_program program = clCreateProgramWithSource( context,
-   1,
-   &source,
-   NULL, NULL );
+    clFinish( queue );
 
-   clBuildProgram( program, 1, &device, NULL, NULL, NULL );
+    // 7. Look at the results via synchronous buffer map.
+    cl_uint *ptr;
+    ptr = (cl_uint *) clEnqueueMapBuffer( queue,
+                                          buffer,
+                                          CL_TRUE,
+                                          CL_MAP_READ,
+                                          0,
+                                          NWITEMS * sizeof(cl_uint),
+                                          0, NULL, NULL, NULL );
 
-   cl_kernel kernel = clCreateKernel( program, "memset", NULL );
+    int i;
 
-   // 5. Create a data buffer.
+    for(i=0; i < NWITEMS; i++)
+        printf("%d %d\n", i, ptr[i]);
 
-   cl_mem buffer = clCreateBuffer( context, CL_MEM_WRITE_ONLY,
-
-   //
-   / 6. Launch the kernel. Let OpenCL pick the local work size. size_t global_work_size = NWITEMS;
-   clSetKernelArg(kernel, 0, sizeof(buffer), (void*) &buffer);
-
-   clEnqueueNDRangeKernel( queue, kernel,
-   1, NULL,
-   &global_work_size, NULL, 0, NULL, NULL);
-
-   clFinish( queue );
-   // 7. Look at the results via synchronous buffer map. cl_uint *ptr;
-   ptr = (cl_uint *) clEnqueueMapBuffer( queue,
-   buffer, CL_TRUE,
-   CL_MAP_READ,
-   0,
-   NWITEMS * sizeof(cl_uint),
-   0, NULL, NULL, NULL );
-
-   int i;
-
-   for(i=0; i < NWITEMS; i++)
-   printf("%d %d\n", i, ptr[i]);
-
-   return 0;
-   }
+    return 0;
+  }
 
 
 Example: SAXPY Function
@@ -409,12 +397,12 @@ The following steps guide you through this example.
 
    :: 
     
-    kernel void saxpy(const  global float * X,
-    __global float * Y,
-    const float a)
+    kernel void saxpy(const __global float * X,
+                            __global float * Y,
+                      const float a)
     {
-    uint gid = get_global_id(0);
-    Y[gid] = a* X[gid] + Y[gid];
+      uint gid = get_global_id(0);
+      Y[gid] = a* X[gid] + Y[gid];
     }
 
 3. List all platforms on the machine, then select one.
@@ -477,76 +465,84 @@ The following steps guide you through this example.
 
 ::
 
-  #define  CL_ENABLE_EXCEPTIONS
+  #define __CL_ENABLE_EXCEPTIONS
 
   #include <CL/cl.hpp>
   #include <string>
   #include <iostream>
   #include <string>
 
-  using std::cout; using std::cerr; using std::endl; using std::string;
+  using std::cout;
+  using std::cerr;
+  using std::endl;
+  using std::string;
 
   /////////////////////////////////////////////////////////////////
   // Helper function to print vector elements
   /////////////////////////////////////////////////////////////////
   void printVector(const std::string arrayName,
-  const cl_float * arrayData,
-  const unsigned int length)
+                   const cl_float * arrayData,
+                   const unsigned int length)
   {
-  int numElementsToPrint = (256 < length) ? 256 : length;
-  cout << endl << arrayName << ":" << endl;
-  for(int i = 0; i < numElementsToPrint; ++i)
-  cout << arrayData[i] << " ";
-  cout << endl;
+    int numElementsToPrint = (256 < length) ? 256 : length;
+    cout << endl << arrayName << ":" << endl;
+    for(int i = 0; i < numElementsToPrint; ++i)
+      cout << arrayData[i] << " ";
+    cout << endl;
   }
  
   /////////////////////////////////////////////////////////////////
   // Globals
   /////////////////////////////////////////////////////////////////
-  int length	= 256;
-  cl_float * pX	= NULL;
-  cl_float * pY	= NULL;
-   cl_float a	= 2.f;
+  int length      = 256;
+  cl_float * pX   = NULL;
+  cl_float * pY   = NULL;
+  cl_float a      = 2.f;
 
+  std::vector<cl::Platform> platforms;
+  cl::Context context;
+  std::vector<cl::Device> devices;
+  cl::CommandQueue queue;
+  cl::Program program;
 
-
-  std::vector<cl::Platform> platforms; cl::Context	context;           	std::vector<cl::Device> devices;      	cl::CommandQueue	queue;
-   cl::Program	program;
-
-
-  cl::Kernel	kernel; cl::Buffer	bufX; cl::Buffer	bufY;
+  cl::Kernel kernel;
+  cl::Buffer bufX;
+  cl::Buffer bufY;
 
   /////////////////////////////////////////////////////////////////
   // The saxpy kernel
   /////////////////////////////////////////////////////////////////
   string kernelStr	=
-  "  kernel void saxpy(const   global float * x,\n"
-  "	  global float * y,\n"
-  "	const float a)\n" "{\n"
-  "   uint gid = get_global_id(0);\n" "   y[gid] = a* x[gid] + y[gid];\n" "}\n";
+      "__kernel void saxpy(const global float * x,\n"
+      "                    __global float * y,\n"
+      "                    const float a)\n"
+      "{\n"
+      "   uint gid = get_global_id(0);\n"
+      "   y[gid] = a* x[gid] + y[gid];\n"
+      "}\n";
  
   /////////////////////////////////////////////////////////////////
   // Allocate and initialize memory on the host
   /////////////////////////////////////////////////////////////////
   void initHost()
   {
-  size_t sizeInBytes = length * sizeof(cl_float);
-  pX = (cl_float *) malloc(sizeInBytes);
-  if(pX == NULL)
-  throw(string("Error: Failed to allocate input memory on host\n"));
- 
-  pY = (cl_float *) malloc(sizeInBytes);
-  if(pY == NULL)
-  throw(string("Error: Failed to allocate input memory on host\n"));
+    size_t sizeInBytes = length * sizeof(cl_float);
+    pX = (cl_float *) malloc(sizeInBytes);
+    if(pX == NULL)
+      throw(string("Error: Failed to allocate input memory on host\n"));
 
-  for(int i = 0; i < length; i++)
-  {
-  pX[i] = cl_float(i);
-  pY[i] = cl_float(length-1-i);
-  }
+    pY = (cl_float *) malloc(sizeInBytes);
+    if(pY == NULL)
+      throw(string("Error: Failed to allocate input memory on host\n"));
 
-  printVector("X", pX, length);
-  printVector("Y", pY, length);
+    for(int i = 0; i < length; i++)
+    {
+      pX[i] = cl_float(i);
+      pY[i] = cl_float(length-1-i);
+    }
+
+    printVector("X", pX, length);
+    printVector("Y", pY, length);
   }
 
   /////////////////////////////////////////////////////////////////
@@ -554,139 +550,123 @@ The following steps guide you through this example.
   /////////////////////////////////////////////////////////////////
   void cleanupHost()
   {
-  if(pX)
-  {
-  free(pX);
-  pX = NULL;
+    if(pX)
+    {
+      free(pX);
+      pX = NULL;
+    }
+    if(pY != NULL)
+    {
+      free(pY);
+      pY = NULL;
+    }
   }
-  if(pY != NULL)
+
+  int main(int argc, char * argv[])
   {
-  free(pY);
-  pY = NULL;
-  }
-  }
+    try
+    {
+      /////////////////////////////////////////////////////////////////
+      // Allocate and initialize memory on the host
+      /////////////////////////////////////////////////////////////////
+      initHost();
 
-  void
-  main(int argc, char * argv[])
-
-
-
-
-
-  {
-  try
-  {
-
-
-
-  /////////////////////////////////////////////////////////////////
-  // Allocate and initialize memory on the host
-
-
-  /////////////////////////////////////////////////////////////////
-  initHost();
-
-  /////////////////////////////////////////////////////////////////
-  // Find the platform
-  /////////////////////////////////////////////////////////////////
-  cl::Platform::get(&platforms);
-  std::vector<cl::Platform>::iterator iter;
-  for(iter = platforms.begin(); iter != platforms.end(); ++iter)
-  {
+      /////////////////////////////////////////////////////////////////
+      // Find the platform
+      /////////////////////////////////////////////////////////////////
+      cl::Platform::get(&platforms);
+      std::vector<cl::Platform>::iterator iter;
+      for(iter = platforms.begin(); iter != platforms.end(); ++iter)
+      {
+        if( !strcmp((*iter).getInfo<CL_PLATFORM_VENDOR>().c_str(), "Advanced Micro Devices, Inc.") )
+        {
+          break;
+        }
+      }
  
+      /////////////////////////////////////////////////////////////////
+      // Create an OpenCL context
+      /////////////////////////////////////////////////////////////////
+      cl_context_properties cps[3] = { CL_CONTEXT_PLATFORM,
+                                       (cl_context_properties)(*iter)(), 0 };
+      context = cl::Context(CL_DEVICE_TYPE_GPU, cps);
 
-  {
-  break;
-  } }
-  if(!strcmp((*iter).getInfo<CL_PLATFORM_VENDOR>().c_str(), "Advanced Micro    	Devices, Inc."))
- 
-  /////////////////////////////////////////////////////////////////
-  // Create an OpenCL context
- /////////////////////////////////////////////////////////////////
-  cl_context_properties cps[3] = { CL_CONTEXT_PLATFORM,
-  (cl_context_properties)(*iter)(), 0 };
-  context = cl::Context(CL_DEVICE_TYPE_GPU, cps);
+      /////////////////////////////////////////////////////////////////
+      // Detect OpenCL devices
+      /////////////////////////////////////////////////////////////////
+      devices = context.getInfo<CL_CONTEXT_DEVICES>();
 
-  /////////////////////////////////////////////////////////////////
-  // Detect OpenCL devices
-  /////////////////////////////////////////////////////////////////
-  devices = context.getInfo<CL_CONTEXT_DEVICES>();
+      /////////////////////////////////////////////////////////////////
+      // Create an OpenCL command queue
+      /////////////////////////////////////////////////////////////////
+      queue = cl::CommandQueue(context, devices[0]);
 
-  /////////////////////////////////////////////////////////////////
-  // Create an OpenCL command queue
-  /////////////////////////////////////////////////////////////////
-  queue = cl::CommandQueue(context, devices[0]);
+      /////////////////////////////////////////////////////////////////
+      // Create OpenCL memory buffers
+      /////////////////////////////////////////////////////////////////
+      bufX = cl::Buffer(context,
+                        CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
+                        sizeof(cl_float) * length,
+                        pX);
+      bufY = cl::Buffer(context,
+                        CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+                        sizeof(cl_float) * length,
+                        pY);
 
-  /////////////////////////////////////////////////////////////////
-  // Create OpenCL memory buffers
-  /////////////////////////////////////////////////////////////////
-  bufX = cl::Buffer(context,
-  CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
-  sizeof(cl_float) * length,
-  pX);
-  bufY = cl::Buffer(context,
-  CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
-  sizeof(cl_float) * length,
-  pY);
+      /////////////////////////////////////////////////////////////////
+      // Load CL file, build CL program object, create CL kernel object
+      /////////////////////////////////////////////////////////////////
+      cl::Program::Sources sources(1, std::make_pair(kernelStr.c_str(),
+                                   kernelStr.length()));
+      program = cl::Program(context, sources);
+      program.build(devices);
+      kernel = cl::Kernel(program, "saxpy");
 
-  /////////////////////////////////////////////////////////////////
-  // Load CL file, build CL program object, create CL kernel object
-  /////////////////////////////////////////////////////////////////
-  cl::Program::Sources sources(1, std::make_pair(kernelStr.c_str(),
-  kernelStr.length()));
-  program = cl::Program(context, sources);
-  program.build(devices);
-  kernel = cl::Kernel(program, "saxpy");
+      /////////////////////////////////////////////////////////////////
+      // Set the arguments that will be used for kernel execution
+      /////////////////////////////////////////////////////////////////
+      kernel.setArg(0, bufX);
+      kernel.setArg(1, bufY);
+      kernel.setArg(2, a);
 
-  /////////////////////////////////////////////////////////////////
-  // Set the arguments that will be used for kernel execution
-  /////////////////////////////////////////////////////////////////
-  kernel.setArg(0, bufX);
-  kernel.setArg(1, bufY);
-  kernel.setArg(2, a);
+      /////////////////////////////////////////////////////////////////
+      // Enqueue the kernel to the queue
+      // with appropriate global and local work sizes
+      /////////////////////////////////////////////////////////////////
+      queue.enqueueNDRangeKernel(kernel, cl::NDRange(),
+      cl::NDRange(length), cl::NDRange(64));
 
-  /////////////////////////////////////////////////////////////////
-  // Enqueue the kernel to the queue
-  // with appropriate global and local work sizes
-  /////////////////////////////////////////////////////////////////
-  queue.enqueueNDRangeKernel(kernel, cl::NDRange(),
-  cl::NDRange(length), cl::NDRange(64));
+      /////////////////////////////////////////////////////////////////
+      // Enqueue blocking call to read back buffer Y
+      /////////////////////////////////////////////////////////////////
+      queue.enqueueReadBuffer(bufY, CL_TRUE, 0, length *
+      sizeof(cl_float), pY);
 
-  /////////////////////////////////////////////////////////////////
-  // Enqueue blocking call to read back buffer Y
-  /////////////////////////////////////////////////////////////////
+      printVector("Y", pY, length);
 
-
-  queue.enqueueReadBuffer(bufY, CL_TRUE, 0, length *
-  sizeof(cl_float), pY);
-
-  printVector("Y", pY, length);
-
-  /////////////////////////////////////////////////////////////////
-  // Release host resources
-  /////////////////////////////////////////////////////////////////
-  cleanupHost();
-  }
-  catch (cl::Error err)
-  {
-  /////////////////////////////////////////////////////////////////
-  // Catch OpenCL errors and print log if it is a build error
-  /////////////////////////////////////////////////////////////////
-  cerr << "ERROR: " << err.what() << "(" << err.err() << ")" <<
-  endl;
-  if (err.err() == CL_BUILD_PROGRAM_FAILURE)
-  {
-  string str =
-  program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(devices[0]);
-  cout << "Program Info: " << str << endl;
-  }
-  cleanupHost();
-  }
-  catch(string msg)
-  {
-  cerr << "Exception caught in main(): " << msg << endl;
-  cleanupHost();
-  }
+      /////////////////////////////////////////////////////////////////
+      // Release host resources
+      /////////////////////////////////////////////////////////////////
+      cleanupHost();
+    }
+    catch (cl::Error err)
+    {
+      /////////////////////////////////////////////////////////////////
+      // Catch OpenCL errors and print log if it is a build error
+      /////////////////////////////////////////////////////////////////
+      cerr << "ERROR: " << err.what() << "(" << err.err() << ")" << endl;
+      if (err.err() == CL_BUILD_PROGRAM_FAILURE)
+      {
+        string str = program.getBuildInfo<CL_PROGRAM_BUILD_LOG>(devices[0]);
+        cout << "Program Info: " << str << endl;
+      }
+      cleanupHost();
+    }
+    catch(string msg)
+    {
+      cerr << "Exception caught in main(): " << msg << endl;
+      cleanupHost();
+    }
   }
 
 Example: Parallel Min( ) Function
@@ -741,7 +721,6 @@ Kernel Code –
 
 ::
 
-
   //
   // Copyright (c) 2010 Advanced Micro Devices, Inc. All rights reserved.
   //
@@ -752,234 +731,290 @@ Kernel Code –
   #include <time.h>
   #include "Timer.h"
 
-  #define NDEVS      2
+  #define NDEVS      1
 
   // A parallel min() kernel that works well on CPU and GPU
 
   const char *kernel_source =
-  #pragma OPENCL EXTENSION cl_khr_local_int32_extended_atomics : enable 
-  #pragma OPENCL EXTENSION cl_khr_global_int32_extended_atomics : enable 
-  // 9. The source buffer is accessed as 4-vectors. 
-  kernel void minp(global uint4 *src,
-  global uint *gmin,
-  local uint *lmin,
-  global uint *dbg,
-  int nitems,
-  uint dev )   
-   {
+  "                                                                                 \n"
+  "#pragma OPENCL EXTENSION cl_khr_local_int32_extended_atomics : enable            \n"
+  "#pragma OPENCL EXTENSION cl_khr_global_int32_extended_atomics : enable           \n"
+  "                                                                                 \n"
+  "// 9. The source buffer is accessed as 4-vectors.                                \n"
+  "__kernel void minp(__global uint4 *src,                                          \n"
+  "                   __global uint *gmin,                                          \n"
+  "                   __local uint *lmin,                                           \n"
+  "                   __global uint *dbg,                                           \n"
+  "                   int nitems,                                                   \n"
+  "                   uint dev )                                                    \n"
+  "{                                                                                \n"
+  "                                                                                 \n"
+  "  // 10. Set up   global memory access pattern.                                  \n"
+  "                                                                                 \n"
+  "  uint count = ( nitems / 4 ) / get_global_size(0);                              \n"
+  "  uint idx   = (dev == 0) ? get_global_id(0) * count                             \n"
+  "                          :  get_global_id(0);                                   \n"
+  "  uint stride = (dev == 0) ? 1 : get_global_size(0);                             \n"
+  "  uint pmin  = (uint) -1;                                                        \n" 	
+  "  // 11. First, compute private min, for this work-item.                         \n"
+  "  for( int n=0; n < count; n++, idx += stride )                                  \n"
+  "  {                                                                              \n"
+  "    pmin = min( pmin, src[idx].x );                                              \n"
+  "    pmin = min( pmin, src[idx].y );                                              \n"
+  "    pmin = min( pmin, src[idx].z );                                              \n"
+  "    pmin = min( pmin, src[idx].w );                                              \n"
+  "  }                                                                              \n"
+  "                                                                                 \n"
+  "  // 12. Reduce min values inside work-group.                                    \n"
+  "  if( get_local_id(0) == 0 )                                                     \n"
+  "    lmin[0] = (uint) -1;                                                         \n"
+  "  barrier( CLK_LOCAL_MEM_FENCE );                                                \n"
+  "  (void) atom_min( lmin, pmin );                                                 \n"
+  "  barrier( CLK_LOCAL_MEM_FENCE );                                                \n"
+  "  // Write out to __global.                                                      \n"
+  "  if( get_local_id(0) == 0 )                                                     \n"
+  "    gmin[ get_group_id(0) ] = lmin[0];                                           \n"
+  "  // Dump some debug information.                                                \n"
+  "  if( get_global_id(0) == 0 )                                                    \n"
+  "  {                                                                              \n"
+  "    dbg[0] = get_num_groups(0);                                                  \n"
+  "    dbg[1] = get_global_size(0);                                                 \n"
+  "    dbg[2] = count;                                                              \n" 
+  "    dbg[3] = stride;                                                             \n"
+  "  }                                                                              \n"
+  "}                                                                                \n"
+  "                                                                                 \n"
+  "// 13. Reduce work-group min values from __global to __global.                   \n"
+  "kernel void reduce(__global uint4 *src,                                          \n"
+  "                   __global uint *gmin )                                         \n"
+  "{                                                                                \n"
+  "  (void) atom_min( gmin, gmin[get_global_id(0)] );                               \n"
+  "};                                                                               \n";
   
-   // 10. Set up   global memory access pattern. \n"        
-   uint count = ( nitems / 4 ) / get_global_size(0);\n"
-   uint idx   = (dev == 0) ? get_global_id(0) * count \n"
-   :get_global_id(0);\n"
-   uint stride = (dev == 0) ? 1 : get_global_size(0);\n"
-   uint pmin  = (uint) -1;\n" 	
-   // 11. First, compute private min, for this work-item.\n"
-   for( int n=0; n < count; n++, idx += stride )\n"
-   {
-   pmin = min( pmin, src[idx].x );\n"
-   pmin = min( pmin, src[idx].y );\n"
-   pmin = min( pmin, src[idx].z );\n"
-   pmin = min( pmin, src[idx].w );\n"
-   }
-  
-  // 12. Reduce min values inside work-group.\n"
-  if( get_local_id(0) == 0 )\n"
-  lmin[0] = (uint) -1;	\n"
-  barrier( CLK_LOCAL_MEM_FENCE );\n"
-  (void) atom_min( lmin, pmin );\n"
-  barrier( CLK_LOCAL_MEM_FENCE );\n"
-  // Write out to __global.\n"
-  if( get_local_id(0) == 0 )\n"
-  gmin[ get_group_id(0) ] = lmin[0];\n"
-  // Dump some debug information.\n"
-  if( get_global_id(0) == 0 )\n"
-  {
-  dbg[0] = get_num_groups(0);\n"
-  dbg[1] = get_global_size(0);\n"
-  dbg[2] = count;\n" 
-  dbg[3] = stride;\n"
-  }
-  }
-  
-  // 13. Reduce work-group min values from   global to  global.	\n"
-  kernel void reduce(   global uint4 *src,	\n"
-  global uint *gmin )\n"
-  {
-  (void) atom_min( gmin, gmin[get_global_id(0)] ) ; \n"
-  };
   int main(int argc, char ** argv)
-   {
-   cl_platform_id	platform;
-
-   int	dev, nw;
-   cl_device_type	devs[NDEVS] = { CL_DEVICE_TYPE_CPU, CL_DEVICE_TYPE_GPU };
-
-  cl_uint	*src_ptr;
-  unsigned int	num_src_items = 4096*4096;
-
-  // 1. quick & dirty MWC random init of source buffer.
-  // Random seed (portable). time_t ltime;
-  time(&ltime);
-
-  src_ptr = (cl_uint *) malloc( num_src_items * sizeof(cl_uint) );
-
-
-  cl_uint a =	(cl_uint) ltime, b =	(cl_uint) ltime;
-  cl_uint min = (cl_uint) -1;
-  // Do serial computation of min() for result verification. for( int i=0; i < num_src_items; i++ )
   {
-  src_ptr[i] = (cl_uint) (b = ( a * ( b & 65535 )) + ( b >> 16 ));
-  min = src_ptr[i] < min ? src_ptr[i] : min;
-  }
+    cl_platform_id	platform;
 
-  // Get a platform.
+    int	dev, nw;
+    cl_device_type	devs[NDEVS] = { CL_DEVICE_TYPE_GPU };
 
-  clGetPlatformIDs( 1, &platform, NULL );
-  // 3. Iterate over devices. for(dev=0; dev < NDEVS; dev++)
-  {
-  cl_device_id	device; cl_context	context; cl_command_queue queue; cl_program	program; cl_kernel	minp; cl_kernel	     	reduce;
+    cl_uint	*src_ptr;
+    unsigned int	num_src_items = 4096*4096;
 
-  cl_mem     src_buf; cl_mem     dst_buf; cl_mem         dbg_buf;
+    // 1. quick & dirty MWC random init of source buffer.
+    // Random seed (portable).
+    time_t ltime;
+    time(&ltime);
 
-  cl_uint	*dst_ptr,
-  *dbg_ptr;
+    src_ptr = (cl_uint *) malloc( num_src_items * sizeof(cl_uint) );
 
-  printf("\n%s: ", dev == 0 ? "CPU" : "GPU");
-  // Find the device. clGetDeviceIDs( platform,
-  devs[dev],
-  1,
-  &device,
-  NULL);
+    cl_uint a =	(cl_uint) ltime, b =	(cl_uint) ltime;
+    cl_uint min = (cl_uint) -1;
+    // Do serial computation of min() for result verification.
+    for( int i=0; i < num_src_items; i++ )
+    {
+      src_ptr[i] = (cl_uint) (b = ( a * ( b & 65535 )) + ( b >> 16 ));
+      min = src_ptr[i] < min ? src_ptr[i] : min;
+    }
 
-  // 4. Compute work sizes. cl_uint compute_units;
-  size_t global_work_size;
-  size_t local_work_size;
-  size_t num_groups;
+    // Get a platform.
+    clGetPlatformIDs( 1, &platform, NULL );
+    
+    // 3. Iterate over devices.
+    for(dev=0; dev < NDEVS; dev++)
+    {
+      cl_device_id      device;
+      cl_context        context;
+      cl_command_queue  queue;
+      cl_program        program;
+      cl_kernel         minp;
+      cl_kernel         reduce;
 
-  clGetDeviceInfo( device, CL_DEVICE_MAX_COMPUTE_UNITS, sizeof(cl_uint),
-  &compute_units, NULL);
+      cl_mem            src_buf;
+      cl_mem            dst_buf;
+      cl_mem            dbg_buf;
 
-  if( devs[dev] == CL_DEVICE_TYPE_CPU )
-  {
-  global_work_size = compute_units * 1;	// 1 thread per core local_work_size = 1;
-  }
-  else
-  {
-  cl_uint ws = 64;
-  global_work_size = compute_units * 7 * ws; // 7 wavefronts per SIMD
-  while( (num_src_items / 4) % global_work_size != 0 )
-  global_work_size += ws;
-  local_work_size = ws;
-  }
-  num_groups = global_work_size / local_work_size;
-  // Create a context and command queue on that device. context = clCreateContext( NULL,
-  1,
-  &device,
-  NULL, NULL, NULL);
+      cl_uint           *dst_ptr,
+                        *dbg_ptr;
 
-  queue = clCreateCommandQueue(context, device,
-  0, NULL);
-  // Minimal error check. if( queue == NULL )
-  {
-  printf("Compute device setup failed\n");
-  return(-1);
-  }
+      printf("\n%s: ", dev == 0 ? "CPU" : "GPU");
+      // Find the device.
+      clGetDeviceIDs( platform,
+                      devs[dev],
+                      1,
+                      &device,
+                      NULL);
 
-  // Perform runtime source compilation, and obtain kernel entry point.
+      // 4. Compute work sizes.
+      cl_uint compute_units;
+      size_t global_work_size;
+      size_t local_work_size;
+      size_t num_groups;
 
-  program = clCreateProgramWithSource( context,
-  1,
-  &kernel_source,
-  NULL, NULL );
-  //Tell compiler to dump intermediate .il and .isa GPU files. ret = clBuildProgram( program,
-  1,
-  &device,
-  “-save-temps”, NUL, NULL );
-  // 5. Print compiler error messages if(ret != CL_SUCCESS)
-  {
-  printf("clBuildProgram failed: %d\n", ret);
+      clGetDeviceInfo( device,
+                       CL_DEVICE_MAX_COMPUTE_UNITS,
+                       sizeof(cl_uint),
+                       &compute_units,
+                       NULL);
 
-  char buf[0x10000];
+      if( devs[dev] == CL_DEVICE_TYPE_CPU )
+      {
+        global_work_size = compute_units * 1;	// 1 thread per core
+        local_work_size = 1;
+      }
+      else
+      {
+        cl_uint ws = 64;
+        global_work_size = compute_units * 7 * ws; // 7 wavefronts per SIMD
+        while( (num_src_items / 4) % global_work_size != 0 )
+          global_work_size += ws;
+        local_work_size = ws;
+      }
+      num_groups = global_work_size / local_work_size;
+      // Create a context and command queue on that device.
+      context = clCreateContext( NULL,
+                                 1,
+                                 &device,
+                                 NULL, NULL, NULL);
 
-  clGetProgramBuildInfo( program, device, CL_PROGRAM_BUILD_LOG,
-  0x10000, buf, NULL);
-  printf("\n%s\n", buf);
-  return(-1);
-  }
+      queue = clCreateCommandQueue( context,
+                                    device,
+                                    0,
+                                    NULL);
+      // Minimal error check.
+      if( queue == NULL )
+      {
+        printf("Compute device setup failed\n");
+        return(-1);
+      }
 
+      // Perform runtime source compilation, and obtain kernel entry point.
+      program = clCreateProgramWithSource( context,
+                                           1,
+                                           &kernel_source,
+                                           NULL, NULL );
 
-  minp	= clCreateKernel( program, "minp", NULL );
-  reduce = clCreateKernel( program, "reduce", NULL );
-  // Create input, output and debug buffers. src_buf = clCreateBuffer( context,
-  CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, num_src_items * sizeof(cl_uint),
-  src_ptr, NULL );
+      //Tell compiler to dump intermediate .il and .isa GPU files.
+      cl_int ret = clBuildProgram( program,
+                            1,
+                            &device,
+                            "-save-temps",
+                            NULL, NULL );
 
-  dst_buf = clCreateBuffer( context, CL_MEM_READ_WRITE,
-  num_groups * sizeof(cl_uint), NULL, NULL );
+      // 5. Print compiler error messages
+      if(ret != CL_SUCCESS)
+      {
+        printf("clBuildProgram failed: %d\n", ret);
 
-  dbg_buf = clCreateBuffer( context, CL_MEM_WRITE_ONLY,
-  global_work_size * sizeof(cl_uint), NULL, NULL );
+        char buf[0x10000];
 
-  clSetKernelArg(minp, 0, sizeof(void *),	(void*) &src_buf); clSetKernelArg(minp, 1, sizeof(void *),	(void*) &dst_buf);    	clSetKernelArg(minp, 2, 1*sizeof(cl_uint),	(void*) NULL); clSetKernelArg(minp, 3, sizeof(void *),	(void*) &dbg_buf);       	clSetKernelArg(minp, 4, sizeof(num_src_items), (void*) &num_src_items); clSetKernelArg(minp, 5, sizeof(dev),	(void*) &dev);
+        clGetProgramBuildInfo( program,
+                               device,
+                               CL_PROGRAM_BUILD_LOG,
+                               0x10000,
+                               buf,
+                               NULL);
+        printf("\n%s\n", buf);
+        return(-1);
+      }
 
-  clSetKernelArg(reduce, 0, sizeof(void *),	(void*) &src_buf);
-  clSetKernelArg(reduce, 1, sizeof(void *),	(void*) &dst_buf);
+      minp	= clCreateKernel( program, "minp", NULL );
+      reduce = clCreateKernel( program, "reduce", NULL );
+      // Create input, output and debug buffers.
+      src_buf = clCreateBuffer( context,
+                                CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
+                                num_src_items * sizeof(cl_uint),
+                                src_ptr,
+                                NULL );
 
-  CPerfCounter t; t.Reset(); t.Start();
+      dst_buf = clCreateBuffer( context,
+                                CL_MEM_READ_WRITE,
+                                num_groups * sizeof(cl_uint),
+                                NULL, NULL );
 
-  // 6. Main timing loop.
-  #define NLOOPS 500 cl_event ev;
-  int nloops = NLOOPS;
+      dbg_buf = clCreateBuffer( context,
+                                CL_MEM_WRITE_ONLY,
+                                global_work_size * sizeof(cl_uint),
+                                NULL, NULL );
 
-  while(nloops--)
-  {
+      clSetKernelArg(minp, 0, sizeof(void *),        (void*) &src_buf);
+      clSetKernelArg(minp, 1, sizeof(void *),        (void*) &dst_buf);
+      clSetKernelArg(minp, 2, 1*sizeof(cl_uint),     (void*) NULL);
+      clSetKernelArg(minp, 3, sizeof(void *),        (void*) &dbg_buf);
+      clSetKernelArg(minp, 4, sizeof(num_src_items), (void*) &num_src_items);
+      clSetKernelArg(minp, 5, sizeof(dev),           (void*) &dev);
 
-  clEnqueueNDRangeKernel( queue, minp,
-  1, NULL,
-  &global_work_size,
-  &local_work_size,
-  0, NULL, &ev);
+      clSetKernelArg(reduce, 0, sizeof(void *),      (void*) &src_buf);
+      clSetKernelArg(reduce, 1, sizeof(void *),      (void*) &dst_buf);
 
-  clEnqueueNDRangeKernel( queue, reduce,
-  1, NULL,
-  &num_groups,
-  NULL, 1, &ev, NULL);
-  }
+      CPerfCounter t;
+      t.Reset();
+      t.Start();
 
-  clFinish( queue );
-  t.Stop();
+      // 6. Main timing loop.
+      #define NLOOPS 500
 
+      cl_event ev;
+      int nloops = NLOOPS;
 
-  printf("B/W %.2f GB/sec, ", ((float) num_src_items * sizeof(cl_uint) * NLOOPS) / t.GetElapsedTime() / 1e9 );
+      while(nloops--)
+      {
+        clEnqueueNDRangeKernel( queue,
+                                minp,
+                                1,
+                                NULL,
+                                &global_work_size,
+                                &local_work_size,
+                                0,
+                                NULL,
+                                &ev);
 
-  // 7. Look at the results via synchronous buffer map. dst_ptr = (cl_uint *) clEnqueueMapBuffer( queue,
-  dst_buf,
-  CL_TRUE,
-  CL_MAP_READ,
-  0,
-  num_groups * sizeof(cl_uint),
-  0, NULL, NULL, NULL );
+        clEnqueueNDRangeKernel( queue,
+                                reduce,
+                                1,
+                                NULL,
+                                &num_groups,
+                                NULL,
+                                1,
+                                &ev,
+                                NULL);
+      }
 
-  dbg_ptr = (cl_uint *) clEnqueueMapBuffer( queue, dbg_buf, CL_TRUE, CL_MAP_READ,
-  0,
-  global_work_size *
-  sizeof(cl_uint),
-  0, NULL, NULL, NULL );
+      clFinish( queue );
+      t.Stop();
 
-  // 8. Print some debug info.
+      printf("B/W %.2f GB/sec, ", ((float) num_src_items * sizeof(cl_uint) * NLOOPS) / t.GetElapsedTime() / 1e9 );
 
-  printf("%d groups, %d threads, count %d, stride %d\n", dbg_ptr[0], dbg_ptr[1], dbg_ptr[2], dbg_ptr[3] );
+      // 7. Look at the results via synchronous buffer map.
+      dst_ptr = (cl_uint *) clEnqueueMapBuffer( queue,
+                                                dst_buf,
+                                                CL_TRUE,
+                                                CL_MAP_READ,
+                                                0,
+                                                num_groups * sizeof(cl_uint),
+                                                0,
+                                                NULL, NULL, NULL );
 
-  if( dst_ptr[0] == min )
-  printf("result correct\n");
-  else
-  printf("result INcorrect\n");
+      dbg_ptr = (cl_uint *) clEnqueueMapBuffer( queue,
+                                                dbg_buf,
+                                                CL_TRUE,
+                                                CL_MAP_READ,
+                                                0,
+                                                global_work_size * sizeof(cl_uint),
+                                                0,
+                                                NULL, NULL, NULL );
 
-  }
+      // 8. Print some debug info.
+      printf("%d groups, %d threads, count %d, stride %d\n", dbg_ptr[0], dbg_ptr[1], dbg_ptr[2], dbg_ptr[3] );
 
-  printf("\n");
-  return 0;
+      if( dst_ptr[0] == min )
+        printf("result correct\n");
+      else
+        printf("result INcorrect\n");
+    }
+
+    printf("\n");
+    return 0;
   }
 
 .. _AMD_Implementation:
@@ -1331,22 +1366,31 @@ Suppose a program object has been created as follows:
 
 Next, the program object can be built for all the devices in the context or for a list of selected devices.
 
-* To build the program for all the devices, “NULL” must be passed against the target device list argument, as shown below:     	clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
+* To build the program for all the devices, “NULL” must be passed against the target device list argument, as shown below:     	
+
+:: 
+    
+  clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
+
 * To build for any particular GPU device or a list of devices :
   
-  | int nDevices = 0; 
-  | clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 0, NULL,
-  | &nDevices);
-  | cl_device_id * devices = malloc(nDevices *
-  | sizeof(cl_device_id));
-  | clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, nDevices *
-  | sizeof(cl_device_id), devices, NULL);
+:: 
+    
+  int nDevices = 0; 
+  clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 0, NULL, &nDevices);
+  cl_device_id * devices = malloc(nDevices * sizeof(cl_device_id));
+  clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, nDevices * sizeof(cl_device_id), devices, NULL);
 
-To build for the nth GPU device in a list of devices:
-  | clBuildProgram(program, 1, &devices[n], NULL, NULL, NULL);
+* To build for the nth GPU device in a list of devices:
 
-To build for the first n number of GPU devices
-  | clBuildProgram(program, n, devices, NULL, NULL, NULL);
+:: 
+    
+  clBuildProgram(program, 1, &devices[n], NULL, NULL, NULL);
+
+* To build for the first n number of GPU devices
+
+:: 
+    clBuildProgram(program, n, devices, NULL, NULL, NULL);
 
 
 **Build Options:**
@@ -1373,14 +1417,14 @@ OpenCL provides a way to check and query the compilation/linking errors that occ
 
 :: 
 
-  cl_int err = clBuildProgram(program, 1, &device, NULL, NULL, NULL); If (err != CL_SUCCESS)
+  cl_int err = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
+  if (err != CL_SUCCESS)
   {
-  printf("clBuildProgram failed: %d\n", err);
-  char log[0x10000];
-  clGetProgramBuildInfo( program, device, CL_PROGRAM_BUILD_LOG,
-  0x10000, log, NULL);
-  printf("\n%s\n", log);
-  return -1;
+    printf("clBuildProgram failed: %d\n", err);
+    char log[0x10000];
+    clGetProgramBuildInfo( program, device, CL_PROGRAM_BUILD_LOG, 0x10000, log, NULL);
+    printf("\n%s\n", log);
+    return -1;
   }
 
 Compiling and linking the program separately
@@ -1401,9 +1445,8 @@ Consider the following program source:
 
   #include <foo.h>
   #include <mydir/myinc.h>
-  kernel void image_filter (int n, int m,  constant float
-   *filter_weights,  read_only image2d_t src_image,  write_only
-  image2d_t dst_image)
+  __kernel void image_filter (int n, int m, constant float *filter_weights,
+                              read_only image2d_t src_image, write_only image2d_t dst_image)
   {
   ...
   }
@@ -1412,13 +1455,11 @@ This kernel includes two headers, foo.h and mydir/myinc.h. So first create the p
 
 :: 
 
-  cl_program foo_pg = clCreateProgramWithSource(context, 1,
-  &foo_header_src, NULL, &err);
+  cl_program foo_pg = clCreateProgramWithSource(context, 1, &foo_header_src, NULL, &err);
 
 ::
 
-  cl_program myinc_pg = clCreateProgramWithSource(context, 1,
-  &myinc_header_src, NULL, &err);
+  cl_program myinc_pg = clCreateProgramWithSource(context, 1, &myinc_header_src, NULL, &err);
 
 
 Suppose the program source described above is given by program_A and is loaded via clCreateProgramWithSource.
@@ -1431,11 +1472,11 @@ Now, these headers can be passed as embedded headers along with the program obje
    char * input_header_names[2] = { “foo.h”, “mydir/myinc.h” };
 
    clCompileProgram(program_A, 0, NULL, // num_devices & device_list
-   NULL, // compile_options
-   2, // num_input_headers
-   input_headers,
-   input_header_names,
-   NULL, NULL); // pfn_notify & user_data
+      NULL, // compile_options
+      2, // num_input_headers
+      input_headers,
+      input_header_names,
+      NULL, NULL); // pfn_notify & user_data
 
 **Linking the program**
 
@@ -1450,16 +1491,16 @@ program_B. These two can be linked together as follows:
 
   cl_program program_list[] = { program_A, program_B};
   cl_program program_final = clLinkProgram(context,
-  0, NULL, // num_devices & device_list
-  NULL, // compile_options
-  2, // num_input_programs,
-  program_list, // const cl_program
-  *input_programs,
+      0, NULL, // num_devices & device_list
+      NULL, // compile_options
+      2, // num_input_programs,
+      program_list, // const cl_program
+      *input_programs,
 
-  user_data
+      user_data
 
-  NULL, NULL, // pfn_notify &
-  NULL); // errcode_ret
+      NULL, NULL, // pfn_notify &
+      NULL); // errcode_ret
 
 .. _Supported-Standard-OpenCL-Compiler:
 
@@ -1534,21 +1575,19 @@ To generate pre-built device-specific binaries from the OpenCL C source or from 
 
    //Get the number of devices attached with program object
    cl_uint nDevices = 0;
-   clGetProgramInfo(program, CL_PROGRAM_NUM_DEVICES, sizeof(cl_uint),&nDevices, NULL);
+   clGetProgramInfo(program, CL_PROGRAM_NUM_DEVICES, sizeof(cl_uint), &nDevices, NULL);
  
    //Get the Id of all the attached devices
-   cl_device_id *devices = new cl_device_id[nDevices]; clGetProgramInfo(program, CL_PROGRAM_DEVICES, sizeof(cl_device_id) * nDevices,
-   devices, NULL);
+   cl_device_id *devices = new cl_device_id[nDevices]; clGetProgramInfo(program, CL_PROGRAM_DEVICES, sizeof(cl_device_id) * nDevices, devices, NULL);
    
    // Get the sizes of all the binary objects
-   size_t *pgBinarySizes = new size_t[nDevices]; lGetProgramInfo(program, CL_PROGRAM_BINARY_SIZES, sizeof(size_t) * nDevices,
-   pgBinarySizes, NULL);
+   size_t *pgBinarySizes = new size_t[nDevices]; lGetProgramInfo(program, CL_PROGRAM_BINARY_SIZES, sizeof(size_t) * nDevices, pgBinarySizes, NULL);
   
    // Allocate storage for each binary objects
    unsigned char **pgBinaries = new unsigned char*[nDevices];
    for (cl_uint i = 0; i < nDevices; i++)
    {
-   pgBinaries[i] = new unsigned char[pgBinarySizes[i]];
+     pgBinaries[i] = new unsigned char[pgBinarySizes[i]];
    }
   
    // Get all the binary objects
@@ -1619,19 +1658,18 @@ SVM pointers as the argument value.
 A sample kernel definition is shown below.
 ::
   
-  kernel void sample_kernel( global const uchar *normalPtr,
-  global uchar *svmPtr)
+  kernel void sample_kernel( global const uchar *normalPtr, global uchar *svmPtr)
   {  
     …
   }
 
 To create a kernel object for the above kernel, you must pass the program object corresponding to the kernel to the clCreateKernel function. Assuming that the program object containing the above kernel function has been created and built as program, a kernel object for the above kernel would be created as follows:
 
-``Cl_kernel kernel = clCreateKernel(program, "sample_kernel", NULL);``
+``cl_kernel kernel = clCreateKernel(program, "sample_kernel", NULL);``
 
 Suppose a buffer object and an SVM array have been created as follows:
 
-``Cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_ONLY, length * sizeof(cl_uchar), NULL, NULL);``
+``cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_ONLY, length * sizeof(cl_uchar), NULL, NULL);``
 
 ``cl_uchar *svmPtr = clSVMAlloc(context,	CL_MEM_READ_WRITE, length * sizeof(cl_uchar), 0);``
 
@@ -1650,26 +1688,22 @@ A command queue (host or device) is created by using the clCreateCommandQueueWit
 **Example: To create a default host-side command queue**
 ::
 
-  cl_queue_properties *props = NULL; cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props,
-  &status);
+  cl_queue_properties *props = NULL; cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props, &status);
 
 
 **Example: To create a host-side out-of-order command queue with profiling enabled**
 ::
 
    cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_PROFILING_ENABLE, 0};
-   cl_command_queue commandQueue =
-   clCreateCommandQueueWithProperties(context, deviceId, props, &status);
+   cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props, &status);
 
 
 **Example: To create a default device-side out-of-order command queue with a specific size**
 ::
   
-   cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_ON_DEVICE | 
-   CL_QUEUE_ON_DEVICE_DEFAULT, CL_QUEUE_SIZE, maxQueueSize, 0 };
+   cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_ON_DEVICE | CL_QUEUE_ON_DEVICE_DEFAULT, CL_QUEUE_SIZE, maxQueueSize, 0 };
 
-   cl_command_queue commandQueue = 
-   clCreateCommandQueueWithProperties(context, deviceId, props, &status);
+   cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props, &status);
 
 Running a Kernel (from the host)
 *********************************
@@ -1710,8 +1744,8 @@ This chapter discusses how to profile OpenCL programs running on AMD GPU and CPU
 
 .. _AMD-CodeXL-GPU:
 
-Downloading and installing CodeXL and Radeon Compute Profiler 
-****************************************************************
+Downloading and installing CodeXL and Radeon Compute Profiler
+##############################################################
 Download the latest version of CodeXL from the CodeXL home page:
 http://developer.amd.com/tools-and-sdks/opencl-zone/codexl/
 
@@ -1720,7 +1754,7 @@ Radeon Compute Profiler is a performance analysis tool that gathers data from th
 RCP is installed when you you use rocm-dev upon instal of the driver.  You can access the source code at https://github.com/GPUOpen-Tools/RCP
 
 Installing CodeXL on Ubuntu and other Debian based Linux distributions
-*************************************************************************
+#######################################################################
 Either install the tar archive, or install the .deb package.
 
 **Tar archive:**
@@ -1741,7 +1775,7 @@ Either install the tar archive, or install the .deb package.
 Or build the project from source code https://github.com/GPUOpen-Tools/CodeXL 
 
 Using CodeXL for profiling
-***************************
+###########################
 Two modes in CodeXL are particularly useful for profiling:
 
 *  GPU Profile Mode
@@ -1969,10 +2003,10 @@ A class definition can not contain any address space qualifier, either for membe
 
  class myClass{
  public:
- int myMethod1(){ return x;}
+   int myMethod1(){ return x;}
  void private:
- __local myMethod2(){x = 0;}
- int x;
+   __local myMethod2(){x = 0;}
+   int x;
    local y; // illegal
  };
 
@@ -1980,9 +2014,9 @@ The class invocation inside a kernel, however, can be either in private or local
 
   kernel void myKernel()
   {
-  myClass c1;
-   local myClass c2;
-  ...
+    myClass c1;
+    local myClass c2;
+    ...
   }
 
 Classes can be passed as arguments to kernels, by defining a buffer object at the size of the class, and using it. The device invokes the adequate device- specific methods, and accesses the class members passed from the host.
@@ -2066,6 +2100,7 @@ None of the new built-in functions added in OpenCL 2.0 are supported.
 
 Examples
 ########
+
 Passing a Class from the Host to the Device and Back
 ******************************************************
 The class definition must be the same on the host code and the device code, besides the members’ type in the case of vectors. If the class includes vector data types, the definition must conform to the table that appears on Section 6.1.2
@@ -2080,14 +2115,14 @@ OpenCL Language types.
 
   Class Test
   {
-  setX (int value);
-  private:
-  int x;
+    setX (int value);
+    private:
+    int x;
   }
 
   kernel foo ( global Test* InClass, ...)
   {
-  If (get_global_id(0) == 0) InClass->setX(5);
+    if (get_global_id(0) == 0) InClass->setX(5);
   }
 
 **Example Host Code**
@@ -2100,18 +2135,17 @@ OpenCL Language types.
   private:
   int x;
   }
+
   MyFunc () 
   {
-  tempClass = new(Test);
-  ... // Some OpenCL startup code – create context, queue, etc.
-  cl_mem classObj = clCreateBuffer(context,
-  CL_MEM_USE_HOST_PTR, sizeof(Test),
-  &tempClass, event);
-  clEnqueueMapBuffer(...,classObj,...);
-  tempClass.setX(10);
-  clEnqueueUnmapBuffer(...,classObj,...); //class is passed to the Device
-  clEnqueueNDRange(..., fooKernel, ...);
-  clEnqueueMapBuffer(...,classObj,...); //class is passed back to the Host
+    tempClass = new(Test);
+    ... // Some OpenCL startup code – create context, queue, etc.
+    cl_mem classObj = clCreateBuffer(context, CL_MEM_USE_HOST_PTR, sizeof(Test), &tempClass, event);
+    clEnqueueMapBuffer(...,classObj,...);
+    tempClass.setX(10);
+    clEnqueueUnmapBuffer(...,classObj,...); //class is passed to the Device
+    clEnqueueNDRange(..., fooKernel, ...);
+    clEnqueueMapBuffer(...,classObj,...); //class is passed back to the Host
   }
  
 
@@ -2124,13 +2158,13 @@ This example shows how to define and use mangled_name for kernel overloading, an
   __attribute__((mangled_name(testAddFloat4))) kernel void
   testAdd(global float4 * src1, global float4 * src2, global float4 * dst)
   { 
-  int tid = get_global_id(0);
-  dst[tid] = src1[tid] + src2[tid];
+    int tid = get_global_id(0);
+    dst[tid] = src1[tid] + src2[tid];
   }
   __attribute ((mangled_name(testAddInt8))) kernel void testAdd(global int8 * src1, global int8 * src2, global int8 * dst)
   {
-  int tid = get_global_id(0);
-  dst[tid] = src1[tid] + src2[tid];
+    int tid = get_global_id(0);
+    dst[tid] = src1[tid] + src2[tid];
   }
 
 The names testAddFloat4 and testAddInt8 are the external names for the two kernel instants. When calling ``clCreateKernel``, passing one of these kernel names leads to the correct overloaded kernel.
@@ -2144,12 +2178,11 @@ This example defines a kernel template, testAdd. It also defines two explicit in
   template <class T>
   kernel void testAdd(global T * src1, global T * src2, global T * dst)
   {
-  int tid = get_global_id(0);
-  dst[tid] = src1[tid] + src2[tid];
+    int tid = get_global_id(0);
+    dst[tid] = src1[tid] + src2[tid];
   }
 
-  template  attribute ((mangled_name(testAddFloat4))) kernel void testAdd(global float4 * src1, global float4 * src2, global float4 *
-  dst);
+  template  attribute ((mangled_name(testAddFloat4))) kernel void testAdd(global float4 * src1, global float4 * src2, global float4 * dst);
 
   template  attribute ((mangled_name(testAddInt8))) kernel void testAdd(global int8 * src1, global int8 * src2, global int8 * dst);
 
@@ -2261,22 +2294,21 @@ For example, while searching in parallel on a binary search tree , coarse-grain 
 
 :: 
 
-  for (i = 0; i < keys_per_wi; i++) { key = search_keys[init_id + i]; tmp_node = root;
-  while (1) {
-  if (!tmp_node || (tmp_node->value == key))
-  break;
-  tmp_node = (key < tmp_node->value) ? tmp_node->left : tmp_node->right;
-  }
-  found_nodes[init_id + i] = tmp_node;
+  for (i = 0; i < keys_per_wi; i++) {
+  key = search_keys[init_id + i]; tmp_node = root;
+    while (1) {
+      if (!tmp_node || (tmp_node->value == key))
+        break;
+      tmp_node = (key < tmp_node->value) ? tmp_node->left : tmp_node->right;
+    }
+    found_nodes[init_id + i] = tmp_node;
   }
 
 In the above example, the binary search tree root is created using coarse- grain SVM on the host:
 
-svmTreeBuf = clSVMAlloc(context, CL_MEM_READ_WRITE,
-numNodes*sizeof(node), 0);
+``svmTreeBuf = clSVMAlloc(context, CL_MEM_READ_WRITE, numNodes*sizeof(node), 0);``
 
-svmSearchBuf = clSVMAlloc(context, CL_MEM_READ_WRITE,
-numKeys*sizeof(searchKey), 0);
+``svmSearchBuf = clSVMAlloc(context, CL_MEM_READ_WRITE, numKeys*sizeof(searchKey), 0);``
 
 
 The host creates two buffers, svmTreeBuf and svmSearchBuf, to hold the given tree and the search keys, respectively. After populating the given tree, these two buffers are passed to the kernel as parameters.
@@ -2296,9 +2328,9 @@ Note that the routine passes both svmTreeBuf and svmSearchBuf to the kernel as p
 
   typedef struct nodeStruct
   {
-  int value;
-  struct nodeStruct* left;
-  struct nodeStruct* right;
+    int value;
+    struct nodeStruct* left;
+    struct nodeStruct* right;
   } node;
 
 At this point, the advantage of using SVM becomes clear. Because the structure and its nodes are SVM memory, all the pointer values in these nodes are valid on the GPUs as well.
@@ -2307,22 +2339,22 @@ The kernel running on the OpenCL 2.0 device can directly search the tree as foll
 
  while(NULL != searchNode)
  {
- if(currKey->key == searchNode->value)
- {
- /* rejoice on finding key */
- currKey->oclNode	= searchNode;
- searchNode	= NULL;
- }
- else if(currKey->key < searchNode->value)
- {
- /* move left */
- searchNode = searchNode->left;
- }
- else
- {
- /* move right */
- searchNode = searchNode->right;
- }
+    if(currKey->key == searchNode->value)
+    {
+      /* rejoice on finding key */
+      currKey->oclNode	= searchNode;
+      searchNode	= NULL;
+    }
+    else if(currKey->key < searchNode->value)
+    {
+      /* move left */
+      searchNode = searchNode->left;
+    }
+    else
+    {
+      /* move right */
+      searchNode = searchNode->right;
+    }
  }
 
 Each work item searches one element in svmSearchKeys in parallel and sets oclNode in the searchKey structure for that node.
@@ -2390,17 +2422,16 @@ OpenCL sample, addMul2d is a generic function that uses generic address spaces f
 
   float4 addMul2D (uchar4 *src, float *filter, int2 filterDim, int width)
   {	
-  int i, j;
-  float4 sum = (float4)(0);
-  for(i = 0; i < (filterDim.y); i++)
-  {
-  for(j = 0; j < (filterDim.x); j++)
-  {
-  sum += (convert_float4(src[(i*width)+j]))*((float4)(filter[(i*filterDim.x)
-  +j]));
-  }
-  }
-  return sum;
+    int i, j;
+    float4 sum = (float4)(0);
+    for(i = 0; i < (filterDim.y); i++)
+    {
+      for(j = 0; j < (filterDim.x); j++)
+      {
+        sum += (convert_float4(src[(i*width)+j]))*((float4)(filter[(i*filterDim.x) +j]));
+      }
+    }
+    return sum;
   }
 
 
@@ -2496,14 +2527,14 @@ The OpenCL 1.2 version of the code that performs binary search is as follows:
   kernel void binarySearch_mulkeys( global int *keys, global uint
   *input, const unsigned int numKeys, global int *output)
   {
-  int gid = get_global_id(0);
-  int lBound = gid * 256;
-  int uBound = lBound + 255;
-  for(int i = 0; i < numKeys; i++)
-  {
-  if(keys[i] >= input[lBound] && keys[i] <=input[uBound])
-  output[i]=lBound;
-  }
+    int gid = get_global_id(0);
+    int lBound = gid * 256;
+    int uBound = lBound + 255;
+    for(int i = 0; i < numKeys; i++)
+    {
+      if(keys[i] >= input[lBound] && keys[i] <=input[uBound])
+        output[i]=lBound;
+    }
   }
 
 The search for multiple keys is done sequentially, while the sorted array is divided into 256 sized chunks. The NDRange is the size of the array divided by the chunk size. Each work item checks whether the key is present in the range and if the key is present, updates the output array.
@@ -2520,19 +2551,21 @@ Finally, the kernel launches itself again using device enqueue, but with new bou
 
   void (^binarySearch_device_enqueue_wrapper_blk)(void) =
    ^{binarySearch_device_enqueue_multiKeys_child(outputArray,
-  sortedArray, subdivSize, globalLowerIndex, keys,nKeys
-  ,parentGlobalids,globalThreads);};
+                                                 sortedArray,
+                                                 subdivSize,
+                                                 globalLowerIndex,
+                                                 keys,nKeys,
+                                                 parentGlobalids,
+                                                 globalThreads);
+    };
   int err_ret = enqueue_kernel(defQ,CLK_ENQUEUE_FLAGS_WAIT_KERNEL,ndrange1,binarySe arch_device_enqueue_wrapper_blk);
 
 It also checks for missing keys; absent any such keys, the search stops by forgoing further enqueues::
  
  /**** Search continues only if at least one key is found in previous search ****/ 
- 
  int Flag = atomic_load_explicit(&,memory_order_seq_cst);
- 
  if(Flag == 0)
-  
- return; 
+   return; 
  
 
 The advantage is that when the input array is large, the OpenCL 2.0 version divides the input array into 1024-sized chunks. The chunk in which the given key falls is found and another kernel is enqueued which further divides it into 1024- sized chunks, and so on. In OpenCL 1.2, as the whole array is taken as the NDRange, a huge number of work groups require processing.
@@ -2551,7 +2584,7 @@ Device enqueue is a powerful feature, as the examples above help show. It can be
 
 The above examples also exemplify the new workgroup and subgroup functions that OpenCL 2.0 introduces. These functions can efficiently perform computation at the workgroup level because they can map directly to hardware instructions at the workgroup/subgroup level.
 
-.. _Atomi:
+.. _Atomics:
 
 Atomics and synchronization
 ############################
@@ -2586,15 +2619,13 @@ The host uses the C++11 compiler and the same memory model.
 
 ::
 
-  kernel void ldstore(volatile global int *buffer, global int* atomicBuffer)
+  __kernel void ldstore(volatile global int *buffer, global int* atomicBuffer)
   {
-  int i;
-  while (atomic_load_explicit ((global atomic_int
-  *)&atomicBuffer[0], memory_order_acquire) != 99);
-  i = get_global_id(0);
-  buffer[i] += i;
-  atomic_store_explicit ((global atomic_int
-  *)&atomicBuffer[i], (100+i), memory_order_release);
+    int i;
+    while (atomic_load_explicit ((global atomic_int*)&atomicBuffer[0], memory_order_acquire) != 99);
+    i = get_global_id(0);
+    buffer[i] += i;
+    atomic_store_explicit ((global atomic_int*)&atomicBuffer[i], (100+i), memory_order_release);
   }
 
 The kernel next stores (100+i), where i is the ID of the work-item into atomicBuffer[i]. The order used is memory_order_release which ensures that the updated copy reaches the CPU which is waiting for it to report PASS for the test.
@@ -2604,13 +2635,15 @@ After the atomic operation, the updates on fine-grain variables (such as buffer)
 ::
  
   for (i=0;i<N;i++)
-  while(std::atomic_load_explicit ((std::atomic<int>
-  *)&atomicBuffer[i], std::memory_order_acquire) != (100+i));
-  /* check the results now */
-  for (i=0;i<N;i++)
-  if (buffer[i] != (64+i))
-  printf(" Test Failed \n");
-  printf (" Test Passed! \n");
+    while(std::atomic_load_explicit ((std::atomic<int>*)&atomicBuffer[i], std::memory_order_acquire) != (100+i));
+    /* check the results now */
+    for (i=0;i<N;i++)
+    {
+      if (buffer[i] != (64+i))
+        printf(" Test Failed \n");
+      else
+        printf (" Test Passed! \n");
+    }
 
 Atomic Compare and Exchange (CAS)
 **********************************
@@ -2618,15 +2651,15 @@ This sample illustrates the use of the atomic CAS operation typically used for "
 
 ::
 
-  kernel void linkKernel( global int *list) {
-  int head, i;
-  i = get_global_id(0) + 1;
-  head = list[0];
-  if (i != get_global_size(0)) {
-  do {
-  list[i] = head;
-  } while (!atomic_compare_exchange_strong((global atomic_int *) &list[0], &head,i), memory_order_release, memory_order_acquire,      	memory_scope_system);
-  }
+  __kernel void linkKernel( global int *list) {
+    int head, i;
+    i = get_global_id(0) + 1;
+    head = list[0];
+    if (i != get_global_size(0)) {
+      do {
+        list[i] = head;
+      } while (!atomic_compare_exchange_strong((global atomic_int *) &list[0], &head,i), memory_order_release, memory_order_acquire,      	memory_scope_system);
+    }
   }
 
 Note how there is no wait to enter the critical section, but list[0] and head are updated atomically. On the CPU too, a similar loop runs. Again note that the variables "list"and "head" must be in fine-grain SVM buffers. memory_order_release and memory_scope_system are used to ensure that the CPU gets the updates -- hence the name "platform atomics."
@@ -2637,27 +2670,31 @@ This sample illustrates the use of the atomic fetch operation. The fetch operati
 
 ::
 
-  kernel void atomicMax(volatile global int *A, global int *B, global int *C, global int *P)
+  __kernel void atomicMax(volatile global int *A, global int *B, global int *C, global int *P)
   {
-  int	i = get_global_id(0);
-  int	j = get_global_id(1);
-  int N = *P, k;
-  if (A[i] >= A[j]) B[i*N+j] = 1;
-  else B[i*N+j] = 0;
-  if (j == 0) { C[i] = 1;
-  for (k=0;k<N;k++)
-  atomic_fetch_and_explicit((global atomic_int *)&C[i], B[i*N+k], memory_order_release, memory_scope_device);
-  }
+    int	i = get_global_id(0);
+    int	j = get_global_id(1);
+    int N = *P, k;
+    if (A[i] >= A[j])
+      B[i*N+j] = 1;
+    else
+      B[i*N+j] = 0;
+    if (j == 0)
+    {
+      C[i] = 1;
+      for (k=0;k<N;k++)
+        atomic_fetch_and_explicit((global atomic_int *)&C[i], B[i*N+k], memory_order_release, memory_scope_device);
+    }
   }
 
 Similarly, another sample includes the following kernel that increments 2*N times, N times in the kernel and another N times on the host:
 
 ::
 
-  kernel void counter( global int *count)
+  __kernel void counter( global int *count)
   {
-  atomic_fetch_add((atomic _int)count, 1);
-  //(*count)++;
+    atomic_fetch_add((atomic _int)count, 1);
+    //(*count)++;
   }
 
 Note: If atomic_fetch_add is not used and instead an incrementing count (as performed in the commented line) is used, the sum will not be computed correctly.
@@ -2686,9 +2723,7 @@ Pipe.
 
 ::
 
-  cl_mem	clCreatePipe ( cl_context context, cl_mem_flags flags,  cl_uint pipe_packet_size,
-  cl_uint pipe_max_packets,  const cl_pipe_properties * properties,
-  cl_int *errcode_ret)
+  cl_mem	clCreatePipe ( cl_context context, cl_mem_flags flags,  cl_uint pipe_packet_size, cl_uint pipe_max_packets,  const cl_pipe_properties * properties, cl_int *errcode_ret)
 
 The memory allocated in the above function can be passed to kernels as read- only or write-only pipes. The pipe objects can only be passed as kernel arguments or kernel functions and cannot be declared inside a kernel or as program-scoped objects.
 
@@ -3434,12 +3469,11 @@ Sample code that is part of the SDK contains examples showing how to query the p
 
 This is a pre-ICD code snippet. ::
  
- context = clCreateContextFromType(
- 0,
- dType,
- NULL,
- NULL,
- &status);
+ context = clCreateContextFromType(0,
+                                   dType,
+                                   NULL,
+                                   NULL,
+                                   &status);
 
 
 The ICD-compliant version of this code follows.
@@ -3451,48 +3485,38 @@ The ICD-compliant version of this code follows.
    * the AMD one if available or a reasonable default.
   */
   
-  
   cl_uint numPlatforms;
   cl_platform_id platform = NULL;
   status = clGetPlatformIDs(0, NULL, &numPlatforms);
-  if(!sampleCommon->checkVal(status,
-  CL_SUCCESS,
-  "clGetPlatformIDs failed."))
+  if(!sampleCommon->checkVal(status, CL_SUCCESS, "clGetPlatformIDs failed."))
   {
-  return SDK_FAILURE;
+    return SDK_FAILURE;
   }
   if (0 < numPlatforms)
   {
-  cl_platform_id* platforms = new cl_platform_id[numPlatforms];
-  status = clGetPlatformIDs(numPlatforms, platforms, NULL);
-  if(!sampleCommon->checkVal(status,
-  CL_SUCCESS,
-  "clGetPlatformIDs failed."))
-  {
-  return SDK_FAILURE;
-  }
-  for (unsigned i = 0; i < numPlatforms; ++i)
-  {
-  char pbuf[100];
-  status = clGetPlatformInfo(platforms[i],
-  CL_PLATFORM_VENDOR,
-  sizeof(pbuf),
-  pbuf,
-  NULL);
-  
-  if(!sampleCommon->checkVal(status, CL_SUCCESS,
-  "clGetPlatformInfo failed."))
-  {
-  return SDK_FAILURE;
-  }
-  
-  platform = platforms[i];
-  if (!strcmp(pbuf, "Advanced Micro Devices, Inc."))
-  {
-  break;
-  }
-  }
-  delete[] platforms;
+    cl_platform_id* platforms = new cl_platform_id[numPlatforms];
+    status = clGetPlatformIDs(numPlatforms, platforms, NULL);
+    if(!sampleCommon->checkVal(status, CL_SUCCESS, "clGetPlatformIDs failed."))
+    {
+      return SDK_FAILURE;
+    }
+    for (unsigned i = 0; i < numPlatforms; ++i)
+    {
+      char pbuf[100];
+      status = clGetPlatformInfo(platforms[i], CL_PLATFORM_VENDOR, sizeof(pbuf), pbuf, NULL);
+
+      if(!sampleCommon->checkVal(status, CL_SUCCESS, "clGetPlatformInfo failed."))
+      {
+        return SDK_FAILURE;
+      }
+
+      platform = platforms[i];
+      if (!strcmp(pbuf, "Advanced Micro Devices, Inc."))
+      {
+        break;
+      }
+    }
+    delete[] platforms;
   }
   /*
   * If we could find our platform, use it. Otherwise pass a NULL and
@@ -3502,18 +3526,12 @@ The ICD-compliant version of this code follows.
   
   cl_context_properties cps[3] =
   {
-  CL_CONTEXT_PLATFORM, (cl_context_properties)platform,
-  0
+    CL_CONTEXT_PLATFORM, (cl_context_properties)platform, 0
   };
   /* Use NULL for backward compatibility */
   cl_context_properties* cprops = (NULL == platform) ? NULL : cps;
    
-  context = clCreateContextFromType(
-  cprops,
-  dType,
-  NULL,
-  NULL,
-  &status);
+  context = clCreateContextFromType(cprops, dType, NULL, NULL, &status);
 
 
 Another example of a pre-ICD code snippet follows.
@@ -3710,275 +3728,8 @@ Please note the following guidelines.
 5.   For OpenGL interoperability with OpenCL, there is a strict order in which the OpenCL context is created and the texture/buffershared allocations can be made. To use shared resources, the OpenGL application must create an OpenGL context and afterwards an   OpenCL context. All resources (GL buffers and textures) created after the OpenCL context was created can be shared between OpenGL and OpenCL. If resources are allocated before the OpenCL context was created, they cannot be shared between OpenGL and OpenCL.
 
 
-Under Windows
-###############
-This sections discusses CL-GL interoperability for single and multiple GPU systems running under Windows.
-
-Single GPU Environment
-***********************
-
-Creating CL Context from a GL Context
-***************************************
-Use GLUT windowing system or Win32 API for event handling. Using GLUT
-1. Use glutInit to initialize the GLUT library and negotiate a session with the windowing system. This function also processes the command line options, depending on the windowing system.
-
-2. Use wglGetCurrentContext to get the current rendering GL context (HGLRC) of the calling thread.
-
-3. Use wglGetCurrentDC to get the device context (HDC) that is associated with the current OpenGL rendering context of the calling thread.
-
-4. Use the clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) function and the CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
-
-5. Use clCreateContext (See Section 4.3 of the OpenCL Specification 1.1) to create the CL context (of type cl_context).
-
-The following code snippet shows you how to create an interoperability context using GLUT on single GPU system.
-
-::
-
-  glutInit(&argc, argv); 
-  glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
-  glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT); 
-  glutCreateWindow("OpenCL SimpleGL");
-  HGLRC glCtx = wglGetCurrentContext();
-  Cl_context_properties cpsGL[] =
-  {
-  CL_CONTEXT_PLATFORM,(cl_context_properties)platform,
-  CL_WGL_HDC_KHR, (intptr_t) wglGetCurrentDC(),
-  CL_GL_CONTEXT_KHR, (intptr_t) glCtx, 0};
-  status = clGetGLContextInfoKHR(cpsGL, CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR, sizeof(cl_device_id),
-  &interopDevice, NULL);
-  // Create OpenCL context from device's id context = clCreateContext(cpsGL,
-  1,
-  &interopDevice,
-  0,
-  0,
-  &status);
-
-
-Using Win32 API
-
-1.   Use CreateWindow for window creation and get the device handle (HWND).
-
-2.   Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use CreateDC function to create a device context (HDC) for the specified device.
-
-3.   Use ChoosePixelFormat to match an appropriate pixel format supported by a device context and to a given pixel format specification.
-
-4.   Use SetPixelFormat to set the pixel format of the specified device context to the format specified.
-
-5.   Use wglCreateContext to create a new OpenGL rendering context from device context (HDC).
-
-6.   Use wglMakeCurrent to bind the GL context created in the above step as the current rendering context.
-
-7.   Use clGetGLContextInfoKHR function and parameter CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR to get the device ID of the CL device associated with OpenGL context.
-
-8.   Use clCreateContext function  to create the CL context (of type cl_context).
-
-The following code snippet shows how to create an interoperability context using WIN32 API for windowing. (Users also can refer to the SimpleGL sample in the AMD Compute SDK samples.)
-
-
-::
-
-
-   int pfmt; PIXELFORMATDESCRIPTOR pfd;
-   pfd.nSize	= sizeof(PIXELFORMATDESCRIPTOR);
-   pfd.nVersion	= 1;
-   pfd.dwFlags	= PFD_DRAW_TO_WINDOW |
-   PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER ;
-   pfd.iPixelType	= PFD_TYPE_RGBA;
-   pfd.cColorBits	= 24;
-   pfd.cRedBits	= 8;
-   pfd.cRedShift	= 0;
-   pfd.cGreenBits	= 8;
-   pfd.cGreenShift	= 0;
-   pfd.cBlueBits	= 8;
-   pfd.cBlueShift	= 0;
-   pfd.cAlphaBits	= 8;
-   pfd.cAlphaShift	= 0;
-   pfd.cAccumBits	= 0;
-   pfd.cAccumRedBits = 0;
-   pfd.cAccumGreenBits = 0;
-   pfd.cAccumBlueBits = 0;
-   pfd.cAccumAlphaBits = 0;
-   pfd.cDepthBits	= 24;
-   pfd.cStencilBits	= 8;
-   pfd.cAuxBuffers	= 0;
-   pfd.iLayerType	= PFD_MAIN_PLANE;
-   pfd.bReserved	= 0;
-   pfd.dwLayerMask	= 0;
-   pfd.dwVisibleMask = 0;
-   pfd.dwDamageMask	= 0;
-
-   ZeroMemory(&pfd, sizeof(PIXELFORMATDESCRIPTOR)); WNDCLASS windowclass;
-   windowclass.style = CS_OWNDC; windowclass.lpfnWndProc = WndProc; windowclass.cbClsExtra = 0; windowclass.cbWndExtra = 0;
- 
-   windowclass.hInstance = NULL;
-   windowclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-   windowclass.hCursor = LoadCursor(NULL, IDC_ARROW);
-   windowclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
-   windowclass.lpszMenuName = NULL;
-   windowclass.lpszClassName = reinterpret_cast<LPCSTR>("SimpleGL");
-   RegisterClass(&windowclass);
-   gHwnd = CreateWindow(reinterpret_cast<LPCSTR>("SimpleGL"), reinterpret_cast<LPCSTR>("SimpleGL"),
-   WS_CAPTION | WS_POPUPWINDOW | WS_VISIBLE,
-   0,
-   0,
-   screenWidth,
-   screenHeight,
-   NULL,
-   NULL,
-   windowclass.hInstance,
-   NULL);
-
-   hDC = GetDC(gHwnd);
-
-   pfmt = ChoosePixelFormat(hDC, &pfd); ret = SetPixelFormat(hDC, pfmt, &pfd); hRC = wglCreateContext(hDC);
-   ret = wglMakeCurrent(hDC, hRC);
-
-  cl_context_properties properties[] =
-  {
-  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR,	(cl_context_properties) hRC, CL_WGL_HDC_KHR,	  `` 	(cl_context_properties) hDC,
-  0
-  };
-
-  status = clGetGLContextInfoKHR(properties, CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR, sizeof(cl_device_id),
-  &interopDevice, NULL);
-
-  // Create OpenCL context from device's id context = clCreateContext(properties,
-  1,
-  &interopDevice,
-  0,
-  0,
-  &status);
-
-
-Multi-GPU Environment
-**********************
-
-Creating CL context from a GL context
-***************************************
-Do not to use the GLUT windowing system in multi-GPU environment because it always creates a GL context on the primary display, and it is not possible to specify which display device to select for a GL context.
-
-To use Win32 API for windowing in multi-GPU environment:
-
-1. Detect each display by using EnumDisplayDevices function. This function lets you obtain the information about display devices in the current session.
-
-2. To query all display devices in the current session, call this function in a loop, starting with DevNum set to 0, and incrementing DevNum until the function fails. To select all display devices in the desktop, use only the display devices that have the DISPLAY_DEVICE_ATTACHED_TO_DESKTOP flag in the DISPLAY_DEVICE structure.
-
-3. To get information on the display adapter, call EnumDisplayDevices with lpDevice set to NULL. For example, DISPLAY_DEVICE.DeviceString contains the adapter name.
-
-4. Use EnumDisplaySettings to get DEVMODE. dmPosition.x and dmPosition.y are used to get the x coordinate and y coordinate of the current display.
-
-5. Try to find the first OpenCL device (winner) associated with the OpenGL rendering context by using the loop technique of 2., above.
-
-6. Inside the loop:
-	a. Create a window on a specific display by using the CreateWindow function. This function returns the window handle (HWND).
-	b. Use GetDC to get a handle to the device context for the client area of a specific window, or for the entire screen (OR). Use the CreateDC function to create a device context (HDC) for the specified device.
-	c. Use ChoosePixelFormat to match an appropriate pixel format supported by a device context to a given pixel format specification.
-	d. Use SetPixelFormat to set the pixel format of the specified device context to the format specified.
-	e. Use wglCreateContext to create a new OpenGL rendering context from device context (HDC).
-	f. Use wglMakeCurrent to bind the GL context created in the above step as the current rendering context.
-	g. Use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the number of GL associated devices for CL context creation. If the number of devices is zero go to the next display in the   	loop. Otherwise, use clGetGLContextInfoKHR (See Section 9.7 of the OpenCL Specification 1.1) and the  	       	CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR parameter to get the device ID of the CL device associated with OpenGL context.
-	h. Use clCreateContext (See Section 4.3 of the OpenCL Specification1.1) to create the CL context (of type cl_context).
-
-The following code demonstrates how to use WIN32 Windowing API in CL-GL
-interoperability on multi-GPU environment.
-
-::
-
-  int xCoordinate = 0;
-  int yCoordinate = 0;
-
-  for (deviceNum = 0; EnumDisplayDevices(NULL, deviceNum,&dispDevice,0); deviceNum++)
-  {
-  if (dispDevice.StateFlags & DISPLAY_DEVICE_MIRRORING_DRIVER)
-  {
-  continue;
-  }
-  DEVMODE deviceMode; EnumDisplaySettings(dispDevice.DeviceName,
-  ENUM_CURRENT_SETTINGS,
-  &deviceMode);
-
-  xCoordinate = deviceMode.dmPosition.x; yCoordinate = deviceMode.dmPosition.y; WNDCLASS windowclass;
-
-  windowclass.style = CS_OWNDC; windowclass.lpfnWndProc = WndProc; windowclass.cbClsExtra = 0; windowclass.cbWndExtra = 0; windowclass.hInstance = NULL;
-  windowclass.hIcon = LoadIcon(NULL, IDI_APPLICATION); windowclass.hCursor = LoadCursor(NULL, IDC_ARROW); windowclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH); windowclass.lpszMenuName = NULL;
-  windowclass.lpszClassName = reinterpret_cast<LPCSTR>("SimpleGL"); RegisterClass(&windowclass);
-  gHwnd = CreateWindow(
-  reinterpret_cast<LPCSTR>("SimpleGL"),
-  reinterpret_cast<LPCSTR>(
-  "OpenGL Texture Renderer"),
-  WS_CAPTION | WS_POPUPWINDOW,
-  xCoordinate,
-  yCoordinate,
-  screenWidth,
-  screenHeight,
-  NULL,
-  NULL,
-  windowclass.hInstance,
-  NULL);
-  hDC = GetDC(gHwnd);
-
-  pfmt = ChoosePixelFormat(hDC, &pfd); ret = SetPixelFormat(hDC, pfmt, &pfd); hRC = wglCreateContext(hDC);
-  ret = wglMakeCurrent(hDC, hRC);
-
-  cl_context_properties properties[] =
-  {
-  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR, (cl_context_properties) hRC, CL_WGL_HDC_KHR, (cl_context_properties) hDC,
-  0
-  };
-
-  if (!clGetGLContextInfoKHR)
-  {
-  clGetGLContextInfoKHR = (clGetGLContextInfoKHR_fn)
-  clGetExtensionFunctionAddress(
-  "clGetGLContextInfoKHR");
-  }
-
-  size_t deviceSize = 0;
-  status = clGetGLContextInfoKHR(properties,
-  CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR,
-  0,
-  NULL,
-  &deviceSize);
-
-  if (deviceSize == 0)
-  {
-  // no interopable CL device found, cleanup wglMakeCurrent(NULL, NULL); wglDeleteContext(hRC);
-  DeleteDC(hDC);
-  hDC = NULL;
-  hRC = NULL;
-  DestroyWindow(gHwnd);
-  // try the next display
-  continue;
-  }
-  ShowWindow(gHwnd, SW_SHOW);
-  //Found a winner
-  break; 
-  }
-
-  cl_context_properties properties[] =
-  {
-  CL_CONTEXT_PLATFORM, (cl_context_properties) platform, CL_GL_CONTEXT_KHR, (cl_context_properties) hRC, CL_WGL_HDC_KHR, (cl_context_properties) hDC,
-  0
-  };
-
-  status = clGetGLContextInfoKHR( properties, CL_CURRENT_DEVICE_FOR_GL_CONTEXT_KHR, sizeof(cl_device_id),
-  &interopDevice, NULL);
-
-  // Create OpenCL context from device's id context = clCreateContext(properties,
-  1,
-  &interopDevice,
-  0,
-  0,
-  &status);
-
-
-Limitations
-*************
- * It is recommended not to use GLUT in a multi-GPU environment.
-
-
 Linux Operating System
-************************
+#######################
 
 Single GPU Environment
 ************************
