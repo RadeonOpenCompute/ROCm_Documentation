@@ -51,7 +51,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1795" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1795" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga0caca59034134d7a7bb893cc1caa653e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -88,7 +88,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1814" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1814" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga85030c72824fb60aaddc7374ab60481b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -114,7 +114,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1828" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1828" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -163,7 +163,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1842" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1842" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga5512f45e25c08052667c8ffe7162333b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -233,7 +233,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1860" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1860" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga6f500e146a98bb41a5972fe091fcc4b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -315,7 +315,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1875" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1875" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -328,7 +328,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1845" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="1845" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1845" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="1845" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

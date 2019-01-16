@@ -41,7 +41,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="849" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="849" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -68,7 +68,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="863" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="863" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -108,7 +108,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="896" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="896" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -136,7 +136,7 @@ Releases memory associated with the event. If the event is recording but has not
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="915" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="915" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -163,7 +163,7 @@ Releases memory associated with the event. If the event is recording but has not
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="935" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="935" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -212,7 +212,7 @@ Computes the elapsed time between two events. Time is computed in ms, with a res
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="966" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="966" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -239,7 +239,7 @@ Query the status of the specified event. This function will return #hipErrorNotR
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="984" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="984" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

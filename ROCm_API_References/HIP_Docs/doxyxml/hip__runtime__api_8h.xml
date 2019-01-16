@@ -23,8 +23,14 @@
       <node id="2">
         <label>stddef.h</label>
       </node>
+      <node id="5">
+        <label>hip/hcc_detail/driver_types.h</label>
+      </node>
+      <node id="7">
+        <label>hip/hcc_detail/hip_surface_types.h</label>
+      </node>
       <node id="0">
-        <label>/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h</label>
+        <label>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h</label>
         <link refid="hip__runtime__api_8h"/>
         <childnode refid="1" relation="include">
         </childnode>
@@ -42,12 +48,6 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>hip/hcc_detail/driver_types.h</label>
-      </node>
-      <node id="7">
-        <label>hip/hcc_detail/hip_surface_types.h</label>
       </node>
       <node id="8">
         <label>hip/hcc_detail/hip_prof_api.h</label>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="35" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="35" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="35" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1ad034ea058031ed95e52d3bac1743640a" prot="public" static="no">
         <name>DEPRECATED</name>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="44" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="44" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="44" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1a8b1f4ecf7e75085716bc116eb37d5b17" prot="public" static="no">
         <name>DEPRECATED_MSG</name>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="45" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="45" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="45" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1ab78d63242f906b6d92cf766bd88a1898" prot="public" static="no">
         <name>HIP_LAUNCH_PARAM_BUFFER_POINTER</name>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="51" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="51" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="51" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1a529edcc8dc562e3f6f6c6d17bf868f03" prot="public" static="no">
         <name>HIP_LAUNCH_PARAM_BUFFER_SIZE</name>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="52" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="52" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="52" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1a86cd80c0b352a6679a7fac89e026f0f7" prot="public" static="no">
         <name>HIP_LAUNCH_PARAM_END</name>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="53" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="53" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="53" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1a0f49b614c87c5d703133fbc52fc68670" prot="public" static="no">
         <name>__dparm</name>
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="59" column="12" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="59" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="59" column="12" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1aa6226e5fe180a7a8da048f53a5baaf45" prot="public" static="no">
         <name>hipIpcMemLazyEnablePeerAccess</name>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="78" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="78" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="78" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="hip__runtime__api_8h_1af095c042450b241001894e1578d71acd" prot="public" static="no">
         <name>HIP_IPC_HANDLE_SIZE</name>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="80" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="80" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="80" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga6df5f70eb976836ab3598cacf0ffcdf9" prot="public" static="no">
         <name>hipStreamDefault</name>
@@ -169,7 +169,7 @@
 <para>Default stream creation flags. These are used with <ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate()</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="121" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="121" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="121" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaaba9ae995d9b43b7d1ee70c6fa12c57d" prot="public" static="no">
         <name>hipStreamNonBlocking</name>
@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="123" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="123" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="123" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga122a5853359eba97cf047ddd153740f0" prot="public" static="no">
         <name>hipEventDefault</name>
@@ -191,7 +191,7 @@
 <para>Default flags </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="127" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="127" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="127" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gafa1c076a5b991763a98695063f1ea11d" prot="public" static="no">
         <name>hipEventBlockingSync</name>
@@ -202,7 +202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="128" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="128" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="128" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga3c0f44a85e36a4c67671da6bcdad0351" prot="public" static="no">
         <name>hipEventDisableTiming</name>
@@ -213,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="130" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="130" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="130" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga0f01d74059baa704e42aeff8222166bb" prot="public" static="no">
         <name>hipEventInterprocess</name>
@@ -225,7 +225,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="132" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="132" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="132" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gae0909af811a68136a82c970d4e607133" prot="public" static="no">
         <name>hipEventReleaseToDevice</name>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="133" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="133" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="133" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gab89a2c35618cc9e3e9e2308216c9fc45" prot="public" static="no">
         <name>hipEventReleaseToSystem</name>
@@ -247,7 +247,7 @@
 <para>This flag is useful to obtain more precise timings of commands between events. The flag is a no-op on CUDA platforms. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="137" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="137" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="137" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gad594ec51cb5b5e946c1e354bf80bddc7" prot="public" static="no">
         <name>hipHostMallocDefault</name>
@@ -258,7 +258,7 @@
 <para>This flag is useful to make non-coherent host memory visible to the host. The flag is a no-op on CUDA platforms. Flags that can be used with hipHostMalloc </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="144" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="144" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="144" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga99b7c2b08a834b4736bfdc24893a6bc5" prot="public" static="no">
         <name>hipHostMallocPortable</name>
@@ -269,7 +269,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="145" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="145" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="145" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="145" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaf6e07be144bb1031bfcf9816335906cc" prot="public" static="no">
         <name>hipHostMallocMapped</name>
@@ -280,7 +280,7 @@
 <para>The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="146" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="146" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="146" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga21beb95617644dbefaffaacdc0f0a35c" prot="public" static="no">
         <name>hipHostMallocWriteCombined</name>
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="149" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="149" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="149" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gac726701ac143539b0893c506377f44ee" prot="public" static="no">
         <name>hipHostMallocCoherent</name>
@@ -302,7 +302,7 @@
 <para>Overrides HIP_COHERENT_HOST_ALLOC for specific allocation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="150" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="150" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="150" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaeec0b563ac9d02f45ed02ceab771a472" prot="public" static="no">
         <name>hipHostMallocNonCoherent</name>
@@ -313,7 +313,7 @@
 <para>Overrides HIP_COHERENT_HOST_ALLOC for specific allocation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="153" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="153" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="153" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gac7c100d241ff84ad10109bb00b7b25dc" prot="public" static="no">
         <name>hipHostRegisterDefault</name>
@@ -324,7 +324,7 @@
 <para>Memory is Mapped and Portable </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="159" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="159" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="159" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga2db444f2315d412d3c7ba80ec6049583" prot="public" static="no">
         <name>hipHostRegisterPortable</name>
@@ -335,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="160" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="160" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="160" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gacfa4edcfcb39fc61bff6bdecb14d7618" prot="public" static="no">
         <name>hipHostRegisterMapped</name>
@@ -346,7 +346,7 @@
 <para>The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="161" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="161" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="161" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaefa79f1b4481d6a1d1091c14b24f33d0" prot="public" static="no">
         <name>hipHostRegisterIoMemory</name>
@@ -357,7 +357,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="164" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="164" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="164" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="164" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga9032d35eb7383948828ee48e1e19f5fd" prot="public" static="no">
         <name>hipDeviceScheduleAuto</name>
@@ -368,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="167" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="167" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="167" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga713d962bafb7758dc1ff0675e4239453" prot="public" static="no">
         <name>hipDeviceScheduleSpin</name>
@@ -379,7 +379,7 @@
 <para>Provides lowest latency, but burns a CPU core and may consume more power. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="168" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="168" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="168" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="168" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaaf1e2706430c06601aa12a8af2a0ba5a" prot="public" static="no">
         <name>hipDeviceScheduleYield</name>
@@ -390,7 +390,7 @@
 <para>May increase latency, but lowers power and is friendlier to other threads in the system. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="171" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="171" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="171" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gac9480926da806dfe7241e3c8fa0bd060" prot="public" static="no">
         <name>hipDeviceScheduleBlockingSync</name>
@@ -401,7 +401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="174" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="174" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="174" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gad0ee225558955549785dc0bf37e53554" prot="public" static="no">
         <name>hipDeviceScheduleMask</name>
@@ -412,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="175" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="175" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="175" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga0b7ffad8d7cfcbf9d3c863d30ef651ae" prot="public" static="no">
         <name>hipDeviceMapHost</name>
@@ -423,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="177" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="177" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="177" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gad1c4f8c9fab30ce95f59e2cc404f4d96" prot="public" static="no">
         <name>hipDeviceLmemResizeToMax</name>
@@ -434,7 +434,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="178" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="178" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="178" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga2cae862086a89539b3cf6906a458190c" prot="public" static="no">
         <name>hipArrayDefault</name>
@@ -445,7 +445,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="180" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="180" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="180" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga7b5573cd703c789c35edb588fb973588" prot="public" static="no">
         <name>hipArrayLayered</name>
@@ -456,7 +456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="181" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="181" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="181" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gadb552c0ab451ab238fccd142e975a840" prot="public" static="no">
         <name>hipArraySurfaceLoadStore</name>
@@ -467,7 +467,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="182" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="182" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="182" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga59685fdad42a844747214758c05f333c" prot="public" static="no">
         <name>hipArrayCubemap</name>
@@ -478,7 +478,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="183" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="183" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="183" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga62bc9f85553dbe4eea819ae35f8baaac" prot="public" static="no">
         <name>hipArrayTextureGather</name>
@@ -489,7 +489,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="184" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="184" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="184" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="184" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___peer_to_peer_1ga898bad8d5d67a63d7264d9038e02306a" prot="public" static="no">
         <name>USE_PEER_NON_UNIFIED</name>
@@ -500,7 +500,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1845" column="9" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="1845" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1845" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="1845" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -520,7 +520,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="112" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="112" bodyend="114"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="112" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="112" bodyend="114"/>
       </memberdef>
       <memberdef kind="enum" id="group___global_defs_1ga54cbbb7697c63cf9b13383b49819d500" prot="public" static="no">
         <name>hipJitOption</name>
@@ -657,7 +657,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="191" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="191" bodyend="210"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="191" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="191" bodyend="210"/>
       </memberdef>
       <memberdef kind="enum" id="group___global_defs_1ga86e5c5692645963a9a673e1aa88ba6ca" prot="public" static="no">
         <name>hipFuncCache_t</name>
@@ -696,7 +696,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="216" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="216" bodyend="221"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="216" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="216" bodyend="221"/>
       </memberdef>
       <memberdef kind="enum" id="group___global_defs_1ga2e17b71d94ac350f2ccd914fd49d104e" prot="public" static="no">
         <name>hipSharedMemConfig</name>
@@ -728,7 +728,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="227" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="227" bodyend="233"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="227" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="227" bodyend="233"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -743,7 +743,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="69" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="69" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="69" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1a181a06ca0d50ffdd6e019c87ffe02fb4" prot="public" static="no">
         <type>int</type>
@@ -756,7 +756,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="72" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="72" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="72" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1a0fc4326b345ac109cb72b90a22a1cb29" prot="public" static="no">
         <type>struct ihipStream_t *</type>
@@ -769,7 +769,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="74" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="74" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="74" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1a9e6d62bec626192ca25cfe831d4a9586" prot="public" static="no">
         <type>struct <ref refid="structhip_ipc_mem_handle__st" kindref="compound">hipIpcMemHandle_st</ref></type>
@@ -782,7 +782,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="84" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="84" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1abd2e1ad718d6d7e625a54c24cb920793" prot="public" static="no">
         <type>struct ihipIpcEventHandle_t *</type>
@@ -795,7 +795,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="88" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="88" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="88" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1ab0b1dd6ce7ee1720c2970552c20173e8" prot="public" static="no">
         <type>struct ihipModule_t *</type>
@@ -808,7 +808,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="93" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="93" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="93" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1ac7ab0ad556b5e1b3461e450fd2c7da3b" prot="public" static="no">
         <type>struct ihipModuleSymbol_t *</type>
@@ -821,7 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="95" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="95" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="95" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1a04ff3562d6fe7b2f01bb60851f497933" prot="public" static="no">
         <type>struct <ref refid="structhip_func_attributes" kindref="compound">hipFuncAttributes</ref></type>
@@ -834,7 +834,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="108" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="108" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="hip__runtime__api_8h_1a3640952e23c028a87a7db564443948ea" prot="public" static="no">
         <type>struct ihipEvent_t *</type>
@@ -847,7 +847,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="110" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="110" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="110" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1ga0a2145bd05973b6fce0994dce37e13ce" prot="public" static="no">
         <type>enum hipJitOption</type>
@@ -860,7 +860,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="210" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="210" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1ga7effbca2af70714feaa3330bf1a77a72" prot="public" static="no">
         <type>enum <ref refid="group___global_defs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref></type>
@@ -874,7 +874,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="221" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="221" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1ga6b1ca424fa26a5fb718937d662eaee7f" prot="public" static="no">
         <type>enum <ref refid="group___global_defs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref></type>
@@ -888,7 +888,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="233" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="233" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1gacb37281795c3567d0b10a61c056d512b" prot="public" static="no">
         <type>struct <ref refid="structdim3" kindref="compound">dim3</ref></type>
@@ -901,7 +901,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="247" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="247" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stream_1ga6d4e90ec5736f9728102be22d0559dfd" prot="public" static="no">
         <type>void(*</type>
@@ -914,7 +914,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="791" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="791" bodyend="-1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="791" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="791" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -934,7 +934,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="296" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="296" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga8d57161ae56a8edc46eeda447417bf6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -952,7 +952,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="310" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="310" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga43c1e7f15925eeb762195ccb5e063eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -981,7 +981,7 @@ Sets <computeroutput>device</computeroutput> as the default device for the calli
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="344" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="344" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga7e0e2e8c5f78e3c7449764657c254e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1008,7 +1008,7 @@ HIP maintains an default device for each thread using thread-local-storage. This
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="360" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="360" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga8555d5c76d88c50ddbf54ae70b568394" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1034,7 +1034,7 @@ HIP maintains an default device for each thread using thread-local-storage. This
 Returns in <computeroutput>*count</computeroutput> the number of devices that have ability to run compute commands. If there are no such devices, then <ref refid="group___device_1ga8555d5c76d88c50ddbf54ae70b568394" kindref="member">hipGetDeviceCount</ref> will return #hipErrorNoDevice. If 1 or more devices can be found, then hipGetDeviceCount returns #hipSuccess. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="375" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="375" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga7080a145a4239a7276e0dc22062026c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1082,7 +1082,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="386" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="386" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga32208513b7cd491f0cb5fc884053f790" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1119,7 +1119,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 <xrefsect id="bug_1_bug000001"><xreftitle>Bug</xreftitle><xrefdescription><para>HCC always returns 0 for maxThreadsPerMultiProcessor </para><para>HCC always returns 0 for regsPerBlock </para><para>HCC always returns 0 for l2CacheSize</para></xrefdescription></xrefsect></para><para>Populates hipGetDeviceProperties with information for the specified device. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="401" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="401" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1gaada3d30a46ae06f68cf1574f496b86ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1145,7 +1145,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="414" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="414" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga37057f9830ad6fab7ce5f05f6d3c89ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1171,7 +1171,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="427" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="427" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga8edc85bb9637d6b1eda0d064d141a255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1208,7 +1208,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="439" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="439" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1gafdb33ef569eb89808fc5178d04b508ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1238,7 +1238,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="452" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="452" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga1bb08f774a34a468d969a8a04791c9bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1264,7 +1264,7 @@ Returns in <computeroutput>*count</computeroutput> the number of devices that ha
 Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="465" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="465" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga9b1f279084e76691cedfbfadf9c717ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1290,7 +1290,7 @@ Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and 
 Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="479" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="479" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1ga6e54db382768827e84725632018307aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1317,7 +1317,7 @@ hipDeviceMapHost : Allow mapping host memory. On ROCM, this is always allowed an
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="505" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="505" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___device_1gaf1e365e1d17cf40644d1470de4817c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1354,7 +1354,7 @@ hipDeviceMapHost : Allow mapping host memory. On ROCM, this is always allowed an
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="515" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="515" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___error_1ga533daeb9114d7fc2db8d867adf9e419b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1372,7 +1372,7 @@ Returns the last error that has been returned by any of the runtime calls in the
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="540" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="540" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___error_1ga1dd660bc739f7e13edd34615660f0148" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1390,7 +1390,7 @@ Returns the last error that has been returned by any of the runtime calls in the
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="553" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="553" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___error_1ga88c474d77635523dbf6ca67be7b56999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
@@ -1417,7 +1417,7 @@ Returns the last error that has been returned by any of the runtime calls in the
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="564" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="564" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___error_1ga1421a2ee561f30d5b1dbed3ecb28b264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
@@ -1445,7 +1445,7 @@ Returns the last error that has been returned by any of the runtime calls in the
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="577" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="577" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1473,7 +1473,7 @@ Create a new asynchronous stream. <computeroutput>stream</computeroutput> return
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="612" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="612" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1511,7 +1511,7 @@ Create a new asynchronous stream. <computeroutput>stream</computeroutput> return
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="632" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="632" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1560,7 +1560,7 @@ Create a new asynchronous stream with the specified priority. <computeroutput>st
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="653" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="653" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga2b0709fb23b273abec8ea223ebb362bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1596,7 +1596,7 @@ Create a new asynchronous stream with the specified priority. <computeroutput>st
 Returns in *leastPriority and *greatestPriority the numerical values that correspond to the least and greatest stream priority respectively. Stream priorities follow a convention where lower numbers imply greater priorities. The range of meaningful stream priorities is given by [*greatestPriority, *leastPriority]. If the user attempts to create a stream with a priority value that is outside the the meaningful range as specified by this API, the priority is automatically clamped to within the valid range. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="670" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="670" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga3076a3499ed2c7821311006100bb95ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1623,7 +1623,7 @@ Destroys the specified stream.</para><para>If commands are still executing on th
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="691" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="691" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1650,7 +1650,7 @@ This is thread-safe and returns a snapshot of the current state of the queue. Ho
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="709" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="709" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1677,7 +1677,7 @@ This command is host-synchronous : the host will block until the specified strea
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="731" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="731" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1726,7 +1726,7 @@ This function inserts a wait operation into the specified stream. All future wor
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="753" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="753" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga3249555a26439591b8873f70b39bb116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1765,7 +1765,7 @@ Return flags associated with this stream in *<computeroutput>flags</computeroutp
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="769" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="769" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gae5a0d1e66035b157149ec10f5c7952be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1804,7 +1804,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="785" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="785" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga3e098cd7478828b2104abb41a7bb00d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1864,7 +1864,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="808" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="808" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1903,7 +1903,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="849" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="849" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1930,7 +1930,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="863" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="863" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1970,7 +1970,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="896" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="896" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1998,7 +1998,7 @@ Releases memory associated with the event. If the event is recording but has not
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="915" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="915" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2025,7 +2025,7 @@ Releases memory associated with the event. If the event is recording but has not
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="935" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="935" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2074,7 +2074,7 @@ Computes the elapsed time between two events. Time is computed in ms, with a res
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="966" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="966" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2101,7 +2101,7 @@ Query the status of the specified event. This function will return #hipErrorNotR
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="984" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="984" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga7c3e8663feebb7be9fd3a1e5139bcefc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2139,7 +2139,7 @@ Query the status of the specified event. This function will return #hipErrorNotR
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1018" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1018" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2177,7 +2177,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1033" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1033" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad3d3cdf82eb0058fc9eac1f939cd9d30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2214,7 +2214,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 <xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1047" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1047" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2263,7 +2263,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1063" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1063" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac5ae7f11cefc7085f39ee7868e71724a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2311,7 +2311,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 <xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1078" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1078" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2360,7 +2360,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1092" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1092" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4d26915873b3e3534ceb4dc310f8709a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2398,7 +2398,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1103" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1103" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab8258f051e1a1f7385f794a15300e674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2449,7 +2449,7 @@ Flags:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1141" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1141" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4c9e1810b9f5858d36c4d28c91c86924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2476,7 +2476,7 @@ Flags:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1151" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1151" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga805c7320498926e444616fe090c727ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2536,7 +2536,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1172" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1172" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2564,7 +2564,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1187" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1187" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad2164cc3d49da53052f4b83b789e90c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2590,7 +2590,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 <xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1199" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1199" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2617,7 +2617,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1214" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1214" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac1a055d288302edd641c6d7416858e1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2677,7 +2677,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1243" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1243" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaa415ecdd2535e1eb618ed8a31a6f03af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2726,7 +2726,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1262" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1262" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2775,7 +2775,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1281" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1281" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2824,7 +2824,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1300" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1300" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2877,7 +2877,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1319" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1319" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad69da1994a646b843fb1fa465dbeb623" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2930,7 +2930,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1338" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1338" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2983,7 +2983,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1357" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1357" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga21dddb880b518c808f89b4a88da66625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3056,7 +3056,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1384" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1384" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae8ba000d414eef829957648c24cced5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3094,7 +3094,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1398" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1398" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga5ab6cb64d6d30236423969b5a0108230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3132,7 +3132,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1411" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1411" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3208,7 +3208,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1439" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1439" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga7cb22578a745b47ece6b53c6057be5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3243,7 +3243,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1442" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1442" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga34899aa766023a8ffbaa6f086dc9d11f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3281,7 +3281,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1445" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1445" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3348,7 +3348,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1476" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1476" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac7441e74affcce4b8b69dba996c5ebc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3396,7 +3396,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1488" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1488" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab66cf8be5f4108218cc9a94d8c842e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3444,7 +3444,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1499" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1499" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaab3fea033f93488f8c50ffc244396a78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3504,7 +3504,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1516" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1516" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae1e7b4c740cc02611ea8122bec376201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3574,7 +3574,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1529" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1529" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad890cda186f947512de1804cb06fb497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3656,7 +3656,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1543" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1543" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga3c04a21c9de9c55b3e47d8c87a0b0593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3704,7 +3704,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1553" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1553" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaabb1a77ae6411a8d1f509d3a287530ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3764,7 +3764,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1564" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1564" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga311c3e246a21590de14478b8bd063be2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3787,7 +3787,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1575" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1575" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaf7e9522b8fd7bae6cc1bf2e3238fd20f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3808,7 +3808,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1578" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1578" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad20a96c14589cb226fcde1219512a0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3881,7 +3881,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1593" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1593" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaee4c2e74e37cf448380e4b69688a20f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3902,7 +3902,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1595" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1595" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga5d24dbee76e1b894e6af830ad06fb168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3923,7 +3923,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1597" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1597" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad12f684263bbc92690553af2aa918fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3944,7 +3944,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1599" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1599" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae29935073517245c69bc64790dd2747a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -3971,7 +3971,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1609" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1609" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4031,7 +4031,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1623" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1623" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4124,7 +4124,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1641" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1641" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaa6913c5738f524d8fd043ab6f2c0e5ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4141,7 +4141,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1643" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1643" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4246,7 +4246,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1662" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1662" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4343,7 +4343,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1681" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1681" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4432,7 +4432,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1700" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1700" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4514,7 +4514,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1718" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1718" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4574,7 +4574,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1734" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1734" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4634,7 +4634,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1749" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1749" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga38facb98eb1ae8206376c3c48bf5c444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4661,7 +4661,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1761" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1761" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga0a1c9ccd775758d9d7d5b5a1f525b719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4710,7 +4710,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1795" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1795" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga0caca59034134d7a7bb893cc1caa653e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4747,7 +4747,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1814" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1814" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga85030c72824fb60aaddc7374ab60481b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4773,7 +4773,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1828" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1828" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4822,7 +4822,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1842" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1842" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga5512f45e25c08052667c8ffe7162333b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4892,7 +4892,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1860" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1860" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___peer_to_peer_1ga6f500e146a98bb41a5972fe091fcc4b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4974,7 +4974,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1875" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1875" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga01baa652dda5815c594d047060496caa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -4991,7 +4991,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 <para>Most HIP APIs implicitly initialize the HIP runtime. This API provides control over the timing of the initialization. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1900" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1900" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gaa12f756681adc03b1f7247b3932a443f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5040,7 +5040,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1922" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1922" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga36458cd6ece33d8161bec91a7014a74f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5067,7 +5067,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1934" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1934" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gaf67ed47a9a89b9174f81bbea2a60a6cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5094,7 +5094,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1946" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1946" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gad17f4f4c69760477ea72228ace45b43b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5121,7 +5121,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1958" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1958" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga80263bdac9fc2577fb8b0e0ca4157502" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5148,7 +5148,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1970" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1970" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga63dc7702243a3620a0a69b850795d80b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5175,7 +5175,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1982" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1982" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gab9bdfa36130a513602fdc0dc69e6c36d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5202,7 +5202,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1995" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1995" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga74181063ab587dbcd083260a5acae565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5241,7 +5241,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2014" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2014" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga7fefe062ac044ab4d3aab770477fc1b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5269,7 +5269,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2029" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2029" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gadf7f3ac2604d21f32a51c910765d39df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5297,7 +5297,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2044" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2044" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga673b5e7432a583822095b7e69b28ba5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5325,7 +5325,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2059" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2059" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga98159e5f6df59e1eecf7a4842158c1aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5353,7 +5353,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2074" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2074" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga3b0b50f1ebb0aa5d8cf410d5ed24448d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5372,7 +5372,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2087" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2087" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga93d0d491063463fe7fc00306f792d332" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5399,7 +5399,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2099" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2099" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gafceae7beace5d4415436dea974f0b9eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5438,7 +5438,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2120" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2120" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga05ed6db10f2e404060ea97a5b262b314" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5466,7 +5466,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2138" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2138" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga60d31f744991c6c568ec3027cf1fb8ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5515,7 +5515,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2152" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2152" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga7bbe8905908168909ddecd98cd34c1e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5543,7 +5543,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2166" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2166" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gab6e1014e9a4dbe281b84e38d89ff2409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5581,7 +5581,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2179" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2179" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1gac2ca146e5d67b28d870dadd9dc3fc04e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5608,7 +5608,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2191" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2191" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___context_1ga5cd8ba188e628274142dd44d39780436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5646,7 +5646,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2204" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2204" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gadf6c74aaf7c22fea80e9ac3400d43704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5683,7 +5683,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2218" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2218" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga0a1cf94d2b571ca3279577d5af0d1672" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5731,7 +5731,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2228" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2228" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga24df15e180a7b2b351cd362e5b7d2dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5779,7 +5779,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2238" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2238" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gaaa961c8ec8047903617f4245fa50256a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5827,7 +5827,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2248" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2248" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga2ec307f165d576c0c673a7b1fa9b0fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5864,7 +5864,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2258" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2258" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga8991e535d0ef1ead0524e73364623041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5901,7 +5901,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2268" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2268" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gaf6c342f52d2a29a0aca5cdd89b4dd47c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5929,7 +5929,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2285" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2285" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gae8b7ba34d2e11e334650aa51a4dd87ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5957,7 +5957,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2299" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2299" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga31d806d976e91d36bd990ae3004d8760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -5994,7 +5994,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2312" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2312" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gae58e345f55bb3ec13dca80d2df88e0ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6020,7 +6020,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2324" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2324" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga9648b457bb837838cb936b417b56a65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6068,7 +6068,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2336" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2336" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga8fd39dc48bcf28cc693ed7673c9f02c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6105,7 +6105,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2347" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2347" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga3e425a680285f495e776f096e9632c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6164,7 +6164,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2360" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2360" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gad2efb1b3fddd4ec7197ef2e5b62c8411" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6193,7 +6193,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2363" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2363" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga1ceb20d084d571c28282ee2fd052264c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6218,7 +6218,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2366" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2366" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1gaabdbd73e952a741e861d01109c4790f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6255,7 +6255,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2376" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2376" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga3e70722338894f48540c7be9a136af79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6325,7 +6325,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2390" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2390" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___driver_1ga2e4de5937aa8171e9eda16c881ed0674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6462,7 +6462,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2417" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2417" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___profiler_1ga40aa20d731f9c8f0586127d589759e1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6476,7 +6476,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2447" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2447" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___profiler_1ga777994cae0f7bdef24131fc1f3ed626e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6490,7 +6490,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2455" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2455" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1gafd8c80f7e3b6426a630fff768409be70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6527,7 +6527,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2489" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2489" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1ga2ada334c986e10805d58167e260cb0df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6576,7 +6576,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2527" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2527" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1gac2db0688a6a471e17ca631977e199da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6602,7 +6602,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2547" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2547" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___clang_1gaef4a44fd1dd0ea4a1be33170e10e0e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6661,7 +6661,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2576" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2576" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___clang_1ga047cff6205399540ebe31cdd11257c07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6709,7 +6709,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2589" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2589" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___clang_1ga80f5f26fe76b213fbfd77e4fc9e04cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6735,7 +6735,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2600" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2600" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1ga31285b05f702fd1ba9e18521d66b46d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6760,7 +6760,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2621" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2621" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1ga4ecde741bd062479038bfc1ce884832c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6777,7 +6777,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2622" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2622" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1gaf0c6d0fd1ca5dbd144d7944d98e5e471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6802,7 +6802,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2623" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2623" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1gad0753126f1bdf30e248c7d4d84ddf5d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -6819,7 +6819,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2624" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2624" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1ga4dbbdc8a31c0ed42a86455be5ace08fc" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const char *</type>
@@ -6836,7 +6836,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2625" column="1" bodyfile="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="2625" bodyend="2625"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2625" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="2625" bodyend="2625"/>
       </memberdef>
       <memberdef kind="function" id="group___a_p_i_1gacafd2da53a5fcf5e00457dcbc0efb7d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
@@ -6853,7 +6853,7 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2626" column="1"/>
+        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2626" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -7675,6 +7675,6 @@ Returns &quot;1&quot; in <computeroutput>canAccessPeer</computeroutput> if the s
 <codeline lineno="2833"><highlight class="comment"></highlight><highlight class="comment">//<sp/>doxygen<sp/>end<sp/>HIP<sp/>API</highlight></codeline>
 <codeline lineno="2838"><highlight class="comment"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail/hip_runtime_api.h"/>
+    <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h"/>
   </compounddef>
 </doxygen>

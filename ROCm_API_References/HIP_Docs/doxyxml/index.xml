@@ -496,10 +496,12 @@
   </compound>
   <compound refid="bug" kind="page"><name>bug</name>
   </compound>
-  <compound refid="dir_ce4f9d092cd8b82b7c46cef8ba457558" kind="dir"><name>/home/tcs/hip_api_doxygen_test/HIP/include/hip/hcc_detail</name>
+  <compound refid="dir_1fe7aac8d7982c03761a5d534c1fee8e" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail</name>
   </compound>
-  <compound refid="dir_82c4e5e99cd964a390bd8b007f79d8a6" kind="dir"><name>/home/tcs/hip_api_doxygen_test/HIP/include/hip</name>
+  <compound refid="dir_0a26c7ae24c86c712ca2050d7bd010d3" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP</name>
   </compound>
-  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/tcs/hip_api_doxygen_test/HIP/include</name>
+  <compound refid="dir_4cdb6b3055206a1653c4792ebb9993d1" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip</name>
+  </compound>
+  <compound refid="dir_28e3c1ed4df268a7acadc0759f5f77f8" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include</name>
   </compound>
 </doxygenindex>
