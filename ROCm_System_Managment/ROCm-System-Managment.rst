@@ -775,6 +775,11 @@ Example2, fan divider setting, valid values 2, 4 and 8:
 	}
 	/* write v to register */
 
+*********
+ Performance 
+*********
+
+The pcie_bw sysfs file will report the usage of the PCIe bus over the last second, as a string with 3 integers: "bytes-received bytes-sent mps" . As there is no efficient way to calculate the size of each packet transmitted to and from the GPU in real time, the maximum payload size (mps), or the largest size of a PCIe packet, is included. The estimated bandwidth can then be calculated using by "bytes-received*mps + bytes-sent*mps" sed and multiplied by the number of packets received and sent.  
 
 KFD Topology
 ==============
