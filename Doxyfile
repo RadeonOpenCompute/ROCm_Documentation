@@ -33,7 +33,7 @@ DOXYFILE_ENCODING      = UTF-8
 # The default value is: My Project.
 
 PROJECT_NAME           = "HIP"
-
+#PROJECT_NAME           = "ReadTheDocs-Breathe"
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
@@ -773,7 +773,7 @@ WARN_LOGFILE           =
 #                         ../../src/
 #INPUT                  = ../../include/hip/hcc_detail/hip_runtime_api.h
 
-INPUT                  = ../HIP/include/hip/hcc_detail/hip_runtime_api.h
+INPUT                  = ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1872,9 +1872,9 @@ GENERATE_XML           = YES
 # The default directory is: xml.
 # This tag requires that the tag GENERATE_XML is set to YES.
 
-#XML_OUTPUT             = xml
+XML_OUTPUT             = xml
 
-XML_OUTPUT       = doxyxml
+#XML_OUTPUT       = doxyxml
 
 # If the XML_PROGRAMLISTING tag is set to YES, doxygen will dump the program
 # listings (including syntax highlighting and cross-referencing information) to

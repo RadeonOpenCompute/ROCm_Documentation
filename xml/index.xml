@@ -144,16 +144,16 @@
     <member refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kind="function"><name>hipEventQuery</name></member>
     <member refid="group___memory_1ga7c3e8663feebb7be9fd3a1e5139bcefc" kind="function"><name>hipPointerGetAttributes</name></member>
     <member refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kind="function"><name>hipMalloc</name></member>
-    <member refid="group___memory_1gad3d3cdf82eb0058fc9eac1f939cd9d30" kind="function"><name>hipMallocHost</name></member>
+    <member refid="group___memory_1ga66399e729223ff5b66ffc16297c0710e" kind="function"><name>hipMallocHost</name></member>
     <member refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kind="function"><name>hipHostMalloc</name></member>
-    <member refid="group___memory_1gac5ae7f11cefc7085f39ee7868e71724a" kind="function"><name>hipHostAlloc</name></member>
+    <member refid="group___memory_1ga0e35f3397f6ea9c3f47a17461ae01231" kind="function"><name>hipHostAlloc</name></member>
     <member refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kind="function"><name>hipHostGetDevicePointer</name></member>
     <member refid="group___memory_1ga4d26915873b3e3534ceb4dc310f8709a" kind="function"><name>hipHostGetFlags</name></member>
     <member refid="group___memory_1gab8258f051e1a1f7385f794a15300e674" kind="function"><name>hipHostRegister</name></member>
     <member refid="group___memory_1ga4c9e1810b9f5858d36c4d28c91c86924" kind="function"><name>hipHostUnregister</name></member>
     <member refid="group___memory_1ga805c7320498926e444616fe090c727ee" kind="function"><name>hipMallocPitch</name></member>
     <member refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kind="function"><name>hipFree</name></member>
-    <member refid="group___memory_1gad2164cc3d49da53052f4b83b789e90c9" kind="function"><name>hipFreeHost</name></member>
+    <member refid="group___memory_1ga28d7d92836116dfadeb62e416ee887d3" kind="function"><name>hipFreeHost</name></member>
     <member refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kind="function"><name>hipHostFree</name></member>
     <member refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kind="function"><name>hipMemcpy</name></member>
     <member refid="group___memory_1gaa415ecdd2535e1eb618ed8a31a6f03af" kind="function"><name>hipMemcpyHtoD</name></member>
@@ -200,22 +200,22 @@
     <member refid="group___peer_to_peer_1ga5512f45e25c08052667c8ffe7162333b" kind="function"><name>hipMemcpyPeer</name></member>
     <member refid="group___peer_to_peer_1ga6f500e146a98bb41a5972fe091fcc4b6" kind="function"><name>hipMemcpyPeerAsync</name></member>
     <member refid="group___driver_1ga01baa652dda5815c594d047060496caa" kind="function"><name>hipInit</name></member>
-    <member refid="group___context_1gaa12f756681adc03b1f7247b3932a443f" kind="function"><name>hipCtxCreate</name></member>
-    <member refid="group___context_1ga36458cd6ece33d8161bec91a7014a74f" kind="function"><name>hipCtxDestroy</name></member>
-    <member refid="group___context_1gaf67ed47a9a89b9174f81bbea2a60a6cc" kind="function"><name>hipCtxPopCurrent</name></member>
-    <member refid="group___context_1gad17f4f4c69760477ea72228ace45b43b" kind="function"><name>hipCtxPushCurrent</name></member>
-    <member refid="group___context_1ga80263bdac9fc2577fb8b0e0ca4157502" kind="function"><name>hipCtxSetCurrent</name></member>
-    <member refid="group___context_1ga63dc7702243a3620a0a69b850795d80b" kind="function"><name>hipCtxGetCurrent</name></member>
-    <member refid="group___context_1gab9bdfa36130a513602fdc0dc69e6c36d" kind="function"><name>hipCtxGetDevice</name></member>
-    <member refid="group___context_1ga74181063ab587dbcd083260a5acae565" kind="function"><name>hipCtxGetApiVersion</name></member>
-    <member refid="group___context_1ga7fefe062ac044ab4d3aab770477fc1b3" kind="function"><name>hipCtxGetCacheConfig</name></member>
-    <member refid="group___context_1gadf7f3ac2604d21f32a51c910765d39df" kind="function"><name>hipCtxSetCacheConfig</name></member>
-    <member refid="group___context_1ga673b5e7432a583822095b7e69b28ba5a" kind="function"><name>hipCtxSetSharedMemConfig</name></member>
-    <member refid="group___context_1ga98159e5f6df59e1eecf7a4842158c1aa" kind="function"><name>hipCtxGetSharedMemConfig</name></member>
-    <member refid="group___context_1ga3b0b50f1ebb0aa5d8cf410d5ed24448d" kind="function"><name>hipCtxSynchronize</name></member>
-    <member refid="group___context_1ga93d0d491063463fe7fc00306f792d332" kind="function"><name>hipCtxGetFlags</name></member>
-    <member refid="group___context_1gafceae7beace5d4415436dea974f0b9eb" kind="function"><name>hipCtxEnablePeerAccess</name></member>
-    <member refid="group___context_1ga05ed6db10f2e404060ea97a5b262b314" kind="function"><name>hipCtxDisablePeerAccess</name></member>
+    <member refid="group___context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kind="function"><name>hipCtxCreate</name></member>
+    <member refid="group___context_1ga9a65fe43238ef303a6d97826c05fd14e" kind="function"><name>hipCtxDestroy</name></member>
+    <member refid="group___context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kind="function"><name>hipCtxPopCurrent</name></member>
+    <member refid="group___context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kind="function"><name>hipCtxPushCurrent</name></member>
+    <member refid="group___context_1ga834a192f70c2bfc0269c309436776feb" kind="function"><name>hipCtxSetCurrent</name></member>
+    <member refid="group___context_1ga741786101d348fdbfa1f64546860357a" kind="function"><name>hipCtxGetCurrent</name></member>
+    <member refid="group___context_1ga8aa32cf64272da929f23ecbafefefcee" kind="function"><name>hipCtxGetDevice</name></member>
+    <member refid="group___context_1gabe5941e6798c71a8351b7d51311e7e8f" kind="function"><name>hipCtxGetApiVersion</name></member>
+    <member refid="group___context_1gab10373068faafd3042c9003e2e6d905a" kind="function"><name>hipCtxGetCacheConfig</name></member>
+    <member refid="group___context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kind="function"><name>hipCtxSetCacheConfig</name></member>
+    <member refid="group___context_1gad5c1d4ced27f584a74ed550dd002fa5a" kind="function"><name>hipCtxSetSharedMemConfig</name></member>
+    <member refid="group___context_1ga3c78b22dd03435a7ca88621a45409565" kind="function"><name>hipCtxGetSharedMemConfig</name></member>
+    <member refid="group___context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kind="function"><name>hipCtxSynchronize</name></member>
+    <member refid="group___context_1ga12a7a993e10f775fbf61a0b14288ed1b" kind="function"><name>hipCtxGetFlags</name></member>
+    <member refid="group___context_1ga834dfd99d72082fe8770142fa30b30e2" kind="function"><name>hipCtxEnablePeerAccess</name></member>
+    <member refid="group___context_1gaf48e4e9c3b6bbad5deaeff10d2e28b31" kind="function"><name>hipCtxDisablePeerAccess</name></member>
     <member refid="group___context_1ga60d31f744991c6c568ec3027cf1fb8ab" kind="function"><name>hipDevicePrimaryCtxGetState</name></member>
     <member refid="group___context_1ga7bbe8905908168909ddecd98cd34c1e8" kind="function"><name>hipDevicePrimaryCtxRelease</name></member>
     <member refid="group___context_1gab6e1014e9a4dbe281b84e38d89ff2409" kind="function"><name>hipDevicePrimaryCtxRetain</name></member>
@@ -244,7 +244,7 @@
     <member refid="group___a_p_i_1gafd8c80f7e3b6426a630fff768409be70" kind="function"><name>hipIpcGetMemHandle</name></member>
     <member refid="group___a_p_i_1ga2ada334c986e10805d58167e260cb0df" kind="function"><name>hipIpcOpenMemHandle</name></member>
     <member refid="group___a_p_i_1gac2db0688a6a471e17ca631977e199da7" kind="function"><name>hipIpcCloseMemHandle</name></member>
-    <member refid="group___clang_1gaef4a44fd1dd0ea4a1be33170e10e0e8b" kind="function"><name>hipConfigureCall</name></member>
+    <member refid="group___clang_1ga61aa3baf383168cc638e01d9e8d8f229" kind="function"><name>hipConfigureCall</name></member>
     <member refid="group___clang_1ga047cff6205399540ebe31cdd11257c07" kind="function"><name>hipSetupArgument</name></member>
     <member refid="group___clang_1ga80f5f26fe76b213fbfd77e4fc9e04cbd" kind="function"><name>hipLaunchByPtr</name></member>
     <member refid="group___a_p_i_1ga31285b05f702fd1ba9e18521d66b46d8" kind="function"><name>hipRegisterApiCallback</name></member>
@@ -314,16 +314,16 @@
   <compound refid="group___memory" kind="group"><name>Memory</name>
     <member refid="group___memory_1ga7c3e8663feebb7be9fd3a1e5139bcefc" kind="function"><name>hipPointerGetAttributes</name></member>
     <member refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kind="function"><name>hipMalloc</name></member>
-    <member refid="group___memory_1gad3d3cdf82eb0058fc9eac1f939cd9d30" kind="function"><name>hipMallocHost</name></member>
+    <member refid="group___memory_1ga66399e729223ff5b66ffc16297c0710e" kind="function"><name>hipMallocHost</name></member>
     <member refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kind="function"><name>hipHostMalloc</name></member>
-    <member refid="group___memory_1gac5ae7f11cefc7085f39ee7868e71724a" kind="function"><name>hipHostAlloc</name></member>
+    <member refid="group___memory_1ga0e35f3397f6ea9c3f47a17461ae01231" kind="function"><name>hipHostAlloc</name></member>
     <member refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kind="function"><name>hipHostGetDevicePointer</name></member>
     <member refid="group___memory_1ga4d26915873b3e3534ceb4dc310f8709a" kind="function"><name>hipHostGetFlags</name></member>
     <member refid="group___memory_1gab8258f051e1a1f7385f794a15300e674" kind="function"><name>hipHostRegister</name></member>
     <member refid="group___memory_1ga4c9e1810b9f5858d36c4d28c91c86924" kind="function"><name>hipHostUnregister</name></member>
     <member refid="group___memory_1ga805c7320498926e444616fe090c727ee" kind="function"><name>hipMallocPitch</name></member>
     <member refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kind="function"><name>hipFree</name></member>
-    <member refid="group___memory_1gad2164cc3d49da53052f4b83b789e90c9" kind="function"><name>hipFreeHost</name></member>
+    <member refid="group___memory_1ga28d7d92836116dfadeb62e416ee887d3" kind="function"><name>hipFreeHost</name></member>
     <member refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kind="function"><name>hipHostFree</name></member>
     <member refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kind="function"><name>hipMemcpy</name></member>
     <member refid="group___memory_1gaa415ecdd2535e1eb618ed8a31a6f03af" kind="function"><name>hipMemcpyHtoD</name></member>
@@ -395,22 +395,22 @@
     <member refid="group___driver_1ga2e4de5937aa8171e9eda16c881ed0674" kind="function"><name>hipModuleLaunchKernel</name></member>
   </compound>
   <compound refid="group___context" kind="group"><name>Context</name>
-    <member refid="group___context_1gaa12f756681adc03b1f7247b3932a443f" kind="function"><name>hipCtxCreate</name></member>
-    <member refid="group___context_1ga36458cd6ece33d8161bec91a7014a74f" kind="function"><name>hipCtxDestroy</name></member>
-    <member refid="group___context_1gaf67ed47a9a89b9174f81bbea2a60a6cc" kind="function"><name>hipCtxPopCurrent</name></member>
-    <member refid="group___context_1gad17f4f4c69760477ea72228ace45b43b" kind="function"><name>hipCtxPushCurrent</name></member>
-    <member refid="group___context_1ga80263bdac9fc2577fb8b0e0ca4157502" kind="function"><name>hipCtxSetCurrent</name></member>
-    <member refid="group___context_1ga63dc7702243a3620a0a69b850795d80b" kind="function"><name>hipCtxGetCurrent</name></member>
-    <member refid="group___context_1gab9bdfa36130a513602fdc0dc69e6c36d" kind="function"><name>hipCtxGetDevice</name></member>
-    <member refid="group___context_1ga74181063ab587dbcd083260a5acae565" kind="function"><name>hipCtxGetApiVersion</name></member>
-    <member refid="group___context_1ga7fefe062ac044ab4d3aab770477fc1b3" kind="function"><name>hipCtxGetCacheConfig</name></member>
-    <member refid="group___context_1gadf7f3ac2604d21f32a51c910765d39df" kind="function"><name>hipCtxSetCacheConfig</name></member>
-    <member refid="group___context_1ga673b5e7432a583822095b7e69b28ba5a" kind="function"><name>hipCtxSetSharedMemConfig</name></member>
-    <member refid="group___context_1ga98159e5f6df59e1eecf7a4842158c1aa" kind="function"><name>hipCtxGetSharedMemConfig</name></member>
-    <member refid="group___context_1ga3b0b50f1ebb0aa5d8cf410d5ed24448d" kind="function"><name>hipCtxSynchronize</name></member>
-    <member refid="group___context_1ga93d0d491063463fe7fc00306f792d332" kind="function"><name>hipCtxGetFlags</name></member>
-    <member refid="group___context_1gafceae7beace5d4415436dea974f0b9eb" kind="function"><name>hipCtxEnablePeerAccess</name></member>
-    <member refid="group___context_1ga05ed6db10f2e404060ea97a5b262b314" kind="function"><name>hipCtxDisablePeerAccess</name></member>
+    <member refid="group___context_1gab6dbcff5c5b1249a5ac5cf39ae9d08bc" kind="function"><name>hipCtxCreate</name></member>
+    <member refid="group___context_1ga9a65fe43238ef303a6d97826c05fd14e" kind="function"><name>hipCtxDestroy</name></member>
+    <member refid="group___context_1ga2cc4ea5a6b78d9d7990a88a7863467d4" kind="function"><name>hipCtxPopCurrent</name></member>
+    <member refid="group___context_1ga9c9d92f29d68cacdea4c062c97e50a8a" kind="function"><name>hipCtxPushCurrent</name></member>
+    <member refid="group___context_1ga834a192f70c2bfc0269c309436776feb" kind="function"><name>hipCtxSetCurrent</name></member>
+    <member refid="group___context_1ga741786101d348fdbfa1f64546860357a" kind="function"><name>hipCtxGetCurrent</name></member>
+    <member refid="group___context_1ga8aa32cf64272da929f23ecbafefefcee" kind="function"><name>hipCtxGetDevice</name></member>
+    <member refid="group___context_1gabe5941e6798c71a8351b7d51311e7e8f" kind="function"><name>hipCtxGetApiVersion</name></member>
+    <member refid="group___context_1gab10373068faafd3042c9003e2e6d905a" kind="function"><name>hipCtxGetCacheConfig</name></member>
+    <member refid="group___context_1ga7eacc656f1d1b6f5a683bea31be67a2f" kind="function"><name>hipCtxSetCacheConfig</name></member>
+    <member refid="group___context_1gad5c1d4ced27f584a74ed550dd002fa5a" kind="function"><name>hipCtxSetSharedMemConfig</name></member>
+    <member refid="group___context_1ga3c78b22dd03435a7ca88621a45409565" kind="function"><name>hipCtxGetSharedMemConfig</name></member>
+    <member refid="group___context_1gad45cd968e8e3dcfd24ef050cab2f41c8" kind="function"><name>hipCtxSynchronize</name></member>
+    <member refid="group___context_1ga12a7a993e10f775fbf61a0b14288ed1b" kind="function"><name>hipCtxGetFlags</name></member>
+    <member refid="group___context_1ga834dfd99d72082fe8770142fa30b30e2" kind="function"><name>hipCtxEnablePeerAccess</name></member>
+    <member refid="group___context_1gaf48e4e9c3b6bbad5deaeff10d2e28b31" kind="function"><name>hipCtxDisablePeerAccess</name></member>
     <member refid="group___context_1ga60d31f744991c6c568ec3027cf1fb8ab" kind="function"><name>hipDevicePrimaryCtxGetState</name></member>
     <member refid="group___context_1ga7bbe8905908168909ddecd98cd34c1e8" kind="function"><name>hipDevicePrimaryCtxRelease</name></member>
     <member refid="group___context_1gab6e1014e9a4dbe281b84e38d89ff2409" kind="function"><name>hipDevicePrimaryCtxRetain</name></member>
@@ -422,7 +422,7 @@
     <member refid="group___profiler_1ga777994cae0f7bdef24131fc1f3ed626e" kind="function"><name>hipProfilerStop</name></member>
   </compound>
   <compound refid="group___clang" kind="group"><name>Clang</name>
-    <member refid="group___clang_1gaef4a44fd1dd0ea4a1be33170e10e0e8b" kind="function"><name>hipConfigureCall</name></member>
+    <member refid="group___clang_1ga61aa3baf383168cc638e01d9e8d8f229" kind="function"><name>hipConfigureCall</name></member>
     <member refid="group___clang_1ga047cff6205399540ebe31cdd11257c07" kind="function"><name>hipSetupArgument</name></member>
     <member refid="group___clang_1ga80f5f26fe76b213fbfd77e4fc9e04cbd" kind="function"><name>hipLaunchByPtr</name></member>
   </compound>
@@ -496,12 +496,14 @@
   </compound>
   <compound refid="bug" kind="page"><name>bug</name>
   </compound>
-  <compound refid="dir_1fe7aac8d7982c03761a5d534c1fee8e" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail</name>
+  <compound refid="dir_c2b33b6ec3bcdcb197ddb8221bded60a" kind="dir"><name>ROCm_API_References/HIP/include/hip/hcc_detail</name>
   </compound>
-  <compound refid="dir_0a26c7ae24c86c712ca2050d7bd010d3" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP</name>
+  <compound refid="dir_fb722007d528e64ca6a97703c7787877" kind="dir"><name>ROCm_API_References/HIP/include/hip</name>
   </compound>
-  <compound refid="dir_4cdb6b3055206a1653c4792ebb9993d1" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip</name>
+  <compound refid="dir_cddc8ce188c1145a5212a95235526c2a" kind="dir"><name>ROCm_API_References/HIP</name>
   </compound>
-  <compound refid="dir_28e3c1ed4df268a7acadc0759f5f77f8" kind="dir"><name>/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include</name>
+  <compound refid="dir_b28f3b0ee61db4a71fad52144a163a7d" kind="dir"><name>ROCm_API_References/HIP/include</name>
+  </compound>
+  <compound refid="dir_e0b5a003ae0c9b7b27ac8d4146e57323" kind="dir"><name>ROCm_API_References</name>
   </compound>
 </doxygenindex>

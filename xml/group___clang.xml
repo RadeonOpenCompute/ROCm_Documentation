@@ -4,10 +4,10 @@
     <compoundname>Clang</compoundname>
     <title>Launch API to support the triple-chevron syntax</title>
       <sectiondef kind="func">
-      <memberdef kind="function" id="group___clang_1gaef4a44fd1dd0ea4a1be33170e10e0e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___clang_1ga61aa3baf383168cc638e01d9e8d8f229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
         <definition>hipError_t hipConfigureCall</definition>
-        <argsstring>(dim3 gridDim, dim3 blockDim, size_t sharedMem, hipStream_t stream)</argsstring>
+        <argsstring>(dim3 gridDim, dim3 blockDim, size_t sharedMem __dparm(0), hipStream_t stream __dparm(0))</argsstring>
         <name>hipConfigureCall</name>
         <param>
           <type><ref refid="structdim3" kindref="compound">dim3</ref></type>
@@ -18,12 +18,14 @@
           <declname>blockDim</declname>
         </param>
         <param>
-          <type>size_t</type>
-          <declname>sharedMem</declname>
+          <type>size_t sharedMem </type>
+          <declname>__dparm</declname>
+          <array>0</array>
         </param>
         <param>
-          <type>hipStream_t</type>
-          <declname>stream</declname>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
         </param>
         <briefdescription>
 <para>Configure a kernel launch. </para>        </briefdescription>
@@ -61,7 +63,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2576" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2598" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___clang_1ga047cff6205399540ebe31cdd11257c07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -109,7 +111,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2589" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2611" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___clang_1ga80f5f26fe76b213fbfd77e4fc9e04cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -135,7 +137,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2600" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2622" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="791" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="791" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="796" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="796" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -45,7 +45,7 @@ Create a new asynchronous stream. <computeroutput>stream</computeroutput> return
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="612" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="617" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -83,7 +83,7 @@ Create a new asynchronous stream. <computeroutput>stream</computeroutput> return
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="632" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="637" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -132,7 +132,7 @@ Create a new asynchronous stream with the specified priority. <computeroutput>st
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="653" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="658" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga2b0709fb23b273abec8ea223ebb362bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -168,7 +168,7 @@ Create a new asynchronous stream with the specified priority. <computeroutput>st
 Returns in *leastPriority and *greatestPriority the numerical values that correspond to the least and greatest stream priority respectively. Stream priorities follow a convention where lower numbers imply greater priorities. The range of meaningful stream priorities is given by [*greatestPriority, *leastPriority]. If the user attempts to create a stream with a priority value that is outside the the meaningful range as specified by this API, the priority is automatically clamped to within the valid range. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="670" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="675" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga3076a3499ed2c7821311006100bb95ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -195,7 +195,7 @@ Destroys the specified stream.</para><para>If commands are still executing on th
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="691" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="696" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -222,7 +222,7 @@ This is thread-safe and returns a snapshot of the current state of the queue. Ho
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="709" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="714" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -249,7 +249,7 @@ This command is host-synchronous : the host will block until the specified strea
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="731" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="736" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -298,7 +298,7 @@ This function inserts a wait operation into the specified stream. All future wor
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="753" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="758" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga3249555a26439591b8873f70b39bb116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -337,7 +337,7 @@ Return flags associated with this stream in *<computeroutput>flags</computeroutp
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="769" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="774" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1gae5a0d1e66035b157149ec10f5c7952be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -376,7 +376,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="785" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="790" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___stream_1ga3e098cd7478828b2104abb41a7bb00d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -436,7 +436,7 @@ Query the priority of a stream. The priority is returned in in priority.</para><
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="808" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="813" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

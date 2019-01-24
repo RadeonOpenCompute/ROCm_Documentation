@@ -40,7 +40,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1018" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1023" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -78,12 +78,12 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1033" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1038" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="group___memory_1gad3d3cdf82eb0058fc9eac1f939cd9d30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___memory_1ga66399e729223ff5b66ffc16297c0710e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
         <definition>hipError_t hipMallocHost</definition>
-        <argsstring>(void **ptr, size_t size) __attribute__((deprecated(&quot;use hipHostMalloc instead&quot;)))</argsstring>
+        <argsstring>(void **ptr, size_t size)</argsstring>
         <name>hipMallocHost</name>
         <param>
           <type>void **</type>
@@ -115,7 +115,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 <xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1047" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1053" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -164,12 +164,12 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1063" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1068" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="group___memory_1gac5ae7f11cefc7085f39ee7868e71724a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___memory_1ga0e35f3397f6ea9c3f47a17461ae01231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
         <definition>hipError_t hipHostAlloc</definition>
-        <argsstring>(void **ptr, size_t size, unsigned int flags) __attribute__((deprecated(&quot;use hipHostMalloc instead&quot;)))</argsstring>
+        <argsstring>(void **ptr, size_t size, unsigned int flags)</argsstring>
         <name>hipHostAlloc</name>
         <param>
           <type>void **</type>
@@ -212,7 +212,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 <xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1078" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1084" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -261,7 +261,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1092" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1097" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4d26915873b3e3534ceb4dc310f8709a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -299,7 +299,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1103" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1108" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab8258f051e1a1f7385f794a15300e674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -350,7 +350,7 @@ Flags:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1141" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1146" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4c9e1810b9f5858d36c4d28c91c86924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -377,7 +377,7 @@ Flags:<itemizedlist>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1151" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1156" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga805c7320498926e444616fe090c727ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -437,7 +437,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1172" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1177" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -465,12 +465,12 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1187" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1192" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="group___memory_1gad2164cc3d49da53052f4b83b789e90c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group___memory_1ga28d7d92836116dfadeb62e416ee887d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
         <definition>hipError_t hipFreeHost</definition>
-        <argsstring>(void *ptr) __attribute__((deprecated(&quot;use hipHostFree instead&quot;)))</argsstring>
+        <argsstring>(void *ptr)</argsstring>
         <name>hipFreeHost</name>
         <param>
           <type>void *</type>
@@ -491,7 +491,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 <xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1199" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1205" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -518,7 +518,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1214" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1220" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac1a055d288302edd641c6d7416858e1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -578,7 +578,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1243" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1249" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaa415ecdd2535e1eb618ed8a31a6f03af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -627,7 +627,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1262" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1268" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -676,7 +676,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1281" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1287" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -725,7 +725,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1300" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1306" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -778,7 +778,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1319" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1325" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad69da1994a646b843fb1fa465dbeb623" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -831,7 +831,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1338" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1344" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -884,7 +884,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1357" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1363" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga21dddb880b518c808f89b4a88da66625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -957,7 +957,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1384" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1390" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae8ba000d414eef829957648c24cced5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -995,7 +995,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1398" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1404" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga5ab6cb64d6d30236423969b5a0108230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1033,7 +1033,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1411" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1417" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1109,7 +1109,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1439" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1445" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga7cb22578a745b47ece6b53c6057be5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1144,7 +1144,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1442" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1448" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga34899aa766023a8ffbaa6f086dc9d11f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1182,7 +1182,7 @@ If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is re
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1445" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1451" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1249,7 +1249,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1476" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1482" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac7441e74affcce4b8b69dba996c5ebc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1297,7 +1297,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1488" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1494" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab66cf8be5f4108218cc9a94d8c842e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1345,7 +1345,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1499" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1505" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaab3fea033f93488f8c50ffc244396a78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1405,7 +1405,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1516" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1522" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae1e7b4c740cc02611ea8122bec376201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1475,7 +1475,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1529" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1535" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad890cda186f947512de1804cb06fb497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1557,7 +1557,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1543" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1549" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga3c04a21c9de9c55b3e47d8c87a0b0593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1605,7 +1605,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1553" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1559" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaabb1a77ae6411a8d1f509d3a287530ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1665,7 +1665,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1564" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1570" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga311c3e246a21590de14478b8bd063be2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1688,7 +1688,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1575" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1581" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaf7e9522b8fd7bae6cc1bf2e3238fd20f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1709,7 +1709,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1578" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1584" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad20a96c14589cb226fcde1219512a0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1782,7 +1782,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1593" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1599" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaee4c2e74e37cf448380e4b69688a20f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1803,7 +1803,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1595" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1601" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga5d24dbee76e1b894e6af830ad06fb168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1824,7 +1824,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1597" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1603" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gad12f684263bbc92690553af2aa918fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1845,7 +1845,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1599" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1605" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gae29935073517245c69bc64790dd2747a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1872,7 +1872,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1609" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1615" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -1932,7 +1932,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1623" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1629" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2025,7 +2025,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1641" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1647" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaa6913c5738f524d8fd043ab6f2c0e5ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2042,7 +2042,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1643" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1649" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2147,7 +2147,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1662" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1668" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2244,7 +2244,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1681" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1687" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2333,7 +2333,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1700" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1706" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2415,7 +2415,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1718" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1724" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2475,7 +2475,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1734" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1740" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2535,7 +2535,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1749" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1755" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group___memory_1ga38facb98eb1ae8206376c3c48bf5c444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>hipError_t</type>
@@ -2562,7 +2562,7 @@ For multi-gpu or peer-to-peer configurations, it is recommended to use a stream 
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1761" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1767" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

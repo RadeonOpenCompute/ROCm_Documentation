@@ -44,7 +44,7 @@ extensions = [
 ]
 
 # Breathe extension variables
-breathe_projects = { "ReadTheDocs-Breathe": "/ROCm_API_References/HIP_Docs/doxyxml/" }
+breathe_projects = { "ReadTheDocs-Breathe": "xml/" }
 breathe_default_project = "ReadTheDocs-Breathe"
 
 # Add any paths that contain templates here, relative to this directory.

@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="191" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="191" bodyend="210"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="196" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="196" bodyend="215"/>
       </memberdef>
       <memberdef kind="enum" id="group___global_defs_1ga86e5c5692645963a9a673e1aa88ba6ca" prot="public" static="no">
         <name>hipFuncCache_t</name>
@@ -179,7 +179,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="216" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="216" bodyend="221"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="221" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="221" bodyend="226"/>
       </memberdef>
       <memberdef kind="enum" id="group___global_defs_1ga2e17b71d94ac350f2ccd914fd49d104e" prot="public" static="no">
         <name>hipSharedMemConfig</name>
@@ -211,7 +211,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="227" column="1" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="227" bodyend="233"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="232" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="232" bodyend="238"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="210" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="215" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1ga7effbca2af70714feaa3330bf1a77a72" prot="public" static="no">
         <type>enum <ref refid="group___global_defs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref></type>
@@ -240,7 +240,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="221" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="226" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1ga6b1ca424fa26a5fb718937d662eaee7f" prot="public" static="no">
         <type>enum <ref refid="group___global_defs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref></type>
@@ -254,7 +254,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="233" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="238" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___global_defs_1gacb37281795c3567d0b10a61c056d512b" prot="public" static="no">
         <type>struct <ref refid="structdim3" kindref="compound">dim3</ref></type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="247" column="1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="252" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -280,7 +280,7 @@
 <para>Default stream creation flags. These are used with <ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate()</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="121" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="121" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="126" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaaba9ae995d9b43b7d1ee70c6fa12c57d" prot="public" static="no">
         <name>hipStreamNonBlocking</name>
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="123" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="123" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="128" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga122a5853359eba97cf047ddd153740f0" prot="public" static="no">
         <name>hipEventDefault</name>
@@ -302,7 +302,7 @@
 <para>Default flags </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="127" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="127" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="132" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gafa1c076a5b991763a98695063f1ea11d" prot="public" static="no">
         <name>hipEventBlockingSync</name>
@@ -313,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="128" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="128" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="133" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga3c0f44a85e36a4c67671da6bcdad0351" prot="public" static="no">
         <name>hipEventDisableTiming</name>
@@ -324,7 +324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="130" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="130" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="135" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga0f01d74059baa704e42aeff8222166bb" prot="public" static="no">
         <name>hipEventInterprocess</name>
@@ -336,7 +336,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="132" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="132" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="137" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gae0909af811a68136a82c970d4e607133" prot="public" static="no">
         <name>hipEventReleaseToDevice</name>
@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="133" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="133" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="138" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gab89a2c35618cc9e3e9e2308216c9fc45" prot="public" static="no">
         <name>hipEventReleaseToSystem</name>
@@ -358,7 +358,7 @@
 <para>This flag is useful to obtain more precise timings of commands between events. The flag is a no-op on CUDA platforms. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="137" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="137" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="142" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gad594ec51cb5b5e946c1e354bf80bddc7" prot="public" static="no">
         <name>hipHostMallocDefault</name>
@@ -369,7 +369,7 @@
 <para>This flag is useful to make non-coherent host memory visible to the host. The flag is a no-op on CUDA platforms. Flags that can be used with hipHostMalloc </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="144" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="144" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="149" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga99b7c2b08a834b4736bfdc24893a6bc5" prot="public" static="no">
         <name>hipHostMallocPortable</name>
@@ -380,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="145" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="145" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="150" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaf6e07be144bb1031bfcf9816335906cc" prot="public" static="no">
         <name>hipHostMallocMapped</name>
@@ -391,7 +391,7 @@
 <para>The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="146" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="146" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="151" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga21beb95617644dbefaffaacdc0f0a35c" prot="public" static="no">
         <name>hipHostMallocWriteCombined</name>
@@ -402,7 +402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="149" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="149" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="154" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gac726701ac143539b0893c506377f44ee" prot="public" static="no">
         <name>hipHostMallocCoherent</name>
@@ -413,7 +413,7 @@
 <para>Overrides HIP_COHERENT_HOST_ALLOC for specific allocation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="150" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="150" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="155" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaeec0b563ac9d02f45ed02ceab771a472" prot="public" static="no">
         <name>hipHostMallocNonCoherent</name>
@@ -424,7 +424,7 @@
 <para>Overrides HIP_COHERENT_HOST_ALLOC for specific allocation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="153" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="153" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="158" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gac7c100d241ff84ad10109bb00b7b25dc" prot="public" static="no">
         <name>hipHostRegisterDefault</name>
@@ -435,7 +435,7 @@
 <para>Memory is Mapped and Portable </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="159" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="159" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="164" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="164" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga2db444f2315d412d3c7ba80ec6049583" prot="public" static="no">
         <name>hipHostRegisterPortable</name>
@@ -446,7 +446,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="160" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="160" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="165" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="165" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gacfa4edcfcb39fc61bff6bdecb14d7618" prot="public" static="no">
         <name>hipHostRegisterMapped</name>
@@ -457,7 +457,7 @@
 <para>The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="161" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="161" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="166" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaefa79f1b4481d6a1d1091c14b24f33d0" prot="public" static="no">
         <name>hipHostRegisterIoMemory</name>
@@ -468,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="164" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="164" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="169" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga9032d35eb7383948828ee48e1e19f5fd" prot="public" static="no">
         <name>hipDeviceScheduleAuto</name>
@@ -479,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="167" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="167" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="172" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga713d962bafb7758dc1ff0675e4239453" prot="public" static="no">
         <name>hipDeviceScheduleSpin</name>
@@ -490,7 +490,7 @@
 <para>Provides lowest latency, but burns a CPU core and may consume more power. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="168" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="168" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="173" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gaaf1e2706430c06601aa12a8af2a0ba5a" prot="public" static="no">
         <name>hipDeviceScheduleYield</name>
@@ -501,7 +501,7 @@
 <para>May increase latency, but lowers power and is friendlier to other threads in the system. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="171" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="171" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="176" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gac9480926da806dfe7241e3c8fa0bd060" prot="public" static="no">
         <name>hipDeviceScheduleBlockingSync</name>
@@ -512,7 +512,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="174" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="174" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="179" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gad0ee225558955549785dc0bf37e53554" prot="public" static="no">
         <name>hipDeviceScheduleMask</name>
@@ -523,7 +523,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="175" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="175" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="180" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga0b7ffad8d7cfcbf9d3c863d30ef651ae" prot="public" static="no">
         <name>hipDeviceMapHost</name>
@@ -534,7 +534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="177" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="177" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="182" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gad1c4f8c9fab30ce95f59e2cc404f4d96" prot="public" static="no">
         <name>hipDeviceLmemResizeToMax</name>
@@ -545,7 +545,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="178" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="178" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="183" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga2cae862086a89539b3cf6906a458190c" prot="public" static="no">
         <name>hipArrayDefault</name>
@@ -556,7 +556,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="180" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="180" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="185" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga7b5573cd703c789c35edb588fb973588" prot="public" static="no">
         <name>hipArrayLayered</name>
@@ -567,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="181" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="181" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="186" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="186" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1gadb552c0ab451ab238fccd142e975a840" prot="public" static="no">
         <name>hipArraySurfaceLoadStore</name>
@@ -578,7 +578,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="182" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="182" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="187" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="187" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga59685fdad42a844747214758c05f333c" prot="public" static="no">
         <name>hipArrayCubemap</name>
@@ -589,7 +589,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="183" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="183" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="188" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="188" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___global_defs_1ga62bc9f85553dbe4eea819ae35f8baaac" prot="public" static="no">
         <name>hipArrayTextureGather</name>
@@ -600,7 +600,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="184" column="9" bodyfile="/home/tcs/ROCm_Doc_1st_Jan_API_References/source/ROCm_Documentation/ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="184" bodyend="-1"/>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="189" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="189" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
