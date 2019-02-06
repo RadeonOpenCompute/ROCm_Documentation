@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="rocblas_8h" kind="file" language="C++">
+    <compoundname>rocblas.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="yes">rocblas-export.h</includes>
+    <includes local="yes">rocblas-version.h</includes>
+    <includes refid="rocblas-types_8h" local="yes">rocblas-types.h</includes>
+    <includes refid="rocblas-auxiliary_8h" local="yes">rocblas-auxiliary.h</includes>
+    <includes refid="rocblas-functions_8h" local="yes">rocblas-functions.h</includes>
+    <includedby refid="status_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/include/status.h</includedby>
+    <includedby refid="handle_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/include/handle.h</includedby>
+    <includedby refid="utility_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/include/utility.h</includedby>
+    <includedby refid="fetch__template_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/fetch_template.h</includedby>
+    <includedby refid="reduction_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</includedby>
+    <includedby refid="rocblas__amax__amin_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</includedby>
+    <includedby refid="rocblas__asum_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_asum.cpp</includedby>
+    <includedby refid="rocblas__axpy_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_axpy.cpp</includedby>
+    <includedby refid="rocblas__copy_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_copy.cpp</includedby>
+    <includedby refid="rocblas__dot_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_dot.cpp</includedby>
+    <includedby refid="rocblas__nrm2_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_nrm2.cpp</includedby>
+    <includedby refid="rocblas__scal_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_scal.cpp</includedby>
+    <includedby refid="rocblas__swap_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_swap.cpp</includedby>
+    <includedby refid="rocblas__gemv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_gemv.cpp</includedby>
+    <includedby refid="rocblas__ger_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_ger.cpp</includedby>
+    <includedby refid="rocblas__syr_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_syr.cpp</includedby>
+    <includedby refid="rocblas__trsv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_trsv.cpp</includedby>
+    <includedby refid="rocblas__geam_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_geam.cpp</includedby>
+    <includedby refid="rocblas__trmm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trmm.cpp</includedby>
+    <includedby refid="rocblas__trsm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trsm.cpp</includedby>
+    <includedby refid="rocblas__trtri_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp</includedby>
+    <includedby refid="rocblas__trtri__batched_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri_batched.cpp</includedby>
+    <includedby refid="gemm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/Tensile/gemm.cpp</includedby>
+    <includedby refid="rocblas__gemm__ex_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas_ex/rocblas_gemm_ex.cpp</includedby>
+    <includedby refid="status_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/status.cpp</includedby>
+    <incdepgraph>
+      <node id="59">
+        <label>stdbool.h</label>
+      </node>
+      <node id="68">
+        <label>rocblas-functions.h</label>
+        <link refid="rocblas-functions_8h"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="64">
+        <label>stdint.h</label>
+      </node>
+      <node id="61">
+        <label>rocblas-version.h</label>
+      </node>
+      <node id="65">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="58">
+        <label>ROCm_Libraries/rocBLAS/library/include/rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>stddef.h</label>
+      </node>
+      <node id="66">
+        <label>rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>rocblas-export.h</label>
+      </node>
+      <node id="62">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="75">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</label>
+        <link refid="reduction_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/fetch_template.h</label>
+        <link refid="fetch__template_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</label>
+        <link refid="rocblas__amax__amin_8h_source"/>
+      </node>
+      <node id="69">
+        <label>ROCm_Libraries/rocBLAS/library/include/rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/utility.h</label>
+        <link refid="utility_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/status.h</label>
+        <link refid="status_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/handle.h</label>
+        <link refid="handle_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/definitions.h</label>
+        <link refid="definitions_8h_source"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="rocblas_8h_1a6eeb5a6a353cbebc618ff7d4c82b4e0b" prot="public" static="no">
+        <name>_ROCBLAS_H_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas.h" line="11" column="9" bodyfile="ROCm_Libraries/rocBLAS/library/include/rocblas.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="rocblas_8h" kindref="compound">rocblas.h</ref> includes other *.h and exposes a common interface </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2016-2018<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>************************************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_ROCBLAS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_ROCBLAS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>system<sp/>headers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>library<sp/>headers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rocblas-export.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rocblas-version.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas-types_8h" kindref="compound">rocblas-types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas-auxiliary_8h" kindref="compound">rocblas-auxiliary.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas-functions_8h" kindref="compound">rocblas-functions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_ROCBLAS_H_</highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/include/rocblas.h"/>
+  </compounddef>
+</doxygen>

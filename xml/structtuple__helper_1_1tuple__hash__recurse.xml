@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structtuple__helper_1_1tuple__hash__recurse" kind="struct" language="C++" prot="protected">
+    <compoundname>tuple_helper::tuple_hash_recurse</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename TUP</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>idx</declname>
+        <defname>idx</defname>
+        <defval>std::tuple_size&lt;TUP&gt;{}</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtuple__helper_1_1tuple__hash__recurse_1aa60690d971280c278afe598245d16101" prot="public" static="no" const="yes" explicit="no" inline="yes" refqual="lvalue" virt="non-virtual">
+        <type></type>
+        <definition>tuple_helper::tuple_hash_recurse&lt; TUP, idx &gt;::__attribute__</definition>
+        <argsstring>((always_inline)) size_t operator()(const TUP &amp;tup)</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(always_inline)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="145" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="145" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="144" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="143" bodyend="150"/>
+    <listofallmembers>
+      <member refid="structtuple__helper_1_1tuple__hash__recurse_1aa60690d971280c278afe598245d16101" prot="public" virt="non-virtual"><scope>tuple_helper::tuple_hash_recurse</scope><name>__attribute__</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

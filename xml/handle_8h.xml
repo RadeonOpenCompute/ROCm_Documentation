@@ -1,0 +1,372 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="handle_8h" kind="file" language="C++">
+    <compoundname>handle.h</compoundname>
+    <includes local="no">fstream</includes>
+    <includes local="no">iostream</includes>
+    <includes refid="rocblas_8h" local="yes">rocblas.h</includes>
+    <includes refid="definitions_8h" local="yes">definitions.h</includes>
+    <includes local="no">hip/hip_runtime_api.h</includes>
+    <includedby refid="logging_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/include/logging.h</includedby>
+    <includedby refid="reduction_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</includedby>
+    <includedby refid="rocblas__amax__amin_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</includedby>
+    <includedby refid="rocblas__asum_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_asum.cpp</includedby>
+    <includedby refid="rocblas__axpy_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_axpy.cpp</includedby>
+    <includedby refid="rocblas__copy_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_copy.cpp</includedby>
+    <includedby refid="rocblas__dot_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_dot.cpp</includedby>
+    <includedby refid="rocblas__nrm2_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_nrm2.cpp</includedby>
+    <includedby refid="rocblas__scal_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_scal.cpp</includedby>
+    <includedby refid="rocblas__swap_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_swap.cpp</includedby>
+    <includedby refid="rocblas__gemv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_gemv.cpp</includedby>
+    <includedby refid="rocblas__ger_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_ger.cpp</includedby>
+    <includedby refid="rocblas__syr_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_syr.cpp</includedby>
+    <includedby refid="rocblas__trsv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_trsv.cpp</includedby>
+    <includedby refid="rocblas__geam_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_geam.cpp</includedby>
+    <includedby refid="rocblas__trsm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trsm.cpp</includedby>
+    <includedby refid="rocblas__trtri__batched_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri_batched.cpp</includedby>
+    <includedby refid="gemm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/Tensile/gemm.cpp</includedby>
+    <includedby refid="rocblas__gemm__ex_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas_ex/rocblas_gemm_ex.cpp</includedby>
+    <includedby refid="handle_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/handle.cpp</includedby>
+    <includedby refid="rocblas__auxiliary_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp</includedby>
+    <incdepgraph>
+      <node id="986">
+        <label>stdbool.h</label>
+      </node>
+      <node id="995">
+        <label>rocblas-functions.h</label>
+        <link refid="rocblas-functions_8h"/>
+        <childnode refid="989" relation="include">
+        </childnode>
+      </node>
+      <node id="994">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="991">
+        <label>stdint.h</label>
+      </node>
+      <node id="988">
+        <label>rocblas-version.h</label>
+      </node>
+      <node id="992">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="985">
+        <label>rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="986" relation="include">
+        </childnode>
+        <childnode refid="987" relation="include">
+        </childnode>
+        <childnode refid="988" relation="include">
+        </childnode>
+        <childnode refid="989" relation="include">
+        </childnode>
+        <childnode refid="993" relation="include">
+        </childnode>
+        <childnode refid="995" relation="include">
+        </childnode>
+      </node>
+      <node id="990">
+        <label>stddef.h</label>
+      </node>
+      <node id="983">
+        <label>fstream</label>
+      </node>
+      <node id="993">
+        <label>rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="994" relation="include">
+        </childnode>
+        <childnode refid="989" relation="include">
+        </childnode>
+      </node>
+      <node id="987">
+        <label>rocblas-export.h</label>
+      </node>
+      <node id="997">
+        <label>status.h</label>
+        <link refid="status_8h_source"/>
+        <childnode refid="985" relation="include">
+        </childnode>
+      </node>
+      <node id="984">
+        <label>iostream</label>
+      </node>
+      <node id="982">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/handle.h</label>
+        <link refid="handle_8h"/>
+        <childnode refid="983" relation="include">
+        </childnode>
+        <childnode refid="984" relation="include">
+        </childnode>
+        <childnode refid="985" relation="include">
+        </childnode>
+        <childnode refid="996" relation="include">
+        </childnode>
+        <childnode refid="994" relation="include">
+        </childnode>
+      </node>
+      <node id="989">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="990" relation="include">
+        </childnode>
+        <childnode refid="991" relation="include">
+        </childnode>
+        <childnode refid="992" relation="include">
+        </childnode>
+      </node>
+      <node id="996">
+        <label>definitions.h</label>
+        <link refid="definitions_8h_source"/>
+        <childnode refid="997" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1001">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</label>
+        <link refid="reduction_8h_source"/>
+        <childnode refid="1000" relation="include">
+        </childnode>
+      </node>
+      <node id="1000">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</label>
+        <link refid="rocblas__amax__amin_8h_source"/>
+      </node>
+      <node id="999">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="1000" relation="include">
+        </childnode>
+      </node>
+      <node id="998">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/handle.h</label>
+        <link refid="handle_8h"/>
+        <childnode refid="999" relation="include">
+        </childnode>
+        <childnode refid="1001" relation="include">
+        </childnode>
+        <childnode refid="1000" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct__rocblas__handle" prot="public">_rocblas_handle</innerclass>
+    <innerclass refid="struct__rocblas__handle_1_1init" prot="public">_rocblas_handle::init</innerclass>
+    <innernamespace refid="namespacerocblas">rocblas</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="handle_8h_1aa67cb6ab05f30c8783ca0fc62d54f3db" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSM_A_BLKS</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSM_A_BLKS</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="100" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="handle_8h_1a163596c18986f8eda2cae84d4a2747b7" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSM_B_CHNK</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSM_B_CHNK</name>
+        <initializer>= 32000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="101" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="handle_8h_1a3fa825bd5cea33e3027b2dae2fb3ee06" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSM_Y_SZ</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSM_Y_SZ</name>
+        <initializer>= 32000 * 128 * sizeof(double)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="102" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="handle_8h_1aba47230a19d47f2b7048372590f95b55" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSM_INVA_SZ</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSM_INVA_SZ</name>
+        <initializer>= 128 * 128 * 10 * sizeof(double)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="103" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="handle_8h_1aab750a46b2f2f0f7942b9e7464a04e40" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSM_INVA_C_SZ</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSM_INVA_C_SZ</name>
+        <initializer>= 128 * 128 * 10 * sizeof(double) / 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="104" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="handle_8h_1a48d2853a979b8bc7719a4d23890a2b62" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSV_X_SZ</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSV_X_SZ</name>
+        <initializer>= 131072 * sizeof(double)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="105" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="handle_8h_1af3a933a1f503e194911d5381c317d1ea" prot="public" static="no" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t WORKBUF_TRSV_ALPHA_SZ</definition>
+        <argsstring></argsstring>
+        <name>WORKBUF_TRSV_ALPHA_SZ</name>
+        <initializer>= sizeof(double)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="106" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2016<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>************************************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>HANDLE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HANDLE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas_8h" kindref="compound">rocblas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;definitions.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hip/hip_runtime_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>\brief<sp/>rocblas_handle<sp/>is<sp/>a<sp/>structure<sp/>holding<sp/>the<sp/>rocblas<sp/>library<sp/>context.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>It<sp/>must<sp/>be<sp/>initialized<sp/>using<sp/>rocblas_create_handle()<sp/>and<sp/>the<sp/>returned<sp/>handle<sp/>mus</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>It<sp/>should<sp/>be<sp/>destroyed<sp/>at<sp/>the<sp/>end<sp/>using<sp/>rocblas_destroy_handle().</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>Exactly<sp/>like<sp/>CUBLAS,<sp/>ROCBLAS<sp/>only<sp/>uses<sp/>one<sp/>stream<sp/>for<sp/>one<sp/>API<sp/>routine</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="struct__rocblas__handle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__rocblas__handle" kindref="compound">_rocblas_handle</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct__rocblas__handle" kindref="compound">_rocblas_handle</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="struct__rocblas__handle" kindref="compound">_rocblas_handle</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Exactly<sp/>like<sp/>CUBLAS,<sp/>ROCBLAS<sp/>only<sp/>uses<sp/>one<sp/>stream<sp/>for<sp/>one<sp/>API<sp/>routine</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>set<sp/>stream:</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>API<sp/>assumes<sp/>user<sp/>has<sp/>already<sp/>created<sp/>a<sp/>valid<sp/>stream</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Associate<sp/>the<sp/>following<sp/>rocblas<sp/>API<sp/>call<sp/>with<sp/>this<sp/>user<sp/>provided<sp/>stream</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>set_stream(hipStream_t<sp/>user_stream)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>check<sp/>the<sp/>user_stream<sp/>valid<sp/>or<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rocblas_stream<sp/>=<sp/>user_stream;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03a608ee84b4cedbfb06ea735be874d31ff" kindref="member">rocblas_status_success</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>get<sp/>stream</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>get_stream(hipStream_t*<sp/>stream)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="45"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*stream<sp/>=<sp/>rocblas_stream;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03a608ee84b4cedbfb06ea735be874d31ff" kindref="member">rocblas_status_success</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>trsm<sp/>get<sp/>pointers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>get_trsm_Y()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trsm_Y;<sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>get_trsm_invA()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trsm_invA;<sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>get_trsm_invA_C()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trsm_invA_C;<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>trsv<sp/>get<sp/>pointers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>get_trsv_x()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trsv_x;<sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>get_trsv_alpha()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trsv_alpha;<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>device;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>hipDeviceProp_t<sp/>device_properties;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rocblas<sp/>by<sp/>default<sp/>take<sp/>the<sp/>system<sp/>default<sp/>stream<sp/>0<sp/>users<sp/>cannot<sp/>create</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>hipStream_t<sp/>rocblas_stream<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>default<sp/>pointer_mode<sp/>is<sp/>on<sp/>host</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref><sp/>pointer_mode<sp/>=<sp/>rocblas_pointer_mode_host;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>space<sp/>allocated<sp/>for<sp/>trsm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>trsm_Y<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>trsm_invA<sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>trsm_invA_C<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>space<sp/>allocated<sp/>for<sp/>trsv</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>trsv_x<sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>trsv_alpha<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>default<sp/>logging_mode<sp/>is<sp/>no<sp/>logging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a2617e51a61393315715c11035c662fa8" kindref="member">rocblas_layer_mode</ref><sp/>layer_mode;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>logging<sp/>streams</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::ofstream<sp/>log_trace_ofs;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::ostream*<sp/>log_trace_os;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::ofstream<sp/>log_bench_ofs;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::ostream*<sp/>log_bench_os;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::ofstream<sp/>log_profile_ofs;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::ostream*<sp/>log_profile_os;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>static<sp/>data<sp/>for<sp/>startup<sp/>initialization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">init</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>init();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>handle_init;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacerocblas" kindref="compound">rocblas</ref><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reinit_logs();<sp/></highlight><highlight class="comment">//<sp/>Reinitialize<sp/>static<sp/>data<sp/>(for<sp/>testing<sp/>only)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/>work<sp/>buffer<sp/>size<sp/>constants</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSM_A_BLKS<sp/><sp/><sp/><sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSM_B_CHNK<sp/><sp/><sp/><sp/>=<sp/>32000;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSM_Y_SZ<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>32000<sp/>*<sp/>128<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(double);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSM_INVA_SZ<sp/><sp/><sp/>=<sp/>128<sp/>*<sp/>128<sp/>*<sp/>10<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(double);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSM_INVA_C_SZ<sp/>=<sp/>128<sp/>*<sp/>128<sp/>*<sp/>10<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(double)<sp/>/<sp/>2;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSV_X_SZ<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>131072<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(double);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">constexpr<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>WORKBUF_TRSV_ALPHA_SZ<sp/><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(double);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h"/>
+  </compounddef>
+</doxygen>

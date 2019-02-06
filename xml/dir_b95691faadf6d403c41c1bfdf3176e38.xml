@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_b95691faadf6d403c41c1bfdf3176e38" kind="dir">
+    <compoundname>ROCm_Libraries/rocBLAS/library/src/blas3</compoundname>
+    <innerdir refid="dir_f36c421edfe20a538f39cffb1804a3f0">ROCm_Libraries/rocBLAS/library/src/blas3/Tensile</innerdir>
+    <innerfile refid="geam__device_8h">geam_device.h</innerfile>
+    <innerfile refid="rocblas__geam_8cpp">rocblas_geam.cpp</innerfile>
+    <innerfile refid="rocblas__trmm_8cpp">rocblas_trmm.cpp</innerfile>
+    <innerfile refid="rocblas__trsm_8cpp">rocblas_trsm.cpp</innerfile>
+    <innerfile refid="rocblas__trtri_8cpp">rocblas_trtri.cpp</innerfile>
+    <innerfile refid="rocblas__trtri__batched_8cpp">rocblas_trtri_batched.cpp</innerfile>
+    <innerfile refid="trtri__device_8h">trtri_device.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas3/"/>
+  </compounddef>
+</doxygen>

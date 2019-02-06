@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classargument__profile" kind="class" language="C++" prot="public">
+    <compoundname>argument_profile</compoundname>
+    <basecompoundref refid="classtuple__helper" prot="private" virt="non-virtual">tuple_helper</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>TUP</declname>
+        <defname>TUP</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classargument__profile_1a09883de6fc903b6f1dcfbfe54e231540" prot="private" static="no" mutable="no">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; argument_profile&lt; TUP &gt;::os</definition>
+        <argsstring></argsstring>
+        <name>os</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="229" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classargument__profile_1a4cab9ccac2fe79f9e2d8a0f97cc333e5" prot="private" static="no" mutable="no">
+        <type>std::shared_timed_mutex</type>
+        <definition>std::shared_timed_mutex argument_profile&lt; TUP &gt;::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="232" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classargument__profile_1a066a22bb285985e8797e3e64698217c5" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; TUP, std::atomic_size_t *, hash_t&lt; TUP &gt;, <ref refid="structtuple__helper_1_1equal__t" kindref="compound">equal_t</ref>&lt; TUP &gt; &gt;</type>
+        <definition>std::unordered_map&lt;TUP, std::atomic_size_t*, hash_t&lt;TUP&gt;, equal_t&lt;TUP&gt; &gt; argument_profile&lt; TUP &gt;::map</definition>
+        <argsstring></argsstring>
+        <name>map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="235" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classargument__profile_1ae15594c81892c620b1ff267e2c5240ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void argument_profile&lt; TUP &gt;::operator()</definition>
+        <argsstring>(TUP &amp;&amp;arg)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>TUP &amp;&amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="241" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="241" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classargument__profile_1a42f5611c4c90ecdcb918dc91fcbf71c9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>argument_profile&lt; TUP &gt;::argument_profile</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>argument_profile</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="275" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="275" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classargument__profile_1a66399886d8e058fc0d43032cad87144b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>argument_profile&lt; TUP &gt;::~argument_profile</definition>
+        <argsstring>()</argsstring>
+        <name>~argument_profile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="278" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="278" bodyend="287"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>argument_profile&lt; TUP &gt;</label>
+        <link refid="classargument__profile"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tuple_helper</label>
+        <link refid="classtuple__helper"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>argument_profile&lt; TUP &gt;</label>
+        <link refid="classargument__profile"/>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>tuple_helper</label>
+        <link refid="classtuple__helper"/>
+      </node>
+    </collaborationgraph>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="227" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="226" bodyend="288"/>
+    <listofallmembers>
+      <member refid="classargument__profile_1a42f5611c4c90ecdcb918dc91fcbf71c9" prot="public" virt="non-virtual"><scope>argument_profile</scope><name>argument_profile</name></member>
+      <member refid="classtuple__helper_1a1b169b33e97228ad8649f025a8cca506" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1a222b00d799c2a79931ae19b6f72c8b01" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1ae97005eca33716ce5f8244e9953039ef" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1af9e4fba8ab323d243903e0c174c8095a" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1a1d7e0da53e61792a03d9184f6a8f5976" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1a35de9d14c72c695d9997cda21bceee96" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1a45e90598527537ba89f1ade29a8df602" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1aa50929bdaa896dc7455739feeb8106c6" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1ac8aae37934d72653823828f9668fd375" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>log_arguments</name></member>
+      <member refid="classargument__profile_1a066a22bb285985e8797e3e64698217c5" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>map</name></member>
+      <member refid="classargument__profile_1a4cab9ccac2fe79f9e2d8a0f97cc333e5" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>mutex</name></member>
+      <member refid="classargument__profile_1ae15594c81892c620b1ff267e2c5240ae" prot="public" virt="non-virtual"><scope>argument_profile</scope><name>operator()</name></member>
+      <member refid="classargument__profile_1a09883de6fc903b6f1dcfbfe54e231540" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>os</name></member>
+      <member refid="classtuple__helper_1a82ba56bd25ad81ab0509e8e6ebdd2e7d" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_tuple</name></member>
+      <member refid="classtuple__helper_1a3b25d70c7b1330097e4efe9679fa40cf" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a005cb6964e37f03c7faa933c6b463e59" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1af99d5d79c61d3f4ca447a30c912340ec" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a9650ae2849af8c82a844f8617b6b685f" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a72a72afc409f38febd67217cffbf3e01" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a4732b26e84e7d4c92170163966636900" prot="private" virt="non-virtual"><scope>argument_profile</scope><name>print_value</name></member>
+      <member refid="classargument__profile_1a66399886d8e058fc0d43032cad87144b" prot="public" virt="non-virtual"><scope>argument_profile</scope><name>~argument_profile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

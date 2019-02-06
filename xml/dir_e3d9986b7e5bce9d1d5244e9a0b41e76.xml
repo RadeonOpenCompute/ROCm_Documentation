@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_e3d9986b7e5bce9d1d5244e9a0b41e76" kind="dir">
+    <compoundname>ROCm_Libraries/rocBLAS/library/src/blas_ex</compoundname>
+    <innerfile refid="rocblas__gemm__ex_8cpp">rocblas_gemm_ex.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas_ex/"/>
+  </compounddef>
+</doxygen>

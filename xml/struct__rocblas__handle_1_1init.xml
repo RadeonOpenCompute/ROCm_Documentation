@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__rocblas__handle_1_1init" kind="struct" language="C++" prot="public">
+    <compoundname>_rocblas_handle::init</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct__rocblas__handle_1_1init_1a02b2d65f09d339ae4ad7809e181d9d23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rocblas_handle::init::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="91" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/handle.cpp" bodystart="109" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/handle.h" line="90" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/handle.h" bodystart="89" bodyend="92"/>
+    <listofallmembers>
+      <member refid="struct__rocblas__handle_1_1init_1a02b2d65f09d339ae4ad7809e181d9d23" prot="public" virt="non-virtual"><scope>_rocblas_handle::init</scope><name>init</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classtuple__helper" kind="class" language="C++" prot="public">
+    <compoundname>tuple_helper</compoundname>
+    <derivedcompoundref refid="classargument__profile" prot="private" virt="non-virtual">argument_profile&lt; TUP &gt;</derivedcompoundref>
+    <innerclass refid="structtuple__helper_1_1equal__t" prot="protected">tuple_helper::equal_t</innerclass>
+    <innerclass refid="structtuple__helper_1_1hash__t" prot="protected">tuple_helper::hash_t</innerclass>
+    <innerclass refid="structtuple__helper_1_1print__tuple__recurse" prot="protected">tuple_helper::print_tuple_recurse</innerclass>
+    <innerclass refid="structtuple__helper_1_1print__tuple__recurse_3_01T_00_010_01_4" prot="protected">tuple_helper::print_tuple_recurse&lt; T, 0 &gt;</innerclass>
+    <innerclass refid="structtuple__helper_1_1tuple__equal__recurse" prot="protected">tuple_helper::tuple_equal_recurse</innerclass>
+    <innerclass refid="structtuple__helper_1_1tuple__equal__recurse_3_01TUP_00_010_01_4" prot="protected">tuple_helper::tuple_equal_recurse&lt; TUP, 0 &gt;</innerclass>
+    <innerclass refid="structtuple__helper_1_1tuple__hash__recurse" prot="protected">tuple_helper::tuple_hash_recurse</innerclass>
+    <innerclass refid="structtuple__helper_1_1tuple__hash__recurse_3_01TUP_00_010_01_4" prot="protected">tuple_helper::tuple_hash_recurse&lt; TUP, 0 &gt;</innerclass>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classtuple__helper_1a3b25d70c7b1330097e4efe9679fa40cf" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void tuple_helper::print_value</definition>
+        <argsstring>(std::ostream &amp;os, const T &amp;x)</argsstring>
+        <name>print_value</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="33" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a005cb6964e37f03c7faa933c6b463e59" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void tuple_helper::print_value</definition>
+        <argsstring>(std::ostream &amp;os, double x)</argsstring>
+        <name>print_value</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="39" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="39" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1af99d5d79c61d3f4ca447a30c912340ec" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void tuple_helper::print_value</definition>
+        <argsstring>(std::ostream &amp;os, char c)</argsstring>
+        <name>print_value</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="59" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a9650ae2849af8c82a844f8617b6b685f" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void tuple_helper::print_value</definition>
+        <argsstring>(std::ostream &amp;os, bool b)</argsstring>
+        <name>print_value</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="66" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a72a72afc409f38febd67217cffbf3e01" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void tuple_helper::print_value</definition>
+        <argsstring>(std::ostream &amp;os, const char *s)</argsstring>
+        <name>print_value</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="69" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a4732b26e84e7d4c92170163966636900" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void tuple_helper::print_value</definition>
+        <argsstring>(std::ostream &amp;os, const std::string &amp;s)</argsstring>
+        <name>print_value</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="70" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a82ba56bd25ad81ab0509e8e6ebdd2e7d" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TUP</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void tuple_helper::print_tuple</definition>
+        <argsstring>(std::ostream &amp;os, const TUP &amp;tuple)</argsstring>
+        <name>print_tuple</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const TUP &amp;</type>
+          <declname>tuple</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="97" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="97" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a1d7e0da53e61792a03d9184f6a8f5976" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if&lt; std::is_enum&lt; T &gt;{}, size_t &gt;::type</type>
+        <definition>static std::enable_if&lt;std::is_enum&lt;T&gt;{}, size_t&gt;::type tuple_helper::hash</definition>
+        <argsstring>(const T &amp;x)</argsstring>
+        <name>hash</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="117" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a35de9d14c72c695d9997cda21bceee96" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if&lt;!std::is_enum&lt; T &gt;{}, size_t &gt;::type</type>
+        <definition>static std::enable_if&lt;!std::is_enum&lt;T&gt;{}, size_t&gt;::type tuple_helper::hash</definition>
+        <argsstring>(const T &amp;x)</argsstring>
+        <name>hash</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="124" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="124" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a45e90598527537ba89f1ade29a8df602" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr size_t</type>
+        <definition>static constexpr size_t tuple_helper::hash</definition>
+        <argsstring>(const char *s)</argsstring>
+        <name>hash</name>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="130" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="130" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1aa50929bdaa896dc7455739feeb8106c6" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t tuple_helper::hash</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>hash</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="139" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a1b169b33e97228ad8649f025a8cca506" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>static bool tuple_helper::equal</definition>
+        <argsstring>(const T &amp;x1, const T &amp;x2)</argsstring>
+        <name>equal</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x1</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="171" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="171" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1a222b00d799c2a79931ae19b6f72c8b01" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool tuple_helper::equal</definition>
+        <argsstring>(const char *s1, const char *s2)</argsstring>
+        <name>equal</name>
+        <param>
+          <type>const char *</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="176" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="176" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1ae97005eca33716ce5f8244e9953039ef" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool tuple_helper::equal</definition>
+        <argsstring>(const std::string &amp;s1, const char *s2)</argsstring>
+        <name>equal</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="177" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="177" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classtuple__helper_1af9e4fba8ab323d243903e0c174c8095a" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool tuple_helper::equal</definition>
+        <argsstring>(const char *s1, const std::string &amp;s2)</argsstring>
+        <name>equal</name>
+        <param>
+          <type>const char *</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="178" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classtuple__helper_1ac8aae37934d72653823828f9668fd375" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename H</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void tuple_helper::log_arguments</definition>
+        <argsstring>(std::ostream &amp;os, const char *sep, H head, Ts &amp;&amp;... xs)</argsstring>
+        <name>log_arguments</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sep</declname>
+        </param>
+        <param>
+          <type>H</type>
+          <declname>head</declname>
+        </param>
+        <param>
+          <type>Ts &amp;&amp;...</type>
+          <declname>xs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="214" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="214" bodyend="219"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="54">
+        <label>argument_profile&lt; TUP &gt;</label>
+        <link refid="classargument__profile"/>
+        <childnode refid="53" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>tuple_helper</label>
+        <link refid="classtuple__helper"/>
+      </node>
+    </inheritancegraph>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="26" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="25" bodyend="220"/>
+    <listofallmembers>
+      <member refid="classtuple__helper_1a1b169b33e97228ad8649f025a8cca506" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1a222b00d799c2a79931ae19b6f72c8b01" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1ae97005eca33716ce5f8244e9953039ef" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1af9e4fba8ab323d243903e0c174c8095a" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>equal</name></member>
+      <member refid="classtuple__helper_1a1d7e0da53e61792a03d9184f6a8f5976" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1a35de9d14c72c695d9997cda21bceee96" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1a45e90598527537ba89f1ade29a8df602" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1aa50929bdaa896dc7455739feeb8106c6" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>hash</name></member>
+      <member refid="classtuple__helper_1ac8aae37934d72653823828f9668fd375" prot="public" virt="non-virtual"><scope>tuple_helper</scope><name>log_arguments</name></member>
+      <member refid="classtuple__helper_1a82ba56bd25ad81ab0509e8e6ebdd2e7d" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_tuple</name></member>
+      <member refid="classtuple__helper_1a3b25d70c7b1330097e4efe9679fa40cf" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a005cb6964e37f03c7faa933c6b463e59" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1af99d5d79c61d3f4ca447a30c912340ec" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a9650ae2849af8c82a844f8617b6b685f" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a72a72afc409f38febd67217cffbf3e01" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_value</name></member>
+      <member refid="classtuple__helper_1a4732b26e84e7d4c92170163966636900" prot="protected" virt="non-virtual"><scope>tuple_helper</scope><name>print_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

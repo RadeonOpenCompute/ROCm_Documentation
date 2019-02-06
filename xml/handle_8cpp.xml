@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="handle_8cpp" kind="file" language="C++">
+    <compoundname>handle.cpp</compoundname>
+    <includes refid="handle_8h" local="yes">handle.h</includes>
+    <includes local="no">cstdlib</includes>
+    <incdepgraph>
+      <node id="950">
+        <label>stdbool.h</label>
+      </node>
+      <node id="959">
+        <label>rocblas-functions.h</label>
+        <link refid="rocblas-functions_8h"/>
+        <childnode refid="953" relation="include">
+        </childnode>
+      </node>
+      <node id="958">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="955">
+        <label>stdint.h</label>
+      </node>
+      <node id="952">
+        <label>rocblas-version.h</label>
+      </node>
+      <node id="956">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="949">
+        <label>rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="957" relation="include">
+        </childnode>
+        <childnode refid="959" relation="include">
+        </childnode>
+      </node>
+      <node id="954">
+        <label>stddef.h</label>
+      </node>
+      <node id="947">
+        <label>fstream</label>
+      </node>
+      <node id="957">
+        <label>rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="958" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+      </node>
+      <node id="945">
+        <label>ROCm_Libraries/rocBLAS/library/src/handle.cpp</label>
+        <link refid="handle_8cpp"/>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="962" relation="include">
+        </childnode>
+      </node>
+      <node id="951">
+        <label>rocblas-export.h</label>
+      </node>
+      <node id="961">
+        <label>status.h</label>
+        <link refid="status_8h_source"/>
+        <childnode refid="949" relation="include">
+        </childnode>
+      </node>
+      <node id="962">
+        <label>cstdlib</label>
+      </node>
+      <node id="948">
+        <label>iostream</label>
+      </node>
+      <node id="946">
+        <label>handle.h</label>
+        <link refid="handle_8h_source"/>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+        <childnode refid="958" relation="include">
+        </childnode>
+      </node>
+      <node id="953">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="954" relation="include">
+        </childnode>
+        <childnode refid="955" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+      </node>
+      <node id="960">
+        <label>definitions.h</label>
+        <link refid="definitions_8h_source"/>
+        <childnode refid="961" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacerocblas">rocblas</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="handle_8cpp_1af4390dd8cc3c36ac4786341cc35c5762" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void open_log_stream</definition>
+        <argsstring>(const char *environment_variable_name, std::ostream *&amp;log_os, std::ofstream &amp;log_ofs)</argsstring>
+        <name>open_log_stream</name>
+        <param>
+          <type>const char *</type>
+          <declname>environment_variable_name</declname>
+        </param>
+        <param>
+          <type>std::ostream *&amp;</type>
+          <declname>log_os</declname>
+        </param>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>log_ofs</declname>
+        </param>
+        <briefdescription>
+<para>Logging function. </para>        </briefdescription>
+        <detaileddescription>
+<para>open_log_stream Open stream log_os for logging. If the environment variable with name environment_variable_name is not set, then stream log_os to std::cerr. Else open a file at the full logfile path contained in the environment variable. If opening the file suceeds, stream to the file else stream to std::cerr.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">environment_variable_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>const char* Name of environment variable that contains the full logfile path.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+[out] log_os std::ostream*&amp; Output stream. Stream to std:cerr if environment_variable_name is not set, else set to stream to log_ofs</para><para>[out] log_ofs std::ofstream&amp; Output file stream. If log_ofs-&gt;is_open()==true, then log_os will stream to log_ofs. Else it will stream to std::cerr. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/handle.cpp" line="85" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/handle.cpp" bodystart="85" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2016<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>************************************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;handle.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>constructor</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">_rocblas_handle::_rocblas_handle()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>default<sp/>device<sp/>is<sp/>active<sp/>device</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Device_1ga7e0e2e8c5f78e3c7449764657c254e0a" kindref="member">hipGetDevice</ref>(&amp;device));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Device_1ga32208513b7cd491f0cb5fc884053f790" kindref="member">hipGetDeviceProperties</ref>(&amp;device_properties,<sp/>device));</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rocblas<sp/>by<sp/>default<sp/>take<sp/>the<sp/>system<sp/>default<sp/>stream<sp/>0<sp/>users<sp/>cannot<sp/>create</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>trsm<sp/>temp<sp/>buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>(&amp;trsm_Y,<sp/>WORKBUF_TRSM_Y_SZ));</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>(&amp;trsm_invA,<sp/>WORKBUF_TRSM_INVA_SZ));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>(&amp;trsm_invA_C,<sp/>WORKBUF_TRSM_INVA_C_SZ));</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>allocate<sp/>trsv<sp/>temp<sp/>buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>(&amp;trsv_x,<sp/>WORKBUF_TRSV_X_SZ));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>THROW_IF_HIP_ERROR(<ref refid="group__Memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>(&amp;trsv_alpha,<sp/>WORKBUF_TRSV_ALPHA_SZ));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>destructor</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">_rocblas_handle::~_rocblas_handle()</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(trsm_Y)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__Memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>(trsm_Y);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(trsm_invA)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__Memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>(trsm_invA);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(trsm_invA_C)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__Memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>(trsm_invA_C);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(trsv_x)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__Memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>(trsv_x);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(trsv_alpha)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__Memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>(trsv_alpha);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>Static<sp/>handle<sp/>data</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="rocblas-types_8h_1a2617e51a61393315715c11035c662fa8" kindref="member">rocblas_layer_mode</ref><sp/>_rocblas_handle::layer_mode<sp/>=<sp/>rocblas_layer_mode_none;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">std::ofstream<sp/>_rocblas_handle::log_trace_ofs;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">std::ostream*<sp/>_rocblas_handle::log_trace_os;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">std::ofstream<sp/>_rocblas_handle::log_bench_ofs;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">std::ostream*<sp/>_rocblas_handle::log_bench_os;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">std::ofstream<sp/>_rocblas_handle::log_profile_ofs;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">std::ostream*<sp/>_rocblas_handle::log_profile_os;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">_rocblas_handle::init<sp/>_rocblas_handle::handle_init;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>open_log_stream(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>environment_variable_name,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::ostream*&amp;<sp/>log_os,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::ofstream&amp;<sp/>log_ofs)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>By<sp/>default,<sp/>output<sp/>to<sp/>cerr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>log_os<sp/>=<sp/>&amp;std::cerr;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>environment<sp/>variable<sp/>is<sp/>set,<sp/>open<sp/>file<sp/>at<sp/>logfile_pathname<sp/>contained<sp/>in<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>environment<sp/>variable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>logfile_pathname<sp/>=<sp/>getenv(environment_variable_name);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(logfile_pathname)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log_ofs.open(logfile_pathname,<sp/>std::ios_base::trunc);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>log_ofs<sp/>is<sp/>open,<sp/>then<sp/>stream<sp/>to<sp/>log_ofs,<sp/>else<sp/>log_os<sp/>is<sp/>already<sp/>set<sp/>to<sp/>std::cerr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(log_ofs.is_open())</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log_os<sp/>=<sp/>&amp;log_ofs;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>Static<sp/>runtime<sp/>initialization</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">_rocblas_handle::init::init()</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>layer_mode<sp/>from<sp/>value<sp/>of<sp/>environment<sp/>variable<sp/>ROCBLAS_LAYER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>str_layer_mode<sp/>=<sp/>getenv(</highlight><highlight class="stringliteral">&quot;ROCBLAS_LAYER&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(str_layer_mode)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer_mode<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="rocblas-types_8h_1a2617e51a61393315715c11035c662fa8" kindref="member">rocblas_layer_mode</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(strtol(str_layer_mode,<sp/>0,<sp/>0));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>open<sp/>log_trace<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(layer_mode<sp/>&amp;<sp/>rocblas_layer_mode_log_trace)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>open_log_stream(</highlight><highlight class="stringliteral">&quot;ROCBLAS_LOG_TRACE_PATH&quot;</highlight><highlight class="normal">,<sp/>log_trace_os,<sp/>log_trace_ofs);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>open<sp/>log_bench<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(layer_mode<sp/>&amp;<sp/>rocblas_layer_mode_log_bench)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>open_log_stream(</highlight><highlight class="stringliteral">&quot;ROCBLAS_LOG_BENCH_PATH&quot;</highlight><highlight class="normal">,<sp/>log_bench_os,<sp/>log_bench_ofs);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>open<sp/>log_profile<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(layer_mode<sp/>&amp;<sp/>rocblas_layer_mode_log_profile)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>open_log_stream(</highlight><highlight class="stringliteral">&quot;ROCBLAS_LOG_PROFILE_PATH&quot;</highlight><highlight class="normal">,<sp/>log_profile_os,<sp/>log_profile_ofs);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>Static<sp/>reinitialization<sp/>(for<sp/>testing<sp/>only)</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacerocblas" kindref="compound">rocblas</ref><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reinit_logs()</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>_rocblas_handle::log_trace_ofs.close();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>_rocblas_handle::log_bench_ofs.close();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>_rocblas_handle::log_profile_ofs.close();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">(&amp;_rocblas_handle::handle_init)<sp/>_rocblas_handle::init;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>rocblas</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/src/handle.cpp"/>
+  </compounddef>
+</doxygen>

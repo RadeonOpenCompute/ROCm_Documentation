@@ -1,0 +1,728 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="reduction_8h" kind="file" language="C++">
+    <compoundname>reduction.h</compoundname>
+    <includes local="no">cstddef</includes>
+    <includes local="no">type_traits</includes>
+    <includes refid="definitions_8h" local="yes">definitions.h</includes>
+    <includes refid="rocblas_8h" local="yes">rocblas.h</includes>
+    <includes refid="handle_8h" local="yes">handle.h</includes>
+    <includes local="no">hip/hip_runtime.h</includes>
+    <includedby refid="rocblas__amax__amin_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</includedby>
+    <includedby refid="rocblas__asum_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_asum.cpp</includedby>
+    <includedby refid="rocblas__dot_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_dot.cpp</includedby>
+    <includedby refid="rocblas__nrm2_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_nrm2.cpp</includedby>
+    <includedby refid="rocblas__gemv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_gemv.cpp</includedby>
+    <incdepgraph>
+      <node id="99">
+        <label>stdbool.h</label>
+      </node>
+      <node id="93">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</label>
+        <link refid="reduction_8h"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>rocblas-functions.h</label>
+        <link refid="rocblas-functions_8h"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="112">
+        <label>hip/hip_runtime.h</label>
+      </node>
+      <node id="104">
+        <label>stdint.h</label>
+      </node>
+      <node id="101">
+        <label>rocblas-version.h</label>
+      </node>
+      <node id="105">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="98">
+        <label>rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>stddef.h</label>
+      </node>
+      <node id="110">
+        <label>fstream</label>
+      </node>
+      <node id="106">
+        <label>rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>rocblas-export.h</label>
+      </node>
+      <node id="97">
+        <label>status.h</label>
+        <link refid="status_8h_source"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>iostream</label>
+      </node>
+      <node id="94">
+        <label>cstddef</label>
+      </node>
+      <node id="109">
+        <label>handle.h</label>
+        <link refid="handle_8h_source"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>type_traits</label>
+      </node>
+      <node id="102">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>definitions.h</label>
+        <link refid="definitions_8h_source"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="113">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</label>
+        <link refid="reduction_8h"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</label>
+        <link refid="rocblas__amax__amin_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structrocblas__reduction__s" prot="public">rocblas_reduction_s</innerclass>
+    <innerclass refid="structrocblas__reduction__s_3_010_00_01REDUCE_00_01T_01_4" prot="public">rocblas_reduction_s&lt; 0, REDUCE, T &gt;</innerclass>
+    <innerclass refid="structrocblas__reduce__sum" prot="public">rocblas_reduce_sum</innerclass>
+    <innerclass refid="structrocblas__finalize__identity" prot="public">rocblas_finalize_identity</innerclass>
+    <innerclass refid="structdefault__value" prot="public">default_value</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="reduction_8h_1a5841a06ca60bc83441a5d1331fd2aa3f" prot="public" static="no" mutable="no">
+        <type>T *</type>
+        <definition>rocblas_status rocblas_int const double * x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <initializer>{
+    static_assert(NB &gt; 1 &amp;&amp; !(NB &amp; (NB - 1)), &quot;NB must be a power of 2&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="96" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="reduction_8h_1adda410c7ca908d6c123b6abab49469d6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>rocblas_reduction_s&lt; NB/2, REDUCE, T &gt;</definition>
+        <argsstring></argsstring>
+        <name>rocblas_reduction_s&lt; NB/2, REDUCE, T &gt;</name>
+        <initializer>{}(tx, x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="99" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="reduction_8h_1a2cfa31b02db4d5803073de0e80e2f723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+            <declname>NB</declname>
+            <defname>NB</defname>
+          </param>
+          <param>
+            <type>typename REDUCE</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>__attribute__</definition>
+        <argsstring>((flatten)) __device__ void rocblas_reduction(rocblas_int tx</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(flatten)</type>
+        </param>
+        <briefdescription>
+<para>general parallel reduction </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_int. assume a power of 2 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>element type of vector x </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">REDUCE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reduction functor </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_int. thread id </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer storing vector x on the GPU. usually x is stored in shared memory; x[0] store the final result. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="96" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="reduction_8h_1ae687dbe50139c5805369b59554bddc67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>__syncthreads</definition>
+        <argsstring>()</argsstring>
+        <name>__syncthreads</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="reduction_8h_1a65a3e47300963490e683cb3170eb6d05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+            <declname>NB</declname>
+            <defname>NB</defname>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>__attribute__</definition>
+        <argsstring>((flatten)) __device__ void rocblas_sum_reduce(rocblas_int tx</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(flatten)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="126" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="reduction_8h_1a3eb4f485581331eac89f4e90b282546b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+            <declname>NB</declname>
+            <defname>NB</defname>
+          </param>
+          <param>
+            <type>typename FETCH</type>
+          </param>
+          <param>
+            <type>typename REDUCE</type>
+            <defval><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref></defval>
+          </param>
+          <param>
+            <type>typename Ti</type>
+          </param>
+          <param>
+            <type>typename To</type>
+          </param>
+        </templateparamlist>
+        <type>__global__ void</type>
+        <definition>__global__ void rocblas_reduction_kernel_part1</definition>
+        <argsstring>(rocblas_int n, const Ti *x, rocblas_int incx, To *workspace)</argsstring>
+        <name>rocblas_reduction_kernel_part1</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const Ti *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type>To *</type>
+          <declname>workspace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="157" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="157" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="reduction_8h_1ad026d7a0fdfbb62367c89bf5f227726f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+            <declname>NB</declname>
+            <defname>NB</defname>
+          </param>
+          <param>
+            <type>typename REDUCE</type>
+            <defval><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref></defval>
+          </param>
+          <param>
+            <type>typename FINALIZE</type>
+            <defval><ref refid="structrocblas__finalize__identity" kindref="compound">rocblas_finalize_identity</ref></defval>
+          </param>
+          <param>
+            <type>typename To</type>
+          </param>
+          <param>
+            <type>typename Tr</type>
+          </param>
+        </templateparamlist>
+        <type>__global__ void</type>
+        <definition>__global__ void rocblas_reduction_kernel_part2</definition>
+        <argsstring>(rocblas_int nblocks, To *workspace, Tr *result)</argsstring>
+        <name>rocblas_reduction_kernel_part2</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>nblocks</declname>
+        </param>
+        <param>
+          <type>To *</type>
+          <declname>workspace</declname>
+        </param>
+        <param>
+          <type>Tr *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="182" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="182" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="reduction_8h_1a7a9d5664d325f3816928fd1cd7b998bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+            <declname>NB</declname>
+            <defname>NB</defname>
+          </param>
+          <param>
+            <type>typename FETCH</type>
+          </param>
+          <param>
+            <type>typename REDUCE</type>
+            <defval><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref></defval>
+          </param>
+          <param>
+            <type>typename FINALIZE</type>
+            <defval><ref refid="structrocblas__finalize__identity" kindref="compound">rocblas_finalize_identity</ref></defval>
+          </param>
+          <param>
+            <type>typename Ti</type>
+          </param>
+          <param>
+            <type>typename To</type>
+          </param>
+          <param>
+            <type>typename Tr</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>rocblas_status rocblas_reduction_kernel</definition>
+        <argsstring>(rocblas_handle __restrict__ handle, rocblas_int n, const Ti *x, rocblas_int incx, Tr *result, To *workspace, rocblas_int blocks)</argsstring>
+        <name>rocblas_reduction_kernel</name>
+        <param>
+          <type>rocblas_handle __restrict__</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const Ti *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type>Tr *</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>To *</type>
+          <declname>workspace</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>blocks</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="230" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="230" bodyend="295"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>REDUCTION_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>REDUCTION_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;type_traits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;definitions.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas_8h" kindref="compound">rocblas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;handle.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hip/hip_runtime.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>===========================================================================</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>This<sp/>file<sp/>provide<sp/>common<sp/>device<sp/>function<sp/>used<sp/>in<sp/>various<sp/>BLAS<sp/>routines</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>===========================================================================</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>BLAS<sp/>Level<sp/>1<sp/>includes<sp/>routines<sp/>and<sp/>functions<sp/>performing<sp/>vector-vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>operations.<sp/>Most<sp/>BLAS<sp/>1<sp/>routines<sp/>are<sp/>about<sp/>reduction:<sp/>compute<sp/>the<sp/>norm,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>calculate<sp/>the<sp/>dot<sp/>production<sp/>of<sp/>two<sp/>vectors,<sp/>find<sp/>the<sp/>maximum/minimum<sp/>index</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>of<sp/>the<sp/>element<sp/>of<sp/>the<sp/>vector.<sp/>As<sp/>you<sp/>may<sp/>observed,<sp/>although<sp/>the<sp/>computation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>type<sp/>is<sp/>different,<sp/>the<sp/>core<sp/>algorithm<sp/>is<sp/>the<sp/>same:<sp/>scan<sp/>all<sp/>element<sp/>of<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>vector(s)<sp/>and<sp/>reduce<sp/>to<sp/>one<sp/>single<sp/>result.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>reduction<sp/>algorithm<sp/>on<sp/>GPU<sp/>is<sp/>called<sp/>[parallel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>reduction](https://raw.githubusercontent.com/mateuszbuda/GPUExample/master/reduce3.png)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>which<sp/>is<sp/>adopted<sp/>in<sp/>rocBLAS.<sp/>At<sp/>the<sp/>beginning,<sp/>all<sp/>the<sp/>threads<sp/>in<sp/>the<sp/>thread</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>block<sp/>participate.<sp/>After<sp/>each<sp/>step<sp/>of<sp/>reduction<sp/>(like<sp/>a<sp/>tree),<sp/>the<sp/>number<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>participating<sp/>threads<sp/>decrease<sp/>by<sp/>half.<sp/>At<sp/>the<sp/>end<sp/>of<sp/>the<sp/>parallel<sp/>reduction,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>only<sp/>one<sp/>thread<sp/>(usually<sp/>thread<sp/>0)<sp/>owns<sp/>the<sp/>result<sp/>in<sp/>its<sp/>thread<sp/>block.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Classically,<sp/>the<sp/>BLAS<sp/>1<sp/>reduction<sp/>needs<sp/>more<sp/>than<sp/>one<sp/>GPU<sp/>kernel<sp/>to<sp/>finish,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>because<sp/>the<sp/>lack<sp/>of<sp/>global<sp/>synchronization<sp/>of<sp/>thread<sp/>blocks<sp/>without<sp/>exiting</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>kernel.<sp/>The<sp/>first<sp/>kernels<sp/>gather<sp/>partial<sp/>results,<sp/>write<sp/>into<sp/>a<sp/>temporary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>working<sp/>buffer.<sp/>The<sp/>second<sp/>kernel<sp/>finishes<sp/>the<sp/>final<sp/>reduction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>example,<sp/>BLAS<sp/>1<sp/>routine<sp/>i*amax<sp/>is<sp/>to<sp/>find<sp/>index<sp/>of<sp/>the<sp/>maximum<sp/>absolute</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>value<sp/>element<sp/>of<sp/>a<sp/>vector.<sp/>In<sp/>this<sp/>routine:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Kernel<sp/>1:<sp/>launch<sp/>many<sp/>thread<sp/>block<sp/>as<sp/>needed.<sp/>Each<sp/>thread<sp/>block<sp/>works<sp/>on<sp/>a</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>subset<sp/>of<sp/>the<sp/>vector.<sp/>Each<sp/>thread<sp/>block<sp/>use<sp/>the<sp/>parallel<sp/>reduction<sp/>to<sp/>find<sp/>a</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>local<sp/>index<sp/>with<sp/>the<sp/>maximum<sp/>absolute<sp/>value<sp/>of<sp/>the<sp/>subset.<sp/>There<sp/>are</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>number-of-the-thread-blocks<sp/>local<sp/>results.The<sp/>results<sp/>are<sp/>written<sp/>into<sp/>a</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>temporary<sp/>working<sp/>buffer.<sp/>The<sp/>working<sp/>buffer<sp/>has<sp/>number-of-the-thread-blocks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>elements.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Kernel<sp/>2:<sp/>launch<sp/>only<sp/>one<sp/>thread<sp/>block<sp/>which<sp/>reads<sp/>the<sp/>temporary<sp/>work<sp/>buffer<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>reduces<sp/>to<sp/>final<sp/>result<sp/>still<sp/>with<sp/>the<sp/>parallel<sp/>reduction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>As<sp/>you<sp/>may<sp/>see,<sp/>if<sp/>there<sp/>is<sp/>a<sp/>mechanism<sp/>to<sp/>synchronize<sp/>all<sp/>the<sp/>thread<sp/>blocks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>after<sp/>local<sp/>index<sp/>is<sp/>obtained<sp/>in<sp/>kernel<sp/>1<sp/>(without<sp/>ending<sp/>the<sp/>kernel),<sp/>then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Kernel<sp/>2&apos;s<sp/>computation<sp/>can<sp/>be<sp/>merged<sp/>into<sp/>Kernel<sp/>1.<sp/>One<sp/>such<sp/>mechanism<sp/>is<sp/>called</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>atomic<sp/>operation.<sp/>However,<sp/>atomic<sp/>operation<sp/>is<sp/>new<sp/>and<sp/>is<sp/>not<sp/>used<sp/>in<sp/>rocBLAS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>yet.<sp/>rocBLAS<sp/>still<sp/>use<sp/>the<sp/>classic<sp/>standard<sp/>parallel<sp/>reduction<sp/>right<sp/>now.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Recursively<sp/>compute<sp/>reduction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;rocblas_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>k,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>REDUCE,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="57" refid="structrocblas__reduction__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrocblas__reduction__s" kindref="compound">rocblas_reduction_s</ref></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>__forceinline__<sp/>__device__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>tx,<sp/>T*<sp/>x)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reduce<sp/>the<sp/>lower<sp/>half<sp/>with<sp/>the<sp/>upper<sp/>half</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tx<sp/>&lt;<sp/>k)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>REDUCE{}(x[tx],<sp/>x[tx<sp/>+<sp/>k]);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__syncthreads();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Recurse<sp/>down<sp/>with<sp/>k<sp/>/<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structrocblas__reduction__s" kindref="compound">rocblas_reduction_s</ref>&lt;k<sp/>/<sp/>2,<sp/>REDUCE,<sp/>T&gt;{}(tx,<sp/>x);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/>leaf<sp/>node<sp/>for<sp/>terminating<sp/>recursion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>REDUCE,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="73" refid="structrocblas__reduction__s_3_010_00_01REDUCE_00_01T_01_4" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrocblas__reduction__s" kindref="compound">rocblas_reduction_s</ref>&lt;0,<sp/>REDUCE,<sp/>T&gt;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>__forceinline__<sp/>__device__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>tx,<sp/>T*<sp/>x)<sp/>{}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;rocblas_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NB,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>REDUCE,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">__attribute__((flatten))<sp/>__device__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rocblas_reduction(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>tx,<sp/>T*<sp/>x)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>static_assert(NB<sp/>&gt;<sp/>1<sp/>&amp;&amp;<sp/>!(NB<sp/>&amp;<sp/>(NB<sp/>-<sp/>1)),<sp/></highlight><highlight class="stringliteral">&quot;NB<sp/>must<sp/>be<sp/>a<sp/>power<sp/>of<sp/>2&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>__syncthreads();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structrocblas__reduction__s" kindref="compound">rocblas_reduction_s</ref>&lt;NB<sp/>/<sp/>2,<sp/>REDUCE,<sp/>T&gt;{}(tx,<sp/>x);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="structrocblas__reduce__sum" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>__forceinline__<sp/>__device__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()(T&amp;<sp/>__restrict__<sp/>a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>__restrict__<sp/>b)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>+=<sp/>b;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;rocblas_</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NB,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">__attribute__((flatten))<sp/>__device__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rocblas_sum_reduce(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>tx,<sp/>T*<sp/>x)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>rocblas_reduction&lt;NB,<sp/>rocblas_reduce_sum&gt;(tx,<sp/>x);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/>end<sp/>sum_reduce</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Identity<sp/>finalizer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="structrocblas__finalize__identity" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structrocblas__finalize__identity" kindref="compound">rocblas_finalize_identity</ref></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>__forceinline__<sp/>__host__<sp/>__device__<sp/>T&amp;&amp;<sp/>operator()(T&amp;&amp;<sp/>x)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::forward&lt;T&gt;(x);<sp/></highlight><highlight class="comment">//<sp/>Perfect<sp/>identity,<sp/>preserving<sp/>valueness</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Emulates<sp/>value<sp/>initialization<sp/>T{}.<sp/>Allows<sp/>specialization<sp/>for<sp/>certain<sp/>types.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="144" refid="structdefault__value" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdefault__value" kindref="compound">default_value</ref></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>__forceinline__<sp/>__host__<sp/>__device__<sp/>constexpr<sp/>T<sp/>operator()()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};<sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/>kennel<sp/>1<sp/>writes<sp/>partial<sp/>results<sp/>per<sp/>thread<sp/>block<sp/>in<sp/>workspace;<sp/>number<sp/>of<sp/>partial<sp/>results<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/>blocks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>NB,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>FETCH,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>REDUCE<sp/>=<sp/><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref>,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Ti,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>To&gt;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">__global__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">rocblas_reduction_kernel_part1(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ti*<sp/>x,<sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>incx,<sp/>To*<sp/>workspace)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>ssize_t<sp/>tx<sp/><sp/>=<sp/>hipThreadIdx_x;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>ssize_t<sp/>tid<sp/>=<sp/>hipBlockIdx_x<sp/>*<sp/>hipBlockDim_x<sp/>+<sp/>tx;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>__shared__<sp/>To<sp/>tmp[NB];</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bound</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tid<sp/>&lt;<sp/>n)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp[tx]<sp/>=<sp/>FETCH{}(x[tid<sp/>*<sp/>incx],<sp/>tid);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp[tx]<sp/>=<sp/><ref refid="structdefault__value" kindref="compound">default_value&lt;To&gt;</ref>{}();<sp/></highlight><highlight class="comment">//<sp/>pad<sp/>with<sp/>default<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>rocblas_reduction&lt;NB,<sp/>REDUCE&gt;(tx,<sp/>tmp);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tx<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>workspace[hipBlockIdx_x]<sp/>=<sp/>tmp[0];</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/>kernel<sp/>2<sp/>gathers<sp/>all<sp/>the<sp/>partial<sp/>results<sp/>in<sp/>workspace<sp/>and<sp/>finishes<sp/>the<sp/>final<sp/>reduction;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>threads<sp/>(NB)<sp/>loop<sp/>blocks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>NB,</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>REDUCE<sp/><sp/><sp/>=<sp/><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref>,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>FINALIZE<sp/>=<sp/><ref refid="structrocblas__finalize__identity" kindref="compound">rocblas_finalize_identity</ref>,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>To,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Tr&gt;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">__global__<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rocblas_reduction_kernel_part2(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>nblocks,<sp/>To*<sp/>workspace,<sp/>Tr*<sp/>result)</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>tx<sp/>=<sp/>hipThreadIdx_x;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>__shared__<sp/>To<sp/>tmp[NB];</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tx<sp/>&lt;<sp/>nblocks)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp[tx]<sp/>=<sp/>workspace[tx];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bound,<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>i<sp/>=<sp/>tx<sp/>+<sp/>NB;<sp/>i<sp/>&lt;<sp/>nblocks;<sp/>i<sp/>+=<sp/>NB)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>REDUCE{}(tmp[tx],<sp/>workspace[i]);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="comment">//<sp/>pad<sp/>with<sp/>default<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp[tx]<sp/>=<sp/><ref refid="structdefault__value" kindref="compound">default_value&lt;To&gt;</ref>{}();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(nblocks<sp/>&lt;<sp/>32)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>need<sp/>parallel<sp/>reduction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__syncthreads();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tx<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/>nblocks;<sp/>i++)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>REDUCE{}(tmp[0],<sp/>tmp[i]);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>parallel<sp/>reduction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rocblas_reduction&lt;NB,<sp/>REDUCE&gt;(tx,<sp/>tmp);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Store<sp/>result<sp/>on<sp/>device<sp/>or<sp/>in<sp/>workspace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tx<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*result<sp/>=<sp/>FINALIZE{}(tmp[0]);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="comment">//<sp/>At<sp/>least<sp/>two<sp/>kernels<sp/>are<sp/>needed<sp/>to<sp/>finish<sp/>the<sp/>reduction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="comment">//<sp/>kennel<sp/>1<sp/>write<sp/>partial<sp/>result<sp/>per<sp/>thread<sp/>block<sp/>in<sp/>workspace,<sp/>blocks<sp/>partial<sp/>results</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment">//<sp/>kernel<sp/>2<sp/>gathers<sp/>all<sp/>the<sp/>partial<sp/>result<sp/>in<sp/>workspace<sp/>and<sp/>finishes<sp/>the<sp/>final<sp/>reduction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>NB,</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>FETCH,</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>REDUCE<sp/><sp/><sp/>=<sp/><ref refid="structrocblas__reduce__sum" kindref="compound">rocblas_reduce_sum</ref>,</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>FINALIZE<sp/>=<sp/><ref refid="structrocblas__finalize__identity" kindref="compound">rocblas_finalize_identity</ref>,</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Ti,</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>To,</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Tr&gt;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_reduction_kernel(rocblas_handle<sp/>__restrict__<sp/>handle,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>n,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Ti*<sp/>x,</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>incx,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Tr*<sp/>result,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>To*<sp/>workspace,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>blocks)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>hipLaunchKernelGGL((rocblas_reduction_kernel_part1&lt;NB,<sp/>FETCH,<sp/>REDUCE&gt;),</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocks,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NB,</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>handle-&gt;rocblas_stream,</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n,</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x,</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>incx,</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>workspace);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(handle-&gt;pointer_mode<sp/>==<sp/>rocblas_pointer_mode_device)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hipLaunchKernelGGL((rocblas_reduction_kernel_part2&lt;NB,<sp/>REDUCE,<sp/>FINALIZE&gt;),</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NB,</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>handle-&gt;rocblas_stream,</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocks,</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>workspace,</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>in<sp/>host<sp/>pointer<sp/>mode,<sp/>workspace<sp/>is<sp/>converted<sp/>to<sp/>Tr*<sp/>and<sp/>the<sp/>result<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>placed<sp/>there,<sp/>and<sp/>then<sp/>copied<sp/>from<sp/>device<sp/>to<sp/>host.<sp/>If<sp/>To<sp/>is<sp/>a<sp/>class<sp/>type,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>must<sp/>be<sp/>a<sp/>standard<sp/>layout<sp/>type<sp/>and<sp/>its<sp/>first<sp/>member<sp/>must<sp/>be<sp/>of<sp/>type<sp/>Tr.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_assert(std::is_standard_layout&lt;To&gt;(),<sp/></highlight><highlight class="stringliteral">&quot;To<sp/>must<sp/>be<sp/>a<sp/>standard<sp/>layout<sp/>type&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(blocks<sp/>&gt;<sp/>1)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hipLaunchKernelGGL((rocblas_reduction_kernel_part2&lt;NB,<sp/>REDUCE,<sp/>FINALIZE&gt;),</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NB,</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>handle-&gt;rocblas_stream,</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocks,</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>workspace,</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Tr*)workspace);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(std::is_same&lt;FINALIZE,<sp/>rocblas_finalize_identity&gt;()<sp/>||<sp/>blocks<sp/>&gt;<sp/>1)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>FINALIZE<sp/>is<sp/>trivial<sp/>or<sp/>kernel<sp/>part2<sp/>was<sp/>called,<sp/>result<sp/>is<sp/>in<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>beginning<sp/>of<sp/>workspace[0],<sp/>and<sp/>can<sp/>be<sp/>copied<sp/>directly.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RETURN_IF_HIP_ERROR(<ref refid="group__Memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>(result,<sp/>workspace,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(Tr),<sp/>hipMemcpyDeviceToHost));</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>FINALIZE<sp/>is<sp/>not<sp/>trivial<sp/>and<sp/>kernel<sp/>part2<sp/>was<sp/>not<sp/>called,<sp/>then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>workspace[0]<sp/>needs<sp/>to<sp/>be<sp/>finalized<sp/>on<sp/>host.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>To<sp/>res;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RETURN_IF_HIP_ERROR(<ref refid="group__Memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>(&amp;res,<sp/>workspace,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(To),<sp/>hipMemcpyDeviceToHost));</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*result<sp/>=<sp/>FINALIZE{}(res);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03a608ee84b4cedbfb06ea735be874d31ff" kindref="member">rocblas_status_success</ref>;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h"/>
+  </compounddef>
+</doxygen>

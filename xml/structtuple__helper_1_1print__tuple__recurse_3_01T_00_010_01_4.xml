@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structtuple__helper_1_1print__tuple__recurse_3_01T_00_010_01_4" kind="struct" language="C++" prot="protected">
+    <compoundname>tuple_helper::print_tuple_recurse&lt; T, 0 &gt;</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtuple__helper_1_1print__tuple__recurse_3_01T_00_010_01_4_1ac54b3eac51a66d888a1d7c9ad8d848c5" prot="public" static="no" const="no" explicit="no" inline="no" refqual="lvalue" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>tuple_helper::print_tuple_recurse&lt; T, 0 &gt;::__attribute__</definition>
+        <argsstring>((always_inline)) void operator()(F &amp;print_argument</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(always_inline)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="90" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="88" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="87" bodyend="93"/>
+    <listofallmembers>
+      <member refid="structtuple__helper_1_1print__tuple__recurse_3_01T_00_010_01_4_1ac54b3eac51a66d888a1d7c9ad8d848c5" prot="public" virt="non-virtual"><scope>tuple_helper::print_tuple_recurse&lt; T, 0 &gt;</scope><name>__attribute__</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structtuple__helper_1_1hash__t" kind="struct" language="C++" prot="protected">
+    <compoundname>tuple_helper::hash_t</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename TUP</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtuple__helper_1_1hash__t_1a127b01b5daa82825e27f59cc18bc63ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t tuple_helper::hash_t&lt; TUP &gt;::operator()</definition>
+        <argsstring>(const TUP &amp;x) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const TUP &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="164" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="164" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="162" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="161" bodyend="165"/>
+    <listofallmembers>
+      <member refid="structtuple__helper_1_1hash__t_1a127b01b5daa82825e27f59cc18bc63ed" prot="public" virt="non-virtual"><scope>tuple_helper::hash_t</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

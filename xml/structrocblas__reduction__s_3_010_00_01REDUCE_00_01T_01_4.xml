@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrocblas__reduction__s_3_010_00_01REDUCE_00_01T_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>rocblas_reduction_s&lt; 0, REDUCE, T &gt;</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename REDUCE</type>
+      </param>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structrocblas__reduction__s_3_010_00_01REDUCE_00_01T_01_4_1acb2c0b3f9963f7eaf4787f9a29f47404" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>__forceinline__ __device__ void</type>
+        <definition>__forceinline__ __device__ void rocblas_reduction_s&lt; 0, REDUCE, T &gt;::operator()</definition>
+        <argsstring>(rocblas_int tx, T *x)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>tx</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="75" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" line="74" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h" bodystart="73" bodyend="76"/>
+    <listofallmembers>
+      <member refid="structrocblas__reduction__s_3_010_00_01REDUCE_00_01T_01_4_1acb2c0b3f9963f7eaf4787f9a29f47404" prot="public" virt="non-virtual"><scope>rocblas_reduction_s&lt; 0, REDUCE, T &gt;</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

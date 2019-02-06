@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structindex__value__t" kind="struct" language="C++" prot="public">
+    <compoundname>index_value_t</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>T</declname>
+        <defname>T</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structindex__value__t_1a8a0b7b084d7c5ae7e21e993c949cebc6" prot="public" static="no" mutable="no">
+        <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+        <definition>rocblas_int index_value_t&lt; T &gt;::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" line="28" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structindex__value__t_1acb4e467971605cfb2b4c4497ab4e917c" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T index_value_t&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" line="29" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" line="26" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" bodystart="25" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structindex__value__t_1a8a0b7b084d7c5ae7e21e993c949cebc6" prot="public" virt="non-virtual"><scope>index_value_t</scope><name>index</name></member>
+      <member refid="structindex__value__t_1acb4e467971605cfb2b4c4497ab4e917c" prot="public" virt="non-virtual"><scope>index_value_t</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structtuple__helper_1_1equal__t" kind="struct" language="C++" prot="protected">
+    <compoundname>tuple_helper::equal_t</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename TUP</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtuple__helper_1_1equal__t_1af64c2388c38c19c3bb5d5270de085c6a" prot="public" static="no" mutable="no">
+        <type>const TUP &amp;y</type>
+        <definition>const TUP&amp; y tuple_helper::equal_t&lt; TUP &gt;::const</definition>
+        <argsstring></argsstring>
+        <name>const</name>
+        <initializer>{
+            return <ref refid="structtuple__helper_1_1tuple__equal__recurse" kindref="compound">tuple_equal_recurse</ref>&lt;TUP&gt;{}(x, y)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="203" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtuple__helper_1_1equal__t_1a46237822e9d5a3abdc068b4bb1b38408" prot="public" static="no" const="yes" explicit="no" inline="no" refqual="lvalue" virt="non-virtual">
+        <type></type>
+        <definition>tuple_helper::equal_t&lt; TUP &gt;::__attribute__</definition>
+        <argsstring>((flatten)) bool operator()(const TUP &amp;x</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(flatten)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="203" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/logging.h" line="201" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/logging.h" bodystart="200" bodyend="207"/>
+    <listofallmembers>
+      <member refid="structtuple__helper_1_1equal__t_1a46237822e9d5a3abdc068b4bb1b38408" prot="public" virt="non-virtual"><scope>tuple_helper::equal_t</scope><name>__attribute__</name></member>
+      <member refid="structtuple__helper_1_1equal__t_1af64c2388c38c19c3bb5d5270de085c6a" prot="public" virt="non-virtual"><scope>tuple_helper::equal_t</scope><name>const</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

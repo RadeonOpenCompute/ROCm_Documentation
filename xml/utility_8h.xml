@@ -1,0 +1,584 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="utility_8h" kind="file" language="C++">
+    <compoundname>utility.h</compoundname>
+    <includes refid="rocblas_8h" local="yes">rocblas.h</includes>
+    <includedby refid="rocblas__amax__amin_8h" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</includedby>
+    <includedby refid="rocblas__asum_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_asum.cpp</includedby>
+    <includedby refid="rocblas__axpy_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_axpy.cpp</includedby>
+    <includedby refid="rocblas__copy_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_copy.cpp</includedby>
+    <includedby refid="rocblas__dot_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_dot.cpp</includedby>
+    <includedby refid="rocblas__nrm2_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_nrm2.cpp</includedby>
+    <includedby refid="rocblas__scal_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_scal.cpp</includedby>
+    <includedby refid="rocblas__swap_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_swap.cpp</includedby>
+    <includedby refid="rocblas__gemv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_gemv.cpp</includedby>
+    <includedby refid="rocblas__ger_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_ger.cpp</includedby>
+    <includedby refid="rocblas__syr_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_syr.cpp</includedby>
+    <includedby refid="rocblas__trsv_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas2/rocblas_trsv.cpp</includedby>
+    <includedby refid="rocblas__geam_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_geam.cpp</includedby>
+    <includedby refid="rocblas__trmm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trmm.cpp</includedby>
+    <includedby refid="rocblas__trsm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trsm.cpp</includedby>
+    <includedby refid="rocblas__trtri__batched_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri_batched.cpp</includedby>
+    <includedby refid="gemm_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas3/Tensile/gemm.cpp</includedby>
+    <includedby refid="rocblas__gemm__ex_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/blas_ex/rocblas_gemm_ex.cpp</includedby>
+    <includedby refid="rocblas__auxiliary_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp</includedby>
+    <incdepgraph>
+      <node id="1057">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1066">
+        <label>rocblas-functions.h</label>
+        <link refid="rocblas-functions_8h"/>
+        <childnode refid="1060" relation="include">
+        </childnode>
+      </node>
+      <node id="1065">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="1062">
+        <label>stdint.h</label>
+      </node>
+      <node id="1059">
+        <label>rocblas-version.h</label>
+      </node>
+      <node id="1063">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="1056">
+        <label>rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="1057" relation="include">
+        </childnode>
+        <childnode refid="1058" relation="include">
+        </childnode>
+        <childnode refid="1059" relation="include">
+        </childnode>
+        <childnode refid="1060" relation="include">
+        </childnode>
+        <childnode refid="1064" relation="include">
+        </childnode>
+        <childnode refid="1066" relation="include">
+        </childnode>
+      </node>
+      <node id="1055">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/utility.h</label>
+        <link refid="utility_8h"/>
+        <childnode refid="1056" relation="include">
+        </childnode>
+      </node>
+      <node id="1061">
+        <label>stddef.h</label>
+      </node>
+      <node id="1064">
+        <label>rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="1065" relation="include">
+        </childnode>
+        <childnode refid="1060" relation="include">
+        </childnode>
+      </node>
+      <node id="1058">
+        <label>rocblas-export.h</label>
+      </node>
+      <node id="1060">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="1061" relation="include">
+        </childnode>
+        <childnode refid="1062" relation="include">
+        </childnode>
+        <childnode refid="1063" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1068">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</label>
+        <link refid="rocblas__amax__amin_8h_source"/>
+      </node>
+      <node id="1067">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/utility.h</label>
+        <link refid="utility_8h"/>
+        <childnode refid="1068" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="utility_8h_1aafd8e3470ad562de08354c213d1edaf5" prot="public" static="no" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string</name>
+        <initializer>= &quot;invalid&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="115" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1a4c1473f9b2e6ff7aa2a444739340d45e" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; rocblas_half &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; rocblas_half &gt;</name>
+        <initializer>= &quot;f16_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="116" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1aed6383fef01c770afbbbbd00b36b2711" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; float &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; float &gt;</name>
+        <initializer>= &quot;f32_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="117" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1a0074826cc2b1cd665f9b7f0fe2880cd2" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; double &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; double &gt;</name>
+        <initializer>= &quot;f64_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="118" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1adf9569cc111afa9a78018298b1774d6d" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; int8_t &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; int8_t &gt;</name>
+        <initializer>= &quot;i8_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="119" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1a41d7da14addfd9f6ebfd1dd2e2352e09" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; uint8_t &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; uint8_t &gt;</name>
+        <initializer>= &quot;u8_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="120" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1a62e5fff053e9d6a15f646ad5e50478a9" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; int32_t &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; int32_t &gt;</name>
+        <initializer>= &quot;i32_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="121" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1a4e0f69e7ca4e625629f5b675c2ac3e31" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; uint32_t &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; uint32_t &gt;</name>
+        <initializer>= &quot;u32_r&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="122" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1aa75101108841fe8fed4f22923cbaf6e5" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; rocblas_float_complex &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; rocblas_float_complex &gt;</name>
+        <initializer>= &quot;f32_c&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="123" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="utility_8h_1a74be6db0706f91b849871ac778c74199" prot="public" static="no" mutable="no">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr char</type>
+        <definition>constexpr char rocblas_precision_string&lt; rocblas_double_complex &gt;[]</definition>
+        <argsstring>[]</argsstring>
+        <name>rocblas_precision_string&lt; rocblas_double_complex &gt;</name>
+        <initializer>= &quot;f64_c&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="124" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="utility_8h_1a0286052d0ec75b4c3450942a506a8f25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>__forceinline__ __device__ __host__ T</type>
+        <definition>__forceinline__ __device__ __host__ T load_scalar</definition>
+        <argsstring>(T x)</argsstring>
+        <name>load_scalar</name>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="16" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1ab08e96b3f846d3038be51f679c96dd37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>__forceinline__ __device__ __host__ T</type>
+        <definition>__forceinline__ __device__ __host__ T load_scalar</definition>
+        <argsstring>(const T *xp)</argsstring>
+        <name>load_scalar</name>
+        <param>
+          <type>const T *</type>
+          <declname>xp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="23" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1a545154c218f4b0b6f91dea9dcead7bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>__forceinline__ __device__ __host__ rocblas_half2</type>
+        <definition>__forceinline__ __device__ __host__ rocblas_half2 load_scalar</definition>
+        <argsstring>(const rocblas_half2 *xp)</argsstring>
+        <name>load_scalar</name>
+        <param>
+          <type>const rocblas_half2 *</type>
+          <declname>xp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="30" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="30" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1a49d954430ce69c2fe48859d38e430f17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isAligned</definition>
+        <argsstring>(const void *pointer, size_t byte_count)</argsstring>
+        <name>isAligned</name>
+        <param>
+          <type>const void *</type>
+          <declname>pointer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>byte_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="38" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1a38cd72966bd9ef45ecb5928ab113e803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr auto</type>
+        <definition>constexpr auto rocblas_transpose_letter</definition>
+        <argsstring>(rocblas_operation trans)</argsstring>
+        <name>rocblas_transpose_letter</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a406e57f849ad42ab11264b0c74ced895" kindref="member">rocblas_operation</ref></type>
+          <declname>trans</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="45" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="45" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1a79fd2932a5d5a237967fa4c433e8d84b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr auto</type>
+        <definition>constexpr auto rocblas_side_letter</definition>
+        <argsstring>(rocblas_side side)</argsstring>
+        <name>rocblas_side_letter</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a503eb8c2565be541cd06a74d0ec368b7" kindref="member">rocblas_side</ref></type>
+          <declname>side</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="57" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="57" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1af00613acdfcb2bf3a121e9b42be05743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr auto</type>
+        <definition>constexpr auto rocblas_fill_letter</definition>
+        <argsstring>(rocblas_fill fill)</argsstring>
+        <name>rocblas_fill_letter</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47d" kindref="member">rocblas_fill</ref></type>
+          <declname>fill</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="69" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="69" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1ac89135441451b48ef150fe261852e875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr auto</type>
+        <definition>constexpr auto rocblas_diag_letter</definition>
+        <argsstring>(rocblas_diagonal diag)</argsstring>
+        <name>rocblas_diag_letter</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20" kindref="member">rocblas_diagonal</ref></type>
+          <declname>diag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="81" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="81" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="utility_8h_1a2b84787926406ca42b871121ad685c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr auto</type>
+        <definition>constexpr auto rocblas_datatype_string</definition>
+        <argsstring>(rocblas_datatype type)</argsstring>
+        <name>rocblas_datatype_string</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a36f48cb8bd52842d9435876077ecc9f8" kindref="member">rocblas_datatype</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h" line="92" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/include/utility.h" bodystart="92" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2016<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>************************************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>UTILITY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTILITY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas_8h" kindref="compound">rocblas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GOOGLE_TEST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Load<sp/>a<sp/>scalar.<sp/>If<sp/>the<sp/>argument<sp/>is<sp/>a<sp/>pointer,<sp/>dereference<sp/>it;<sp/>otherwise<sp/>copy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>it.<sp/>Allows<sp/>the<sp/>same<sp/>kernels<sp/>to<sp/>be<sp/>used<sp/>for<sp/>host<sp/>and<sp/>device<sp/>scalars.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>host<sp/>scalars</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">__forceinline__<sp/>__device__<sp/>__host__<sp/>T<sp/>load_scalar(T<sp/>x)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>x;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>device<sp/>scalars</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">__forceinline__<sp/>__device__<sp/>__host__<sp/>T<sp/>load_scalar(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T*<sp/>xp)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*xp;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>rocblas_half2,<sp/>we<sp/>broadcast<sp/>a<sp/>fp16<sp/>across<sp/>two<sp/>halves</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">__forceinline__<sp/>__device__<sp/>__host__<sp/>rocblas_half2<sp/>load_scalar(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>rocblas_half2*<sp/>xp)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>*</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">_Float16*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(xp);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{x,<sp/>x};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>GOOGLE_TEST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isAligned(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pointer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>byte_count)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">uintptr_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(pointer)<sp/>%<sp/>byte_count<sp/>==<sp/>0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>clang-format<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>letter<sp/>N,T,C<sp/>in<sp/>place<sp/>of<sp/>rocblas_operation<sp/>enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rocblas_transpose_letter(<ref refid="rocblas-types_8h_1a406e57f849ad42ab11264b0c74ced895" kindref="member">rocblas_operation</ref><sp/>trans)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(trans)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a406e57f849ad42ab11264b0c74ced895a87416dce6b841cf6196ed3855ccfdbf6" kindref="member">rocblas_operation_none</ref>:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a406e57f849ad42ab11264b0c74ced895ae5a999f0ff23c01e64fd68541d4ebf37" kindref="member">rocblas_operation_transpose</ref>:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;T&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a406e57f849ad42ab11264b0c74ced895a73f410519d1157786d52a53f11256254" kindref="member">rocblas_operation_conjugate_transpose</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;C&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>letter<sp/>L,<sp/>R,<sp/>B<sp/>in<sp/>place<sp/>of<sp/>rocblas_side<sp/>enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rocblas_side_letter(<ref refid="rocblas-types_8h_1a503eb8c2565be541cd06a74d0ec368b7" kindref="member">rocblas_side</ref><sp/>side)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(side)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a503eb8c2565be541cd06a74d0ec368b7a011e9fd9389d1ba4836dae3f04405559" kindref="member">rocblas_side_left</ref>:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;L&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a503eb8c2565be541cd06a74d0ec368b7a27f2b0df534a059f16763cd7491ae211" kindref="member">rocblas_side_right</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;R&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_side_both:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;B&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>letter<sp/>U,<sp/>L,<sp/>B<sp/>in<sp/>place<sp/>of<sp/>rocblas_fill<sp/>enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rocblas_fill_letter(<ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47d" kindref="member">rocblas_fill</ref><sp/>fill)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(fill)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47da09e61033781a1a8a9a535a56a7fc4d64" kindref="member">rocblas_fill_upper</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;U&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47da027f05347eef8c14b71a8db5936fac79" kindref="member">rocblas_fill_lower</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;L&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_fill_full:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;F&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>letter<sp/>N,<sp/>U<sp/>in<sp/>place<sp/>of<sp/>rocblas_diagonal<sp/>enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rocblas_diag_letter(<ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20" kindref="member">rocblas_diagonal</ref><sp/>diag)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(diag)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20a6323d14c246a72fd8895b964ca5bc59b" kindref="member">rocblas_diagonal_non_unit</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20a7808667597ccf33cab2b679e83e6e9b1" kindref="member">rocblas_diagonal_unit</ref>:<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;U&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>precision<sp/>string<sp/>for<sp/>rocblas_datatype</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">constexpr<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rocblas_datatype_string(<ref refid="rocblas-types_8h_1a36f48cb8bd52842d9435876077ecc9f8" kindref="member">rocblas_datatype</ref><sp/>type)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(type)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_f16_r:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;f16_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_f32_r:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;f32_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_f64_r:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;f64_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_f16_c:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;f16_k&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_f32_c:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;f32_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_f64_c:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;f64_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_i8_r:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;i8_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_u8_r:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;u8_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_i32_r:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;i32_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_u32_r:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;u32_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_i8_c:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;i8_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_u8_c:<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;u8_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_i32_c:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;i32_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>rocblas_datatype_u32_c:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;u32_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;invalid&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>precision<sp/>string<sp/>for<sp/>data<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal">&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;invalid&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_half<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;f16_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;float<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;f32_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;double<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;f64_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;int8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;i8_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;u8_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;int32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;i32_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;u32_r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_float_complex<sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;f32_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_double_complex&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;f64_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0<sp/>//<sp/>Not<sp/>implemented</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_half_complex<sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;f16_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_i8_complex<sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;i8_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_u8_complex<sp/><sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;u8_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_i32_complex<sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;i32_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;<sp/>constexpr<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rocblas_precision_string&lt;rocblas_u32_complex<sp/><sp/><sp/>&gt;[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;u32_c&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/>clang-format<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/utility.h"/>
+  </compounddef>
+</doxygen>

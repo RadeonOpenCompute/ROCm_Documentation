@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structhipIpcMemHandle__t" kind="struct" language="C++" prot="public">
+    <compoundname>hipIpcMemHandle_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhipIpcMemHandle__t_1a19634e4f84dbf8944574244792dcf46a" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char hipIpcMemHandle_t::reserved[HIP_IPC_HANDLE_SIZE]</definition>
+        <argsstring>[HIP_IPC_HANDLE_SIZE]</argsstring>
+        <name>reserved</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="88" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="87" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="87" bodyend="89"/>
+    <listofallmembers>
+      <member refid="structhipIpcMemHandle__t_1a19634e4f84dbf8944574244792dcf46a" prot="public" virt="non-virtual"><scope>hipIpcMemHandle_t</scope><name>reserved</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

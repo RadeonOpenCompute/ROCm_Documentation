@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrocblas__reduce__amin" kind="struct" language="C++" prot="public">
+    <compoundname>rocblas_reduce_amin</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structrocblas__reduce__amin_1aaca6aa51164b5ff7cffcc9f8276aa1b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename To</type>
+          </param>
+        </templateparamlist>
+        <type>__forceinline__ __host__ __device__ void</type>
+        <definition>__forceinline__ __host__ __device__ void rocblas_reduce_amin::operator()</definition>
+        <argsstring>(index_value_t&lt; To &gt; &amp;__restrict__ x, const index_value_t&lt; To &gt; &amp;__restrict__ y)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="structindex__value__t" kindref="compound">index_value_t</ref>&lt; To &gt; &amp;__restrict__</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structindex__value__t" kindref="compound">index_value_t</ref>&lt; To &gt; &amp;__restrict__</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" line="77" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" bodystart="77" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" line="75" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h" bodystart="74" bodyend="89"/>
+    <listofallmembers>
+      <member refid="structrocblas__reduce__amin_1aaca6aa51164b5ff7cffcc9f8276aa1b0" prot="public" virt="non-virtual"><scope>rocblas_reduce_amin</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

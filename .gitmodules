@@ -1,3 +1,6 @@
 [submodule "ROCm_API_References/HIP"]
 	path = ROCm_API_References/HIP
 	url = https://github.com/ROCm-Developer-Tools/HIP.git
+[submodule "ROCm_Libraries/rocBLAS"]
+	path = ROCm_Libraries/rocBLAS
+	url = https://github.com/ROCmSoftwarePlatform/rocBLAS.git

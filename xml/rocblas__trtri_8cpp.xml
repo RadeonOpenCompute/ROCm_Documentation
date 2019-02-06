@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="rocblas__trtri_8cpp" kind="file" language="C++">
+    <compoundname>rocblas_trtri.cpp</compoundname>
+    <includes local="no">hip/hip_runtime.h</includes>
+    <includes refid="rocblas_8h" local="yes">rocblas.h</includes>
+    <includes local="yes">trtri.hpp</includes>
+    <incdepgraph>
+      <node id="788">
+        <label>stdbool.h</label>
+      </node>
+      <node id="797">
+        <label>rocblas-functions.h</label>
+        <link refid="rocblas-functions_8h"/>
+        <childnode refid="791" relation="include">
+        </childnode>
+      </node>
+      <node id="796">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="786">
+        <label>hip/hip_runtime.h</label>
+      </node>
+      <node id="793">
+        <label>stdint.h</label>
+      </node>
+      <node id="790">
+        <label>rocblas-version.h</label>
+      </node>
+      <node id="794">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="787">
+        <label>rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="788" relation="include">
+        </childnode>
+        <childnode refid="789" relation="include">
+        </childnode>
+        <childnode refid="790" relation="include">
+        </childnode>
+        <childnode refid="791" relation="include">
+        </childnode>
+        <childnode refid="795" relation="include">
+        </childnode>
+        <childnode refid="797" relation="include">
+        </childnode>
+      </node>
+      <node id="792">
+        <label>stddef.h</label>
+      </node>
+      <node id="795">
+        <label>rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="796" relation="include">
+        </childnode>
+        <childnode refid="791" relation="include">
+        </childnode>
+      </node>
+      <node id="789">
+        <label>rocblas-export.h</label>
+      </node>
+      <node id="798">
+        <label>trtri.hpp</label>
+      </node>
+      <node id="791">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="792" relation="include">
+        </childnode>
+        <childnode refid="793" relation="include">
+        </childnode>
+        <childnode refid="794" relation="include">
+        </childnode>
+      </node>
+      <node id="785">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp</label>
+        <link refid="rocblas__trtri_8cpp"/>
+        <childnode refid="786" relation="include">
+        </childnode>
+        <childnode refid="787" relation="include">
+        </childnode>
+        <childnode refid="798" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacetrtri">trtri</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rocblas__trtri_8cpp_1a9a1d92681904c527b73d36a75a12d652" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>rocblas_status rocblas_strtri</definition>
+        <argsstring>(rocblas_handle handle, rocblas_fill uplo, rocblas_diagonal diag, rocblas_int n, const float *A, rocblas_int lda, float *invA, rocblas_int ldinvA)</argsstring>
+        <name>rocblas_strtri</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47d" kindref="member">rocblas_fill</ref></type>
+          <declname>uplo</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20" kindref="member">rocblas_diagonal</ref></type>
+          <declname>diag</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const float *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>invA</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>ldinvA</declname>
+        </param>
+        <briefdescription>
+<para>BLAS Level 3 API. </para>        </briefdescription>
+        <detaileddescription>
+<para>trtri compute the inverse of a matrix A, namely, invA <verbatim>and write the result into invA;
+</verbatim></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_handle. handle to the rocblas library context queue. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">uplo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_fill. specifies whether the upper &apos;rocblas_fill_upper&apos; or lower &apos;rocblas_fill_lower&apos; if rocblas_fill_upper, the lower part of A is not referenced if rocblas_fill_lower, the upper part of A is not referenced </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">diag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_diagonal. = &apos;rocblas_diagonal_non_unit&apos;, A is non-unit triangular; = &apos;rocblas_diagonal_unit&apos;, A is unit triangular; </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_int. size of matrix A and invA </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer storing matrix A on the GPU. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>rocblas_int specifies the leading dimension of A. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp" line="25" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp" bodystart="25" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas__trtri_8cpp_1a8c3d13230faedd6c8bd9db63f0835689" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>rocblas_status rocblas_dtrtri</definition>
+        <argsstring>(rocblas_handle handle, rocblas_fill uplo, rocblas_diagonal diag, rocblas_int n, const double *A, rocblas_int lda, double *invA, rocblas_int ldinvA)</argsstring>
+        <name>rocblas_dtrtri</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47d" kindref="member">rocblas_fill</ref></type>
+          <declname>uplo</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20" kindref="member">rocblas_diagonal</ref></type>
+          <declname>diag</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>invA</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>ldinvA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp" line="38" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp" bodystart="38" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>*<sp/>Copyright<sp/>2016<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>*<sp/>************************************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hip/hip_runtime.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas_8h" kindref="compound">rocblas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetrtri" kindref="compound">trtri</ref><sp/>{<sp/></highlight><highlight class="comment">//<sp/>must<sp/>use<sp/>namespace<sp/>to<sp/>avoid<sp/>multply<sp/>definiton</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;trtri.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>============================================================================================<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>===========================================================================</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>C<sp/>interface</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>===========================================================================</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>because<sp/>of<sp/>shared<sp/>memory<sp/>size,<sp/>the<sp/>IB<sp/>must<sp/>be<sp/>&lt;=<sp/>64,<sp/>typically<sp/>64<sp/>for<sp/>s,<sp/>d,<sp/>c,<sp/>but<sp/>32<sp/>for<sp/>z</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>typically,<sp/>only<sp/>a<sp/>small<sp/>matrix<sp/>A<sp/>is<sp/>inverted<sp/>by<sp/>trtri,<sp/>so<sp/>if<sp/>n<sp/>is<sp/>too<sp/>big,<sp/>trtri<sp/>is<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>implemented</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>trtri<sp/>is<sp/>usually<sp/>called<sp/>by<sp/>trsm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/><ref refid="rocblas-functions_8h_1a55346b9b51d745eca586780d4e6c83a2" kindref="member">rocblas_strtri</ref>(rocblas_handle<sp/>handle,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47d" kindref="member">rocblas_fill</ref><sp/>uplo,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20" kindref="member">rocblas_diagonal</ref><sp/>diag,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>n,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>A,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>lda,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>invA,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>ldinvA)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trtri::rocblas_trtri_template&lt;float,<sp/>64&gt;(handle,<sp/>uplo,<sp/>diag,<sp/>n,<sp/>A,<sp/>lda,<sp/>invA,<sp/>ldinvA);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_dtrtri(rocblas_handle<sp/>handle,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a8976be447f47843d51b764bfe85bd47d" kindref="member">rocblas_fill</ref><sp/>uplo,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a6f4f8189d3fb012e15f2908e61b3ba20" kindref="member">rocblas_diagonal</ref><sp/>diag,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>n,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>A,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>lda,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>invA,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>ldinvA)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>trtri::rocblas_trtri_template&lt;double,<sp/>64&gt;(handle,<sp/>uplo,<sp/>diag,<sp/>n,<sp/>A,<sp/>lda,<sp/>invA,<sp/>ldinvA);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas3/rocblas_trtri.cpp"/>
+  </compounddef>
+</doxygen>

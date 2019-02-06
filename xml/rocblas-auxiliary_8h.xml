@@ -1,0 +1,566 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="rocblas-auxiliary_8h" kind="file" language="C++">
+    <compoundname>rocblas-auxiliary.h</compoundname>
+    <includes local="no">hip/hip_runtime_api.h</includes>
+    <includes refid="rocblas-types_8h" local="yes">rocblas-types.h</includes>
+    <includedby refid="rocblas_8h" local="yes">ROCm_Libraries/rocBLAS/library/include/rocblas.h</includedby>
+    <includedby refid="rocblas__auxiliary_8cpp" local="yes">ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp</includedby>
+    <incdepgraph>
+      <node id="11">
+        <label>hip/hip_runtime_api.h</label>
+      </node>
+      <node id="14">
+        <label>stdint.h</label>
+      </node>
+      <node id="15">
+        <label>hip/hip_vector_types.h</label>
+      </node>
+      <node id="13">
+        <label>stddef.h</label>
+      </node>
+      <node id="10">
+        <label>ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>rocblas-types.h</label>
+        <link refid="rocblas-types_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="23">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/reduction.h</label>
+        <link refid="reduction_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/fetch_template.h</label>
+        <link refid="fetch__template_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>ROCm_Libraries/rocBLAS/library/src/blas1/rocblas_amax_amin.h</label>
+        <link refid="rocblas__amax__amin_8h_source"/>
+      </node>
+      <node id="17">
+        <label>ROCm_Libraries/rocBLAS/library/include/rocblas.h</label>
+        <link refid="rocblas_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/utility.h</label>
+        <link refid="utility_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h</label>
+        <link refid="rocblas-auxiliary_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/status.h</label>
+        <link refid="status_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/handle.h</label>
+        <link refid="handle_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ROCm_Libraries/rocBLAS/library/src/include/definitions.h</label>
+        <link refid="definitions_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="rocblas-auxiliary_8h_1a27b3d9b2be5451e82936e191df18e591" prot="public" static="no">
+        <name>_ROCBLAS_AUXILIARY_H_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="8" column="9" bodyfile="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1afd2c1e39fe74e97bb7b8a572f54bcd34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_pointer_mode rocblas_pointer_to_mode</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>rocblas_pointer_to_mode</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>indicates whether the pointer is on the host or device. currently HIP API can only recoginize the input ptr on deive or not can not recoginize it is on host or not </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="21" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="23" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a5e23c1f05cd4b5816bf148aa5549aa43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_create_handle</definition>
+        <argsstring>(rocblas_handle *handle)</argsstring>
+        <name>rocblas_create_handle</name>
+        <param>
+          <type>rocblas_handle *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="34" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="65" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a5dde47f8b3e6a599d482fc54b5f5da71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_destroy_handle</definition>
+        <argsstring>(rocblas_handle handle)</argsstring>
+        <name>rocblas_destroy_handle</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="39" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="87" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a3c982f2961b0d4af24d21ee95f2ce2a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_add_stream</definition>
+        <argsstring>(rocblas_handle handle, hipStream_t stream)</argsstring>
+        <name>rocblas_add_stream</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a583af0d02f66f184b45ee1537889aa4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_set_stream</definition>
+        <argsstring>(rocblas_handle handle, hipStream_t stream)</argsstring>
+        <name>rocblas_set_stream</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="49" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="108" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a8c7abf9746d8de0441a7ed3d46140aa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_get_stream</definition>
+        <argsstring>(rocblas_handle handle, hipStream_t *stream)</argsstring>
+        <name>rocblas_get_stream</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>hipStream_t *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="54" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a70471b7dab12c393668421c304e1fea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_set_pointer_mode</definition>
+        <argsstring>(rocblas_handle handle, rocblas_pointer_mode pointer_mode)</argsstring>
+        <name>rocblas_set_pointer_mode</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref></type>
+          <declname>pointer_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="59" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="51" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1aef549dd150a2faa70ef985e5ac17d600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_get_pointer_mode</definition>
+        <argsstring>(rocblas_handle handle, rocblas_pointer_mode *pointer_mode)</argsstring>
+        <name>rocblas_get_pointer_mode</name>
+        <param>
+          <type>rocblas_handle</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref> *</type>
+          <declname>pointer_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="65" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="36" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a8fd4de77b5b1bc6190d09935db8732df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_set_vector</definition>
+        <argsstring>(rocblas_int n, rocblas_int elem_size, const void *x, rocblas_int incx, void *y, rocblas_int incy)</argsstring>
+        <name>rocblas_set_vector</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>incy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="71" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="153" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a551b120cfcbaa6f8c2ae8ec9189a0520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_get_vector</definition>
+        <argsstring>(rocblas_int n, rocblas_int elem_size, const void *x, rocblas_int incx, void *y, rocblas_int incy)</argsstring>
+        <name>rocblas_get_vector</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>incy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="81" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="282" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1adac93fd0601fb4b72abb09bf139e0b15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_set_matrix</definition>
+        <argsstring>(rocblas_int rows, rocblas_int cols, rocblas_int elem_size, const void *a, rocblas_int lda, void *b, rocblas_int ldb)</argsstring>
+        <name>rocblas_set_matrix</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>cols</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>ldb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="91" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="440" bodyend="584"/>
+      </memberdef>
+      <memberdef kind="function" id="rocblas-auxiliary_8h_1a9714951bd4187c8e40a286f2ca370e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ROCBLAS_EXPORT <ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref></type>
+        <definition>ROCBLAS_EXPORT rocblas_status rocblas_get_matrix</definition>
+        <argsstring>(rocblas_int rows, rocblas_int cols, rocblas_int elem_size, const void *a, rocblas_int lda, void *b, rocblas_int ldb)</argsstring>
+        <name>rocblas_get_matrix</name>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>cols</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>lda</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref></type>
+          <declname>ldb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h" line="102" column="1" bodyfile="ROCm_Libraries/rocBLAS/library/src/rocblas_auxiliary.cpp" bodystart="592" bodyend="733"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="rocblas-auxiliary_8h" kindref="compound">rocblas-auxiliary.h</ref> provides auxilary functions in rocblas </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2016-2018<sp/>Advanced<sp/>Micro<sp/>Devices,<sp/>Inc.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>************************************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_ROCBLAS_AUXILIARY_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_ROCBLAS_AUXILIARY_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hip/hip_runtime_api.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rocblas-types_8h" kindref="compound">rocblas-types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">/*<sp/>============================================================================================<sp/>*/</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref><sp/><ref refid="rocblas-auxiliary_8h_1afd2c1e39fe74e97bb7b8a572f54bcd34" kindref="member">rocblas_pointer_to_mode</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>\brief<sp/>rocblas_handle<sp/>is<sp/>a<sp/>structure<sp/>holding<sp/>the<sp/>rocblas<sp/>library<sp/>context.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>It<sp/>must<sp/>be<sp/>initialized<sp/>using<sp/>rocblas_create_handle()</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>and<sp/>the<sp/>returned<sp/>handle<sp/>must<sp/>be<sp/>passed</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>to<sp/>all<sp/>subsequent<sp/>library<sp/>function<sp/>calls.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>It<sp/>should<sp/>be<sp/>destroyed<sp/>at<sp/>the<sp/>end<sp/>using<sp/>rocblas_destroy_handle().</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_create_handle(rocblas_handle*<sp/>handle);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>\brief<sp/>destroy<sp/>handle</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_destroy_handle(rocblas_handle<sp/>handle);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>\brief<sp/>add<sp/>stream<sp/>to<sp/>handle</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_add_stream(rocblas_handle<sp/>handle,<sp/>hipStream_t<sp/>stream);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>\brief<sp/>remove<sp/>any<sp/>streams<sp/>from<sp/>handle,<sp/>and<sp/>add<sp/>one</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_set_stream(rocblas_handle<sp/>handle,<sp/>hipStream_t<sp/>stream);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>\brief<sp/>get<sp/>stream<sp/>[0]<sp/>from<sp/>handle</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_get_stream(rocblas_handle<sp/>handle,<sp/>hipStream_t*<sp/>stream);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>\brief<sp/>set<sp/>rocblas_pointer_mode</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_set_pointer_mode(rocblas_handle<sp/>handle,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref><sp/>pointer_mode);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>\brief<sp/>get<sp/>rocblas_pointer_mode</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_get_pointer_mode(rocblas_handle<sp/>handle,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1ae9ca87273410f7097508a983d386cba4" kindref="member">rocblas_pointer_mode</ref>*<sp/>pointer_mode);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>\brief<sp/>copy<sp/>vector<sp/>from<sp/>host<sp/>to<sp/>device</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_set_vector(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>n,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>elem_size,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>x,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>incx,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>y,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>incy);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>\brief<sp/>copy<sp/>vector<sp/>from<sp/>device<sp/>to<sp/>host</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_get_vector(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>n,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>elem_size,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>x,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>incx,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>y,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>incy);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>\brief<sp/>copy<sp/>matrix<sp/>from<sp/>host<sp/>to<sp/>device</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_set_matrix(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>rows,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>cols,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>elem_size,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>a,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>lda,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>b,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>ldb);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">/********************************************************************************</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>\brief<sp/>copy<sp/>matrix<sp/>from<sp/>device<sp/>to<sp/>host</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">ROCBLAS_EXPORT<sp/><ref refid="rocblas-types_8h_1aed94086822f2547bddc6182c25749d03" kindref="member">rocblas_status</ref><sp/>rocblas_get_matrix(<ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>rows,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>cols,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>elem_size,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>a,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>lda,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>b,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rocblas-types_8h_1a872ca82c4af86a11c3048762a0fbf7ee" kindref="member">rocblas_int</ref><sp/>ldb);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacerocblas" kindref="compound">rocblas</ref><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">ROCBLAS_EXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reinit_logs();<sp/></highlight><highlight class="comment">//<sp/>For<sp/>testing<sp/>only</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>_ROCBLAS_AUXILIARY_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="ROCm_Libraries/rocBLAS/library/include/rocblas-auxiliary.h"/>
+  </compounddef>
+</doxygen>

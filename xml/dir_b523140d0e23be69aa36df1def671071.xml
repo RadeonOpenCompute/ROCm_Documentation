@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_b523140d0e23be69aa36df1def671071" kind="dir">
+    <compoundname>ROCm_Libraries/rocBLAS/library/src/blas1</compoundname>
+    <innerfile refid="fetch__template_8h">fetch_template.h</innerfile>
+    <innerfile refid="reduction_8h">reduction.h</innerfile>
+    <innerfile refid="rocblas__amax_8cpp">rocblas_amax.cpp</innerfile>
+    <innerfile refid="rocblas__amax__amin_8h">rocblas_amax_amin.h</innerfile>
+    <innerfile refid="rocblas__amin_8cpp">rocblas_amin.cpp</innerfile>
+    <innerfile refid="rocblas__asum_8cpp">rocblas_asum.cpp</innerfile>
+    <innerfile refid="rocblas__axpy_8cpp">rocblas_axpy.cpp</innerfile>
+    <innerfile refid="rocblas__copy_8cpp">rocblas_copy.cpp</innerfile>
+    <innerfile refid="rocblas__dot_8cpp">rocblas_dot.cpp</innerfile>
+    <innerfile refid="rocblas__nrm2_8cpp">rocblas_nrm2.cpp</innerfile>
+    <innerfile refid="rocblas__scal_8cpp">rocblas_scal.cpp</innerfile>
+    <innerfile refid="rocblas__swap_8cpp">rocblas_swap.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/blas1/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_96edc4a395950aafa2f54996a59552f7" kind="dir">
+    <compoundname>ROCm_Libraries</compoundname>
+    <innerdir refid="dir_4559bd62ead9417d7b200bb6a0e84658">ROCm_Libraries/rocBLAS</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/"/>
+  </compounddef>
+</doxygen>

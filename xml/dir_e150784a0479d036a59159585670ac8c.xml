@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_e150784a0479d036a59159585670ac8c" kind="dir">
+    <compoundname>ROCm_Libraries/rocBLAS/library/src/include</compoundname>
+    <innerfile refid="definitions_8h">definitions.h</innerfile>
+    <innerfile refid="handle_8h">handle.h</innerfile>
+    <innerfile refid="logging_8h">logging.h</innerfile>
+    <innerfile refid="status_8h">status.h</innerfile>
+    <innerfile refid="utility_8h">utility.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_Libraries/rocBLAS/library/src/include/"/>
+  </compounddef>
+</doxygen>
