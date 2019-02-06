@@ -527,7 +527,8 @@ Profiling tool 'rocprof':
    *  Input file with counters list and kernels selecting parameters
    *  Multiple counters groups and app runs supported
    *  Kernel execution is serialized
-   *  Output results in CSV format
+   *  HSA API/activity stats and tracing
+   *  Output results in CSV and JSON chrome tracing formats
 
 Download
 ########
@@ -536,12 +537,12 @@ To clone ROC Profiler from GitHub use the folowing command:
 
 .. code:: sh
 
-  git clone https://github.com/ROCmSoftwarePlatform/rocprofiler
+  git clone https://github.com/ROCm-Developer-Tools/rocprofiler
 
 The library source tree:
 
    *  bin
-       *  rpl_run.sh - Profiling tool run script
+       *  rocprof - Profiling tool run script
    *  doc - Documentation
    *  inc/rocprofiler.h - Library public API
    *  src - Library sources
@@ -573,7 +574,7 @@ To configure, build, install to /opt/rocm/rocprofiler:
 
   mkdir -p build
   cd build
-  export CMAKE_PREFIX_PATH=/opt/rocm/lib:/opt/rocm/include/hsa
+  export CMAKE_PREFIX_PATH=/opt/rocm
   cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm ..
   make
   sudo make install
@@ -592,7 +593,7 @@ The following shows the command-line usage of the 'rocprof' tool:
 
 .. code:: sh
 
-  rpl_run.sh [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
+  rocprof [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
 
   Options:
   -h - this help
@@ -601,7 +602,7 @@ The following shows the command-line usage of the 'rocprof' tool:
   --list-derived - to print the list of derived metrics with formulas
 
   -i <.txt|.xml file> - input file
-      Input file .txt format, automatically rerun application for every pmc/sqtt line:
+      Input file .txt format, automatically rerun application for every pmc line:
 
         # Perf counters group 1
         pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts FlatLDSInsts GDSInsts VALUUtilization FetchSize
@@ -641,22 +642,22 @@ The following shows the command-line usage of the 'rocprof' tool:
   --timestamp <on|off> - to turn on/off the kernel disoatches timestamps, dispatch/begin/end/complete [off]
   --ctx-limit <max number> - maximum number of outstanding contexts [0 - unlimited]
   --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
-  --sqtt-size <byte size> - to set SQTT buffer size, aggregate for all SE [0x2000000]
-      Can be set in KB (1024B) or MB (1048576) units, examples 20K or 20M respectively.
-  --sqtt-local <on|off> - to allocate SQTT buffer in local GPU memory [on]
+
+  --hsa-trace - to trace HSA, generates API execution stats and JSON file viewable in chrome tracing
+    Requires to set three options '--hsa-trace --stats --timestamp on'
+    Will be simplified to just one option in the next release
+    Generated files: <output name>.stats.csv <output name>.hsa_stats.txt <output name>.json
 
   Configuration file:
   You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/evgeny:<package path>
   First the configuration file is looking in the current directory, then in your home, and then in the package directory.
-  Configurable options: 'basenames', 'timestamp', 'ctx-limit', 'heartbeat', 'sqtt-size', 'sqtt-local'.
+  Configurable options: 'basenames', 'timestamp', 'ctx-limit', 'heartbeat'.
   An example of 'rpl_rc.xml':
     <defaults
       basenames=off
       timestamp=off
       ctx-limit=0
       heartbeat=0
-      sqtt-size=0x20M
-      sqtt-local=on
     ></defaults>
 
 
