@@ -26,7 +26,7 @@ The Heterogeneous Compute Compiler (HCC) provides two important benefits:
  * A full C++ API for managing devices, queues and events
  * C++ data containers that provide type safety, multidimensional-array indexing and automatic data management
  * C++ kernel-launch syntax using parallel_for_each plus C++11 lambda functions
- * A single-source C++ programming environment---the host and source code can be in the same source file and use the same C++        	language;templates and classes work naturally across the host/device boundary
+ * A single-source C++ programming environment---the host and device code can be in the same source file and use the same C++        	language;templates and classes work naturally across the host/device boundary
  * HCC generates both host and device code from the same compiler, so it benefits from a consistent view of the source code using the
    same Clang-based language parser
 
