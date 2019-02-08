@@ -650,7 +650,6 @@ The following shows the command-line usage of the 'rocprof' tool:
     Requires to set three options '--hsa-trace --stats --timestamp on'
     Will be simplified to just one option in the next release
     Generated files: <output name>.stats.csv <output name>.hsa_stats.txt <output name>.json
-    Can take some time to process large traces, will be optimized in the next release
 
   Configuration file:
   You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/evgeny:<package path>
