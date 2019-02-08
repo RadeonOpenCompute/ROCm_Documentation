@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___driver" kind="group">
+    <compoundname>Driver</compoundname>
+    <title>Initialization and Version</title>
+    <innergroup refid="group___context">Management</innergroup>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___driver_1ga01baa652dda5815c594d047060496caa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipInit</definition>
+        <argsstring>(unsigned int flags)</argsstring>
+        <name>hipInit</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Explicitly initializes the HIP runtime. </para>        </briefdescription>
+        <detaileddescription>
+<para>Most HIP APIs implicitly initialize the HIP runtime. This API provides control over the timing of the initialization. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1906" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gadf6c74aaf7c22fea80e9ac3400d43704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceGet</definition>
+        <argsstring>(hipDevice_t *device, int ordinal)</argsstring>
+        <name>hipDeviceGet</name>
+        <param>
+          <type>hipDevice_t *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ordinal</declname>
+        </param>
+        <briefdescription>
+<para>Returns a handle to a compute device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ordinal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidDevice </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2240" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga0a1cf94d2b571ca3279577d5af0d1672" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceComputeCapability</definition>
+        <argsstring>(int *major, int *minor, hipDevice_t device)</argsstring>
+        <name>hipDeviceComputeCapability</name>
+        <param>
+          <type>int *</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>minor</declname>
+        </param>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Returns the compute capability of the device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">major</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">minor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidDevice </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2250" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga24df15e180a7b2b351cd362e5b7d2dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceGetName</definition>
+        <argsstring>(char *name, int len, hipDevice_t device)</argsstring>
+        <name>hipDeviceGetName</name>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Returns an identifer string for the device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidDevice </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2260" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gaaa961c8ec8047903617f4245fa50256a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceGetPCIBusId</definition>
+        <argsstring>(char *pciBusId, int len, int device)</argsstring>
+        <name>hipDeviceGetPCIBusId</name>
+        <param>
+          <type>char *</type>
+          <declname>pciBusId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Returns a PCI Bus Id string for the device, overloaded to take int device ID. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">pciBusId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidDevice </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2270" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga2ec307f165d576c0c673a7b1fa9b0fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceGetByPCIBusId</definition>
+        <argsstring>(int *device, const char *pciBusId)</argsstring>
+        <name>hipDeviceGetByPCIBusId</name>
+        <param>
+          <type>int *</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>pciBusId</declname>
+        </param>
+        <briefdescription>
+<para>Returns a handle to a compute device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>handle </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">PCI</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus ID</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidDevice, #hipErrorInvalidValue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2280" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga8991e535d0ef1ead0524e73364623041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceTotalMem</definition>
+        <argsstring>(size_t *bytes, hipDevice_t device)</argsstring>
+        <name>hipDeviceTotalMem</name>
+        <param>
+          <type>size_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>hipDevice_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Returns the total amount of memory on the device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidDevice </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2290" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gaf6c342f52d2a29a0aca5cdd89b4dd47c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDriverGetVersion</definition>
+        <argsstring>(int *driverVersion)</argsstring>
+        <name>hipDriverGetVersion</name>
+        <param>
+          <type>int *</type>
+          <declname>driverVersion</declname>
+        </param>
+        <briefdescription>
+<para>Returns the approximate HIP driver version. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">driverVersion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidValue</para></simplesect>
+<simplesect kind="warning"><para>The HIP feature set does not correspond to an exact CUDA SDK driver revision. This function always set *driverVersion to 4 as an approximation though HIP supports some features which were introduced in later CUDA SDK revisions. HIP apps code should not rely on the driver revision number here and should use arch feature flags to test device capabilities or conditional compilation.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___driver_1gae8b7ba34d2e11e334650aa51a4dd87ee" kindref="member">hipRuntimeGetVersion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2307" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gae8b7ba34d2e11e334650aa51a4dd87ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipRuntimeGetVersion</definition>
+        <argsstring>(int *runtimeVersion)</argsstring>
+        <name>hipRuntimeGetVersion</name>
+        <param>
+          <type>int *</type>
+          <declname>runtimeVersion</declname>
+        </param>
+        <briefdescription>
+<para>Returns the approximate HIP Runtime version. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">runtimeVersion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInavlidValue</para></simplesect>
+<simplesect kind="warning"><para>On HIP/HCC path this function returns HIP runtime patch version however on HIP/NVCC path this function return CUDA runtime version.</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___driver_1gaf6c342f52d2a29a0aca5cdd89b4dd47c" kindref="member">hipDriverGetVersion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2321" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga31d806d976e91d36bd990ae3004d8760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleLoad</definition>
+        <argsstring>(hipModule_t *module, const char *fname)</argsstring>
+        <name>hipModuleLoad</name>
+        <param>
+          <type>hipModule_t *</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+<para>Loads code object from file into a hipModule_t. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorInvalidValue, hipErrorInvalidContext, hipErrorFileNotFound, hipErrorOutOfMemory, hipErrorSharedObjectInitFailed, hipErrorNotInitialized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2334" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gae58e345f55bb3ec13dca80d2df88e0ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleUnload</definition>
+        <argsstring>(hipModule_t module)</argsstring>
+        <name>hipModuleUnload</name>
+        <param>
+          <type>hipModule_t</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+<para>Frees the module. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipInvalidValue module is freed and the code objects associated with it are destroyed </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2346" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga9648b457bb837838cb936b417b56a65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleGetFunction</definition>
+        <argsstring>(hipFunction_t *function, hipModule_t module, const char *kname)</argsstring>
+        <name>hipModuleGetFunction</name>
+        <param>
+          <type>hipFunction_t *</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>hipModule_t</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>kname</declname>
+        </param>
+        <briefdescription>
+<para>Function with kname will be extracted if present in module. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorInvalidValue, hipErrorInvalidContext, hipErrorNotInitialized, hipErrorNotFound, </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2358" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga8fd39dc48bcf28cc693ed7673c9f02c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipFuncGetAttributes</definition>
+        <argsstring>(hipFuncAttributes *attr, const void *func)</argsstring>
+        <name>hipFuncGetAttributes</name>
+        <param>
+          <type><ref refid="structhip_func_attributes" kindref="compound">hipFuncAttributes</ref> *</type>
+          <declname>attr</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Find out attributes for a given function. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorInvalidDeviceFunction </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2369" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga3e425a680285f495e776f096e9632c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleGetGlobal</definition>
+        <argsstring>(hipDeviceptr_t *dptr, size_t *bytes, hipModule_t hmod, const char *name)</argsstring>
+        <name>hipModuleGetGlobal</name>
+        <param>
+          <type>hipDeviceptr_t *</type>
+          <declname>dptr</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>hipModule_t</type>
+          <declname>hmod</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>returns device memory pointer and size of the kernel present in the module with symbol <computeroutput>name</computeroutput> </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">hmod</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorInvalidValue, hipErrorNotInitialized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2382" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gad2efb1b3fddd4ec7197ef2e5b62c8411" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t ihipModuleGetGlobal</definition>
+        <argsstring>(hipDeviceptr_t *dptr, size_t *bytes, hipModule_t hmod, const char *name)</argsstring>
+        <name>ihipModuleGetGlobal</name>
+        <param>
+          <type>hipDeviceptr_t *</type>
+          <declname>dptr</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>hipModule_t</type>
+          <declname>hmod</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2385" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga1ceb20d084d571c28282ee2fd052264c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleGetTexRef</definition>
+        <argsstring>(textureReference **texRef, hipModule_t hmod, const char *name)</argsstring>
+        <name>hipModuleGetTexRef</name>
+        <param>
+          <type>textureReference **</type>
+          <declname>texRef</declname>
+        </param>
+        <param>
+          <type>hipModule_t</type>
+          <declname>hmod</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2388" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1gaabdbd73e952a741e861d01109c4790f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleLoadData</definition>
+        <argsstring>(hipModule_t *module, const void *image)</argsstring>
+        <name>hipModuleLoadData</name>
+        <param>
+          <type>hipModule_t *</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>builds module from code object which resides in host memory. </para>        </briefdescription>
+        <detaileddescription>
+<para>Image is pointer to that location.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorNotInitialized, hipErrorOutOfMemory, hipErrorNotInitialized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2398" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga3e70722338894f48540c7be9a136af79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleLoadDataEx</definition>
+        <argsstring>(hipModule_t *module, const void *image, unsigned int numOptions, hipJitOption *options, void **optionValues)</argsstring>
+        <name>hipModuleLoadDataEx</name>
+        <param>
+          <type>hipModule_t *</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>numOptions</declname>
+        </param>
+        <param>
+          <type>hipJitOption *</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>optionValues</declname>
+        </param>
+        <briefdescription>
+<para>builds module from code object which resides in host memory. </para>        </briefdescription>
+        <detaileddescription>
+<para>Image is pointer to that location. Options are not used. hipModuleLoadData is called.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of options </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for JIT </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">option</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>values for JIT</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorNotInitialized, hipErrorOutOfMemory, hipErrorNotInitialized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2412" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___driver_1ga2e4de5937aa8171e9eda16c881ed0674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipModuleLaunchKernel</definition>
+        <argsstring>(hipFunction_t f, unsigned int gridDimX, unsigned int gridDimY, unsigned int gridDimZ, unsigned int blockDimX, unsigned int blockDimY, unsigned int blockDimZ, unsigned int sharedMemBytes, hipStream_t stream, void **kernelParams, void **extra)</argsstring>
+        <name>hipModuleLaunchKernel</name>
+        <param>
+          <type>hipFunction_t</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>gridDimX</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>gridDimY</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>gridDimZ</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>blockDimX</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>blockDimY</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>blockDimZ</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>sharedMemBytes</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>kernelParams</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>extra</declname>
+        </param>
+        <briefdescription>
+<para>launches kernel f with launch parameters and shared memory on stream with arguments passed to kernelparams or extra </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Kernel to launch. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gridDimX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X grid dimension specified as multiple of blockDimX. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gridDimY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y grid dimension specified as multiple of blockDimY. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gridDimZ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Z grid dimension specified as multiple of blockDimZ. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">blockDimX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X block dimensions specified in work-items </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">blockDimY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y grid dimension specified in work-items </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">blockDimZ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Z grid dimension specified in work-items </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sharedMemBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amount of dynamic shared memory to allocate for this kernel. The kernel can access this with HIP_DYNAMIC_SHARED. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream where the kernel should be dispatched. May be 0, in which case th default stream is used with associated synchronization rules. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kernelParams</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">extra</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to kernel arguments. These are passed directly to the kernel and must be in the memory layout and alignment expected by the kernel.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipInvalidDevice, hipErrorNotInitialized, hipErrorInvalidValue</para></simplesect>
+<simplesect kind="warning"><para>kernellParams argument is not yet implemented in HIP. Please use extra instead. Please refer to hip_porting_driver_api.md for sample usage. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2439" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><hruler/>
+ <hruler/>
+ </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

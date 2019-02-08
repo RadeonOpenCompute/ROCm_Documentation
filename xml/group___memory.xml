@@ -1,0 +1,2577 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___memory" kind="group">
+    <compoundname>Memory</compoundname>
+    <title>Memory Management</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___memory_1ga7c3e8663feebb7be9fd3a1e5139bcefc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipPointerGetAttributes</definition>
+        <argsstring>(hipPointerAttribute_t *attributes, const void *ptr)</argsstring>
+        <name>hipPointerGetAttributes</name>
+        <param>
+          <type>hipPointerAttribute_t *</type>
+          <declname>attributes</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Return attributes for the specified pointer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">attributes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for the specified pointer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to get attributes for</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidDevice, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___device_1ga8555d5c76d88c50ddbf54ae70b568394" kindref="member">hipGetDeviceCount</ref>, <ref refid="group___device_1ga7e0e2e8c5f78e3c7449764657c254e0a" kindref="member">hipGetDevice</ref>, <ref refid="group___device_1ga43c1e7f15925eeb762195ccb5e063eae" kindref="member">hipSetDevice</ref>, <ref refid="group___device_1gaf1e365e1d17cf40644d1470de4817c8e" kindref="member">hipChooseDevice</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1023" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMalloc</definition>
+        <argsstring>(void **ptr, size_t size)</argsstring>
+        <name>hipMalloc</name>
+        <param>
+          <type>void **</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Allocate memory on the default accelerator. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the allocated memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested memory size</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is returned.</para><para><simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation, #hipErrorInvalidValue (bad context, null *ptr)</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga805c7320498926e444616fe090c727ee" kindref="member">hipMallocPitch</ref>, <ref refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>, <ref refid="group___memory_1gad20a96c14589cb226fcde1219512a0f9" kindref="member">hipMallocArray</ref>, <ref refid="group___memory_1gae29935073517245c69bc64790dd2747a" kindref="member">hipFreeArray</ref>, hipMalloc3D, <ref refid="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" kindref="member">hipMalloc3DArray</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1038" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga66399e729223ff5b66ffc16297c0710e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMallocHost</definition>
+        <argsstring>(void **ptr, size_t size)</argsstring>
+        <name>hipMallocHost</name>
+        <param>
+          <type>void **</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Allocate pinned host memory [Deprecated]. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the allocated host pinned memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested memory size</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is returned.</para><para><simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation</para></simplesect>
+<xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1053" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostMalloc</definition>
+        <argsstring>(void **ptr, size_t size, unsigned int flags)</argsstring>
+        <name>hipHostMalloc</name>
+        <param>
+          <type>void **</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Allocate device accessible page locked host memory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the allocated host pinned memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested memory size </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of host memory allocation</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is returned.</para><para><simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___device_1ga6e54db382768827e84725632018307aa" kindref="member">hipSetDeviceFlags</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1068" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga0e35f3397f6ea9c3f47a17461ae01231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostAlloc</definition>
+        <argsstring>(void **ptr, size_t size, unsigned int flags)</argsstring>
+        <name>hipHostAlloc</name>
+        <param>
+          <type>void **</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Allocate device accessible page locked host memory [Deprecated]. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the allocated host pinned memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested memory size </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of host memory allocation</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is returned.</para><para><simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation</para></simplesect>
+<xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1084" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostGetDevicePointer</definition>
+        <argsstring>(void **devPtr, void *hstPtr, unsigned int flags)</argsstring>
+        <name>hipHostGetDevicePointer</name>
+        <param>
+          <type>void **</type>
+          <declname>devPtr</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>hstPtr</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Get Device pointer from Host Pointer allocated through hipHostMalloc. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dstPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Device Pointer mapped to passed host pointer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">hstPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Host Pointer allocated through hipHostMalloc </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flags to be passed for extension</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___device_1ga6e54db382768827e84725632018307aa" kindref="member">hipSetDeviceFlags</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1097" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga4d26915873b3e3534ceb4dc310f8709a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostGetFlags</definition>
+        <argsstring>(unsigned int *flagsPtr, void *hostPtr)</argsstring>
+        <name>hipHostGetFlags</name>
+        <param>
+          <type>unsigned int *</type>
+          <declname>flagsPtr</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>hostPtr</declname>
+        </param>
+        <briefdescription>
+<para>Return flags associated with host pointer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">flagsPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory location to store flags </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">hostPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Host Pointer allocated through hipHostMalloc </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gab8258f051e1a1f7385f794a15300e674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostRegister</definition>
+        <argsstring>(void *hostPtr, size_t sizeBytes, unsigned int flags)</argsstring>
+        <name>hipHostRegister</name>
+        <param>
+          <type>void *</type>
+          <declname>hostPtr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Register host memory so it can be accessed from the current device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">hostPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to host memory to be registered. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of the host memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags.</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>See below.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Flags:<itemizedlist>
+<listitem><para><ref refid="group___global_defs_1gac7c100d241ff84ad10109bb00b7b25dc" kindref="member">hipHostRegisterDefault</ref> Memory is Mapped and Portable</para></listitem><listitem><para><ref refid="group___global_defs_1ga2db444f2315d412d3c7ba80ec6049583" kindref="member">hipHostRegisterPortable</ref> Memory is considered registered by all contexts. HIP only supports one context so this is always assumed true.</para></listitem><listitem><para><ref refid="group___global_defs_1gacfa4edcfcb39fc61bff6bdecb14d7618" kindref="member">hipHostRegisterMapped</ref> Map the allocation into the address space for the current device. The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>.</para></listitem></itemizedlist>
+</para><para>After registering the memory, use <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref> to obtain the mapped device pointer. On many systems, the mapped device pointer will have a different value than the mapped host pointer. Applications must use the device pointer in device code, and the host pointer in device code.</para><para>On some systems, registered memory is pinned. On some systems, registered memory may not be actually be pinned but uses OS or hardware facilities to all GPU access to the host memory.</para><para>Developers are strongly encouraged to register memory blocks which are aligned to the host cache-line size. (typically 64-bytes but can be obtains from the CPUID instruction).</para><para>If registering non-aligned pointers, the application must take care when register pointers from the same cache line on different devices. HIP&apos;s coarse-grained synchronization model does not guarantee correct results if different devices write to different parts of the same cache block - typically one of the writes will &quot;win&quot; and overwrite data from the other registered memory region.</para><para><simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c9e1810b9f5858d36c4d28c91c86924" kindref="member">hipHostUnregister</ref>, <ref refid="group___memory_1ga4d26915873b3e3534ceb4dc310f8709a" kindref="member">hipHostGetFlags</ref>, <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1146" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga4c9e1810b9f5858d36c4d28c91c86924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostUnregister</definition>
+        <argsstring>(void *hostPtr)</argsstring>
+        <name>hipHostUnregister</name>
+        <param>
+          <type>void *</type>
+          <declname>hostPtr</declname>
+        </param>
+        <briefdescription>
+<para>Un-register host pointer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">hostPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Host pointer previously registered with <ref refid="group___memory_1gab8258f051e1a1f7385f794a15300e674" kindref="member">hipHostRegister</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Error code</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gab8258f051e1a1f7385f794a15300e674" kindref="member">hipHostRegister</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1156" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga805c7320498926e444616fe090c727ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMallocPitch</definition>
+        <argsstring>(void **ptr, size_t *pitch, size_t width, size_t height)</argsstring>
+        <name>hipMallocPitch</name>
+        <param>
+          <type>void **</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Allocates at least width (in bytes) * height bytes of linear memory Padding may occur to ensure alighnment requirements are met for the given row The change in width size due to padding will be returned in *pitch. </para>        </briefdescription>
+        <detaileddescription>
+<para>Currently the alignment is set to 128 bytes</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the allocated device memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch for allocation (in bytes) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested pitched allocation width (in bytes) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested pitched allocation height</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is returned.</para><para><simplesect kind="return"><para>Error code</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>, <ref refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>, <ref refid="group___memory_1gad20a96c14589cb226fcde1219512a0f9" kindref="member">hipMallocArray</ref>, <ref refid="group___memory_1gae29935073517245c69bc64790dd2747a" kindref="member">hipFreeArray</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref>, hipMalloc3D, <ref refid="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" kindref="member">hipMalloc3DArray</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1177" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipFree</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>hipFree</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Free memory allocated by the hcc hip memory allocation API. </para>        </briefdescription>
+        <detaileddescription>
+<para>This API performs an implicit <ref refid="group___device_1gaefdc2847fb1d6c3fb1354e827a191ebd" kindref="member">hipDeviceSynchronize()</ref> call. If pointer is NULL, the hip runtime is initialized and hipSuccess is returned.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory to be freed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess </para></simplesect>
+<simplesect kind="return"><para>#hipErrorInvalidDevicePointer (if pointer is invalid, including host pointers allocated with hipHostMalloc)</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>, <ref refid="group___memory_1ga805c7320498926e444616fe090c727ee" kindref="member">hipMallocPitch</ref>, <ref refid="group___memory_1gad20a96c14589cb226fcde1219512a0f9" kindref="member">hipMallocArray</ref>, <ref refid="group___memory_1gae29935073517245c69bc64790dd2747a" kindref="member">hipFreeArray</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref>, hipMalloc3D, <ref refid="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" kindref="member">hipMalloc3DArray</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1192" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga28d7d92836116dfadeb62e416ee887d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipFreeHost</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>hipFreeHost</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Free memory allocated by the hcc hip host memory allocation API. </para>        </briefdescription>
+        <detaileddescription>
+<para>[Deprecated]</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory to be freed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue (if pointer is invalid, including device pointers allocated with hipMalloc)</para></simplesect>
+<xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>use <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree()</ref> instead </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1205" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipHostFree</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>hipHostFree</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Free memory allocated by the hcc hip host memory allocation API This API performs an implicit <ref refid="group___device_1gaefdc2847fb1d6c3fb1354e827a191ebd" kindref="member">hipDeviceSynchronize()</ref> call. </para>        </briefdescription>
+        <detaileddescription>
+<para>If pointer is NULL, the hip runtime is initialized and hipSuccess is returned.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory to be freed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue (if pointer is invalid, including device pointers allocated with hipMalloc)</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>, <ref refid="group___memory_1ga805c7320498926e444616fe090c727ee" kindref="member">hipMallocPitch</ref>, <ref refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>, <ref refid="group___memory_1gad20a96c14589cb226fcde1219512a0f9" kindref="member">hipMallocArray</ref>, <ref refid="group___memory_1gae29935073517245c69bc64790dd2747a" kindref="member">hipFreeArray</ref>, hipMalloc3D, <ref refid="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" kindref="member">hipMalloc3DArray</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1220" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gac1a055d288302edd641c6d7416858e1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpy</definition>
+        <argsstring>(void *dst, const void *src, size_t sizeBytes, hipMemcpyKind kind)</argsstring>
+        <name>hipMemcpy</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from src to dst. </para>        </briefdescription>
+        <detaileddescription>
+<para>It supports memory from host to device, device to host, device to device and host to host The src and dst must not overlap.</para><para>For hipMemcpy, the copy is always performed by the current device (set by hipSetDevice). For multi-gpu or peer-to-peer configurations, it is recommended to set the current device to the device where the src data is physically located. For optimal peer-to-peer copies, the copy device must be able to access the src and dst pointers (by calling hipDeviceEnablePeerAccess with copy agent as the current device and src/dest as the peerDevice argument. if this is not done, the hipMemcpy will still work, but will perform the copy using a staging buffer on the host.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">copyType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory copy type </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree, #hipErrorUnknowni</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1249" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaa415ecdd2535e1eb618ed8a31a6f03af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyHtoD</definition>
+        <argsstring>(hipDeviceptr_t dst, void *src, size_t sizeBytes)</argsstring>
+        <name>hipMemcpyHtoD</name>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from Host to Device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorDeInitialized, #hipErrorNotInitialized, #hipErrorInvalidContext, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1268" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyDtoH</definition>
+        <argsstring>(void *dst, hipDeviceptr_t src, size_t sizeBytes)</argsstring>
+        <name>hipMemcpyDtoH</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from Device to Host. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorDeInitialized, #hipErrorNotInitialized, #hipErrorInvalidContext, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1287" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyDtoD</definition>
+        <argsstring>(hipDeviceptr_t dst, hipDeviceptr_t src, size_t sizeBytes)</argsstring>
+        <name>hipMemcpyDtoD</name>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from Device to Device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorDeInitialized, #hipErrorNotInitialized, #hipErrorInvalidContext, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1306" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyHtoDAsync</definition>
+        <argsstring>(hipDeviceptr_t dst, void *src, size_t sizeBytes, hipStream_t stream)</argsstring>
+        <name>hipMemcpyHtoDAsync</name>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from Host to Device asynchronously. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorDeInitialized, #hipErrorNotInitialized, #hipErrorInvalidContext, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1325" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gad69da1994a646b843fb1fa465dbeb623" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyDtoHAsync</definition>
+        <argsstring>(void *dst, hipDeviceptr_t src, size_t sizeBytes, hipStream_t stream)</argsstring>
+        <name>hipMemcpyDtoHAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from Device to Host asynchronously. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorDeInitialized, #hipErrorNotInitialized, #hipErrorInvalidContext, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1344" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyDtoDAsync</definition>
+        <argsstring>(hipDeviceptr_t dst, hipDeviceptr_t src, size_t sizeBytes, hipStream_t stream)</argsstring>
+        <name>hipMemcpyDtoDAsync</name>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Copy data from Device to Device asynchronously. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorDeInitialized, #hipErrorNotInitialized, #hipErrorInvalidContext, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para>hipArrayCreate, hipArrayDestroy, hipArrayGetDescriptor, hipMemAlloc, hipMemAllocHost, hipMemAllocPitch, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpy2DUnaligned, hipMemcpyAtoA, hipMemcpyAtoD, <ref refid="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" kindref="member">hipMemcpyAtoH</ref>, hipMemcpyAtoHAsync, hipMemcpyDtoA, <ref refid="group___memory_1ga814f245b8918f173c1f2f8c1480f7f93" kindref="member">hipMemcpyDtoD</ref>, <ref refid="group___memory_1gad3bba6016cba62f0e933cdfb4c312d27" kindref="member">hipMemcpyDtoDAsync</ref>, <ref refid="group___memory_1gae61f4e35ff1b9643c6328bc45d091c3f" kindref="member">hipMemcpyDtoH</ref>, <ref refid="group___memory_1gad69da1994a646b843fb1fa465dbeb623" kindref="member">hipMemcpyDtoHAsync</ref>, <ref refid="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" kindref="member">hipMemcpyHtoA</ref>, hipMemcpyHtoAAsync, <ref refid="group___memory_1gae3e76acb34bed5e3b19b4c1822975bcd" kindref="member">hipMemcpyHtoDAsync</ref>, hipMemFree, hipMemFreeHost, <ref refid="group___peer_to_peer_1gac7d9132f6e3d102e9b512020e5654f38" kindref="member">hipMemGetAddressRange</ref>, <ref refid="group___memory_1ga311c3e246a21590de14478b8bd063be2" kindref="member">hipMemGetInfo</ref>, hipMemHostAlloc, hipMemHostGetDevicePointer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1363" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga21dddb880b518c808f89b4a88da66625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyToSymbol</definition>
+        <argsstring>(const void *symbolName, const void *src, size_t sizeBytes, size_t offset __dparm(0), hipMemcpyKind kind __dparm(hipMemcpyHostToDevice))</argsstring>
+        <name>hipMemcpyToSymbol</name>
+        <param>
+          <type>const void *</type>
+          <declname>symbolName</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>size_t offset </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <param>
+          <type>hipMemcpyKind kind </type>
+          <declname>__dparm</declname>
+          <array>hipMemcpyHostToDevice</array>
+        </param>
+        <briefdescription>
+<para>Copies <computeroutput>sizeBytes</computeroutput> bytes from the memory area pointed to by <computeroutput>src</computeroutput> to the memory area pointed to by <computeroutput>offset</computeroutput> bytes from the start of symbol <computeroutput>symbol</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>The memory areas may not overlap. Symbol can either be a variable that resides in global or constant memory space, or it can be a character string, naming a variable that resides in global or constant memory space. Kind can be either hipMemcpyHostToDevice or hipMemcpyDeviceToDevice TODO: cudaErrorInvalidSymbol and cudaErrorInvalidMemcpyDirection is not supported, use hipErrorUnknown for now.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbolName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Symbol destination on device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Data size in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Offset from start of symbol in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Type of transfer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree, #hipErrorUnknown</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" kindref="member">hipMemcpyToArray</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, hipMemcpy2DFromArray, hipMemcpyArrayToArray, hipMemcpy2DArrayToArray, hipMemcpyFromSymbol, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpyToArrayAsync, hipMemcpy2DToArrayAsync, hipMemcpyFromArrayAsync, hipMemcpy2DFromArrayAsync, <ref refid="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" kindref="member">hipMemcpyToSymbolAsync</ref>, hipMemcpyFromSymbolAsync </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1390" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae8ba000d414eef829957648c24cced5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipGetSymbolAddress</definition>
+        <argsstring>(void **devPtr, const void *symbolName)</argsstring>
+        <name>hipGetSymbolAddress</name>
+        <param>
+          <type>void **</type>
+          <declname>devPtr</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>symbolName</declname>
+        </param>
+        <briefdescription>
+<para>Copies the memory address of symbol <computeroutput>symbolName</computeroutput> to <computeroutput>devPtr</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbolName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Symbol on device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">devPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Pointer to a pointer to the memory referred to by the symbol </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorNotInitialized, #hipErrorNotFound</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga5ab6cb64d6d30236423969b5a0108230" kindref="member">hipGetSymbolSize</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, hipMemcpyFromSymbol, <ref refid="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" kindref="member">hipMemcpyToSymbolAsync</ref>, hipMemcpyFromSymbolAsync </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1404" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga5ab6cb64d6d30236423969b5a0108230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipGetSymbolSize</definition>
+        <argsstring>(size_t *size, const void *symbolName)</argsstring>
+        <name>hipGetSymbolSize</name>
+        <param>
+          <type>size_t *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>symbolName</declname>
+        </param>
+        <briefdescription>
+<para>Copies the size of symbol <computeroutput>symbolName</computeroutput> to <computeroutput>size</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbolName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Symbol on device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Pointer to the size of the symbol </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorNotInitialized, #hipErrorNotFound</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga5ab6cb64d6d30236423969b5a0108230" kindref="member">hipGetSymbolSize</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, hipMemcpyFromSymbol, <ref refid="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" kindref="member">hipMemcpyToSymbolAsync</ref>, hipMemcpyFromSymbolAsync </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1417" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyToSymbolAsync</definition>
+        <argsstring>(const void *symbolName, const void *src, size_t sizeBytes, size_t offset, hipMemcpyKind kind, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemcpyToSymbolAsync</name>
+        <param>
+          <type>const void *</type>
+          <declname>symbolName</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Copies <computeroutput>sizeBytes</computeroutput> bytes from the memory area pointed to by <computeroutput>src</computeroutput> to the memory area pointed to by <computeroutput>offset</computeroutput> bytes from the start of symbol <computeroutput>symbol</computeroutput>. </para>        </briefdescription>
+        <detaileddescription>
+<para>The memory areas may not overlap. Symbol can either be a variable that resides in global or constant memory space, or it can be a character string, naming a variable that resides in global or constant memory space. Kind can be either hipMemcpyHostToDevice or hipMemcpyDeviceToDevice <ref refid="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" kindref="member">hipMemcpyToSymbolAsync()</ref> is asynchronous with respect to the host, so the call may return before copy is complete. TODO: cudaErrorInvalidSymbol and cudaErrorInvalidMemcpyDirection is not supported, use hipErrorUnknown for now.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">symbolName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Symbol destination on device </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Data size in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Offset from start of symbol in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Type of transfer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree, #hipErrorUnknown</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" kindref="member">hipMemcpyToArray</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, hipMemcpy2DFromArray, hipMemcpyArrayToArray, hipMemcpy2DArrayToArray, hipMemcpyFromSymbol, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref>, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpyToArrayAsync, hipMemcpy2DToArrayAsync, hipMemcpyFromArrayAsync, hipMemcpy2DFromArrayAsync, <ref refid="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" kindref="member">hipMemcpyToSymbolAsync</ref>, hipMemcpyFromSymbolAsync </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1445" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga7cb22578a745b47ece6b53c6057be5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyFromSymbol</definition>
+        <argsstring>(void *dst, const void *symbolName, size_t sizeBytes, size_t offset __dparm(0), hipMemcpyKind kind __dparm(hipMemcpyDeviceToHost))</argsstring>
+        <name>hipMemcpyFromSymbol</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>symbolName</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>size_t offset </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <param>
+          <type>hipMemcpyKind kind </type>
+          <declname>__dparm</declname>
+          <array>hipMemcpyDeviceToHost</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1448" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga34899aa766023a8ffbaa6f086dc9d11f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyFromSymbolAsync</definition>
+        <argsstring>(void *dst, const void *symbolName, size_t sizeBytes, size_t offset, hipMemcpyKind kind, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemcpyFromSymbolAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>symbolName</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1451" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyAsync</definition>
+        <argsstring>(void *dst, const void *src, size_t sizeBytes, hipMemcpyKind kind, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemcpyAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Copy data from src to dst asynchronously. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>If host or dest are not pinned, the memory copy will be performed synchronously. For best performance, use hipHostMalloc to allocate host memory that is transferred asynchronously.</para></simplesect>
+<simplesect kind="warning"><para>on HCC hipMemcpyAsync does not support overlapped H2D and D2H copies. For hipMemcpy, the copy is always performed by the device associated with the specified stream.</para></simplesect>
+For multi-gpu or peer-to-peer configurations, it is recommended to use a stream which is a attached to the device where the src data is physically located. For optimal peer-to-peer copies, the copy device must be able to access the src and dst pointers (by calling hipDeviceEnablePeerAccess with copy agent as the current device and src/dest as the peerDevice argument. if this is not done, the hipMemcpy will still work, but will perform the copy using a staging buffer on the host.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being copy from </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">accelerator_view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Accelerator view which the copy is being enqueued </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree, #hipErrorUnknown</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" kindref="member">hipMemcpyToArray</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, hipMemcpy2DFromArray, hipMemcpyArrayToArray, hipMemcpy2DArrayToArray, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, hipMemcpyFromSymbol, <ref refid="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" kindref="member">hipMemcpy2DAsync</ref>, hipMemcpyToArrayAsync, hipMemcpy2DToArrayAsync, hipMemcpyFromArrayAsync, hipMemcpy2DFromArrayAsync, <ref refid="group___memory_1ga4023cb80b01c9744dbb1bdf64e4a5855" kindref="member">hipMemcpyToSymbolAsync</ref>, hipMemcpyFromSymbolAsync </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1482" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gac7441e74affcce4b8b69dba996c5ebc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemset</definition>
+        <argsstring>(void *dst, int value, size_t sizeBytes)</argsstring>
+        <name>hipMemset</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+<para>Fills the first sizeBytes bytes of the memory area pointed to by dest with the constant byte value value. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data being filled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">constant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value to be set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorNotInitialized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1494" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gab66cf8be5f4108218cc9a94d8c842e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemsetD8</definition>
+        <argsstring>(hipDeviceptr_t dest, unsigned char value, size_t sizeBytes)</argsstring>
+        <name>hipMemsetD8</name>
+        <param>
+          <type>hipDeviceptr_t</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <briefdescription>
+<para>Fills the first sizeBytes bytes of the memory area pointed to by dest with the constant byte value value. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data ptr to be filled </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">constant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value to be set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data size in bytes </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorNotInitialized </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1505" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaab3fea033f93488f8c50ffc244396a78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemsetAsync</definition>
+        <argsstring>(void *dst, int value, size_t sizeBytes, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemsetAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>sizeBytes</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Fills the first sizeBytes bytes of the memory area pointed to by dev with the constant byte value value. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="group___memory_1gaab3fea033f93488f8c50ffc244396a78" kindref="member">hipMemsetAsync()</ref> is asynchronous with respect to the host, so the call may return before the memset is complete. The operation can optionally be associated to a stream by passing a non-zero stream argument. If stream is non-zero, the operation may overlap with operations in other streams.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to device memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Value to set for each byte of specified memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Size in bytes to set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Stream identifier </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1522" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae1e7b4c740cc02611ea8122bec376201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemset2D</definition>
+        <argsstring>(void *dst, size_t pitch, int value, size_t width, size_t height)</argsstring>
+        <name>hipMemset2D</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Fills the memory area pointed to by dst with the constant value. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to device memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- data size in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- constant value to be set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1535" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gad890cda186f947512de1804cb06fb497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemset2DAsync</definition>
+        <argsstring>(void *dst, size_t pitch, int value, size_t width, size_t height, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemset2DAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Fills asynchronously the memory area pointed to by dst with the constant value. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to device memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- data size in bytes </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- constant value to be set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1549" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga3c04a21c9de9c55b3e47d8c87a0b0593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemset3D</definition>
+        <argsstring>(hipPitchedPtr pitchedDevPtr, int value, hipExtent extent)</argsstring>
+        <name>hipMemset3D</name>
+        <param>
+          <type>hipPitchedPtr</type>
+          <declname>pitchedDevPtr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>hipExtent</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+<para>Fills synchronously the memory area pointed to by pitchedDevPtr with the constant value. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pitchedDevPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- constant value to be set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">extent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1559" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaabb1a77ae6411a8d1f509d3a287530ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemset3DAsync</definition>
+        <argsstring>(hipPitchedPtr pitchedDevPtr, int value, hipExtent extent, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemset3DAsync</name>
+        <param>
+          <type>hipPitchedPtr</type>
+          <declname>pitchedDevPtr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>hipExtent</type>
+          <declname>extent</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Fills asynchronously the memory area pointed to by pitchedDevPtr with the constant value. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pitchedDevPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- constant value to be set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">extent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorMemoryFree </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1570" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga311c3e246a21590de14478b8bd063be2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemGetInfo</definition>
+        <argsstring>(size_t *free, size_t *total)</argsstring>
+        <name>hipMemGetInfo</name>
+        <param>
+          <type>size_t *</type>
+          <declname>free</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>total</declname>
+        </param>
+        <briefdescription>
+<para>Query memory info. </para>        </briefdescription>
+        <detaileddescription>
+<para>Return snapshot of free memory, and total allocatable memory on the device.</para><para>Returns in *free a snapshot of the current free memory. <simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidDevice, #hipErrorInvalidValue </para></simplesect>
+<simplesect kind="warning"><para>On HCC, the free memory only accounts for memory allocated by this process and may be optimistic. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1581" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaf7e9522b8fd7bae6cc1bf2e3238fd20f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemPtrGetInfo</definition>
+        <argsstring>(void *ptr, size_t *size)</argsstring>
+        <name>hipMemPtrGetInfo</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1584" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gad20a96c14589cb226fcde1219512a0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMallocArray</definition>
+        <argsstring>(hipArray **array, const hipChannelFormatDesc *desc, size_t width, size_t height __dparm(0), unsigned int flags __dparm(hipArrayDefault))</argsstring>
+        <name>hipMallocArray</name>
+        <param>
+          <type>hipArray **</type>
+          <declname>array</declname>
+        </param>
+        <param>
+          <type>const hipChannelFormatDesc *</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t height </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <param>
+          <type>unsigned int flags </type>
+          <declname>__dparm</declname>
+          <array>hipArrayDefault</array>
+        </param>
+        <briefdescription>
+<para>Allocate an array on the device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to allocated array in device memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested channel format </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested array allocation width </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested array allocation height </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested properties of allocated array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>, <ref refid="group___memory_1ga805c7320498926e444616fe090c727ee" kindref="member">hipMallocPitch</ref>, <ref refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>, <ref refid="group___memory_1gae29935073517245c69bc64790dd2747a" kindref="member">hipFreeArray</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1599" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaee4c2e74e37cf448380e4b69688a20f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipArrayCreate</definition>
+        <argsstring>(hipArray **pHandle, const HIP_ARRAY_DESCRIPTOR *pAllocateArray)</argsstring>
+        <name>hipArrayCreate</name>
+        <param>
+          <type>hipArray **</type>
+          <declname>pHandle</declname>
+        </param>
+        <param>
+          <type>const HIP_ARRAY_DESCRIPTOR *</type>
+          <declname>pAllocateArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1601" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga5d24dbee76e1b894e6af830ad06fb168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipArray3DCreate</definition>
+        <argsstring>(hipArray **array, const HIP_ARRAY_DESCRIPTOR *pAllocateArray)</argsstring>
+        <name>hipArray3DCreate</name>
+        <param>
+          <type>hipArray **</type>
+          <declname>array</declname>
+        </param>
+        <param>
+          <type>const HIP_ARRAY_DESCRIPTOR *</type>
+          <declname>pAllocateArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1603" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gad12f684263bbc92690553af2aa918fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMalloc3D</definition>
+        <argsstring>(hipPitchedPtr *pitchedDevPtr, hipExtent extent)</argsstring>
+        <name>hipMalloc3D</name>
+        <param>
+          <type>hipPitchedPtr *</type>
+          <declname>pitchedDevPtr</declname>
+        </param>
+        <param>
+          <type>hipExtent</type>
+          <declname>extent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1605" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae29935073517245c69bc64790dd2747a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipFreeArray</definition>
+        <argsstring>(hipArray *array)</argsstring>
+        <name>hipFreeArray</name>
+        <param>
+          <type>hipArray *</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+<para>Frees an array on the device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to array to free </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInitializationError</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>, <ref refid="group___memory_1ga805c7320498926e444616fe090c727ee" kindref="member">hipMallocPitch</ref>, <ref refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>, <ref refid="group___memory_1gad20a96c14589cb226fcde1219512a0f9" kindref="member">hipMallocArray</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1615" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga6b3423ded4fe1c64eb7b168cb569a6ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMalloc3DArray</definition>
+        <argsstring>(hipArray **array, const struct hipChannelFormatDesc *desc, struct hipExtent extent, unsigned int flags)</argsstring>
+        <name>hipMalloc3DArray</name>
+        <param>
+          <type>hipArray **</type>
+          <declname>array</declname>
+        </param>
+        <param>
+          <type>const struct hipChannelFormatDesc *</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>struct hipExtent</type>
+          <declname>extent</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Allocate an array on the device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to allocated array in device memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested channel format </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">extent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested array allocation width, height and depth </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested properties of allocated array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1ga4c6fcfe80010069d2792780d00dcead2" kindref="member">hipMalloc</ref>, <ref refid="group___memory_1ga805c7320498926e444616fe090c727ee" kindref="member">hipMallocPitch</ref>, <ref refid="group___memory_1ga740d08da65cae1441ba32f8fedb863d1" kindref="member">hipFree</ref>, <ref refid="group___memory_1gae29935073517245c69bc64790dd2747a" kindref="member">hipFreeArray</ref>, <ref refid="group___memory_1gaad40bc7d97ccc799403ef5a9a8c246e1" kindref="member">hipHostMalloc</ref>, <ref refid="group___memory_1ga2e543f58ee4544e317cd695d6d82e0a3" kindref="member">hipHostFree</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1629" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpy2D</definition>
+        <argsstring>(void *dst, size_t dpitch, const void *src, size_t spitch, size_t width, size_t height, hipMemcpyKind kind)</argsstring>
+        <name>hipMemcpy2D</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dpitch</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>spitch</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dpitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of destination memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">spitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of source memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width of matrix transfer (columns in bytes) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Height of matrix transfer (rows) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of transfer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" kindref="member">hipMemcpyToArray</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1647" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaa6913c5738f524d8fd043ab6f2c0e5ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyParam2D</definition>
+        <argsstring>(const hip_Memcpy2D *pCopy)</argsstring>
+        <name>hipMemcpyParam2D</name>
+        <param>
+          <type>const hip_Memcpy2D *</type>
+          <declname>pCopy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1649" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gac79f26f9ec7b4d7bcda27d103ff6c3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpy2DAsync</definition>
+        <argsstring>(void *dst, size_t dpitch, const void *src, size_t spitch, size_t width, size_t height, hipMemcpyKind kind, hipStream_t stream __dparm(0))</argsstring>
+        <name>hipMemcpy2DAsync</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dpitch</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>spitch</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dpitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of destination memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">spitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of source memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width of matrix transfer (columns in bytes) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Height of matrix transfer (rows) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of transfer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream to use </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" kindref="member">hipMemcpyToArray</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1668" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpy2DToArray</definition>
+        <argsstring>(hipArray *dst, size_t wOffset, size_t hOffset, const void *src, size_t spitch, size_t width, size_t height, hipMemcpyKind kind)</argsstring>
+        <name>hipMemcpy2DToArray</name>
+        <param>
+          <type>hipArray *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>wOffset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>hOffset</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>spitch</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dpitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of destination memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">spitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of source memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width of matrix transfer (columns in bytes) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Height of matrix transfer (rows) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of transfer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" kindref="member">hipMemcpyToArray</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1687" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga2e631f0b6757b47b74cdaa2911784be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyToArray</definition>
+        <argsstring>(hipArray *dst, size_t wOffset, size_t hOffset, const void *src, size_t count, hipMemcpyKind kind)</argsstring>
+        <name>hipMemcpyToArray</name>
+        <param>
+          <type>hipArray *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>wOffset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>hOffset</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dpitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of destination memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">spitch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch of source memory </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width of matrix transfer (columns in bytes) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Height of matrix transfer (rows) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of transfer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1706" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyFromArray</definition>
+        <argsstring>(void *dst, hipArray_const_t srcArray, size_t wOffset, size_t hOffset, size_t count, hipMemcpyKind kind)</argsstring>
+        <name>hipMemcpyFromArray</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>hipArray_const_t</type>
+          <declname>srcArray</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>wOffset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>hOffset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>hipMemcpyKind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srcArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">woffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source starting X offset </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">hOffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source starting Y offset </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size in bytes to copy </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of transfer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1724" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga08c79ffadab96a69fa69ae8f677ef200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyAtoH</definition>
+        <argsstring>(void *dst, hipArray *srcArray, size_t srcOffset, size_t count)</argsstring>
+        <name>hipMemcpyAtoH</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>hipArray *</type>
+          <declname>srcArray</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>srcOffset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srcArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srcoffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset in bytes of source array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of memory copy in bytes </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1740" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gaf69322934ad387e4af4a9015d6b9b701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpyHtoA</definition>
+        <argsstring>(hipArray *dstArray, size_t dstOffset, const void *srcHost, size_t count)</argsstring>
+        <name>hipMemcpyHtoA</name>
+        <param>
+          <type>hipArray *</type>
+          <declname>dstArray</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dstOffset</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>srcHost</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dstArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory address </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dstOffset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset in bytes of destination array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">srcHost</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source host pointer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of memory copy in bytes </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1755" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga38facb98eb1ae8206376c3c48bf5c444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipMemcpy3D</definition>
+        <argsstring>(const struct hipMemcpy3DParms *p)</argsstring>
+        <name>hipMemcpy3D</name>
+        <param>
+          <type>const struct hipMemcpy3DParms *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Copies data between host and device. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>3D memory copy parameters </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidPitchValue, #hipErrorInvalidDevicePointer, #hipErrorInvalidMemcpyDirection</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___memory_1gac1a055d288302edd641c6d7416858e1e" kindref="member">hipMemcpy</ref>, <ref refid="group___memory_1gab08b0bd6cdbb57e79df40ef1cd0374e0" kindref="member">hipMemcpy2DToArray</ref>, <ref refid="group___memory_1ga8af4597ff0cd17247d8a857c4d8bfa8a" kindref="member">hipMemcpy2D</ref>, <ref refid="group___memory_1ga8c39c67c4ba098c6e6e116a9a4839a24" kindref="member">hipMemcpyFromArray</ref>, <ref refid="group___memory_1ga21dddb880b518c808f89b4a88da66625" kindref="member">hipMemcpyToSymbol</ref>, <ref refid="group___memory_1gab388b755a0ee2c86ca5e0c29391a584c" kindref="member">hipMemcpyAsync</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="1767" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><hruler/>
+ <hruler/>
+ </para>    </briefdescription>
+    <detaileddescription>
+<para>The following CUDA APIs are not currently supported:<itemizedlist>
+<listitem><para>cudaMalloc3D</para></listitem><listitem><para>cudaMalloc3DArray</para></listitem><listitem><para>TODO - more 2D, 3D, array APIs here. </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

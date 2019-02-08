@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___error" kind="group">
+    <compoundname>Error</compoundname>
+    <title>Error Handling</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___error_1ga533daeb9114d7fc2db8d867adf9e419b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipGetLastError</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipGetLastError</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return last error returned by any HIP runtime API call and resets the stored error code to #hipSuccess. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>return code from last HIP called from the active host thread</para></simplesect>
+Returns the last error that has been returned by any of the runtime calls in the same host thread, and then resets the saved error to #hipSuccess.</para><para><simplesect kind="see"><para><ref refid="group___error_1ga1421a2ee561f30d5b1dbed3ecb28b264" kindref="member">hipGetErrorString</ref>, <ref refid="group___error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, hipError_t </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="545" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___error_1ga1dd660bc739f7e13edd34615660f0148" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipPeekAtLastError</definition>
+        <argsstring>(void)</argsstring>
+        <name>hipPeekAtLastError</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return last error returned by any HIP runtime API call. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>#hipSuccess</para></simplesect>
+Returns the last error that has been returned by any of the runtime calls in the same host thread. Unlike hipGetLastError, this function does not reset the saved error code.</para><para><simplesect kind="see"><para><ref refid="group___error_1ga1421a2ee561f30d5b1dbed3ecb28b264" kindref="member">hipGetErrorString</ref>, <ref refid="group___error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, hipError_t </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="558" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___error_1ga88c474d77635523dbf6ca67be7b56999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* hipGetErrorName</definition>
+        <argsstring>(hipError_t hip_error)</argsstring>
+        <name>hipGetErrorName</name>
+        <param>
+          <type>hipError_t</type>
+          <declname>hip_error</declname>
+        </param>
+        <briefdescription>
+<para>Return name of the specified error code in text form. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hip_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error code to convert to name. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>const char pointer to the NULL-terminated error name</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___error_1ga1421a2ee561f30d5b1dbed3ecb28b264" kindref="member">hipGetErrorString</ref>, <ref refid="group___error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, hipError_t </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="569" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___error_1ga1421a2ee561f30d5b1dbed3ecb28b264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* hipGetErrorString</definition>
+        <argsstring>(hipError_t hipError)</argsstring>
+        <name>hipGetErrorString</name>
+        <param>
+          <type>hipError_t</type>
+          <declname>hipError</declname>
+        </param>
+        <briefdescription>
+<para>Return handy text string message to explain the error which occurred. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hipError</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error code to convert to string. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>const char pointer to the NULL-terminated error string</para></simplesect>
+<simplesect kind="warning"><para>: on HCC, this function returns the name of the error (same as hipGetErrorName)</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___error_1ga88c474d77635523dbf6ca67be7b56999" kindref="member">hipGetErrorName</ref>, <ref refid="group___error_1ga533daeb9114d7fc2db8d867adf9e419b" kindref="member">hipGetLastError</ref>, hipPeakAtLastError, hipError_t </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="582" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><hruler/>
+ <hruler/>
+ </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

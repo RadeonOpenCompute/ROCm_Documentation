@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structhip_func_attributes" kind="struct" language="C++" prot="public">
+    <compoundname>hipFuncAttributes</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhip_func_attributes_1a550579dd78e2ef9e4e5b85505204816c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::binaryVersion</definition>
+        <argsstring></argsstring>
+        <name>binaryVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="103" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1a30f1b4adc2aa71701da00612e0387b3a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::cacheModeCA</definition>
+        <argsstring></argsstring>
+        <name>cacheModeCA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="104" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1a62e76d8daab6cd981108c41f59656d78" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipFuncAttributes::constSizeBytes</definition>
+        <argsstring></argsstring>
+        <name>constSizeBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="105" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1af5db48867bb498015c28cd437647d46c" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipFuncAttributes::localSizeBytes</definition>
+        <argsstring></argsstring>
+        <name>localSizeBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="106" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1a9da2e3bdff78c6fd3386bafee505f8ee" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::maxDynamicSharedSizeBytes</definition>
+        <argsstring></argsstring>
+        <name>maxDynamicSharedSizeBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="107" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1af80c5b129055ae61e654cb924de4f8a8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::maxThreadsPerBlock</definition>
+        <argsstring></argsstring>
+        <name>maxThreadsPerBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="108" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1adb3e189b9e473ff0dd4d7642b28b2b7a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::numRegs</definition>
+        <argsstring></argsstring>
+        <name>numRegs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="109" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1a7cb8afa6f5947647942e550be885768a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::preferredShmemCarveout</definition>
+        <argsstring></argsstring>
+        <name>preferredShmemCarveout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="110" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1aa8e68f3ee074574871131b6247ba1606" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hipFuncAttributes::ptxVersion</definition>
+        <argsstring></argsstring>
+        <name>ptxVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="111" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhip_func_attributes_1a9cdeeb8fa11970a585eff67e1506dfe2" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hipFuncAttributes::sharedSizeBytes</definition>
+        <argsstring></argsstring>
+        <name>sharedSizeBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="112" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="102" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="102" bodyend="113"/>
+    <listofallmembers>
+      <member refid="structhip_func_attributes_1a550579dd78e2ef9e4e5b85505204816c" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>binaryVersion</name></member>
+      <member refid="structhip_func_attributes_1a30f1b4adc2aa71701da00612e0387b3a" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>cacheModeCA</name></member>
+      <member refid="structhip_func_attributes_1a62e76d8daab6cd981108c41f59656d78" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>constSizeBytes</name></member>
+      <member refid="structhip_func_attributes_1af5db48867bb498015c28cd437647d46c" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>localSizeBytes</name></member>
+      <member refid="structhip_func_attributes_1a9da2e3bdff78c6fd3386bafee505f8ee" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>maxDynamicSharedSizeBytes</name></member>
+      <member refid="structhip_func_attributes_1af80c5b129055ae61e654cb924de4f8a8" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>maxThreadsPerBlock</name></member>
+      <member refid="structhip_func_attributes_1adb3e189b9e473ff0dd4d7642b28b2b7a" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>numRegs</name></member>
+      <member refid="structhip_func_attributes_1a7cb8afa6f5947647942e550be885768a" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>preferredShmemCarveout</name></member>
+      <member refid="structhip_func_attributes_1aa8e68f3ee074574871131b6247ba1606" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>ptxVersion</name></member>
+      <member refid="structhip_func_attributes_1a9cdeeb8fa11970a585eff67e1506dfe2" prot="public" virt="non-virtual"><scope>hipFuncAttributes</scope><name>sharedSizeBytes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___stream" kind="group">
+    <compoundname>Stream</compoundname>
+    <title>Stream Management</title>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___stream_1ga6d4e90ec5736f9728102be22d0559dfd" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* hipStreamCallback_t) (hipStream_t stream, hipError_t status, void *userData)</definition>
+        <argsstring>)(hipStream_t stream, hipError_t status, void *userData)</argsstring>
+        <name>hipStreamCallback_t</name>
+        <briefdescription>
+<para>Stream CallBack struct. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="796" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="796" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamCreate</definition>
+        <argsstring>(hipStream_t *stream)</argsstring>
+        <name>hipStreamCreate</name>
+        <param>
+          <type>hipStream_t *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Create an asynchronous stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid pointer to hipStream_t. This function writes the memory with the newly created stream. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue</para></simplesect>
+Create a new asynchronous stream. <computeroutput>stream</computeroutput> returns an opaque handle that can be used to reference the newly created stream in subsequent hipStream* commands. The stream is allocated on the heap and will remain allocated even if the handle goes out-of-scope. To release the memory used by the stream, applicaiton must call hipStreamDestroy.</para><para><simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="617" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamCreateWithFlags</definition>
+        <argsstring>(hipStream_t *stream, unsigned int flags)</argsstring>
+        <name>hipStreamCreateWithFlags</name>
+        <param>
+          <type>hipStream_t *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Create an asynchronous stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to new stream </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to control stream creation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue</para></simplesect>
+Create a new asynchronous stream. <computeroutput>stream</computeroutput> returns an opaque handle that can be used to reference the newly created stream in subsequent hipStream* commands. The stream is allocated on the heap and will remain allocated even if the handle goes out-of-scope. To release the memory used by the stream, applicaiton must call hipStreamDestroy. Flags controls behavior of the stream. See <ref refid="group___global_defs_1ga6df5f70eb976836ab3598cacf0ffcdf9" kindref="member">hipStreamDefault</ref>, <ref refid="group___global_defs_1gaaba9ae995d9b43b7d1ee70c6fa12c57d" kindref="member">hipStreamNonBlocking</ref>.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="637" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamCreateWithPriority</definition>
+        <argsstring>(hipStream_t *stream, unsigned int flags, int priority)</argsstring>
+        <name>hipStreamCreateWithPriority</name>
+        <param>
+          <type>hipStream_t *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+<para>Create an asynchronous stream with the specified priority. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to new stream </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to control stream creation. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the stream. Lower numbers represent higher priorities. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue</para></simplesect>
+Create a new asynchronous stream with the specified priority. <computeroutput>stream</computeroutput> returns an opaque handle that can be used to reference the newly created stream in subsequent hipStream* commands. The stream is allocated on the heap and will remain allocated even if the handle goes out-of-scope. To release the memory used by the stream, applicaiton must call hipStreamDestroy. Flags controls behavior of the stream. See <ref refid="group___global_defs_1ga6df5f70eb976836ab3598cacf0ffcdf9" kindref="member">hipStreamDefault</ref>, <ref refid="group___global_defs_1gaaba9ae995d9b43b7d1ee70c6fa12c57d" kindref="member">hipStreamNonBlocking</ref>.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="658" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1ga2b0709fb23b273abec8ea223ebb362bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipDeviceGetStreamPriorityRange</definition>
+        <argsstring>(int *leastPriority, int *greatestPriority)</argsstring>
+        <name>hipDeviceGetStreamPriorityRange</name>
+        <param>
+          <type>int *</type>
+          <declname>leastPriority</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>greatestPriority</declname>
+        </param>
+        <briefdescription>
+<para>Returns numerical values that correspond to the least and greatest stream priority. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">leastPriority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer in which value corresponding to least priority is returned. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">greatestPriority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer in which value corresponding to greatest priority is returned.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Returns in *leastPriority and *greatestPriority the numerical values that correspond to the least and greatest stream priority respectively. Stream priorities follow a convention where lower numbers imply greater priorities. The range of meaningful stream priorities is given by [*greatestPriority, *leastPriority]. If the user attempts to create a stream with a priority value that is outside the the meaningful range as specified by this API, the priority is automatically clamped to within the valid range. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="675" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1ga3076a3499ed2c7821311006100bb95ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamDestroy</definition>
+        <argsstring>(hipStream_t stream)</argsstring>
+        <name>hipStreamDestroy</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Destroys the specified stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid pointer to hipStream_t. This function writes the memory with the newly created stream. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess #hipErrorInvalidResourceHandle</para></simplesect>
+Destroys the specified stream.</para><para>If commands are still executing on the specified stream, some may complete execution before the queue is deleted.</para><para>The queue may be destroyed while some commands are still inflight, or may wait for all commands queued to the stream before destroying it.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref>, <ref refid="group___stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" kindref="member">hipStreamQuery</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="696" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamQuery</definition>
+        <argsstring>(hipStream_t stream)</argsstring>
+        <name>hipStreamQuery</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Return #hipSuccess if all of the operations in the specified <computeroutput>stream</computeroutput> have completed, or #hipErrorNotReady if not. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to query</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorNotReady, #hipErrorInvalidResourceHandle</para></simplesect>
+This is thread-safe and returns a snapshot of the current state of the queue. However, if other host threads are sending work to the stream, the status may change immediately after the function is called. It is typically used for debug.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="714" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamSynchronize</definition>
+        <argsstring>(hipStream_t stream)</argsstring>
+        <name>hipStreamSynchronize</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Wait for all commands in stream to complete. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream identifier.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidResourceHandle</para></simplesect>
+This command is host-synchronous : the host will block until the specified stream is empty.</para><para>This command follows standard null-stream semantics. Specifically, specifying the null stream will cause the command to wait for other streams on the same device to complete all pending operations.</para><para>This command honors the hipDeviceLaunchBlocking flag, which controls whether the wait is active or blocking.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="736" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamWaitEvent</definition>
+        <argsstring>(hipStream_t stream, hipEvent_t event, unsigned int flags)</argsstring>
+        <name>hipStreamWaitEvent</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Make the specified compute stream wait for an event. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to make wait. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event to wait on </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>control operation [must be 0]</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidResourceHandle</para></simplesect>
+This function inserts a wait operation into the specified stream. All future work submitted to <computeroutput>stream</computeroutput> will wait until <computeroutput>event</computeroutput> reports completion before beginning execution.</para><para>This function only waits for commands in the current stream to complete. Notably,, this function does not impliciy wait for commands in the default stream to complete, even if the specified stream is created with hipStreamNonBlocking = 0.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="758" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1ga3249555a26439591b8873f70b39bb116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamGetFlags</definition>
+        <argsstring>(hipStream_t stream, unsigned int *flags)</argsstring>
+        <name>hipStreamGetFlags</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>unsigned int *</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Return flags associated with this stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to be queried </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an unsigned integer in which the stream&apos;s flags are returned </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidResourceHandle</para></simplesect>
+<simplesect kind="return"><para>#hipSuccess #hipErrorInvalidValue #hipErrorInvalidResourceHandle</para></simplesect>
+Return flags associated with this stream in *<computeroutput>flags</computeroutput>.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="774" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1gae5a0d1e66035b157149ec10f5c7952be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamGetPriority</definition>
+        <argsstring>(hipStream_t stream, int *priority)</argsstring>
+        <name>hipStreamGetPriority</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+<para>Query the priority of a stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream to be queried </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an unsigned integer in which the stream&apos;s priority is returned </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidResourceHandle</para></simplesect>
+<simplesect kind="return"><para>#hipSuccess #hipErrorInvalidValue #hipErrorInvalidResourceHandle</para></simplesect>
+Query the priority of a stream. The priority is returned in in priority.</para><para><simplesect kind="see"><para><ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="790" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___stream_1ga3e098cd7478828b2104abb41a7bb00d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipStreamAddCallback</definition>
+        <argsstring>(hipStream_t stream, hipStreamCallback_t callback, void *userData, unsigned int flags)</argsstring>
+        <name>hipStreamAddCallback</name>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="group___stream_1ga6d4e90ec5736f9728102be22d0559dfd" kindref="member">hipStreamCallback_t</ref></type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>userData</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Adds a callback to be called on the host after all currently enqueued items in the stream have completed. </para>        </briefdescription>
+        <detaileddescription>
+<para>For each cudaStreamAddCallback call, a callback will be executed exactly once. The callback will block later work in the stream until it is finished. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Stream to add callback to </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- The function to call once preceding stream operations are complete </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">userData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- User specified data to be passed to the callback function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Reserved for future use, must be 0 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidResourceHandle, #hipErrorNotSupported</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate</ref>, <ref refid="group___stream_1gaf2382e3cc6632332a8983a0f58e43494" kindref="member">hipStreamCreateWithFlags</ref>, <ref refid="group___stream_1ga925b39ff78d3b5fd458bd9e2cade9f4e" kindref="member">hipStreamQuery</ref>, <ref refid="group___stream_1gabbfb9f573a6ebe8c478605ecb5504a74" kindref="member">hipStreamSynchronize</ref>, <ref refid="group___stream_1gacdd84c8f8ef1539c96c57c1d5bcae633" kindref="member">hipStreamWaitEvent</ref>, <ref refid="group___stream_1ga3076a3499ed2c7821311006100bb95ec" kindref="member">hipStreamDestroy</ref>, <ref refid="group___stream_1gace005d8ea734fb66c995bd43dac3fd44" kindref="member">hipStreamCreateWithPriority</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="813" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><hruler/>
+ <hruler/>
+ </para>    </briefdescription>
+    <detaileddescription>
+<para>The following Stream APIs are not (yet) supported in HIP:<itemizedlist>
+<listitem><para>cudaStreamAttachMemAsync </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

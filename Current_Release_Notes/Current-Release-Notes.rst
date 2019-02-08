@@ -5,34 +5,14 @@
 Current Release Notes
 =====================
 
-New features and enhancements in ROCm 2.1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-RocTracer v1.0 preview release – 'rocprof' HSA runtime tracing and statistics support - 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-Supports HSA API tracing and HSA asynchronous GPU activity including kernels execution and memory copy
-
-Improvements to ROCM-SMI tool -
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Added support to show real-time PCIe bandwidth usage via the -b/--showbw flag
-
-DGEMM Optimizations -
-^^^^^^^^^^^^^^^^^^^^^^
-
-Improved DGEMM performance for large square and reduced matrix sizes (k=384, k=256)
-
-
 New features and enhancements in ROCm 2.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Features and enhancements introduced in previous versions of ROCm can be found in version_history.md
 
 Adds support for RHEL 7.6 / CentOS 7.6 and Ubuntu 18.04.1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adds support for Vega 7nm, Polaris 12 GPUs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adds support for Vega 7nm
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Introduces MIVisionX
 ^^^^^^^^^^^^^^^^^^^^^

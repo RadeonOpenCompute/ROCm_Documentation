@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___a_p_i" kind="group">
+    <compoundname>API</compoundname>
+    <title>HIP API</title>
+    <innergroup refid="group___device">Device Management</innergroup>
+    <innergroup refid="group___error">Error Handling</innergroup>
+    <innergroup refid="group___stream">Stream Management</innergroup>
+    <innergroup refid="group___event">Event Management</innergroup>
+    <innergroup refid="group___memory">Memory Management</innergroup>
+    <innergroup refid="group___peer_to_peer">Device Memory Access</innergroup>
+    <innergroup refid="group___driver">Initialization and Version</innergroup>
+    <innergroup refid="group___profiler">Control</innergroup>
+    <innergroup refid="group___clang">Launch API to support the triple-chevron syntax</innergroup>
+    <innergroup refid="group___h_c_c___specific">HCC-Specific Accessors</innergroup>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___a_p_i_1gafd8c80f7e3b6426a630fff768409be70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipIpcGetMemHandle</definition>
+        <argsstring>(hipIpcMemHandle_t *handle, void *devPtr)</argsstring>
+        <name>hipIpcGetMemHandle</name>
+        <param>
+          <type><ref refid="structhip_ipc_mem_handle__st" kindref="compound">hipIpcMemHandle_t</ref> *</type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>devPtr</declname>
+        </param>
+        <briefdescription>
+<para>Gets an interprocess memory handle for an existing device memory allocation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Takes a pointer to the base of an existing device memory allocation created with hipMalloc and exports it for use in another process. This is a lightweight operation and may be called multiple times on an allocation without adverse effects.</para><para>If a region of memory is freed with hipFree and a subsequent call to hipMalloc returns memory with the same device address, hipIpcGetMemHandle will return a unique handle for the new memory.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Pointer to user allocated hipIpcMemHandle to return the handle in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>devPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Base pointer to previously allocated device memory</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorInvalidResourceHandle, hipErrorMemoryAllocation, hipErrorMapBufferObjectFailed, </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2511" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1ga2ada334c986e10805d58167e260cb0df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipIpcOpenMemHandle</definition>
+        <argsstring>(void **devPtr, hipIpcMemHandle_t handle, unsigned int flags)</argsstring>
+        <name>hipIpcOpenMemHandle</name>
+        <param>
+          <type>void **</type>
+          <declname>devPtr</declname>
+        </param>
+        <param>
+          <type><ref refid="structhip_ipc_mem_handle__st" kindref="compound">hipIpcMemHandle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Opens an interprocess memory handle exported from another process and returns a device pointer usable in the local process. </para>        </briefdescription>
+        <detaileddescription>
+<para>Maps memory exported from another process with hipIpcGetMemHandle into the current device address space. For contexts on different devices hipIpcOpenMemHandle can attempt to enable peer access between the devices as if the user called hipDeviceEnablePeerAccess. This behavior is controlled by the hipIpcMemLazyEnablePeerAccess flag. hipDeviceCanAccessPeer can determine if a mapping is possible.</para><para>Contexts that may open hipIpcMemHandles are restricted in the following way. hipIpcMemHandles from each device in a given process may only be opened by one context per device per other process.</para><para>Memory returned from hipIpcOpenMemHandle must be freed with hipIpcCloseMemHandle.</para><para>Calling hipFree on an exported memory region before calling hipIpcCloseMemHandle in the importing context will result in undefined behavior.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>devPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Returned device pointer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- hipIpcMemHandle to open </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Flags for this operation. Must be specified as hipIpcMemLazyEnablePeerAccess</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorMapBufferObjectFailed, hipErrorInvalidResourceHandle, hipErrorTooManyPeers</para></simplesect>
+<simplesect kind="note"><para>No guarantees are made about the address returned in <computeroutput>*devPtr</computeroutput>. In particular, multiple processes may not receive the same address for the same <computeroutput>handle</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2549" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1gac2db0688a6a471e17ca631977e199da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipIpcCloseMemHandle</definition>
+        <argsstring>(void *devPtr)</argsstring>
+        <name>hipIpcCloseMemHandle</name>
+        <param>
+          <type>void *</type>
+          <declname>devPtr</declname>
+        </param>
+        <briefdescription>
+<para>Close memory mapped with hipIpcOpenMemHandle. </para>        </briefdescription>
+        <detaileddescription>
+<para>Unmaps memory returnd by hipIpcOpenMemHandle. The original allocation in the exporting process as well as imported mappings in other processes will be unaffected.</para><para>Any resources used to enable peer access will be freed if this is the last mapping using them.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>devPtr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Device pointer returned by hipIpcOpenMemHandle</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipErrorMapBufferObjectFailed, hipErrorInvalidResourceHandle, </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2569" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1ga31285b05f702fd1ba9e18521d66b46d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipRegisterApiCallback</definition>
+        <argsstring>(uint32_t id, void *fun, void *arg)</argsstring>
+        <name>hipRegisterApiCallback</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>fun</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Callback/Activity API. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2643" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1ga4ecde741bd062479038bfc1ce884832c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipRemoveApiCallback</definition>
+        <argsstring>(uint32_t id)</argsstring>
+        <name>hipRemoveApiCallback</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2644" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1gaf0c6d0fd1ca5dbd144d7944d98e5e471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipRegisterActivityCallback</definition>
+        <argsstring>(uint32_t id, void *fun, void *arg)</argsstring>
+        <name>hipRegisterActivityCallback</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>fun</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2645" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1gad0753126f1bdf30e248c7d4d84ddf5d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipRemoveActivityCallback</definition>
+        <argsstring>(uint32_t id)</argsstring>
+        <name>hipRemoveActivityCallback</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2646" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1ga4dbbdc8a31c0ed42a86455be5ace08fc" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char* hipApiName</definition>
+        <argsstring>(const uint32_t &amp;id)</argsstring>
+        <name>hipApiName</name>
+        <param>
+          <type>const uint32_t &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2647" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="2647" bodyend="2647"/>
+      </memberdef>
+      <memberdef kind="function" id="group___a_p_i_1gacafd2da53a5fcf5e00457dcbc0efb7d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* hipKernelNameRef</definition>
+        <argsstring>(hipFunction_t f)</argsstring>
+        <name>hipKernelNameRef</name>
+        <param>
+          <type>hipFunction_t</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2648" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Defines the HIP API. </para>    </briefdescription>
+    <detaileddescription>
+<para>See the individual sections for more information. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

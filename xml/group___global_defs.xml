@@ -1,0 +1,611 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___global_defs" kind="group">
+    <compoundname>GlobalDefs</compoundname>
+    <title>More</title>
+    <innerclass refid="structdim3" prot="public">dim3</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group___global_defs_1ga54cbbb7697c63cf9b13383b49819d500" prot="public" static="no">
+        <name>hipJitOption</name>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500adb9370990a4403b1e5e03724031b4ecb" prot="public">
+          <name>hipJitOptionMaxRegisters</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a5c9a55072a6f4ed3ca61604ef66a4a86" prot="public">
+          <name>hipJitOptionThreadsPerBlock</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a8ee4752e49439cb2fbecdf1dcc69871e" prot="public">
+          <name>hipJitOptionWallTime</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a144aa71e24aa20fb4162e9978d6c66d1" prot="public">
+          <name>hipJitOptionInfoLogBuffer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a9692ed236671843b99de1dbfc7aadb8f" prot="public">
+          <name>hipJitOptionInfoLogBufferSizeBytes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a160e81f3788646e12f4526027c4c8e77" prot="public">
+          <name>hipJitOptionErrorLogBuffer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a85c04bedf8aaf7a55628301a9672dd71" prot="public">
+          <name>hipJitOptionErrorLogBufferSizeBytes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a853499616f10eaa99df134371f0ed075" prot="public">
+          <name>hipJitOptionOptimizationLevel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500ab8e971a00aa557a668791e3403aafeca" prot="public">
+          <name>hipJitOptionTargetFromContext</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a4c83761657de80ef98f0a34d1d22f323" prot="public">
+          <name>hipJitOptionTarget</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500af0117529faba4b00c265add35d44c71c" prot="public">
+          <name>hipJitOptionFallbackStrategy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500accc9993c7598bdcbfe2c7738fc2dc2a6" prot="public">
+          <name>hipJitOptionGenerateDebugInfo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500ad42abb970a18154f23e359e097d5aa89" prot="public">
+          <name>hipJitOptionLogVerbose</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a75f073079cf61c48325633878532ab01" prot="public">
+          <name>hipJitOptionGenerateLineInfo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a03909311a4e24160a3b04796cddb5772" prot="public">
+          <name>hipJitOptionCacheMode</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500ae942560c8927000dc8933aff96f4ed9e" prot="public">
+          <name>hipJitOptionSm3xOpt</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a10b1271048a9a8adc55aebcfad56b5b2" prot="public">
+          <name>hipJitOptionFastCompile</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga54cbbb7697c63cf9b13383b49819d500a639edb73879171ee5c22ce54d7d5b1d5" prot="public">
+          <name>hipJitOptionNumOptions</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="196" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="196" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="enum" id="group___global_defs_1ga86e5c5692645963a9a673e1aa88ba6ca" prot="public" static="no">
+        <name>hipFuncCache_t</name>
+        <enumvalue id="group___global_defs_1gga86e5c5692645963a9a673e1aa88ba6caa0813fbaa008ce1231ff9fed3911eb3af" prot="public">
+          <name>hipFuncCachePreferNone</name>
+          <briefdescription>
+<para>no preference for shared memory or L1 (default) </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga86e5c5692645963a9a673e1aa88ba6caa9b34337dfbadba25ed2aa270bbcabc43" prot="public">
+          <name>hipFuncCachePreferShared</name>
+          <briefdescription>
+<para>prefer larger shared memory and smaller L1 cache </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga86e5c5692645963a9a673e1aa88ba6caa636a3c140db6b9d4a8bf7d5a61c398c5" prot="public">
+          <name>hipFuncCachePreferL1</name>
+          <briefdescription>
+<para>prefer larger L1 cache and smaller shared memory </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga86e5c5692645963a9a673e1aa88ba6caa0ddab0e840107634a152033103be44d7" prot="public">
+          <name>hipFuncCachePreferEqual</name>
+          <briefdescription>
+<para>prefer equal size L1 cache and shared memory </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>On AMD devices and some Nvidia devices, these hints and controls are ignored. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="221" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="221" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="enum" id="group___global_defs_1ga2e17b71d94ac350f2ccd914fd49d104e" prot="public" static="no">
+        <name>hipSharedMemConfig</name>
+        <enumvalue id="group___global_defs_1gga2e17b71d94ac350f2ccd914fd49d104eaf5b325c9b7bde878913f768eaba5014d" prot="public">
+          <name>hipSharedMemBankSizeDefault</name>
+          <briefdescription>
+<para>The compiler selects a device-specific value for the banking. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga2e17b71d94ac350f2ccd914fd49d104ea0a95a6e0c33106c42d66ab9476ff954a" prot="public">
+          <name>hipSharedMemBankSizeFourByte</name>
+          <briefdescription>
+<para>Shared mem is banked at 4-bytes intervals and performs best when adjacent threads access data 4 bytes apart. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___global_defs_1gga2e17b71d94ac350f2ccd914fd49d104ea64518b4f5a25f536c883330167e79258" prot="public">
+          <name>hipSharedMemBankSizeEightByte</name>
+          <briefdescription>
+<para>Shared mem is banked at 8-byte intervals and performs best when adjacent threads access data 4 bytes apart. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>On AMD devices and some Nvidia devices, these hints and controls are ignored. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="232" column="1" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="232" bodyend="238"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___global_defs_1ga0a2145bd05973b6fce0994dce37e13ce" prot="public" static="no">
+        <type>enum hipJitOption</type>
+        <definition>typedef enum hipJitOption  hipJitOption</definition>
+        <argsstring></argsstring>
+        <name>hipJitOption</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="215" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___global_defs_1ga7effbca2af70714feaa3330bf1a77a72" prot="public" static="no">
+        <type>enum <ref refid="group___global_defs_1ga86e5c5692645963a9a673e1aa88ba6ca" kindref="member">hipFuncCache_t</ref></type>
+        <definition>typedef enum hipFuncCache_t  hipFuncCache_t</definition>
+        <argsstring></argsstring>
+        <name>hipFuncCache_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>On AMD devices and some Nvidia devices, these hints and controls are ignored. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="226" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___global_defs_1ga6b1ca424fa26a5fb718937d662eaee7f" prot="public" static="no">
+        <type>enum <ref refid="group___global_defs_1ga2e17b71d94ac350f2ccd914fd49d104e" kindref="member">hipSharedMemConfig</ref></type>
+        <definition>typedef enum hipSharedMemConfig  hipSharedMemConfig</definition>
+        <argsstring></argsstring>
+        <name>hipSharedMemConfig</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>On AMD devices and some Nvidia devices, these hints and controls are ignored. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="238" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___global_defs_1gacb37281795c3567d0b10a61c056d512b" prot="public" static="no">
+        <type>struct <ref refid="structdim3" kindref="compound">dim3</ref></type>
+        <definition>typedef struct dim3  dim3</definition>
+        <argsstring></argsstring>
+        <name>dim3</name>
+        <briefdescription>
+<para>Struct for data in 3D. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="252" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___global_defs_1ga6df5f70eb976836ab3598cacf0ffcdf9" prot="public" static="no">
+        <name>hipStreamDefault</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>Flags that can be used with hipStreamCreateWithFlags. </para>        </briefdescription>
+        <detaileddescription>
+<para>Default stream creation flags. These are used with <ref refid="group___stream_1gaff5b62d6e9502d80879f7176f4d03102" kindref="member">hipStreamCreate()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="126" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gaaba9ae995d9b43b7d1ee70c6fa12c57d" prot="public" static="no">
+        <name>hipStreamNonBlocking</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+<para>Stream does not implicitly synchronize with null stream. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="128" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga122a5853359eba97cf047ddd153740f0" prot="public" static="no">
+        <name>hipEventDefault</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+<para>Flags that can be used with hipEventCreateWithFlags: </para>        </briefdescription>
+        <detaileddescription>
+<para>Default flags </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="132" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gafa1c076a5b991763a98695063f1ea11d" prot="public" static="no">
+        <name>hipEventBlockingSync</name>
+        <initializer>0x1</initializer>
+        <briefdescription>
+<para>Waiting will yield CPU. Power-friendly and usage-friendly but may increase latency. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="133" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga3c0f44a85e36a4c67671da6bcdad0351" prot="public" static="no">
+        <name>hipEventDisableTiming</name>
+        <initializer>0x2</initializer>
+        <briefdescription>
+<para>Disable event&apos;s capability to record timing information. May improve performance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="135" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga0f01d74059baa704e42aeff8222166bb" prot="public" static="no">
+        <name>hipEventInterprocess</name>
+        <initializer>0x4</initializer>
+        <briefdescription>
+<para>Event can support IPC. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>- not supported in HIP. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="137" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gae0909af811a68136a82c970d4e607133" prot="public" static="no">
+        <name>hipEventReleaseToDevice</name>
+        <initializer>0x40000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="138" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gab89a2c35618cc9e3e9e2308216c9fc45" prot="public" static="no">
+        <name>hipEventReleaseToSystem</name>
+        <initializer>0x80000000</initializer>
+        <briefdescription>
+<para>&lt; Use a device-scope release when recording this event. </para>        </briefdescription>
+        <detaileddescription>
+<para>This flag is useful to obtain more precise timings of commands between events. The flag is a no-op on CUDA platforms. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="142" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gad594ec51cb5b5e946c1e354bf80bddc7" prot="public" static="no">
+        <name>hipHostMallocDefault</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+<para>&lt; Use a system-scope release that when recording this event. </para>        </briefdescription>
+        <detaileddescription>
+<para>This flag is useful to make non-coherent host memory visible to the host. The flag is a no-op on CUDA platforms. Flags that can be used with hipHostMalloc </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="149" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga99b7c2b08a834b4736bfdc24893a6bc5" prot="public" static="no">
+        <name>hipHostMallocPortable</name>
+        <initializer>0x1</initializer>
+        <briefdescription>
+<para>Memory is considered allocated by all contexts. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="150" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gaf6e07be144bb1031bfcf9816335906cc" prot="public" static="no">
+        <name>hipHostMallocMapped</name>
+        <initializer>0x2</initializer>
+        <briefdescription>
+<para>Map the allocation into the address space for the current device. </para>        </briefdescription>
+        <detaileddescription>
+<para>The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="151" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga21beb95617644dbefaffaacdc0f0a35c" prot="public" static="no">
+        <name>hipHostMallocWriteCombined</name>
+        <initializer>0x4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="154" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gac726701ac143539b0893c506377f44ee" prot="public" static="no">
+        <name>hipHostMallocCoherent</name>
+        <initializer>0x40000000</initializer>
+        <briefdescription>
+<para>Allocate coherent memory. </para>        </briefdescription>
+        <detaileddescription>
+<para>Overrides HIP_COHERENT_HOST_ALLOC for specific allocation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="155" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gaeec0b563ac9d02f45ed02ceab771a472" prot="public" static="no">
+        <name>hipHostMallocNonCoherent</name>
+        <initializer>0x80000000</initializer>
+        <briefdescription>
+<para>Allocate non-coherent memory. </para>        </briefdescription>
+        <detaileddescription>
+<para>Overrides HIP_COHERENT_HOST_ALLOC for specific allocation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="158" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gac7c100d241ff84ad10109bb00b7b25dc" prot="public" static="no">
+        <name>hipHostRegisterDefault</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+<para>Flags that can be used with hipHostRegister. </para>        </briefdescription>
+        <detaileddescription>
+<para>Memory is Mapped and Portable </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="164" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga2db444f2315d412d3c7ba80ec6049583" prot="public" static="no">
+        <name>hipHostRegisterPortable</name>
+        <initializer>0x1</initializer>
+        <briefdescription>
+<para>Memory is considered registered by all contexts. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="165" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gacfa4edcfcb39fc61bff6bdecb14d7618" prot="public" static="no">
+        <name>hipHostRegisterMapped</name>
+        <initializer>0x2</initializer>
+        <briefdescription>
+<para>Map the allocation into the address space for the current device. </para>        </briefdescription>
+        <detaileddescription>
+<para>The device pointer can be obtained with <ref refid="group___memory_1ga8fa7a0478020b835a24785cd6bb89725" kindref="member">hipHostGetDevicePointer</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="166" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gaefa79f1b4481d6a1d1091c14b24f33d0" prot="public" static="no">
+        <name>hipHostRegisterIoMemory</name>
+        <initializer>0x4</initializer>
+        <briefdescription>
+<para>Not supported. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="169" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga9032d35eb7383948828ee48e1e19f5fd" prot="public" static="no">
+        <name>hipDeviceScheduleAuto</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+<para>Automatically select between Spin and Yield. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="172" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga713d962bafb7758dc1ff0675e4239453" prot="public" static="no">
+        <name>hipDeviceScheduleSpin</name>
+        <initializer>0x1</initializer>
+        <briefdescription>
+<para>Dedicate a CPU core to spin-wait. </para>        </briefdescription>
+        <detaileddescription>
+<para>Provides lowest latency, but burns a CPU core and may consume more power. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="173" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gaaf1e2706430c06601aa12a8af2a0ba5a" prot="public" static="no">
+        <name>hipDeviceScheduleYield</name>
+        <initializer>0x2</initializer>
+        <briefdescription>
+<para>Yield the CPU to the operating system when waiting. </para>        </briefdescription>
+        <detaileddescription>
+<para>May increase latency, but lowers power and is friendlier to other threads in the system. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="176" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gac9480926da806dfe7241e3c8fa0bd060" prot="public" static="no">
+        <name>hipDeviceScheduleBlockingSync</name>
+        <initializer>0x4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="179" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gad0ee225558955549785dc0bf37e53554" prot="public" static="no">
+        <name>hipDeviceScheduleMask</name>
+        <initializer>0x7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="180" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga0b7ffad8d7cfcbf9d3c863d30ef651ae" prot="public" static="no">
+        <name>hipDeviceMapHost</name>
+        <initializer>0x8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="182" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gad1c4f8c9fab30ce95f59e2cc404f4d96" prot="public" static="no">
+        <name>hipDeviceLmemResizeToMax</name>
+        <initializer>0x16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="183" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga2cae862086a89539b3cf6906a458190c" prot="public" static="no">
+        <name>hipArrayDefault</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>Default HIP array allocation flag. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="185" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga7b5573cd703c789c35edb588fb973588" prot="public" static="no">
+        <name>hipArrayLayered</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="186" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1gadb552c0ab451ab238fccd142e975a840" prot="public" static="no">
+        <name>hipArraySurfaceLoadStore</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="187" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga59685fdad42a844747214758c05f333c" prot="public" static="no">
+        <name>hipArrayCubemap</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="188" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___global_defs_1ga62bc9f85553dbe4eea819ae35f8baaac" prot="public" static="no">
+        <name>hipArrayTextureGather</name>
+        <initializer>0x08</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="189" column="9" bodyfile="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

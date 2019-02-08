@@ -37,122 +37,67 @@ AMD ROCm System Management Interface
 
 optional arguments:
 
-=================================== ===================================================================================
-  -h, --help                  		show this help message and exit
-  --load FILE                 		Load Clock, Fan, Performance and Profile settings from FILE
-  --save FILE                 		Save Clock, Fan, Performance and Profile settings to FILE
-=================================== ===================================================================================
+====================== ========================================================================
+  -h, --help                  show this help message and exit
+  --load FILE                 Load Clock, Fan, Performance and Profile settings from FILE
+  --save FILE                 Save Clock, Fan, Performance and Profile settings to FILE
+====================== ========================================================================
 
 
- -d DEVICE, --device DEVICE  	   Execute command on specified device
+ -d DEVICE, --device DEVICE  Execute command on specified device
 
-=================================== ===================================================================================
-  -i, --showid                		Show GPU ID
-  -v, --showvbios             		Show VBIOS version
-  --showhw                    		Show Hardware details
-  -t, --showtemp              		Show current temperature
-  -c, --showclocks            		Show current clock frequencies
-  -g, --showgpuclocks         		Show current GPU clock frequencies
-  -f, --showfan               		Show current fan speed
-  -p, --showperflevel         		Show current PowerPlay Performance Level
-  -P, --showpower             		Show current GPU ASIC power consumption
-  -o, --showoverdrive         		Show current OverDrive level
-  -m, --showmemoverdrive      		Show current GPU Memory Clock OverDrive level
-  -M, --showmaxpower          		Show maximum graphics package power this GPU will consume
-  -l, --showprofile           		Show Compute Profile attributes
-  -s, --showclkfrq            		Show supported GPU and Memory Clock
-  -u, --showuse               		Show current GPU use
-  -b, --showbw                		Show estimated PCIe use
-  -S, --showclkvolt           		Show supported GPU and Memory Clocks and Voltages
-  -a, --showallinfo           		Show all SMI-supported values values
+============================= ========================================================================
+  -i, --showid                Show GPU ID
+  -t, --showtemp              Show current temperature
+  -c, --showclocks            Show current clock frequencies
+  -g, --showgpuclocks         Show current GPU clock frequencies
+  -f, --showfan               Show current fan speed
+  -p, --showperflevel         Show current PowerPlay Performance Level
+  -P, --showpower             Show current GPU ASIC power consumption
+  -o, --showoverdrive         Show current OverDrive level
+  -l, --showprofile           Show Compute Profile attributes
+  -s, --showclkfrq            Show supported GPU and Memory Clock
+  -a, --showallinfo           Show all SMI-supported values values
 
-  -r, --resetclocks           		Reset clocks to default values
-  --setsclk LEVEL [LEVEL ...] 		Set GPU Clock Frequency Level Mask
-  --setmclk LEVEL [LEVEL ...] 		Set GPU Memory Clock Frequency Mask
-  --setpclk LEVEL [LEVEL ...]       	Set PCIE Clock Frequency Level(s) (requires manual Perf level)
-  --setslevel SCLKLEVEL SCLK SVOLT  	Change GPU Clock frequency (MHz) and Voltage (mV) for a specific Level
-  --setmlevel MCLKLEVEL MCLK MVOLT  	Change GPU Memory clock frequency (MHz) and Voltage for (mV) a specific Level
-  --resetfans                       	Reset fans to automatic (driver) control
-  --setfan LEVEL              		Set GPU Fan Speed Level
-  --setperflevel LEVEL        		Set PowerPlay Performance Level
-  --setoverdrive %            		Set GPU OverDrive level
-  --setmemoverdrive %               	Set GPU Memory Overclock OverDrive level (requires manual|high Perf level)
-  --setpoweroverdrive WATTS         	Set the maximum GPU power using Power OverDrive in Watts
-  --resetpoweroverdrive             	Set the maximum GPU power back to the device deafult state
-  --setprofile SETPROFILE           	Specify Power Profile level (#) or a quoted string of CUSTOM Profile
-                                    	attributes "# # # #..." (requires manual Perf level)
-  --resetprofile                    	Reset Power Profile back to default
+  -r, --resetclocks           Reset clocks to default values
+  --setsclk LEVEL [LEVEL ...] Set GPU Clock Frequency Level Mask
+  --setmclk LEVEL [LEVEL ...] Set GPU Memory Clock Frequency Mask
+  --setfan LEVEL              Set GPU Fan Speed Level
+  --setperflevel LEVEL        Set PowerPlay Performance Level
+  --setoverdrive %            Set GPU OverDrive level
+  --setprofile # # # # #      Specify Compute Profile attributes
+  --resetprofile              Reset Compute Profile
 
-  --autorespond RESPONSE            	Response to automatically provide for all prompts (NOT RECOMMENDED)
-
-  --loglevel ILEVEL                 	How much output will be printed for what program is doing, one of
-                                    	debug/info/warning/error/critical
-
-=================================== ===================================================================================
+  --autorespond RESPONSE      Response to automatically provide for all prompts (NOT RECOMMENDED)
+============================= ========================================================================
 
 **Detailed Option Descriptions**
 
 **--setsclk/--setmclk # [# # ...]:**  This allows you to set a mask for the levels. For example, if a GPU has 8 clock levels, you can set a mask to use levels 0, 5, 6 and 7 with --setsclk 0 5 6 7 . This will only use the base level, and the top 3 clock levels. This will allow you to keep the GPU at base level when there is no GPU load, and the top 3 levels when the GPU load increases.
 
-.. NOTES::
-    The clock levels will change dynamically based on GPU load based on the default
-    Compute and Graphics profiles. The thresholds and delays for a custom mask cannot
-    be controlled through the SMI tool
+.. NOTE::
+    The clock levels will change dynamically based on GPU load based on the default Compute and Graphics profiles. The thresholds and 	  delays for a custom mask cannot be controlled through the SMI tool
 
     This flag automatically sets the Performance Level to "manual" as the mask is not
     applied when the Performance level is set to auto
 
 **--setfan LEVEL:** This sets the fan speed to a value ranging from 0 to 255 (not from 0-100%).
-If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (maxlevel is usually 255, but is determined by the ASIC)
-.. NOTE::
-    While the hardware is usually capable of overriding this value when required, it is
-    recommended to not set the fan level lower than the default value for extended periods
-    of time
+
+.. NOTE:: 
+	While the hardware is usually capable of overriding this value when required, it is recommended to not set the fan level 	 lower than the default value for extended periods of time
 
 **--setperflevel LEVEL:** This lets you use the pre-defined Performance Level values, which can include: auto (Automatically change       	PowerPlay values based on GPU workload low (Keep PowerPlay values low, regardless of workload) high (Keep PowerPlay values high,    	regardless of workload) manual (Only use values defined in sysfs values)
 
-**--setoverdrive/--setmemoverdrive #:** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
+**--setoverdrive #:** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
 
-.. NOTES::
-    This option can be used in conjunction with the --setsclk mask
- 
-    Operating the GPU outside of specifications can cause irreparable damage to your hardware 
-    Please observe the warning displayed when using this option
+.. NOTE::
+    This option can be used in conjunction with the --setsclk mask Operating the GPU outside of specifications can cause irreparable 	 damage to your hardware Please observe the warning displayed when using this option
 
-    This flag automatically sets the clock to the highest level, as only the highest level is increased by the OverDrive value
-
-**--setpoweroverdrive/--resetpoweroverdrive #:** This allows users to change the maximum power available to a GPU package. The input value is in Watts. This limit is enforced by the hardware, and some cards allow users to set it to a higher value than the default that ships with the GPU. This Power OverDrive mode allows the GPU to run at higher frequencies for longer periods of time, though this may mean the GPU uses more power than it is allowed to use per power supply specifications. Each GPU has a model-specific maximum Power OverDrive that is will take; attempting to set a higher limit than that will cause this command to fail.
-
-.. NOTES::
-    Operating the GPU outside of specifications can cause irreparable damage to your hardware
-    Please observe the warning displayed when using this option
-
-**--setprofile SETPROFILE:** The Compute Profile accepts 1 or n parameters, either the Profile to select (see --showprofile for a list of preset Power Profiles) or a quoted string of values for the CUSTOM profile. NOTE: These values can vary based on the ASIC, and may include: SCLK_PROFILE_ENABLE - Whether or not to apply the 3 following SCLK settings (0=disable,1=enable) NOTE: This is a hidden field. If set to 0, the following 3 values are displayed as '-' SCLK_UP_HYST - Delay before sclk is increased (in milliseconds) SCLK_DOWN_HYST - Delay before sclk is decresed (in milliseconds) SCLK_ACTIVE_LEVEL - Workload required before sclk levels change (in %) MCLK_PROFILE_ENABLE - Whether or not to apply the 3 following MCLK settings (0=disable,1=enable) NOTE: This is a hidden field. If set to 0, the following 3 values are displayed as '-' MCLK_UP_HYST - Delay before mclk is increased (in milliseconds) MCLK_DOWN_HYST - Delay before mclk is decresed (in milliseconds) MCLK_ACTIVE_LEVEL - Workload required before mclk levels change (in %)
-
-    BUSY_SET_POINT       - Threshold for raw activity level before levels change
-    FPS                  - Frames Per Second
-    USE_RLC_BUSY         - When set to 1, DPM is switched up as long as RLC busy message is received
-    MIN_ACTIVE_LEVEL     - Workload required before levels change (in %)
+**--setprofile # # # # #:** The Compute Profile accepts 5 parameters, which are (in order): Minimum SCLK - Minimum GPU clock speed in MHz Minimum MCLK - Minimum GPU Memory clock speed in MHz Activity threshold - Workload required before clock levels change (%) Hysteresis Up - Delay before clock level is increased in milliseconds Hysteresis Down - Delay before clock level is decresed in milliseconds
 
 .. NOTE::
     When a compute queue is detected, these values will be automatically applied to the system
     Compute Power Profiles are only applied when the Performance Level is set to "auto"
-
-    The CUSTOM Power Profile is only applied when the Performance Level is set to "manual"
-    so using this flag will automatically set the performance level to "manual"
-
-    It is not possible to modify the non-CUSTOM Profiles. These are hard-coded by the kernel
-
--P, --showpower: Show Average Graphics Package power consumption
-
-"Graphics Package" refers to the GPU plus any HBM (High-Bandwidth memory) modules, if present
-
--M, --showmaxpower: Show the maximum Graphics Package power that the GPU will attempt to consume. This limit is enforced by the hardware.
-
---loglevel: This will allow the user to set a logging level for the SMI's actions. Currently this is only implemented for sysfs writes, but can easily be expanded upon in the future to log other things from the SMI
-
--b, --showbw: This shows an approximation of the number of bytes received and sent by the GPU over the last second through the PCIe bus. Note that this will not work for APUs since data for the GPU portion of the APU goes through the memory fabric and does not 'enter/exit' the chip via the PCIe interface, thus no accesses are generated, and the performance counters can't count accesses that are not generated. NOTE: It is not possible to easily grab the size of every packet that is transmitted in real time, so the kernel estimates the bandwidth by taking the maximum payload size (mps), which is the max size that a PCIe packet can be. and multiplies it by the number of packets received and sent. This means that the SMI will report the maximum estimated bandwidth, the actual usage could (and likely will be) less
-
 
 **Testing changes**
 
@@ -164,8 +109,7 @@ The test can run all flags for the SMI, or specific flags can be tested with the
 
 Any new functionality added to the SMI should have a corresponding test added to the test script.
 
-**Disclaimer**
-
+Disclaimer
 
 The information contained herein is for informational purposes only, and is subject to change without notice. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD's products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
 
@@ -832,7 +776,7 @@ Example2, fan divider setting, valid values 2, 4 and 8:
 	/* write v to register */
 
 *********
-Performance 
+ Performance 
 *********
 
 The pcie_bw sysfs file will report the usage of the PCIe bus over the last second, as a string with 3 integers: "bytes-received bytes-sent mps" . As there is no efficient way to calculate the size of each packet transmitted to and from the GPU in real time, the maximum payload size (mps), or the largest size of a PCIe packet, is included. The estimated bandwidth can then be calculated using by "bytes-received*mps + bytes-sent*mps" sed and multiplied by the number of packets received and sent.  

@@ -9,7 +9,7 @@ We are excited to announce the release of ROCm enabled TensorFlow v1.12 for AMD 
 
 Tensorflow Installation
 ***********************
-First, you’ll need to install the open-source ROCm 2.1 stack. Details can be found here: https://rocm.github.io/ROCmInstall.html 
+First, you’ll need to install the open-source ROCm 2.0 stack. Details can be found here: https://rocm.github.io/ROCmInstall.html 
 
 Then, install these other relevant ROCm packages:
 ::
@@ -51,7 +51,7 @@ Porting from cuDNN to MIOpen
 ****************************
 The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf>`_ highlights the key differences between the current cuDNN and MIOpen APIs.
 
-The ROCm 2.1 has prebuilt packages for MIOpen
+The ROCm 2.0 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
 
@@ -75,7 +75,7 @@ Building PyTorch for ROCm
 
 This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://rocm.github.io/ROCmInstall.html>`_ for supported operating systems and general information on the ROCm software stack.
 
-A ROCm install version 2.1 is required currently.
+A ROCm install version 2.0 is required currently.
 
 1. Install or update rocm-dev on the host system:
 
@@ -93,7 +93,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:rocm2.1
+  docker pull rocm/pytorch:rocm2.0
 
 3. Clone PyTorch repository on the host:
 
@@ -109,7 +109,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm2.1
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm2.0
 
 Note: This will mount your host home directory on /data in the container.
 
@@ -330,7 +330,7 @@ Follow instructions in README.md.
 
 Building Caffe2 for ROCm
 **************************
-This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-2.1s drivers installed. Please refer to ROCm install to install ROCm software stack. If your host system doesn't have docker installed, please refer to docker install. It is recommended to add the user to the docker group to run docker as a non-root user, please refer here.
+This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-2.0s drivers installed. Please refer to ROCm install to install ROCm software stack. If your host system doesn't have docker installed, please refer to docker install. It is recommended to add the user to the docker group to run docker as a non-root user, please refer here.
 
 This guide provides two options to run Caffe2.
     1. Launch the docker container using a docker image with Caffe2 installed.
@@ -344,7 +344,7 @@ This option provides a docker image which has Caffe2 installed. Users can launch
 
 ::
 
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/caffe2:238-2.1
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/caffe2:238-2.0
 
 This will automatically download the image if it does not exist on the host. You can also pass -v argument to mount any data directories on to the container.
 
@@ -362,7 +362,7 @@ Option 2: Install using Caffe2 ROCm docker image:
 
 ::
 
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/caffe2:unbuilt-238-2.1
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/caffe2:unbuilt-238-2.0
 
 3. Build Caffe2 from source
 

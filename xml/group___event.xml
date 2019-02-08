@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___event" kind="group">
+    <compoundname>Event</compoundname>
+    <title>Event Management</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventCreateWithFlags</definition>
+        <argsstring>(hipEvent_t *event, unsigned flags)</argsstring>
+        <name>hipEventCreateWithFlags</name>
+        <param>
+          <type>hipEvent_t *</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Create an event with the specified flags. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns the newly created event. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flags to control event behavior. Valid values are <ref refid="group___global_defs_1ga122a5853359eba97cf047ddd153740f0" kindref="member">hipEventDefault</ref>, <ref refid="group___global_defs_1gafa1c076a5b991763a98695063f1ea11d" kindref="member">hipEventBlockingSync</ref>, <ref refid="group___global_defs_1ga3c0f44a85e36a4c67671da6bcdad0351" kindref="member">hipEventDisableTiming</ref>, <ref refid="group___global_defs_1ga0f01d74059baa704e42aeff8222166bb" kindref="member">hipEventInterprocess</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<ref refid="group___global_defs_1ga122a5853359eba97cf047ddd153740f0" kindref="member">hipEventDefault</ref> : Default flag. The event will use active synchronization and will support timing. Blocking synchronization provides lowest possible latency at the expense of dedicating a CPU to poll on the eevent. <ref refid="group___global_defs_1gafa1c076a5b991763a98695063f1ea11d" kindref="member">hipEventBlockingSync</ref> : The event will use blocking synchronization : if hipEventSynchronize is called on this event, the thread will block until the event completes. This can increase latency for the synchroniation but can result in lower power and more resources for other CPU threads. <ref refid="group___global_defs_1ga3c0f44a85e36a4c67671da6bcdad0351" kindref="member">hipEventDisableTiming</ref> : Disable recording of timing information. On ROCM platform, timing information is always recorded and this flag has no performance benefit.</para><para><simplesect kind="warning"><para>On HCC platform, hipEventInterprocess support is under development. Use of this flag will return an error.</para></simplesect>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInitializationError, #hipErrorInvalidValue, #hipErrorLaunchFailure, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" kindref="member">hipEventCreate</ref>, <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize</ref>, <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy</ref>, <ref refid="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" kindref="member">hipEventElapsedTime</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="854" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventCreate</definition>
+        <argsstring>(hipEvent_t *event)</argsstring>
+        <name>hipEventCreate</name>
+        <param>
+          <type>hipEvent_t *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Create an event. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns the newly created event.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInitializationError, #hipErrorInvalidValue, #hipErrorLaunchFailure, #hipErrorMemoryAllocation</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" kindref="member">hipEventCreateWithFlags</ref>, <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord</ref>, <ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery</ref>, <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize</ref>, <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy</ref>, <ref refid="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" kindref="member">hipEventElapsedTime</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="868" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventRecord</definition>
+        <argsstring>(hipEvent_t event, hipStream_t stream)</argsstring>
+        <name>hipEventRecord</name>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>hipStream_t</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Record an event in the specified stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>event to record. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>stream in which to record event. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInitializationError, #hipErrorInvalidResourceHandle, #hipErrorLaunchFailure</para></simplesect>
+<ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery()</ref> or <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize()</ref> must be used to determine when the event transitions from &quot;recording&quot; (after <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref> is called) to &quot;recorded&quot; (when timestamps are set, if requested).</para><para>Events which are recorded in a non-NULL stream will transition to from recording to &quot;recorded&quot; state when they reach the head of the specified stream, after all previous commands in that stream have completed executing.</para><para>If <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref> has been previously called on this event, then this call will overwrite any existing state in event.</para><para>If this function is called on a an event that is currently being recorded, results are undefined<itemizedlist>
+<listitem><para>either outstanding recording may save state into the event, and the order is not guaranteed.</para></listitem></itemizedlist>
+</para><para><simplesect kind="see"><para><ref refid="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" kindref="member">hipEventCreate</ref>, <ref refid="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" kindref="member">hipEventCreateWithFlags</ref>, <ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery</ref>, <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize</ref>, <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy</ref>, <ref refid="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" kindref="member">hipEventElapsedTime</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="901" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventDestroy</definition>
+        <argsstring>(hipEvent_t event)</argsstring>
+        <name>hipEventDestroy</name>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Destroy the specified event. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to destroy. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInitializationError, #hipErrorInvalidValue, #hipErrorLaunchFailure</para></simplesect>
+Releases memory associated with the event. If the event is recording but has not completed recording when <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy()</ref> is called, the function will return immediately and the completion_future resources will be released later, when the hipDevice is synchronized.</para><para><simplesect kind="see"><para><ref refid="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" kindref="member">hipEventCreate</ref>, <ref refid="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" kindref="member">hipEventCreateWithFlags</ref>, <ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery</ref>, <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize</ref>, <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord</ref>, <ref refid="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" kindref="member">hipEventElapsedTime</ref></para></simplesect>
+<simplesect kind="return"><para>#hipSuccess </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="920" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventSynchronize</definition>
+        <argsstring>(hipEvent_t event)</argsstring>
+        <name>hipEventSynchronize</name>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Wait for an event to complete. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function will block until the event is ready, waiting for all previous work in the stream specified when event was recorded with <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref>.</para><para>If <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref> has not been called on <computeroutput>event</computeroutput>, this function returns immediately.</para><para>TODO-hcc - This function needs to support hipEventBlockingSync parameter.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event on which to wait. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorInitializationError, #hipErrorInvalidResourceHandle, #hipErrorLaunchFailure</para></simplesect>
+<simplesect kind="see"><para><ref refid="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" kindref="member">hipEventCreate</ref>, <ref refid="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" kindref="member">hipEventCreateWithFlags</ref>, <ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery</ref>, <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy</ref>, <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord</ref>, <ref refid="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" kindref="member">hipEventElapsedTime</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="940" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventElapsedTime</definition>
+        <argsstring>(float *ms, hipEvent_t start, hipEvent_t stop)</argsstring>
+        <name>hipEventElapsedTime</name>
+        <param>
+          <type>float *</type>
+          <declname>ms</declname>
+        </param>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>stop</declname>
+        </param>
+        <briefdescription>
+<para>Return the elapsed time between two events. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: Return time between start and stop in ms. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: Start event. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: Stop event. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorInvalidValue, #hipErrorNotReady, #hipErrorInvalidResourceHandle, #hipErrorInitializationError, #hipErrorLaunchFailure</para></simplesect>
+Computes the elapsed time between two events. Time is computed in ms, with a resolution of approximately 1 us.</para><para>Events which are recorded in a NULL stream will block until all commands on all other streams complete execution, and then record the timestamp.</para><para>Events which are recorded in a non-NULL stream will record their timestamp when they reach the head of the specified stream, after all previous commands in that stream have completed executing. Thus the time that the event recorded may be significantly after the host calls <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref>.</para><para>If <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref> has not been called on either event, then #hipErrorInvalidResourceHandle is returned. If <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref> has been called on both events, but the timestamp has not yet been recorded on one or both events (that is, <ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery()</ref> would return #hipErrorNotReady on at least one of the events), then #hipErrorNotReady is returned.</para><para><simplesect kind="see"><para><ref refid="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" kindref="member">hipEventCreate</ref>, <ref refid="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" kindref="member">hipEventCreateWithFlags</ref>, <ref refid="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" kindref="member">hipEventQuery</ref>, <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy</ref>, <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord</ref>, <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="971" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___event_1ga5d12d7b798b5ceb5932d1ac21f5ac776" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipEventQuery</definition>
+        <argsstring>(hipEvent_t event)</argsstring>
+        <name>hipEventQuery</name>
+        <param>
+          <type>hipEvent_t</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Query event status. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to query. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>#hipSuccess, #hipErrorNotReady, #hipErrorInvalidResourceHandle, #hipErrorInvalidValue, #hipErrorInitializationError, #hipErrorLaunchFailure</para></simplesect>
+Query the status of the specified event. This function will return #hipErrorNotReady if all commands in the appropriate stream (specified to <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref>) have completed. If that work has not completed, or if <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord()</ref> was not called on the event, then #hipSuccess is returned.</para><para><simplesect kind="see"><para><ref refid="group___event_1ga5df2309c9f29ca4c8e669db658d411b4" kindref="member">hipEventCreate</ref>, <ref refid="group___event_1gae86a5acb1b22b61bc9ecb9c28fc71b75" kindref="member">hipEventCreateWithFlags</ref>, <ref refid="group___event_1ga553b6f7a8e7b7dd9536d8a64c24d7e29" kindref="member">hipEventRecord</ref>, <ref refid="group___event_1ga83260357dce0c39e8c6a3c74ec97484c" kindref="member">hipEventDestroy</ref>, <ref refid="group___event_1ga1f72d98ba5d6f7dc3da54e0c41fe38b1" kindref="member">hipEventSynchronize</ref>, <ref refid="group___event_1gad4128b815cb475c8e13c7e66ff6250b7" kindref="member">hipEventElapsedTime</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="989" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><hruler/>
+ <hruler/>
+ </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

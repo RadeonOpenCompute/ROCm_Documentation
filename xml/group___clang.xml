@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group___clang" kind="group">
+    <compoundname>Clang</compoundname>
+    <title>Launch API to support the triple-chevron syntax</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___clang_1ga61aa3baf383168cc638e01d9e8d8f229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipConfigureCall</definition>
+        <argsstring>(dim3 gridDim, dim3 blockDim, size_t sharedMem __dparm(0), hipStream_t stream __dparm(0))</argsstring>
+        <name>hipConfigureCall</name>
+        <param>
+          <type><ref refid="structdim3" kindref="compound">dim3</ref></type>
+          <declname>gridDim</declname>
+        </param>
+        <param>
+          <type><ref refid="structdim3" kindref="compound">dim3</ref></type>
+          <declname>blockDim</declname>
+        </param>
+        <param>
+          <type>size_t sharedMem </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <param>
+          <type>hipStream_t stream </type>
+          <declname>__dparm</declname>
+          <array>0</array>
+        </param>
+        <briefdescription>
+<para>Configure a kernel launch. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">gridDim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>grid dimension specified as multiple of blockDim. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">blockDim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>block dimensions specified in work-items </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sharedMem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amount of dynamic shared memory to allocate for this kernel. The kernel can access this with HIP_DYNAMIC_SHARED. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream where the kernel should be dispatched. May be 0, in which case the default stream is used with associated synchronization rules.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipInvalidDevice, hipErrorNotInitialized, hipErrorInvalidValue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2598" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___clang_1ga047cff6205399540ebe31cdd11257c07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipSetupArgument</definition>
+        <argsstring>(const void *arg, size_t size, size_t offset)</argsstring>
+        <name>hipSetupArgument</name>
+        <param>
+          <type>const void *</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Set a kernel argument. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>hipSuccess, hipInvalidDevice, hipErrorNotInitialized, hipErrorInvalidValue</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer the argument in host memory. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the argument. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset of the argument on the argument stack. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2611" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___clang_1ga80f5f26fe76b213fbfd77e4fc9e04cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>hipError_t</type>
+        <definition>hipError_t hipLaunchByPtr</definition>
+        <argsstring>(const void *func)</argsstring>
+        <name>hipLaunchByPtr</name>
+        <param>
+          <type>const void *</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Launch a kernel. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Kernel to launch.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>hipSuccess, hipInvalidDevice, hipErrorNotInitialized, hipErrorInvalidValue </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h" line="2622" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><hruler/>
+ <hruler/>
+ </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
