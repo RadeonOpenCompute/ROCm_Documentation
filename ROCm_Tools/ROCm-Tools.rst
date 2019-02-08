@@ -644,10 +644,13 @@ The following shows the command-line usage of the 'rocprof' tool:
   --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
 
   --stats - generating kernel executino stats, file <output name>.stats.csv
+    Requires to set two options '--stats --timestamp on'
+    Will be simplified to just one option in the next release
   --hsa-trace - to trace HSA, generates API execution stats and JSON file viewable in chrome tracing
     Requires to set three options '--hsa-trace --stats --timestamp on'
     Will be simplified to just one option in the next release
     Generated files: <output name>.stats.csv <output name>.hsa_stats.txt <output name>.json
+    Can take some time to process large traces, will be optimized in the next release
 
   Configuration file:
   You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/evgeny:<package path>
