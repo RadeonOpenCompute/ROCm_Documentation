@@ -85,9 +85,9 @@ For HC source codes:
 Multiple ISA
 ###############
 HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways:
-**use :: ``--amdgpu-target=`` command line option**
+**use ``--amdgpu-target=`` command line option**
 
-It's possible to specify multiple ``--amdgpu-target=``option.
+It's possible to specify multiple `` --amdgpu-target= `` option.
 
 Example:
 

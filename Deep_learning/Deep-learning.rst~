@@ -405,11 +405,6 @@ To validate Caffe2 installation, run
 
   cd ~ && python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
 
-If the test fails, make sure the following environment variables are set. LD_LIBRARY_PATH=/pytorch/build_caffe2/lib
-::
-
-  PYTHONPATH=/pytorch/build_caffe2
-
 2. Running unit tests in Caffe2
 ::
 
