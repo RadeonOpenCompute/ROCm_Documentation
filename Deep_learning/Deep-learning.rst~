@@ -362,7 +362,7 @@ This option provides a docker image which has Caffe2 installed. Users can launch
 
 ::
 
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/caffe2:248-2.1
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm2.1_caffe2
 
 This will automatically download the image if it does not exist on the host. You can also pass -v argument to mount any data directories on to the container.
 
