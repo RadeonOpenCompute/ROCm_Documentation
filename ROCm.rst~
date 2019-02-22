@@ -175,6 +175,12 @@ Quick Start Guide
 | `Tensile <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/tensile.html#tensile>`_
 | This section provieds details on Tensile.It is a tool for creating a benchmark-driven backend library for GEMMs,N-dimensional tensor contractions and  multiplies two multi-dimensional objects together on a GPU..
 
+| `rocALUTION <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocalution>`_
+| This section provieds details on rocALUTION.It is a sparse linear algebra library with focus on exploring fine-grained parallelism, targeting modern processors and accelerators including multi/many-core CPU and GPU platforms. It can be seen as middle-ware between different parallel backends and application specific packages.
+
+| `rocSPARSE <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id38>`_
+| This section provieds details on rocSPARSE.It is a library that contains basic linear algebra subroutines for sparse matrices and vectors written in HiP for GPU devices. It is designed to be used from C and C++ code.
+
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
 ************************
 | `GCN Native ISA LLVM Code Generator <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#gcn-native-isa-llvm-code-generator>`_
