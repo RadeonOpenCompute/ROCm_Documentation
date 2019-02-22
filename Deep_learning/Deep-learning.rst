@@ -14,7 +14,7 @@ We are excited to announce the release of ROCm enabled TensorFlow v1.12 for AMD 
 
 Tensorflow Installation
 ***********************
-First, you’ll need to install the open-source ROCm 2.1 stack. Details can be found here: https://rocm.github.io/ROCmInstall.html 
+First, you’ll need to install the open-source ROCm 2.1 stack. Details can be found here: https://github.com/RadeonOpenCompute/ROCm
 
 Then, install these other relevant ROCm packages:
 ::
@@ -38,9 +38,9 @@ Please connect with us for any questions, our official github repository is here
 MIOpen
 *******
 
-ROCm MIOpen v1.6 Release
+ROCm MIOpen v1.7 Release
 *************************
-Announcing our new Foundation for Deep Learning acceleration MIOpen 1.6 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
+Announcing our new Foundation for Deep Learning acceleration MIOpen 1.7 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
 
 This release includes the following:
    * Training in fp16 (half precision) including mixed-precision is now fully supported
@@ -85,7 +85,7 @@ PyTorch
 Building PyTorch for ROCm
 **************************
 
-This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://rocm.github.io/ROCmInstall.html>`_ for supported operating systems and general information on the ROCm software stack.
+This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://github.com/RadeonOpenCompute/ROCm#supported-operating-systems---new-operating-systems-available>`_ for supported operating systems and general information on the ROCm software stack.
 
 A ROCm install version 2.1 is required currently.
 
