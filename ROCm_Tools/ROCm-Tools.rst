@@ -1,4 +1,4 @@
-
+﻿
 .. _ROCm-Tools:
 
 =====================
@@ -914,96 +914,12 @@ The ROCm-GDB is being revised to work with the ROCr Debug Agent to
 support debugging GPU kernels on Radeon Open Compute platforms (ROCm)
 and will be available in an upcoming release.
 
-ROCm-Profiler
+Radeon Compute Profiler
 ==============
-Overview
-********
+
 The Radeon Compute Profiler (RCP) is a performance analysis tool that gathers data from the API run-time and GPU for OpenCL™ and ROCm/HSA applications. This information can be used by developers to discover bottlenecks in the application and to find ways to optimize the application's performance.
 
-RCP was formerly delivered as part of CodeXL with the executable name "CodeXLGpuProfiler". Prior to its inclusion in CodeXL, it was known as "sprofile" and was part of the AMD APP Profiler product.
-
-A subset of RCP is (the portion that supports ROCm) is automatically installed with ROCm. Once ROCm is installed, the profiler will appear in the /opt/rocm/profiler directory.
-
-Major Features
-***************
-   * Measure the execution time of an OpenCL™ or ROCm/HSA kernel.
-   * Query the hardware performance counters on an AMD Radeon graphics card.
-   * Use the CXLActivityLogger API to trace and measure the execution of segments in the program.
-   * Display the IL/HSAIL and ISA (hardware disassembly) code of OpenCL™ kernels.
-   * Calculate kernel occupancy information, which estimates the number of in-flight wavefronts on a compute unit as a percentage of the theoretical maximum number of wavefronts that the compute unit can support.
-   * When used with CodeXL, all profiler data can be visualized in a user-friendly graphical user interface.
-
-What's New
-**********
-   * Version 5.5 (8/22/18)
-       * Adds support for additional GPUs, including Vega series GPUs
-       * ROCm/HSA: Support for ROCm 2.1
-       * Improves display of pointer parameters for some HSA APIs in the ATP file
-       * Fixes an issue with parsing an ATP file which has non-ascii characters (affected Summary page generation and display within 		 CodeXL)
-       * ROCm/HSA: Fixes several issues with incorrect or missing data transfer timestamps.
-
-System Requirements
-********************
-  * An AMD Radeon GCN-based GPU or APU
-  * Radeon Software Adrenaline Edition 18.8.1 or later (Driver Packaging Version 18.30 or later).
-      *  For Vega support, a driver with Driver Packaging Version 17.20 or later is required
-  * ROCm 2.1 See system requirements for ROCm: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html and https://rocm.github.io/hardware.html.
-  * Windows 7, 8.1, and 10
-      *  For Windows, the Visual C++ Redistributable for Visual Studio 2015 is required. It can be downloaded from https://www.microsoft.com/en-us/download/details.aspx?id=48145
-  * Ubuntu (16.04 and later) and RHEL (7 and later) distributions
-
-Cloning the Repository
-***********************
-To clone the RCP repository, execute the following git commands
-
-   * git clone https://github.com/GPUOpen-Tools/RCP.git
-
-After cloning the repository, please run the following python script to retrieve the required dependencies (see BUILD.md for more information):
-
-   * python Scripts/UpdateCommon.py
-
-UpdateCommon.py has replaced the use of git submodules in the CodeXL repository
-Source Code Directory Layout
-
-  * `Build <https://github.com/GPUOpen-Tools/RCP/tree/master/Build>`_ -- contains both Linux and Windows build-related files
-  * `Scripts <https://github.com/GPUOpen-Tools/RCP/tree/master/Scripts>`_-- scripts to use to clone/update dependent repositories
-  * `Src/CLCommon <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/CLCommon>`_ -- contains source code shared by the various OpenCL™ agents
-  * `Src/CLOccupancyAgent <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/CLOccupancyAgent>`_ -- contains source code for the OpenCL™ agent which collects kernel occupancy information
-  * `Src/CLProfileAgent <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/CLProfileAgent>`_ -- contains source code for the OpenCL™ agent which collects hardware performance counters
-  * `Src/CLTraceAgent <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/CLTraceAgent>`_ -- contains source code for the OpenCL™ agent which collects application trace information
-  * `Src/Common <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/Common>`_ -- contains source code shared by all of RCP
-  * `Src/DeviceInfo <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/DeviceInfo>`_ -- builds a lib containing the Common/Src/DeviceInfo code (Linux only)
-  * `Src/HSAFdnCommon <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/HSAFdnCommon>`_ -- contains source code shared by the various ROCm agents
-  * `Src/HSAFdnPMC <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/HSAFdnPMC>`_ -- contains source code for the ROCm agent which collects hardware performance counters
-  * `Src/HSAFdnTrace <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/HSAFdnTrace>`_ -- contains source code for the ROCm agent which collects application trace information
-  * `Src/HSAUtils <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/HSAUtils>`_ -- builds a lib containing the Common ROCm code (Linux only)
-  * `Src/MicroDLL <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/MicroDLL>`_ -- contains source code for API interception (Windows only)
-  * `Src/PreloadXInitThreads <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/PreloadXInitThreads>`_ -- contains source code for a library that call XInitThreads (Linux only)
-  * `Src/ProfileDataParser <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/ProfileDataParser>`_ -- contains source code for a library can be used to parse profiler output data files
-  * `Src/VersionInfo <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/VersionInfo>`_-- contains version info resource files
-  * `Src/sanalyze <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/sanalyze>`_ -- contains source code used to analyze and summarize profiler data
-  * `Src/sprofile <https://github.com/GPUOpen-Tools/RCP/tree/master/Src/sprofile>`_ -- contains source code for the main profiler executable
-
-Why version 5.x?
-******************
-Although the Radeon Compute Profiler is a newly-branded tool, the technology contained in it has been around for several years. RCP has its roots in the AMD APP Profiler product, which progressed from version 1.x to 3.x. Then the profiler was included in CodeXL, and the codebase was labelled as version 4.x. Now that RCP is being pulled out of CodeXL and into its own codebase again, we've bumped the version number up to 5.x.
-
-
-Related links
-*****************
-`ROCm Profiler blog post <http://gpuopen.com/getting-up-to-speed-with-the-codexl-gpu-profiler-and-radeon-open-compute/>`_
-
-Known Issues
-**************
-   * For the OpenCL™ Profiler
-       * Collecting Performance Counters for an OpenCL™ application is not currently working for Vega GPUs on Windows when using a 	    17.20-based driver. This is due to missing driver support in the 17.20 driver. Future driver versions should provide the 	 	 support needed.
-       * Collecting Performance Counters using --perfcounter for an OpenCL™ application when running OpenCL-on-ROCm is not suported 		 currently. The workaround is to profile using the ROCm profiler (using the --hsapmc command-line switch).
-   * For the ROCm Profiler
-       * API Trace and Perf Counter data may be truncated or missing if the application being profiled does not call hsa_shut_down
-       *  Kernel occupancy information will only be written to disk if the application being profiled calls hsa_shut_down
-       * When collecting a trace for an application that performs memory transfers using hsa_amd_memory_async_copy, if the 		 application asks for the data transfer timestamps directly, it will not get correct timestamps. The profiler will show the 		 correct timestamps, however.
-       * When collecting an aql packet trace, if the application asks for the kernel dispatch timestamps directly, it will not get 		 correct timestamps. The profiler will show the correct timestamps, however.
-       * When the rocm-profiler package (.deb or .rpm) is installed along with rocm, it may not be able to generate the default 	 single-pass counter files. If you do not see counter files in /opt/rocm/profiler/counterfiles, you can generate them 		 manually with this command: "sudo /opt/rocm/profiler/bin/CodeXLGpuProfiler --list --outputfile /opt/rocm/profiler/	  	   counterfiles/counters --maxpassperfile 1"
+Please see the `RCP GitHub repository <https://github.com/GPUOpen-Tools/RCP>`_ for more information.
 
 
 
@@ -1076,129 +992,16 @@ To build and run test
 
 CodeXL
 =========
-CodeXL is a comprehensive tool suite that enables developers to harness the benefits of CPUs, GPUs and APUs. It includes powerful GPU debugging, comprehensive GPU and CPU profiling, DirectX12® Frame Analysis, static OpenCL™, OpenGL®, Vulkan® and DirectX® kernel/shader analysis capabilities, and APU/CPU/GPU power profiling, enhancing accessibility for software developers to enter the era of heterogeneous computing. CodeXL is available both as a Visual Studio® extension and a standalone user interface application for Windows® and Linux®.
+CodeXL is a comprehensive tool suite that enables developers to harness the benefits of GPUs and APUs. It includes powerful GPU debugging, comprehensive GPU profiling, and static OpenCL™, OpenGL®, Vulkan® and DirectX® kernel/shader analysis capabilities, enhancing accessibility for software developers to enter the era of heterogeneous computing. CodeXL is available as a standalone user interface application for Windows® and Linux®.
 
-Motivation
-###########
-CodeXL, previously a tool developed as closed-source by Advanced Micro Devices, Inc., is now released as Open Source. AMD believes that adopting the open-source model and sharing the CodeXL source base with the world can help developers make better use of CodeXL and make CodeXL a better tool.
+Please see the `CodeXL GitHub repository <https://github.com/GPUOpen-Tools/CodeXL>`_ for more information.
 
-To encourage 3rd party contribution and adoption, CodeXL is no longer branded as an AMD product. AMD will still continue development of this tool and upload new versions and features to GPUOpen.
-
-Installation and Build
-########################
-
-Windows: To install CodeXL, use the `provided <https://github.com/GPUOpen-Tools/CodeXL/releases>`_ executable file CodeXL_*.exe
-Linux: To install CodeXL, use the `provided <https://github.com/GPUOpen-Tools/CodeXL/releases>`_ RPM file, Debian file, or simply extract the compressed archive onto your hard drive.
-Refer to BUILD.md for information on building CodeXL from source.
-
-Contributors
-############
-
-CodeXL's GitHub repository (http://github.com/GPUOpen-Tools/CodeXL) is moderated by Advanced Micro Devices, Inc. as part of the GPUOpen initiative.
-
-AMD encourages any and all contributors to submit changes, features, and bug fixes via Git pull requests to this repository.
-
-Users are also encouraged to submit issues and feature requests via the repository's issue tracker.
-
-License
-########
-CodeXL is part of the GPUOpen.com initiative. CodeXL source code and binaries are released under the following MIT license:
-
-Copyright © 2016 Advanced Micro Devices, Inc. All rights reserved.
-
-MIT LICENSE: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Attribution and Copyrights
-##########################
-Component licenses can be found under the CodeXL GitHub repository source root, in the /Setup/Legal/ folder.
-
-OpenCL is a trademark of Apple Inc. used by permission by Khronos. OpenGL is a registered trademark of Silicon Graphics, Inc. in the United States and/or other countries worldwide. Microsoft, Windows, DirectX and Visual Studio are registered trademarks of Microsoft Corporation in the United States and/or other jurisdictions. Vulkan is a registered trademark of Khronos Group Inc. in the United States and/or other jurisdictions. Linux is the registered trademark of Linus Torvalds in the United States and/or other jurisdictions.
-
-LGPL (Copyright ©1991, 1999 Free Software Foundation, Inc. 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA). Use of the Qt library is governed by the GNU Lesser General Public License version 2.1 (LGPL v 2.1). CodeXL uses QT 5.5.1. Source code for QT is available here: http://qt-project.org/downloads. The QT source code has not been tempered with and the built binaries are identical to what any user that downloads the source code from the web and builds them will produce.
-
-Boost is Copyright © Beman Dawes, 2003.
-[CR]LunarG, Inc. is Copyright © 2015 LunarG, Inc.
-jqPlot is copyright © 2009-2011 Chris Leonello.
-glew - The OpenGL Extension Wrangler Library is Copyright © 2002-2007, Milan Ikits <milan ikits[]ieee org>, Copyright © 2002-2007, Marcelo E. Magallon <mmagallo[]debian org>, Copyright © 2002, Lev Povalahev, All rights reserved.
-lgplib is Copyright © 1994-1998, Thomas G. Lane., Copyright © 1991-2013, Thomas G. Lane, Guido Vollbeding.
-LibDwarf (BSD) is Copyright © 2007 John Birrell (jb@freebsd.org), Copyright © 2010 Kai Wang, All rights reserved.
-libpng is Copyright © 1998-2014 Glenn Randers-Pehrson, (Version 0.96 Copyright © 1996, 1997 Andreas Dilger) (Version 0.88 Copyright © 1995, 1996 Guy Eric Schalnat, Group 42, Inc.).
-QScintilla is Copyright © 2005 by Riverbank Computing Limited info@riverbankcomputing.co.uk.
-TinyXML is released under the zlib license © 2000-2007, Lee Thomason, © 2002-2004, Yves Berquin © 2005, Tyge Lovset.
-UTF8cpp is Copyright © 2006 Nemanja Trifunovic.
-zlib is Copyright © 1995-2010 Jean-loup Gailly and Mark Adler, Copyright © 2003 Chris Anderson christop@charm.net, Copyright © 1998-2010 Gilles Vollant (minizip) ( http://www.winimage.com/zLibDll/minizip.html ), Copyright © 2009-2010 Mathias Svensson ( http://result42.com ), Copyright © 2007-2008 Even Rouault.
-QCustomPlot, an easy to use, modern plotting widget for Qt, Copyright (C) 2011-2015 Emanuel Eichhammer
-
-GPUperfAPI
+GPUPerfAPI
 ==============
 
-The GPU Performance API (GPUPerfAPI, or GPA) is a powerful library, providing access to GPU Performance Counters. It can help analyze the performance and execution characteristics of applications using a Radeon™ GPU. This library is used by both CodeXL and GPU PerfStudio.
+The GPU Performance API (GPUPerfAPI, or GPA) is a powerful library, providing access to GPU Performance Counters. It can help analyze the performance and execution characteristics of applications using a Radeon™ GPU. This library is used by Radeon Compute Profiler and CodeXL as well as several third-party tools.
 
-Major Features
-###############
-
-   * Provides a standard API for accessing GPU Performance counters for both graphics and compute workloads across multiple GPU APIs.
-   * Supports DirectX11, OpenGL, OpenGLES, OpenCL™, and ROCm/HSA
-   * Developer Preview for DirectX12 (no hardware-based performance counter support yet)
-   * Supports all current GCN-based Radeon graphics cards and APUs.
-   * Supports both Windows and Linux
-   * Provides derived "public" counters based on raw HW counters
-   * "Internal" version provides access to some raw hardware counters. See "Public" vs "Internal" Versions for more information.
-
-What's New
-##########
-    Version 2.23 (6/27/17)
-     * Add support for additional GPUs, including Vega series GPUs
-     * Allow unit tests to be built and run on Linux
-
-System Requirements
-#####################
-    * An AMD Radeon GCN-based GPU or APU
-    * Radeon Software Crimson ReLive Edition 17.4.3 or later (Driver Packaging Version 17.10 or later).
-       * For Vega support, a driver with Driver Packaging Version 17.20 or later is required
-    * Pre-GCN-based GPUs or APUs are no longer supported by GPUPerfAPI. Please use an older version (2.17) with older hardware.
-    * Windows 7, 8.1, and 10
-    * Ubuntu (16.04 and later) and RHEL (7 and later) distributions
-
-Cloning the Repository
-######################
-To clone the GPA repository, execute the following git commands
-
-  *  git clone https://github.com/GPUOpen-Tools/GPA.git After cloning the repository, please run the following python script to retrieve the 	  required dependencies (see BUILD.md for more information):
-  *  python Scripts/UpdateCommon.py UpdateCommon has replaced the use of git submodules in the GPA repository
-
-Source Code Directory Layout
-##############################
-   * `Build <https://github.com/GPUOpen-Tools/GPA/tree/master/Build>`_  -- contains both Linux and Windows build-related files
-   * `Common <https://github.com/GPUOpen-Tools/GPA/tree/master/Build>`_ -- Common libs, header and source code not found in other repositories
-   * `Doc <https://github.com/GPUOpen-Tools/GPA/tree/master/Doc>`_ -- contains User Guide and Doxygen configuration files
-   * `Src/DeviceInfo <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/DeviceInfo>`_ -- builds a lib containing the Common/Src/DeviceInfo code (Linux only)
-   * `Src/GPUPerfAPI-Common <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPI-Common>`_-- contains source code for a Common library shared by all versions of GPUPerfAPI
-   * `Src/GPUPerfAPICL <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPICL>`_ - contains the source for the OpenCL™ version of GPUPerfAPI
-   * `Src/GPUPerfAPICounterGenerator <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPICounterGenerator>`_ - contains the source code for a Common library providing all counter data
-   * `Src/GPUPerfAPICounters <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPICounters>`_ - contains the source code for a library that can be used to query counters without an active GPUPerfAPI context
-   * `Src/GPUPerfAPIDX <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIDX>`_ - contains source code shared by the DirectX versions of GPUPerfAPI
-   * `Src/GPUPerfAPIDX11 <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIDX11>`_ - contains the source for the DirectX11 version of GPUPerfAPI
-   * `Src/GPUPerfAPIDX12 <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIDX12>`_ - contains the source for the DirectX12 version of GPUPerfAPI (Developer Preview)
-   * `Src/GPUPerfAPIGL <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIGL>`_ - contains the source for the OpenGL version of GPUPerfAPI
-   * `Src/GPUPerfAPIGLES <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIGLES>`_  - contains the source for the OpenGLES version of GPUPerfAPI
-   * `Src/GPUPerfAPIHSA <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIHSA>`_ - contains the source for the ROCm/HSA version of GPUPerfAPI
-   * `Src/GPUPerfAPIUnitTests <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/GPUPerfAPIUnitTests>`_- contains a small set of unit tests for GPUPerfAPI
-   * `Src/PublicCounterCompiler <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/PublicCounterCompiler>`_ - source code for a tool to generate C++ code for public counters from text files defining the counters.
-   * `Src/PublicCounterCompilerInputFiles <https://github.com/GPUOpen-Tools/GPA/tree/master/Src/PublicCounterCompilerInputFiles>`_ - input files that can be fed as input to the PublicCounterCompiler tool
-   * `Scripts <https://github.com/GPUOpen-Tools/GPA/tree/master/Scripts>`_ -- scripts to use to clone/update dependent repositories
-
-Public" vs "Internal" Versions
-###############################
-This open source release supports building both the "Public" and "Internal" versions of GPUPerfAPI. By default the Visual Studio solution and the Linux build scripts will produce what is referred to as the "Public" version of GPUPerfAPI. This version exposes "Public", or "Derived", counters. These are counters that are computed using a set of hardware counters. Until now, only the Public the version of GPUPerfAPI was available on the AMD Developer website. As part of the open-source effort, we are also providing the ability to build the "Internal" versions of GPUPerfAPI. In addition to exposing the same counters as the Public version, the Internal version also exposes some of the hardware Counters available in the GPU/APU. It's important to note that not all hardware counters receive the same validation as other parts of the hardware on all GPUs, so in some cases accuracy of counter data cannot be guaranteed. The usage of the Internal version is identical to the Public version. The only difference will be in the name of the library an application loads at runtime and the list of counters exposed by the library. See the Build Instructions for more information on how to build and use the Internal version. In the future, we see there being only a single version of GPUPerfAPI, with perhaps a change in the API to allow users of GPA to indicate whether the library exposes just the Derived counters or both the Derived and the Hardware counters. We realize using the term "Internal" for something which is no longer actually Internal-to-AMD can be a bit confusing, and we will aim to change this in the future.
-
-Known Issues
-#############
-  *  The OpenCL™ version of GPUPerfAPI requires at least Driver Version 17.30.1071 for Vega GPUs on Windows. Earlier driver versions have      	    either missing or incomplete support for collecting OpenCL performance counters
+Please see the `GPA GitHub repository <https://github.com/GPUOpen-Tools/GPA>`_ for more information.
 
 ROCm Binary Utilities
 ======================
