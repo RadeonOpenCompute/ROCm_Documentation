@@ -383,7 +383,8 @@ INLINE_SIMPLE_STRUCTS  = NO
 # types are typedef'ed and only the typedef is referenced, never the tag name.
 # The default value is: NO.
 
-TYPEDEF_HIDES_STRUCT   = NO
+#No -> Yes for getting enum in rocBLAS
+TYPEDEF_HIDES_STRUCT   = YES
 
 # The size of the symbol lookup cache can be set using LOOKUP_CACHE_SIZE. This
 # cache is used to resolve symbols given their name and scope. Since this can be
@@ -773,7 +774,9 @@ WARN_LOGFILE           =
 #                         ../../src/
 #INPUT                  = ../../include/hip/hcc_detail/hip_runtime_api.h
 
-INPUT                  = ROCm_API_References/HIP/include/hip/hcc_detail/hip_runtime_api.h
+INPUT                  = Inputs/hip_runtime_api.h
+
+
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -799,9 +802,9 @@ FILE_PATTERNS          = *.h *.cpp
 # be searched for input files as well.
 # The default value is: NO.
 
-#RECURSIVE              = NO
+#YES -> NO for rocblas_handle to come along with Enums 
+RECURSIVE              = NO
 
-RECURSIVE              = YES
 # The EXCLUDE tag can be used to specify files and/or directories that should be
 # excluded from the INPUT source files. This way you can easily exclude a
 # subdirectory from a directory tree whose root is specified with the INPUT tag.
@@ -929,7 +932,6 @@ SOURCE_BROWSER         = NO
 # classes and enums directly into the documentation.
 # The default value is: NO.
 
-#INLINE_SOURCES         = NO
 INLINE_SOURCES         = YES
 
 # Setting the STRIP_CODE_COMMENTS tag to YES will instruct doxygen to hide any
@@ -1051,7 +1053,6 @@ IGNORE_PREFIX          =
 # If the GENERATE_HTML tag is set to YES, doxygen will generate HTML output
 # The default value is: YES.
 
-#GENERATE_HTML          = YES
 GENERATE_HTML          = NO
 
 # The HTML_OUTPUT tag is used to specify where the HTML docs will be put. If a
