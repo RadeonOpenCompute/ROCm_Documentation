@@ -455,8 +455,6 @@ Deep Learning Framework support for ROCm
 | Torch      | HIP         | Upstreaming    | Development    | https://github.com/ROCmSoftwarePlatform/cutorch_hip |
 |            |             |                | inProgress     |                                                     |
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
-| HIPnn      | Upstreaming | Development    |                | https://github.com/ROCmSoftwarePlatform/cunn_hip    |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
 | PyTorch    | Development | Development    |                |                                                     |
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
 | MxNet      | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/mxnet       |
