@@ -15,7 +15,7 @@ In this release, we enabled Tensorflow VERBS support, details in [TensorFlow Ver
 
 Tensorflow Installation
 ***********************
-First, you’ll need to install the open-source ROCm 2.1 stack. Details can be found here: https://github.com/RadeonOpenCompute/ROCm
+First, you’ll need to install the open-source ROCm 2.2 stack. Details can be found here: https://github.com/RadeonOpenCompute/ROCm
 
 Then, install these other relevant ROCm packages:
 ::
@@ -61,7 +61,7 @@ Porting from cuDNN to MIOpen
 ****************************
 The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf>`_ highlights the key differences between the current cuDNN and MIOpen APIs.
 
-The ROCm 2.1 has prebuilt packages for MIOpen
+The ROCm 2.2 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
 
@@ -88,7 +88,7 @@ Building PyTorch for ROCm
 
 This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://github.com/RadeonOpenCompute/ROCm#supported-operating-systems---new-operating-systems-available>`_ for supported operating systems and general information on the ROCm software stack.
 
-A ROCm install version 2.1 is required currently.
+A ROCm install version 2.2 is required currently.
 
 1. Install or update rocm-dev on the host system:
 
