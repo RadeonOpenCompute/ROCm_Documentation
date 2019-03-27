@@ -323,62 +323,63 @@ API
 This section provides details of the library API
 
 Types
-*******
+--------------
+
 Definitions
-````````````
+^^^^^^^^^^^^^^^^^^^^^^^
 
 rocblas_int
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_int
    :project: rocBLAS
 
 rocblas_long
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_long
    :project: rocBLAS
 
 rocblas_float_complex
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_float_complex
    :project: rocBLAS
 
 rocblas_double_complex
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_double_complex
    :project: rocBLAS
 
 rocblas_half
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_half
    :project: rocBLAS
 
 rocblas_half_complex
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_half_complex
    :project: rocBLAS
 
 rocblas_handle
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygentypedef:: rocblas_handle
    :project: rocBLAS
 
 
 Enums
-```````
+^^^^^^^^^^^^^^^^^^^^^^^
 Enumeration constants have numbering that is consistent with CBLAS, ACML and most standard C BLAS libraries.
 
 rocblas_operation
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_operation
    :project: rocBLAS
 
 rocblas_fill
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_fill
    :project: rocBLAS
 
 rocblas_diagonal
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_diagonal
    :project: rocBLAS
 
@@ -393,41 +394,41 @@ rocblas_status
    :project: rocBLAS
 
 rocblas_datatype
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_datatype
    :project: rocBLAS
 
 rocblas_pointer_mode
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_pointer_mode
    :project: rocBLAS
 
 rocblas_layer_mode
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_layer_mode
    :project: rocBLAS
 
 rocblas_gemm_algo
-^^^^^^^^^^^^^^^^^^
+**************************
 .. doxygenenum:: rocblas_gemm_algo
    :project: rocBLAS
 
 
 Functions
-*********
+--------------
 
 Level 1 BLAS
-```````````````
+^^^^^^^^^^^^^^^^^^^
 
 rocblas_<type>scal()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dscal
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_sscal
    :project: rocBLAS
 rocblas_<type>copy()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dcopy
    :project: rocBLAS
 
@@ -435,7 +436,7 @@ rocblas_<type>copy()
    :project: rocBLAS
 
 rocblas_<type>dot()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_ddot
    :project: rocBLAS
 
@@ -443,7 +444,7 @@ rocblas_<type>dot()
    :project: rocBLAS
 
 rocblas_<type>swap()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_sswap
    :project: rocBLAS
 
@@ -451,7 +452,7 @@ rocblas_<type>swap()
    :project: rocBLAS
 
 rocblas_<type>axpy()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_daxpy
    :project: rocBLAS
 
@@ -462,7 +463,7 @@ rocblas_<type>axpy()
    :project: rocBLAS
 
 rocblas_<type>asum()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dasum
    :project: rocBLAS
 
@@ -471,7 +472,7 @@ rocblas_<type>asum()
 
 
 rocblas_<type>nrm2()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dnrm2
    :project: rocBLAS
 
@@ -480,7 +481,7 @@ rocblas_<type>nrm2()
 
 
 rocblas_i<type>amax()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_idamax
    :project: rocBLAS
 
@@ -488,7 +489,7 @@ rocblas_i<type>amax()
    :project: rocBLAS
 
 rocblas_i<type>amin()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_idamin
    :project: rocBLAS
 
@@ -496,9 +497,10 @@ rocblas_i<type>amin()
    :project: rocBLAS
 
 Level 2 BLAS
-```````````````
+^^^^^^^^^^^^^^^^
+
 rocblas_<type>gemv()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dgemv
    :project: rocBLAS
 
@@ -506,7 +508,7 @@ rocblas_<type>gemv()
    :project: rocBLAS
 
 rocblas_<type>trsv()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dtrsv
    :project: rocBLAS
 
@@ -514,7 +516,7 @@ rocblas_<type>trsv()
    :project: rocBLAS
 
 rocblas_<type>ger()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dger
    :project: rocBLAS
 
@@ -522,7 +524,7 @@ rocblas_<type>ger()
    :project: rocBLAS
 
 rocblas_<type>syr()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dsyr
    :project: rocBLAS
 
@@ -530,9 +532,10 @@ rocblas_<type>syr()
    :project: rocBLAS
 
 Level 3 BLAS
-```````````````
+^^^^^^^^^^^^^^^^^^
+
 rocblas_<type>trtri_batched()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dtrtri_batched
    :project: rocBLAS
 
@@ -540,7 +543,7 @@ rocblas_<type>trtri_batched()
    :project: rocBLAS
 
 rocblas_<type>trsm()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dtrsm
    :project: rocBLAS
 
@@ -548,7 +551,7 @@ rocblas_<type>trsm()
    :project: rocBLAS
 
 rocblas_<type>gemm()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dgemm
    :project: rocBLAS
 
@@ -559,7 +562,7 @@ rocblas_<type>gemm()
    :project: rocBLAS
 
 rocblas_<type>gemm_strided_batched()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*************************************
 .. doxygenfunction:: rocblas_dgemm_strided_batched
    :project: rocBLAS
 
@@ -570,7 +573,7 @@ rocblas_<type>gemm_strided_batched()
    :project: rocBLAS
 
 rocblas_<type>gemm_kernel_name()
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**********************************
 .. doxygenfunction:: rocblas_dgemm_kernel_name
    :project: rocBLAS
 
@@ -581,7 +584,7 @@ rocblas_<type>gemm_kernel_name()
    :project: rocBLAS
 
 rocblas_<type>geam()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_dgeam
    :project: rocBLAS
 
@@ -589,88 +592,95 @@ rocblas_<type>geam()
    :project: rocBLAS
 
 BLAS Extensions
-``````````````````
+^^^^^^^^^^^^^^^^^^^^^
+
 rocblas_gemm_ex()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_gemm_ex
    :project: rocBLAS
 
 rocblas_gemm_strided_batched_ex()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_gemm_strided_batched_ex
    :project: rocBLAS
 
 Build Information
-```````````````````
+^^^^^^^^^^^^^^^^^^^^
 
 rocblas_get_version_string()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_get_version_string
    :project: rocBLAS
 
 Auxiliary
-````````````
+^^^^^^^^^^^^^^
 
 rocblas_pointer_to_mode()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_pointer_to_mode
    :project: rocBLAS
 
 rocblas_create_handle()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_create_handle
    :project: rocBLAS
 
 rocblas_destroy_handle()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_destroy_handle
    :project: rocBLAS
 
 rocblas_add_stream()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_add_stream
    :project: rocBLAS
 
 rocblas_set_stream()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_set_stream
    :project: rocBLAS
 
 rocblas_get_stream()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_get_stream
    :project: rocBLAS
 
 rocblas_set_pointer_mode()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_set_pointer_mode
    :project: rocBLAS
 
 rocblas_get_pointer_mode()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_get_pointer_mode
    :project: rocBLAS
 
 rocblas_set_vector()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_set_vector
    :project: rocBLAS
 
 rocblas_get_vector()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_get_vector
    :project: rocBLAS
 
 rocblas_set_matrix()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_set_matrix
    :project: rocBLAS
 
 rocblas_get_matrix()
-^^^^^^^^^^^^^^^^^^^^^^^
+***************************
 .. doxygenfunction:: rocblas_get_matrix
    :project: rocBLAS
 
+
+All API
+##############
+
+.. doxygenindex::
+   :project: rocBLAS
 
 
 ************
@@ -2697,7 +2707,7 @@ API
 This section provides details of the library API
 
 Host Utility Functions
-**********************
+--------------------------------
 .. doxygenfunction:: rocalution::allocate_host
    :project: rocALUTION
 
@@ -2709,7 +2719,7 @@ Host Utility Functions
    :project: rocALUTION
 
 Backend Manager
-***************
+--------------------------------
 .. doxygenfunction:: rocalution::init_rocalution
    :project: rocALUTION
 .. doxygenfunction:: rocalution::stop_rocalution
@@ -2732,7 +2742,7 @@ Backend Manager
    :project: rocALUTION
 
 Base Rocalution
-***************
+--------------------------------
 .. doxygenclass:: rocalution::BaseRocalution
    :project: rocALUTION
 .. doxygenfunction:: rocalution::BaseRocalution::MoveToAccelerator
@@ -2753,7 +2763,7 @@ Base Rocalution
    :project: rocALUTION
 
 Operator
-********
+--------------------------------
 .. doxygenclass:: rocalution::Operator
    :project: rocALUTION
 .. doxygenfunction:: rocalution::Operator::GetM
@@ -2784,7 +2794,7 @@ Operator
    :project: rocALUTION
 
 Vector
-******
+--------------------------------
 .. doxygenclass:: rocalution::Vector
    :project: rocALUTION
 .. doxygenfunction:: rocalution::Vector::GetSize
@@ -2879,7 +2889,7 @@ Vector
    :project: rocALUTION
 
 Local Matrix
-************
+--------------------------------
 .. doxygenclass:: rocalution::LocalMatrix
    :project: rocALUTION
 .. doxygenfunction:: rocalution::LocalMatrix::GetFormat
@@ -3127,7 +3137,7 @@ Local Stencil
    :project: rocALUTION
 
 Global Matrix
-*************
+--------------------------------
 .. doxygenclass:: rocalution::GlobalMatrix
    :project: rocALUTION
 .. doxygenfunction:: rocalution::GlobalMatrix::GlobalMatrix(const ParallelManager&)
@@ -3208,7 +3218,7 @@ Global Matrix
    :project: rocALUTION
 
 Local Vector
-************
+--------------------------------
 .. doxygenclass:: rocalution::LocalVector
    :project: rocALUTION
 .. doxygenfunction:: rocalution::LocalVector::Allocate
@@ -3253,7 +3263,7 @@ Local Vector
    :project: rocALUTION
 
 Global Vector
-*************
+--------------------------------
 .. doxygenclass:: rocalution::GlobalVector
    :project: rocALUTION
 .. doxygenfunction:: rocalution::GlobalVector::GlobalVector(const ParallelManager&)
@@ -3276,7 +3286,7 @@ Global Vector
    :project: rocALUTION
 
 Parallel Manager
-****************
+--------------------------------
 .. doxygenclass:: rocalution::ParallelManager
    :project: rocALUTION
 .. doxygenfunction:: rocalution::ParallelManager::SetMPICommunicator
@@ -3315,7 +3325,7 @@ Parallel Manager
    :project: rocALUTION
 
 Solvers
-*******
+--------------------------------
 .. doxygenclass:: rocalution::Solver
    :project: rocALUTION
 .. doxygenfunction:: rocalution::Solver::SetOperator
@@ -3396,7 +3406,7 @@ Iterative Linear Solvers
    :project: rocALUTION
 
 Krylov Subspace Solvers
------------------------
+********************************
 .. doxygenclass:: rocalution::BiCGStab
    :project: rocALUTION
 .. doxygenclass:: rocalution::BiCGStabl
@@ -3427,7 +3437,7 @@ Krylov Subspace Solvers
    :project: rocALUTION
 
 MultiGrid Solvers
------------------
+*********************
 .. doxygenclass:: rocalution::BaseMultiGrid
    :project: rocALUTION
 .. doxygenfunction:: rocalution::BaseMultiGrid::SetSolver
@@ -3529,7 +3539,7 @@ Direct Solvers
    :project: rocALUTION
 
 Preconditioners
-***************
+--------------------------------
 .. doxygenclass:: rocalution::Preconditioner
    :project: rocALUTION
 

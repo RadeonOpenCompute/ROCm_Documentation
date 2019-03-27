@@ -867,15 +867,19 @@ Known issues / workarounds
 Thrust
 ^^^^^^^
 functions zip_iterator.out and copy.out are not working as expected
+
 rocBLAS
 ^^^^^^^^
 tests quick_auxilliary.logging_float and quick_auxilliary.logging_double are not working as expected
+
 Tensor flow
 ^^^^^^^^^^^^
 observed memory access fault while running SAGAN tensor flow model in Polaris based ASIC
+
 PyTorch
 ^^^^^^^^
 observing “test_gamma_gpu_sample” subtest failure
+
 Kernel
 ^^^^^^^
 The 4.18 kernel is not supported on 2.2. This is planned to be supported with the 2.3 release

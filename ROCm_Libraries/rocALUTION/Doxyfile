@@ -707,6 +707,7 @@ LAYOUT_FILE            =
 # LATEX_BIB_STYLE. To use this feature you need bibtex and perl available in the
 # search path. See also \cite for info how to create references.
 
+#CITE_BIB_FILES         = source/references.bib
 CITE_BIB_FILES         = source/references.bib
 
 #---------------------------------------------------------------------------
