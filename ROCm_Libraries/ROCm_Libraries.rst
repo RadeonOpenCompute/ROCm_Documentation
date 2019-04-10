@@ -694,7 +694,7 @@ hipBLAS is a BLAS marshalling library, with multiple supported backends. It sits
 Installing pre-built packages
 #################################
 
-Download pre-built packages either from ROCm's package servers or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
+Download pre-built packages either from `ROCm's package servers <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_ or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
 ::
   sudo apt update && sudo apt install hipblas
 
@@ -709,11 +709,11 @@ The root of this repository has a helper bash script install.sh to build and ins
 
 **Manual build (all supported platforms)**
 
-If you use a distro other than Ubuntu, or would like more control over the build process, the hipblas build wiki has helpful information on how to configure cmake and manually build.
+If you use a distro other than Ubuntu, or would like more control over the build process, the `hipblas build wiki <https://github.com/ROCmSoftwarePlatform/hipBLAS/wiki/Build>`_ has helpful information on how to configure cmake and manually build.
 
 **Functions supported**
 
-A list of exported functions from hipblas can be found on the wiki
+A list of `exported functions <https://github.com/ROCmSoftwarePlatform/hipBLAS/wiki/Exported-functions>`_ from hipblas can be found on the wiki
 
 hipBLAS interface examples
 ######################################
@@ -775,11 +775,11 @@ Random number generator Mrg31k3p example:
 
 file: Randomarray.cpp
 
-#!c++
 
 ::
 
- 
+  #!c++
+  
   //This example is a simple random array generation and it compares host output with device output
   //Random number generator Mrg31k3p
   #include <stdio.h>
@@ -858,12 +858,12 @@ Installation
 
 The following are the steps to use the library
 
-  * ROCM 2.0 Kernel, Driver and Compiler Installation (if not done until now)
+  * ROCM 2.2 Kernel, Driver and Compiler Installation (if not done until now)
   * Library installation.
 
 **ROCM 2.2 Installation**
 
-To Know more about ROCM refer https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html
+To Know more about ROCM refer `here <https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html>`_
 
 **a. Installing Debian ROCM repositories**
 
@@ -921,7 +921,8 @@ Key Features
  * Multiple streams, created on the host and generates random numbers either on the host or on computing devices.
 
 
-**Prerequisites**
+Prerequisites
+#######################
 
 This section lists the known set of hardware and software requirements to build this library
 
@@ -965,6 +966,7 @@ This section lists the known set of hardware and software requirements to build 
  * liblapack-dev
  * graphicsmagick
  * libblas-dev
+
 
 Tested Environments
 #######################
