@@ -1,0 +1,17 @@
+.*
+!.gitignore
+*.o
+*.exe
+*.swp
+*.Po
+hip-amdinternal
+HIP-Examples
+lib
+packages
+build
+bin/hipInfo
+bin/hipBusBandwidth
+bin/hipDispatchLatency
+bin/hipify-clang
+
+samples/1_Utils/hipInfo/hipInfo

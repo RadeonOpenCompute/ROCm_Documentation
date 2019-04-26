@@ -1,0 +1,29 @@
+#!/bin/bash
+
+pushd () {
+    command pushd "$@" > /dev/null
+}
+
+popd () {
+    command popd "$@" > /dev/null
+}
+
+ROCMDIR=/opt/rocm
+ROCMLIBDIR=$ROCMDIR/lib
+HIPDIR=$ROCMDIR/hip
+HIPLIBDIR=$ROCMDIR/hip/lib
+
+# Remove soft-links to libraries
+HIPLIBFILES=$(ls -aF $HIPLIBDIR | grep -v [-/$])
+pushd $ROCMLIBDIR
+for f in $HIPLIBFILES
+do
+rm $(basename $f)
+done
+pushd cmake
+unlink hip
+popd
+rmdir --ignore-fail-on-non-empty cmake
+popd
+rmdir --ignore-fail-on-non-empty $ROCMLIBDIR
+
