@@ -34,7 +34,7 @@ If the hsakmt-roct and hsakmt-roct-dev packages are desired:
   make package
   make package-dev
 
-For Github repository link :  `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.2.0>`_
+For Github repository link :  `ROCT-Thunk-Interface <https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.3.0>`_
 
 Disclaimer
 ************

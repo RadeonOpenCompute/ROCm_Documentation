@@ -5,6 +5,72 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Mem usage per GPU
+^^^^^^^^^^^^^^^^^^^^^
+
+Per GPU memory usage is added to rocm-smi. Display information regarding used/total bytes for VRAM, visible VRAM and GTT, via the --showmeminfo flag
+
+MIVisionX, v1.1 - ONNX
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+ONNX parser changes to adjust to new file formats
+
+MIGraphX, v0.2
+^^^^^^^^^^^^^^^^^
+
+MIGraphX 0.2 supports the following new features:
+
+   * New Python API
+   * Support for additional ONNX operators and fixes that now enable a large set of Imagenet models
+   * Support for RNN Operators
+   * Support for multi-stream Execution
+   * [Experimental] Support for Tensorflow frozen protobuf files
+
+See: `Getting-started:-using-the-new-features-of-MIGraphX-0.2`_ for more details
+
+.. _Getting-started:-using-the-new-features-of-MIGraphX-0.2: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/wiki/Getting-started:-using-the-new-features-of-MIGraphX-0.2
+
+MIOpen, v1.8 - 3d convolutions and int8
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   * This release contains full 3-D convolution support and int8 support for inference.
+   * Additionally, there are major updates in the performance database for major models including those found in Torchvision.
+
+See: `MIOpen releases`_
+
+.. _MIOpen releases: https://github.com/ROCmSoftwarePlatform/MIOpen/releases
+
+Caffe2 - mGPU support
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Multi-gpu support is enabled for Caffe2.
+
+rocTracer library, ROCm tracing API for collecting runtimes API and asynchronous GPU activity traces
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+HIP/HCC domains support is introduced in rocTracer library.
+
+BLAS - Int8 GEMM performance, Int8 functional and performance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Introduces support and performance optimizations for Int8 GEMM, implements TRSV support, and includes improvements and optimizations with Tensile.
+
+Prioritized L1/L2/L3 BLAS (functional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Functional implementation of BLAS L1/L2/L3 functions
+
+BLAS - tensile optimization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Improvements and optimizations with tensile
+
+MIOpen Int8 support
+^^^^^^^^^^^^^^^^^^^^^
+Support for int8
+
 New features and enhancements in ROCm 2.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

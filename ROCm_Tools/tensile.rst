@@ -342,7 +342,7 @@ Compilers
       * Visual Studio 14 (2015). (VS 2012 may also be supported; c++11 should no longer be required by Tensile. Need to verify.)
       * GCC 4.8
  * For Tensile_BACKEND = HIP
-      * ROCM 2.2
+      * ROCM 2.3
 
  .. _Installation:
 
