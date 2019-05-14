@@ -685,7 +685,7 @@ Runtime to provide the following functionality:
    executing a ``s_trap 2`` instruction.
 -  Allows SIGINT (``ctrl c``) or SIGTERM (``kill -15``) to print
    wavefront state of aborted GPU dispatches.
--  It is enabled on Vega10 GPUs on ROCm2.3.
+-  It is enabled on Vega10 GPUs on ROCm2.4.
 
 Usage
 *****
@@ -708,7 +708,7 @@ different version set the LD_LIBRARY_PATH, for example:
 To display the machine code instructions of wavefronts, together with
 the source text location, the ROCr Debug Agent uses the llvm-objdump
 tool. Ensure that a version that supports AMD GCN GPUs is on your
-``$PATH``. For example, for ROCm 2.3:
+``$PATH``. For example, for ROCm 2.4:
 
 .. code:: sh
 

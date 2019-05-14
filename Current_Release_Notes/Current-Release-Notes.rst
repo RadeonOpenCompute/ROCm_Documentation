@@ -5,6 +5,23 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TensorFlow 2.0 support
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCm 2.4 includes the enhanced compilation toolchain and a set of bug fixes to support TensorFlow 2.0 features natively
+
+AMD Infinity Fabric™ Link enablement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCm 2.4 adds support to connect two Radeon Instinct MI60 or Radeon Instinct MI50 boards via AMD Infinity Fabric™ Link GPU interconnect technology.
+
+Features and enhancements introduced in previous versions of ROCm can be found in `version_history.md`_
+
+.. _version_history.md: https://github.com/RadeonOpenCompute/ROCm/blob/master/version_history.md
+
 New features and enhancements in ROCm 2.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
