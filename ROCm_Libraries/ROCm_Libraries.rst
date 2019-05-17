@@ -687,19 +687,22 @@ All API
 hipBLAS
 ************
 
+Introduction
+##############
+
 Please Refer here for Github link `hipBLAS <https://github.com/ROCmSoftwarePlatform/hipBLAS>`_
 
 hipBLAS is a BLAS marshalling library, with multiple supported backends. It sits between the application and a 'worker' BLAS library, marshalling inputs into the backend library and marshalling results back to the application. hipBLAS exports an interface that does not require the client to change, regardless of the chosen backend. Currently, hipBLAS supports :ref:`rocblas` and `cuBLAS <https://developer.nvidia.com/cublas>`_ as backends.
 
 Installing pre-built packages
-#################################
+-------------------------------
 
 Download pre-built packages either from `ROCm's package servers <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_ or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
 ::
   sudo apt update && sudo apt install hipblas
 
 Quickstart hipBLAS build
-#############################
+-------------------------------
 **Bash helper build script (Ubuntu only)**
 
 The root of this repository has a helper bash script install.sh to build and install hipBLAS on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install. A few commands in the script need sudo access, so it may prompt you for a password.
@@ -709,18 +712,18 @@ The root of this repository has a helper bash script install.sh to build and ins
 
 **Manual build (all supported platforms)**
 
-If you use a distro other than Ubuntu, or would like more control over the build process, the `hipblas build wiki <https://github.com/ROCmSoftwarePlatform/hipBLAS/wiki/Build>`_ has helpful information on how to configure cmake and manually build.
+If you use a distro other than Ubuntu, or would like more control over the build process, the `hipblas build <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#build>`_ has helpful information on how to configure cmake and manually build.
 
 **Functions supported**
 
 A list of `exported functions <https://github.com/ROCmSoftwarePlatform/hipBLAS/wiki/Exported-functions>`_ from hipblas can be found on the wiki
 
 hipBLAS interface examples
-######################################
+-------------------------------
 The hipBLAS interface is compatible with rocBLAS and cuBLAS-v2 APIs. Porting a CUDA application which originally calls the cuBLAS API to an application calling hipBLAS API should be relatively straightforward. For example, the hipBLAS SGEMV interface is
 
 GEMV API
-######################################
+-------------------------------
 ::
 
   hipblasStatus_t
@@ -732,7 +735,7 @@ GEMV API
                float *y, int incy );
 
 Batched and strided GEMM API
-######################################
+-------------------------------
 hipBLAS GEMM can process matrices in batches with regular strides. There are several permutations of these API's, the following is an example that takes everything
 
 :: 
@@ -748,8 +751,142 @@ hipBLAS GEMM can process matrices in batches with regular strides. There are sev
 
 hipBLAS assumes matrices A and vectors x, y are allocated in GPU memory space filled with data. Users are responsible for copying data from/to the host and device memory.
 
+Build
+########
+
+Dependencies For Building Library
+-------------------------------------
+
+**CMake 3.5 or later**
+
+The build infrastructure for hipBLAS is based on Cmake v3.5. This is the version of cmake available on ROCm supported platforms. If you are on a headless machine without the x-windows system, we recommend using **ccmake**; if you have access to X-windows, we recommend using **cmake-gui**.
+
+Install one-liners cmake:
+
+::
+
+  Ubuntu: sudo apt install cmake-qt-gui
+  Fedora: sudo dnf install cmake-gui
 
 
+Build Library Using Script (Ubuntu only)
+------------------------------------------
+
+The root of this repository has a helper bash script ``install.sh`` to build and install hipBLAS on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install. A few commands in the script need sudo access, so it may prompt you for a password.
+
+::
+
+  ./install.sh -h -- shows help
+  ./install.sh -id -- build library, build dependencies and install (-d flag only needs to be passed once on a system)
+
+
+Build Library Using Individual Commands
+------------------------------------------
+
+::
+
+  mkdir -p [HIPBLAS_BUILD_DIR]/release
+  cd [HIPBLAS_BUILD_DIR]/release
+  # Default install location is in /opt/rocm, define -DCMAKE_INSTALL_PREFIX=<path> to specify other
+  # Default build config is 'Release', define -DCMAKE_BUILD_TYPE=<config> to specify other
+  CXX=/opt/rocm/bin/hcc ccmake [HIPBLAS_SOURCE]
+  make -j$(nproc)
+  sudo make install # sudo required if installing into system directory such as /opt/rocm
+
+
+Build Library + Tests + Benchmarks + Samples Using Individual Commands
+-------------------------------------------------------------------------
+
+The repository contains source for clients that serve as samples, tests and benchmarks. Clients source can be found in the clients subdir.
+
+
+**Dependencies (only necessary for hipBLAS clients)**
+
+The hipBLAS samples have no external dependencies, but our unit test and benchmarking applications do. These clients introduce the following dependencies:
+
+#. boost
+#. lapack
+	* lapack itself brings a dependency on a fortran compiler
+#. googletest
+
+Linux distros typically have an easy installation mechanism for boost through the native package manager.
+
+::
+
+  Ubuntu: sudo apt install libboost-program-options-dev
+  Fedora: sudo dnf install boost-program-options
+
+Unfortunately, googletest and lapack are not as easy to install. Many distros do not provide a googletest package with pre-compiled libraries, and the lapack packages do not have the necessary cmake config files for cmake to configure linking the cblas library. hipBLAS provide a cmake script that builds the above dependencies from source. This is an optional step; users can provide their own builds of these dependencies and help cmake find them by setting the CMAKE_PREFIX_PATH definition. The following is a sequence of steps to build dependencies and install them to the cmake default /usr/local.
+
+
+**(optional, one time only)**
+
+::
+
+  mkdir -p [HIPBLAS_BUILD_DIR]/release/deps
+  cd [HIPBLAS_BUILD_DIR]/release/deps
+  ccmake -DBUILD_BOOST=OFF [HIPBLAS_SOURCE]/deps   # assuming boost is installed through package manager as above
+  make -j$(nproc) install
+
+Once dependencies are available on the system, it is possible to configure the clients to build. This requires a few extra cmake flags to the library cmake configure script. If the dependencies are not installed into system defaults (like /usr/local ), you should pass the CMAKE_PREFIX_PATH to cmake to help find them.
+
+``-DCMAKE_PREFIX_PATH="<semicolon separated paths>"``
+
+::
+
+  # Default install location is in /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to specify other
+  CXX=/opt/rocm/bin/hcc ccmake -DBUILD_CLIENTS_TESTS=ON -DBUILD_CLIENTS_BENCHMARKS=ON [HIPBLAS_SOURCE]
+  make -j$(nproc)
+  sudo make install   # sudo required if installing into system directory such as /opt/rocm
+
+Common build problems
+-----------------------
+
+    * **Issue:** HIP (/opt/rocm/hip) was built using hcc 1.0.xxx-xxx-xxx-xxx, but you are using /opt/rocm/hcc/hcc with version 1.0.yyy-yyy-yyy-yyy from hipcc. (version does not match) . Please rebuild HIP including cmake or update HCC_HOME variable.
+
+    **Solution:** Download HIP from github and use hcc to build from source and then use the build HIP instead of /opt/rocm/hip one or singly overwrite the new build HIP to this location.
+
+    * **Issue:** For Carrizo - HCC RUNTIME ERROR: Fail to find compatible kernel
+
+    **Solution:** Add the following to the cmake command when configuring: -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"
+
+    * **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Fail to find compatible kernel
+
+    **Solution:** export HCC_AMDGPU_TARGET=gfx900
+
+Running
+###########
+
+Notice
+-------
+
+Before reading this Wiki, it is assumed hipBLAS with the client applications has been successfully built as described in `Build hipBLAS libraries and verification code <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#build>`_
+
+**Samples**
+
+::
+
+  cd [BUILD_DIR]/clients/staging
+  ./example-sscal
+
+Example code that calls hipBLAS you can also see the following blog on the right side Example C code calling hipBLAS routine.
+
+
+**Unit tests**
+
+Run tests with the following:
+
+::
+
+  cd [BUILD_DIR]/clients/staging
+  ./hipblas-test
+
+To run specific tests, use --gtest_filter=match where match is a ':'-separated list of wildcard patterns (called the positive patterns) optionally followed by a '-' and another ':'-separated pattern list (called the negative patterns). For example, run gemv tests with the following:
+
+::
+
+  cd [BUILD_DIR]/clients/staging
+  ./hipblas-test --gtest_filter=*gemv*
 
 
 **********
@@ -2034,11 +2171,11 @@ Overview for creating a custom TensileLib backend library for your application:
     * `APIs`_ which call the fastest solution for a problem.
 
 .. _PyYAML and cmake dependency: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#dependencies
-.. _benchmark config.yaml: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-config
-.. _Run the benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-protocol
+.. _benchmark config.yaml: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-config-example
+.. _Run the benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
 .. _Tensile library: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#tensile-lib
 .. _HIP, OpenCL, or AMD GCN assembly: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#languages
-.. _kernels: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#kernel-parameters
+.. _kernels: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id43
 .. _APIs: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#tensile-lib
 
 Quick Example (Ubuntu):
@@ -2069,7 +2206,7 @@ Benchmark Config example
 
 Tensile uses an incremental and "programmable" `benchmarking protocol`_.
 
-.. _benchmarking protocol: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-protocol
+.. _benchmarking protocol: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
 
 Example Benchmark config.yaml as input file to Tensile
 -------------------------------------------------------
@@ -2148,7 +2285,7 @@ Top level data structure whose keys are **Parameters, BenchmarkProblems, Library
  * **LibraryLogic** contains a dictionary storing parameters for analyzing the benchmark data and designing how the backend library will select which Solution for certain ProblemSizes.
  * **LibraryClient** contains a dictionary storing parameters for actually creating the library and creating a client which calls into the library.
 
-.. _Benchmark Protocol: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-protocol
+.. _Benchmark Protocol: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
 
 Global Parameters
 -------------------
@@ -2202,7 +2339,7 @@ Solution / Kernel Parameters
 
 See: `Kernel Parameters`_.
 
-.. _Kernel Parameters: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#kernel-parameters
+.. _Kernel Parameters: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id43
 
 Defaults
 ----------
@@ -2342,7 +2479,7 @@ Benchmark Final Parameters
 
 After all the parameter benchmarking has been completed and the final list of fastest solution has been assembled, we can benchmark all the solution over a large set of ProblemSizes. This benchmark represent the final output of benchmarking; it outputs a .csv file where the rows are all the problem sizes and the columns are all the solutions. This is the information which gets analysed to produce the `library logic`_.
 
-.. _library logic: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#library-logic
+.. _library logic: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id46
 
 Contributing
 ##############
@@ -2582,8 +2719,8 @@ After running the `benchmark`_ and generating `library config files`_, you're re
 
 TODO: Where is the Tensile include directory?	
 
-.. _benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-protocol
-.. _library config files: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#library-logic
+.. _benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
+.. _library config files: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id46
 
 Versioning
 ###########
