@@ -1,8 +1,12 @@
 =======================
 ROCm Installation Guide
 =======================
-            
-Current ROCm Version: 2.4
+
+Are You Ready to ROCK?
+~~~~~~~~~~~~~~~~~~~~~~~~
+The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems. This software enables the high-performance operation of AMD GPUs for computation oriented tasks in the Linux operating system.
+                       
+Current ROCm Version: 2.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware Support
@@ -128,7 +132,7 @@ Not supported or limited support under ROCm
 Limited support
 '''''''''''''''
 
--  ROCm 2.4.x should support PCIe 2.0 enabled CPUs such as the AMD
+-  ROCm 2.5.x should support PCIe 2.0 enabled CPUs such as the AMD
    Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and older
    Intel Xeon and Intel Core Architecture and Pentium CPUs. However, we
    have done very limited testing on these configurations, since our
@@ -175,7 +179,7 @@ Not supported
 '''''''''''''''
 
 -  “Tonga”, “Iceland”, “Vega M”, and “Vega 12” GPUs are not supported in
-   ROCm 2.4.x
+   ROCm 2.5.x
 -  We do not support GFX8-class GPUs (Fiji, Polaris, etc.) on CPUs that
    do not have PCIe 3.0 with PCIe atomics.
 
@@ -184,7 +188,7 @@ Not supported
    -  Thunderbolt 1 and 2 enabled GPUs are not supported by GFX8 GPUs on
       ROCm. Thunderbolt 1 & 2 are based on PCIe 2.0.
 
-The latest ROCm platform - ROCm 2.4
+The latest ROCm platform - ROCm 2.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The latest supported version of the drivers, tools, libraries and source
@@ -248,56 +252,58 @@ following GitHub repositories:
    -  `MIOpenGEMM`_
    -  `MIOpen`_
    -  `HIP Thrust`_
+   -  `rocThrust`_
    -  `ROCm SMI Lib`_
    -  `RCCL`_
    -  `MIVisionX`_
    -  `CUB HIP`_
 
-.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.4.0
-.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/84443a1
-.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.4.0
+.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.5.0
+.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.5.0
+.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.5.0
 
-.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.4.0
+.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.5.0
 .. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/ac45c6e2
 .. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/d34b716a
-.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/fe64704a
+.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.5.0
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-2.4.0
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.4.0
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-2.4.0
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-2.5.0
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.5.0
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-2.5.0
 
-.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.4.0
-.. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.4.0
+.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.5.0
+.. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.5.0
 
-.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.4.0
-.. _ROCm LLVM HCC: http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.4.0
-.. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.4.0
-.. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.4.0
-.. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.4.0
+.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.5.0
+.. _ROCm LLVM HCC: http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.5.0
+.. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.5.0
+.. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.5.0
+.. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.5.0
 
-.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.4.0
+.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.5.0
 .. _Asynchronous Task and Memory Interface (ATMI): https://github.com/RadeonOpenCompute/atmi/tree/4dd14ad8
-.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.4.0
-.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.4.0
-.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.4.x
-.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-2.4.x
-.. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/a31fe682
+.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.5.0
+.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.5.0
+.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.5.x
+.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-2.5.x
+.. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
 
 .. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.4.0
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.5.0
 
-.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/master-rocm-2.4
-.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/master-rocm-2.4
-.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/master-rocm-2.4
-.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/master-rocm-2.4
-.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/master-rocm-2.4
-.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/master-rocm-2.4
-.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/master-rocm-2.4
+.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/master-rocm-2.5
+.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/master-rocm-2.5
+.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/master-rocm-2.5
+.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/master-rocm-2.5
+.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/master-rocm-2.5
+.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/master-rocm-2.5
+.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/master-rocm-2.5
 .. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/9547fb9e
 .. _MIOpen: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/9fb1826d
-.. _HIP Thrust: https://github.com/ROCmSoftwarePlatform/Thrust/tree/master-rocm-2.4
-.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.4.0
-.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/master-rocm-2.4
+.. _HIP Thrust: https://github.com/ROCmSoftwarePlatform/Thrust/tree/master-rocm-2.5
+.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/master-rocm-2.5
+.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.5.0
+.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/master-rocm-2.5
 .. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/f05574dc
 .. _CUB HIP: https://github.com/ROCmSoftwarePlatform/cub-hip/tree/hip_port_1.7.4
 
@@ -305,7 +311,7 @@ following GitHub repositories:
 Supported Operating Systems - New operating systems available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROCm 2.4.x platform supports the following operating systems:
+The ROCm 2.5.x platform supports the following operating systems:
 
 -  Ubuntu 16.04.x and 18.04.1 and 18.04.2 (Version 16.04.3 and newer or kernels 4.13-4.15)
 -  CentOS 7.4, 7.5, and 7.6 (Using devtoolset-7 runtime support)
@@ -363,7 +369,7 @@ consideration:
 Installing from AMD ROCm repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD hosts both `Debian`_ and `RPM`_ repositories for the ROCm 2.4.x
+AMD hosts both `Debian`_ and `RPM`_ repositories for the ROCm 2.5.x
 packages at this time.
 
 The packages in the Debian repository have been signed to ensure package
@@ -883,18 +889,21 @@ installing ``rocm-dkms``
 Known issues / workarounds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MIOpen
-^^^^^^^^^^^^
-
-MIOpen unit test will fail at test_conv with the following error message – Memory access fault by GPU node-2 (Agent handle: 0x1fc0a10) on address 0x7fd3c3600000. Reason: Page not present or supervisor privilege
-
 Tensor flow
 ^^^^^^^^^^^^
 Observed memory access fault while running SAGAN TensorFlow model in Polaris based ASIC
 
-Vega7nm
-^^^^^^^^^^^^
-GPU reset is not currently supported with boards connected with AMD Infinity Fabric™ Link GPU interconnect technology.
+Radeon Instinct MI50, MI60
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+PU reset is not currently supported on Radeon Instinct MI50, MI60, in single card configurations or with boards connected with AMD Infinity Fabric&#x2122; Link GPU interconnect technology.  Workaround is too reboot the system.
+
+Gromacs
+^^^^^^^
+There are known failures with a few tests on  Gromacs on CentOS
+
+HIP sample
+^^^^^^^^^^^
+HIP sample test fails at module_api_global with a segmentation fault
 
 Closed source components
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -948,7 +957,7 @@ below.
 
    mkdir -p ~/ROCm/
    cd ~/ROCm/
-   ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-2.4.0
+   ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-2.5.0
    repo sync
 
 This will cause repo to download all of the open source code associated
