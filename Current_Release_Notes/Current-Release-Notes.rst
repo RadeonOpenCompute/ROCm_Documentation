@@ -42,7 +42,9 @@ This release includes performance optimizations for csrsv routines in the rocSpa
 
 Preview release for early adopters. rocThrust is a port of thrust, a parallel algorithm library. Thrust has been ported to the HIP/ROCm platform to use the rocPRIM library. The HIP ported library works on HIP/ROCm platforms.
 
-Note: This library will replace `https://github.com/ROCmSoftwarePlatform/thrust`_ in a future release. The package for rocThrust (this library) currently conflicts with version 2.5 package of thrust. They should not be installed together.
+Note: This library will replace `thrust`_ in a future release. The package for rocThrust (this library) currently conflicts with version 2.5 package of thrust. They should not be installed together.
+
+.. _thrust: https://github.com/ROCmSoftwarePlatform/thrust
 
 Support overlapping kernel execution in same HIP stream
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,9 +74,6 @@ AMD Infinity Fabric™ Link enablement
 
 ROCm 2.4 adds support to connect two Radeon Instinct MI60 or Radeon Instinct MI50 boards via AMD Infinity Fabric™ Link GPU interconnect technology.
 
-Features and enhancements introduced in previous versions of ROCm can be found in `version_history.md`_
-
-.. _version_history.md: https://github.com/RadeonOpenCompute/ROCm/blob/master/version_history.md
 
 New features and enhancements in ROCm 2.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
