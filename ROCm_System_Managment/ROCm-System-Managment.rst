@@ -176,8 +176,8 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
 
 --showrasinfo: This shows the RAS information for a given block. This includes enablement of the block (currently GFX, SDMA and UMC are the only supported blocks) and the number of errors ue - Uncorrectable errors ce - Correctable errors
 
-Clock Type Descriptions
-^^^^^^^^^^^^^^^^^^^^^^^^
+**Clock Type Descriptions**
+
 
 DCEFCLK - DCE (Display) FCLK - Data fabric (VG20 and later) - Data flow from XGMI, Memory, PCIe SCLK - GFXCLK (Graphics core) 
 
@@ -198,8 +198,8 @@ SOCCLK - System clock (VG10 and later)- Data Fabric  (DF), MM HUB, AT HUB, SYSTE
 
 ---showdriverversion: This flag will print out the AMDGPU module version for amdgpu-pro or ROCK kernels. For other kernels, it will simply print out the name of the kernel (uname)
 
-OverDrive settings
-^^^^^^^^^^^^^^^^^^^
+**OverDrive settings**
+
 
 For OverDrive functionality, the OverDrive bit (bit 14) must be enabled (by default, the OverDrive bit is disabled on the ROCK and upstream kernels). This can be done by setting amdgpu.ppfeaturemask accordingly in the kernel parameters, or by changing the default value inside amdgpu_drv.c (if building your own kernel).
 

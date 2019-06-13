@@ -2736,6 +2736,7 @@ Tensile follows semantic versioning practices, i.e. Major.Minor.Patch, in Benchm
 * **Minor:** Tensile increments the minor version when new kernel, solution or benchmarking features are introduced in a backwards-compatible manner.
 * **Patch:** Bug fixes or minor improvements.
 
+
 ************
 rocThrust
 ************
@@ -2814,9 +2815,7 @@ For build and install:
 Using rocThrust In A Project
 #############################
 
-Recommended way of including rocThrust into a CMake project is by using its package configuration files:
-
-::
+Recommended way of including rocThrust into a CMake project is by using its package configuration files.
 
 # On ROCm rocThrust requires rocPRIM
 find_package(rocprim REQUIRED CONFIG PATHS "/opt/rocm/rocprim")
@@ -2831,8 +2830,6 @@ target_link_libraries(<your_target> rocthrust)
 Running Unit Tests
 ####################
 
-::
-
 # Go to rocThrust build directory
 cd rocThrust; cd build
 
@@ -2844,8 +2841,6 @@ ctest
 
 Documentation
 ###############
-
-::
 
 # go to rocThrust doc directory
 cd rocThrust
