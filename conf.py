@@ -79,7 +79,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ReadTheDocs-Breathe'
+project = 'ROCm Documentation'
 copyright = '2014, Thomas Edvalson'
 
 # The version info for the project you're documenting, acts as replacement for
