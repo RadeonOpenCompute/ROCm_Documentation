@@ -130,7 +130,7 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
 
 **--setperflevel LEVEL:** This lets you use the pre-defined Performance Level values, which can include: auto (Automatically change       	PowerPlay values based on GPU workload) low (Keep PowerPlay values low, regardless of workload) high (Keep PowerPlay values high,    	regardless of workload) manual (Only use values defined in sysfs values)
 
-**--setoverdrive/--setmemoverdrive #: DEPRECATED IN NEWER KERNEL VERSIONS (use --setslevel/--setmlevel instead) ** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
+**--setoverdrive/--setmemoverdrive #: DEPRECATED IN NEWER KERNEL VERSIONS (use --setslevel/--setmlevel instead)** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
 
 .. NOTES::
     This option can be used in conjunction with the --setsclk/--setmclk mask
@@ -162,19 +162,19 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
 
     It is not possible to modify the non-CUSTOM Profiles. These are hard-coded by the kernel
 
--P, --showpower: Show Average Graphics Package power consumption
+**-P, --showpower:** Show Average Graphics Package power consumption
 
 "Graphics Package" refers to the GPU plus any HBM (High-Bandwidth memory) modules, if present
 
--M, --showmaxpower: Show the maximum Graphics Package power that the GPU will attempt to consume. This limit is enforced by the hardware.
+**-M, --showmaxpower:** Show the maximum Graphics Package power that the GPU will attempt to consume. This limit is enforced by the hardware.
 
---loglevel: This will allow the user to set a logging level for the SMI's actions. Currently this is only implemented for sysfs writes, but can easily be expanded upon in the future to log other things from the SMI
+**--loglevel:** This will allow the user to set a logging level for the SMI's actions. Currently this is only implemented for sysfs writes, but can easily be expanded upon in the future to log other things from the SMI
 
---showmeminfo: This allows the user to see the amount of used and total memory for a given block (vram, vis_vram, gtt). It returns the number of bytes used and total number of bytes for each block 'all' can be passed as a field to return all blocks, otherwise a quoted-string is used for multiple values (e.g. "vram vis_vram") vram refers to the Video RAM, or graphics memory, on the specified device vis_vram refers to Visible VRAM, which is the CPU-accessible video memory on the device gtt refers to the Graphics Translation Table
+**--showmeminfo:** This allows the user to see the amount of used and total memory for a given block (vram, vis_vram, gtt). It returns the number of bytes used and total number of bytes for each block 'all' can be passed as a field to return all blocks, otherwise a quoted-string is used for multiple values (e.g. "vram vis_vram") vram refers to the Video RAM, or graphics memory, on the specified device vis_vram refers to Visible VRAM, which is the CPU-accessible video memory on the device gtt refers to the Graphics Translation Table
 
--b, --showbw: This shows an approximation of the number of bytes received and sent by the GPU over the last second through the PCIe bus. Note that this will not work for APUs since data for the GPU portion of the APU goes through the memory fabric and does not 'enter/exit' the chip via the PCIe interface, thus no accesses are generated, and the performance counters can't count accesses that are not generated. NOTE: It is not possible to easily grab the size of every packet that is transmitted in real time, so the kernel estimates the bandwidth by taking the maximum payload size (mps), which is the max size that a PCIe packet can be. and multiplies it by the number of packets received and sent. This means that the SMI will report the maximum estimated bandwidth, the actual usage could (and likely will be) less
+**-b, --showbw:** This shows an approximation of the number of bytes received and sent by the GPU over the last second through the PCIe bus. Note that this will not work for APUs since data for the GPU portion of the APU goes through the memory fabric and does not 'enter/exit' the chip via the PCIe interface, thus no accesses are generated, and the performance counters can't count accesses that are not generated. NOTE: It is not possible to easily grab the size of every packet that is transmitted in real time, so the kernel estimates the bandwidth by taking the maximum payload size (mps), which is the max size that a PCIe packet can be. and multiplies it by the number of packets received and sent. This means that the SMI will report the maximum estimated bandwidth, the actual usage could (and likely will be) less
 
---showrasinfo: This shows the RAS information for a given block. This includes enablement of the block (currently GFX, SDMA and UMC are the only supported blocks) and the number of errors ue - Uncorrectable errors ce - Correctable errors
+**--showrasinfo:** This shows the RAS information for a given block. This includes enablement of the block (currently GFX, SDMA and UMC are the only supported blocks) and the number of errors ue - Uncorrectable errors ce - Correctable errors
 
 **Clock Type Descriptions**
 
@@ -194,9 +194,9 @@ MCLK - GPU Memory (VRAM) PCLK - PCIe bus
 
 SOCCLK - System clock (VG10 and later)- Data Fabric  (DF), MM HUB, AT HUB, SYSTEM HUB, OSS, DFD Note - DF split from SOCCLK as of Vega20. Pre-Vega20 they were both controlled by SOCCLK
 
---gpureset: This flag will attempt to reset the GPU for a specified device. This will invoke the GPU reset through the kernel debugfs file amdgpu_gpu_recover. Note that GPU reset will not always work, depending on the manner in which the GPU is hung.
+**--gpureset:** This flag will attempt to reset the GPU for a specified device. This will invoke the GPU reset through the kernel debugfs file amdgpu_gpu_recover. Note that GPU reset will not always work, depending on the manner in which the GPU is hung.
 
----showdriverversion: This flag will print out the AMDGPU module version for amdgpu-pro or ROCK kernels. For other kernels, it will simply print out the name of the kernel (uname)
+**---showdriverversion:** This flag will print out the AMDGPU module version for amdgpu-pro or ROCK kernels. For other kernels, it will simply print out the name of the kernel (uname)
 
 **OverDrive settings**
 
