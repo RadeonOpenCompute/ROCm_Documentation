@@ -10,6 +10,15 @@ rocFFT
 
 rocFFT  is a software library for computing Fast Fourier Transforms (FFT) written in HIP. It is part of AMD's software ecosystem based on ROCm. In addition to AMD GPU devices, the library can also be compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
 
+The rocFFT library:
+
+    * Provides a fast and accurate platform for calculating discrete FFTs.
+    * Supports single and double precision floating point formats.
+    * Supports 1D, 2D, and 3D transforms.
+    * Supports computation of transforms in batches.
+    * Supports real and complex FFTs.
+    * Supports lengths that are any combination of powers of 2, 3, 5.
+
 API design
 ###############
 Please refer to the :ref:`rocFFTAPI` for current documentation. Work in progress.
