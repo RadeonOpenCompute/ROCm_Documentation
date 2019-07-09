@@ -10,6 +10,15 @@ rocFFT
 
 rocFFT  is a software library for computing Fast Fourier Transforms (FFT) written in HIP. It is part of AMD's software ecosystem based on ROCm. In addition to AMD GPU devices, the library can also be compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
 
+The rocFFT library:
+
+    * Provides a fast and accurate platform for calculating discrete FFTs.
+    * Supports single and double precision floating point formats.
+    * Supports 1D, 2D, and 3D transforms.
+    * Supports computation of transforms in batches.
+    * Supports real and complex FFTs.
+    * Supports lengths that are any combination of powers of 2, 3, 5.
+
 API design
 ###############
 Please refer to the :ref:`rocFFTAPI` for current documentation. Work in progress.
@@ -30,8 +39,14 @@ The root of this repository has a helper bash script install.sh to build and ins
 Manual build (all supported platforms)
 If you use a distro other than Ubuntu, or would like more control over the build process, the `rocfft build wiki <https://github.com/ROCmSoftwarePlatform/rocFFT/wiki/Build>`_ has helpful information on how to configure cmake and manually build.
 
-Library and API Documentation
-Please refer to the Library documentation for current documentation.
+**Library and API Documentation**
+
+Please refer to the `Library documentation <https://rocfft.readthedocs.io/en/latest/>`_ for current documentation.
+
+Manual build (all supported platforms)
+########################################
+
+If you use a distro other than Ubuntu, or would like more control over the build process, the `rocfft build wiki <https://github.com/ROCmSoftwarePlatform/rocFFT/wiki/Build>`_ has helpful information on how to configure cmake and manually build.
 
 
 Example
@@ -99,17 +114,152 @@ The following is a simple example code that shows how to use rocFFT to compute a
           return 0;
     }
 
+API
+###############
+
+This section provides details of the library API
+
+Types
+-----
+
+There are few data structures that are internal to the library. The pointer types to these
+structures are given below. The user would need to use these types to create handles and pass them
+between different library functions.
+
+.. doxygentypedef:: rocfft_plan
+   :project: rocFFT
+
+.. doxygentypedef:: rocfft_plan_description
+   :project: rocFFT
+
+.. doxygentypedef:: rocfft_execution_info
+   :project: rocFFT
+
+Library Setup and Cleanup
+-------------------------
+
+The following functions deals with initialization and cleanup of the library.
+
+.. doxygenfunction:: rocfft_setup
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_cleanup
+   :project: rocFFT
+
+Plan
+----
+
+The following functions are used to create and destroy plan objects.
+
+.. doxygenfunction:: rocfft_plan_create
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_plan_destroy
+   :project: rocFFT
+
+The following functions are used to query for information after a plan is created.
+
+.. doxygenfunction:: rocfft_plan_get_work_buffer_size
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_plan_get_print
+   :project: rocFFT
+
+Plan description
+----------------
+
+Most of the times, :cpp:func:`rocfft_plan_create` is all is needed to fully specify a transform.
+And the description object can be skipped. But when a transform specification has more details
+a description object need to be created and set up and the handle passed to the :cpp:func:`rocfft_plan_create`.
+Functions referred below can be used to manage plan description in order to specify more transform details.
+The plan description object can be safely deleted after call to the plan api :cpp:func:`rocfft_plan_create`.
+
+.. doxygenfunction:: rocfft_plan_description_create
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_plan_description_destroy
+   :project: rocFFT
+
+.. comment  doxygenfunction:: rocfft_plan_description_set_scale_float
+   :project: rocFFT
+
+.. comment doxygenfunction:: rocfft_plan_description_set_scale_double
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_plan_description_set_data_layout
+   :project: rocFFT
+
+.. comment doxygenfunction:: rocfft_plan_description_set_devices
+   :project: rocFFT
+
+Execution
+---------
+
+The following details the execution function. After a plan has been created, it can be used
+to compute a transform on specified data. Aspects of the execution can be controlled and any useful
+information returned to the user.
+
+.. doxygenfunction:: rocfft_execute
+   :project: rocFFT
+
+Execution info
+--------------
+
+The execution api :cpp:func:`rocfft_execute` takes a rocfft_execution_info parameter. This parameter needs
+to be created and setup by the user and passed to the execution api. The execution info handle encapsulates
+information such as execution mode, pointer to any work buffer etc. It can also hold information that are 
+side effect of execution such as event objects. The following functions deal with managing execution info
+object. Note that the *set* functions below need to be called before execution and *get* functions after
+execution.
+
+.. doxygenfunction:: rocfft_execution_info_create
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_execution_info_destroy
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_execution_info_set_work_buffer
+   :project: rocFFT
+
+.. comment doxygenfunction:: rocfft_execution_info_set_mode
+   :project: rocFFT
+
+.. doxygenfunction:: rocfft_execution_info_set_stream
+   :project: rocFFT
+
+.. comment doxygenfunction:: rocfft_execution_info_get_events
+   :project: rocFFT
 
 
+Enumerations
+------------
 
+This section provides all the enumerations used.
 
+.. doxygenenum:: rocfft_status
+   :project: rocFFT
+
+.. doxygenenum:: rocfft_transform_type
+   :project: rocFFT
+
+.. doxygenenum:: rocfft_precision
+   :project: rocFFT
+
+.. doxygenenum:: rocfft_result_placement
+   :project: rocFFT
+
+.. doxygenenum:: rocfft_array_type
+   :project: rocFFT
+
+.. doxygenenum:: rocfft_execution_mode
+   :project: rocFFT
 
 ******************
 rocBLAS
 ******************
 
 
- * `rocBLAS Github link <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
+Please refer `rocBLAS Github link <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
 
 A BLAS implementation on top of AMD's Radeon Open Compute `ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ runtime and toolchains. rocBLAS is implemented in the `HIP <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-programing-guide>`_ programming language and optimized for AMD's latest discrete GPUs.
 
@@ -135,7 +285,7 @@ If you use a distro other than Ubuntu, or would like more control over the build
 
 **Functions supported**
 
-A list of exported functions from rocblas can be found on the wiki
+A list of `exported functions <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki/4.Exported-functions>`_. from rocblas can be found on the wiki.
 
 rocBLAS interface examples
 #############################
@@ -176,30 +326,813 @@ rocBLAS GEMM can process matrices in batches with regular strides. There are sev
 
 rocBLAS assumes matrices A and vectors x, y are allocated in GPU memory space filled with data. Users are responsible for copying data from/to the host and device memory. HIP provides memcpy style API's to facilitate data management.
 
+Example
+########
+
+::
+
+  #include <stdlib.h>
+  #include <stdio.h>
+  #include <vector>
+  #include <math.h>
+  #include "rocblas.h"
+
+  using namespace std;
+
+  int main()
+          {
+          rocblas_int N = 10240;
+          float alpha = 10.0;
+
+          vector<float> hx(N);
+          vector<float> hz(N);
+          float* dx;
+          float tolerance = 0, error;
+
+          rocblas_handle handle;
+          rocblas_create_handle(&handle);
+
+          // allocate memory on device
+          hipMalloc(&dx, N * sizeof(float));
+
+          // Initial Data on CPU,
+          srand(1);
+          for( int i = 0; i < N; ++i )
+          {
+          hx[i] = rand() % 10 + 1;  //generate a integer number between [1, 10]
+          }
+
+          // save a copy in hz 
+          hz = hx;
+
+          hipMemcpy(dx, hx.data(), sizeof(float) * N, hipMemcpyHostToDevice);
+
+          rocblas_sscal(handle, N, &alpha, dx, 1);
+
+          // copy output from device memory to host memory
+          hipMemcpy(hx.data(), dx, sizeof(float) * N, hipMemcpyDeviceToHost);
+
+          // verify rocblas_scal result
+          for(rocblas_int i=0;i<N;i++)
+          {
+          error = fabs(hz[i] * alpha - hx[i]);
+          if(error > tolerance)
+            {
+            printf("error in element %d: CPU=%f, GPU=%f ", i, hz[i] * alpha, hx[i]);
+            break;
+            }
+          }
+
+          if(error > tolerance)
+          {
+          printf("SCAL Failed !\n");
+          }
+          else
+          {
+          printf("SCAL Success !\n");
+          }
+
+          hipFree(dx);
+          rocblas_destroy_handle(handle);
+          return 0;
+          }
+
+Paste the above code into the file rocblas_sscal_example.cpp
+
+**Use hipcc Compiler:**
+
+The recommend host compiler is `hipcc <https://github.com/GPUOpen-ProfessionalCompute-Tools/HIP/>`_. To use hipcc you will need to add /opt/rocm/bin to your path with the following:
+
+::
+
+ export PATH=$PATH:/opt/rocm/bin
+
+The following makefile can be used to build the executable.
+
+The Makefile assumes that rocBLAS is installed in the default location /opt/rocm/rocblas. If you have rocBLAS installed in your home directory in ~/rocBLAS/build/release/rocblas-install/rocblas then edit Makefile and change /opt/rocm/rocblas to ~/rocBLAS/build/release/rocblas-install/rocblas.
+
+You may need to give the location of the library with
+
+::
+
+  export LD_LIBRARY_PATH=/opt/rocm/rocblas/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+
+Run the executable with the command
+
+::
+
+  ./rocblas_sscal_example
+
+  # Makefile assumes rocBLAS is installed in /opt/rocm/rocblas
+
+  ROCBLAS_INSTALL_DIR=/opt/rocm/rocblas
+  ROCBLAS_INCLUDE=$(ROCBLAS_INSTALL_DIR)/include
+  ROCBLAS_LIB_PATH=$(ROCBLAS_INSTALL_DIR)/lib
+  ROCBLAS_LIB=rocblas
+  HIP_INCLUDE=/opt/rocm/hip/include
+  LDFLAGS=-L$(ROCBLAS_LIB_PATH) -l$(ROCBLAS_LIB)
+  LD=hipcc
+  CFLAGS=-I$(ROCBLAS_INCLUDE) -I$(HIP_INCLUDE)
+  CPP=hipcc
+  OBJ=rocblas_sscal_example.o
+  EXE=rocblas_sscal_example
+
+  %.o: %.cpp
+	$(CPP) -c -o $@ $< $(CFLAGS)
+
+  $(EXE) : $(OBJ)
+	$(LD) $(OBJ) $(LDFLAGS) -o $@ 
+
+  clean:
+	rm -f $(EXE) $(OBJ)
+
+
+**Use g++ Compiler:**
+
+Use the Makefile below:
+
+::
+
+  ROCBLAS_INSTALL_DIR=/opt/rocm/rocblas
+  ROCBLAS_INCLUDE=$(ROCBLAS_INSTALL_DIR)/include
+  ROCBLAS_LIB_PATH=$(ROCBLAS_INSTALL_DIR)/lib
+  ROCBLAS_LIB=rocblas
+  ROCM_INCLUDE=/opt/rocm/include
+  LDFLAGS=-L$(ROCBLAS_LIB_PATH) -l$(ROCBLAS_LIB) -L/opt/rocm/lib -lhip_hcc
+  LD=g++
+  CFLAGS=-I$(ROCBLAS_INCLUDE) -I$(ROCM_INCLUDE) -D__HIP_PLATFORM_HCC__
+  CPP=g++
+  OBJ=rocblas_sscal_example.o
+  EXE=rocblas_sscal_example
+
+  %.o: %.cpp
+	$(CPP) -c -o $@ $< $(CFLAGS)
+
+  $(EXE) : $(OBJ)
+	$(LD) $(OBJ) $(LDFLAGS) -o $@
+
+  clean:
+	rm -f $(EXE) $(OBJ)
+
+Build
+#######
+
+Download rocBLAS
+-----------------
+
+Download the master branch of rocBLAS from github using:
+
+::
+
+  git clone -b master https://github.com/ROCmSoftwarePlatform/rocBLAS.git
+  cd rocBLAS
+
+Note if you want to contribute to rocBLAS, you will need the develop branch, not the master branch, and you will need to read .github/CONTRIBUTING.md.
+
+Below are steps to build either (dependencies + library) or (dependencies + library + client). You only need (dependencies + library) if you call rocBLAS from your code, or if you need to install rocBLAS for other users. The client contains the test code and examples.
+
+It is recommended that the script install.sh be used to build rocBLAS. If you need individual commands, they are also given.
+
+Use install.sh to build (library dependencies + library)
+---------------------------------------------------------
+
+Common uses of install.sh to build (library dependencies + library) are in the table below.
+
+===================     ===========
+install.sh_command 	description
+===================     ===========
+./install.sh -h 	Help information.
+./install.sh -d 	Build library dependencies and library in your local directory. The -d flag only needs to be used once. For subsequent invocations of install.sh it is not necessary to rebuild the dependencies.
+./install.sh 	Build library in your local directory. It is assumed dependencies have been built
+./install.sh -i 	Build library, then build and install rocBLAS package in /opt/rocm/rocblas. You will be prompted for sudo access. This will install for all users. If you want to keep rocBLAS in your local directory, you do not need the -i flag.
+===================     ===========
+
+
+Use install.sh to build (library dependencies + client dependencies + library + client)
+----------------------------------------------------------------------------------------
+
+The client contains executables in the table below.
+
+================        ===========
+executable name 	description
+================        ===========
+rocblas-test 	        runs Google Tests to test the library
+rocblas-bench 	        executable to benchmark or test individual functions
+example-sscal 	        example C code calling rocblas_sscal function
+================        ===========
+	
+Common uses of install.sh to build (dependencies + library + client) are in the table below.
+
+===================     ============
+install.sh_command 	description
+===================     ============
+./install.sh -h 	Help information.
+./install.sh -dc 	Build library dependencies, client dependencies, library, and client in your local directory. The -d flag only needs to be used once. For subsequent invocations of install.sh it is not necessary to rebuild the dependencies.
+./install.sh -c 	Build library and client in your local directory. It is assumed the dependencies have been built.
+./install.sh -idc 	Build library dependencies, client dependencies, library, client, then build and install the rocBLAS package. You will be prompted for sudo access. It is expected that if you want to install for all users you use the -i flag. If you want to keep rocBLAS in your local directory, you do not need the -i flag.
+./install.sh -ic 	Build and install rocBLAS package, and build the client. You will be prompted for sudo access. This will install for all users. If you want to keep rocBLAS in your local directory, you do not need the -i flag.
+===================     ============
+
+
+Build (library dependencies + library) Using Individual Commands
+-----------------------------------------------------------------
+
+Before building the library please install the library dependencies CMake, Python 2.7, and Python-yaml.
+
+**CMake 3.5 or later**
+
+The build infrastructure for rocBLAS is based on `Cmake <https://cmake.org/>`_ v3.5. This is the version of cmake available on ROCm supported platforms. If you are on a headless machine without the x-windows system, we recommend using **ccmake**; if you have access to X-windows, we recommend using **cmake-gui**.
+
+Install one-liners cmake:
+
+    * Ubuntu: sudo apt install cmake-qt-gui
+    * Fedora: sudo dnf install cmake-gui
+
+**Python 2.7**
+
+By default both python2 and python3 are on Ubuntu. You can check the installation with python -V. Python is used in Tensile, and Tensile is part of rocBLAS. To build rocBLAS the default version of Python must be Python 2.7, not Python 3.
+
+**Python-yaml**
+
+PyYAML files contain training information from Tensile that is used to build gemm kernels in rocBLAS.
+
+Install one-liners PyYAML:
+
+    * Ubuntu: sudo apt install python2.7 python-yaml
+    * Fedora: sudo dnf install python PyYAML
+
+**Build library**
+
+The rocBLAS library contains both host and device code, so the HCC compiler must be specified during cmake configuration to properly initialize build tools. Example steps to build rocBLAS:
+
+::
+
+   # after downloading and changing to rocblas directory:
+   mkdir -p build/release
+   cd build/release
+   # Default install path is in /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to specify other install path
+   # Default build config is 'Release', define -DCMAKE_BUILD_TYPE=Debug to specify Debug configuration
+   CXX=/opt/rocm/bin/hcc cmake ../..
+   make -j$(nproc)
+   #if you want to install in /opt/rocm or the directory set in cmake with -DCMAKE_INSTALL_PREFIX
+   sudo make install # sudo required if installing into system directory such as /opt/rocm
+
+
+Build (library dependencies + client dependencies + library + client) using Individual Commands
+-------------------------------------------------------------------------------------------------
+
+**Additional dependencies for the rocBLAS clients**
+
+The unit tests and benchmarking applications in the client introduce the following dependencies:
+
+#. `boost <https://www.boost.org/>`_
+#. `fortran <https://gcc.gnu.org/wiki/GFortran>`_ 
+#. `lapack <https://github.com/Reference-LAPACK/lapack-release>`_
+         * lapack itself brings a dependency on a fortran compiler
+#.  `googletest <https://github.com/google/googletest>`_
+
+
+**boost**
+
+Linux distros typically have an easy installation mechanism for boost through the native package manager.
+
+::
+
+   Ubuntu: sudo apt install libboost-program-options-dev
+   Fedora: sudo dnf install boost-program-options
+
+
+Unfortunately, googletest and lapack are not as easy to install. Many distros do not provide a googletest package with pre-compiled libraries, and the lapack packages do not have the necessary cmake config files for cmake to configure linking the cblas library. rocBLAS provide a cmake script that builds the above dependencies from source. This is an optional step; users can provide their own builds of these dependencies and help cmake find them by setting the CMAKE_PREFIX_PATH definition. The following is a sequence of steps to build dependencies and install them to the cmake default /usr/local.
+
+**gfortran and lapack**
+
+LAPACK is used in the client to test rocBLAS. LAPACK is a Fortran Library, so gfortran is required for building the client.
+
+::
+
+   Ubuntu apt-get update
+
+   apt-get install gfortran
+
+   Fedora yum install gcc-gfortran
+
+   mkdir -p build/release/deps
+   cd build/release/deps
+   cmake -DBUILD_BOOST=OFF ../../deps   # assuming boost is installed through package manager as above
+   make -j$(nproc) install
+
+
+Build Library and Client Using Individual Commands
+----------------------------------------------------
+
+Once dependencies are available on the system, it is possible to configure the clients to build. This requires a few extra cmake flags to the library cmake configure script. If the dependencies are not installed into system defaults (like /usr/local ), you should pass the CMAKE_PREFIX_PATH to cmake to help find them.
+
+``-DCMAKE_PREFIX_PATH="<semicolon separated paths>"``
+
+::
+
+   # after downloading and changing to rocblas directory:
+   mkdir -p build/release
+   cd build/release
+   # Default install location is in /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to specify other
+   CXX=/opt/rocm/bin/hcc cmake -DBUILD_CLIENTS_TESTS=ON -DBUILD_CLIENTS_BENCHMARKS=ON -DBUILD_CLIENTS_SAMPLES=ON ../..
+   make -j$(nproc)
+   sudo make install   # sudo required if installing into system directory such as /opt/rocm
+
+
+Use of Tensile
+----------------
+
+The rocBLAS library uses `Tensile <https://github.com/ROCmSoftwarePlatform/Tensile>`_, which supplies the high-performance implementation of xGEMM. Tensile is downloaded by cmake during library configuration and automatically configured as part of the build, so no further action is required by the user to set it up.
+
+CUDA build errata
+------------------
+
+rocBLAS is written with HiP kernels, so it should build and run on CUDA platforms. However, currently the cmake infrastructure is broken with a CUDA backend. However, a BLAS marshalling library that presents a common interface for both ROCm and CUDA backends can be found with `hipBLAS <https://github.com/ROCmSoftwarePlatform/hipBLAS>`_.
+
+
+Common build problems
+-----------------------
+
+    * **Issue:** "Tensile could not be found because dependency Python Interp could not be found".
+
+      **Solution:** Due to a bug in Tensile, you may need cmake-gui 3.5 and above, though in the cmakefiles it requires 2.8.
+
+    * **Issue:** HIP (/opt/rocm/hip) was built using hcc 1.0.xxx-xxx-xxx-xxx, but you are using /opt/rocm/hcc/hcc with version 1.0.yyy-yyy-yyy-yyy from hipcc. (version does not match) . Please rebuild HIP including cmake or update HCC_HOME variable.
+
+      **Solution:** Download HIP from github and use hcc to `build from source <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and then use the build HIP instead of /opt/rocm/hip one or singly overwrite the new build HIP to this location.
+
+    * **Issue:** For Carrizo - HCC RUNTIME ERROR: Fail to find compatible kernel
+
+      **Solution:** Add the following to the cmake command when configuring: -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"
+
+    * **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Fail to find compatible kernel
+
+      **Solution:** export HCC_AMDGPU_TARGET=gfx900
+
+    * **Issue:** Could not find a package configuration file provided by "ROCM" with any of the following names:
+
+    ROCMConfig.cmake
+
+    rocm-config.cmake
+
+
+
+      **Solution:** Install ROCm `cmake module <https://github.com/RadeonOpenCompute/rocm-cmake>`_.
+
+
+Running
+#########
+
+Notice
+--------
+
+This wiki describes running the examples, tests, and benchmarks in the client. Before reading this Wiki, it is assumed rocBLAS (dependencies + library + client) has been built as described in `Build <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki/1.Build>`_
+
+Examples
+---------
+
+The default for [BUILD_DIR] is ~/rocblas/build.
+
+::
+
+  cd [BUILD_DIR]/release/clients/staging
+  ./example-sscal
+  ./example-scal-template
+  ./example-sgemm
+  ./example-sgemm-strided-batched
+
+
+Code for the examples is at: `samples <https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/develop/clients/samples>`_
+
+In addition see `Example <https://github.com/ROCmSoftwarePlatform/rocBLAS/wiki/2.Example>`_
+
+Unit tests
+-----------
+
+Run tests with the following:
+
+
+  cd [BUILD_DIR]/release/clients/staging
+  ./rocblas-test
+
+
+To run specific tests, use --gtest_filter=match where match is a ':'-separated list of wildcard patterns (called the positive patterns) optionally followed by a '-' and another ':'-separated pattern list (called the negative patterns). For example, run gemv tests with the following:
+
+
+  cd [BUILD_DIR]/release/clients/staging
+  ./rocblas-test --gtest_filter=*checkin*gemm*float*-*batched*:*NaN*
+
+
+Benchmarks
+-------------
+
+Run bencharmks with the following:
+
+
+  cd [BUILD_DIR]/release/clients/staging
+  ./rocblas-bench -h
+
+
+The following are examples for running particular gemm and gemv benchmark:
+
+::
+
+  ./rocblas-bench -f gemm -r s -m 1024 -n 1024 -k 1024 --transposeB T -v 1
+  ./rocblas-bench -f gemv -m 9216 -n 9216 --lda 9216 --transposeA T
+
 Asynchronous API
 ###################
 Except a few routines (like TRSM) having memory allocation inside preventing asynchronicity, most of the library routines (like BLAS-1 SCAL, BLAS-2 GEMV, BLAS-3 GEMM) are configured to operate in asynchronous fashion with respect to CPU, meaning these library functions return immediately.
 
 For more information regarding rocBLAS library and corresponding API documentation, refer `rocBLAS <https://rocblas.readthedocs.io/en/latest/>`_
 
+API
+####
+
+This section provides details of the library API
+
+Types
+--------------
+
+Definitions
+^^^^^^^^^^^^^^^^^^^^^^^
+
+rocblas_int
+**************************
+.. doxygentypedef:: rocblas_int
+   :project: rocBLAS
+
+rocblas_long
+**************************
+.. doxygentypedef:: rocblas_long
+   :project: rocBLAS
+
+rocblas_float_complex
+**************************
+.. doxygentypedef:: rocblas_float_complex
+   :project: rocBLAS
+
+rocblas_double_complex
+**************************
+.. doxygentypedef:: rocblas_double_complex
+   :project: rocBLAS
+
+rocblas_half
+**************************
+.. doxygentypedef:: rocblas_half
+   :project: rocBLAS
+
+rocblas_half_complex
+**************************
+.. doxygentypedef:: rocblas_half_complex
+   :project: rocBLAS
+
+rocblas_handle
+**************************
+.. doxygentypedef:: rocblas_handle
+   :project: rocBLAS
+
+
+Enums
+^^^^^^^^^^^^^^^^^^^^^^^
+Enumeration constants have numbering that is consistent with CBLAS, ACML and most standard C BLAS libraries.
+
+rocblas_operation
+**************************
+.. doxygenenum:: rocblas_operation
+   :project: rocBLAS
+
+rocblas_fill
+**************************
+.. doxygenenum:: rocblas_fill
+   :project: rocBLAS
+
+rocblas_diagonal
+**************************
+.. doxygenenum:: rocblas_diagonal
+   :project: rocBLAS
+
+rocblas_side
+**************************
+.. doxygenenum:: rocblas_side
+   :project: rocBLAS
+
+rocblas_status
+**************************
+.. doxygenenum:: rocblas_status
+   :project: rocBLAS
+
+rocblas_datatype
+**************************
+.. doxygenenum:: rocblas_datatype
+   :project: rocBLAS
+
+rocblas_pointer_mode
+**************************
+.. doxygenenum:: rocblas_pointer_mode
+   :project: rocBLAS
+
+rocblas_layer_mode
+**************************
+.. doxygenenum:: rocblas_layer_mode
+   :project: rocBLAS
+
+rocblas_gemm_algo
+**************************
+.. doxygenenum:: rocblas_gemm_algo
+   :project: rocBLAS
+
+
+Functions
+--------------
+
+Level 1 BLAS
+^^^^^^^^^^^^^^^^^^^
+
+rocblas_<type>scal()
+***************************
+.. doxygenfunction:: rocblas_dscal
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sscal
+   :project: rocBLAS
+rocblas_<type>copy()
+***************************
+.. doxygenfunction:: rocblas_dcopy
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_scopy
+   :project: rocBLAS
+
+rocblas_<type>dot()
+***************************
+.. doxygenfunction:: rocblas_ddot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sdot
+   :project: rocBLAS
+
+rocblas_<type>swap()
+***************************
+.. doxygenfunction:: rocblas_sswap
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dswap
+   :project: rocBLAS
+
+rocblas_<type>axpy()
+***************************
+.. doxygenfunction:: rocblas_daxpy
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_saxpy
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_haxpy
+   :project: rocBLAS
+
+rocblas_<type>asum()
+***************************
+.. doxygenfunction:: rocblas_dasum
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sasum
+   :project: rocBLAS
+
+
+rocblas_<type>nrm2()
+***************************
+.. doxygenfunction:: rocblas_dnrm2
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_snrm2
+   :project: rocBLAS
+
+
+rocblas_i<type>amax()
+***************************
+.. doxygenfunction:: rocblas_idamax
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_isamax
+   :project: rocBLAS
+
+rocblas_i<type>amin()
+***************************
+.. doxygenfunction:: rocblas_idamin
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_isamin
+   :project: rocBLAS
+
+Level 2 BLAS
+^^^^^^^^^^^^^^^^
+
+rocblas_<type>gemv()
+***************************
+.. doxygenfunction:: rocblas_dgemv
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sgemv
+   :project: rocBLAS
+
+rocblas_<type>trsv()
+***************************
+.. doxygenfunction:: rocblas_dtrsv
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_strsv
+   :project: rocBLAS
+
+rocblas_<type>ger()
+***************************
+.. doxygenfunction:: rocblas_dger
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sger
+   :project: rocBLAS
+
+rocblas_<type>syr()
+***************************
+.. doxygenfunction:: rocblas_dsyr
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_ssyr
+   :project: rocBLAS
+
+Level 3 BLAS
+^^^^^^^^^^^^^^^^^^
+
+rocblas_<type>trtri_batched()
+***************************
+.. doxygenfunction:: rocblas_dtrtri_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_strtri_batched
+   :project: rocBLAS
+
+rocblas_<type>trsm()
+***************************
+.. doxygenfunction:: rocblas_dtrsm
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_strsm
+   :project: rocBLAS
+
+rocblas_<type>gemm()
+***************************
+.. doxygenfunction:: rocblas_dgemm
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sgemm
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_hgemm
+   :project: rocBLAS
+
+rocblas_<type>gemm_strided_batched()
+*************************************
+.. doxygenfunction:: rocblas_dgemm_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sgemm_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_hgemm_strided_batched
+   :project: rocBLAS
+
+rocblas_<type>gemm_kernel_name()
+**********************************
+.. doxygenfunction:: rocblas_dgemm_kernel_name
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sgemm_kernel_name
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_hgemm_kernel_name
+   :project: rocBLAS
+
+rocblas_<type>geam()
+***************************
+.. doxygenfunction:: rocblas_dgeam
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_sgeam
+   :project: rocBLAS
+
+BLAS Extensions
+^^^^^^^^^^^^^^^^^^^^^
+
+rocblas_gemm_ex()
+***************************
+.. doxygenfunction:: rocblas_gemm_ex
+   :project: rocBLAS
+
+rocblas_gemm_strided_batched_ex()
+***************************
+.. doxygenfunction:: rocblas_gemm_strided_batched_ex
+   :project: rocBLAS
+
+Build Information
+^^^^^^^^^^^^^^^^^^^^
+
+rocblas_get_version_string()
+***************************
+.. doxygenfunction:: rocblas_get_version_string
+   :project: rocBLAS
+
+Auxiliary
+^^^^^^^^^^^^^^
+
+rocblas_pointer_to_mode()
+***************************
+.. doxygenfunction:: rocblas_pointer_to_mode
+   :project: rocBLAS
+
+rocblas_create_handle()
+***************************
+.. doxygenfunction:: rocblas_create_handle
+   :project: rocBLAS
+
+rocblas_destroy_handle()
+***************************
+.. doxygenfunction:: rocblas_destroy_handle
+   :project: rocBLAS
+
+rocblas_add_stream()
+***************************
+.. doxygenfunction:: rocblas_add_stream
+   :project: rocBLAS
+
+rocblas_set_stream()
+***************************
+.. doxygenfunction:: rocblas_set_stream
+   :project: rocBLAS
+
+rocblas_get_stream()
+***************************
+.. doxygenfunction:: rocblas_get_stream
+   :project: rocBLAS
+
+rocblas_set_pointer_mode()
+***************************
+.. doxygenfunction:: rocblas_set_pointer_mode
+   :project: rocBLAS
+
+rocblas_get_pointer_mode()
+***************************
+.. doxygenfunction:: rocblas_get_pointer_mode
+   :project: rocBLAS
+
+rocblas_set_vector()
+***************************
+.. doxygenfunction:: rocblas_set_vector
+   :project: rocBLAS
+
+rocblas_get_vector()
+***************************
+.. doxygenfunction:: rocblas_get_vector
+   :project: rocBLAS
+
+rocblas_set_matrix()
+***************************
+.. doxygenfunction:: rocblas_set_matrix
+   :project: rocBLAS
+
+rocblas_get_matrix()
+***************************
+.. doxygenfunction:: rocblas_get_matrix
+   :project: rocBLAS
+
+
+All API
+##############
+
+.. doxygenindex::
+   :project: rocBLAS
+
 
 ************
 hipBLAS
 ************
+
+Introduction
+##############
 
 Please Refer here for Github link `hipBLAS <https://github.com/ROCmSoftwarePlatform/hipBLAS>`_
 
 hipBLAS is a BLAS marshalling library, with multiple supported backends. It sits between the application and a 'worker' BLAS library, marshalling inputs into the backend library and marshalling results back to the application. hipBLAS exports an interface that does not require the client to change, regardless of the chosen backend. Currently, hipBLAS supports :ref:`rocblas` and `cuBLAS <https://developer.nvidia.com/cublas>`_ as backends.
 
 Installing pre-built packages
-#################################
+-------------------------------
 
-Download pre-built packages either from ROCm's package servers or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
+Download pre-built packages either from `ROCm's package servers <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_ or by clicking the github releases tab and manually downloading, which could be newer. Release notes are available for each release on the releases tab.
 ::
   sudo apt update && sudo apt install hipblas
 
 Quickstart hipBLAS build
-#############################
+-------------------------------
 **Bash helper build script (Ubuntu only)**
 
 The root of this repository has a helper bash script install.sh to build and install hipBLAS on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install. A few commands in the script need sudo access, so it may prompt you for a password.
@@ -209,18 +1142,18 @@ The root of this repository has a helper bash script install.sh to build and ins
 
 **Manual build (all supported platforms)**
 
-If you use a distro other than Ubuntu, or would like more control over the build process, the hipblas build wiki has helpful information on how to configure cmake and manually build.
+If you use a distro other than Ubuntu, or would like more control over the build process, the `hipblas build <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#build>`_ has helpful information on how to configure cmake and manually build.
 
 **Functions supported**
 
-A list of exported functions from hipblas can be found on the wiki
+A list of `exported functions <https://github.com/ROCmSoftwarePlatform/hipBLAS/wiki/Exported-functions>`_ from hipblas can be found on the wiki
 
 hipBLAS interface examples
-######################################
+-------------------------------
 The hipBLAS interface is compatible with rocBLAS and cuBLAS-v2 APIs. Porting a CUDA application which originally calls the cuBLAS API to an application calling hipBLAS API should be relatively straightforward. For example, the hipBLAS SGEMV interface is
 
 GEMV API
-######################################
+-------------------------------
 ::
 
   hipblasStatus_t
@@ -232,7 +1165,7 @@ GEMV API
                float *y, int incy );
 
 Batched and strided GEMM API
-######################################
+-------------------------------
 hipBLAS GEMM can process matrices in batches with regular strides. There are several permutations of these API's, the following is an example that takes everything
 
 :: 
@@ -248,13 +1181,150 @@ hipBLAS GEMM can process matrices in batches with regular strides. There are sev
 
 hipBLAS assumes matrices A and vectors x, y are allocated in GPU memory space filled with data. Users are responsible for copying data from/to the host and device memory.
 
+Build
+########
+
+Dependencies For Building Library
+-------------------------------------
+
+**CMake 3.5 or later**
+
+The build infrastructure for hipBLAS is based on Cmake v3.5. This is the version of cmake available on ROCm supported platforms. If you are on a headless machine without the x-windows system, we recommend using **ccmake**; if you have access to X-windows, we recommend using **cmake-gui**.
+
+Install one-liners cmake:
+
+::
+
+  Ubuntu: sudo apt install cmake-qt-gui
+  Fedora: sudo dnf install cmake-gui
 
 
+Build Library Using Script (Ubuntu only)
+------------------------------------------
+
+The root of this repository has a helper bash script ``install.sh`` to build and install hipBLAS on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install. A few commands in the script need sudo access, so it may prompt you for a password.
+
+::
+
+  ./install.sh -h -- shows help
+  ./install.sh -id -- build library, build dependencies and install (-d flag only needs to be passed once on a system)
+
+
+Build Library Using Individual Commands
+------------------------------------------
+
+::
+
+  mkdir -p [HIPBLAS_BUILD_DIR]/release
+  cd [HIPBLAS_BUILD_DIR]/release
+  # Default install location is in /opt/rocm, define -DCMAKE_INSTALL_PREFIX=<path> to specify other
+  # Default build config is 'Release', define -DCMAKE_BUILD_TYPE=<config> to specify other
+  CXX=/opt/rocm/bin/hcc ccmake [HIPBLAS_SOURCE]
+  make -j$(nproc)
+  sudo make install # sudo required if installing into system directory such as /opt/rocm
+
+
+Build Library + Tests + Benchmarks + Samples Using Individual Commands
+-------------------------------------------------------------------------
+
+The repository contains source for clients that serve as samples, tests and benchmarks. Clients source can be found in the clients subdir.
+
+
+**Dependencies (only necessary for hipBLAS clients)**
+
+The hipBLAS samples have no external dependencies, but our unit test and benchmarking applications do. These clients introduce the following dependencies:
+
+#. boost
+#. lapack
+	* lapack itself brings a dependency on a fortran compiler
+#. googletest
+
+Linux distros typically have an easy installation mechanism for boost through the native package manager.
+
+::
+
+  Ubuntu: sudo apt install libboost-program-options-dev
+  Fedora: sudo dnf install boost-program-options
+
+Unfortunately, googletest and lapack are not as easy to install. Many distros do not provide a googletest package with pre-compiled libraries, and the lapack packages do not have the necessary cmake config files for cmake to configure linking the cblas library. hipBLAS provide a cmake script that builds the above dependencies from source. This is an optional step; users can provide their own builds of these dependencies and help cmake find them by setting the CMAKE_PREFIX_PATH definition. The following is a sequence of steps to build dependencies and install them to the cmake default /usr/local.
+
+
+**(optional, one time only)**
+
+::
+
+  mkdir -p [HIPBLAS_BUILD_DIR]/release/deps
+  cd [HIPBLAS_BUILD_DIR]/release/deps
+  ccmake -DBUILD_BOOST=OFF [HIPBLAS_SOURCE]/deps   # assuming boost is installed through package manager as above
+  make -j$(nproc) install
+
+Once dependencies are available on the system, it is possible to configure the clients to build. This requires a few extra cmake flags to the library cmake configure script. If the dependencies are not installed into system defaults (like /usr/local ), you should pass the CMAKE_PREFIX_PATH to cmake to help find them.
+
+``-DCMAKE_PREFIX_PATH="<semicolon separated paths>"``
+
+::
+
+  # Default install location is in /opt/rocm, use -DCMAKE_INSTALL_PREFIX=<path> to specify other
+  CXX=/opt/rocm/bin/hcc ccmake -DBUILD_CLIENTS_TESTS=ON -DBUILD_CLIENTS_BENCHMARKS=ON [HIPBLAS_SOURCE]
+  make -j$(nproc)
+  sudo make install   # sudo required if installing into system directory such as /opt/rocm
+
+Common build problems
+-----------------------
+
+    * **Issue:** HIP (/opt/rocm/hip) was built using hcc 1.0.xxx-xxx-xxx-xxx, but you are using /opt/rocm/hcc/hcc with version 1.0.yyy-yyy-yyy-yyy from hipcc. (version does not match) . Please rebuild HIP including cmake or update HCC_HOME variable.
+
+    **Solution:** Download HIP from github and use hcc to build from source and then use the build HIP instead of /opt/rocm/hip one or singly overwrite the new build HIP to this location.
+
+    * **Issue:** For Carrizo - HCC RUNTIME ERROR: Fail to find compatible kernel
+
+    **Solution:** Add the following to the cmake command when configuring: -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"
+
+    * **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Fail to find compatible kernel
+
+    **Solution:** export HCC_AMDGPU_TARGET=gfx900
+
+Running
+###########
+
+Notice
+-------
+
+Before reading this Wiki, it is assumed hipBLAS with the client applications has been successfully built as described in `Build hipBLAS libraries and verification code <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#build>`_
+
+**Samples**
+
+::
+
+  cd [BUILD_DIR]/clients/staging
+  ./example-sscal
+
+Example code that calls hipBLAS you can also see the following blog on the right side Example C code calling hipBLAS routine.
+
+
+**Unit tests**
+
+Run tests with the following:
+
+::
+
+  cd [BUILD_DIR]/clients/staging
+  ./hipblas-test
+
+To run specific tests, use --gtest_filter=match where match is a ':'-separated list of wildcard patterns (called the positive patterns) optionally followed by a '-' and another ':'-separated pattern list (called the negative patterns). For example, run gemv tests with the following:
+
+::
+
+  cd [BUILD_DIR]/clients/staging
+  ./hipblas-test --gtest_filter=*gemv*
 
 
 **********
 hcRNG
 **********
+
+hCRNG has been deprecated and has been replaced by `rocRAND <https://github.com/ROCmSoftwarePlatform/rocRAND>`_ 
+#################################################################################################################
 
 Introduction
 ##################
@@ -275,11 +1345,11 @@ Random number generator Mrg31k3p example:
 
 file: Randomarray.cpp
 
-#!c++
 
 ::
 
- 
+  #!c++
+  
   //This example is a simple random array generation and it compares host output with device output
   //Random number generator Mrg31k3p
   #include <stdio.h>
@@ -358,12 +1428,12 @@ Installation
 
 The following are the steps to use the library
 
-  * ROCM 2.0 Kernel, Driver and Compiler Installation (if not done until now)
+  * ROCM 2.5 Kernel, Driver and Compiler Installation (if not done until now)
   * Library installation.
 
-**ROCM 2.0 Installation**
+**ROCM 2.5 Installation**
 
-To Know more about ROCM refer https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html
+To Know more about ROCM refer `here <https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html>`_
 
 **a. Installing Debian ROCM repositories**
 
@@ -466,6 +1536,7 @@ This section lists the known set of hardware and software requirements to build 
  * graphicsmagick
  * libblas-dev
 
+
 Tested Environments
 #######################
 
@@ -527,7 +1598,7 @@ To insatll rocm, please follow:
 
 Installing from AMD ROCm repositories
 #########################################
-AMD is hosting both debian and rpm repositories for the ROCm 2.0 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
+AMD is hosting both debian and rpm repositories for the ROCm 2.5 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
 
 * Debian repository - apt-get
 * Add the ROCm apt repository
@@ -603,7 +1674,7 @@ To build the direct tests for hipeigen:
   make check -j $(nproc)
 
 
-Note: All direct tests should pass with ROCm2.0
+Note: All direct tests should pass with ROCm 2.5
 
 
 
@@ -617,7 +1688,19 @@ For Github Repository `clFFT <https://github.com/clMathLibraries/clFFT>`_
 
 clFFT is a software library containing FFT functions written in OpenCL. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and heterogeneous programming.
 
-Pre-built binaries are available here.
+Pre-built binaries are available `here <https://github.com/clMathLibraries/clFFT/releases>`_.
+
+What's New
+###########
+
+    * Support for powers of 11&13 size transforms
+    * Support for 1D large size transforms with no extra memory allocation requirement with environment flag CLFFT_REQUEST_LIB_NOMEMALLOC=1 for complex FFTs of powers of 2,3,5,10 sizes
+
+Note
+-----
+
+    * clFFT requires platform/runtime that supports OpenCL 1.2
+
 
 Introduction to clFFT
 ############################
@@ -999,6 +2082,11 @@ What's new in clSPARSE v0.10.1
         * Fixed buffer overruns in CSR-Adaptive kernels
         * Fix invalid memory access on Nvidia GPUs in CSR-Adaptive SpMV kernel
 
+Build Status
+#############
+
+Pre-built binaries are available on our `releases page <https://github.com/clMathLibraries/clSPARSE/releases>`_
+
 clSPARSE features
 #######################
  * Sparse Matrix - dense Vector multiply (SpM-dV)
@@ -1261,16 +2349,18 @@ The documentation can be generated by running make from within the doc directory
 hcFFT
 *************
 
+hcFFT has been deprecated and has been replaced by `rocFFT <https://github.com/ROCmSoftwarePlatform/rocFFT>`_
+#################################################################################################################
 
 Installation
 ###############
 
 The following are the steps to use the library
 
- * ROCM 2.0 Kernel, Driver and Compiler Installation (if not done until now)
+ * ROCM 2.5 Kernel, Driver and Compiler Installation (if not done until now)
  * Library installation.
 
-**ROCM 2.0 Installation**
+**ROCM 2.5 Installation**
 
 To Know more about ROCM refer 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
@@ -1507,44 +2597,71 @@ This sections enumerates the list of tested combinations of Hardware and system 
 Tensile
 *****************
 
-A tool for creating a benchmark-driven backend library for GEMMs, GEMM-like problems (such as batched GEMM), N-dimensional tensor contractions, and anything else that multiplies two multi-dimensional objects together on a GPU.
+Introduction
+##############
+
+Tensile is a **tool** for creating a benchmark-driven backend library for GEMMs, GEMM-like problems (such as batched GEMM), N-dimensional tensor contractions, and anything else that multiplies two multi-dimensional objects together on a AMD GPU.
 
 Overview for creating a custom TensileLib backend library for your application:
 
-1. Install Tensile (optional), or at least install the PyYAML dependency (mandatory).
-2. Create a benchmark config.yaml file.
-3. Run the benchmark to produce a library logic.yaml file.
-4. Add the Tensile library to your application's CMake target. The Tensile library will be written, compiled and linked to your application at application-compile-time.
+1. Install the `PyYAML and cmake dependency`_ (mandatory), ``git clone and cd Tensile`` 
+2. Create a `benchmark config.yaml`_ file in ``./Tensile/Configs/``
+3. `Run the benchmark`_. After the benchmark is finished. Tensile will dump 4 directories: 1 & 2 is about benchmarking. 3 & 4 is the summarized results from your library (like rocBLAS) viewpoints.
 
-    * GPU kernels, written in HIP or OpenCL.
-    * Solution classes which enqueue the kernels.
-    * APIs which call the fastest solution for a problem.
+	1_BenchmarkProblems: has all the problems descriptions and executables generated during benchmarking, where you can re-launch exe to reproduce results.
 
-**Quick Example:**
-****************
+	2_BenchmarkData: has the raw performance results.
+
+	`3_LibraryLogic <https://github.com/ROCmSoftwarePlatform/Tensile/wiki/Library-Logic>`_:  has optimal kernel configurations yaml file and Winner*.csv. Usually rocBLAS takes the yaml files from this folder.
+
+	4_LibraryClient: has a client exe, so you can launch from a library viewpoint.
+
+4. Add the `Tensile library`_ to your application's CMake target. The Tensile library will be written, compiled and linked to your application at application-compile-time.
+
+    * GPU kernels, written in `HIP, OpenCL, or AMD GCN assembly`_.
+    * Solution classes which enqueue the `kernels`_.
+    * `APIs`_ which call the fastest solution for a problem.
+
+.. _PyYAML and cmake dependency: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#dependencies
+.. _benchmark config.yaml: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#benchmark-config-example
+.. _Run the benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
+.. _Tensile library: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#tensile-lib
+.. _HIP, OpenCL, or AMD GCN assembly: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#languages
+.. _kernels: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id43
+.. _APIs: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#tensile-lib
+
+Quick Example (Ubuntu):
+--------------------------
 
 ::
 
   sudo apt-get install python-yaml
   mkdir Tensile
   cd Tensile
-  git clone https://github.com/RadeonOpenCompute/Tensile.git repo
+  git clone https://github.com/ROCmSoftwarePlatform/Tensile repo
+  cd repo
+  git checkout master
   mkdir build
   cd build
-  python ../repo/Tensile/Tensile.py ../repo/Tensile/Configs/sgemm_5760.yaml ./
+  python ../Tensile/Tensile.py ../Tensile/Configs/test_sgemm.yaml ./
 
-After a while of benchmarking, Tensile will print out the path to the client you can run.
+After about 10 minutes of benchmarking, Tensile will print out the path to the client you can run.
 
 ::
 
   ./4_LibraryClient/build/client -h
-  ./4_LibraryClient/build/client --sizes 5760 5760 5760
+  ./4_LibraryClient/build/client --sizes 5760 5760 1 5760
 
 
-Benchmark Config
-####################
+Benchmark Config example
+##########################
 
-Example Benchmark config.yaml
+Tensile uses an incremental and "programmable" `benchmarking protocol`_.
+
+.. _benchmarking protocol: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
+
+Example Benchmark config.yaml as input file to Tensile
+-------------------------------------------------------
 
 :: 
 
@@ -1574,13 +2691,13 @@ Example Benchmark config.yaml
         TransposeA: False
         TransposeB: False
         UseBeta: True
-        Batched: False
+        Batched: True
 
       - # BenchmarkProblemSizeGroup
         InitialSolutionParameters:
         BenchmarkCommonParameters:
           - ProblemSizes:
-            - Range: [ [5760], 0, 0 ]
+            - Range: [ [5760], 0, [1], 0 ]
           - LoopDoWhile: [False]
           - NumLoadsCoalescedA: [-1]
           - NumLoadsCoalescedB: [1]
@@ -1603,71 +2720,81 @@ Example Benchmark config.yaml
         BenchmarkJoinParameters:
         BenchmarkFinalParameters:
           - ProblemSizes:
-            - Range: [ [5760], 0, 0 ]
+            - Range: [ [5760], 0, [1], 0 ]
 
   LibraryLogic:
 
   LibraryClient:
 
 
-**Structure of config.yaml**
+Structure of config.yaml
+-----------------------------
 
+Top level data structure whose keys are **Parameters, BenchmarkProblems, LibraryLogic** and **LibraryClient**.
 
-Top level data structure whose keys are Parameters, BenchmarkProblems, LibraryLogic and LibraryClient.
+ * **Parameters** contains a dictionary storing global parameters used for all parts of the benchmarking.
+ * **BenchmarkProblems** contains a list of dictionaries representing the benchmarks to conduct; each element, i.e. dictionary, in the list is for benchmarking a single **ProblemType**. The keys for these dictionaries are **ProblemType, InitialSolutionParameters, 	     	BenchmarkCommonParameters, ForkParameters, BenchmarkForkParameters, JoinParameters, BenchmarkJoinParameters** and 		     	**BenchmarkFinalParameters**. See `Benchmark Protocol`_ for more information on these steps.
+ * **LibraryLogic** contains a dictionary storing parameters for analyzing the benchmark data and designing how the backend library will select which Solution for certain ProblemSizes.
+ * **LibraryClient** contains a dictionary storing parameters for actually creating the library and creating a client which calls into the library.
 
- * Parameters contains a dictionary storing global parameters used for all parts of the benchmarking.
- * BenchmarkProblems contains a list of dictionaries representing the benchmarks to conduct; each element, i.e. dictionary, in the list is for benchmarking a single ProblemType. The keys for these dictionaries are ProblemType, InitialSolutionParameters, 	     	BenchmarkCommonParameters, ForkParameters, BenchmarkForkParameters, JoinParameters, BenchmarkJoinParameters and 		     	BenchmarkFinalParameters. See Benchmark Protocol for more information on these steps.
- * LibraryLogic contains a dictionary storing parameters for analyzing the benchmark data and designing how the backend library will select which Solution for certain ProblemSizes.
- * LibraryClient contains a dictionary storing parameters for actually creating the library and creating a client which calls into the library.
+.. _Benchmark Protocol: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
 
-**Global Parameters**
+Global Parameters
+-------------------
 
-
-* Name: Prefix to add to API function names; typically name of device.
-* MinimumRequiredVersion: Which version of Tensile is required to interpret this yaml file
-* RuntimeLanguage: Use HIP or OpenCL runtime.
-* KernelLanguage: For OpenCL runtime, kernel language must be set to OpenCL. For HIP runtime, kernel language can be set to HIP or assembly (gfx803, gfx900).
-* PrintLevel: 0=Tensile prints nothing, 1=prints some, 2=prints a lot.
-* ForceRedoBenchmarkProblems: False means don't redo a benchmark phase if results for it already exist.
-* ForceRedoLibraryLogic: False means don't re-generate library logic if it already exist.
-* ForceRedoLibraryClient: False means don't re-generate library client if it already exist.
-* CMakeBuildType: Release or Debug
-* EnqueuesPerSync: Num enqueues before syncing the queue.
-* SyncsPerBenchmark: Num queue syncs for each problem size.
-* LibraryPrintDebug: True means Tensile solutions will print kernel enqueue info to stdout
-* NumElementsToValidate: Number of elements to validate; 0 means no validation.
-* ValidationMaxToPrint: How many invalid results to print.
-* ValidationPrintValids: True means print validation comparisons that are valid, not just invalids.
-* ShortNames: Convert long kernel, solution and files names to short serial ids.
-* MergeFiles: False means write each solution and kernel to its own file.
-* PlatformIdx: OpenCL platform id.
-* DeviceIdx: OpenCL or HIP device id.
-* DataInitType[AB,C]: Initialize validation data with 0=0's, 1=1's, 2=serial, 3=random.
-* KernelTime: Use kernel time reported from runtime rather than api times from cpu clocks to compare kernel performance.
+* **Name:** Prefix to add to API function names; typically name of device.
+* **MinimumRequiredVersion:** Which version of Tensile is required to interpret this yaml file
+* **RuntimeLanguage:** Use HIP or OpenCL runtime.
+* **KernelLanguage:** For OpenCL runtime, kernel language must be set to OpenCL. For HIP runtime, kernel language can be set to HIP or assembly (gfx803, gfx900).
+* **PrintLevel:** 0=Tensile prints nothing, 1=prints some, 2=prints a lot.
+* **ForceRedoBenchmarkProblems:** False means don't redo a benchmark phase if results for it already exist.
+* **ForceRedoLibraryLogic:** False means don't re-generate library logic if it already exist.
+* **ForceRedoLibraryClient:** False means don't re-generate library client if it already exist.
+* **CMakeBuildType:** Release or Debug
+* **EnqueuesPerSync:** Num enqueues before syncing the queue.
+* **SyncsPerBenchmark:** Num queue syncs for each problem size.
+* **LibraryPrintDebug:** True means Tensile solutions will print kernel enqueue info to stdout
+* **NumElementsToValidate:** Number of elements to validate; 0 means no validation.
+* **ValidationMaxToPrint:** How many invalid results to print.
+* **ValidationPrintValids:** True means print validation comparisons that are valid, not just invalids.
+* **ShortNames:** Convert long kernel, solution and files names to short serial ids.
+* **MergeFiles:** False means write each solution and kernel to its own file.
+* **PlatformIdx:** OpenCL platform id.
+* **DeviceIdx:** OpenCL or HIP device id.
+* **DataInitType[AB,C]:** Initialize validation data with 0=0's, 1=1's, 2=serial, 3=random.
+* **KernelTime:** Use kernel time reported from runtime rather than api times from cpu clocks to compare kernel performance.
 
 The exhaustive list of global parameters and their defaults is stored in Common.py.
 
-**Problem Type Parameters**
+Problem Type Parameters
+--------------------------
 
-* OperationType: GEMM or TensorContraction.
-* DataType: s, d, c, z, h
-* UseBeta: False means library/solutions/kernel won't accept a beta parameter; thus beta=0.
-* UseInitialStrides: False means data is contiguous in memory.
-* HighPrecisionAccumulate: For tmpC += a*b, use twice the precision for tmpC as for DataType. Not yet implemented.
-* ComplexConjugateA: True or False; ignored for real precision.
-* ComplexConjugateB: True or False; ignored for real precision.
+* **OperationType**: GEMM or TensorContraction.
+* **DataType:** s, d, c, z, h
+* **UseBeta:** False means library/solutions/kernel won't accept a beta parameter; thus beta=0.
+* **UseInitialStrides:** False means data is contiguous in memory.
+* **HighPrecisionAccumulate:** For tmpC += a*b, use twice the precision for tmpC as for DataType. Not yet implemented.
+* **ComplexConjugateA:** True or False; ignored for real precision.
+* **ComplexConjugateB:** True or False; ignored for real precision.
 
 For OperationType=GEMM only:
-* TransposeA: True or False.
-* TransposeB: True or False.
-* Batched: True or False.
 
-For OperationType=TensorContraction only (showing batched gemm NT: C[ijk] = Sum[l] A[ilk] * B[jlk])
-* IndexAssignmentsA: [0, 3, 2]
-* IndexAssignmentsB: [1, 3, 2]
-* NumDimensionsC: 3.
+* **TransposeA:** True or False.
+* **TransposeB:** True or False.
+* **Batched:** True (False has been deprecated). For OperationType=TensorContraction only (showing batched gemm NT: C[ijk] = Sum[l] A[ilk] * B[jlk])
+* **IndexAssignmentsA:** [0, 3, 2]
+* **IndexAssignmentsB:** [1, 3, 2]
+* **NumDimensionsC:** 3.
 
-**Defaults**
+Solution / Kernel Parameters
+------------------------------
+
+See: `Kernel Parameters`_.
+
+.. _Kernel Parameters: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id43
+
+Defaults
+----------
 
 Because of the flexibility / complexity of the benchmarking process and, therefore, of the config.yaml files; Tensile has a default value for every parameter. If you neglect to put LoopUnroll anywhere in your benchmark, rather than crashing or complaining, Tensile will put the default LoopUnroll options into the default phase (common, fork, join...). This guarantees ease of use and more importantly backward compatibility; every time we add a new possible solution parameter, you don't necessarily need to update your configs; we'll have a default figured out for you.
 
@@ -1678,20 +2805,18 @@ Therefore, it is safest to specify all parameters in your config.yaml files; tha
 Benchmark Protocol
 ###############################
 
-**Old Benchmark Architecture was Intractable**
+Old Benchmark Architecture was Intractable
+----------------------------------------------
 
-The benchmarking strategy from version 1 was vanilla flavored brute force: 
- | ``(8 WorkGroups)* (12 ThreadTiles)* (4 NumLoadsCoalescedAs)*``
- | ``(4 NumLoadsCoalescedBs)* (3 LoopUnrolls)* (5 BranchTypes)* ...*(1024 ProblemSizes)=23,592,960`` is a multiplicative series 
-which grows very quickly.Adding one more boolean parameter doubles the number of kernel enqueues of the benchmark.
+The benchmarking strategy from version 1 was vanilla flavored brute force: (8 WorkGroups)* (12 ThreadTiles)* (4 NumLoadsCoalescedAs)* (4 NumLoadsCoalescedBs)* (3 LoopUnrolls)* (5 BranchTypes)* ...*(1024 ProblemSizes)=23,592,960 is a multiplicative series which grows very quickly. Adding one more boolean parameter doubles the number of kernel enqueues of the benchmark.
 
-**Incremental Benchmark is Faster**
+Incremental Benchmark is Faster
+----------------------------------
 
-Tensile version 2 allows the user to manually interrupt the multiplicative series with "additions" instead of "multiplies", i.e., 
- | ``(8 WorkGroups)* (12 ThreadTiles)+ (4 NumLoadsCoalescedAs)*``
- | ``(4 NumLoadsCoalescedBs)*(3 LoopUnrolls)+ (5 BranchTypes)* ...+(1024 ProblemSizes)=1,151``  is a dramatically smaller number of enqueues.Now, adding one more boolean parameter may only add on 2 more enqueues.
+Tensile version 2 allows the user to manually interrupt the multiplicative series with "additions" instead of "multiplies", i.e., (8 WorkGroups)* (12 ThreadTiles)+ (4 NumLoadsCoalescedAs)* (4 NumLoadsCoalescedBs)* (3 LoopUnrolls)+ (5 BranchTypes)* ...+(1024 ProblemSizes)=1,151 is a dramatically smaller number of enqueues. Now, adding one more boolean parameter may only add on 2 more enqueues.
 
-**Phases of Benchmark**
+Phases of Benchmark
+----------------------
 
 To make the Tensile's programability more manageable for the user and developer, the benchmarking protocol has been split up into several steps encoded in a config.yaml file. The below sections reference the following config.yaml. Note that this config.yaml has been created to be a simple illustration and doesn't not represent an actual good benchmark protocol. See the configs included in the repository (/Tensile/Configs) for examples of good benchmarking configs.
 
@@ -1701,6 +2826,7 @@ To make the Tensile's programability more manageable for the user and developer,
    - # sgemm
      - # Problem Type
        OperationType: GEMM
+       Batched: True
      - # Benchmark Size-Group
       InitialSolutionParameters:
         - WorkGroup: [ [ 16, 16, 1 ] ]
@@ -1710,7 +2836,7 @@ To make the Tensile's programability more manageable for the user and developer,
 
       BenchmarkCommonParameters:
         - ProblemSizes:
-          - Range: [ [512], [512], [512] ]
+          - Range: [ [512], [512], [1], [512] ]
         - EdgeType: ["Branch", "ShiftPtr"]
           PrefetchGlobalRead: [False, True]
 
@@ -1720,7 +2846,7 @@ To make the Tensile's programability more manageable for the user and developer,
 
       BenchmarkForkParameters:
         - ProblemSizes:
-          - Exact: [ 2880, 2880, 2880 ]
+          - Exact: [ 2880, 2880, 1, 2880 ]
         - NumLoadsCoalescedA: [ 1, 2, 4, 8 ]
         - NumLoadsCoalescedB: [ 1, 2, 4, 8 ]
 
@@ -1732,147 +2858,185 @@ To make the Tensile's programability more manageable for the user and developer,
 
       BenchmarkFinalParameters:
         - ProblemSizes:
-          - Range: [ [16, 128], [16, 128], [256] ]
+          - Range: [ [16, 128], [16, 128], [1], [256] ]
 
 
-**Initial Solution Parameters**
+Initial Solution Parameters
+------------------------------
 
 A Solution is comprised of ~20 parameters, and all are needed to create a kernel. Therefore, during the first benchmark which determines which WorkGroupShape is fastest, what are the other 19 solution parameters which are used to describe the kernels that we benchmark? That's what InitialSolutionParameters are for. The solution used for benchmarking WorkGroupShape will use the parameters from InitialSolutionParameters. The user must choose good default solution parameters in order to correctly identify subsequent optimal parameters.
 
-**Problem Sizes**
+Problem Sizes
+----------------
 
 Each step of the benchmark can override what problem sizes will be benchmarked. A ProblemSizes entry of type Range is a list whose length is the number of indices in the ProblemType. A GEMM ProblemSizes must have 3 elements while a batched-GEMM ProblemSizes must have 4 elements. So, for a ProblemType of C[ij] = Sum[k] A[ik]*B[jk], the ProblemSizes elements represent [SizeI, SizeJ, SizeK]. For each index, there are 5 ways of specifying the sizes of that index:
 
- 1.[1968]
+ 1. [1968]
   * Benchmark only size 1968; n = 1.
   
- 2.[16, 1920]
+ 2. [16, 1920]
   * Benchmark sizes 16 to 1968 using the default step size (=16); n = 123.
  
- 3.[16, 32, 1968]
+ 3. [16, 32, 1968]
   * Benchmark sizes 16 to 1968 using a step size of 32; n = 61.
  
- 4.[64, 32, 16, 1968]
+ 4. [64, 32, 16, 1968]
   * Benchmark sizes from 64 to 1968 with a step size of 32. Also, increase the step size by 16 each iteration.
   * This causes fewer sizes to be benchmarked when the sizes are large, and more benchmarks where the sizes are small; this is 	      	typically desired behavior.
-  * n = 16 (64, 96, 144, 208, 288, 384, 496, 624, 768, 928, 1104, 1296, 1504, 1728, 1968). The stride at the beginning is 32, but     	the stride at the end is 256.
+  * n = 16 (64, 96, 144, 208, 288, 384, 496, 624, 768, 928, 1104, 1296, 1504, 1728, 1968). The stride at the beginning is 32, but the stride at the end is 256.
  
- 5.[0]
+ 5. 0
   * The size of this index is just whatever size index 0 is. For a 3-dimensional ProblemType, this allows benchmarking only a 2- 	      	dimensional or 1-dimensional slice of problem sizes.
 
 Here are a few examples of valid ProblemSizes for 3D GEMMs:
 
-Range: [ [16, 128], [16, 128], [16, 128] ] # n = 512
-Range: [ [16, 128], 0, 0] # n = 8
-Range: [ [16, 16, 16, 5760], 0, [1024, 1024, 4096] ] # n = 108
+::
+
+  Range: [ [16, 128], [16, 128], [16, 128] ] # n = 512
+  Range: [ [16, 128], 0, 0] # n = 8
+  Range: [ [16, 16, 16, 5760], 0, [1024, 1024, 4096] ] # n = 108
+
 
 Benchmark Common Parameters
-**************************************
+-------------------------------
+
 During this first phase of benchmarking, we examine parameters which will be the same for all solutions for this ProblemType. During each step of benchmarking, there is only 1 winner. In the above example we are benchmarking the dictionary {EdgeType: [ Branch, ShiftPtr], PrefetchGlobalRead: [False, True]}.; therefore, this benchmark step generates 4 solution candidates, and the winner will be the fastest EdgeType/PrefetchGlobalRead combination. Assuming the winner is ET=SP and PGR=T, then all solutions for this ProblemType will have ET=SP and PGR=T. Also, once a parameter has been determined, all subsequent benchmarking steps will use this determined parameter rather than pulling values from InitialSolutionParameters. Because the common parameters will apply to all kernels, they are typically the parameters which are compiler-dependent or hardware-dependent rather than being tile-dependent.
 
-**Fork Parameters**
-****************************
+Fork Parameters
+-------------------
+
 If we continued to determine every parameter in the above manner, we'd end up with a single fastest solution for the specified ProblemSizes; we usually desire multiple different solutions with varying parameters which may be fastest for different groups of ProblemSizes. One simple example of this is small tiles sizes are fastest for small problem sizes, and large tiles are fastest for large tile sizes.
 
 Therefore, we allow "forking" parameters; this means keeping multiple winners after each benchmark steps. In the above example we fork {WorkGroup: [...], ThreadTile: [...]}. This means that in subsequent benchmarking steps, rather than having one winning parameter, we'll have one winning parameter per fork permutation; we'll have 9 winners.
 
-**Benchmark Fork Parameters**
+Benchmark Fork Parameters
+-----------------------------
 
 When we benchmark the fork parameters, we retain one winner per permutation. Therefore, we first determine the fastest NumLoadsCoalescedA for each of the WG,TT permutations, then we determine the fastest NumLoadsCoalescedB for each permutation.
 
 Join Parameters
-*******************
+-------------------
+
 After determining fastest parameters for all the forked solution permutations, we have the option of reducing the number of winning solutions. When a parameter is listed in the JoinParameters section, that means that of the kept winning solutions, each will have a different value for that parameter. Listing more parameters to join results in more winners being kept, while having a JoinParameters section with no parameters listed results on only 1 fastest solution.
 
 In our example we join over the MacroTile (work-group x thread-tile). After forking tiles, there were 9 solutions that we kept. After joining MacroTile, we'll only keep six: 16x256, 32x128, 64x64, 128x32 and 256x16. The solutions that are kept are based on their performance during the last BenchmarkForkParameters benchmark, or, if there weren't any, JoinParameters will conduct a benchmark of all solution candidates then choose the fastest.
 
-**Benchmark Join Parameters**
+Benchmark Join Parameters
+---------------------------
 
 After narrowing the list of fastest solutions through joining, you can continue to benchmark parameters, keeping one winning parameter per solution permutation.
 
 Benchmark Final Parameters
-********************************
-After all the parameter benchmarking has been completed and the final list of fastest solution has been assembled, we can benchmark all the solution over a large set of ProblemSizes. This benchmark represent the final output of benchmarking; it outputs a .csv file where the rows are all the problem sizes and the columns are all the solutions. This is the information which gets analysed to produce the library logic.
+------------------------------
 
+After all the parameter benchmarking has been completed and the final list of fastest solution has been assembled, we can benchmark all the solution over a large set of ProblemSizes. This benchmark represent the final output of benchmarking; it outputs a .csv file where the rows are all the problem sizes and the columns are all the solutions. This is the information which gets analysed to produce the `library logic`_.
+
+.. _library logic: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id46
+
+Contributing
+##############
+
+
+
+We'd love your help, but...
+
+    #. Never check in a tab (\t); use 4 spaces.
+    #. Follow the coding style of the file you're editing.
+    #. Make pull requests against develop branch.
+    #. Rebase your develop branch against ROCmSoftwarePlatform::Tensile::develop branch right before pull-requesting.
+    #. In your pull request, state what you tested (which OS, what drivers, what devices, which config.yaml's) so we can ensure that your changes haven't broken anything.
 
 
 Dependencies
 ##################
 
-**CMake**
+CMake
+-------
 
   * CMake 2.8
 
-**Python**
+Python
+---------
 
-   * Python 2.7
-   * PyYAML (Can be installed via apt, apt-get, yum, pip...; module is typically named python-yaml, pyyaml or PyYAML.)
+(One time only)
 
-**Compilers**
+   * Ubuntu: sudo apt install python2.7 python-yaml
+   * CentOS: sudo yum install python PyYAML
+   * Fedora: sudo dnf install python PyYAML
 
- * For Tensile_BACKEND = OpenCL1.2
+
+Compilers
+--------------
+
+  * For Tensile_BACKEND = OpenCL1.2 *(untested)*
+      
       * Visual Studio 14 (2015). (VS 2012 may also be supported; c++11 should no longer be required by Tensile. Need to verify.)
-      * GCC 4.8
- * For Tensile_BACKEND = HIP
-      * ROCM 2.0
+      * GCC 4.8 and above
 
-**Installation**
+  * For Tensile_BACKEND = HIP
+      
+      * Public ROCm
 
+
+Installation
+##############
 
 Tensile can be installed via:
 
-1. Install directly from repo using pip:
+
+1. Download repo and don't install; install PyYAML dependency manually and call python scripts manually:
+
+::
+ 
+  git clone https://github.com/ROCmSoftwarePlatform/Tensile.git
+  python Tensile/Tensile/Tensile.py your_custom_config.yaml your_benchmark_path
+
+2. Install develop branch directly from repo using pip:
 
 ::
 
-   pip install git+https://github.com/RadeonOpenCompute/Tensile.git@develop
-   tensile config.yaml benchmark_path
+  pip install git+https://github.com/ROCmSoftwarePlatform/Tensile.git@develop
+  tensile your_custom_config.yaml your_benchmark_path
 
-
-2. Download repo and install manually:
+3. Download repo and install manually: (deprecated)
 
 ::
 
-  git clone https://github.com/RadeonOpenCompute/Tensile.git
+  git clone https://github.com/ROCmSoftwarePlatform/Tensile.git
   cd Tensile
   sudo python setup.py install
-  tensile config.yaml benchmark_path
-
-3. Download repo and don't install; install PyYAML dependency manually and call python scripts manually:
-
-::
-
-   git clone https://github.com/RadeonOpenCompute/Tensile.git 
-   python Tensile/Tensile/Tensile.py config.yaml benchmark_path
-
+  tensile your_custom_config.yaml your_benchmark_path
 
 Kernel Parameters
 #####################
 
 Solution / Kernel Parameters
-*********************************
+--------------------------------
 
-* LoopDoWhile: True=DoWhile loop, False=While or For loop
-* LoopTail: Additional loop with LoopUnroll=1.
-* EdgeType: Branch, ShiftPtr or None
-* WorkGroup: [dim0, dim1, LocalSplitU]
-* ThreadTile: [dim0, dim1]
-* GlobalSplitU: Split up summation among work-groups to create more concurrency. This option launches a kernel to handle the beta     	scaling, then a second kernel where the writes to global memory are atomic.
-* PrefetchGlobalRead: True means outer loop should prefetch global data one iteration ahead.
-* PrefetchLocalRead: True means inner loop should prefetch lds data one iteration ahead.
-* WorkGroupMapping: In what order will work-groups compute C; affects cacheing.
-* LoopUnroll: How many iterations to unroll inner loop; helps loading coalesced memory.
-* MacroTile: Derrived from WorkGroup*ThreadTile.
-* DepthU: Derrived from LoopUnroll*SplitU.
-* NumLoadsCoalescedA,B: Number of loads from A in coalesced dimension.
-* GlobalReadCoalesceGroupA,B: True means adjacent threads map to adjacent global read elements (but, if transposing data then write   	to lds is scattered).
-* GlobalReadCoalesceVectorA,B: True means vector components map to adjacent global read elements (but, if transposing data then write 	to lds is scattered).
-* VectorWidth: Thread tile elements are contiguous for faster memory accesses. For example VW=4 means a thread will read a float4     	 from memory rather than 4 non-contiguous floats.
+* **LoopDoWhile:** True=DoWhile loop, False=While or For loop
+* **LoopTail:** Additional loop with LoopUnroll=1.
+* **EdgeType:** Branch, ShiftPtr or None
+* **WorkGroup:** [dim0, dim1, LocalSplitU]
+* **ThreadTile:** [dim0, dim1]
+* **GlobalSplitU:** Split up summation among work-groups to create more concurrency. This option launches a kernel to handle the beta scaling, then a second kernel where the writes to global memory are atomic.
+* **PrefetchGlobalRead:** True means outer loop should prefetch global data one iteration ahead.
+* **PrefetchLocalRead:** True means inner loop should prefetch lds data one iteration ahead.
+* **WorkGroupMapping:** In what order will work-groups compute C; affects cacheing.
+* **LoopUnroll:** How many iterations to unroll inner loop; helps loading coalesced memory.
+* **MacroTile:** Derrived from WorkGroup*ThreadTile.
+* **DepthU:** Derrived from LoopUnroll*SplitU.
+* **NumLoadsCoalescedA,B:** Number of loads from A in coalesced dimension.
+* **GlobalReadCoalesceGroupA,B:** True means adjacent threads map to adjacent global read elements (but, if transposing data then write to lds is scattered).
+* **GlobalReadCoalesceVectorA,B:** True means vector components map to adjacent global read elements (but, if transposing data then write to lds is scattered).
+* **VectorWidth:** Thread tile elements are contiguous for faster memory accesses. For example VW=4 means a thread will read a float4 from memory rather than 4 non-contiguous floats.
+* **KernelLanguage:** Whether kernels should be written in source code (HIP, OpenCL) or assembly (gfx803, gfx900, ...).
+
 
 The exhaustive list of solution parameters and their defaults is stored in Common.py.
 
 Kernel Parameters Affect Performance
-****************************************
+---------------------------------------
+
 The kernel parameters affect many aspects of performance. Changing a parameter may help address one performance bottleneck but worsen another. That is why searching through the parameter space is vital to discovering the fastest kernel for a given problem.
 
 
@@ -1880,11 +3044,13 @@ The kernel parameters affect many aspects of performance. Changing a parameter m
  .. image:: img1.png
      :align: center
    
-**How N-Dimensional Tensor Contractions Are Mapped to Finite-Dimensional GPU Kernels**
+How N-Dimensional Tensor Contractions Are Mapped to Finite-Dimensional GPU Kernels
+--------------------------------------------------------------------------------------
 
 For a traditional GEMM, the 2-dimensional output, C[i,j], is mapped to launching a 2-dimensional grid of work groups, each of which has a 2-dimensional grid of work items; one dimension belongs to i and one dimension belongs to j. The 1-dimensional summation is represented by a single loop within the kernel body.
 
-**Special Dimensions: D0, D1 and DU**
+Special Dimensions: D0, D1 and DU
+------------------------------------
 
 To handle arbitrary dimensionality, Tensile begins by determining 3 special dimensions: D0, D1 and DU.
 
@@ -1893,53 +3059,65 @@ D0 and D1 are the free indices of A and B (one belongs to A and one to B) which 
 DU represents the summation index with the shortest combined stride (stride in A + stride in B); it becomes the inner most loop which gets "U"nrolled. This assignment is also mean't to assure fast reading in the inner-most summation loop. There can be multiple summation indices (i.e. embedded loops) and DU will be iterated over in the inner most loop.
 
 GPU Kernel Dimension
-************************
+-----------------------
+
 OpenCL allows for 3-dimensional grid of work-groups, and each work-group can be a 3-dimensional grid of work-items. Tensile assigns D0 to be dimension-0 of the work-group and work-item grid; it assigns D1 to be dimension-1 of the work-group and work-item grids. All other free or batch dimensions are flattened down into the final dimension-2 of the work-group and work-item grids. Withing the GPU kernel, dimensions-2 is reconstituted back into whatever dimensions it represents.
 
 
 Languages
 ##################
 
-**Tensile Benchmarking is Python**
+Tensile Benchmarking is Python
+----------------------------------
 
 The benchmarking module, Tensile.py, is written in python. The python scripts write solution, kernels, cmake files and all other C/C++ files used for benchmarking.
 
-**Tensile Library**
+Tensile Library
+-----------------
 
 The Tensile API, Tensile.h, is confined to C89 so that it will be usable by most software. The code behind the API is allowed to be c++11.
 
-**Device Languages**
+Device Languages
+------------------
 
 The device languages Tensile supports for the gpu kernels is
 
 * OpenCL 1.2
 * HIP
 * Assembly
-   * gfx803 
-   * gfx900
 
-**Library Logic**
+	* gfx803 
+	* gfx900
 
-Running the LibraryLogic phase of benchmarking analyses the benchmark data and encodes a mapping for each problem type. For each problem type, it maps problem sizes to best solution (i.e. kernel).
+Library Logic
+###############
 
-When you build Tensile.lib, you point the TensileCreateLibrary function to a directory where your library logic yaml files are.
+Running the ``LibraryLogic`` phase of benchmarking analyses the benchmark data and encodes a mapping for each problem type. For each problem type, it maps problem sizes to best solution (i.e. kernel).
+
+When you build Tensile.lib, you point the ``TensileCreateLibrary`` function to a directory where your library logic yaml files are.
 
 Problem Nomenclature
 ########################
 
-**Example Problems**
+Example Problems
+---------------------
 
+   * Standard GEMM has 4 variants (2 free indices (i, j) and 1 summation index l)
 
-* C[i,j] = Sum[k] A[i,k] * B[k,j] (GEMM; 2 free indices and 1 summation index)
-* C[i,j,k] = Sum[l] A[i,l,k] * B[l,j,k] (batched-GEMM; 2 free indices, 1 batched index and 1 summation index)
-* C[i,j] = Sum[k,l] A[i,k,l] * B[j,l,k] (2D summation)
-* C[i,j,k,l,m] = Sum[n] A[i,k,m,l,n] * B[j,k,l,n,m] (GEMM with 3 batched indices)
-* C[i,j,k,l,m] = Sum[n,o] A[i,k,m,o,n] * B[j,m,l,n,o] (4 free indices, 2 summation indices and 1 batched index)
-* C[i,j,k,l] = Sum[m,n] A[i,j,m,n,l] * B[m,n,k,j,l] (batched image convolution mapped to 7D tensor contraction)
-* and even crazier
+    	#. N(N:nontranspose)N: C[i,j] = Sum[l] A[i,l] * B[l,j]
+    	#. NT(T:transpose): C[i,j] = Sum[l] A[i,l] * B[j, l]
+    	#. TN: C[i,j] = Sum[l] A[l, i] * B[l,j]
+	#. TT: C[i,j] = Sum[l] A[l, i] * B[j, l]
 
-**Nomenclature**
+    * C[i,j,k] = Sum[l] A[i,l,k] * B[l,j,k] (batched-GEMM; 2 free indices, 1 batched index k and 1 summation index l)
+    * C[i,j] = Sum[k,l] A[i,k,l] * B[j,l,k] (2D summation)
+    * C[i,j,k,l,m] = Sum[n] A[i,k,m,l,n] * B[j,k,l,n,m] (GEMM with 3 batched indices)
+    * C[i,j,k,l,m] = Sum[n,o] A[i,k,m,o,n] * B[j,m,l,n,o] (4 free indices, 2 summation indices and 1 batched index)
+    * C[i,j,k,l] = Sum[m,n] A[i,j,m,n,l] * B[m,n,k,j,l] (batched image convolution mapped to 7D tensor contraction)
+    * and even crazier
 
+Nomenclature
+----------------
 
 The indices describe the dimensionality of the problem being solved. A GEMM operation takes 2 2-dimensional matrices as input (totaling 4 input dimensions) and contracts them along one dimension (which cancels out 2 of the dimensions), resulting in a 2-dimensional result.
 
@@ -1959,7 +3137,8 @@ Batch indices are the indices of tensor C which shows up in both tensor A and te
 
 The final type of indices are called bound indices or summation indices. These indices do not show up in tensor C; they show up in the summation symbol (Sum[k]) and in tensors A and B. It is along these indices that we perform the inner products (pairwise multiply then sum).
 
-**Limitations**
+Limitations
+------------
 
 Problem supported by Tensile must meet the following conditions:
 
@@ -1968,7 +3147,7 @@ There must be at least one pair of free indices.
 Tensile.lib
 ########################
 
-After running the benchmark and generating library config files, you're ready to add Tensile.lib to your project. Tensile provides a TensileCreateLibrary function, which can be called:
+After running the `benchmark`_ and generating `library config files`_, you're ready to add Tensile.lib to your project. Tensile provides a ``TensileCreateLibrary`` function, which can be called:
 
 ::
 
@@ -1990,15 +3169,144 @@ After running the benchmark and generating library config files, you're ready to
     )
   target_link_libraries( TARGET Tensile )
 
+TODO: Where is the Tensile include directory?	
 
-**Versioning**
+.. _benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
+.. _library config files: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id46
 
+Versioning
+###########
 
 Tensile follows semantic versioning practices, i.e. Major.Minor.Patch, in BenchmarkConfig.yaml files, LibraryConfig.yaml files and in cmake find_package. Tensile is compatible with a "MinimumRequiredVersion" if Tensile.Major==MRV.Major and Tensile.Minor.Patch >= MRV.Minor.Patch.
 
-* Major: Tensile increments the major version if the public API changes, or if either the benchmark.yaml or library-config.yaml files 	change format in a non-backwards-compatible manner.
-* Minor: Tensile increments the minor version when new kernel, solution or benchmarking features are introduced in a backwards-	      	compatible manner.
-* Patch: Bug fixes or minor improvements.
+* **Major:** Tensile increments the major version if the public API changes, or if either the benchmark.yaml or library-config.yaml files change format in a non-backwards-compatible manner.
+* **Minor:** Tensile increments the minor version when new kernel, solution or benchmarking features are introduced in a backwards-compatible manner.
+* **Patch:** Bug fixes or minor improvements.
+
+
+************
+rocThrust
+************
+
+Thrust
+--------
+
+HIP back-end for Thrust(alpha release)
+
+Introduction
+##############
+
+Thrust is a parallel algorithm library. This library has been ported to `HIP <https://github.com/ROCm-Developer-Tools/HIP>`_/`ROCm <https://rocm.github.io/>`_ platform, which uses the `rocPRIM library <https://github.com/ROCmSoftwarePlatform/rocPRIM>`_. The HIP ported library works on HIP/ROCm platforms. Currently there is no CUDA backend in place.
+
+Requirements
+#############
+
+Software
+__________
+
+
+Software
+
+* Git
+* CMake (3.5.1 or later)
+* AMD `ROCm <https://rocm.github.io/>`_ platform (1.8.0 or later)
+    * Including `HCC <https://github.com/RadeonOpenCompute/hcc>`_ compiler, which must be set as C++ compiler on ROCm platform.
+* `rocPRIM <https://github.com/ROCmSoftwarePlatform/rocPRIM>`_ library
+    * It will be automatically downloaded and built by CMake script.
+
+Optional:
+
+* `GTest <https://github.com/google/googletest>`_
+    * Required only for tests. Building tests is enabled by default.
+    * It will be automatically downloaded and built by CMake script.
+
+Hardware
+#########
+
+Visit the following link for `ROCm hardware requirements: <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#supported-cpus>`_
+
+Build And Install
+##################
+
+For build and install:
+
+::
+
+  git clone https://github.com/ROCmSoftwarePlatform/rocThrust
+
+  # Go to rocThrust directory, create and go to the build directory.
+  cd rocThrust; mkdir build; cd build
+
+  # Configure rocThrust, setup options for your system.
+  # Build options:
+  #   BUILD_TEST - ON by default,
+  #
+  # ! IMPORTANT !
+  # On ROCm platform set C++ compiler to HCC. You can do it by adding 'CXX=<path-to-hcc>'
+  # before 'cmake' or setting cmake option 'CMAKE_CXX_COMPILER' with the path to the HCC compiler.
+  #
+  [CXX=hcc] cmake ../. # or cmake-gui ../.
+
+  # Build
+  make -j4
+  # Optionally, run tests if they're enabled.
+  ctest --output-on-failure
+
+  # Package
+  make package
+
+  # Install
+  [sudo] make install
+
+
+Using rocThrust In A Project
+#############################
+
+Recommended way of including rocThrust into a CMake project is by using its package configuration files.
+
+# On ROCm rocThrust requires rocPRIM
+find_package(rocprim REQUIRED CONFIG PATHS "/opt/rocm/rocprim")
+
+# "/opt/rocm" - default install prefix
+find_package(rocthrust REQUIRED CONFIG PATHS "/opt/rocm/rocthrust")
+
+...
+includes rocThrust headers and roc::rocprim_hip target
+target_link_libraries(<your_target> rocthrust)
+
+Running Unit Tests
+####################
+
+# Go to rocThrust build directory
+cd rocThrust; cd build
+
+# To run all tests
+ctest
+
+# To run unit tests for rocThrust
+./test/<unit-test-name>
+
+Documentation
+###############
+
+# go to rocThrust doc directory
+cd rocThrust
+
+# run doxygen
+doxygen doc/thrust.dox
+
+# open html/index.html
+
+Support
+#########
+
+Bugs and feature requests can be reported through the `issue tracker <https://github.com/ROCmSoftwarePlatform/rocThrust/issues>`_.
+
+Contributions and License
+##########################
+
+Contributions of any kind are most welcome! More details are found at `CONTRIBUTING <https://github.com/ROCmSoftwarePlatform/rocThrust/blob/master-rocm-2.5/CONTRIBUTING.md>`_ and `LICENSE <https://github.com/ROCmSoftwarePlatform/rocThrust/blob/master-rocm-2.5/LICENSE.txt>`_.
+
 
 ***************
 rocALUTION
@@ -2200,6 +3508,965 @@ For more information regarding rocALUTION library and corresponding API document
 `rocALUTION <https://rocalution.readthedocs.io/en/latest/library.html>`_
 
 
+API
+####
+
+This section provides details of the library API
+
+Host Utility Functions
+--------------------------------
+.. doxygenfunction:: rocalution::allocate_host
+   :project: rocALUTION
+
+.. doxygenfunction:: rocalution::free_host
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::set_to_zero_host
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::rocalution_time
+   :project: rocALUTION
+
+Backend Manager
+--------------------------------
+.. doxygenfunction:: rocalution::init_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::stop_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::set_device_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::set_omp_threads_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::set_omp_affinity_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::set_omp_threshold_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::info_rocalution(void)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::info_rocalution(const struct Rocalution_Backend_Descriptor)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::disable_accelerator_rocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::_rocalution_sync
+   :project: rocALUTION
+
+Base Rocalution
+--------------------------------
+.. doxygenclass:: rocalution::BaseRocalution
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::MoveToAccelerator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::MoveToHost
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::MoveToAcceleratorAsync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::MoveToHostAsync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::Sync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::CloneBackend(const BaseRocalution<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::Info
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseRocalution::Clear
+   :project: rocALUTION
+
+Operator
+--------------------------------
+.. doxygenclass:: rocalution::Operator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetM
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetN
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetNnz
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetLocalM
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetLocalN
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetLocalNnz
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetGhostM
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetGhostN
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::GetGhostNnz
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::Apply(const LocalVector<ValueType>&, LocalVector<ValueType> *) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::ApplyAdd(const LocalVector<ValueType>&, ValueType, LocalVector<ValueType> *) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::Apply(const GlobalVector<ValueType>&, GlobalVector<ValueType> *) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Operator::ApplyAdd(const GlobalVector<ValueType>&, ValueType, GlobalVector<ValueType> *) const
+   :project: rocALUTION
+
+Vector
+--------------------------------
+.. doxygenclass:: rocalution::Vector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::GetSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::GetLocalSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::GetGhostSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Check
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Zeros
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Ones
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::SetValues
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::SetRandomUniform
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::SetRandomNormal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ReadFileASCII
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::WriteFileASCII
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ReadFileBinary
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::WriteFileBinary
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CopyFrom(const LocalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CopyFrom(const GlobalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CopyFromAsync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CopyFromFloat
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CopyFromDouble
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CopyFrom(const LocalVector<ValueType>&, int, int, int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CloneFrom(const LocalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::CloneFrom(const GlobalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::AddScale(const LocalVector<ValueType>&, ValueType)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::AddScale(const GlobalVector<ValueType>&, ValueType)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAdd(ValueType, const LocalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAdd(ValueType, const GlobalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAddScale(ValueType, const LocalVector<ValueType>&, ValueType)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAddScale(ValueType, const GlobalVector<ValueType>&, ValueType)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAddScale(ValueType, const LocalVector<ValueType>&, ValueType, int, int, int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAddScale(ValueType, const GlobalVector<ValueType>&, ValueType, int, int, int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAdd2(ValueType, const LocalVector<ValueType>&, ValueType, const LocalVector<ValueType>&, ValueType)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::ScaleAdd2(ValueType, const GlobalVector<ValueType>&, ValueType, const GlobalVector<ValueType>&, ValueType)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Scale
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Dot(const LocalVector<ValueType>&) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Dot(const GlobalVector<ValueType>&) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::DotNonConj(const LocalVector<ValueType>&) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::DotNonConj(const GlobalVector<ValueType>&) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Norm
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Reduce
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Asum
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Amax
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::PointWiseMult(const LocalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::PointWiseMult(const GlobalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::PointWiseMult(const LocalVector<ValueType>&, const LocalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::PointWiseMult(const GlobalVector<ValueType>&, const GlobalVector<ValueType>&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Vector::Power
+   :project: rocALUTION
+
+Local Matrix
+--------------------------------
+.. doxygenclass:: rocalution::LocalMatrix
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::GetFormat
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Check
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateBCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateMCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateDIA
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateELL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateHYB
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AllocateDENSE
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SetDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SetDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SetDataPtrMCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SetDataPtrELL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SetDataPtrDIA
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SetDataPtrDENSE
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LeaveDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LeaveDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LeaveDataPtrMCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LeaveDataPtrELL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LeaveDataPtrDIA
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LeaveDataPtrDENSE
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Zeros
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Scale
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ScaleDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ScaleOffDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AddScalar
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AddScalarDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AddScalarOffDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractSubMatrix
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractSubMatrices
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractInverseDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractU
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Permute
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::PermuteBackward
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CMK
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::RCMK
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConnectivityOrder
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::MultiColoring
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::MaximalIndependentSet
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ZeroBlockPermutation
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ILU0Factorize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LUFactorize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ILUTFactorize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ILUpFactorize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LUAnalyse
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LUAnalyseClear
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LUSolve
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ICFactorize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LLAnalyse
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LLAnalyseClear
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LLSolve(const LocalVector<ValueType>&, LocalVector<ValueType> *) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LLSolve(const LocalVector<ValueType>&, const LocalVector<ValueType>&, LocalVector<ValueType> *) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LAnalyse
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LAnalyseClear
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::LSolve
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::UAnalyse
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::UAnalyseClear
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::USolve
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Householder
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::QRDecompose
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::QRSolve
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Invert
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ReadFileMTX
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::WriteFileMTX
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ReadFileCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::WriteFileCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyFrom
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyFromAsync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CloneFrom
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::UpdateValuesCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyFromCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyToCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyFromCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyToCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CopyFromHostCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CreateFromMap(const LocalVector<int>&, int, int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CreateFromMap(const LocalVector<int>&, int, int, LocalMatrix<ValueType> *)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToMCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToBCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToELL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToDIA
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToHYB
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertToDENSE
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ConvertTo
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SymbolicPower
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::MatrixAdd
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::MatrixMult
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::DiagonalMatrixMult
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::DiagonalMatrixMultL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::DiagonalMatrixMultR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Gershgorin
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Compress
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Transpose
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Sort
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::Key
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ReplaceColumnVector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ReplaceRowVector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractColumnVector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::ExtractRowVector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AMGConnect
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AMGAggregate
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AMGSmoothedAggregation
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::AMGAggregation
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::RugeStueben
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::FSAI
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::SPAI
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::InitialPairwiseAggregation(ValueType, int&, LocalVector<int> *, int&, int **, int&, int) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::InitialPairwiseAggregation(const LocalMatrix<ValueType>&, ValueType, int&, LocalVector<int> *, int&, int **, int&, int) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::FurtherPairwiseAggregation(ValueType, int&, LocalVector<int> *, int&, int **, int&, int) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::FurtherPairwiseAggregation(const LocalMatrix<ValueType>&, ValueType, int&, LocalVector<int> *, int&, int **, int&, int) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalMatrix::CoarsenOperator
+   :project: rocALUTION
+
+Local Stencil
+--------------------------------
+.. doxygenclass:: rocalution::LocalStencil
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalStencil::LocalStencil(unsigned int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalStencil::GetNDim
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalStencil::SetGrid
+   :project: rocALUTION
+
+Global Matrix
+--------------------------------
+.. doxygenclass:: rocalution::GlobalMatrix
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::GlobalMatrix(const ParallelManager&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::Check
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::AllocateCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::AllocateCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetParallelManager
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetLocalDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetLocalDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetGhostDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::SetGhostDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::LeaveDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::LeaveDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::LeaveLocalDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::LeaveLocalDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::LeaveGhostDataPtrCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::LeaveGhostDataPtrCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::CloneFrom
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::CopyFrom
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToMCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToBCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToCOO
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToELL
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToDIA
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToHYB
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertToDENSE
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ConvertTo
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ReadFileMTX
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::WriteFileMTX
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ReadFileCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::WriteFileCSR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::Sort
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::ExtractInverseDiagonal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::Scale
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::InitialPairwiseAggregation
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::FurtherPairwiseAggregation
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalMatrix::CoarsenOperator
+   :project: rocALUTION
+
+Local Vector
+--------------------------------
+.. doxygenclass:: rocalution::LocalVector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::Allocate
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::SetDataPtr
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::LeaveDataPtr
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::operator[](int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::operator[](int) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::CopyFromPermute
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::CopyFromPermuteBackward
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::CopyFromData
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::CopyToData
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::Permute
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::PermuteBackward
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::Restriction
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::Prolongation
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::SetIndexArray
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::GetIndexValues
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::SetIndexValues
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::GetContinuousValues
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::SetContinuousValues
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::ExtractCoarseMapping
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::LocalVector::ExtractCoarseBoundary
+   :project: rocALUTION
+
+Global Vector
+--------------------------------
+.. doxygenclass:: rocalution::GlobalVector
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::GlobalVector(const ParallelManager&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::Allocate
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::SetParallelManager
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::operator[](int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::operator[](int) const
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::SetDataPtr
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::LeaveDataPtr
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::Restriction
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalVector::Prolongation
+   :project: rocALUTION
+
+Parallel Manager
+--------------------------------
+.. doxygenclass:: rocalution::ParallelManager
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::SetMPICommunicator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::Clear
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::GetGlobalSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::GetLocalSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::GetNumReceivers
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::GetNumSenders
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::GetNumProcs
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::SetGlobalSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::SetLocalSize
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::SetBoundaryIndex
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::SetReceivers
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::SetSenders
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::LocalToGlobal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::GlobalToLocal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::Status
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::ReadFileASCII
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ParallelManager::WriteFileASCII
+   :project: rocALUTION
+
+Solvers
+--------------------------------
+.. doxygenclass:: rocalution::Solver
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::SetOperator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::ResetOperator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::Print
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::Solve
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::SolveZeroSol
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::Clear
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::Build
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::BuildMoveToAcceleratorAsync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::Sync
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::ReBuildNumeric
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::MoveToHost
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::MoveToAccelerator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Solver::Verbose
+   :project: rocALUTION
+
+Iterative Linear Solvers
+````````````````````````
+.. doxygenclass:: rocalution::IterativeLinearSolver
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::Init(double, double, double, int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::Init(double, double, double, int, int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::InitMinIter
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::InitMaxIter
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::InitTol
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::SetResidualNorm
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::RecordResidualHistory
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::RecordHistory
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::Verbose
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::Solve
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::SetPreconditioner
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::GetIterationCount
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::GetCurrentResidual
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::GetSolverStatus
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IterativeLinearSolver::GetAmaxResidualIndex
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::FixedPoint
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::FixedPoint::SetRelaxation
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MixedPrecisionDC
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MixedPrecisionDC::Set
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::Chebyshev
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::Chebyshev::Set
+   :project: rocALUTION
+
+Krylov Subspace Solvers
+********************************
+.. doxygenclass:: rocalution::BiCGStab
+   :project: rocALUTION
+.. doxygenclass:: rocalution::BiCGStabl
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BiCGStabl::SetOrder
+   :project: rocALUTION
+.. doxygenclass:: rocalution::CG
+   :project: rocALUTION
+.. doxygenclass:: rocalution::CR
+   :project: rocALUTION
+.. doxygenclass:: rocalution::FCG
+   :project: rocALUTION
+.. doxygenclass:: rocalution::GMRES
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GMRES::SetBasisSize
+   :project: rocALUTION
+.. doxygenclass:: rocalution::FGMRES
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::FGMRES::SetBasisSize
+   :project: rocALUTION
+.. doxygenclass:: rocalution::IDR
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IDR::SetShadowSpace
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::IDR::SetRandomSeed
+   :project: rocALUTION
+.. doxygenclass:: rocalution::QMRCGStab
+   :project: rocALUTION
+
+MultiGrid Solvers
+*********************
+.. doxygenclass:: rocalution::BaseMultiGrid
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetSolver
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetSmoother
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetSmootherPreIter
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetSmootherPostIter
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetRestrictOperator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetProlongOperator
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetOperatorHierarchy
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetScaling
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetHostLevels
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetCycle
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::SetKcycleFull
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseMultiGrid::InitLevels
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MultiGrid
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::BaseAMG
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::ClearLocal
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::BuildHierarchy
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::BuildSmoothers
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::SetCoarsestLevel
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::SetManualSmoothers
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::SetManualSolver
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::SetDefaultSmootherFormat
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::SetOperatorFormat
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BaseAMG::GetNumLevels
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::UAAMG
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::UAAMG::SetCouplingStrength
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::UAAMG::SetOverInterp
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::SAAMG
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::SAAMG::SetCouplingStrength
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::SAAMG::SetInterpRelax
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::RugeStuebenAMG
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::RugeStuebenAMG::SetCouplingStrength
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::PairwiseAMG
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::PairwiseAMG::SetBeta
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::PairwiseAMG::SetOrdering
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::PairwiseAMG::SetCoarseningFactor
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::GlobalPairwiseAMG
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalPairwiseAMG::SetBeta
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalPairwiseAMG::SetOrdering
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::GlobalPairwiseAMG::SetCoarseningFactor
+   :project: rocALUTION
+
+Direct Solvers
+``````````````
+.. doxygenclass:: rocalution::DirectLinearSolver
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::Inversion
+   :project: rocALUTION
+.. doxygenclass:: rocalution::LU
+   :project: rocALUTION
+.. doxygenclass:: rocalution::QR
+   :project: rocALUTION
+
+Preconditioners
+--------------------------------
+.. doxygenclass:: rocalution::Preconditioner
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::AIChebyshev
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::AIChebyshev::Set
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::FSAI
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::FSAI::Set(int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::FSAI::Set(const OperatorType&)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::FSAI::SetPrecondMatrixFormat
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::SPAI
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::SPAI::SetPrecondMatrixFormat
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::TNS
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::TNS::Set
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::TNS::SetPrecondMatrixFormat
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::AS
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::AS::Set
+   :project: rocALUTION
+.. doxygenclass:: rocalution::RAS
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::BlockJacobi
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BlockJacobi::Set
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::BlockPreconditioner
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BlockPreconditioner::Set
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BlockPreconditioner::SetDiagonalSolver
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BlockPreconditioner::SetLSolver
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BlockPreconditioner::SetExternalLastMatrix
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::BlockPreconditioner::SetPermutation
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::Jacobi
+   :project: rocALUTION
+.. doxygenclass:: rocalution::GS
+   :project: rocALUTION
+.. doxygenclass:: rocalution::SGS
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::ILU
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ILU::Set
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::ILUT
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ILUT::Set(double)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::ILUT::Set(double, int)
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::IC
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::VariablePreconditioner
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::VariablePreconditioner::SetPreconditioner
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MultiColored
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiColored::SetPrecondMatrixFormat
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiColored::SetDecomposition
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MultiColoredSGS
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiColoredSGS::SetRelaxation
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MultiColoredGS
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MultiColoredILU
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiColoredILU::Set(int)
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiColoredILU::Set(int, int, bool)
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::MultiElimination
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiElimination::GetSizeDiagBlock
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiElimination::GetLevel
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiElimination::Set
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::MultiElimination::SetPrecondMatrixFormat
+   :project: rocALUTION
+
+.. doxygenclass:: rocalution::DiagJacobiSaddlePointPrecond
+   :project: rocALUTION
+.. doxygenfunction:: rocalution::DiagJacobiSaddlePointPrecond::Set
+   :project: rocALUTION
+
+
 ****************
 rocSPARSE
 ****************
@@ -2207,37 +4474,52 @@ Introduction
 #############
 rocSPARSE is a library that contains basic linear algebra subroutines for sparse matrices and vectors written in HiP for GPU devices. It is designed to be used from C and C++ code.
 
+The functionality of rocSPARSE is organized in the following categories:
+
+    * `Sparse Auxiliary Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-auxiliary-functions>`_ describe available helper functions that are required for subsequent library calls.
+    * `Sparse Level 1 Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-level1-functions>`_ describe operations between a vector in sparse format and a vector in dense format.
+    * `Sparse Level 2 Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-level2-functions>`_ describe operations between a matrix in sparse format and a vector in dense format.
+    * `Sparse Level 3 Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-level3-functions>`_ describe operations between a matrix in sparse format and multiple vectors in dense format.
+    * `Preconditioner Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-precond-functions>`_ describe manipulations on a matrix in sparse format to obtain a preconditioner.
+    * `Sparse Conversion Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-conversion-functions>`_ describe operations on a matrix in sparse format to obtain a different matrix format.
+
 The code is open and hosted here: https://github.com/ROCmSoftwarePlatform/rocSPARSE
 
 Device and Stream Management
-############################
+#############################
 *hipSetDevice()* and *hipGetDevice()* are HIP device management APIs. They are NOT part of the rocSPARSE API.
 
 Asynchronous Execution
-######################
+-----------------------
 All rocSPARSE library functions, unless otherwise stated, are non blocking and executed asynchronously with respect to the host. They may return before the actual computation has finished. To force synchronization, *hipDeviceSynchronize()* or *hipStreamSynchronize()* can be used. This will ensure that all previously executed rocSPARSE functions on the device / this particular stream have completed.
 
 HIP Device Management
-#####################
+----------------------
 Before a HIP kernel invocation, users need to call *hipSetDevice()* to set a device, e.g. device 1. If users do not explicitly call it, the system by default sets it as device 0. Unless users explicitly call *hipSetDevice()* to set to another device, their HIP kernels are always launched on device 0.
 
 The above is a HIP (and CUDA) device management approach and has nothing to do with rocSPARSE. rocSPARSE honors the approach above and assumes users have already set the device before a rocSPARSE routine call.
 
+Once users set the device, they create a handle with `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_.
+
+Subsequent rocSPARSE routines take this handle as an input parameter. rocSPARSE ONLY queries (by hipGetDevice()) the user’s device; rocSPARSE does NOT set the device for users. If rocSPARSE does not see a valid device, it returns an error message. It is the users’ responsibility to provide a valid device to rocSPARSE and ensure the device safety.
+
+Users CANNOT switch devices between `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_ and `rocsparse_destroy_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-destroy-handle>`_. If users want to change device, they must destroy the current handle and create another rocSPARSE handle.
+
 HIP Stream Management
-#####################
+----------------------
 HIP kernels are always launched in a queue (also known as stream).
 
 If users do not explicitly specify a stream, the system provides a default stream, maintained by the system. Users cannot create or destroy the default stream. However, users can freely create new streams (with *hipStreamCreate()*) and bind it to the rocSPARSE handle. HIP kernels are invoked in rocSPARSE routines. The rocSPARSE handle is always associated with a stream, and rocSPARSE passes its stream to the kernels inside the routine. One rocSPARSE routine only takes one stream in a single invocation. If users create a stream, they are responsible for destroying it.
 
 Multiple Streams and Multiple Devices
-#####################################
+---------------------------------------
 If the system under test has multiple HIP devices, users can run multiple rocSPARSE handles concurrently, but can NOT run a single rocSPARSE handle on different discrete devices. Each handle is associated with a particular singular device, and a new handle should be created for each additional device.
 
 Building and Installing
 #######################
 
 Installing from AMD ROCm repositories
-#####################################
+-----------------------------------------
 rocSPARSE can be installed from `AMD ROCm repositories <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_ by
 
 ::
@@ -2246,14 +4528,12 @@ rocSPARSE can be installed from `AMD ROCm repositories <https://rocm.github.io/R
 
 
 Building rocSPARSE from Open-Source repository
-##############################################
+------------------------------------------------
 
-Download rocSPARSE
-##################
+**Download rocSPARSE**
+
 The rocSPARSE source code is available at the `rocSPARSE github page <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_.
 Download the master branch using:
-
-::
 
   git clone -b master https://github.com/ROCmSoftwarePlatform/rocSPARSE.git
   cd rocSPARSE
@@ -2265,7 +4545,7 @@ Below are steps to build different packages of the library, including dependenci
 It is recommended to install rocSPARSE using the *install.sh* script.
 
 Using *install.sh* to build dependencies + library
-##################################################
+----------------------------------------------------
 The following table lists common uses of *install.sh* to build dependencies + library.
 
 ================= ====
@@ -2278,7 +4558,7 @@ Command           Description
 ================= ====
 
 Using *install.sh* to build dependencies + library + client
-###########################################################
+------------------------------------------------------------
 The client contains example code, unit tests and benchmarks. Common uses of *install.sh* to build them are listed in the table below.
 
 =================== ====
@@ -2292,7 +4572,7 @@ Command             Description
 =================== ====
 
 Using individual commands to build rocSPARSE
-############################################
+----------------------------------------------
 CMake 3.5 or later is required in order to build rocSPARSE.
 The rocSPARSE library contains both, host and device code, therefore the HCC compiler must be specified during cmake configuration process.
 
@@ -2343,7 +4623,7 @@ rocSPARSE with dependencies and client can be built using the following commands
   sudo make install
 
 Common build problems
-#####################
+-----------------------
 #. **Issue:** HIP (/opt/rocm/hip) was built using hcc 1.0.xxx-xxx-xxx-xxx, but you are using /opt/rocm/bin/hcc with version 1.0.yyy-yyy-yyy-yyy from hipcc (version mismatch). Please rebuild HIP including cmake or update HCC_HOME variable.
 
    **Solution:** Download HIP from github and use hcc to `build from source <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and then use the built HIP instead of /opt/rocm/hip.
@@ -2362,8 +4642,749 @@ Common build problems
 
    **Solution:** Install `ROCm cmake modules <https://github.com/RadeonOpenCompute/rocm-cmake>`_
 
-Regarding more information about rocSPARSE and it's functions, corresponding API's, Please refer 
-`rocsparse <https://rocsparse.readthedocs.io/en/latest/library.html>`_
+Storage Formats
+#####################
 
+COO storage format
+----------------------
+The Coordinate (COO) storage format represents a :math:`m \times n` matrix by
+
+=========== ==================================================================
+m           number of rows (integer).
+n           number of columns (integer).
+nnz         number of non-zero elements (integer).
+coo_val     array of ``nnz`` elements containing the data (floating point).
+coo_row_ind array of ``nnz`` elements containing the row indices (integer).
+coo_col_ind array of ``nnz`` elements containing the column indices (integer).
+=========== ==================================================================
+
+The COO matrix is expected to be sorted by row indices and column indices per row. Furthermore, each pair of indices should appear only once.
+Consider the following :math:`3 \times 5` matrix and the corresponding COO structures, with :math:`m = 3, n = 5` and :math:`\text{nnz} = 8` using zero based indexing:
+
+.. math::
+
+  A = \begin{pmatrix}
+        1.0 & 2.0 & 0.0 & 3.0 & 0.0 \\
+        0.0 & 4.0 & 5.0 & 0.0 & 0.0 \\
+        6.0 & 0.0 & 0.0 & 7.0 & 8.0 \\
+      \end{pmatrix}
+
+where
+
+.. math::
+
+  \begin{array}{ll}
+    coo\_val[8] & = \{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0\} \\
+    coo\_row\_ind[8] & = \{0, 0, 0, 1, 1, 2, 2, 2\} \\
+    coo\_col\_ind[8] & = \{0, 1, 3, 1, 2, 0, 3, 4\}
+  \end{array}
+
+CSR storage format
+---------------------
+The Compressed Sparse Row (CSR) storage format represents a :math:`m \times n` matrix by
+
+=========== =========================================================================
+m           number of rows (integer).
+n           number of columns (integer).
+nnz         number of non-zero elements (integer).
+csr_val     array of ``nnz`` elements containing the data (floating point).
+csr_row_ptr array of ``m+1`` elements that point to the start of every row (integer).
+csr_col_ind array of ``nnz`` elements containing the column indices (integer).
+=========== =========================================================================
+
+The CSR matrix is expected to be sorted by column indices within each row. Furthermore, each pair of indices should appear only once.
+Consider the following :math:`3 \times 5` matrix and the corresponding CSR structures, with :math:`m = 3, n = 5` and :math:`\text{nnz} = 8` using one based indexing:
+
+.. math::
+
+  A = \begin{pmatrix}
+        1.0 & 2.0 & 0.0 & 3.0 & 0.0 \\
+        0.0 & 4.0 & 5.0 & 0.0 & 0.0 \\
+        6.0 & 0.0 & 0.0 & 7.0 & 8.0 \\
+      \end{pmatrix}
+
+where
+
+.. math::
+
+  \begin{array}{ll}
+    csr\_val[8] & = \{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0\} \\
+    csr\_row\_ptr[4] & = \{1, 4, 6, 9\} \\
+    csr\_col\_ind[8] & = \{1, 2, 4, 2, 3, 1, 4, 5\}
+  \end{array}
+
+ELL storage format
+-----------------------
+The Ellpack-Itpack (ELL) storage format represents a :math:`m \times n` matrix by
+
+=========== ================================================================================
+m           number of rows (integer).
+n           number of columns (integer).
+ell_width   maximum number of non-zero elements per row (integer)
+ell_val     array of ``m times ell_width`` elements containing the data (floating point).
+ell_col_ind array of ``m times ell_width`` elements containing the column indices (integer).
+=========== ================================================================================
+
+The ELL matrix is assumed to be stored in column-major format. Rows with less than ``ell_width`` non-zero elements are padded with zeros (``ell_val``) and :math:`-1` (``ell_col_ind``).
+Consider the following :math:`3 \times 5` matrix and the corresponding ELL structures, with :math:`m = 3, n = 5` and :math:`\text{ell_width} = 3` using zero based indexing:
+
+.. math::
+
+  A = \begin{pmatrix}
+        1.0 & 2.0 & 0.0 & 3.0 & 0.0 \\
+        0.0 & 4.0 & 5.0 & 0.0 & 0.0 \\
+        6.0 & 0.0 & 0.0 & 7.0 & 8.0 \\
+      \end{pmatrix}
+
+where
+
+.. math::
+
+  \begin{array}{ll}
+    ell\_val[9] & = \{1.0, 4.0, 6.0, 2.0, 5.0, 7.0, 3.0, 0.0, 8.0\} \\
+    ell\_col\_ind[9] & = \{0, 1, 0, 1, 2, 3, 3, -1, 4\}
+  \end{array}
+
+.. _HYB storage format:
+
+HYB storage format
+-----------------------
+The Hybrid (HYB) storage format represents a :math:`m \times n` matrix by
+
+=========== =========================================================================================
+m           number of rows (integer).
+n           number of columns (integer).
+nnz         number of non-zero elements of the COO part (integer)
+ell_width   maximum number of non-zero elements per row of the ELL part (integer)
+ell_val     array of ``m times ell_width`` elements containing the ELL part data (floating point).
+ell_col_ind array of ``m times ell_width`` elements containing the ELL part column indices (integer).
+coo_val     array of ``nnz`` elements containing the COO part data (floating point).
+coo_row_ind array of ``nnz`` elements containing the COO part row indices (integer).
+coo_col_ind array of ``nnz`` elements containing the COO part column indices (integer).
+=========== =========================================================================================
+
+The HYB format is a combination of the ELL and COO sparse matrix formats. Typically, the regular part of the matrix is stored in ELL storage format, and the irregular part of the matrix is stored in COO storage format. Three different partitioning schemes can be applied when converting a CSR matrix to a matrix in HYB storage format. For further details on the partitioning schemes, see :ref:`rocsparse_hyb_partition_`.
+
+
+Types
+##########
+
+rocsparse_handle
+--------------------------------
+
+.. doxygentypedef:: rocsparse_handle
+   :project: rocSPARSE
+
+rocsparse_mat_descr
+--------------------------------
+
+.. doxygentypedef:: rocsparse_mat_descr
+   :project: rocSPARSE
+
+
+rocsparse_mat_info
+--------------------------------
+
+.. doxygentypedef:: rocsparse_mat_info
+   :project: rocSPARSE
+
+
+rocsparse_hyb_mat
+--------------------------------
+
+.. doxygentypedef:: rocsparse_hyb_mat
+   :project: rocSPARSE
+
+rocsparse_action
+--------------------------------
+
+.. doxygenenum:: rocsparse_action
+   :project: rocSPARSE
+
+
+rocsparse_hyb_partition
+--------------------------------
+
+.. doxygenenum:: rocsparse_hyb_partition
+   :project: rocSPARSE
+
+rocsparse_index_base
+--------------------------------
+
+.. doxygenenum:: rocsparse_index_base
+   :project: rocSPARSE
+
+
+rocsparse_matrix_type
+--------------------------------
+
+.. doxygenenum:: rocsparse_matrix_type
+   :project: rocSPARSE
+
+rocsparse_fill_mode
+--------------------------------
+
+.. doxygenenum:: rocsparse_fill_mode
+   :project: rocSPARSE
+
+rocsparse_diag_type
+--------------------------------
+
+.. doxygenenum:: rocsparse_diag_type
+   :project: rocSPARSE
+
+rocsparse_operation
+--------------------------------
+
+.. doxygenenum:: rocsparse_operation
+   :project: rocSPARSE
+
+rocsparse_pointer_mode
+--------------------------------
+
+.. doxygenenum:: rocsparse_pointer_mode
+   :project: rocSPARSE
+
+rocsparse_analysis_policy
+--------------------------------
+
+.. doxygenenum:: rocsparse_analysis_policy
+   :project: rocSPARSE
+
+rocsparse_solve_policy
+--------------------------------
+
+.. doxygenenum:: rocsparse_solve_policy
+   :project: rocSPARSE
+
+rocsparse_layer_mode
+--------------------------------
+
+.. doxygenenum:: rocsparse_layer_mode
+   :project: rocSPARSE
+
+rocsparse_status
+--------------------------------
+
+.. doxygenenum:: rocsparse_status
+   :project: rocSPARSE
+
+Logging
+##############
+Three different environment variables can be set to enable logging in rocSPARSE: ``ROCSPARSE_LAYER``, ``ROCSPARSE_LOG_TRACE_PATH`` and ``ROCSPARSE_LOG_BENCH_PATH``.
+
+``ROCSPARSE_LAYER`` is a bit mask, where several logging modes can be combined as follows:
+
+================================  ===========================================
+``ROCSPARSE_LAYER`` unset         logging is disabled.
+``ROCSPARSE_LAYER`` set to ``1``  trace logging is enabled.
+``ROCSPARSE_LAYER`` set to ``2``  bench logging is enabled.
+``ROCSPARSE_LAYER`` set to ``3``  trace logging and bench logging is enabled.
+================================  ===========================================
+
+When logging is enabled, each rocSPARSE function call will write the function name as well as function arguments to the logging stream. The default logging stream is ``stderr``.
+
+If the user sets the environment variable ``ROCSPARSE_LOG_TRACE_PATH`` to the full path name for a file, the file is opened and trace logging is streamed to that file. If the user sets the environment variable ``ROCSPARSE_LOG_BENCH_PATH`` to the full path name for a file, the file is opened and bench logging is streamed to that file. If the file cannot be opened, logging output is stream to ``stderr``.
+
+Note that performance will degrade when logging is enabled. By default, the environment variable ``ROCSPARSE_LAYER`` is unset and logging is disabled.
+
+
+Sparse Auxiliary Functions
+###########################
+
+This module holds all sparse auxiliary functions.
+
+The functions that are contained in the auxiliary module describe all available helper functions that are required for subsequent library calls.
+
+
+rocsparse_create_handle()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_create_handle
+   :project: rocSPARSE
+
+
+rocsparse_destroy_handle()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_destroy_handle
+   :project: rocSPARSE
+
+
+rocsparse_set_stream()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_set_stream
+   :project: rocSPARSE
+
+rocsparse_get_stream()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_stream
+   :project: rocSPARSE
+
+rocsparse_set_pointer_mode()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_set_pointer_mode
+   :project: rocSPARSE
+
+rocsparse_get_pointer_mode()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_pointer_mode
+   :project: rocSPARSE
+
+rocsparse_get_version()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_version
+   :project: rocSPARSE
+
+rocsparse_get_git_rev()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_git_rev
+   :project: rocSPARSE
+
+rocsparse_create_mat_descr()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_create_mat_descr
+   :project: rocSPARSE
+
+rocsparse_destroy_mat_descr()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_destroy_mat_descr
+   :project: rocSPARSE
+
+rocsparse_copy_mat_descr()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_copy_mat_descr
+   :project: rocSPARSE
+
+rocsparse_set_mat_index_base()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_set_mat_index_base
+   :project: rocSPARSE
+
+rocsparse_get_mat_index_base()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_mat_index_base
+   :project: rocSPARSE
+
+rocsparse_set_mat_type()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_set_mat_type
+   :project: rocSPARSE
+
+rocsparse_get_mat_type()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_mat_type
+   :project: rocSPARSE
+
+rocsparse_set_mat_fill_mode()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_set_mat_fill_mode
+   :project: rocSPARSE
+
+rocsparse_get_mat_fill_mode()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_mat_fill_mode
+   :project: rocSPARSE
+
+rocsparse_set_mat_diag_type()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_set_mat_diag_type
+   :project: rocSPARSE
+
+rocsparse_get_mat_diag_type()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_get_mat_diag_type
+   :project: rocSPARSE
+
+rocsparse_create_hyb_mat()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_create_hyb_mat
+   :project: rocSPARSE
+
+rocsparse_destroy_hyb_mat()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_destroy_hyb_mat
+   :project: rocSPARSE
+
+rocsparse_create_mat_info()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_create_mat_info
+   :project: rocSPARSE
+
+
+rocsparse_destroy_mat_info()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_destroy_mat_info
+   :project: rocSPARSE
+
+
+Sparse Level 1 Functions
+#######################
+
+The sparse level 1 routines describe operations between a vector in sparse format and a vector in dense format. This section describes all rocSPARSE level 1 sparse linear algebra functions.
+
+rocsparse_axpyi()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_saxpyi
+   :outline:
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_daxpyi
+   :project: rocSPARSE
+
+rocsparse_doti()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_sdoti
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_ddoti
+   :project: rocSPARSE
+
+rocsparse_gthr()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_sgthr
+   :outline:
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_dgthr
+   :project: rocSPARSE
+
+rocsparse_gthrz()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_sgthrz
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dgthrz
+   :project: rocSPARSE
+
+rocsparse_roti()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_sroti
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_droti
+   :project: rocSPARSE
+
+rocsparse_sctr()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_ssctr
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dsctr
+   :project: rocSPARSE
+
+
+Sparse Level 2 Functions
+###########################
+
+This module holds all sparse level 2 routines.
+
+The sparse level 2 routines describe operations between a matrix in sparse format and a vector in dense format.
+
+rocsparse_coomv()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scoomv
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcoomv
+   :project: rocSPARSE
+
+rocsparse_csrmv_analysis()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrmv_analysis
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrmv_analysis
+   :project: rocSPARSE
+
+rocsparse_csrmv()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrmv
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrmv
+   :project: rocSPARSE
+
+rocsparse_csrmv_analysis_clear()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csrmv_clear
+   :project: rocSPARSE
+
+rocsparse_ellmv()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_sellmv
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dellmv
+   :project: rocSPARSE
+
+rocsparse_hybmv()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_shybmv
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dhybmv
+   :project: rocSPARSE
+
+rocsparse_csrsv_zero_pivot()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csrsv_zero_pivot
+   :project: rocSPARSE
+
+rocsparse_csrsv_buffer_size()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrsv_buffer_size
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrsv_buffer_size
+   :project: rocSPARSE
+
+rocsparse_csrsv_analysis()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrsv_analysis
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrsv_analysis
+   :project: rocSPARSE
+
+rocsparse_csrsv_solve()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrsv_solve
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrsv_solve
+   :project: rocSPARSE
+
+rocsparse_csrsv_clear()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csrsv_clear
+   :project: rocSPARSE
+
+
+Sparse Level 3 Functions
+#########################
+
+This module holds all sparse level 3 routines.
+
+The sparse level 3 routines describe operations between a matrix in sparse format and multiple vectors in dense format that can also be seen as a dense matrix.
+
+rocsparse_csrmm()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrmm
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrmm
+   :project: rocSPARSE
+
+
+Preconditioner Functions
+##########################
+
+This module holds all sparse preconditioners.
+
+The sparse preconditioners describe manipulations on a matrix in sparse format to obtain a sparse preconditioner matrix.
+
+rocsparse_csrilu0_zero_pivot()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csrilu0_zero_pivot
+   :project: rocSPARSE
+
+rocsparse_csrilu0_buffer_size()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrilu0_buffer_size
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrilu0_buffer_size
+   :project: rocSPARSE
+
+rocsparse_csrilu0_analysis()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrilu0_analysis
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrilu0_analysis
+   :project: rocSPARSE
+
+rocsparse_csrilu0()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrilu0
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrilu0
+   :project: rocSPARSE
+
+rocsparse_csrilu0_clear()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csrilu0_clear
+   :project: rocSPARSE
+
+Sparse Conversion Functions
+#############################
+
+This module holds all sparse conversion routines.
+
+The sparse conversion routines describe operations on a matrix in sparse format to obtain a matrix in a different sparse format.
+
+rocsparse_csr2coo()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csr2coo
+   :project: rocSPARSE
+
+rocsparse_coo2csr()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_coo2csr
+   :project: rocSPARSE
+
+rocsparse_csr2csc_buffer_size()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csr2csc_buffer_size
+   :project: rocSPARSE
+
+rocsparse_csr2csc()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsr2csc
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsr2csc
+   :project: rocSPARSE
+
+rocsparse_csr2ell_width()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csr2ell_width
+   :project: rocSPARSE
+
+rocsparse_csr2ell()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsr2ell
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsr2ell
+   :project: rocSPARSE
+
+rocsparse_ell2csr_nnz()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_ell2csr_nnz
+   :project: rocSPARSE
+
+rocsparse_ell2csr()
+----------------------------
+
+.. doxygenfunction:: rocsparse_csr2csc_buffer_size
+   :project: rocSPARSE
+
+rocsparse_csr2hyb()
+----------------------------
+
+.. doxygenfunction:: rocsparse_scsr2hyb
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsr2hyb
+   :project: rocSPARSE
+
+rocsparse_create_identity_permutation()
+--------------------------------------------
+
+.. doxygenfunction:: rocsparse_create_identity_permutation
+   :project: rocSPARSE
+
+rocsparse_csrsort_buffer_size()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_csrsort_buffer_size
+   :project: rocSPARSE
+
+rocsparse_csrsort()
+------------------------
+
+.. doxygenfunction:: rocsparse_csrsort
+   :project: rocSPARSE
+
+rocsparse_coosort_buffer_size()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_coosort_buffer_size
+   :project: rocSPARSE
+
+rocsparse_coosort_by_row()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_coosort_by_row
+   :project: rocSPARSE
+
+rocsparse_coosort_by_column()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_coosort_by_column
+   :project: rocSPARSE
 
 

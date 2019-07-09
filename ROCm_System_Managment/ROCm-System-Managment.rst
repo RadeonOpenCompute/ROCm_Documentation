@@ -28,10 +28,15 @@ For detailed and up to date usage information, we recommend consulting the help:
 
 For convenience purposes, following is a quick excerpt:
 
-usage: rocm-smi [-h] [-d DEVICE] [-i] [-t] [-c] [-g] [-f] [-p] [-P] [-o] [-l] [-s] [-a] [-r]
-                [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]] [--setfan LEVEL]
-                [--setperflevel LEVEL] [--setoverdrive %] [--setprofile # # # # #] [--resetprofile]
-                [--load FILE | --save FILE] [--autorespond RESPONSE]
+usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [-i] [-v] [--showhw] [-t] [-c] [-g] [-f] [-p] [-P] [-o] [-m] [-M] [-l]
+                [-s] [-u] [-b] [--showreplaycount] [-S] [--showvoltage] [--showrasinfo BLOCK [BLOCK ...]]
+                [--showfwinfo [BLOCK [BLOCK ...]]] [-a] [--showmeminfo TYPE [TYPE ...]] [--showdriverversion]
+                [--alldevices] [-r] [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]]
+                [--setpcie LEVEL [LEVEL ...]] [--setslevel SCLKLEVEL SCLK SVOLT] [--setmlevel MCLKLEVEL MCLK MVOLT]
+                [--resetfans] [--setfan LEVEL] [--setperflevel LEVEL] [--setoverdrive %] [--setmemoverdrive %]
+                [--setpoweroverdrive WATTS] [--resetpoweroverdrive] [--setprofile SETPROFILE] [--resetprofile]
+                [--rasenable BLOCK ERRTYPE] [--rasdisable BLOCK ERRTYPE] [--rasinject BLOCK] [--gpureset]
+                [--load FILE | --save FILE] [--autorespond RESPONSE] [--loglevel ILEVEL] [--json]
 
 AMD ROCm System Management Interface
 
@@ -39,12 +44,12 @@ optional arguments:
 
 =================================== ===================================================================================
   -h, --help                  		show this help message and exit
-  --load FILE                 		Load Clock, Fan, Performance and Profile settings from FILE
-  --save FILE                 		Save Clock, Fan, Performance and Profile settings to FILE
+  --load FILE                 		Load Clock, Fan, Performance and Profile settings 
+  --save FILE                 		Save Clock, Fan, Performance and Profile settings 
 =================================== ===================================================================================
 
 
- -d DEVICE, --device DEVICE  	   Execute command on specified device
+ -d DEVICE [DEVICE ...], --device DEVICE [DEVICE ...]  	   Execute command on specified device
 
 =================================== ===================================================================================
   -i, --showid                		Show GPU ID
@@ -63,13 +68,21 @@ optional arguments:
   -s, --showclkfrq            		Show supported GPU and Memory Clock
   -u, --showuse               		Show current GPU use
   -b, --showbw                		Show estimated PCIe use
+  --showreplaycount                     Show PCIe Replay Count
   -S, --showclkvolt           		Show supported GPU and Memory Clocks and Voltages
+  --showvoltage                         Show current GPU voltage
+  --showrasinfo BLOCK [BLOCK ...]       Show RAS enablement information and error counts for the
+                                        specified block(s)
+  --showfwinfo [BLOCK [BLOCK ...]]      Show FW information
   -a, --showallinfo           		Show all SMI-supported values values
+  --showmeminfo TYPE [TYPE ...]         Show Memory usage information for given block(s) TYPE
+  --showdriverversion                   Show kernel driver version
+  --alldevices                          Execute command on non-AMD devices as well as AMD devices
 
-  -r, --resetclocks           		Reset clocks to default values
-  --setsclk LEVEL [LEVEL ...] 		Set GPU Clock Frequency Level Mask
-  --setmclk LEVEL [LEVEL ...] 		Set GPU Memory Clock Frequency Mask
-  --setpclk LEVEL [LEVEL ...]       	Set PCIE Clock Frequency Level(s) (requires manual Perf level)
+  -r, --resetclocks           		Reset clocks to OverDrive to default
+  --setsclk LEVEL [LEVEL ...] 		Set GPU Clock Frequency Level Level(s) (requires manual Perf level)
+  --setmclk LEVEL [LEVEL ...] 		Set GPU Memory Clock Frequency Level(s) (requires manual Perf level)
+  --setpcie LEVEL [LEVEL ...]       	Set PCIE Clock Frequency Level(s) (requires manual Perf level)
   --setslevel SCLKLEVEL SCLK SVOLT  	Change GPU Clock frequency (MHz) and Voltage (mV) for a specific Level
   --setmlevel MCLKLEVEL MCLK MVOLT  	Change GPU Memory clock frequency (MHz) and Voltage for (mV) a specific Level
   --resetfans                       	Reset fans to automatic (driver) control
@@ -82,11 +95,17 @@ optional arguments:
   --setprofile SETPROFILE           	Specify Power Profile level (#) or a quoted string of CUSTOM Profile
                                     	attributes "# # # #..." (requires manual Perf level)
   --resetprofile                    	Reset Power Profile back to default
+  --rasenable BLOCK ERRTYPE             Enable RAS for specified block and error type
+  --rasdisable BLOCK ERRTYPE            Disable RAS for specified block and error type
+  --rasinject BLOCK                     Inject RAS poison for specified block (ONLY WORKS ON UNSECURE BOARDS)
+                                                                                                   
+  --gpureset                            Reset specified GPU (One GPU must be specified)
 
   --autorespond RESPONSE            	Response to automatically provide for all prompts (NOT RECOMMENDED)
 
   --loglevel ILEVEL                 	How much output will be printed for what program is doing, one of
                                     	debug/info/warning/error/critical
+  --json                                Print output in JSON format
 
 =================================== ===================================================================================
 
@@ -109,12 +128,12 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
     recommended to not set the fan level lower than the default value for extended periods
     of time
 
-**--setperflevel LEVEL:** This lets you use the pre-defined Performance Level values, which can include: auto (Automatically change       	PowerPlay values based on GPU workload low (Keep PowerPlay values low, regardless of workload) high (Keep PowerPlay values high,    	regardless of workload) manual (Only use values defined in sysfs values)
+**--setperflevel LEVEL:** This lets you use the pre-defined Performance Level values, which can include: auto (Automatically change       	PowerPlay values based on GPU workload) low (Keep PowerPlay values low, regardless of workload) high (Keep PowerPlay values high,    	regardless of workload) manual (Only use values defined in sysfs values)
 
-**--setoverdrive/--setmemoverdrive #:** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
+**--setoverdrive/--setmemoverdrive #: DEPRECATED IN NEWER KERNEL VERSIONS (use --setslevel/--setmlevel instead)** This sets the percentage above maximum for the max Performance Level. For example, --setoverdrive 20 will increase 	the top sclk level by 20%. If the maximum sclk level is 1000MHz, then --setoverdrive 20 will increase the maximum sclk to 1200MHz
 
 .. NOTES::
-    This option can be used in conjunction with the --setsclk mask
+    This option can be used in conjunction with the --setsclk/--setmclk mask
  
     Operating the GPU outside of specifications can cause irreparable damage to your hardware 
     Please observe the warning displayed when using this option
@@ -143,20 +162,52 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
 
     It is not possible to modify the non-CUSTOM Profiles. These are hard-coded by the kernel
 
--P, --showpower: Show Average Graphics Package power consumption
+**-P, --showpower:** Show Average Graphics Package power consumption
 
 "Graphics Package" refers to the GPU plus any HBM (High-Bandwidth memory) modules, if present
 
--M, --showmaxpower: Show the maximum Graphics Package power that the GPU will attempt to consume. This limit is enforced by the hardware.
+**-M, --showmaxpower:** Show the maximum Graphics Package power that the GPU will attempt to consume. This limit is enforced by the hardware.
 
---loglevel: This will allow the user to set a logging level for the SMI's actions. Currently this is only implemented for sysfs writes, but can easily be expanded upon in the future to log other things from the SMI
+**--loglevel:** This will allow the user to set a logging level for the SMI's actions. Currently this is only implemented for sysfs writes, but can easily be expanded upon in the future to log other things from the SMI
 
--b, --showbw: This shows an approximation of the number of bytes received and sent by the GPU over the last second through the PCIe bus. Note that this will not work for APUs since data for the GPU portion of the APU goes through the memory fabric and does not 'enter/exit' the chip via the PCIe interface, thus no accesses are generated, and the performance counters can't count accesses that are not generated. NOTE: It is not possible to easily grab the size of every packet that is transmitted in real time, so the kernel estimates the bandwidth by taking the maximum payload size (mps), which is the max size that a PCIe packet can be. and multiplies it by the number of packets received and sent. This means that the SMI will report the maximum estimated bandwidth, the actual usage could (and likely will be) less
+**--showmeminfo:** This allows the user to see the amount of used and total memory for a given block (vram, vis_vram, gtt). It returns the number of bytes used and total number of bytes for each block 'all' can be passed as a field to return all blocks, otherwise a quoted-string is used for multiple values (e.g. "vram vis_vram") vram refers to the Video RAM, or graphics memory, on the specified device vis_vram refers to Visible VRAM, which is the CPU-accessible video memory on the device gtt refers to the Graphics Translation Table
 
+**-b, --showbw:** This shows an approximation of the number of bytes received and sent by the GPU over the last second through the PCIe bus. Note that this will not work for APUs since data for the GPU portion of the APU goes through the memory fabric and does not 'enter/exit' the chip via the PCIe interface, thus no accesses are generated, and the performance counters can't count accesses that are not generated. NOTE: It is not possible to easily grab the size of every packet that is transmitted in real time, so the kernel estimates the bandwidth by taking the maximum payload size (mps), which is the max size that a PCIe packet can be. and multiplies it by the number of packets received and sent. This means that the SMI will report the maximum estimated bandwidth, the actual usage could (and likely will be) less
+
+**--showrasinfo:** This shows the RAS information for a given block. This includes enablement of the block (currently GFX, SDMA and UMC are the only supported blocks) and the number of errors ue - Uncorrectable errors ce - Correctable errors
+
+**Clock Type Descriptions**
+
+
+DCEFCLK - DCE (Display) FCLK - Data fabric (VG20 and later) - Data flow from XGMI, Memory, PCIe SCLK - GFXCLK (Graphics core) 
+
+
+.. Note::
+
+    SOCCLK split from SCLK as of Vega10. Pre-Vega10 they were both controlled by SCLK
+
+MCLK - GPU Memory (VRAM) PCLK - PCIe bus 
+
+.. Note:: 
+
+    This gives 2 speeds, PCIe Gen1 x1 and the highest available based on the hardware
+
+SOCCLK - System clock (VG10 and later)- Data Fabric  (DF), MM HUB, AT HUB, SYSTEM HUB, OSS, DFD Note - DF split from SOCCLK as of Vega20. Pre-Vega20 they were both controlled by SOCCLK
+
+**--gpureset:** This flag will attempt to reset the GPU for a specified device. This will invoke the GPU reset through the kernel debugfs file amdgpu_gpu_recover. Note that GPU reset will not always work, depending on the manner in which the GPU is hung.
+
+**---showdriverversion:** This flag will print out the AMDGPU module version for amdgpu-pro or ROCK kernels. For other kernels, it will simply print out the name of the kernel (uname)
+
+**OverDrive settings**
+
+
+For OverDrive functionality, the OverDrive bit (bit 14) must be enabled (by default, the OverDrive bit is disabled on the ROCK and upstream kernels). This can be done by setting amdgpu.ppfeaturemask accordingly in the kernel parameters, or by changing the default value inside amdgpu_drv.c (if building your own kernel).
+
+As an example, if the ppfeaturemask is set to 0xffffbfff (11111111111111111011111111111111), then enabling the OverDrive bit would make it 0xffffffff (11111111111111111111111111111111).
 
 **Testing changes**
 
-After making changes to the SMI, run the test script to ensure that all functionality remains intact before uploading the patch. This can be done using:
+After making changes to the SMI, run the test script to ensure that all functionality remains intact before uploading the patch. This can be done using: ::
 
 ./test-rocm-smi.sh /opt/rocm/bin/rocm-smi
 
@@ -165,7 +216,6 @@ The test can run all flags for the SMI, or specific flags can be tested with the
 Any new functionality added to the SMI should have a corresponding test added to the test script.
 
 **Disclaimer**
-
 
 The information contained herein is for informational purposes only, and is subject to change without notice. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD's products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
 

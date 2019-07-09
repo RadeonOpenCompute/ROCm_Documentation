@@ -26,7 +26,7 @@ import os
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
   from subprocess import call 
-  call('doxygen')
+  call('./run_doxygen.sh;', shell=True)
 
 # -- General configuration ------------------------------------------------
 
@@ -36,16 +36,35 @@ if on_rtd:
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+#Added sphinx.ext.ifconfig from michealjones from now on mj
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.ifconfig',
     'breathe',
 ]
 
 # Breathe extension variables
-breathe_projects = { "ReadTheDocs-Breathe": "xml/" }
+breathe_projects = { "ReadTheDocs-Breathe": "xml/",
+		     "ROCr": "ROCrxml/",
+		     "rocBLAS": "rocBLASxml/",
+		     "rocFFT": "rocFFTxml/",
+		     "rocALUTION": "rocALUTIONxml/",
+		     "rocSPARSE": "rocSPARSExml/",
+		     }
 breathe_default_project = "ReadTheDocs-Breathe"
+
+#Added from mj
+# Configuration for mathjax extension
+# 
+# Set path for mathjax js to a https URL as sometimes the Breathe docs are displayed under https
+# and we can't load an http mathjax file from an https view of the docs. So we change to a https
+# mathjax file which we can load from http or https. We break the url over two lines.
+#mathjax_path = 'https://c328740.ssl.cf1.rackcdn.com/' \
+#               'mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+mathjax_path="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -60,8 +79,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ReadTheDocs-Breathe'
-copyright = '2014, Thomas Edvalson'
+project = 'ROCm Documentation'
+copyright = '2014, Advanced Micro Devices, Inc'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -84,7 +103,8 @@ release = '1.0.0'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+#exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -207,6 +227,9 @@ latex_elements = {
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
+
+# Latex figure (float) alignment
+# 'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -237,7 +260,11 @@ latex_documents = [
 # If false, no module index is generated.
 #latex_domain_indices = True
 
+# -- Hack for making rtd to run multiple Doxyfiles ------------------------
 
+
+
+ 
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples
