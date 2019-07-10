@@ -8,14 +8,14 @@ Deep Learning on ROCm
 TensorFlow
 ***********
 
-ROCm Tensorflow v1.13 Release
+ROCm Tensorflow v2.0 Release
 *****************************
-We are excited to announce the release of ROCm enabled TensorFlow v1.13 for AMD GPUs.
-In this release, we enabled Tensorflow VERBS support, details in [TensorFlow Verbs Quick-Start](https://github.com/ROCmSoftwarePlatform/tensorflow-upstream/blob/r1.13-rocm/rocm_docs/tensorflow-verbs.md)
+
+We are excited to announce the release of ROCm enabled TensorFlow v2.0 for AMD GPUs. This includes the enhanced compilation toolchain and a set of bug fixes to support TensorFlow 2.0 features natively.
 
 Tensorflow Installation
 ***********************
-First, you’ll need to install the open-source ROCm 2.5 stack. Details can be found here: https://github.com/RadeonOpenCompute/ROCm
+First, you’ll need to install the open-source ROCm 2.5 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 Then, install these other relevant ROCm packages:
 ::
@@ -27,32 +27,36 @@ And finally, install TensorFlow itself (via the Python Package Index):
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
    pip3 install --user tensorflow-rocm
-Now that Tensorflow v1.13 is installed!
+Now that Tensorflow v2.0 is installed!
 
 Tensorflow More Resources
 *************************
-Tensorflow docker images are also publicly available, more details can be found here: https://hub.docker.com/r/rocm/tensorflow/
+Tensorflow docker images are also publicly available, more details can be found `here <https://hub.docker.com/r/rocm/tensorflow/>`_
 
-Please connect with us for any questions, our official github repository is here: https://github.com/ROCmSoftwarePlatform/tensorflow-upstream
+The official github repository is `here <https://github.com/ROCmSoftwarePlatform/tensorflow-upstream>`_
 
 *******
 MIOpen
 *******
 
-ROCm MIOpen v1.7 Release
+ROCm MIOpen v2.0 Release
 *************************
-Announcing our new Foundation for Deep Learning acceleration MIOpen 1.7 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
+Announcing our new Foundation for Deep Learning acceleration MIOpen 2.0 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
 
 This release includes the following:
-   * Training in fp16 (half precision) including mixed-precision is now fully supported
-   * Batch Normalization in fp16 (half precision) including mixed-precision are now available
-   * Performance improvements for 3x3 and 1x1 single-precision convolutions
-   * Layer fusions for BatchNorm+Activation are now available
-   * Layer fusions with convolutions now support varying strides and padding configurations
-   * Support for OpenCL and HIP enabled frameworks API's
-   * MIOpen Driver enables the testing of forward/backward calls of any particular layer in MIOpen.
-   * Binary Package support for Ubuntu 16.04 and Fedora 24
-   * Source code at https://github.com/ROCmSoftwarePlatform/MIOpen
+   * This release contains several new features including an immediate mode for selecting convolutions, bfloat16 support, new layers, modes,
+     and algorithmns.
+   * MIOpenDriver, a tool for benchmarking and developing kernels is now shipped with MIOpen.
+   * BFloat16 now supported in HIP requires an updated rocBLAS as a GEMM backend.
+   * Immediate mode API now provides the ability to quickly obtain a convolution kernel.
+   * MIOpen now contains HIP source kernels and implements the ImplicitGEMM kernels. This is a new feature and is currently disabled 
+     by default. Use the environmental variable “MIOPEN_DEBUG_CONV_IMPLICIT_GEMM=1” to activation this feature. ImplicitGEMM requires an up 
+     to date HIP version of at least 1.5.9211.
+   * A new “loss” catagory of layers has been added, of which, CTC loss is the first. See the API reference for more details.
+   * 2.0 is the last release of active support for gfx803 architectures. In future releases, MIOpen will not actively debug and 
+     develop new features specifically for gfx803.
+   * System Find-Db in memory cache is disabled by default. Please see build instructions to enable this feature.
+   * `Source code <https://github.com/ROCmSoftwarePlatform/MIOpen>`_
    * Documentation
        * `MIOpen <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/apireference.html>`_
        * `MIOpenGemm <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/index.html>`_
@@ -64,6 +68,13 @@ The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc
 The ROCm 2.5 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
+
+MIOpen can be installed on Ubuntu using
+
+::
+
+  apt-get
+
 
 **For just OpenCL development**
 
@@ -78,6 +89,8 @@ Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’
   sudo apt-get install miopengemm miopen-hip
 
 Or you can build from `source code <https://github.com/ROCmSoftwarePlatform/MIOpen>`_
+
+Currently both the backends cannot be installed on the same system simultaneously. If a different backend other than what currently exists on the system is desired, please uninstall the existing backend completely and then install the new backend.
 
 *********
 PyTorch
