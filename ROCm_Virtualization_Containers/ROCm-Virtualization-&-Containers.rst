@@ -136,7 +136,9 @@ Note: To pass a device within a particular IOMMU group, all devices within that 
 ROCm-Docker
 ===========
 
- * `ROCm-Docker <https://github.com/RadeonOpenCompute/ROCm-docker>`_
+**Radeon Open Compute Platform for docker**
+
+ Please refer `ROCm-Docker <https://github.com/RadeonOpenCompute/ROCm-docker>`_
 
 This repository contains a framework for building the software layers defined in the Radeon Open Compute Platform into portable docker images. The following are docker dependencies, which should be installed on the target machine.
 
@@ -150,7 +152,8 @@ Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is ho
 ::
 
   sudo docker pull rocm/rocm-terminal
-  sudo docker run -it --rm --device="/dev/kfd" rocm/rocm-terminal
+  sudo docker run -it --device=/dev/kfd --device=/dev/dri --group-add video rocm/rocm-terminal
+  
   
 ROCm-docker set up guide
 *************************
@@ -161,7 +164,7 @@ ROCm-docker set up guide
 When working with the ROCm containers, the following are common and useful docker commands:
 
  * A new docker container typically does not house apt repository meta-data. Before trying to install new software using apt, make    	 sure to run sudo apt update first
- * A message like the following typically means your user does not have permissions to execute docker; use sudo or `add your user <https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/>`_ to  	the docker group.
+ * A message like the following typically means your user **does not** have permissions to execute docker; use sudo or `add your user <https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/>`_ to  	the docker group.
  * Cannot connect to the Docker daemon. Is the docker daemon running on this host?
  * Open another terminal into a running container
  * sudo docker exec -it <CONTAINER-NAME> bash -l
@@ -174,7 +177,7 @@ When working with the ROCm containers, the following are common and useful docke
 
 **Saving work in a container**
 
-Docker containers are typically ephemeral, and are discarded after closing the container with the '--rm' flag to docker run. However, there are times when it is desirable to close a container that has arbitrary work in it, and serialize it back into a docker image. This may be to to create a checkpoint in a long and complicated series of instructions, or it may be desired to share the image with others through a docker registry, such as docker hub.
+Docker containers are typically ephemeral, and are discarded after closing the container with the **'--rm'** flag to docker run. However, there are times when it is desirable to close a container that has arbitrary work in it, and serialize it back into a docker image. This may be to to create a checkpoint in a long and complicated series of instructions, or it may be desired to share the image with others through a docker registry, such as docker hub.
 
 ::
 
@@ -185,7 +188,7 @@ Docker containers are typically ephemeral, and are discarded after closing the c
 
 Details
 *******
-Docker does not virtualize or package the linux kernel inside of an image or container. This is a design decision of docker to provide lightweight and fast containerization. The implication for this on the ROCm compute stack is that in order for the docker framework to function, the ROCm kernel and corresponding modules must be installed on the host machine. Containers share the host kernel, so the ROCm KFD component ROCK-Kernel-Driver1 functions outside of docker.
+Docker does not virtualize or package the linux kernel inside of an image or container. This is a design decision of docker to provide lightweight and fast containerization. The implication for this on the ROCm compute stack is that in order for the docker framework to function, **the ROCm kernel and corresponding modules must be installed on the host machine.** Containers share the host kernel, so the ROCm KFD component ROCK-Kernel-Driver1 functions outside of docker.
 
 **Installing ROCK on the host machine.**
 
@@ -195,7 +198,7 @@ Building images
 ****************
 There are two ways to install rocm components:
 
- 1.install from the rocm apt/rpm repository (packages.amd.com)
+ 1.install from the rocm apt/rpm repository (repo.radeon.com)
 
  2.build the components from source and run install scripts
 
@@ -205,7 +208,7 @@ The setup script included in this repository is provides some flexibility to how
 
 **setup.sh**
 
-Currently, the setup.sh scripts checks to make sure that it is running on an Ubuntu system, as it makes a few assumptions about the availability of tools and file locations. If running rocm on a Fedora machine, inspect the source of setup.sh and issue the appropriate commands manually. There are a few parameters to setup.sh of a generic nature that affects all images built after running. If no parameters are given, built images will be based off of Ubuntu 16.04 with rocm components installed from debians downloaded from packages.amd.com. Supported parameters can be queried with ./setup --help.
+Currently, the setup.sh scripts checks to make sure that it is running on an **Ubuntu system**, as it makes a few assumptions about the availability of tools and file locations. If running rocm on a Fedora machine, inspect the source of setup.sh and issue the appropriate commands manually. There are a few parameters to setup.sh of a generic nature that affects all images built after running. If no parameters are given, built images will be based off of Ubuntu 16.04 with rocm components installed from debians downloaded from packages.amd.com. Supported parameters can be queried with ./setup --help.
 
 ============================ ======================== ===============================================
 setup.sh parameters		parameter [default]	description
@@ -229,7 +232,7 @@ setup.sh parameters		parameter [default]	description
 Docker compose
 *****************
 
-./setup prepares an environment to be controlled with Docker Compose. While docker-compose is not necessary for proper operation, it is highly recommended. setup.sh does provide a flag to simplify the installation of this tool. Docker-compose coordinates the relationships between the various ROCm software layers, and it remembers flags that should be passed to docker to expose devices and import volumes.
+./setup prepares an environment to be controlled with `Docker Compose <https://docs.docker.com/compose/>`_. While docker-compose is not necessary for proper operation, it is highly recommended. setup.sh does provide a flag to simplify the installation of this tool. Docker-compose coordinates the relationships between the various ROCm software layers, and it remembers flags that should be passed to docker to expose devices and import volumes.
 
 **Example of using docker-compose**
 
@@ -244,18 +247,19 @@ Docker-compose			description
 docker-compose		      docker compose executable
 run			      sub-command to bring up interactive container
 --rm			      when shutting the container down, delete it
-rocm			      application service defined in docker-compose.yml
+rocm			      application service defined in **docker-compose.yml**
 ============================ =====================================================
 
 **rocm-user has root privileges by default**
 
-The dockerfile that serves as a 'terminal' creates a non-root user called rocm-user. This container is meant to serve as a development environment (therefore apt-get is likely needed), the user has been added to the linux sudo group. Since it is somewhat difficult to set and change passwords in a container (often requiring a rebuild), the password prompt has been disabled for the sudo group. While this is convenient for development to be able sudo apt-get install packages, it does imply lower security in the container.
+The dockerfile that serves as a 'terminal' creates a non-root user called **rocm-user**. This container is meant to serve as a development environment (therefore apt-get is likely needed), the user has been added to the linux sudo group. Since it is somewhat difficult to set and change passwords in a container (often requiring a rebuild), the password prompt has been disabled for the sudo group. While this is convenient for development to be able sudo apt-get install packages, it does imply lower security in the container.
 
 To increase container security:
 
  1.Eliminate the sudo-nopasswd COPY statement in the dockerfile and replace with
  
  2.Your own password with RUN echo 'account:password' | chpasswd
+
 
 **Footnotes:**
 
