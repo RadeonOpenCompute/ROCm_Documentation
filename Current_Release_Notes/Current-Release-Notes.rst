@@ -5,6 +5,88 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ROCmInfo enhancements
+^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCmInfo was extended to do the following: For ROCr API call errors including initialization determine if the error could be explained by:
+
+   * ROCk (driver) is not loaded / available
+   * User does not have membership in appropriate group - "video"
+   * If not above print the error string that is mapped to the returned error code
+   * If no error string is available, print the error code in hex
+
+[Thrust] Functional Support on Vega20
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCm2.6 contains the first official release of rocThrust and hipCUB. rocThrust is a port of thrust, a parallel algorithm library. hipCUB is a port of CUB, a reusable software component library. Thrust/CUB has been ported to the HIP/ROCm platform to use the rocPRIM library. The HIP ported library works on HIP/ROCm platforms.
+
+::
+
+Note: rocThrust and hipCUB library replaces `hip-thrust <https://github.com/ROCmSoftwarePlatform/thrust>`_ , i.e. hip-thrust has been separated into two libraries, rocThrust and hipCUB. Existing hip-thrust users are encouraged to port their code to rocThrust and/or hipCUB. Hip-thrust will be removed from official distribution later this year.
+
+MIGraphX v0.3
+^^^^^^^^^^^^^^^
+
+MIGraphX optimizer adds support to read models frozen from Tensorflow framework. Further details and an example usage at `<https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/wiki/Getting-started:-using-the-new-features-of-MIGraphX-0.3>`_
+
+MIOpen 2.0
+^^^^^^^^^^^^
+
+    * This release contains several new features including an immediate mode for selecting convolutions, bfloat16 support, new layers,  
+      modes, and algorithms.     
+    * MIOpenDriver, a tool for benchmarking and developing kernels is now shipped with MIOpen. BFloat16 now supported in HIP requires an     
+      updated rocBLAS as a GEMM backend.
+    * Immediate mode API now provides the ability to quickly obtain a convolution kernel.
+    * MIOpen now contains HIP source kernels and implements the ImplicitGEMM kernels. This is a new feature and is currently disabled by   
+      default. Use the environmental variable "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM=1" to activation this feature. ImplicitGEMM requires an  
+      up to  date HIP version of at least 1.5.9211.     
+    * A new "loss" catagory of layers has been added, of which, CTC loss is the first. See the API reference for more details. 2.0 is the   
+      last release of active support for gfx803 architectures. In future releases, MIOpen will not actively debug and develop new features   
+      specifically for gfx803.
+    * System Find-Db in memory cache is disabled by default. Please see build instructions to enable this feature. Additional documentation  
+      can be found `here <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
+
+Bloat16 software support in rocBLAS/Tensile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Added mixed precision bfloat16/IEEE f32 to gemm_ex. The input and output matrices are bfloat16. All arithmetic is in IEEE f32.
+
+AMD Infinity Fabric™ Link enablement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ability to connect four Radeon Instinct MI60 or Radeon Instinct MI50 boards in two hives or two Radeon Instinct MI60 or Radeon Instinct MI50 boards in four hives via AMD Infinity Fabric™ Link GPU interconnect technology has been added.
+
+ROCm-smi features and bug fixes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * mGPU & Vendor check
+    * Fix clock printout if DPM is disabled
+    * Fix finding marketing info on CentOS
+    * Clarify some error messages
+
+ROCm-smi-lib enhancements
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * Documentation updates
+    * Improvements to *name_get functions
+
+RCCL2 Enablement
+^^^^^^^^^^^^^^^^^^
+
+RCCL2 supports collectives intranode communication using PCIe, Infinity Fabric™, and pinned host memory, as well as internode communication using Ethernet (TCP/IP sockets) and Infiniband/RoCE (Infiniband Verbs). Note: For Infiniband/RoCE, RDMA is not currently supported.
+
+rocFFT enhancements
+^^^^^^^^^^^^^^^^^^^^
+
+   * Added: Debian package with FFT test, benchmark, and sample programs
+   * Improved: hipFFT interfaces
+   * Improved: rocFFT CPU reference code, plan generation code and logging code
+
+Features and enhancements introduced in previous versions of ROCm can be found in `version_history.md <https://github.com/RadeonOpenCompute/ROCm/blob/master/version_history.md>`_
+
 New features and enhancements in ROCm 2.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

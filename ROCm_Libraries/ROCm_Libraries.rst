@@ -1428,10 +1428,10 @@ Installation
 
 The following are the steps to use the library
 
-  * ROCM 2.5 Kernel, Driver and Compiler Installation (if not done until now)
+  * ROCM 2.6 Kernel, Driver and Compiler Installation (if not done until now)
   * Library installation.
 
-**ROCM 2.5 Installation**
+**ROCM 2.6 Installation**
 
 To Know more about ROCM refer `here <https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html>`_
 
@@ -1598,7 +1598,7 @@ To insatll rocm, please follow:
 
 Installing from AMD ROCm repositories
 #########################################
-AMD is hosting both debian and rpm repositories for the ROCm 2.5 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
+AMD is hosting both debian and rpm repositories for the ROCm 2.6 packages. The packages in both repositories have been signed to ensure package integrity. Directions for each repository are given below:
 
 * Debian repository - apt-get
 * Add the ROCm apt repository
@@ -1674,7 +1674,7 @@ To build the direct tests for hipeigen:
   make check -j $(nproc)
 
 
-Note: All direct tests should pass with ROCm 2.5
+Note: All direct tests should pass with ROCm 2.6
 
 
 
@@ -2357,10 +2357,10 @@ Installation
 
 The following are the steps to use the library
 
- * ROCM 2.5 Kernel, Driver and Compiler Installation (if not done until now)
+ * ROCM 2.6 Kernel, Driver and Compiler Installation (if not done until now)
  * Library installation.
 
-**ROCM 2.5 Installation**
+**ROCM 2.6 Installation**
 
 To Know more about ROCM refer 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
@@ -3302,10 +3302,6 @@ Support
 
 Bugs and feature requests can be reported through the `issue tracker <https://github.com/ROCmSoftwarePlatform/rocThrust/issues>`_.
 
-Contributions and License
-##########################
-
-Contributions of any kind are most welcome! More details are found at `CONTRIBUTING <https://github.com/ROCmSoftwarePlatform/rocThrust/blob/master-rocm-2.5/CONTRIBUTING.md>`_ and `LICENSE <https://github.com/ROCmSoftwarePlatform/rocThrust/blob/master-rocm-2.5/LICENSE.txt>`_.
 
 
 ***************

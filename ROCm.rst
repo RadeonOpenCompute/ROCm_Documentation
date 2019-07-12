@@ -181,6 +181,9 @@ Quick Start Guide
 | `rocSPARSE <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id38>`_
 | This section provieds details on rocSPARSE.It is a library that contains basic linear algebra subroutines for sparse matrices and vectors written in HiP for GPU devices. It is designed to be used from C and C++ code.
 
+| `rocThrust <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocthrust>`_
+| This section provides details on rocThrust. It is a parallel algorithmn library.  
+
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
 ************************
 | `GCN Native ISA LLVM Code Generator <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#gcn-native-isa-llvm-code-generator>`_

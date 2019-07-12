@@ -15,7 +15,7 @@ We are excited to announce the release of ROCm enabled TensorFlow v2.0 for AMD G
 
 Tensorflow Installation
 ***********************
-First, you’ll need to install the open-source ROCm 2.5 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
+First, you’ll need to install the open-source ROCm 2.6 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 Then, install these other relevant ROCm packages:
 ::
@@ -65,7 +65,7 @@ Porting from cuDNN to MIOpen
 ****************************
 The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf>`_ highlights the key differences between the current cuDNN and MIOpen APIs.
 
-The ROCm 2.5 has prebuilt packages for MIOpen
+The ROCm 2.6 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
 
@@ -101,7 +101,7 @@ Building PyTorch for ROCm
 
 This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://github.com/RadeonOpenCompute/ROCm#supported-operating-systems---new-operating-systems-available>`_ for supported operating systems and general information on the ROCm software stack.
 
-A ROCm install version 2.5 is required currently.
+A ROCm install version 2.6 is required currently.
 
 1. Install or update rocm-dev on the host system:
 
@@ -362,7 +362,7 @@ Caffe2
 
 Building Caffe2 for ROCm
 **************************
-This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-2.5s drivers installed. Please refer to `ROCm install <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#installing-from-amd-rocm-repositories>`_ to install ROCm software stack. If your host system doesn't have docker installed, please refer to `docker install <https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce>`_. It is recommended to add the user to the docker group to run docker as a non-root user, please refer `here <https://docs.docker.com/install/linux/linux-postinstall/>`_.
+This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-2.6s drivers installed. Please refer to `ROCm install <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#installing-from-amd-rocm-repositories>`_ to install ROCm software stack. If your host system doesn't have docker installed, please refer to `docker install <https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce>`_. It is recommended to add the user to the docker group to run docker as a non-root user, please refer `here <https://docs.docker.com/install/linux/linux-postinstall/>`_.
 
 This guide provides two options to run Caffe2.
     1. Launch the docker container using a docker image with Caffe2 installed.

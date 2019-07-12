@@ -29,14 +29,15 @@ For detailed and up to date usage information, we recommend consulting the help:
 For convenience purposes, following is a quick excerpt:
 
 usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [-i] [-v] [--showhw] [-t] [-c] [-g] [-f] [-p] [-P] [-o] [-m] [-M] [-l]
-                [-s] [-u] [-b] [--showreplaycount] [-S] [--showvoltage] [--showrasinfo BLOCK [BLOCK ...]]
-                [--showfwinfo [BLOCK [BLOCK ...]]] [-a] [--showmeminfo TYPE [TYPE ...]] [--showdriverversion]
-                [--alldevices] [-r] [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]]
-                [--setpcie LEVEL [LEVEL ...]] [--setslevel SCLKLEVEL SCLK SVOLT] [--setmlevel MCLKLEVEL MCLK MVOLT]
-                [--resetfans] [--setfan LEVEL] [--setperflevel LEVEL] [--setoverdrive %] [--setmemoverdrive %]
-                [--setpoweroverdrive WATTS] [--resetpoweroverdrive] [--setprofile SETPROFILE] [--resetprofile]
-                [--rasenable BLOCK ERRTYPE] [--rasdisable BLOCK ERRTYPE] [--rasinject BLOCK] [--gpureset]
-                [--load FILE | --save FILE] [--autorespond RESPONSE] [--loglevel ILEVEL] [--json]
+                [-s] [-u] [--showmemuse] [-b] [--showreplaycount] [-S] [--showvoltage] [--showrasinfo BLOCK [BLOCK ...]]
+                [--showfwinfo [BLOCK [BLOCK ...]]] [--showproductname] [-a] [--showmeminfo TYPE [TYPE ...]]
+                [--showdriverversion] [--showuniqueid] [--showpids] [--alldevices] [-r] [--setsclk LEVEL [LEVEL ...]]
+                [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]] [--setslevel SCLKLEVEL SCLK SVOLT]
+                [--setmlevel MCLKLEVEL MCLK MVOLT] [--resetfans] [--setfan LEVEL] [--setperflevel LEVEL]
+                [--setoverdrive %] [--setmemoverdrive %] [--setpoweroverdrive WATTS] [--resetpoweroverdrive]
+                [--setprofile SETPROFILE] [--resetprofile] [--rasenable BLOCK ERRTYPE] [--rasdisable BLOCK ERRTYPE]
+                [--rasinject BLOCK] [--gpureset] [--load FILE | --save FILE] [--autorespond RESPONSE]
+                [--loglevel ILEVEL] [--json]
 
 AMD ROCm System Management Interface
 
@@ -67,6 +68,7 @@ optional arguments:
   -l, --showprofile           		Show Compute Profile attributes
   -s, --showclkfrq            		Show supported GPU and Memory Clock
   -u, --showuse               		Show current GPU use
+      --showmemuse                      Show current GPU memory used
   -b, --showbw                		Show estimated PCIe use
   --showreplaycount                     Show PCIe Replay Count
   -S, --showclkvolt           		Show supported GPU and Memory Clocks and Voltages
@@ -74,9 +76,12 @@ optional arguments:
   --showrasinfo BLOCK [BLOCK ...]       Show RAS enablement information and error counts for the
                                         specified block(s)
   --showfwinfo [BLOCK [BLOCK ...]]      Show FW information
+  --showproductname                     Show SKU/Vendor name
   -a, --showallinfo           		Show all SMI-supported values values
   --showmeminfo TYPE [TYPE ...]         Show Memory usage information for given block(s) TYPE
   --showdriverversion                   Show kernel driver version
+  --showuniqueid                        Show GPU's Unique ID
+  --showpids                            Show current running KFD PIDs
   --alldevices                          Execute command on non-AMD devices as well as AMD devices
 
   -r, --resetclocks           		Reset clocks to OverDrive to default
