@@ -25,7 +25,7 @@ HIP Math API
 
 * :ref:`HIP-MATH`
 
-Thrust API Documentation
+hipThrust API Documentation
 ==========================
 
 * :ref:`HIP-thrust`

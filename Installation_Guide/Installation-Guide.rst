@@ -263,13 +263,13 @@ following GitHub repositories:
 .. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.6.0
 
 .. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.6.0
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/ac45c6e2
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/ac45c6e2
 .. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/d34b716a
 .. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.6.0
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-2.6.0
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.6.0
 .. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.6.0
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-2.6.0
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.6.0
 
 .. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.6.0
 .. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.6.0

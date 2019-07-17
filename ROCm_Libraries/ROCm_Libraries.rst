@@ -3262,46 +3262,298 @@ For build and install:
 Using rocThrust In A Project
 #############################
 
-Recommended way of including rocThrust into a CMake project is by using its package configuration files.
+::
 
-# On ROCm rocThrust requires rocPRIM
-find_package(rocprim REQUIRED CONFIG PATHS "/opt/rocm/rocprim")
+  Recommended way of including rocThrust into a CMake project is by using its package configuration files.
 
-# "/opt/rocm" - default install prefix
-find_package(rocthrust REQUIRED CONFIG PATHS "/opt/rocm/rocthrust")
+  # On ROCm rocThrust requires rocPRIM
+  find_package(rocprim REQUIRED CONFIG PATHS "/opt/rocm/rocprim")
 
-...
-includes rocThrust headers and roc::rocprim_hip target
-target_link_libraries(<your_target> rocthrust)
+  # "/opt/rocm" - default install prefix
+  find_package(rocthrust REQUIRED CONFIG PATHS "/opt/rocm/rocthrust")
+
+  ...
+  includes rocThrust headers and roc::rocprim_hip target
+  target_link_libraries(<your_target> rocthrust)
+
 
 Running Unit Tests
 ####################
 
-# Go to rocThrust build directory
-cd rocThrust; cd build
+::
 
-# To run all tests
-ctest
+  # Go to rocThrust build directory
+  cd rocThrust; cd build
 
-# To run unit tests for rocThrust
-./test/<unit-test-name>
+  # To run all tests
+  ctest
+
+  # To run unit tests for rocThrust
+  ./test/<unit-test-name>
+
 
 Documentation
 ###############
 
-# go to rocThrust doc directory
-cd rocThrust
-
-# run doxygen
-doxygen doc/thrust.dox
-
-# open html/index.html
+Documentation is available `here <https://rocthrust.readthedocs.io/en/latest/>`_.
 
 Support
 #########
 
 Bugs and feature requests can be reported through the `issue tracker <https://github.com/ROCmSoftwarePlatform/rocThrust/issues>`_.
 
+********
+hipCUB
+********
+
+
+hipCUB is a thin wrapper library on top of `rocPRIM <https://github.com/ROCmSoftwarePlatform/rocPRIM>`_ or `CUB <https://github.com/NVlabs/cub>`_. It enables developers to port project using CUB library to the `HIP <https://github.com/ROCm-Developer-Tools/HIP>`_ layer and to run them on AMD hardware. In `ROCm <https://rocm.github.io/>`_ environment hipCUB uses rocPRIM library as the backend, however, on CUDA platforms it uses CUB instead.
+
+
+Requirements
+##############
+
+   * Git
+   * CMake (3.5.1 or later)
+   * For AMD GPUs:
+        * AMD `ROCm <https://rocm.github.io/install.html>`_ platform (1.8.0 or later)
+            * Including `HCC <https://github.com/RadeonOpenCompute/hcc>`_ compiler, which must be set as C++ compiler on ROCm platform.
+        * `rocPRIM <https://github.com/ROCmSoftwarePlatform/rocPRIM>`_ library
+            * It will be automatically downloaded and built by CMake script.
+    * For NVIDIA GPUs:
+        * CUDA Toolkit
+        * CUB library (automatically downloaded and by CMake script)
+
+   Optional:
+
+    * `GTest <https://github.com/google/googletest>`_
+        * Required only for tests. Building tests is enabled by default.
+        * It will be automatically downloaded and built by CMake script.
+
+
+Build And Install
+##################
+
+::
+
+  git clone https://github.com/ROCmSoftwarePlatform/hipCUB.git
+
+  # Go to hipCUB directory, create and go to the build directory.
+  cd hipCUB; mkdir build; cd build
+
+  # Configure hipCUB, setup options for your system.
+  # Build options:
+  #   BUILD_TEST - ON by default,
+  #
+  # ! IMPORTANT !
+  # On ROCm platform set C++ compiler to HCC. You can do it by adding 'CXX=<path-to-hcc>'
+  # before 'cmake' or setting cmake option 'CMAKE_CXX_COMPILER' to path to the HCC compiler.
+  #
+  [CXX=hcc] cmake ../. # or cmake-gui ../.
+ 
+  # Build
+  make -j4
+
+  # Optionally, run tests if they're enabled.
+  ctest --output-on-failure
+
+  # Package
+  make package
+
+  # Install
+  [sudo] make install
+
+
+
+Using hipCUB In A Project
+###########################
+
+Recommended way of including hipCUB into a CMake project is by using its package configuration files.
+ 
+::
+
+  # On ROCm hipCUB requires rocPRIM
+  find_package(rocprim REQUIRED CONFIG PATHS "/opt/rocm/rocprim")
+
+  # "/opt/rocm" - default install prefix
+  find_package(hipcub REQUIRED CONFIG PATHS "/opt/rocm/hipcub")
+
+  ...
+  # On ROCm: includes hipCUB headers and roc::rocprim_hip target
+  # On CUDA: includes only hipCUB headers, user has to include CUB directory
+  target_link_libraries(<your_target> hip::hipcub)
+
+
+Include only the main header file:
+
+::
+
+  #include <hipcub/hipcub.hpp>
+
+
+CUB or rocPRIM headers are included by hipCUB depending on the current HIP platform.
+
+
+Running Unit Tests
+###################
+
+::
+
+  # Go to hipCUB build directory
+  cd hipCUB; cd build
+
+  # To run all tests
+  ctest
+
+  # To run unit tests for hipCUB
+  ./test/hipcub/<unit-test-name>
+
+
+
+Documentation
+##############
+
+::
+
+  # go to hipCUB doc directory
+  cd hipCUB; cd doc
+
+  # run doxygen
+  doxygen Doxyfile
+
+  # open html/index.html
+
+
+Support
+########
+
+Bugs and feature requests can be reported through the `issue tracker <https://github.com/ROCmSoftwarePlatform/hipCUB/issues>`_.
+
+
+Contributions and License
+##########################
+
+Contributions of any kind are most welcome! More details are found at `CONTRIBUTING <https://github.com/ROCmSoftwarePlatform/hipCUB/blob/2.6.0/CONTRIBUTING.md>`_ and `LICENSE <https://github.com/ROCmSoftwarePlatform/hipCUB/blob/2.6.0/LICENSE.txt>`_.
+
+
+*****************
+ROCm SMI library
+*****************
+
+ROCm System Management Interface (ROCm SMI) Library
+----------------------------------------------------
+
+The ROCm System Management Interface Library, or ROCm SMI library, is part of the Radeon Open Compute `ROCm <https://github.com/RadeonOpenCompute>`_ software stack . It is a C library for Linux that provides a user space interface for applications to monitor and control GPU applications.
+
+
+Important note about Versioning and Backward Compatibility
+###########################################################
+
+The ROCm SMI library is currently under development, and therefore subject to change either at the ABI or API level. The intention is to keep the API as stable as possible even while in development, but in some cases we may need to break backwards compatibility in order to ensure future stability and usability. Following `Semantic Versioning <https://semver.org/>`_ rules, while the ROCm SMI library is in high state of change, the major version will remain 0, and backward compatibility is not ensured.
+
+Once new development has leveled off, the major version will become greater than 0, and backward compatibility will be enforced between major versions.
+
+Building ROCm SMI
+##################
+
+Additional Required software for building
+------------------------------------------
+
+In order to build the ROCm SMI library, the following components are required. Note that the software versions listed are what was used in development. Earlier versions are not guaranteed to work:
+
+    * CMake (v3.5.0)
+    * g++ (5.4.0)
+
+In order to build the latest documentation, the following are required:
+
+    * DOxygen (1.8.11)
+    * latex (pdfTeX 3.14159265-2.6-1.40.16)
+
+The source code for ROCm SMI is available on `Github <https://github.com/RadeonOpenCompute/rocm_smi_lib>`_.
+
+After the the ROCm SMI library git repository has been cloned to a local Linux machine, building the library is achieved by following the typical CMake build sequence. Specifically,
+
+::
+
+  $ mk -p build
+  $ cd build
+  $ cmake <location of root of ROCm SMI library CMakeLists.txt>
+  $ make
+
+
+The built library will appear in the build folder.
+
+Building the Documentation
+###########################
+
+The documentation PDF file can be built with the following steps (continued from the steps above):
+
+::
+
+  $ make doc
+  $ cd latex
+  $ make
+
+
+The reference manual, refman.pdf will be in the latex directory upon a successful build.
+
+
+Building the Tests
+###################
+
+In order to verify the build and capability of ROCm SMI on your system and to see an example of how ROCm SMI can be used, you may build and run the tests that are available in the repo. To build the tests, follow these steps:
+
+::
+
+  # Set environment variables used in CMakeLists.txt file
+  $ ROCM_DIR=<location of ROCm SMI library>
+  $ mkdir <location for test build>
+  $ cd <location for test build>
+  $ cmake -DROCM_DIR=<location of ROCM SMI library .so> <ROCm SMI source root>/tests/rocm_smi_test
+
+
+To run the test, execute the program rsmitst that is built from the steps above. Make sure ROCm SMI library is in your library search path when executing the test program.
+
+Usage Basics
+##############
+
+Device Indices
+---------------
+
+Many of the functions in the library take a "device index". The device index is a number greater than or equal to 0, and less than the number of devices detected, as determined by rsmi_num_monitor_devices(). The index is used to distinguish the detected devices from one another. It is important to note that a device may end up with a different index after a reboot, so an index should not be relied upon to be constant over reboots.
+
+Hello ROCm SMI
+---------------
+The only required ROCm-SMI call for any program that wants to use ROCm-SMI is the rsmi_init() call. This call initializes some internal data structures that will be used by subsequent ROCm-SMI calls.
+
+When ROCm-SMI is no longer being used, rsmi_shut_down() should be called. This provides a way to do any releasing of resources that ROCm-SMI may have held. In many cases, this may have no effect, but may be necessary in future versions of the library.
+
+A simple "Hello World" type program that displays the device ID of detected devices would look like this:
+
+::
+
+  #include <stdint.h>
+  #include "rocm_smi/rocm_smi.h"
+  int main() {
+  rsmi_status_t ret; 
+  uint32_t num_devices; 
+  uint64_t dev_id; 
+ 
+  // We will skip return code checks for this example, but it 
+  // is recommended to always check this as some calls may not
+  // apply for some devices or ROCm releases
+ 
+  ret = rsmi_init(0);
+  ret = rsmi_num_monitor_devices(&num_devices);
+ 
+  for (int i=0; i < num_devices; ++i) {
+    ret = rsmi_dev_id_get(i, &dev_id);
+    // dev_id holds the device ID of device i, upon a
+    // successful call  
+  }  
+  ret = rsmi_shut_down();
+  return 0;
+  } 
 
 
 ***************

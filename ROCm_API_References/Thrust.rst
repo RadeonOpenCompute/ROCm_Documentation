@@ -1,8 +1,8 @@
 
 .. _HIP-thrust:
 
-Thrust 
-########
+hipThrust 
+##########
 
 HIP back-end for Thrust
 
