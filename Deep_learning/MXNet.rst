@@ -27,9 +27,18 @@ Follow the instructions from here -`ROCm Installation Guide <http://rocm-documen
 
 **Install Dependencies to build mxnet for HIP/ROCm**
 ::
- sudo apt-get install rocm-device-libs rocm-libs rocblas hipblas rocrand 
- sudo apt-get install rocm-opencl rocm-opencl-dev rocm-utils
- sudo apt-get install miopengemm miopen-hip
+wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+sudo apt update
+sudo apt install -y rocm-dkms rocm-dev rocm-utils
+sudo apt install -y rocm-device-libs rocm-libs rocblas hipblas rocrand rocfft
+sudo apt install -y rocm-opencl rocm-opencl-dev
+sudo apt install -y miopengemm miopen-hip
+sudo apt install -y hsakmt-roct hsakmt-roct-dev hsa-rocr-dev hsa-ext-rocr-dev
+sudo apt install -y rocthrust
+sudo apt install -y rocprim
+sudo apt install -y hipcub
+
  
 `Install hcfft from source <https://github.com/ROCmSoftwarePlatform/hcFFT/wiki/Installation>`_ 
  
@@ -79,21 +88,24 @@ MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  $ export HIP_PLATFORM=nvcc
  
-**Step 6:**
+
+ 
+**Step 6: To enable MIOpen for higher acceleration :**
+::
+ USE_CUDNN=1  
+ 
+ **Step 7:**
 
 **If building on CPU:**
 ::
- make -jn(n=number of cores) USE_CUDA=0
+ make -jn(n=number of cores) USE_GPU=0 (For Ubuntu 16.04)
+ make -jn(n=number of cores)  CXX=g++-6 USE_GPU=0 (For Ubuntu 18.04)
  
 **If building on GPU:**
 ::
- make -jn(n=number of cores) USE_CUDA=1
+ make -jn(n=number of cores) USE_GPU=1 (For Ubuntu 16.04)
+ make -jn(n=number of cores)  CXX=g++-6 USE_GPU=1 (For Ubuntu 18.04) 
  
-**Step 7: To enable MIOpen for higher acceleration :**
-::
- make -jn(n=number of cores) USE_CUDNN=1  
- 
-NOTE: Currently this feature is under development
 
 On succesfull compilation a library called libmxnet.so is created in mxnet/lib path.
 
@@ -107,7 +119,11 @@ Install the MXNet Python binding
 
 **Step 1: Install prerequisites - python, setup-tools, python-pip and numpy.**
 ::
- $ sudo apt-get install -y python-dev python-setuptools python-numpy python-pip
+ $ sudo apt-get install -y python-dev python-setuptools python-numpy python-pip python-scipy
+ $ sudo apt-get install python-tk
+ $ sudo apt install -y fftw3 fftw3-dev pkg-config
+
+
 
 **Step 2: Install the MXNet Python binding.**
 ::
