@@ -463,7 +463,7 @@ Deep Learning Framework support for ROCm
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
 | Tensorflow | Development | Yes            | CLA inProgress | Notes: Working on NCCL and XLA enablement, Running  |
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Caffe2     | Upstreaming | Yes            | CLA inProgress | https://github.com/ROCmSoftwarePlatform/caffe2      |
+| Caffe2     | Upstreaming | Yes            | CLA inProgress |                                                     |
 +------------+-------------+----------------+----------------+-----------------------------------------------------+
 | Torch      | HIP         | Upstreaming    | Development    | https://github.com/ROCmSoftwarePlatform/cutorch_hip |
 |            |             |                | inProgress     |                                                     |

@@ -435,7 +435,7 @@ The packages for each of the major ROCm components are:
    -  ROCm SMI Lib: ``rocm_smi_lib64``
    -  RCCL: ``rccl``
    -  MIVisionX: ``mivisionx``
-   -  rocThrust: `rocThrust`
+   -  rocThrust: ``rocThrust``
    -  hipCUB: ``hipCUB``
 
 To make it easier to install ROCm, the AMD binary repos provide a number

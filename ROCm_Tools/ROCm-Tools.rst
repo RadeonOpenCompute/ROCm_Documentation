@@ -1010,7 +1010,7 @@ Documentation need to be updated.
 MIVisionX
 =========
 
-**MIVisionX toolkit is a comprehensive computer vision and machine intelligence libraries, utilities and applications bundled into a single toolkit**
+**MIVisionX toolkit is a set of comprehensive computer vision and machine intelligence libraries, utilities, and applications bundled into a single toolkit. AMD MIVisionX delivers highly optimized open source implementation of the Khronos OpenVX™ and OpenVX™ Extensions along with Convolution Neural Net Model Compiler & Optimizer supporting ONNX, and Khronos NNEF™ exchange formats. The toolkit allows for rapid prototyping and deployment of optimized workloads on a wide range of computer hardware, including small embedded x86 CPUs, APUs, discrete GPUs, and heterogeneous servers.**
 
 AMD OpenVX (amd_openvx)
 #######################
@@ -1019,11 +1019,18 @@ AMD OpenVX is a highly optimized open source implementation of the Khronos OpenV
 
 The amd_openvx project consists of the following components:
 
-   * **OpenVX**: AMD OpenVX library
-The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. Look into github amd_openvx_extensions folder for additional OpenVX modules and utilities.
-   * **vx_nn**: OpenVX neural network module that was built on top of MIOpen
-   * **vx_loomsl**: Radeon LOOM stitching library for live 360 degree video applications
-   * **vx_opencv**: OpenVX module that implemented a mechanism to access OpenCV functionality as OpenVX kernels
+AMD OpenVX Extensions
+#######################
+
+The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
+
+  
+    * `amd_loomsl <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_loomsl>`_: AMD Radeon Loom stitching library for live 360 degree video applications
+    * `amd_nn <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_nn#openvx-neural-network-extension-library-vx_nn>`_: OpenVX neural network module
+    * amd_opencv <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_opencv#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
+    * `amd_winml <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_winml#amd-winml-extension>`_: WinML extension will allow developers to import a pre-trained ONNX model into an OpenVX graph and add hundreds of different pre & post processing vision/generic/user-defined functions, available in OpenVX and OpenCV interop, to the input and output of the neural net model. This will allow developers to build an end to end application for inference.
+
+
 
 Features
 --------
@@ -1076,11 +1083,12 @@ Build using CMake
 AMD OpenVX Extensions (amd_openvx_extensions)
 #############################################
 
-The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below OpenVX modules and utilities to extend AMD OpenVX (amd_openvx) project, which contains the AMD OpenVX Core Engine.
+The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
 
    * `amd_loomsl <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/#radeon-loom-stitching-library-vx_loomsl>`_: AMD Radeon LOOM stitching library for live 360 degree video applications
    * `amd_nn <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_nn/#openvx-neural-network-extension-library-vx_nn>`_: OpenVX neural network module
    * `amd_opencv <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_opencv/#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
+   *  `amd_winml <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_winml#amd-winml-extension>`_: WinML extension will allow developers to import a pre-trained ONNX model into an OpenVX graph and add hundreds of different pre & post processing vision/generic/user-defined functions, available in OpenVX and OpenCV interop, to the input and output of the neural net model. This will allow developers to build an end to end application for inference.
 
 Radeon Loom Stitching Library (vx_loomsl)
 ------------------------------------------
@@ -1347,7 +1355,7 @@ Use amdovx-modules/vx_opencv/vx_opencv.sln to build for x64 platform
 Applications
 ##############
 
-MIVisionX has a number of applications built on top of OpenVX modules, it uses AMD optimized libraries to build applications which can be used to prototype or used as models to develop a product.
+MIVisionX has a number of `applications <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/apps#applications>`_ built on top of OpenVX modules, it uses AMD optimized libraries to build applications which can be used to prototype or used as models to develop a product.
 
 Cloud Inference Application (cloud_inference)
 ----------------------------------------------
@@ -1615,7 +1623,7 @@ usage:
 MIVisionX Toolkit
 ##################
 
-AMD MIVisionX Toolkit, is a comprehensive set of help tools for neural net creation, development, training and deployment. The Toolkit provides you with help tools to design, develop, quantize, prune, retrain, and infer your neural network work in any framework. The Toolkit is designed to help you deploy your work to any AMD or 3rd party hardware, from embedded to servers.
+AMD `MIVisionX Toolkit <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/toolkit#mivisionx-toolkit>`_, is a comprehensive set of help tools for neural net creation, development, training and deployment. The Toolkit provides you with help tools to design, develop, quantize, prune, retrain, and infer your neural network work in any framework. The Toolkit is designed to help you deploy your work to any AMD or 3rd party hardware, from embedded to servers.
 
 MIVisionX provides you with tools for accomplishing your tasks throughout the whole neural net life-cycle, from creating a model to deploying them for your target platforms.
 
@@ -1634,43 +1642,164 @@ If you’re interested in Neural Network Inference, start with the sample cloud 
  .. image:: block_diagram_inference_workflow.png
      :align: center
 
-Pre-requisites
-###############
+Prerequisites
+##############
 
-   * CPU: SSE4.1 or above CPU, 64-bit
-   * GPU: Radeon Instinct or Vega Family of Products (16GB recommended)
-       * Linux: install `ROCm <https://rocm.github.io/ROCmInstall.html>`_ with OpenCL development kit
-       * Windows: install the latest drivers and OpenCL SDK `download <https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases>`_
-   * CMake 2.8 or newer `download <cmake.org/download/>`_
-   * Qt Creator for `annInferenceApp <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/>`_
-   * `protobuf <https://github.com/protocolbuffers/protobuf>`_ for `inference_generator <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/inference_generator/#inference-generator>`_
-       * install libprotobuf-dev and protobuf-compiler needed for vx_nn
-   * OpenCV 3 (optional) `download <https://github.com/opencv/opencv/releases>`_ for vx_opencv
-       * Set OpenCV_DIR environment variable to OpenCV/build folder
+    * CPU: SSE4.1 or above CPU, 64-bit
+    * GPU: `GFX7 or above <https://rocm.github.io/hardware.html>`_ [optional]
+    * APU: Carrizo or above [optional]
+
+**Note:** Some modules in MIVisionX can be built for CPU only. To take advantage of advanced features and modules we recommend using AMD GPUs or AMD APUs.
+
+Windows
+--------
+    * Windows 10
+    * Windows SDK
+    * Visual Studio 2017
+    * Install the latest drivers and `OpenCL SDK <https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases/tag/1.0`>_
+    * `OpenCV 3.4 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
+          * Set OpenCV_DIR environment variable to OpenCV/build folder
+          * Add %OpenCV_DIR%\x64\vc14\bin or %OpenCV_DIR%\x64\vc15\bin to your PATH
+
+Linux
+------
+
+    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
+    * ROCm CMake, MIOpenGEMM & MIOpen for Neural Net Extensions (vx_nn)
+    * CMake 2.8 or newer `download <http://cmake.org/download/>`_
+    * Qt Creator for `Cloud Inference Client <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/apps/cloud_inference/client_app/README.md>`_
+    * `Protobuf <https://github.com/google/protobuf>`_ for inference generator & model compiler
+        * install libprotobuf-dev and protobuf-compiler needed for vx_nn
+    * `OpenCV 3.4 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
+        * Set OpenCV_DIR environment variable to OpenCV/build folder
+    * `FFMPEG n4.0.4 <https://github.com/FFmpeg/FFmpeg/releases/tag/n4.0.4>`_ - Optional
+        * FFMPEG is required for amd_media & mv_deploy modules
+
 
 Pre-requisites setup script - MIVisionX-setup.py
 -------------------------------------------------
+ 
+For the convenience of the developer, we here provide the setup script which will install all the dependencies required by this project.
+
+**MIVisionX-setup.py**- This scipts builds all the prerequisites required by MIVisionX. The setup script creates a deps folder and installs all the prerequisites, this script only needs to be executed once. If -d option for directory is not given the script will install deps folder in ‘~/’ directory by default, else in the user specified folder.
 
 Prerequisites for running the scripts
 ---------------------------------------
 
-   * ubuntu 16.04/18.04
-   * ROCm supported hardware
-   * ROCm
-
-**MIVisionX-setup.py**- This scipts builds all the prerequisites required by MIVisionX. The setup script creates a deps folder and installs all the prerequisites, this script only needs to be executed once. If -d option for directory is not given the script will install deps folder in ‘~/’ directory by default, else in the user specified folder.
+   * ubuntu 16.04/18.04 or CentOS 7.5/7.6
+   * `ROCm supported hardware <https://rocm.github.io/hardware.html>`_
+   * `ROCm <https://github.com/RadeonOpenCompute/ROCm#installing-from-amd-rocm-repositories>`_
 
 usage:
 
 ::
 
-  python MIVisionX-setup.py -s [sudo password - required] -d [setup directory - optional (default:~/)] -m [MIOpen Version - optional (default:1.6.0)]
+  python MIVisionX-setup.py --directory [setup directory - optional]
+                          --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
+                          --miopen    [MIOpen Version - optional (default:1.8.1)]
+                          --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]
 
 
 Build MIVisionX
 ###############
 
-Build using CMake on Linux (Ubuntu 16.04 64-bit) with ROCm
+**Note:** use --installer yum for **CentOS**
+Refer to `Wiki <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/wiki/Suggested-development-workflow>`_ page for developer instructions.
+
+
+Build & Install MIVisionX
+##########################
+
+**Windows**
+
+**Using .msi packages**
+
+    * `MIVisionX-installer.msi <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/releases>`_: MIVisionX
+    * `MIVisionX_WinML-installer.msi <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/releases>`_: MIVisionX for WinML
+
+**Using Visual Studio 2017 on 64-bit Windows 10**
+
+    * Install `OpenCL SDK https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases/tag/1.0>`_
+    Install `OpenCV https://github.com/opencv/opencv/releases/tag/3.4.0>`_ with/without `contrib <https://github.com/opencv/opencv_contrib>`_ to support camera capture, image display, & opencv extensions
+        * Set OpenCV_DIR environment variable to OpenCV/build folder
+        * Add %OpenCV_DIR%\x64\vc14\bin or %OpenCV_DIR%\x64\vc15\bin to your PATH
+    * Use MIVisionX.sln to build for x64 platform
+
+**NOTE:** vx_nn is not supported on Windows in this release
+
+**Linux**
+
+**Using apt-get/yum**
+
+Prerequisites
+##############
+
+    * Ubuntu 16.04/18.04 or CentOS 7.5/7.6
+    * `ROCm supported hardware <https://rocm.github.io/hardware.html>`_
+    * `ROCm <https://github.com/RadeonOpenCompute/ROCm#installing-from-amd-rocm-repositories>`_
+
+**Ubuntu**
+
+::
+
+  sudo apt-get install mivisionx
+
+
+**CentOS**
+
+::
+
+  sudo yum install mivisionx
+
+**Note:**
+
+    * vx_winml is not supported on linux
+    * source code will not available with apt-get/yum install
+    * executables placed in /opt/rocm/mivisionx/bin and libraries in /opt/rocm/mivisionx/lib
+    * OpenVX and module header files into /opt/rocm/mivisionx/include
+    * model compiler, toolkit, & samples placed in /opt/rocm/mivisionx
+    * Package (.deb & .rpm) install requires OpenCV v3.4.0 to execute AMD OpenCV extensions
+
+
+
+Using MIVisionX-setup.py and CMake on Linux (Ubuntu 16.04/18.04 or CentOS 7.5/7.6) with ROCm
+----------------------------------------------------------------------------------------------
+    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
+    * Use the below commands to setup and build MIVisionX
+
+
+::
+
+  git clone https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX.git
+  cd MIVisionX
+
+
+::
+  python MIVisionX-setup.py --directory [setup directory - optional]
+                          --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
+                          --miopen    [MIOpen Version - optional (default:1.8.1)]
+                          --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]    
+
+
+
+**Note:** Use --installer yum for **CentOS**
+
+
+::
+  mkdir build
+  cd build
+  cmake ../
+  make -j8
+  sudo make install
+
+**Note:**
+
+    * vx_winml is not supported on Linux
+    * the installer will copy all executables into /opt/rocm/mivisionx/bin and libraries into /opt/rocm/mivisionx/lib
+    * the installer also copies all the OpenVX and module header files into /opt/rocm/mivisionx/include folder
+
+
+Build using CMake on Linux (Ubuntu 16.04 64-bit or CentOS 7.5 / 7.6 ) with ROCm
 ------------------------------------------------------------
 
    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
@@ -1680,7 +1809,7 @@ Build using CMake on Linux (Ubuntu 16.04 64-bit) with ROCm
        * `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>`_ – make sure to use -DMIOPEN_BACKEND=OpenCL option with cmake
    * install `protobuf <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`_
    * install `OpenCV <https://github.com/opencv/opencv/releases/tag/3.3.0>`_
-   * git clone this project using --recursive option so that correct branch of the deps project is cloned automatically.
+   * install `FFMPEG n4.0.4 <https://github.com/FFmpeg/FFmpeg/releases/tag/n4.0.4>`_ - Optional
    * build and install (using cmake and % make install)
        * executables will be placed in bin folder
        * libraries will be placed in lib folder
@@ -1688,6 +1817,34 @@ Build using CMake on Linux (Ubuntu 16.04 64-bit) with ROCm
        * the installer also copies all the OpenVX and module header files into /opt/rocm/mivisionx/include folder
    * add the installed library path to LD_LIBRARY_PATH environment variable (default /opt/rocm/mivisionx/lib)
    * add the installed executable path to PATH environment variable (default /opt/rocm/mivisionx/bin)
+
+Verify the Installation
+-------------------------
+
+Linux
+------
+
+    * The installer will copy all executables into /opt/rocm/mivisionx/bin and libraries into /opt/rocm/mivisionx/lib
+
+    * The installer also copies all the OpenVX and OpenVX module header files into /opt/rocm/mivisionx/include folder
+
+    * Apps, Samples, Documents, Model Compiler and Toolkit are placed into /opt/rocm/mivisionx
+
+    * Run samples to verify the installation
+        
+        * **Canny Edge Detection**
+ 
+.. image:: canny_image.PNG
+     :align: center
+
+    
+::
+  export PATH=$PATH:/opt/rocm/mivisionx/bin
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
+  runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
+
+
+Note: More samples are available `here <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/samples#samples>`_
 
 Build annInferenceApp using Qt Creator
 ---------------------------------------
@@ -1699,6 +1856,7 @@ Build Radeon LOOM using Visual Studio Professional 2013 on 64-bit Windows 10/8.1
 -----------------------------------------------------------------------------------
 
    * Use `loom.sln <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/vx_loomsl.sln>`_ to build x64 platform
+
 
 
 Docker
@@ -1760,21 +1918,42 @@ Workflow
 
 ::
 
-   sudo docker pull kiritigowda/mivisionx-ubuntu-16.04
+   sudo docker pull mivisionx/ubuntu-16.04
+
 
 **Step 4 - Run the docker image**
 
 ::
 
-   sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host kiritigowda/mivisionx-ubuntu-16.04
+   sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host mivisionx/ubuntu-16.04
+
 
    * Optional: Map localhost directory on the docker image 
       * option to map the localhost directory with trained caffe models to be accessed on the docker image.
-      * usage: -v {LOCAL_HOST_DIRECTORY_PATH}:{DOCKER_DIRECTORY_PATH} 
+      * usage: -v {LOCAL_HOST_DIRECTORY_PATH}:{DOCKER_DIRECTORY_PATH}
+ 
        ::
      
-        sudo docker run -it -v /home/:/root/hostDrive/ --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host kiritigowda/mivisionx-ubuntu-16.04
+     sudo docker run -it -v /home/:/root/hostDrive/ --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host mivisionx/ubuntu-16.04
 
+
+**Note: Display option with docker**
+
+    * Using host display
+     ::
+ 
+     xhost +local:root
+     sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host --env    DISPLAY=unix$DISPLAY --privileged --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix/:/tmp/.X11-unix mivisionx/ubuntu-16.04:latest
+
+
+   * Test display with MIVisionX sample
+    ::
+
+    export PATH=$PATH:/opt/rocm/mivisionx/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
+runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
+
+ 
 
 Release Notes
 ##############
@@ -1808,18 +1987,19 @@ Supported Neural Net Layers
 Known issues
 -------------
 
-   * ROCm - 1.8.151 performance degradation
+   * Package (.deb & .rpm) install requires OpenCV v3.4.0 to execute AMD OpenCV extensions
 
 Tested configurations
 ----------------------
 
+    * Windows 10
     * Linux: Ubuntu - 16.04/18.04 & CentOS - 7.5/7.6
-    * ROCm: rocm-dkms - 1.9.307
-    * rocm-cmake - github master:ac45c6e
-    * MIOpenGEMM - 1.1.5
-    * MIOpen - 1.6.0
-    * Protobuf - V3.5.2
-    * OpenCV - 3.3.0
+    * ROCm: rocm-dkms - 2.4.25
+    * rocm-cmake - `github master:ac45c6e <https://github.com/RadeonOpenCompute/rocm-cmake/tree/master>`_
+    * MIOpenGEMM - `1.1.5 <https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/releases/tag/1.1.5>`_
+    * MIOpen - `1.8.1 <https://github.com/ROCmSoftwarePlatform/MIOpen/releases/tag/1.7.1>`_
+    * Protobuf - `V3.5.2 <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`_
+    * OpenCV - `3.4.0 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
     * Dependencies for all the above packages
 
 
