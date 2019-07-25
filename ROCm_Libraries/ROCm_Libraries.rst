@@ -3584,13 +3584,13 @@ RCCL directly depends on HIP runtime & HCC C++ compiler which are part of the RO
 
 The root of this repository has a helper script 'install.sh' to build and install RCCL on Ubuntu with a single command. It does not take a lot of options and hard-codes configuration that can be specified through invoking cmake directly, but it's a great way to get started quickly and can serve as an example of how to build/install.
 
-    * ./install.sh -- builds library including unit tests
-    * ./install.sh -i -- builds and installs the library to /opt/rocm/rccl; installation path can be changed with --prefix argument (see below.)
-    * ./install.sh -h -- shows help
-    * ./install.sh -t -- builds library including unit tests
-    * ./install.sh -r -- runs unit tests (must be already built)
-    * ./install.sh -p -- builds RCCL package
-    * ./install.sh --prefix -- specify custom path to install RCCL to (default:/opt/rocm)
+    * **./install.sh** -- builds library including unit tests
+    * **./install.sh -i** -- builds and installs the library to /opt/rocm/rccl; installation path can be changed with --prefix argument (see below.)
+    * **./install.sh -h** -- shows help
+    * **./install.sh -t** -- builds library including unit tests
+    * **./install.sh -r** -- runs unit tests (must be already built)
+    * **./install.sh -p** -- builds RCCL package
+    * **./install.sh --prefix** -- specify custom path to install RCCL to (default:/opt/rocm)
 
 
 Manual build
@@ -3613,7 +3613,9 @@ To build the library :
 You may substitute a path of your own choosing for CMAKE_INSTALL_PREFIX. Note: ensure rocm-cmake is installed,
 
 ::
+  
   apt install rocm-cmake.
+
 
 
 To build the RCCL package and install package :

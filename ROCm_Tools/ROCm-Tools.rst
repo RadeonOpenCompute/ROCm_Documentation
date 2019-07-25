@@ -1017,17 +1017,15 @@ AMD OpenVX (amd_openvx)
 
 AMD OpenVX is a highly optimized open source implementation of the Khronos OpenVX computer vision specification. It allows for rapid prototyping as well as fast execution on a wide range of computer hardware, including small embedded x86 CPUs and large workstation discrete GPUs.
 
-The amd_openvx project consists of the following components:
-
 AMD OpenVX Extensions
 #######################
 
-The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
+The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
 
   
     * `amd_loomsl <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_loomsl>`_: AMD Radeon Loom stitching library for live 360 degree video applications
     * `amd_nn <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_nn#openvx-neural-network-extension-library-vx_nn>`_: OpenVX neural network module
-    * amd_opencv <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_opencv#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
+    * `amd_opencv <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_opencv#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
     * `amd_winml <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_winml#amd-winml-extension>`_: WinML extension will allow developers to import a pre-trained ONNX model into an OpenVX graph and add hundreds of different pre & post processing vision/generic/user-defined functions, available in OpenVX and OpenCV interop, to the input and output of the neural net model. This will allow developers to build an end to end application for inference.
 
 
@@ -1080,15 +1078,6 @@ Build using CMake
    * Use CMake to configure and generate Makefile
    * If AMD GPU (or OpenCL) is not available, use build flag -DCMAKE_DISABLE_FIND_PACKAGE_OpenCL=TRUE.
 
-AMD OpenVX Extensions (amd_openvx_extensions)
-#############################################
-
-The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
-
-   * `amd_loomsl <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/#radeon-loom-stitching-library-vx_loomsl>`_: AMD Radeon LOOM stitching library for live 360 degree video applications
-   * `amd_nn <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_nn/#openvx-neural-network-extension-library-vx_nn>`_: OpenVX neural network module
-   * `amd_opencv <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_opencv/#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
-   *  `amd_winml <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_winml#amd-winml-extension>`_: WinML extension will allow developers to import a pre-trained ONNX model into an OpenVX graph and add hundreds of different pre & post processing vision/generic/user-defined functions, available in OpenVX and OpenCV interop, to the input and output of the neural net model. This will allow developers to build an end to end application for inference.
 
 Radeon Loom Stitching Library (vx_loomsl)
 ------------------------------------------
@@ -1719,8 +1708,8 @@ Build & Install MIVisionX
 
 **Using Visual Studio 2017 on 64-bit Windows 10**
 
-    * Install `OpenCL SDK https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases/tag/1.0>`_
-    Install `OpenCV https://github.com/opencv/opencv/releases/tag/3.4.0>`_ with/without `contrib <https://github.com/opencv/opencv_contrib>`_ to support camera capture, image display, & opencv extensions
+    * Install `OpenCL_SDK <https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases/tag/1.0>`_
+    * Install `OpenCV <https://github.com/opencv/opencv/releases/tag/3.4.0>`_ with/without `contrib <https://github.com/opencv/opencv_contrib>`_ to support camera capture, image display, & opencv extensions
         * Set OpenCV_DIR environment variable to OpenCV/build folder
         * Add %OpenCV_DIR%\x64\vc14\bin or %OpenCV_DIR%\x64\vc15\bin to your PATH
     * Use MIVisionX.sln to build for x64 platform
@@ -1775,6 +1764,7 @@ Using MIVisionX-setup.py and CMake on Linux (Ubuntu 16.04/18.04 or CentOS 7.5/7.
 
 
 ::
+
   python MIVisionX-setup.py --directory [setup directory - optional]
                           --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
                           --miopen    [MIOpen Version - optional (default:1.8.1)]
@@ -1786,6 +1776,7 @@ Using MIVisionX-setup.py and CMake on Linux (Ubuntu 16.04/18.04 or CentOS 7.5/7.
 
 
 ::
+
   mkdir build
   cd build
   cmake ../
@@ -1818,6 +1809,20 @@ Build using CMake on Linux (Ubuntu 16.04 64-bit or CentOS 7.5 / 7.6 ) with ROCm
    * add the installed library path to LD_LIBRARY_PATH environment variable (default /opt/rocm/mivisionx/lib)
    * add the installed executable path to PATH environment variable (default /opt/rocm/mivisionx/bin)
 
+
+Build annInferenceApp using Qt Creator
+---------------------------------------
+
+   * build `annInferenceApp.pro <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.pro>`_ using Qt Creator
+   * or use `annInferenceApp.py <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.py>`_ for simple tests
+
+Build Radeon LOOM using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
+-----------------------------------------------------------------------------------
+
+   * Use `loom.sln <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/vx_loomsl.sln>`_ to build x64 platform
+
+
+
 Verify the Installation
 -------------------------
 
@@ -1839,24 +1844,13 @@ Linux
 
     
 ::
+
   export PATH=$PATH:/opt/rocm/mivisionx/bin
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
   runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
 
 
 Note: More samples are available `here <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/samples#samples>`_
-
-Build annInferenceApp using Qt Creator
----------------------------------------
-
-   * build `annInferenceApp.pro <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.pro>`_ using Qt Creator
-   * or use `annInferenceApp.py <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.py>`_ for simple tests
-
-Build Radeon LOOM using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
------------------------------------------------------------------------------------
-
-   * Use `loom.sln <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/vx_loomsl.sln>`_ to build x64 platform
-
 
 
 Docker
@@ -1867,10 +1861,10 @@ MIVisionX provides developers with docker images for Ubuntu 16.04, Ubuntu 18.04,
 MIVisionX Docker
 ----------------
 
-   * `Ubuntu 16.04 <https://hub.docker.com/r/kiritigowda/mivisionx-ubuntu-16.04>`_
-   * `Ubuntu 18.04 <https://hub.docker.com/r/kiritigowda/mivisionx-ubuntu-18.04>`_
-   * `CentOS 7.5 <https://hub.docker.com/r/kiritigowda/centos>`_
-   * `CentOS 7.6 <https://hub.docker.com/r/kiritigowda/centos>`_
+   * `Ubuntu 16.04 <https://hub.docker.com/r/mivisionx/ubuntu-16.04>`_
+   * `Ubuntu 18.04 <https://hub.docker.com/r/mivisionx/ubuntu-18.04>`_
+   * `CentOS 7.5 <https://hub.docker.com/r/mivisionx/centos-7.5>`_
+   * `CentOS 7.6 <https://hub.docker.com/r/mivisionx/centos-7.6>`_
 
 Docker Workflow Sample on Ubuntu 16.04
 ----------------------------------------
@@ -1925,38 +1919,44 @@ Workflow
 
 ::
 
-   sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host mivisionx/ubuntu-16.04
+   sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host           mivisionx/  ubuntu-16.04
 
 
-   * Optional: Map localhost directory on the docker image 
+
+* Optional: Map localhost directory on the docker image 
       * option to map the localhost directory with trained caffe models to be accessed on the docker image.
       * usage: -v {LOCAL_HOST_DIRECTORY_PATH}:{DOCKER_DIRECTORY_PATH}
  
-       ::
+       
+::
      
      sudo docker run -it -v /home/:/root/hostDrive/ --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host mivisionx/ubuntu-16.04
+
 
 
 **Note: Display option with docker**
 
     * Using host display
-     ::
+     
+::
  
      xhost +local:root
-     sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host --env    DISPLAY=unix$DISPLAY --privileged --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix/:/tmp/.X11-unix mivisionx/ubuntu-16.04:latest
+     sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video 
+     --network host --env DISPLAY=unix$DISPLAY --privileged --volume $XAUTH:/root/.Xauthority 
+     --volume /tmp/.X11-unix/:/tmp/.X11-unix mivisionx/ubuntu-16.04:latest
 
 
-   * Test display with MIVisionX sample
-    ::
+
+* Test display with MIVisionX sample
+
+    
+::
 
     export PATH=$PATH:/opt/rocm/mivisionx/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
-runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
+    runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
 
  
-
-Release Notes
-##############
 
 Supported Neural Net Layers
 ----------------------------
@@ -1983,6 +1983,9 @@ Supported Neural Net Layers
    Tensor Multiply
    Tensor Subtract
    Upsample Nearest Neighborhood
+
+Release Notes
+##############
 
 Known issues
 -------------
