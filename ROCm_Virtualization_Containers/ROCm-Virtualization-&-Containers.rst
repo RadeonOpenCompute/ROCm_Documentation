@@ -106,23 +106,31 @@ From a fresh install of Fedora 27 or CentOS 7 (1708)
 **b. Bind pass through device to vfio-pci**
 
 4. Preempt the host claiming the device by loading a stub driver
+
+::
     echo "options vfio-pci ids=1002:6861,1002:aaf8" | sudo tee -a /etc/modprobe.d/vfio.conf
     echo "options vfio-pci disable_vga=1" | sudo tee -a /etc/modprobe.d/vfio.conf
     sed 's/quiet/quiet rd.driver.pre=vfio-pci video=efifb:off/' /etc/sysconfig/grub
     
 5. Update the kernel boot settings
+
+::
     sudo grub2-mkconfig -o /etc/grub2-efi.cfg
     echo 'add_drivers+="vfio vfio_iommu_type1 vfio_pci"' | sudo tee -a /etc/dracut.conf.d/vfio.conf
     sudo dracut -f --kver `uname -r`
 
 6. Reboot and verify that vfio-pci driver has been loaded
+
+::
     lspci -nnk
 
 **c. Pass through device to guest VM**
 
 1. Within virt-manager the device should now appear in the list of available PCI devices
 
-Note: To pass a device within a particular IOMMU group, all devices within that IOMMU group must also be passed.  You may wish to refer to https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF for more details, such as the following script that lists all IOMMU groups and the devices within them.
+Note: To pass a device within a particular IOMMU group, all devices within that IOMMU group must also be passed.  You may wish to refer `here <https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF>`_ for more details, such as the following script that lists all IOMMU groups and the devices within them.
+
+::
 
     #!/bin/bash
     shopt -s nullglob
@@ -259,6 +267,8 @@ To increase container security:
  1.Eliminate the sudo-nopasswd COPY statement in the dockerfile and replace with
  
  2.Your own password with RUN echo 'account:password' | chpasswd
+
+The docker.ce release 18.02 has known defects working with rocm-user account insider docker image. Please upgrade docker package to the `18.04 build <https://download.docker.com/linux/ubuntu/dists/xenial/pool/nightly/amd64/docker-ce_18.04.0~ce~dev~git20180313.171447.0.6e4307b-0~ubuntu_amd64.deb>`_.
 
 
 **Footnotes:**

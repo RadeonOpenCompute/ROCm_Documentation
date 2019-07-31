@@ -184,6 +184,17 @@ Quick Start Guide
 | `rocThrust <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocthrust>`_
 | This section provides details on rocThrust. It is a parallel algorithmn library.  
 
+| 'hipCUB <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipcub>`_ This section provides details on hipCUB. 
+| It is a thin wrapper library on top of rocPRIM or CUB. It enables developers to port the project using CUB library to the HIP layer and to 
+| run them on AMD hardware.
+
+| `ROCm SMI Library <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocm-smi-library>`_ This section provides details on ROCm SMI library. The ROCm System Management Interface Library, or ROCm SMI library is part of the Radeon Open Compute ROCm software stack. It is a C library for linux that provides a user space interface for applications to monitor and control GPU aplications.
+
+| `RCCL <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rccl>`_ This section provides details on ROCm Communications Collectives Library. It is a stand alone library of standard collective communication routines for GPUS, implememting all-reduce, all gather, reduce, broadcast, and reduce scatter.
+
+
+
+
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
 ************************
 | `GCN Native ISA LLVM Code Generator <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#gcn-native-isa-llvm-code-generator>`_

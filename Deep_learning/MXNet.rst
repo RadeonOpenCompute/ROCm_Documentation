@@ -26,18 +26,20 @@ ROCm installation
 Follow the instructions from here -`ROCm Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
 
 **Install Dependencies to build mxnet for HIP/ROCm**
+
 ::
-wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
-sudo apt update
-sudo apt install -y rocm-dkms rocm-dev rocm-utils
-sudo apt install -y rocm-device-libs rocm-libs rocblas hipblas rocrand rocfft
-sudo apt install -y rocm-opencl rocm-opencl-dev
-sudo apt install -y miopengemm miopen-hip
-sudo apt install -y hsakmt-roct hsakmt-roct-dev hsa-rocr-dev hsa-ext-rocr-dev
-sudo apt install -y rocthrust
-sudo apt install -y rocprim
-sudo apt install -y hipcub
+
+  wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+  sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+  sudo apt update
+  sudo apt install -y rocm-dkms rocm-dev rocm-utils
+  sudo apt install -y rocm-device-libs rocm-libs rocblas hipblas rocrand rocfft
+  sudo apt install -y rocm-opencl rocm-opencl-dev
+  sudo apt install -y miopengemm miopen-hip
+  sudo apt install -y hsakmt-roct hsakmt-roct-dev hsa-rocr-dev hsa-ext-rocr-dev
+  sudo apt install -y rocthrust
+  sudo apt install -y rocprim
+  sudo apt install -y hipcub
 
  
 `Install hcfft from source <https://github.com/ROCmSoftwarePlatform/hcFFT/wiki/Installation>`_ 
@@ -65,7 +67,8 @@ MXNet uses BLAS and LAPACK libraries for accelerated numerical computations on C
 ::
  $ sudo apt-get install -y libopenblas-dev liblapack-dev libomp-dev libatlas-dev libatlas-base-dev
 
-**Step 3: Install `OpenCV <https://opencv.org/>`_.**
+**Step 3: Install OpenCV.**
+Install OpenCV <https://opencv.org/>`_ here.
 MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  $ sudo apt-get install -y libopencv-dev
@@ -94,8 +97,8 @@ MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  USE_CUDNN=1  
  
- **Step 7:**
 
+**Step 7:**
 **If building on CPU:**
 ::
  make -jn(n=number of cores) USE_GPU=0 (For Ubuntu 16.04)

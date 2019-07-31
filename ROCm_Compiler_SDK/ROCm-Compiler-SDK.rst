@@ -159,7 +159,6 @@ Core runtime package:
 
 Runtime extension package:
 
-   * A 64-bit version of AMD's finalizer extension for ROCR runtime
    * A 64-bit version of AMD's runtime tools library
    * A 64-bit version of AMD's runtime image library, which supports the HSAIL image implementation only.
 
@@ -200,8 +199,8 @@ If the sample runs without generating errors, the installation is complete.
 
 Known issues
 **************
-  *  The image extension is currently not supported for discrete GPUs. An image extension library is not provided in the binary    	package. The standard hsa_ext_image.h extension include file is provided for reference.
-  *  Each HSA process creates and internal DMA queue, but there is a system-wide limit of four DMA queues. The fifth simultaneous    	  HSA process will fail hsa_init() with HSA_STATUS_ERROR_OUT_OF_RESOURCES. To run an unlimited number of simultaneous HSA 	   	processes, set the environment variable HSA_ENABLE_SDMA=0.
+ 
+  *  Each HSA process creates an internal DMA queue, but there is a system-wide limit of four DMA queues. When the limit is reached HSA processes will use internal kernels for copies.
 
 **Disclaimer**
 
@@ -209,4 +208,4 @@ The information contained herein is for informational purposes only, and is subj
 
 AMD, the AMD Arrow logo, and combinations thereof are trademarks of Advanced Micro Devices, Inc. Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
-Copyright (c) 2014-2016 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2014-2017 Advanced Micro Devices, Inc. All rights reserved.
