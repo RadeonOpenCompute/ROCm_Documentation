@@ -786,7 +786,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = ROCm_Libraries/rocr/src/inc/ \
-                         ROCm_Libraries/rocr/src/core/inc/ \
+                         ROCm_Libraries/rocr/src/inc/hsa.h \
                          ROCm_Libraries/rocr/src/libamdhsacode/
 
 # This tag can be used to specify the character encoding of the source files
