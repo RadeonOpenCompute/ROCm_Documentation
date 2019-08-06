@@ -162,12 +162,6 @@ Signals
 Memory
 -------
 
-.. doxygenclass:: hsa_region_s
-   :project: rocr
-
-.. doxygentypedef:: hsa_region_t
-   :project: rocr
-
 .. doxygenenum:: hsa_region_global_flag_t
    :project: rocr
 
@@ -203,9 +197,6 @@ Memory
 
 Queue
 -------
-
-.. doxygentypedef:: hsa_queue_t
-   :project: rocr
 
 .. doxygenenum:: hsa_queue_feature_t
    :project: rocr
@@ -480,14 +471,6 @@ Executable
 
 Code Objects (deprecated).
 ----------------------------
-.. doxygentypedef:: hsa_callback_data_t
-   :project: rocr
-
-.. doxygentypedef:: hsa_code_object_t
-   :project: rocr
-
-.. doxygentypedef:: hsa_code_symbol_t
-   :project: rocr
 
 .. doxygenenum::hsa_code_object_info_t
    :project: rocr
@@ -525,12 +508,6 @@ Code Objects (deprecated).
 .. doxygenfunction:: hsa_executable_load_code_object()
    :project: rocr
 
-Finalization Extensions
-------------------------
-
-.. doxygenenum:: anonymous enum
-   :project: rocr
-
 
 Finalization Program
 -----------------------
@@ -557,12 +534,6 @@ Finalization Program
    :project: rocr
 
 .. doxygenfunction:: hsa_ext_program_iterate_modules()
-   :project: rocr
-
-Images and Samplers
-----------------------
-
-.. doxygenenum:: anonymous enum
    :project: rocr
 
 
