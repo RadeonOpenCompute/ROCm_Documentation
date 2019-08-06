@@ -18,34 +18,21 @@ common definition
 .. doxygenenum::  hsa_access_permission_t
    :project: rocr
 
-.. doxygenclass:: struct hsa_dim3_s
-   :project: rocr
-
-.. doxygenfunction:: HSA_API hsa_init()	
+.. doxygenstruct:: struct hsa_dim3_s
    :project: rocr
 
 Initialization and Shut Down
 -----------------------------
 
-.. doxygenfunction:: HSA_API hsa_init()	
+.. doxygenfunction:: hsa_init()	
    :project: rocr
 
-.. doxygenfunction:: HSA_API hsa_shut_down()	
+.. doxygenfunction:: hsa_shut_down()	
    :project: rocr
 
 System and Agent Information
 -----------------------------
-.. doxygenclass:: hsa_agent_s
-   :project: rocr
 
-.. doxygenclass:: hsa_cache_s
-   :project: rocr
-
-.. doxygentypedef::  hsa_agent_s hsa_agent_t
-   :project: rocr
-
-.. doxygentypedef::  hsa_cache_s hsa_cache_t
-   :project: rocr
 
 .. doxygenenum::  hsa_agent_feature_t
    :project: rocr
