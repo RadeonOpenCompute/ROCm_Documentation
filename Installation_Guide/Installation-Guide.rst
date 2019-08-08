@@ -535,9 +535,9 @@ The gpg key might change, so it may need to be updated when installing a
 new release. If the key signature verification is failed while update,
 please re-add the key from ROCm apt repository. The current rocm.gpg.key
 is not available in a standard key ring distribution, but has the
-following sha1sum hash:
+following sha256sum hash:
 
-``f7f8147431c75e505c58a6f3a3548510869357a6  rocm.gpg.key``
+``68c022933bdb514a6cb5514a97b15180964576014606fcd1a57e4d51f8e249d7  rocm.gpg.key``
 
 Install
 '''''''
