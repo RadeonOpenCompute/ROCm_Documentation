@@ -1010,552 +1010,101 @@ Documentation need to be updated.
 MIVisionX
 =========
 
+.. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/MIVisionX.png
+  :align: center
+  :width: 400
+  :alt: MIVisionX
+  :target: https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/
+
 **MIVisionX toolkit is a set of comprehensive computer vision and machine intelligence libraries, utilities, and applications bundled into a single toolkit. AMD MIVisionX delivers highly optimized open source implementation of the Khronos OpenVX™ and OpenVX™ Extensions along with Convolution Neural Net Model Compiler & Optimizer supporting ONNX, and Khronos NNEF™ exchange formats. The toolkit allows for rapid prototyping and deployment of optimized workloads on a wide range of computer hardware, including small embedded x86 CPUs, APUs, discrete GPUs, and heterogeneous servers.**
 
-AMD OpenVX (amd_openvx)
-#######################
+* `AMD OpenVX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx>`_
+* `AMD OpenVX Extensions <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx-extensions>`_
+    * `Loom 360 Video Stitch Library <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/>`_
+    * `Neural Net Library <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_nn/#openvx-neural-network-extension-library-vx_nn>`_
+    * `OpenCV Extension <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_opencv/#amd-opencv-extension>`_
+    * `WinML Extension <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_winml/#amd-winml-extension>`_
+* `Applications <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#applications>`_
+* `Neural Net Model Compiler and Optimizer <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#neural-net-model-compiler--optimizer>`_
+* `Samples <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/samples/#samples>`_
+* `Toolkit <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#toolkit>`_
+* `Utilities <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#utilities>`_
+    * `Inference Generator <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/inference_generator/#inference-generator>`_
+    * `Loom Shell <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/loom_shell/#radeon-loomshell>`_
+    * `RunCL <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/runcl/#amd-runcl>`_
+    * `RunVX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/runvx/#amd-runvx>`_
+* `Prerequisites <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#prerequisites>`_
+* `Build and Install MIVisionX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#build--install-mivisionx>`_
+* `Verify the Installation <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#verify-the-installation>`_
+* `Docker <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#docker>`_
+* `Release Notes <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#release-notes>`_
 
-AMD OpenVX is a highly optimized open source implementation of the Khronos OpenVX computer vision specification. It allows for rapid prototyping as well as fast execution on a wide range of computer hardware, including small embedded x86 CPUs and large workstation discrete GPUs.
+AMD OpenVX
+###########
+
+.. image:: https://www.khronos.org/assets/uploads/ceimg/made/assets/uploads/apis/OpenVX_100px_June16_210_75.png
+  :align: center
+  :width: 300
+  :alt: OpenVX
+  :target: https://www.khronos.org/openvx/
+
+AMD OpenVX [`amd_openvx <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx>`__] is a highly optimized open source implementation of the `Khronos OpenVX <https://www.khronos.org/openvx/>`_ computer vision specification. It allows for rapid prototyping as well as fast execution on a wide range of computer hardware, including small embedded x86 CPUs and large workstation discrete GPUs.
 
 AMD OpenVX Extensions
 #######################
 
-The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
+The OpenVX framework provides a mechanism to add new vision functions to OpenVX by 3rd party vendors. This project has below mentioned OpenVX `modules <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/#amd-openvx-extensions-amd_openvx_extensions>`_ and utilities to extend `amd_openvx <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/#amd-openvx-amd_openvx>`_ project, which contains the AMD OpenVX Core Engine.
 
-  
-    * `amd_loomsl <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_loomsl>`_: AMD Radeon Loom stitching library for live 360 degree video applications
-    * `amd_nn <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_nn#openvx-neural-network-extension-library-vx_nn>`_: OpenVX neural network module
-    * `amd_opencv <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_opencv#amd-module-for-opencv-interop-from-openvx-vx_opencv>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
-    * `amd_winml <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/amd_openvx_extensions/amd_winml#amd-winml-extension>`_: WinML extension will allow developers to import a pre-trained ONNX model into an OpenVX graph and add hundreds of different pre & post processing vision/generic/user-defined functions, available in OpenVX and OpenCV interop, to the input and output of the neural net model. This will allow developers to build an end to end application for inference.
+    * `amd_loomsl <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/>`_: AMD Radeon Loom stitching library for live 360 degree video applications.
 
+    .. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/loom-2.jpg
+      :align: center
+      :width: 600
+      :alt: Loom Stitch
 
+    * `amd_nn <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_nn/#openvx-neural-network-extension-library-vx_nn>`_: OpenVX neural network module
 
-Features
---------
+    .. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/modelCompilerWorkflow.png
+      :align: center
+      :width: 600
+      :alt: AMD OpenVX Neural Net Extension
 
+    * `amd_opencv <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_opencv/#amd-opencv-extension>`_: OpenVX module that implements a mechanism to access OpenCV functionality as OpenVX kernels
 
-   * The code is highly optimized for both x86 CPU and OpenCL for GPU
-   * Supported hardware spans the range from low power embedded APUs (like the new G series) to laptop, desktop and workstation graphics
-   * Supports Windows, Linux, and OS X
-   * Includes a “graph optimizer” that looks at the entire processing pipeline and removes/replaces/merges functions to improve performance and minimize bandwidth at runtime
-   * Scripting support allows for rapid prototyping, without re-compiling at production performance levels.
+    * `amd_winml <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_winml/#amd-winml-extension>`_: WinML extension will allow developers to import a pre-trained ONNX model into an OpenVX graph and add hundreds of different pre & post processing vision/generic/user-defined functions, available in OpenVX and OpenCV interop, to the input and output of the neural net model. This will allow developers to build an end to end application for inference.
 
-Pre-requisites:
----------------
-
-
-   * CPU: SSE4.1 or above CPU, 64-bit.
-   * GPU: Radeon Professional Graphics Cards or Vega Family of Products (16GB required for vx_loomsl and vx_nn libraries) 
-      * Windows: install the latest drivers and OpenCL SDK `Download <https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases>`_.
-      * Linux: install `ROCm <https://rocm.github.io/ROCmInstall.html>`_.
-   * OpenCV 3 (optional) `download <https://github.com/opencv/opencv/releases>`_ for RunVX 
-      * Set OpenCV_DIR environment variable to OpenCV/build folder.
-
-Build Instructions
-------------------
-
-Build this project to generate AMD OpenVX library and RunVX executable.
-   * Refer to `openvx/include/VX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/openvx/include/VX/>`_ for Khronos OpenVX standard header files.
-   * Refer to `openvx/include/vx_ext_amd.h <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/openvx/include/vx_ext_amd.h>`_ for vendor extensions in AMD OpenVX library.
-   * Refer to `runvx/README.md <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/runvx/README.md>`_ for RunVX details.
-   * Refer to `runcl/README.md <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx/runcl/README.md>`_ for RunCL details.
-
-Build using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
------------------------------------------------------------------------
-
-   * Install OpenCV 3 with contrib `download <https://github.com/opencv/opencv/releases>`_ for RunVX tool to support camera capture and image display (optional)
-   * OpenCV_DIR environment variable should point to OpenCV/build folder
-   * Use amdovx-core/amdovx.sln to build for x64 platform
-   * f AMD GPU (or OpenCL) is not available, set build flag ENABLE_OPENCL=0 in openvx/openvx.vcxproj and runvx/runvx.vcxproj.
-
-Build using CMake
--------------------
-
-   * Install CMake 2.8 or newer `download <cmake.org/download/>`_.
-   * Install OpenCV 3 with contrib `download <https://github.com/opencv/opencv/releases>`_ for RunVX tool to support camera capture and image display (optional)
-   * OpenCV_DIR environment variable should point to OpenCV/build folder
-   * Install libssl-dev on linux (optional)
-   * Use CMake to configure and generate Makefile
-   * If AMD GPU (or OpenCL) is not available, use build flag -DCMAKE_DISABLE_FIND_PACKAGE_OpenCL=TRUE.
-
-
-Radeon Loom Stitching Library (vx_loomsl)
-------------------------------------------
-
-Radeon Loom Stitching Library (beta preview) is a highly optimized library for 360 degree video stitching applications. This library consists of:
-
-   * Live Stitch API: stitching framework built on top of OpenVX kernels (see `live_stitch_api.h <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/live_stitch_api.h>`_ for API)
-   * OpenVX module [vx_loomsl]: additional OpenVX kernels needed for 360 degree video stitching
-
-The `loom_shell <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/utils/loom_shell/README.md>`_ command-line tool can be used to build your application quickly. It provides direct access to Live Stitch API by encapsulating the calls to enable rapid prototyping.
-
-This software is provided under a MIT-style license, see the file COPYRIGHT.txt for details.
-
-**Features**
-
-   * Real-time live 360 degree video stitching optimized for Radeon Pro Graphics
-   * Upto 31 cameras
-   * Upto 7680x3840 output resolution
-   * RGB and YUV 4:2:2 image formats
-   * Overlay other videos on top of stitched video
-   * Support for 3rd party LoomIO plug-ins for camera capture and stitched output
-   * Support PtGui project export/import for camera calibration
-
-**Live Stitch API: Simple Example**
-
-Let’s consider a 360 rig that has 3 1080p cameras with Circular FishEye lenses. The below example demonstrates how to stitch images from these cameras into a 4K Equirectangular buffer.
-
-::
-
-  #include "vx_loomsl/live_stitch_api.h"
-    #include "utils/loom_shell/loom_shell_util.h"
-
-    int main()
-    {
-      # define camera orientation and lens parameters
-      camera_params cam1_par = { { 120,0,90,0,0,0},{176,1094,547,0,-37,ptgui_lens_fisheye_circ,-0.1719,0.1539,1.0177} };
-      camera_params cam2_par = { {   0,0,90,0,0,0},{176,1094,547,0,-37,ptgui_lens_fisheye_circ,-0.1719,0.1539,1.0177} };
-      camera_params cam3_par = { {-120,0,90,0,0,0},{176,1094,547,0,-37,ptgui_lens_fisheye_circ,-0.1719,0.1539,1.0177} };
-
-      # create a live stitch instance and initialize
-      ls_context context;
-      context = lsCreateContext();
-      lsSetOutputConfig(context,VX_DF_IMAGE_RGB,3840,1920);
-      lsSetCameraConfig(context,3,1,VX_DF_IMAGE_RGB,1920,1080*3);
-      lsSetCameraParams(context, 0, &cam1_par);
-      lsSetCameraParams(context, 1, &cam2_par);
-      lsSetCameraParams(context, 2, &cam3_par);
-      lsInitialize(context);
-
-      # Get OpenCL context and create OpenCL buffers for input and output
-      cl_context opencl_context;
-      cl_mem buf[2];
-      lsGetOpenCLContext(context,&opencl_context);
-      createBuffer(opencl_context,3*1920*1080*3, &buf[0]);
-      createBuffer(opencl_context,3*3840*1920  , &buf[1]);
-
-      # load CAM00.bmp, CAM01.bmp, and CAM02.bmp (1920x1080 each) into buf[0]
-      loadBufferFromMultipleImages(buf[0],"CAM%02d.bmp",3,1,VX_DF_IMAGE_RGB,1920,1080*3);
-
-      # set input and output buffers and stitch a frame
-      lsSetCameraBuffer(context, &buf[0]);
-      lsSetOutputBuffer(context, &buf[1]);
-      lsScheduleFrame(context);
-      lsWaitForCompletion(context);
-
-      # save the stitched output into "output.bmp"
-      saveBufferToImage(buf[1],"output.bmp",VX_DF_IMAGE_RGB,3840,1920);
-
-      # release resources
-      releaseBuffer(&buf[0]);
-      releaseBuffer(&buf[1]);
-      lsReleaseContext(&context);
-      
-      return 0;
-    }
-
-
-**Live Stitch API: Real-time Live Stitch using LoomIO**
-
-
-This example makes use of a 3rd party LoomIO plug-ins for live camera capture and display.
-
-::
-
-  #include "vx_loomsl/live_stitch_api.h"
-    int main()
-    {
-        // create context, configure, and initialize
-        ls_context context;
-        context = lsCreateContext();
-        lsSetOutputConfig(context, VX_DF_IMAGE_RGB, 3840, 1920);
-        lsSetCameraConfig(context, 16, 1, VX_DF_IMAGE_RGB, 1920, 1080 * 16);
-        lsImportConfiguration(context, "pts", "myrig.pts");
-        lsSetCameraModule(context, "vx_loomio_bm", "com.amd.loomio_bm.capture", "30,0,0,16");
-        lsSetOutputModule(context, "vx_loomio_bm", "com.amd.loomio_bm.display", "30,0,0");
-        lsInitialize(context);
-
-        // process live from camera until aborted by input capture plug-in
-        for(;;) {
-          vx_status status;
-          status = lsScheduleFrame(context);
-          if (status != VX_SUCCESS) break;
-          status = lsWaitForCompletion(context);
-          if (status != VX_SUCCESS) break;
-        }
-
-        // release the context
-        lsReleaseContext(&context);
-
-        return 0;
-    }
-
-
-OpenVX Neural Network Extension Library (vx_nn)
-------------------------------------------------
-
-vx_nn is an OpenVX Neural Network extension module. This implementation supports only floating-point tensor datatype and does not support 8-bit and 16-bit fixed-point datatypes specified in the OpenVX specification.
-
-**List of supported tensor and neural network layers:**
-
-| Layer name | Function|Kernel name | | ——|—————|———— | |
-Activation|vxActivationLayer|org.khronos.nn_extension.activation_layer | | 
-Argmax|vxArgmaxLayerNode|com.amd.nn_extension.argmax_layer | | Batch 
-Normalization|vxBatchNormalizationLayer|com.amd.nn_extension.batch_normalization_layer | |
-Concat|vxConcatLayer|com.amd.nn_extension.concat_layer | | 
-Convolution|vxConvolutionLayer|org.khronos.nn_extension.convolution_layer | | 
-Deconvolution|vxDeconvolutionLayer|org.khronos.nn_extension.deconvolution_layer | | Fully 
-Connected|vxFullyConnectedLayer|org.khronos.nn_extension.fully_connected_layer | | Local 
-Response Normalization|vxNormalizationLayer|org.khronos.nn_extension.normalization_layer | | 
-Pooling|vxPoolingLayer|org.khronos.nn_extension.pooling_layer | | ROI
-Pooling|vxROIPoolingLayer|org.khronos.nn_extension.roi_pooling_layer | | 
-Scale|vxScaleLayer|com.amd.nn_extension.scale_layer | | 
-Slice|vxSliceLayer|com.amd.nn_extension.slice_layer | | 
-Softmax|vxSoftmaxLayer|org.khronos.nn_extension.softmax_layer | | Tensor 
-Add|vxTensorAddNode|org.khronos.openvx.tensor_add | | Tensor Convert 
-Depth|vxTensorConvertDepthNode|org.khronos.openvx.tensor_convert_depth | | Tensor Convert 
-from Image|vxConvertImageToTensorNode|com.amd.nn_extension.convert_image_to_tensor | | 
-Tensor Convert to 
-Image|vxConvertTensorToImageNode|com.amd.nn_extension.convert_tensor_to_image | | Tensor 
-Multiply|vxTensorMultiplyNode|org.khronos.openvx.tensor_multiply | | Tensor 
-Subtract|vxTensorSubtractNode|org.khronos.openvx.tensor_subtract | | Upsample Nearest 
-Neighborhood|vxUpsampleNearestLayer|com.amd.nn_extension.upsample_nearest_layer |
-
-
-**Example 1: Convert an image to a tensor of type float32**
-
-
-Use the below GDF with RunVX.
-
-::
-
-  import vx_nn
-  data input  = image:32,32,RGB2
-  data output = tensor:4,{32,32,3,1},VX_TYPE_FLOAT32,0
-  data a = scalar:FLOAT32,1.0
-  data b = scalar:FLOAT32,0.0
-  data reverse_channel_order = scalar:BOOL,0
-  read input input.png
-  node com.amd.nn_extension.convert_image_to_tensor input output a b reverse_channel_order
-  write output input.f32
-
-
-**Example 2: 2x2 Upsample a tensor of type float32**
-
-Use the below GDF with RunVX.
-
-::
-
-  import vx_nn
-  data input  = tensor:4,{80,80,3,1},VX_TYPE_FLOAT32,0
-  data output = tensor:4,{160,160,3,1},VX_TYPE_FLOAT32,0
-  read input  tensor.f32
-  node com.amd.nn_extension.upsample_nearest_layer input output
-  write output upsample.f32
-
-  
-AMD Module for OpenCV-interop from OpenVX (vx_opencv)
-------------------------------------------------------
-
-The vx_opencv is an OpenVX module that implemented a mechanism to access OpenCV functionality as OpenVX kernels. These kernels can be access from within OpenVX framework using OpenVX API call `vxLoadKernels <https://www.khronos.org/registry/OpenVX/specs/1.0.1/html/da/d83/group__group__user__kernels.html#gae00b6343fbb0126e3bf0f587b09393a3>`_ (context, “vx_opencv”).
-
-**List of OpenCV-interop kernels**
-
-The following is a list of OpenCV functions that have been included in the vx_opencv module.
-
-::
-
-  bilateralFilter             org.opencv.bilateralfilter
-  blur                        org.opencv.blur
-  boxfilter                   org.opencv.boxfilter
-  buildPyramid                org.opencv.buildpyramid
-  Dilate                      org.opencv.dilate 
-  Erode                       org.opencv.erode 
-  filter2D                    org.opencv.filter2d
-  GaussianBlur                org.opencv.gaussianblur
-  MedianBlur                  org.opencv.medianblur
-  morphologyEx                org.opencv.morphologyex
-  Laplacian                   org.opencv.laplacian
-  pyrDown                     org.opencv.pyrdown
-  pyrUp                       org.opencv.pyrup
-  sepFilter2D                 org.opencv.sepfilter2d
-  Sobel                       org.opencv.sobel
-  Scharr                      org.opencv.scharr
-  FAST                        org.opencv.fast
-  MSER                        org.opencv.mser_detect 
-  ORB                         org.opencv.orb_detect
-  ORB_Compute                 org.opencv.orb_compute   
-  BRISK                       org.opencv.brisk_detect
-  BRISK_Compute               org.opencv.brisk_compute 
-  SimpleBlobDetector          org.opencv.simple_blob_detect                   
-  SimpleBlobDetector_Init     org.opencv.simple_blob_detect_initialize 
-  SIFT_Detect                 org.opencv.sift_detect 
-  SIFT_Compute                org.opencv.sift_compute                         
-  SURF_Detect                 org.opencv.surf_detect
-  SURF_Compute                org.opencv.surf_compute
-  STAR_FEATURE_Detector       org.opencv.star_detect  
-  Canny                       org.opencv.canny  
-  GoodFeature_Detector        org.opencv.good_features_to_track
-  buildOpticalFlowPyramid     org.opencv.buildopticalflowpyramid
-  DistanceTransform           org.opencv.distancetransform                                           
-  Convert_Scale_Abs           org.opencv.convertscaleabs                      
-  addWeighted                 org.opencv.addweighted                          
-  Transpose                   org.opencv.transpose                            
-  Resize                      org.opencv.resize
-  AdaptiveThreshold           org.opencv.adaptivethreshold                                                          
-  Threshold                   org.opencv.threshold  
-  cvtcolor                    org.opencv.cvtcolor                          
-  Flip                        org.opencv.flip 
-  fastNlMeansDenoising        org.opencv.fastnlmeansdenoising
-  fastNlMeansDenoisingColored org.opencv.fastnlmeansdenoisingcolored 
-  AbsDiff                     org.opencv.absdiff                              
-  Compare                     org.opencv.compare
-  bitwise_and                 org.opencv.bitwise_and
-  bitwise_not                 org.opencv.bitwise_not
-  bitwise_or                  org.opencv.bitwise_or
-  bitwise_xor                 org.opencv.bitwise_xor
-  Add                         org.opencv.add 
-  Subtract                    org.opencv.subtract
-  Multiply                    org.opencv.multiply    
-  Divide                      org.opencv.divide  
-  WarpAffine                  org.opencv.warpaffine 
-  WarpPerspective             org.opencv.warpperspective  
-
-
-Build Instructions
-```````````````````
-
-**Pre-requisites**
-
-
-   * OpenCV 3 `download <https://github.com/opencv/opencv/releases>`_.
-   * CMake 2.8 or newer `download <https://cmake.org/download/>`_.
-   * Build amdovx-core project at the same level folder as amdovx-modules build folder
-   * OpenCV_DIR environment variable should point to OpenCV/build folder
-
-**Build using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7**
-
-Use amdovx-modules/vx_opencv/vx_opencv.sln to build for x64 platform
-
-**Build using CMake on Linux (Ubuntu 15.10 64-bit)**
-
-   * Use CMake to configure and generate Makefile
+    .. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/winmlFrameWorks.png
+      :align: center
+      :width: 600
+      :alt: AMD WinML
 
 Applications
-##############
+############
 
-MIVisionX has a number of `applications <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/apps#applications>`_ built on top of OpenVX modules, it uses AMD optimized libraries to build applications which can be used to prototype or used as models to develop a product.
+MIVisionX has a number of `applications <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#applications>`_ built on top of OpenVX modules, it uses AMD optimized libraries to build applications which can be used to prototype or used as models to develop a product.
 
-Cloud Inference Application (cloud_inference)
-----------------------------------------------
+  * `Cloud Inference Application <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/#cloud-inference-application>`_: This sample application does inference using a client-server system.
+  * `Digit Test <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/master/apps/dg_test#amd-dgtest>`_ This sample application is used to recognize hand written digits.
+  * `MIVisionX OpenVX Classsification <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/#mivisionx-openvx-classsification>`_: This sample application shows how to run supported pre-trained caffe models with MIVisionX RunTime.
+  * `MIVisionX WinML Classification <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/#mivisionx-winml-classification>`_: This sample application shows how to run supported ONNX models with MIVisionX RunTime on Windows.
+  * `MIVisionX WinML YoloV2 <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/#mivisionx-winml-yolov2>`_: This sample application shows how to run tiny yolov2(20 classes) with MIVisionX RunTime on Windows.
+  * `External Applications <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/#external-application>`_
 
-   * `Cloud Inference Server <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/server_app/#anninferenceserver>`_: sample Inference Server
-   * `Cloud Inference Client <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/#anninferenceapp>`_: sample Inference Client Application
 
+Neural Net Model Compiler And Optimizer
+#######################################
 
-Convert Neural Net models into AMD NNIR and OpenVX Code
----------------------------------------------------------
+.. image:: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/master/docs/images/frameworks.png?raw=true
+  :align: center
+  :width: 800
+  :alt: Neural Net Model Compiler And Optimizer
 
-This tool converts `ONNX <https://onnx.ai>`_  or `Caffe <http://caffe.berkeleyvision.org/>`_ models to AMD NNIR format and OpenVX code.
-
-You need MIVisionX libraries to be able to build and run the generated OpenVX code.
-
-**Dependencies**
-   * numpy
-   * onnx (0.2.1+)
-
-**How to use?**
-
-To convert an ONNX model into AMD NNIR model:
-
-::
-
-  % python onnx2nnir.py model.pb nnirModelFolder
-
-To convert a caffemodel into AMD NNIR model:
-
-::
-
-  % python caffe2nnir.py <net.caffeModel> <nnirOutputFolder> --input-dims n,c,h,w [--verbose 0|1]
-
-To update batch size in AMD NNIR model:
-
-::
-
-  % python nnir-update.py --batch-size N nnirModelFolder nnirModelFolderN
-
-To fuse operations in AMD NNIR model (like batch normalization into convolution):
-
-::
-
-  % python nnir-update.py --fuse-ops 1 nnirModelFolderN nnirModelFolderFused
-
-To workaround groups using slice and concat operations in AMD NNIR model:
-
-::
-
-  % python nnir-update.py --slice-groups 1 nnirModelFolderFused nnirModelFolderSliced
-
-To convert an AMD NNIR model into OpenVX C code:
-
-::
-
-  % python --help
-
-Usage: python nnir2openvx.py [OPTIONS] <nnirInputFolder> <outputFolder>
-
-  OPTIONS:
-    --argmax UINT8                    -- argmax at the end with 8-bit output
-    --argmax UINT16                   -- argmax at the end with 16-bit output
-    --argmax <fileNamePrefix>rgb.txt  -- argmax at the end with RGB color mapping using LUT
-    --argmax <fileNamePrefix>rgba.txt -- argmax at the end with RGBA color mapping using LUT
-    --help                            -- show this help message
-
-  LUT File Format (RGB): 8-bit R G B values one per each label in text format
-    R0 G0 B0
-    R1 G1 B1
-    ...
-
-  LUT File Format (RGBA): 8-bit R G B A values one per each label in text format
-    R0 G0 B0 A0
-    R1 G1 B1 A1
-    ...
-
-**Here are few examples of OpenVX C code generation**
-
-Generate OpenVX and test code that can be used dump and compare raw tensor data:
-
-::
-
-  % python nnir2openvx.py nnirInputFolderFused openvxCodeFolder
-  % mkdir openvxCodeFolder/build
-  % cd openvxCodeFolder/build
-  % cmake ..
-  % make
-  % ./anntest
-
-Usage: anntest <weights.bin> [<input-data-file(s)> [<output-data-file(s)>]]]
-
-   <input-data-file>: is filename to initialize tensor
-     .jpg or .png: decode and initialize for 3 channel tensors
-         (use %04d in fileName to when batch-size > 1: batch index starts from 0)
-     other: initialize tensor with raw data from the file
-
-   <output-data-file>[,<reference-for-compare>,<maxErrorLimit>,<rmsErrorLimit>]:
-     <referece-to-compare> is raw tensor data for comparision
-     <maxErrorLimit> is max absolute error allowed
-     <rmsErrorLimit> is max RMS error allowed
-     <output-data-file> is filename for saving output tensor data
-       '-' to ignore
-       other: save raw tensor into the file
-
-% ./anntest ../weights.bin input.f32 output.f32,reference.f32,1e-6,1e-9
-...
-
-Generate OpenVX and test code with argmax that can be used dump and compare 16-bit argmax output tensor:
-
-::
-
-  % python nnir2openvx.py --argmax UINT16 nnirInputFolderFused openvxCodeFolder
- % mkdir openvxCodeFolder/build
- % cd openvxCodeFolder/build
- % cmake ..
- % make
- % ./anntest
-
-Usage: anntest <weights.bin> [<input-data-file(s)> [<output-data-file(s)>]]]
-
-   <input-data-file>: is filename to initialize tensor
-     .jpg or .png: decode and initialize for 3 channel tensors
-         (use %04d in fileName to when batch-size > 1: batch index starts from 0)
-     other: initialize tensor with raw data from the file
-
-   <output-data-file>[,<reference-for-compare>,<percentErrorLimit>]:
-     <referece-to-compare> is raw tensor data of argmax output for comparision
-     <percentMismatchLimit> is max mismatch (percentage) allowed
-     <output-data-file> is filename for saving output tensor data
-       '-' to ignore
-       other: save raw tensor into the file
-
-% ./anntest ../weights.bin input-%04d.png output.u16,reference.u16,0.01
-...
-
-
-Generate OpenVX and test code with argmax and LUT that is designed for semantic segmentation use cases. You can dump output in raw format or PNGs and additionally compare with reference data in raw format.
-
-::
-
-  % python nnir2openvx.py --argmax lut-rgb.txt nnirInputFolderFused openvxCodeFolder
-  % mkdir openvxCodeFolder/build
-  % cd openvxCodeFolder/build
-  % cmake ..
-  % make
-  % ./anntest
-
-Usage: anntest <weights.bin> [<input-data-file(s)> [<output-data-file(s)>]]]
-
-   <input-data-file>: is filename to initialize tensor
-     .jpg or .png: decode and initialize for 3 channel tensors
-         (use %04d in fileName to when batch-size > 1: batch index starts from 0)
-     other: initialize tensor with raw data from the file
-
-   <output-data-file>[,<reference-for-compare>,<percentErrorLimit>]:
-     <referece-to-compare> is raw tensor data of LUT output for comparision
-     <percentMismatchLimit> is max mismatch (percentage) allowed
-     <output-data-file> is filename for saving output tensor data
-       .png: save LUT output as PNG file(s)
-         (use %04d in fileName when batch-size > 1: batch index starts from 0)
-       '-' to ignore
-       other: save raw tensor into the file
-
-% ./anntest ../weights.bin input-%04d.png output.rgb,reference.rgb,0.01
-...
-% ./anntest ../weights.bin input-%04d.png output-%04d.png,reference.rgb,0.01
-...
-
-Currently supported
--------------------
-
-**Models**
-
-Support the below models from https://github.com/onnx/models
-
-   * resnet
-   * inception
-   * alexnet
-   * densenet
-   * sqeezenet
-
-**Operators**
-
-Supported ONNX operators are:
-
-   * Conv
-   * Relu
-   * MaxPool
-   * AveragePool
-   * GlobalAveragePool
-   * LRN
-   * BatchNormalization
-   * Concat
-   * Sum
-   * Add
-   * Sub
-   * Mul
-   * Softmax
-   * Dropout
-
-**License**
-
-Copyright (c) 2018 Advanced Micro Devices, Inc. All rights reserved.
-
-Use of this source code is governed by the MIT License that can be found in the LICENSE file.
-
+Neural Net Model Compiler & Optimizer `model_compiler <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/model_compiler/#neural-net-model-compiler--optimizer>`_ converts pre-trained neural net models to MIVisionX runtime code for optimized inference.
 
 Samples
 ########
 
-MIVisionX samples using OpenVX and OpenVX extension libraries
+`MIVisionX samples <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/samples/#samples>`_ using OpenVX and OpenVX extension libraries
 
 GDF - Graph Description Format
 -------------------------------
@@ -1564,6 +1113,11 @@ MIVisionX samples using runvx with GDF
 
 **skintonedetect.gdf**
 
+.. image:: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/master/samples/images/skinToneDetect_image.PNG?raw=true
+  :align: center
+  :width: 600
+  :alt: skintonedetect
+
 usage:
 
 ::
@@ -1571,6 +1125,11 @@ usage:
   runvx skintonedetect.gdf
 
 **canny.gdf**
+
+.. image:: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/master/samples/images/canny_image.PNG?raw=true
+  :align: center
+  :width: 600
+  :alt: canny
 
 usage:
 
@@ -1609,27 +1168,22 @@ usage:
 
   runvx -frames:live OpenCV_orb-LIVE.gdf
 
-MIVisionX Toolkit
-##################
+**Note:** More samples available on `GitHub <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/master/samples#samples>`_
 
-AMD `MIVisionX Toolkit <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/toolkit#mivisionx-toolkit>`_, is a comprehensive set of help tools for neural net creation, development, training and deployment. The Toolkit provides you with help tools to design, develop, quantize, prune, retrain, and infer your neural network work in any framework. The Toolkit is designed to help you deploy your work to any AMD or 3rd party hardware, from embedded to servers.
+Toolkit
+#######
+
+`MIVisionX Toolkit <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/toolkit/#mivisionx-toolkit>`_, is a comprehensive set of help tools for neural net creation, development, training, and deployment. The Toolkit provides you with helpful tools to design, develop, quantize, prune, retrain, and infer your neural network work in any framework. The Toolkit is designed to help you deploy your work to any AMD or 3rd party hardware, from embedded to servers.
 
 MIVisionX provides you with tools for accomplishing your tasks throughout the whole neural net life-cycle, from creating a model to deploying them for your target platforms.
 
 Utilities
 #########
 
-MIVisionX has utility applications which could be used by developers to test, quick prototype or develop sample applications.
-
-   * `inference_generator <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/inference_generator/#inference-generator>`_ : generate inference library from pre-trained CAFFE models
-   * `loom_shell <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/loom_shell/#radeon-loomsh>`_ : an interpreter to prototype 360 degree video stitching applications using a script
-   * `RunVX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/runvx/#amd-runvx>`_ : command-line utility to execute OpenVX graph described in GDF text file
-   * `RunCL <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/runcl/#amd-runcl>`_ : command-line utility to build, execute, and debug OpenCL programs
-
-If you’re interested in Neural Network Inference, start with the sample cloud inference application in apps folder.
-
- .. image:: block_diagram_inference_workflow.png
-     :align: center
+* `inference_generator <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/inference_generator/#inference-generator>`_: generate inference library from pre-trained CAFFE models
+* `loom_shell <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/loom_shell/#radeon-loomsh>`_: an interpreter to prototype 360 degree video stitching applications using a script
+* `RunVX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/runvx/#amd-runvx>`_: command-line utility to execute OpenVX graph described in GDF text file
+* `RunCL <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/utilities/runcl/#amd-runcl>`_: command-line utility to build, execute, and debug OpenCL programs
 
 Prerequisites
 ##############
@@ -1646,22 +1200,22 @@ Windows
     * Windows SDK
     * Visual Studio 2017
     * Install the latest drivers and `OpenCL SDK <https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases/tag/1.0`>_
-    * `OpenCV 3.4 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
+    * `OpenCV <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
           * Set OpenCV_DIR environment variable to OpenCV/build folder
           * Add %OpenCV_DIR%\x64\vc14\bin or %OpenCV_DIR%\x64\vc15\bin to your PATH
 
 Linux
 ------
 
-    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
+    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`__
     * ROCm CMake, MIOpenGEMM & MIOpen for Neural Net Extensions (vx_nn)
     * CMake 2.8 or newer `download <http://cmake.org/download/>`_
     * Qt Creator for `Cloud Inference Client <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/apps/cloud_inference/client_app/README.md>`_
     * `Protobuf <https://github.com/google/protobuf>`_ for inference generator & model compiler
         * install libprotobuf-dev and protobuf-compiler needed for vx_nn
-    * `OpenCV 3.4 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
+    * ` OpenCV <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
         * Set OpenCV_DIR environment variable to OpenCV/build folder
-    * `FFMPEG n4.0.4 <https://github.com/FFmpeg/FFmpeg/releases/tag/n4.0.4>`_ - Optional
+    * `FFMPEG <https://github.com/FFmpeg/FFmpeg/releases/tag/n4.0.4>`_ - Optional
         * FFMPEG is required for amd_media & mv_deploy modules
 
 
@@ -1677,16 +1231,16 @@ Prerequisites for running the scripts
 
    * ubuntu 16.04/18.04 or CentOS 7.5/7.6
    * `ROCm supported hardware <https://rocm.github.io/hardware.html>`_
-   * `ROCm <https://github.com/RadeonOpenCompute/ROCm#installing-from-amd-rocm-repositories>`_
+   * `ROCm <https://github.com/RadeonOpenCompute/ROCm#installing-from-amd-rocm-repositories>`__
 
 usage:
 
 ::
 
   python MIVisionX-setup.py --directory [setup directory - optional]
-                          --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
-                          --miopen    [MIOpen Version - optional (default:1.8.1)]
-                          --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]
+                            --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
+                            --miopen    [MIOpen Version - optional (default:1.8.1)]
+                            --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]
 
 
 Build MIVisionX
@@ -1700,13 +1254,16 @@ Build & Install MIVisionX
 ##########################
 
 **Windows**
+-----------
 
 **Using .msi packages**
+~~~~~~~~~~~~~~~~~~~~~~~
 
     * `MIVisionX-installer.msi <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/releases>`_: MIVisionX
     * `MIVisionX_WinML-installer.msi <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/releases>`_: MIVisionX for WinML
 
 **Using Visual Studio 2017 on 64-bit Windows 10**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     * Install `OpenCL_SDK <https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases/tag/1.0>`_
     * Install `OpenCV <https://github.com/opencv/opencv/releases/tag/3.4.0>`_ with/without `contrib <https://github.com/opencv/opencv_contrib>`_ to support camera capture, image display, & opencv extensions
@@ -1716,26 +1273,29 @@ Build & Install MIVisionX
 
 **NOTE:** vx_nn is not supported on Windows in this release
 
+
 **Linux**
+---------
 
 **Using apt-get/yum**
+~~~~~~~~~~~~~~~~~~~~~
 
 Prerequisites
-##############
+`````````````
 
     * Ubuntu 16.04/18.04 or CentOS 7.5/7.6
     * `ROCm supported hardware <https://rocm.github.io/hardware.html>`_
-    * `ROCm <https://github.com/RadeonOpenCompute/ROCm#installing-from-amd-rocm-repositories>`_
+    * `ROCm <https://github.com/RadeonOpenCompute/ROCm#installing-from-amd-rocm-repositories>`__
 
 **Ubuntu**
-
+`````````````
 ::
 
   sudo apt-get install mivisionx
 
 
 **CentOS**
-
+`````````````
 ::
 
   sudo yum install mivisionx
@@ -1753,7 +1313,7 @@ Prerequisites
 
 Using MIVisionX-setup.py and CMake on Linux (Ubuntu 16.04/18.04 or CentOS 7.5/7.6) with ROCm
 ----------------------------------------------------------------------------------------------
-    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
+    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`__
     * Use the below commands to setup and build MIVisionX
 
 
@@ -1791,15 +1351,15 @@ Using MIVisionX-setup.py and CMake on Linux (Ubuntu 16.04/18.04 or CentOS 7.5/7.
 
 
 Build using CMake on Linux (Ubuntu 16.04 64-bit or CentOS 7.5 / 7.6 ) with ROCm
-------------------------------------------------------------
+-------------------------------------------------------------------------------
 
    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
    * git clone, build and install other ROCm projects (using cmake and % make install) in the below order for vx_nn.
        * `rocm-cmake <https://github.com/RadeonOpenCompute/rocm-cmake>`_
        * `MIOpenGEMM <https://github.com/ROCmSoftwarePlatform/MIOpenGEMM>`_
        * `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>`_ – make sure to use -DMIOPEN_BACKEND=OpenCL option with cmake
-   * install `protobuf <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`_
-   * install `OpenCV <https://github.com/opencv/opencv/releases/tag/3.3.0>`_
+   * install `protobuf <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`__
+   * install `OpenCV <https://github.com/opencv/opencv/releases/tag/3.3.0>`__
    * install `FFMPEG n4.0.4 <https://github.com/FFmpeg/FFmpeg/releases/tag/n4.0.4>`_ - Optional
    * build and install (using cmake and % make install)
        * executables will be placed in bin folder
@@ -1810,21 +1370,8 @@ Build using CMake on Linux (Ubuntu 16.04 64-bit or CentOS 7.5 / 7.6 ) with ROCm
    * add the installed executable path to PATH environment variable (default /opt/rocm/mivisionx/bin)
 
 
-Build annInferenceApp using Qt Creator
----------------------------------------
-
-   * build `annInferenceApp.pro <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.pro>`_ using Qt Creator
-   * or use `annInferenceApp.py <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/apps/cloud_inference/client_app/annInferenceApp.py>`_ for simple tests
-
-Build Radeon LOOM using Visual Studio Professional 2013 on 64-bit Windows 10/8.1/7
------------------------------------------------------------------------------------
-
-   * Use `loom.sln <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/amd_openvx_extensions/amd_loomsl/vx_loomsl.sln>`_ to build x64 platform
-
-
-
 Verify the Installation
--------------------------
+##########################
 
 Linux
 ------
@@ -1839,16 +1386,15 @@ Linux
         
         * **Canny Edge Detection**
  
-.. image:: canny_image.PNG
-     :align: center
-
+.. image:: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/master/samples/images/canny_image.PNG?raw=true
+  :align: center
+  :width: 600
     
 ::
 
   export PATH=$PATH:/opt/rocm/mivisionx/bin
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
   runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
-
 
 Note: More samples are available `here <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/samples#samples>`_
 
@@ -1866,12 +1412,12 @@ MIVisionX Docker
    * `CentOS 7.5 <https://hub.docker.com/r/mivisionx/centos-7.5>`_
    * `CentOS 7.6 <https://hub.docker.com/r/mivisionx/centos-7.6>`_
 
-Docker Workflow Sample on Ubuntu 16.04
-----------------------------------------
+Docker Workflow Sample on Ubuntu 16.04/18.04
+--------------------------------------------
 
 **Prerequisites**
 
-   * Ubuntu 16.04
+   * Ubuntu 16.04/18.04
    * `rocm supported hardware <https://rocm.github.io/hardware.html>`_
 
 
@@ -1956,34 +1502,6 @@ Workflow
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
     runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
 
- 
-
-Supported Neural Net Layers
-----------------------------
-   
-::
-
-   Layer name
-   Activation
-   Argmax
-   Batch Normalization
-   Concat
-   Convolution
-   Deconvolution
-   Fully Connected
-   Local Response Normalization (LRN)
-   Pooling
-   Scale
-   Slice
-   Softmax
-   Tensor Add
-   Tensor Convert Depth
-   Tensor Convert from Image
-   Tensor Convert to Image
-   Tensor Multiply
-   Tensor Subtract
-   Upsample Nearest Neighborhood
-
 Release Notes
 ##############
 
@@ -1997,29 +1515,10 @@ Tested configurations
 
     * Windows 10
     * Linux: Ubuntu - 16.04/18.04 & CentOS - 7.5/7.6
-    * ROCm: rocm-dkms - 2.4.25
+    * ROCm: rocm-dkms - 2.6.22
     * rocm-cmake - `github master:ac45c6e <https://github.com/RadeonOpenCompute/rocm-cmake/tree/master>`_
     * MIOpenGEMM - `1.1.5 <https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/releases/tag/1.1.5>`_
-    * MIOpen - `1.8.1 <https://github.com/ROCmSoftwarePlatform/MIOpen/releases/tag/1.7.1>`_
+    * MIOpen - `2.0.0 <https://github.com/ROCmSoftwarePlatform/MIOpen/releases/tag/2.0.0>`_
     * Protobuf - `V3.5.2 <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`_
     * OpenCV - `3.4.0 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
     * Dependencies for all the above packages
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
