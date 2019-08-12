@@ -1243,11 +1243,7 @@ usage:
                             --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]
 
 
-Build MIVisionX
-###############
-
-**Note:** use --installer yum for **CentOS**
-Refer to `Wiki <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/wiki/Suggested-development-workflow>`_ page for developer instructions.
+**Note:** use --installer **yum** for **CentOS**
 
 
 Build & Install MIVisionX
@@ -1350,7 +1346,7 @@ Using MIVisionX-setup.py and CMake on Linux (Ubuntu 16.04/18.04 or CentOS 7.5/7.
     * the installer also copies all the OpenVX and module header files into /opt/rocm/mivisionx/include folder
 
 
-Build using CMake on Linux (Ubuntu 16.04 64-bit or CentOS 7.5 / 7.6 ) with ROCm
+Using CMake on Linux (Ubuntu 16.04 64-bit or CentOS 7.5 / 7.6 ) with ROCm
 -------------------------------------------------------------------------------
 
    * Install `ROCm <https://rocm.github.io/ROCmInstall.html>`_
