@@ -16,8 +16,8 @@ General Tips
 
    * Starting the port on a Cuda machine is often the easiest approach, since you can incrementally port pieces of the code to HIP while leaving    	 the rest in Cuda. (Recall that on Cuda machines HIP is just a thin layer over Cuda, so the two code types can interoperate on nvcc platforms.) 	 Also, the HIP port can be compared with the original Cuda code for function and performance.
    * Once the Cuda code is ported to HIP and is running on the Cuda machine, compile the HIP code using hcc on an AMD machine.
-   * HIP ports can replace Cuda versions---HIP can deliver the same performance as a native Cuda implementation, with the benefit of portability   	to both Nvidia and AMD architectures as well as a path to future C++ standard support. You can handle platform-specific features through 	   	conditional compilation or by adding them to the open-source HIP infrastructure.
-   * Use bin/hipconvertinplace.sh to hipify all code files in the Cuda source directory.
+   * HIP ports can replace Cuda versions---HIP can deliver the same performance as a native Cuda implementation, with the benefit of portability   	to both Nvidia and AMD architectures as well as a path to future C++ standard support. You can handle platform-specific features through conditional compilation or by adding them to the open-source HIP infrastructure.
+   * Use `bin/hipconvertinplace.sh <https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipconvertinplace.sh>`_ to hipify all code files in the Cuda source directory.
 
 Scanning existing CUDA code to scope the porting effort
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,7 +52,12 @@ hipexamine scans each code file (cpp, c, h, hpp, etc) found in the specified dir
       info: hipify ./kmeans_cuda_kernel.cu =====>
       info: converted 40 CUDA->HIP refs( dev:0 mem:0 kern:0 builtin:37 math:0 stream:0 event:0 
 
-   * Some of the most interesting information in kmeans_cuda_kernel.cu : * How many CUDA calls were converted to HIP (40) * Breakdown of the 	    	different CUDA functionality used (dev:0 mem:0 etc). This file uses many CUDA builtins (37) and texture functions (3). * Warning for code that  	looks like CUDA API but was not converted (0 in this file). * Count Lines-of-Code (LOC) - 185 for this file.
+   * Interesting information in kmeans_cuda_kernel.cu :
+       * How many CUDA calls were converted to HIP (40)
+       * Breakdown of the CUDA functionality used (dev:0 mem:0 etc). This file uses many CUDA builtins (37) and texture functions (3).
+       * Warning for code that looks like CUDA API but was not converted (0 in this file).
+       * Count Lines-of-Code (LOC) - 185 for this file.
+
    * hipexamine also presents a summary at the end of the process for the statistics collected across all files. This has similar format to the 	    	per-file reporting, and also includes a list of all kernels which have been called. An example from above:
 
 :: 
@@ -74,7 +79,7 @@ For each input file FILE, this script will:
 
 This is useful for testing improvements to the hipify toolset.
 
-The "hipconvertinplace.sh" script will perform inplace conversion for all code files in the specified directory. This can be quite handy when dealing with an existing CUDA code base since the script preserves the existing directory structure and filenames - so includes work. After converting in-place, you can review the code to add additional parameters to directory names.
+The `hipconvertinplace.sh <https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipconvertinplace.sh>`_ script will perform inplace conversion for all code files in the specified directory. This can be quite handy when dealing with an existing CUDA code base since the script preserves the existing directory structure and filenames - so includes work. After converting in-place, you can review the code to add additional parameters to directory names.
 
 ::
   
@@ -93,7 +98,7 @@ All HIP projects target either the hcc or nvcc platform. The platform affects wh
 
 Many projects use a mixture of an accelerator compiler (hcc or nvcc) and a standard compiler (e.g., g++). These defines are set for both accelerator and standard compilers and thus are often the best option when writing code that uses conditional compilation.
 
-Identifying the Compiler: hcc or nvcc
+Identifying the Compiler: hcc, hip-clang or nvcc
 *************************************
 
 Often, it useful to know whether the underlying compiler is hcc or nvcc. This knowledge can guard platform-specific code (features that only work on the nvcc or hcc path but not both) or aid in platform-specific performance tuning.
@@ -103,6 +108,11 @@ Often, it useful to know whether the underlying compiler is hcc or nvcc. This kn
   #ifdef __HCC__
   // Compiled with hcc 
  
+::
+
+  #ifdef __HIP__
+  // Compiled with hip-clang 
+
 ::
 
   #ifdef __NVCC__
@@ -115,7 +125,7 @@ Often, it useful to know whether the underlying compiler is hcc or nvcc. This kn
   #ifdef __CUDACC__
   // Compiled with nvcc (Cuda language extensions enabled) 
 
-hcc directly generates the host code (using the Clang x86 target) and passes the code to another host compiler. Thus, it lacks the equivalent of the __CUDA_ACC define.
+hcc and hip-clang directly generates the host code (using the Clang x86 target) and passes the code to another host compiler. Thus, they have no equivalent of the __CUDA_ACC define.
 
 The macro __HIPCC__ is set if either __HCC__ or __CUDACC__ is defined. This configuration is useful in determining when code is being compiled using an accelerator-enabled compiler (hcc or nvcc) as opposed to a standard host compiler (GCC, ICC, Clang, etc.).
 
@@ -208,7 +218,7 @@ The __HIP_ARCH_* defines can replace comparisons of __CUDA_ARCH__ values:
    // doubles are supported
   }
 
-For host code, the __HIP_ARCH__* defines are set to 0. You should only use the HIP_ARCH fields in device code.
+For host code, the __HIP_ARCH__* defines are set to 0. You should only use the **HIP_ARCH** fields in device code.
 
 Device-Architecture Properties
 ******************************
@@ -404,11 +414,13 @@ Workarounds
 ~~~~~~~~~~~
 **warpSize**
 
-Code should not assume a warp size of 32 or 64. See Warp Cross-Lane Functions for information on how to write portable wave-aware code.
+Code should not assume a warp size of 32 or 64. See `Warp Cross-Lane Functions <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#warp-cross-lane-functions>`_ for information on how to write portable wave-aware code.
 
 memcpyToSymbol
 ***************
 HIP support for hipMemCpyToSymbol is complete. This feature allows a kernel to define a device-side data symbol which can be accessed on the host side. The symbol can be in __constant or device space.
+
+Note that the symbol name needs to be encased in the HIP_SYMBOL macro, as shown in the code example below. This also applies to hipMemcpyFromSymbol, hipGetSymbolAddress, and hipGetSymbolSize.
 
 For example:
 
@@ -471,53 +483,13 @@ Threadfence_system makes all device memory writes, all writes to mapped host mem
 
 Compute programs sometimes use textures either to access dedicated texture caches or to use the texture-sampling hardware for interpolation and clamping. The former approach uses simple point samplers with linear interpolation, essentially only reading a single point. The latter approach uses the sampler hardware to interpolate and combine multiple point samples. AMD hardware, as well as recent competing hardware, has a unified texture/L1 cache, so it no longer has a dedicated texture cache. But the nvcc path often caches global loads in the L2 cache, and some programs may benefit from explicit control of the L1 cache contents. We recommend the __ldg instruction for this purpose.
 
-HIP currently lacks texture support; a future revision will add this capability. Also, AMD compilers currently load all data into both the L1 and L2 caches, so __ldg is treated as a no-op.
+AMD compilers currently load all data into both the L1 and L2 caches, so __ldg is treated as a no-op.
 
 We recommend the following for functional portability:
 
    * For programs that use textures only to benefit from improved caching, use the __ldg instruction
-   * Alternatively, use conditional compilation (see Identify HIP Target Platform)
-       * For the __HIP_PLATFORM_NVCC__ path, use the full texture path
-       * For the __HIP_PLATFORM_HCC__ path, pass an additional pointer to the kernel and reference it using regular device memory-load instructions rather than texture loads. Some applications may already take this step, since it allows experimentation with caching behavior.
+   * Programs that use texture object and reference APIs, work well on HIP
 
-
-::
-
-
-   texture<float, 1, cudaReadModeElementType> t_features;
-
-  void __global__ MyKernel(float *d_features /* pass pointer parameter, if not already available */...) 
-  {
-      // ... 
- 
-  #ifdef __HIP_PLATFORM_NVCC__
-      float tval = tex1Dfetch(t_features,addr);
-  #else
-      float tval = d_features[addr];
-  #endif
-        
-  }
-
-  // Host code:
-  void myFunc () 
-  {
-      // ...
-
-  #ifdef __HIP_PLATFORM_NVCC__
-      cudaChannelFormatDesc chDesc0 = cudaCreateChannelDesc<float>();
-      t_features.filterMode = cudaFilterModePoint;   
-      t_features.normalized = false;
-      t_features.channelDesc = chDesc0;
-
-	  cudaBindTexture(NULL, &t_features, d_features, &chDesc0, npoints*nfeatures*sizeof(float));
-  #endif
-
-
-
-Additionally, many of the Rodinia benchmarks demonstrate how to modify hipified programs so that textures are not required - search for USE_TEXTURES define in the rodinia source directory.
-For example, [here
-
-Cuda programs that employ sampler hardware must either wait for hcc texture support or use more-sophisticated workarounds.
 
 More Tips
 **********
@@ -576,5 +548,21 @@ For example::
 **Editor Highlighting**
 
 See the utils/vim or utils/gedit directories to add handy highlighting to hip files.
+
+**Library Equivalents**
+
+| CUDA Library | ROCm Library | Comment |
+|------- | ---------   | -----   |
+| cuBLAS        |    rocBLAS     | Basic Linear Algebra Subroutines 
+| cuFFT        |    rocFFT     | Fast Fourier Transfer Library   
+| cuSPARSE     |    rocSPARSE   | Sparse BLAS  + SPMV 
+| cuSolver     |    rocSolver   | Lapack library
+| AMG-X    |    rocALUTION   | Sparse iterative solvers and preconditioners with Geometric and Algebraic MultiGrid
+| Thrust    |    hipThrust | C++ parallel algorithms library
+| CUB     |    rocPRIM | Low Level Optimized Parallel Primitives
+| cuDNN    |    MIOpen | Deep learning Solver Library 
+| cuRAND    |    rocRAND | Random Number Generator Library
+| EIGEN    |    EIGEN – HIP port | C++ template library for linear algebra: matrices, vectors, numerical solvers, 
+| NCCL    |    RCCL  | Communications Primitives Library based on the MPI equivalents
 
 

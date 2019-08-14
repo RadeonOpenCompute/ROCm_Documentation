@@ -31,26 +31,21 @@ At a high-level, the following features are not supported:
    * Dynamic parallelism (CUDA 5.0)
    * Managed memory (CUDA 6.5)
    * Graphics interoperability with OpenGL or Direct3D
-   * CUDA Driver API
    * CUDA IPC Functions (Under Development)
    * CUDA array, hipmappedArray and pitched memory
-   * MemcpyToSymbol functions
    * Queue priority controls
 
-See the API Support Table for more detailed information.
+See the `API Support Table <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUDA_Runtime_API_functions_supported_by_HIP.md>`_ for more detailed information.
 
 **Kernel language features**
 
-    * Device-side dynamic memory allocations (malloc, free, new, delete) (CUDA 4.0)
+    * C++ style Device-side dynamic memory allocations (free, new, delete) (CUDA 4.0)
     * Virtual functions, indirect functions and try/catch (CUDA 4.0)
     * __prof_trigger
     * PTX assembly (CUDA 4.0). HCC supports inline GCN assembly.
-    * Several kernel features are under development. See the HIP Kernel Language for more information. These include:
+    * Several kernel features are under development. See the :ref:`Kernel Language` for more information. These include:
         *  printf
-        *  assert
-        *  __restrict__
-        *  __threadfence*_, __syncthreads*
-        *  Unbounded loop unroll
+        
 
 **Is HIP a drop-in replacement for CUDA?**
 
@@ -61,7 +56,7 @@ No. HIP provides porting tools which do most of the work to convert CUDA code in
 
 HIP APIs and features do not map to a specific CUDA version. HIP provides a strong subset of functionality provided in CUDA, and the hipify tools can scan code to identify any unsupported CUDA functions - this is useful for identifying the specific features required by a given application.
 
-However, we can provide a rough summary of the features included in each CUDA SDK and the support level in HIP:
+However, we can provide a rough summary of the features included in each CUDA SDK and the support level in HIP. Each bullet below lists the major new language features in each CUDA release and then indicate which are supported/not supported in HIP:
 
    * CUDA 4.0 and earlier :
        * HIP supports CUDA 4.0 except for the limitations described above.
@@ -69,7 +64,7 @@ However, we can provide a rough summary of the features included in each CUDA SD
        * Dynamic Parallelism (not supported)
         cuIpc functions (under development).
    * CUDA 5.5 :
-       * CUPTI (not directly supported, AMD GPUPerfAPI can be used as an alternative in some cases)
+       * CUPTI (not directly supported, `AMD GPUPerfAPI <http://developer.amd.com/tools-and-sdks/graphics-development/gpuperfapi/>`_ can be used as an alternative in some cases)
    * CUDA 6.0
        * Managed memory (under development)
    * CUDA 6.5
@@ -78,18 +73,19 @@ However, we can provide a rough summary of the features included in each CUDA SD
        * Per-thread-streams (under development)
        * C++11 (HCC supports all of C++11, all of C++14 and some C++17 features)
    * CUDA 7.5
-       * float16
+       * float16 (supported)
    * CUDA 8.0
-       * TBD.
+       * Page Migration including cudaMemAdvise, cudaMemPrefetch, other cudaMem* APIs(not supported)
 
 **What libraries does HIP support?**
 
-HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse. These offer pointer-based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HCC applications. Developers should use conditional compilation if portability to nvcc systems is desired - using calls to cu* routines on one path and hc* routines on the other.
+HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse, as well as MIOpen for machine intelligence applications. These offer pointer-based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HIP applications. 
+The hip interfaces support both ROCm and CUDA paths, with familliar library interfaces.
 
-   * hcblas
-   * hcfft
-   * hcsparse
-   * hcrng
+   * `hipblas <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipblas>`_, which utilizes `rocBlas <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocblas>`_.
+   * `hipfft <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hcfft>`_
+   * `hipsparse <https://github.com/rocmarchive/HcSPARSE>`_
+   * `hiprng <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hcrng>`_
 
 Additionally, some of the cublas routines are automatically converted to hipblas equivalents by the hipify-clang tool. These APIs use cublas or hcblas depending on the platform, and replace the need to use conditional compilation.
 
@@ -139,7 +135,7 @@ In addition, HIP defines portable mechanisms to query architectural features, an
 
 **Can I develop HIP code on an Nvidia CUDA platform?**
 
-Yes. HIP's CUDA path only exposes the APIs and functionality that work on both NVCC and HCC back-ends. "Extra" APIs, parameters, and features which exist in CUDA but not in HCC will typically result in compile- or runtime errors. Developers need to use the HIP API for most accelerator code, and bracket any CUDA-specific code with preprocessor conditionals. Developers concerned about portability should of course run on both platforms, and should expect to tune for performance. In some cases CUDA has a richer set of modes for some APIs, and some C++ capabilities such as virtual functions - see the HIP @API documentation for more details.
+Yes. HIP's CUDA path only exposes the APIs and functionality that work on both NVCC and HCC back-ends. "Extra" APIs, parameters, and features which exist in CUDA but not in HCC will typically result in compile-time or run-time errors. Developers need to use the HIP API for most accelerator code and bracket any CUDA-specific code with preprocessor conditionals. Developers concerned about portability should, of course, run on both platforms, and should expect to tune for performance. In some cases, CUDA has a richer set of modes for some APIs, and some C++ capabilities such as virtual functions - see the HIP @API documentation for more details.
 
 **Can I develop HIP code on an AMD HCC platform?**
 
@@ -179,7 +175,7 @@ Yes. Most HIP data structures (hipStream_t, hipEvent_t) are typedefs to CUDA equ
 
 hipErrorToCudaError hipCUDAErrorTohipError hipCUResultTohipError
 
-If platform portability is important, use #ifdef HIP_PLATFORM_NVCC to guard the CUDA-specific code.
+If platform portability is important, use #ifdef **HIP_PLATFORM_NVCC** to guard the CUDA-specific code.
 
 **On HCC, can I use HC functionality with HIP?**
 
@@ -188,15 +184,15 @@ The code can include hc.hpp and use HC functions inside the kernel. A typical us
 
 Also these functions can be used to extract HCC accelerator and accelerator_view structures from the HIP deviceId and hipStream_t: hipHccGetAccelerator(int deviceId, hc::accelerator *acc); hipError_t hipHccGetAcceleratorView(hipStream_t stream, hc::accelerator_view **av);
 
-If platform portability is important, use #ifdef HIP_PLATFORM_HIPCC to guard the HCC-specific code.
+If platform portability is important, use #ifdef **HIP_PLATFORM_HIPCC** to guard the HCC-specific code.
 
 **How do I trace HIP application flow?**
 
-See the HIP Profiling Guide for more information.
+See the `HIP Profiling Guide <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_porting_guide.md>`_ for more information.
 
 **What if HIP generates error of "symbol multiply defined!" only on AMD machine?**
 
-Unlike CUDA, in HCC, for functions defined in the header files, the keyword of "forceinline" does not imply "static". Thus, if failed to define "static" keyword, you might see a lot of "symbol multiply defined!" errors at compilation. The workaround is to explicitly add the keyword of "static" before any functions that were defined as "forceinline".
+Unlike CUDA, in HCC, for functions defined in the header files, the keyword of **"forceinline"** does not imply "static". Thus, if failed to define "static" keyword, you might see a lot of "symbol multiply defined!" errors at compilation. The workaround is to explicitly add the keyword of "static" before any functions that were defined as **"forceinline"**.
 
 **How do I disable HIP Generic Grid Launch option?**
 

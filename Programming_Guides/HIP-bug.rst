@@ -1,3 +1,5 @@
+.. _HIP-bug:
+
 HIP Bugs
 ========
 
