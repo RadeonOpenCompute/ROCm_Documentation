@@ -551,18 +551,40 @@ See the utils/vim or utils/gedit directories to add handy highlighting to hip fi
 
 **Library Equivalents**
 
-| CUDA Library | ROCm Library | Comment |
-|------- | ---------   | -----   |
-| cuBLAS        |    rocBLAS     | Basic Linear Algebra Subroutines 
-| cuFFT        |    rocFFT     | Fast Fourier Transfer Library   
-| cuSPARSE     |    rocSPARSE   | Sparse BLAS  + SPMV 
-| cuSolver     |    rocSolver   | Lapack library
-| AMG-X    |    rocALUTION   | Sparse iterative solvers and preconditioners with Geometric and Algebraic MultiGrid
-| Thrust    |    hipThrust | C++ parallel algorithms library
-| CUB     |    rocPRIM | Low Level Optimized Parallel Primitives
-| cuDNN    |    MIOpen | Deep learning Solver Library 
-| cuRAND    |    rocRAND | Random Number Generator Library
-| EIGEN    |    EIGEN – HIP port | C++ template library for linear algebra: matrices, vectors, numerical solvers, 
-| NCCL    |    RCCL  | Communications Primitives Library based on the MPI equivalents
-
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+|CUDA Library 	        |  ROCm Library	        |       Comment         	                                                      |     
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+|cuBLAS 	        | rocBLAS               |     Basic Linear Algebra Subroutines                                                |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+|cuFFT 	                | rocFFT                |     Fast Fourier Transfer Library                                                   |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+|cuSPARSE 	        | rocSPARSE             |     Sparse BLAS  + SPMV                                                             |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+|cuSolver 	        | rocSolver             |     Lapack Library                                                                  |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+|AMG-X                  | rocALUTION            | Sparse iterative solvers and preconditioners with Geometric and Algebraic MultiGrid |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+| Thrust                |    hipThrust          | C++ parallel algorithms library                                                     |
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+| CUB                   |    rocPRIM            | Low Level Optimized Parallel Primitives                                             |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+| cuDNN                 |    MIOpen             | Deep learning Solver Library                                                        |
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+| cuRAND                |    rocRAND            | Random Number Generator Library                                                     |
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+| EIGEN                 |    EIGEN – HIP port   | C++ template library for linear algebra: matrices, vectors, numerical solvers,      |  
+|			|		        |		  		                                                      |  
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
+| NCCL                  |    RCCL               | Communications Primitives Library based on the MPI equivalents                      | 
+|			|		        |		  		                                                      |
++-----------------------+-----------------------+-------------------------------------------------------------------------------------+
 

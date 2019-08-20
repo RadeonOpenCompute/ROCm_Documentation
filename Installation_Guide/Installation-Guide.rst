@@ -6,7 +6,7 @@ Are You Ready to ROCK?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems. This software enables the high-performance operation of AMD GPUs for computation oriented tasks in the Linux operating system.
                        
-Current ROCm Version: 2.6
+Current ROCm Version: 2.7
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardware Support
@@ -51,6 +51,14 @@ make any official claims of support for these devices on the ROCm
 software platform. The following list of GPUs are enabled in the ROCm
 software, though full support is not guaranteed:
 
+
+- GFX8 GPUs 
+   -  “Polaris 11” chips, such as on the AMD Radeon RX 570 and Radeon
+      Pro WX 4100
+   -  “Polaris 12” chips, such as on the AMD Radeon RX 550 and Radeon RX
+      540
+
+
 -  GFX7 GPUs
 
    -  “Hawaii” chips, such as the AMD Radeon R9 390X and FirePro W9100
@@ -61,8 +69,8 @@ motherboard support. GFX9 GPUs, by default, also require PCIe 3.0 with
 support for PCIe atomics, but they can operate in most cases without
 this capability.
 
-At this time, the integrated GPUs in AMD APUs are not officially
-supported targets for ROCm. As descried below, “Carrizo”, “Bristol
+The integrated GPUs in AMD APUs are not officially
+supported targets for ROCm. As descried `below <https://github.com/RadeonOpenCompute/ROCm#limited-support>`_ , “Carrizo”, “Bristol
 Ridge”, and “Raven Ridge” APUs are enabled in our upstream drivers and
 the ROCm OpenCL runtime. However, they are not enabled in our HCC or HIP
 runtimes, and may not work due to motherboard or OEM hardware
@@ -132,7 +140,7 @@ Not supported or limited support under ROCm
 Limited support
 '''''''''''''''
 
--  ROCm 2.6.x should support PCIe 2.0 enabled CPUs such as the AMD
+-  ROCm 2.7.x should support PCIe 2.0 enabled CPUs such as the AMD
    Opteron, Phenom, Phenom II, Athlon, Athlon X2, Athlon II and older
    Intel Xeon and Intel Core Architecture and Pentium CPUs. However, we
    have done very limited testing on these configurations, since our
@@ -179,7 +187,7 @@ Not supported
 '''''''''''''''
 
 -  “Tonga”, “Iceland”, “Vega M”, and “Vega 12” GPUs are not supported in
-   ROCm 2.6.x
+   ROCm 2.7.x
 -  We do not support GFX8-class GPUs (Fiji, Polaris, etc.) on CPUs that
    do not have PCIe 3.0 with PCIe atomics.
 
@@ -188,7 +196,7 @@ Not supported
    -  Thunderbolt 1 and 2 enabled GPUs are not supported by GFX8 GPUs on
       ROCm. Thunderbolt 1 & 2 are based on PCIe 2.0.
 
-The latest ROCm platform - ROCm 2.6
+The latest ROCm platform - ROCm 2.7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The latest supported version of the drivers, tools, libraries and source
@@ -228,7 +236,7 @@ following GitHub repositories:
          -  `ROCm Device Libraries`_
 
    -  `ROCM Clang-OCL Kernel Compiler`_
-   -  `Asynchronous Task and Memory Interface (ATMI)`_
+   -  `Asynchronous Task and Memory Interface`_
    -  `ROCr Debug Agent`_
    -  `ROCm Code Object Manager`_
    -  `ROC Profiler`_
@@ -255,67 +263,66 @@ following GitHub repositories:
    -  `ROCm SMI Lib`_
    -  `RCCL`_
    -  `MIVisionX`_
-   -  `HIP Thrust`_
    -  `hipCUB`_
 
-.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.6.0
-.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.6.0
-.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.6.0
 
-.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.6.0
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/ac45c6e2
-.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/d34b716a
-.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.6.0
+.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.7.0
+.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.7.0
+.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.7.0
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.6.0
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.6.0
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.6.0
+.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.7.0
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/master-rocm-2.7
+.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/roc-2.7.0
+.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.7.0
 
-.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.6.0
-.. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.6.0
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.7.0
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.7.0
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.7.0
 
-.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.6.0
-.. _ROCm LLVM HCC: http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.6.0
-.. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.6.0
-.. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.6.0
-.. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.6.0
+.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.7.0
+.. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.7.0
 
-.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.6.0
-.. _Asynchronous Task and Memory Interface (ATMI): https://github.com/RadeonOpenCompute/atmi/tree/4dd14ad8
-.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.6.0
-.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.6.0
+.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.7.0
+.. _ROCm LLVM HCC: http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.7.0
+.. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.7.0
+.. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.7.0
+.. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.7.0
+
+.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.7.0
+.. _Asynchronous Task and Memory Interface (ATMI): https://github.com/RadeonOpenCompute/atmi/tree/rocm_2.7.0
+.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.7.0
+.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.7.0
 .. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.6.x
-.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-2.6.x
+.. _ROC Tracer: https://github.com/ROCmSoftwarePlatform/roctracer/tree/roc-2.7.x
 .. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
 
 .. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.6.0
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.7.0
 
-.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/master-rocm-2.6
-.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/master-rocm-2.6
-.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/master-rocm-2.6
-.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/master-rocm-2.6
-.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/master-rocm-2.6
-.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/master-rocm-2.6
-.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/master-rocm-2.6
+.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/master-rocm-2.7
+.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/master-rocm-2.7
+.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/master-rocm-2.7
+.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/master-rocm-2.7
+.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/master-rocm-2.7
+.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/master-rocm-2.7
+.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/master-rocm-2.7
 .. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/9547fb9e
-.. _MIOpen: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-2.6.0
-.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/master-rocm-2.6
-.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.6.0
-.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/master-rocm-2.6
+.. _MIOpen: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-2.7.0
+.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/master-rocm-2.7
+.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.7.0
+.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/master-rocm-2.7
 .. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.3.0
-.. _HIP Thrust: https://github.com/ROCmSoftwarePlatform/Thrust/tree/2.6.0
-.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/2.6.0
+.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/2.7
 
 
 Supported Operating Systems - New operating systems available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROCm 2.6.x platform supports the following operating systems:
+The ROCm 2.7.x platform supports the following operating systems:
 
--  Ubuntu 16.04.x and 18.04.1 and 18.04.2 (Version 16.04.3 and newer or kernels 4.13-4.15)
--  CentOS 7.4, 7.5, and 7.6 (Using devtoolset-7 runtime support)
--  RHEL 7.4, 7.5, and 7.6 (Using devtoolset-7 runtime support)
+-  Ubuntu 16.04.5(Kernel 4.15) and 18.04.2(Kernel 4.18)
+-  CentOS 7.6 (Using devtoolset-7 runtime support)
+-  RHEL 7.6 (Using devtoolset-7 runtime support)
 
 ROCm support in upstream Linux kernels
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -369,7 +376,7 @@ consideration:
 Installing from AMD ROCm repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD hosts both `Debian`_ and `RPM`_ repositories for the ROCm 2.6.x
+AMD hosts both `Debian`_ and `RPM`_ repositories for the ROCm 2.7.x
 packages at this time.
 
 The packages in the Debian repository have been signed to ensure package
@@ -430,8 +437,6 @@ The packages for each of the major ROCm components are:
    -  MIOpenGEMM: ``miopengemm``
    -  MIOpen: ``MIOpen-HIP`` (for the HIP version), ``MIOpen-OpenCL``
       (for the OpenCL version)
-   -  HIP Thrust: ``thrust`` (on RHEL/CentOS), ``hip-thrust`` (on
-      Ubuntu)
    -  ROCm SMI Lib: ``rocm_smi_lib64``
    -  RCCL: ``rccl``
    -  MIVisionX: ``mivisionx``
@@ -461,29 +466,32 @@ below
     \-- rocm-dev
          |--hsa-rocr-dev
          |--hsa-ext-rocr-dev
+         |--hsakmt-roct
+         |--hsakmt-roct-dev
+         |--rocm-cmake
          |--rocm-device-libs
-         |--rocm-utils
-             |-- rocminfo
-             |-- rocm-cmake
-             \-- rocm-clang-ocl # This will cause OpenCL to be installed
          |--hcc
          |--hip_base
          |--hip_doc
          |--hip_hcc
          |--hip_samples
          |--rocm-smi
-         |--hsakmt-roct
-         |--hsakmt-roct-dev
          |--hsa-amd-aqlprofile
          |--comgr
-         \--rocr_debug_agent
-
+         |--rocr_debug_agent
+         |--rocm-utils
+             |-- rocminfo
+             \-- rocm-clang-ocl # This will cause OpenCL to be installed
+        
    rocm-libs
-    |-- rocblas
-    |-- rocfft
-    |-- rocrand
-    \-- hipblas
-
+    |--rocalution
+    |--hipblas
+    |--rocblas
+    |--rocfft
+    |--rocrand
+    |--hipsparse
+    \--rocsparse
+    
 These meta-packages are not required but may be useful to make it easier
 to install ROCm on most systems. Some users may want to skip certain
 packages. For instance, a user that wants to use the upstream kernel
@@ -664,7 +672,7 @@ installing ``rocm-dkms``
    echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
 
 
-CentOS/RHEL 7 (7.4, 7.5, 7.6) Support
+CentOS/RHEL 7 (7.6) Support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following directions show how to install ROCm on supported RPM-based
@@ -672,13 +680,13 @@ systems such as CentOS 7.6. These directions may not work as written on
 unsupported RPM-based distributions. For example, Fedora may work but
 may not be compatible with the ``rock-dkms`` kernel driver. As such,
 users may want to skip the ``rocm-dkms`` and ``rock-dkms`` packages, as
-described `above`_, and instead use the upstream kernel driver.
+described `above`_, and instead `use the upstream kernel driver <https://github.com/RadeonOpenCompute/ROCm#using-rpm-based-rocm-with-upstream-kernel-drivers>`_.
 
 Support for CentOS/RHEL 7 was added in ROCm 1.8, but ROCm requires a
 special runtime environment provided by the RHEL Software Collections
 and additional dkms support packages to properly install and run.
 
-Preparing RHEL 7 (7.4, 7.5, 7.6) for installation
+Preparing RHEL 7 (7.6) for installation
 '''''''''''''''''''''''''''''''''''''''''''''''''
 
 RHEL is a subscription-based operating system, and you must enable
@@ -717,10 +725,10 @@ https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 Note that devtoolset-7 is a Software Collections package, and it is not
 supported by AMD.
 
-Prepare CentOS/RHEL (7.4, 7.5, 7.6) for DKMS Install
+Prepare CentOS/RHEL (7.6) for DKMS Install
 ''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-Installing kernel drivers on CentOS/RHEL 7.4/7.5/7.6 requires dkms tool
+Installing kernel drivers on CentOS/RHEL 7.6 requires dkms tool
 being installed:
 
 .. code:: shell
@@ -755,7 +763,7 @@ database. Install ROCm components using these commands:
 The rock-dkms component should be installed and the ``/dev/kfd`` device
 should be available on reboot.
 
-.. _remove previous ROCm installations: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#how-to-uninstall-rocm-from-centos-rhel-7-4-7-5-and-7-6
+.. _remove previous ROCm installations: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#how-to-uninstall-rocm-from-centos-rhel-7-6
 
 .. _above: https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#rocm-binary-package-structure
 
@@ -786,7 +794,7 @@ following commands:
    echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
    echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
-Current release supports CentOS/RHEL 7.4, 7.5, 7.6. If users want to
+Current release supports CentOS/RHEL 7.6. If users want to
 update the OS version, they should completely remove ROCm packages
 before updating to the latest version of the OS, to avoid DKMS related
 issues.
@@ -842,7 +850,7 @@ running this command:
 
    scl enable devtoolset-7 bash
 
-How to uninstall ROCm from CentOS/RHEL 7.4, 7.5 and 7.6
+How to uninstall ROCm from CentOS/RHEL 7.6
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 To uninstall the ROCm packages installed by the above directions, you
@@ -874,8 +882,7 @@ In this case, install the development subset of packages:
 Using ROCm with upstream kernel drivers
 '''''''''''''''''''''''''''''''''''''''
 
-As described in `the above section about upstream Linux kernel
-support`_, use rs may want to try installing ROCm user-level software
+As described in `the above section about upstream Linux kernel support`_, use rs may want to try installing ROCm user-level software
 without installing AMD’s custom ROCK kernel driver. Users who do want to
 use upstream kernels can run the following commands instead of
 installing ``rocm-dkms``
@@ -890,21 +897,16 @@ installing ``rocm-dkms``
 Known issues / workarounds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Tensor flow
-^^^^^^^^^^^^
-Observed memory access fault while running SAGAN TensorFlow model in Polaris based ASIC
+rocprofiler --hiptrace and --hsatrace fails to load roctracer library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Radeon Instinct MI50, MI60
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-PU reset is not currently supported on Radeon Instinct MI50, MI60, in single card configurations or with boards connected with AMD Infinity Fabric&#x2122; Link GPU interconnect technology.  Workaround is to reboot the system.
+In ROCm 2.7, rocprofiler --hiptrace and --hsatrace fails to load roctracer library.
+The workaround is to create two links under '/opt/rocm': $ ln -s /opt/rocm/roctracer/lib/libroctracer64.so /opt/rocm/rocprofiler/lib/libroctracer64.so $ ln -s /opt/rocm/roctracer/tool/libtracer_tool.so /opt/rocm/rocprofiler/tool/libtracer_tool.so
 
-Gromacs
-^^^^^^^
-There are known failures with a few tests on  Gromacs on CentOS
+rocFFT unit tests - memory access fault
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-HIP sample
-^^^^^^^^^^^
-HIP sample test fails at module_api_global with a segmentation fault
+Known failure with some power-of-2 size transforms in 1D real FFTs. This issue has been fixed in master branch of public rocFFT repo: https://github.com/ROCmSoftwarePlatform/rocFFT
 
 Closed source components
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -958,7 +960,7 @@ below.
 
    mkdir -p ~/ROCm/
    cd ~/ROCm/
-   ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-2.6.0
+   ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-2.7.0
    repo sync
 
 This will cause repo to download all of the open source code associated
@@ -977,9 +979,17 @@ download, build, package, and install ROCm software on various
 distributions. The scripts here may be useful for anyone looking to
 build ROCm components.
 
-Deprecation Notice - HCC
+Deprecation Notice
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+HCC
+^^^^
 AMD is deprecating HCC to put more focus on HIP development and on other languages supporting heterogeneous compute. We will no longer develop any new feature in HCC and we will stop maintaining HCC after its final release, which is planned for end of the year, 2019. If your application was developed with the hc C++ API, we would encourage you to transition it to other languages supported by AMD, such as HIP or OpenCL. HIP and hc language share the same compiler technology, so many hc kernel language features (including inline assembly) are also available through the HIP compilation path.
+
+hipThrust
+^^^^^^^^^^
+
+hip-thrust has been removed in ROCm2.7.
 
 Final notes
 ~~~~~~~~~~~

@@ -5,6 +5,35 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[rocFFT] Real FFT Functional
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Improved real/complex 1D even-length transforms of unit stride. Performance improvements of up to 4.5x are observed. Large problem sizes should see approximately 2x.
+
+rocRand Enhancements and Optimizations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * Added support for new datatypes: uchar, ushort, half.
+    * Improved performance on "Vega 7nm" chips, such as on the Radeon Instinct MI50
+    * mtgp32 uniform double performance changes due generation algorithm standardization. Better quality random numbers now generated with 30% decrease in performance
+    * Up to 5% performance improvements for other algorithms
+
+RAS
+^^^^^
+
+Added support for RAS on Radeon Instinct MI50, including:
+
+    * Memory error detection
+    * Memory error detection counter
+
+ROCm-SMI enhancements
+^^^^^^^^^^^^^^^^^^^^^^
+
+Added ROCm-SMI CLI and LIB support for FW version, compute running processes, utilization rates, utilization counter, link error counter, and unique ID.
+
 New features and enhancements in ROCm 2.6
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

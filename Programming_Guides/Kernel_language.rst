@@ -7,7 +7,7 @@ Kernel Language
 Index
 ######
 
-* :ref:`Introduction`
+* :ref:`Introduction-Kernel`
 * :ref:`Function-Type-Qualifiers`
 * :ref:`Calling__global__Functions`
 * :ref:`Kernel-Launch-Example`
@@ -34,6 +34,9 @@ Index
 * :ref:`Warp-Cross-Lane-Functions`
 	* :ref:`Warp-Vote-and-Ballot-Functions`
 	* :ref:`Warp-Shuffle-Functions`
+* :ref:`Cooperative Groups Functions`
+* :ref:`Warp Matrix Functions`
+* :ref:`Independent Thread Scheduling`
 * :ref:`Profiler-Counter-Function`
 * :ref:`Assert`
 * :ref:`Printf`
@@ -49,7 +52,7 @@ Index
 * :ref:`C++Support`
 * :ref:`Kernel-Compilation`
 
-.. _Introduction:
+.. _Introduction-Kernel:
 
 Introduction
 -------------
@@ -125,7 +128,7 @@ Calling __global__ Functions
 
 * Kernel arguments follow these first five parameters
 
-  ::
+::
 
   // Example pseudo code introducing hipLaunchKernel:
   __global__ MyKernel(hipLaunchParm lp, float *A, float *B, float *C, size_t N)
@@ -181,7 +184,7 @@ Variable-Type Qualifiers
 __constant__
 +++++++++++++++
 
-The ``__constant__`` keyword is supported. The host writes constant memory before launching the kernel; from the GPU, this memory is read-only during kernel execution. The functions for accessing constant memory (hipGetSymbolAddress(), hipGetSymbolSize(), hipMemcpyToSymbol(), hipMemcpyToSymbolAsync, hipMemcpyFromSymbol, hipMemcpyFromSymbolAsync) are under development.
+The ``__constant__`` keyword is supported. The host writes constant memory before launching the kernel; from the GPU, this memory is read-only during kernel execution. The functions for accessing constant memory (hipGetSymbolAddress(), hipGetSymbolSize(), hipMemcpyToSymbol(), hipMemcpyToSymbolAsync, hipMemcpyFromSymbol, hipMemcpyFromSymbolAsync) are available.
 
 __shared__
 +++++++++++++
@@ -1350,7 +1353,144 @@ Half-float shuffles are not supported. The default width is warpSize---see :ref:
  float __shfl_down (float var, unsigned int delta, int width=warpSize) ;
  int   __shfl_xor  (int var,   int laneMask, int width=warpSize) 
  float __shfl_xor  (float var, int laneMask, int width=warpSize);
- 
+
+.. _Cooperative Groups Functions:
+
+Cooperative Groups Functions
+------------------------------
+
+Cooperative groups is a mechanism for forming and communicating between groups of threads at
+a granularity different than the block.  This feature was introduced in Cuda 9.
+
+HIP does not support any of the kernel language cooperative groups
+types or functions.
+
++--------------------------------------------------------+------------------------+----------------------------+
+|   Function                                             |  Supported in HIP      |    Supported in CUDA       | 
++--------------------------------------------------------+------------------------+----------------------------+
+|void thread_group.sync()                                |                        |           y                | 
+|			                                 |		          |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned thread_group.size()                            |                        |           y                | 
+|			                                 |		          |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned thread_group.thread_rank()                     |                        |           y                |
+|			                                 |		          |                            | 
++--------------------------------------------------------+------------------------+----------------------------+
+|bool thread_group.is_valid()                            |                        |           y                | 
+|			                                 |		          |           	               |
++--------------------------------------------------------+------------------------+----------------------------+
+|thread_group tiled_partiti0on(thread_group, size)       |                        |           y                |
+|			                                 |		          |	      		       |                           
++--------------------------------------------------------+------------------------+----------------------------+
+|thread_block_tile<N> tiled_partition<N>(thread_group)   |                        |           y                |
+|			                                 |		          |		  	       |  
++--------------------------------------------------------+------------------------+----------------------------+
+|thread_block this_thread_block()                        |                        |           y                |
+|			                                 |		          |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl()                              |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl_down()                         |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl_up()                           |                        |           y                |
+|			                                 |                        |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl_xor()                          |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.any()                               |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.all()                               |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.ballot()                            |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.match_any()                         |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.match_all()                         |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|coalesced_group coalesced_threads()                     |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|grid_group this_grid()                                  |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|void grid_group.sync()                                  |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned grid_group.size()                              |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned grid_group.thread_rank()                       |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|bool grid_group.is_valid()                              |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|multi_grid_group this_multi_grid()                      |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|void multi_grid_group.sync()                            |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned multi_grid_group.size()                        |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned multi_grid_group.thread_rank()                 |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|bool multi_grid_group.is_valid()                        |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+
+
+.. _Warp Matrix Functions:
+
+
+Warp Matrix Functions
+----------------------
+
+Warp matrix functions allow a warp to cooperatively operate on small matrices whose elements are spread over the lanes in an unspecified manner. This feature was introduced in Cuda 9.
+
+HIP does not support any of the kernel language warp matrix types or functions.
+
+
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|   Function                                                                           |  Supported in HIP      |    Supported in CUD        | 
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void load_matrix_sync(fragment<...> &a, const T* mptr, unsigned lda)                  |                        |             ✓                    | 
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void load_matrix_sync(fragment<...> &a, const T* mptr, unsigned lda, layout_t layout) |                        |             ✓                    |
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void store_matrix_sync(T* mptr, fragment<...> &a,  unsigned lda, layout_t layout)     |                        |             ✓                    |
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void fill_fragment(fragment<...> &a, const T &value)                                  |                        |             ✓                    |
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void mma_sync(fragment<...> &d, const fragment<...> &a, const fragment<...> &b,       |                        |             ✓                    |
+|const fragment<...> &c , bool sat)                                                    |                        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+
+
+.. _Independent Thread Scheduling:
+
+Independent Thread Scheduling
+-------------------------------
+
+The hardware support for independent thread scheduling introduced in certain architectures supporting Cuda allows threads to progress independently of each other and enables intra-warp synchronizations that were previously not allowed.
+
+HIP does not support this type of scheduling.
+
 
 .. _Profiler-Counter-Function:
 

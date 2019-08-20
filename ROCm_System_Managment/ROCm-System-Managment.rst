@@ -20,6 +20,16 @@ You may find rocm-smi at the following location after installing the rocm packag
 
 Alternatively, you may clone this repository and run the tool directly.
 
+**Version**
+
+The SMI will report a "version" which is the version of the kernel installed: ::
+
+AMD ROCm System Management Interface v$(uname)
+
+For ROCk installations, this will be the AMDGPU module version (e.g. 5.0.71) For non-ROCk or monolithic ROCk installations, this will be the kernel version, which will be equivalent to the following bash command: ::
+
+$(uname -a) | cut -d ' ' -f 3)
+
 **Usage**
 
 For detailed and up to date usage information, we recommend consulting the help: ::
@@ -31,13 +41,14 @@ For convenience purposes, following is a quick excerpt:
 usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [-i] [-v] [--showhw] [-t] [-c] [-g] [-f] [-p] [-P] [-o] [-m] [-M] [-l]
                 [-s] [-u] [--showmemuse] [-b] [--showreplaycount] [-S] [--showvoltage] [--showrasinfo BLOCK [BLOCK ...]]
                 [--showfwinfo [BLOCK [BLOCK ...]]] [--showproductname] [-a] [--showmeminfo TYPE [TYPE ...]]
-                [--showdriverversion] [--showuniqueid] [--showpids] [--alldevices] [-r] [--setsclk LEVEL [LEVEL ...]]
-                [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]] [--setslevel SCLKLEVEL SCLK SVOLT]
-                [--setmlevel MCLKLEVEL MCLK MVOLT] [--resetfans] [--setfan LEVEL] [--setperflevel LEVEL]
-                [--setoverdrive %] [--setmemoverdrive %] [--setpoweroverdrive WATTS] [--resetpoweroverdrive]
-                [--setprofile SETPROFILE] [--resetprofile] [--rasenable BLOCK ERRTYPE] [--rasdisable BLOCK ERRTYPE]
-                [--rasinject BLOCK] [--gpureset] [--load FILE | --save FILE] [--autorespond RESPONSE]
-                [--loglevel ILEVEL] [--json]
+                [--showdriverversion] [--showuniqueid] [--showserial] [--showpids] [--showxgmierr] [--alldevices] [-r]
+                [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]]
+                [--setslevel SCLKLEVEL SCLK SVOLT] [--setmlevel MCLKLEVEL MCLK MVOLT] [--resetfans] [--setfan LEVEL]
+                [--setperflevel LEVEL] [--setoverdrive %] [--setmemoverdrive %] [--setpoweroverdrive WATTS]
+                [--resetpoweroverdrive] [--setprofile SETPROFILE] [--resetprofile] [--rasenable BLOCK ERRTYPE]
+                [--rasdisable BLOCK ERRTYPE] [--rasinject BLOCK] [--gpureset] [--resetxgmierr]
+                [--load FILE | --save FILE] [--autorespond RESPONSE] [--loglevel ILEVEL] [--json]
+
 
 AMD ROCm System Management Interface
 
@@ -81,7 +92,9 @@ optional arguments:
   --showmeminfo TYPE [TYPE ...]         Show Memory usage information for given block(s) TYPE
   --showdriverversion                   Show kernel driver version
   --showuniqueid                        Show GPU's Unique ID
+  --showserial                          Show GPU's Serial Number
   --showpids                            Show current running KFD PIDs
+  --showxgmierr                         Show XGMI error information since last read
   --alldevices                          Execute command on non-AMD devices as well as AMD devices
 
   -r, --resetclocks           		Reset clocks to OverDrive to default
@@ -202,6 +215,10 @@ SOCCLK - System clock (VG10 and later)- Data Fabric  (DF), MM HUB, AT HUB, SYSTE
 **--gpureset:** This flag will attempt to reset the GPU for a specified device. This will invoke the GPU reset through the kernel debugfs file amdgpu_gpu_recover. Note that GPU reset will not always work, depending on the manner in which the GPU is hung.
 
 **---showdriverversion:** This flag will print out the AMDGPU module version for amdgpu-pro or ROCK kernels. For other kernels, it will simply print out the name of the kernel (uname)
+
+**--showserial:** This flag will print out the serial number for the graphics card NOTE: This is currently only supported on Vega20 server cards that support it. Consumer cards and cards older than Vega20 will not support this feature.
+
+**--showproductname:** This uses the pci.ids file to print out more information regarding the GPUs on the system. 'update-pciids' may need to be executed on the machine to get the latest PCI ID snapshot, as certain newer GPUs will not be present in the stock pci.ids file, and the file may even be absent on certain OS installation types
 
 **OverDrive settings**
 

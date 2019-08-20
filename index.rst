@@ -10,12 +10,12 @@ We are excited to present ROCm, the first open-source HPC/Hyperscale-class platf
 
 **ROCm is built for scale**; it supports multi-GPU computing in and out of server-node communication through RDMA. It also simplifies the stack when the driver directly incorporates RDMA peer-sync support.
 
-**ROCm has a rich system run time** with the critical features that large-scale application, compiler and language-run-time development requires.
+**ROCm has a rich system run time** with the critical features that large-scale application, compiler and language-run-time development requirements.
 
 
-Going to 11: Amping Up the Programming-Language Run-Time Foundation
+Going to 11: Amping Up the Programming-Language Run-Time Foundation 
 ####################################################################
-The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
+The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
 
 .. image:: ROCm_Stack.png
     :align: center

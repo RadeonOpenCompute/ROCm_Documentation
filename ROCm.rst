@@ -41,7 +41,7 @@ Quick Start Guide
 | This guide provides information on different ROCm languages. ROCm stack offers multiple programming-language choices found in this section.
 
 | `HC Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hc-programing-guide>`_
-| This guide provides a detailed discussion on The Heterogeneous Compute programming installation requirements, methods to install on various platfroms and how to build it from source
+| This guide provides a detailed discussion on The Heterogeneous Compute programming installation requirements, methods to install on various platforms and how to build it from source
 
 | `HC Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hc-best-practices>`_
 | This section deals with detailed working with HCC, build the program, Build-in Macros, HCC Profiler mode and API Documentaion.
@@ -145,7 +145,7 @@ Quick Start Guide
 | `rocFFT <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocFFT.html#rocfft>`_
 | This section provides details on rocFFT,it is a AMD's software library compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
 
-|`rocBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocblas.html#rocblas>`_
+| `rocBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocblas.html#rocblas>`_
 | This section provides details on rocBLAS, it is a library for BLAS on ROCm.rocBLAS is implemented in the HIP programming language and optimized for AMD’s latest discrete GPUs.
 
 | `hipBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/hipBLAS.html#hip8las>`_
@@ -184,7 +184,7 @@ Quick Start Guide
 | `rocThrust <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocthrust>`_
 | This section provides details on rocThrust. It is a parallel algorithmn library.  
 
-| 'hipCUB <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipcub>`_ This section provides details on hipCUB. 
+| `hipCUB <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipcub>`_ This section provides details on   hipCUB. 
 | It is a thin wrapper library on top of rocPRIM or CUB. It enables developers to port the project using CUB library to the HIP layer and to 
 | run them on AMD hardware.
 
@@ -219,7 +219,7 @@ Quick Start Guide
 | This section provides information on sysfs file structure with details related to file structure related to system are captured in sysfs.
 
 | `KFD Topology <http://rocm-documentation.readthedocs.io/en/latest/ROCm_System_Managment/ROCm-System-Managment.html#kfd-topology>`_
-| KFD Kernel Topology is the system file structure wich describes about AMD GPU related information such as nodes, Memory, Cache and IO-links.
+| KFD Kernel Topology is the system file structure which describes about AMD GPU related information such as nodes, Memory, Cache and IO-links.
 
 `ROCm Virtualization & Containers <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers.html#rocm-virtualization-containers>`_
 ***********************************
