@@ -779,18 +779,25 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ROCm_Libraries/rocALUTION/src/base/ \
-			 ROCm_Libraries/rocALUTION/src/solvers/ \
-			 ROCm_Libraries/rocALUTION/src/solvers/direct/ \
-			 ROCm_Libraries/rocALUTION/src/solvers/krylov/ \
-			 ROCm_Libraries/rocALUTION/src/solvers/multigrid/ \
-			 ROCm_Libraries/rocALUTION/src/solvers/preconditioners/ \
-			 ROCm_Libraries/rocALUTION/src/utils/ \
-			 ROCm_Libraries/rocALUTION/src/clients/include/ \
-			 ROCm_Libraries/rocALUTION/src/clients/samples/ \
-			 ROCm_Libraries/rocALUTION/src/clients/tests/ \
-			 ROCm_Libraries/rocALUTION/src/modules.dox \
-			 ROCm_Libraries/rocALUTION/src/rocalution.hpp
+INPUT                  = ROCm_Libraries/rocALUTION/src/modules.dox \
+                         ROCm_Libraries/rocALUTION/src/base/backend_manager.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/parallel_manager.hpp \
+			 ROCm_Libraries/rocALUTION/src/utils/allocate_free.hpp \
+			 ROCm_Libraries/rocALUTION/src/utils/time_functions.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/operator.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/vector.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/base_rocalution.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/local_vector.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/global_vector.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/local_matrix.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/global_matrix.hpp \
+			 ROCm_Libraries/rocALUTION/src/base/local_stencil.hpp \
+                         ROCm_Libraries/rocALUTION/src/solvers \
+                         ROCm_Libraries/rocALUTION/src/solvers/krylov \
+                         ROCm_Libraries/rocALUTION/src/solvers/direct \
+                         ROCm_Libraries/rocALUTION/src/solvers/multigrid \
+                         ROCm_Libraries/rocALUTION/src/solvers/preconditioners
+                              
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
