@@ -6,8 +6,127 @@ Are You Ready to ROCK?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems. This software enables the high-performance operation of AMD GPUs for computation oriented tasks in the Linux operating system.
                        
-Current ROCm Version: 2.7
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Current ROCm Version: 2.7.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The latest ROCm platform - ROCm 2.7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The latest supported version of the drivers, tools, libraries and source
+code for the ROCm platform have been released and are available from the
+following GitHub repositories:
+
+-  ROCm Core Components
+
+   -  `ROCk Kernel Driver`_
+   -  `ROCr Runtime`_
+   -  `ROCt Thunk Interface`_
+
+-  ROCm Support Software
+
+   -  `ROCm SMI`_
+   -  `ROCm cmake`_
+   -  `rocminfo`_
+   -  `ROCm Bandwidth Test`_
+
+-  ROCm Development Tools
+
+   -  `HCC compiler`_
+   -  `HIP`_
+   -  `ROCm Device Libraries`_
+   -  ROCm OpenCL, which is created from the following components:
+
+      -  `ROCm OpenCL Runtime`_
+      -  `ROCm OpenCL Driver`_
+      -  The ROCm OpenCL compiler, which is created from the following
+         components:
+
+         -  `ROCm LLVM OCL`_
+         -  `ROCm LLVM HCC`_
+         -  `ROCm Clang`_
+         -  `ROCm lld OCL`_
+         -  `ROCm lld HCC`_
+         -  `ROCm Device Libraries`_
+
+   -  `ROCM Clang-OCL Kernel Compiler`_
+   -  `Asynchronous Task and Memory Interface`_
+   -  `ROCr Debug Agent`_
+   -  `ROCm Code Object Manager`_
+   -  `ROC Profiler`_
+   -  `ROC Tracer`_
+   -  `Radeon Compute Profiler`_
+
+   -  Example Applications:
+
+      -  `HCC Examples`_
+      -  `HIP Examples`_
+
+-  ROCm Libraries
+
+   -  `rocBLAS`_
+   -  `hipBLAS`_
+   -  `rocFFT`_
+   -  `rocRAND`_
+   -  `rocSPARSE`_
+   -  `hipSPARSE`_
+   -  `rocALUTION`_
+   -  `MIOpenGEMM`_
+   -  `MIOpen`_
+   -  `rocThrust`_
+   -  `ROCm SMI Lib`_
+   -  `RCCL`_
+   -  `MIVisionX`_
+   -  `hipCUB`_
+
+
+.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.7.0
+.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.7.0
+.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.7.0
+
+.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.7.0
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/master-rocm-2.7
+.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/roc-2.7.0
+.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.7.0
+
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.7.0
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.7.0
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.7.0
+
+.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.7.0
+.. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.7.0
+
+.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.7.0
+.. _ROCm LLVM HCC: http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.7.0
+.. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.7.0
+.. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.7.0
+.. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.7.0
+
+.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.7.0
+.. _Asynchronous Task and Memory Interface (ATMI): https://github.com/RadeonOpenCompute/atmi/tree/rocm_2.7.0
+.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.7.0
+.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.7.0
+.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.6.x
+.. _ROC Tracer: https://github.com/ROCmSoftwarePlatform/roctracer/tree/roc-2.7.x
+.. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
+
+.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.7.0
+
+.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/master-rocm-2.7
+.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/master-rocm-2.7
+.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/master-rocm-2.7
+.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/master-rocm-2.7
+.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/master-rocm-2.7
+.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/master-rocm-2.7
+.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/master-rocm-2.7
+.. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/9547fb9e
+.. _MIOpen: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-2.7.0
+.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/master-rocm-2.7
+.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.7.0
+.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/master-rocm-2.7
+.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.3.0
+.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/2.7
+
 
 Hardware Support
 ~~~~~~~~~~~~~~~~
@@ -196,127 +315,8 @@ Not supported
    -  Thunderbolt 1 and 2 enabled GPUs are not supported by GFX8 GPUs on
       ROCm. Thunderbolt 1 & 2 are based on PCIe 2.0.
 
-The latest ROCm platform - ROCm 2.7
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The latest supported version of the drivers, tools, libraries and source
-code for the ROCm platform have been released and are available from the
-following GitHub repositories:
-
--  ROCm Core Components
-
-   -  `ROCk Kernel Driver`_
-   -  `ROCr Runtime`_
-   -  `ROCt Thunk Interface`_
-
--  ROCm Support Software
-
-   -  `ROCm SMI`_
-   -  `ROCm cmake`_
-   -  `rocminfo`_
-   -  `ROCm Bandwidth Test`_
-
--  ROCm Development Tools
-
-   -  `HCC compiler`_
-   -  `HIP`_
-   -  `ROCm Device Libraries`_
-   -  ROCm OpenCL, which is created from the following components:
-
-      -  `ROCm OpenCL Runtime`_
-      -  `ROCm OpenCL Driver`_
-      -  The ROCm OpenCL compiler, which is created from the following
-         components:
-
-         -  `ROCm LLVM OCL`_
-         -  `ROCm LLVM HCC`_
-         -  `ROCm Clang`_
-         -  `ROCm lld OCL`_
-         -  `ROCm lld HCC`_
-         -  `ROCm Device Libraries`_
-
-   -  `ROCM Clang-OCL Kernel Compiler`_
-   -  `Asynchronous Task and Memory Interface`_
-   -  `ROCr Debug Agent`_
-   -  `ROCm Code Object Manager`_
-   -  `ROC Profiler`_
-   -  `ROC Tracer`_
-   -  `Radeon Compute Profiler`_
-
-   -  Example Applications:
-
-      -  `HCC Examples`_
-      -  `HIP Examples`_
-
--  ROCm Libraries
-
-   -  `rocBLAS`_
-   -  `hipBLAS`_
-   -  `rocFFT`_
-   -  `rocRAND`_
-   -  `rocSPARSE`_
-   -  `hipSPARSE`_
-   -  `rocALUTION`_
-   -  `MIOpenGEMM`_
-   -  `MIOpen`_
-   -  `rocThrust`_
-   -  `ROCm SMI Lib`_
-   -  `RCCL`_
-   -  `MIVisionX`_
-   -  `hipCUB`_
-
-
-.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-2.7.0
-.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-2.7.0
-.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-2.7.0
-
-.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-2.7.0
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/master-rocm-2.7
-.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/roc-2.7.0
-.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.7.0
-
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.7.0
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.7.0
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.7.0
-
-.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.7.0
-.. _ROCm OpenCL Driver: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/tree/roc-2.7.0
-
-.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-2.7.0
-.. _ROCm LLVM HCC: http://github.com/RadeonOpenCompute/llvm/tree/roc-hcc-2.7.0
-.. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.7.0
-.. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.7.0
-.. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.7.0
-
-.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.7.0
-.. _Asynchronous Task and Memory Interface (ATMI): https://github.com/RadeonOpenCompute/atmi/tree/rocm_2.7.0
-.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.7.0
-.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.7.0
-.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.6.x
-.. _ROC Tracer: https://github.com/ROCmSoftwarePlatform/roctracer/tree/roc-2.7.x
-.. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
-
-.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-2.7.0
-
-.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/master-rocm-2.7
-.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/master-rocm-2.7
-.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/master-rocm-2.7
-.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/master-rocm-2.7
-.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/master-rocm-2.7
-.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/master-rocm-2.7
-.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/master-rocm-2.7
-.. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/9547fb9e
-.. _MIOpen: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-2.7.0
-.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/master-rocm-2.7
-.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc-2.7.0
-.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/master-rocm-2.7
-.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.3.0
-.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/2.7
-
-
 Supported Operating Systems - New operating systems available
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ROCm 2.7.x platform supports the following operating systems:
 
@@ -325,7 +325,7 @@ The ROCm 2.7.x platform supports the following operating systems:
 -  RHEL 7.6 (Using devtoolset-7 runtime support)
 
 ROCm support in upstream Linux kernels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As of ROCm 1.9.0, the ROCm user-level software is compatible with the
 AMD drivers in certain upstream Linux kernels. As such, users have the

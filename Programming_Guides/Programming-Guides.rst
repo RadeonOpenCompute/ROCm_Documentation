@@ -14,10 +14,10 @@ The open-source ROCm stack offers multiple programming-language choices. The goa
 problem at hand. Here, we describe some of the options and how to choose among them.
 
 
+What is the Heterogeneous Compute (HC) API?
+############################################
 
-HCC: Heterogeneous Compute Compiler
-####################################
-What is the Heterogeneous Compute (HC) API? It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
+ It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
 
 The Heterogeneous Compute Compiler (HCC) provides two important benefits:
 
@@ -51,7 +51,7 @@ host/kernel boundary.
 
 The Hipify tool automates much of the conversion work by performing a source-to-source transformation from Cuda to HIP. HIP code can run on AMD hardware (through the HCC compiler) or Nvidia hardware (through the NVCC compiler) with no performance loss compared with the original Cuda code.
 
-Programmers familiar with other GPGPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.
+Programmers familiar with other GPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.
 
 When to Use HIP
 ################
@@ -202,33 +202,40 @@ Notes
 4. **From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
 
-HC Programming Guide
-====================
+HCC Programming Guide
+=======================
 
-**What is the Heterogeneous Compute (HC) API ?**
+HCC: Heterogeneous Compute Compiler
+####################################
 
-It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
+**HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute**
 
-The Heterogeneous Compute Compiler (HCC) provides two important benefits:
+HCC supports heterogeneous offload to AMD APUs and discrete GPUs via HSA enabled runtimes and drivers. It is an ISO compliant C++ 11/14 compiler. It is based on Clang, the LLVM Compiler Infrastructure and the “libc++” C++ standard library.
 
-Ease of development
+**Deprecation Notice**
 
+AMD is deprecating HCC to put more focus on HIP development and on other languages supporting heterogeneous compute. We will no longer develop any new feature in HCC and we will stop maintaining HCC after its final release, which is planned for June 2019. If your application was developed with the hc C++ API, we would encourage you to transition it to other languages supported by AMD, such as HIP or OpenCL. HIP and hc language share the same compiler technology, so many hc kernel language features (including inline assembly) are also available through the HIP compilation path.
 
-   * A full C++ API for managing devices, queues and events
-   * C++ data containers that provide type safety, multidimensional-array indexing and automatic data management
-   * C++ kernel-launch syntax using parallel_for_each plus C++11 lambda functions
-   * A single-source C++ programming environment---the host and source code can be in the same source file and use the same C++     	 language; templates and classes work naturally across the host/device boundary
-   * HCC generates both host and device code from the same compiler, so it benefits from a consistent view of the source code using   	   the same Clang-based language parser
+Accelerator Modes Supported
+############################
 
-Full control over the machine
+**HC (Heterogeneous Compute) C++ API**
 
+Inspired by C++ AMP and C++17, this is the default C++ compute API for the HCC compiler. HC has some important differences from C++ AMP including removing the “restrict” keyword, supporting additional data types in kernels, providing more control over synchronization and data movement, and providing pointer-based memory allocation. It is designed to expose cutting edge compute capabilities on Boltzmann and HSA devices to developers while offering the productivity and usability of C++.
 
-    * Access AMD scratchpad memories (“LDS”)
-    * Fully control data movement, prefetch and discard
-    * Fully control asynchronous kernel launch and completion
-    * Get device-side dependency resolution for kernel and data commands (without host involvement)
-    * Obtain HSA agents, queues and signals for low-level control of the architecture using the HSA Runtime API
-    * Use `direct-to-ISA <https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA>`_ compilation
+**HIP**
+
+HIP provides a set of tools and API for converting CUDA applications into a portable C++ API. An application using the HIP API could be compiled by hcc to target AMD GPUs. Please refer to HIP's repository for more information.
+
+**C++ AMP**
+
+**NOTE** The supported for C++AMP is being deprecated. The ROCm 1.9 release is the last release of HCC supporting C++AMP.
+
+Microsoft C++ AMP is a C++ accelerator API with support for GPU offload. This mode is compatible with Version 1.2 of the C++ AMP specification.
+
+**C++ Parallel STL**
+
+HCC provides an initial implementation of the parallel algorithms described in the ISO C++ Extensions for Parallelism, which enables parallel acceleration for certain STL algorithms.
 
 Platform Requirements
 ######################
@@ -240,8 +247,6 @@ Compiler Backends
 ###################
 This backend compiles GPU kernels into native GCN ISA, which can be directly executed on the GPU hardware. It's being actively developed by the Radeon Technology Group in LLVM.
 
-**When to Use HC**
- Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising performance or control of the machine.
 
 Installation
 ##################

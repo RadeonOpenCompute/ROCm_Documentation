@@ -5,6 +5,47 @@
 Current Release Notes
 =====================
 
+Hotfix release ROCm 2.7.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This release is a hotfix release for ROCm release 2.7.1, and addresses the defect mentioned below. The features and enhancements as mentioned in `ROCm 2.7 <https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#new-features-and-enhancements-in-rocm-2-7>`_ remain relevant to ROCm release 2.7.1 as well.
+
+Defect fixed in ROCm 2.7.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**rocprofiler --hiptrace and --hsatrace fails to load roctracer library**
+
+In ROCm 2.7.1, rocprofiler --hiptrace and --hsatrace fails to load roctracer library defect has been fixed.
+To generate traces, please provide directory path also using the parameter: -d <$directoryPath> for ex:
+
+ ::
+
+ /opt/rocm/bin/rocprof  --hsa-trace -d $PWD/traces /opt/rocm/hip/samples/0_Intro/bit_extract/bit_extract
+
+
+All traces and results will be saved under $PWD/traces path
+
+Upgrading from ROCm 2.7 to 2.7.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To upgrade, please remove 2.7 completely as specified `here <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#how-to-uninstall-from-ubuntu-1604-or-Ubuntu-1804>`_ or `here <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#how-to-uninstall-rocm-from-centosrhel-76>`_, and install 2.7.1 as per instructions `here <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#installing-from-amd-rocm-repositories>`_.
+
+**Other notes**
+
+To use rocprofiler features, the following steps need to be completed before using rocprofiler:
+**Step-1:** Install roctracer
+Ubuntu 16.04 or Ubuntu 18.04:
+
+ ::
+
+   sudo apt install roctracer-dev
+
+   CentOS/RHEL 7.6:
+
+   sudo yum install roctracer-dev
+
+**Step-2:** Add /opt/rocm/roctracer/lib to LD_LIBRARY_PATH
+
 New features and enhancements in ROCm 2.7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
