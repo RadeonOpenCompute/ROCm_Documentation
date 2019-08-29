@@ -14,35 +14,19 @@ The open-source ROCm stack offers multiple programming-language choices. The goa
 problem at hand. Here, we describe some of the options and how to choose among them.
 
 
-What is the Heterogeneous Compute (HC) API?
-############################################
+HCC: Heterogeneous Compute Compiler
+####################################
 
- It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
+**HCC : An open source C++ compiler for heterogeneous devices**
 
-The Heterogeneous Compute Compiler (HCC) provides two important benefits:
+This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as HC, C++ 17 ParallelSTL and transforms it into the AMD GCN ISA.
 
-**Ease of development**
+Deprecation Notice
+*******************
 
- * A full C++ API for managing devices, queues and events
- * C++ data containers that provide type safety, multidimensional-array indexing and automatic data management
- * C++ kernel-launch syntax using parallel_for_each plus C++11 lambda functions
- * A single-source C++ programming environment---the host and device code can be in the same source file and use the same C++        	language;templates and classes work naturally across the host/device boundary
- * HCC generates both host and device code from the same compiler, so it benefits from a consistent view of the source code using the
-   same Clang-based language parser
+AMD is deprecating HCC to put more focus on HIP development and on other languages supporting heterogeneous compute. We will no longer develop any new feature in HCC and we will stop maintaining HCC after its final release, which is planned for June 2019. If your application was developed with the hc C++ API, we would encourage you to transition it to other languages supported by AMD, such as HIP or OpenCL. HIP and hc language share the same compiler technology, so many hc kernel language features (including inline assembly) are also available through the HIP compilation path.
 
-**Full control over the machine**
-
- * Access AMD scratchpad memories (“LDS”)
- * Fully control data movement, prefetch and discard
- * Fully control asynchronous kernel launch and completion
- * Get device-side dependency resolution for kernel and data commands (without host involvement)
- * Obtain HSA agents, queues and signals for low-level control of the architecture using the HSA Runtime API
- * Use [direct-to-ISA](https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA) compilation
-
-When to Use HC
-###############
-Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising
-performance or control of the machine.
+The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
 
 HIP: Heterogeneous-Computing Interface for Portability
 #########################################################
@@ -51,10 +35,10 @@ host/kernel boundary.
 
 The Hipify tool automates much of the conversion work by performing a source-to-source transformation from Cuda to HIP. HIP code can run on AMD hardware (through the HCC compiler) or Nvidia hardware (through the NVCC compiler) with no performance loss compared with the original Cuda code.
 
-Programmers familiar with other GPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.
+Programmers familiar with other GPGPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.
 
 When to Use HIP
-################
+****************
 Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and Nvidia. HIP provides a C++ development language and access to the best development tools on both platforms.
 
 OpenCL™: Open Compute Language
@@ -63,7 +47,7 @@ What is OpenCL ?  It’s a framework for developing programs that can execute ac
 and Nvidia GPUs support version 1.2 of the specification, as do x86 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C run-time API and C99-based kernel language.
 
 When to Use OpenCL
-####################
+*******************
 Use OpenCL when you have existing code in that language and when you need portability to multiple platforms and devices. It runs on
 Windows, Linux and Mac OS, as well as a wide variety of hardware platforms (described above).
 
@@ -73,7 +57,7 @@ What is Anaconda ?  It’s a modern open-source analytics platform powered by Py
 ROCm-enabled discrete GPUs via Numba. It gives superpowers to the people who are changing the world.
 
 Numba
-#######
+******
 Numba gives you the power to speed up your applications with high-performance functions written directly in Python. Through a few
 annotations, you can just-in-time compile array-oriented and math-heavy Python code to native machine instructions---offering
 performance similar to that of C, C++ and Fortran---without having to switch languages or Python interpreters.
@@ -84,7 +68,7 @@ Numba works by generating optimized machine code using the LLVM compiler infrast
   * `Anaconda® with Numba acceleration <http://numba.pydata.org/numba-doc/latest/index.html>`_
 
 When to Use Anaconda
-#####################
+*********************
 Use Anaconda when you’re handling large-scale data-analytics,
 scientific and engineering problems that require you to manipulate
 large data arrays.
@@ -104,7 +88,7 @@ All are open-source projects, so you can employ a fully open stack from the lang
 interacting closely with our developer community. More to come soon!
 
 Table Comparing Syntax for Different Compute APIs
-##################################################
+**************************************************
 
 
 
@@ -194,7 +178,7 @@ Table Comparing Syntax for Different Compute APIs
 
 
 Notes
-#######
+******
 
 1. For HC and C++AMP, assume a captured _tiled_ext_ named "t_ext" and captured _extent_ named "ext".  These languages use captured variables to pass information to the kernel rather than using special built-in functions so the exact variable name may vary.
 2. The indexing functions (starting with `thread-index`) show the terminology for a 1D grid.  Some APIs use reverse order of xyz / 012 indexing for 3D grids.
@@ -202,297 +186,39 @@ Notes
 4. **From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
 
-HCC Programming Guide
-=======================
+HC Programming Guide
+====================
 
-HCC: Heterogeneous Compute Compiler
-####################################
+**What is the Heterogeneous Compute (HC) API ?**
 
-**HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute**
+It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
 
-HCC supports heterogeneous offload to AMD APUs and discrete GPUs via HSA enabled runtimes and drivers. It is an ISO compliant C++ 11/14 compiler. It is based on Clang, the LLVM Compiler Infrastructure and the “libc++” C++ standard library.
+The Heterogeneous Compute Compiler (HCC) provides two important benefits:
 
-**Deprecation Notice**
+Ease of development
 
-AMD is deprecating HCC to put more focus on HIP development and on other languages supporting heterogeneous compute. We will no longer develop any new feature in HCC and we will stop maintaining HCC after its final release, which is planned for June 2019. If your application was developed with the hc C++ API, we would encourage you to transition it to other languages supported by AMD, such as HIP or OpenCL. HIP and hc language share the same compiler technology, so many hc kernel language features (including inline assembly) are also available through the HIP compilation path.
 
-Accelerator Modes Supported
-############################
+   * A full C++ API for managing devices, queues and events
+   * C++ data containers that provide type safety, multidimensional-array indexing and automatic data management
+   * C++ kernel-launch syntax using parallel_for_each plus C++11 lambda functions
+   * A single-source C++ programming environment---the host and source code can be in the same source file and use the same C++     	 language; templates and classes work naturally across the host/device boundary
+   * HCC generates both host and device code from the same compiler, so it benefits from a consistent view of the source code using   	   the same Clang-based language parser
 
-**HC (Heterogeneous Compute) C++ API**
+Full control over the machine
 
-Inspired by C++ AMP and C++17, this is the default C++ compute API for the HCC compiler. HC has some important differences from C++ AMP including removing the “restrict” keyword, supporting additional data types in kernels, providing more control over synchronization and data movement, and providing pointer-based memory allocation. It is designed to expose cutting edge compute capabilities on Boltzmann and HSA devices to developers while offering the productivity and usability of C++.
 
-**HIP**
+    * Access AMD scratchpad memories (“LDS”)
+    * Fully control data movement, prefetch and discard
+    * Fully control asynchronous kernel launch and completion
+    * Get device-side dependency resolution for kernel and data commands (without host involvement)
+    * Obtain HSA agents, queues and signals for low-level control of the architecture using the HSA Runtime API
+    * Use `direct-to-ISA <https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA>`_ compilation
 
-HIP provides a set of tools and API for converting CUDA applications into a portable C++ API. An application using the HIP API could be compiled by hcc to target AMD GPUs. Please refer to HIP's repository for more information.
-
-**C++ AMP**
-
-**NOTE** The supported for C++AMP is being deprecated. The ROCm 1.9 release is the last release of HCC supporting C++AMP.
-
-Microsoft C++ AMP is a C++ accelerator API with support for GPU offload. This mode is compatible with Version 1.2 of the C++ AMP specification.
-
-**C++ Parallel STL**
-
-HCC provides an initial implementation of the parallel algorithms described in the ISO C++ Extensions for Parallelism, which enables parallel acceleration for certain STL algorithms.
-
-Platform Requirements
-######################
-Accelerated applications could be run on Radeon discrete GPUs from the Fiji family (AMD R9 Nano, R9 Fury, R9 Fury X, FirePro S9300 x2, Polaris 10, Polaris 11) paired with an Intel Haswell CPU or newer. HCC would work with AMD HSA APUs (Kaveri, Carrizo); however, they are not our main support platform and some of the more advanced compute capabilities may not be available on the APUs.
-
-HCC currently only works on Linux and with the open source ROCK kernel driver and the ROCR runtime (see Installation for details). It will not work with the closed source AMD graphics driver.
-
-Compiler Backends
-###################
-This backend compiles GPU kernels into native GCN ISA, which can be directly executed on the GPU hardware. It's being actively developed by the Radeon Technology Group in LLVM.
-
-
-Installation
-##################
-
-**Prerequisites**
-
-Before continuing with the installation, please make sure any previously installed hcc compiler has been removed from on your system.
-Install `ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ and make sure it works correctly.
-
-Ubuntu
-########
-
-**Ubuntu 14.04**
-
-Support for 14.04 has been deprecated.
-
-**Ubuntu 16.04**
-
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
-
-**Fedora 24**
-
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-fedora>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package.
-
-**RHEL 7.4/CentOS 7**
-
-Follow the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-fedora>`_ to setup the ROCm apt repository and install the rocm or the rocm-dev meta-package for RHEL/CentOS. Currently, HCC support for RHEL 7.4 and CentOS 7 is experimental and the compiler has to be built from source. Note: CentOS 7 cmake is outdated, will need to use alternate cmake3.
-
-**openSUSE Leap 42.3**
-
-Currently, HCC support for openSUSE is experimental and the compiler has to be built from source.
-
-Download HCC
-################
- The project now employs git submodules to manage external components it depends upon. It it advised to add --recursive when you clone the project so all submodules are fetched automatically.
-
-For example
-
-.. code:: sh
-
-  # automatically fetches all submodules
-  git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
-
-Build HCC from source
-######################
-
-First, install the build dependencies
-
-.. code:: sh
-
-  # Ubuntu 14.04
-  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib libc++-dev libc++1 libc++abi-dev libc++abi1 python findutils libelf1 libpci3 file debianutils libunwind8-dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
-
-.. code:: sh
-
-  # Ubuntu 16.04
-  sudo apt-get install git cmake make g++  g++-multilib gcc-multilib python findutils libelf1 libpci3 file debianutils libunwind- dev hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev pkg-config rocm-utils
-
-.. code:: sh
-
-   # Fedora 23/24
-   sudo dnf install git cmake make gcc-c++ python findutils elfutils-libelf pciutils-libs file pth rpm-build libunwind-devel hsa- rocr- dev hsa-ext-rocr-dev hsakmt-roct-dev pkgconfig rocm-utils
-
-Clone the HCC source tree
-
-.. code:: sh
-
-  # automatically fetches all submodules
-  git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
-
-Create a build directory and run cmake in that directory to configure the build
-
-.. code:: sh
-
-  mkdir build;
-  cd build;
-  cmake ../hcc
-
-Compile HCC
-
-.. code:: sh
-
-  make -j
-
-Run the unit tests
-
-.. code:: sh
-
-  make test
-
-Create an installer package (DEB or RPM file)
-
-.. code:: sh
-
-  make package
-
-
-
-To configure and build HCC from source, use the following steps
-
-.. code:: sh
-
-  mkdir -p build; cd build
-  # NUM_BUILD_THREADS is optional
-  # set the number to your CPU core numbers time 2 is recommended
-  # in this example we set it to 96
-    cmake -DNUM_BUILD_THREADS=96 \
-    -DCMAKE_BUILD_TYPE=Release \
-  ..
-  make
-
-To install it, use the following steps
-
-.. code:: sh
-
-  sudo make install
-
-Use HCC
-########
-
-For C++AMP source codes
-
-.. code:: sh
-
-  hcc `clamp-config --cxxflags --ldflags` foo.cpp
-
-**WARNING: From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
-
-For HC source codes
-
-.. code:: sh
-
- hcc `hcc-config --cxxflags --ldflags` foo.cpp
-
-In case you build HCC from source and want to use the compiled binaries directly in the build directory:
-
-For C++AMP source codes
-
-.. code:: sh
-
-  # notice the --build flag
-  bin/hcc `bin/clamp-config --build --cxxflags --ldflags` foo.cpp
-
-**WARNING: From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
-
-For HC source codes
-
-.. code:: sh
-
-  # notice the --build flag
-  bin/hcc `bin/hcc-config --build --cxxflags --ldflags` foo.cpp
-
-**Compiling for Different GPU Architectures**
-
-By default, HCC will auto-detect all the GPU's local to the compiling machine and set the correct GPU architectures. Users could use the --amdgpu-target=<GCN Version> option to compile for a specific architecture and to disable the auto-detection. The following table shows the different versions currently supported by HCC.
-
-There exists an environment variable HCC_AMDGPU_TARGET to override the default GPU architecture globally for HCC; however, the usage of this environment variable is NOT recommended as it is unsupported and it will be deprecated in a future release.
-
-============ ================== ==============================================================
-GCN Version   GPU/APU Family       Examples of Radeon GPU
-
-============ ================== ==============================================================
-gfx701        GFX7               FirePro W8100, FirePro W9100, Radeon R9 290, Radeon R9 390
-
-gfx801        Carrizo APU        FX-8800P
-
-gfx803        GFX8               R9 Fury, R9 Fury X, R9 Nano, FirePro S9300 x2, Radeon RX 480,
-                                 Radeon RX 470, Radeon RX 460
-
-gfx900        GFX9                 Vega10
-
-============ ================== ==============================================================
-
-Multiple ISA
-#############
-
-HCC now supports having multiple GCN ISAs in one executable file. You can do it in different ways: **use :: --amdgpu-target= command line option**
-It's possible to specify multiple --amdgpu-target= option.
-
-Example
-
-.. code:: sh
-
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
- # be produced
- hcc `hcc-config --cxxflags --ldflags` \
-    --amdgpu-target=gfx701 \
-    --amdgpu-target=gfx801 \
-    --amdgpu-target=gfx802 \
-    --amdgpu-target=gfx803 \
-    foo.cpp
-
-**use :: HCC_AMDGPU_TARGET env var**
-
-Use, to delimit each AMDGPU target in HCC. Example
-
-.. code:: sh
-
-  export HCC_AMDGPU_TARGET=gfx701,gfx801,gfx802,gfx803
-  # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
-  # be produced
-  hcc `hcc-config --cxxflags --ldflags` foo.cpp
-
-**configure HCC using the CMake HSA_AMDGPU_GPU_TARGET variable**
-
-If you build HCC from source, it's possible to configure it to automatically produce multiple ISAs via :: HSA_AMDGPU_GPU_TARGET CMake variable.
-Use ; to delimit each AMDGPU target. Example
-
-.. code:: sh
-
- # ISA for Hawaii(gfx701), Carrizo(gfx801), Tonga(gfx802) and Fiji(gfx803) would
- # be produced by default
- cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DROCM_DEVICE_LIB_DIR=~hcc/ROCm-Device-Libs/build/dist/lib \
-    -DHSA_AMDGPU_GPU_TARGET="gfx701;gfx801;gfx802;gfx803" \
-    ../hcc
-
-CodeXL Activity Logger
-#######################
-
-To enable the CodeXL Activity Logger, use the  USE_CODEXL_ACTIVITY_LOGGER environment variable.
-
-Configure the build in the following way
-
-.. code:: sh
-
-  cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DHSA_AMDGPU_GPU_TARGET=<AMD GPU ISA version string> \
-    -DROCM_DEVICE_LIB_DIR=<location of the ROCm-Device-Libs bitcode> \
-    -DUSE_CODEXL_ACTIVITY_LOGGER=1 \
-    <ToT HCC checkout directory>
-
-In your application compiled using hcc, include the CodeXL Activiy Logger header
-
-.. code:: cpp
-
-  #include <CXLActivityLogger.h>
-
-For information about the usage of the Activity Logger for profiling, please refer to `documentation <https://documentation.help/CodeXL/amdtactivitylogger-library.htm>`_
-
-
+**When to Use HC**
+ Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising performance or control of the machine.
 
 HC Best Practices
-=================
+******************
 
 HC comes with two header files as of now:
 
@@ -513,46 +239,8 @@ C++AMP 		       			             HC
 ``Concurrency::array_view``     	 ``hc::array_view``
 ================================== =====================
 
-
-HCC built-in macros
-#######################
-Built-in macros:
-
-====================== ===============================================================================
-Macro                  Meaning
-====================== ===============================================================================
-``__HCC__``		         always be 1
-``__hcc_major__``	     major version number of HCC
-``__hcc_minor__``	     minor version number of HCC
-``__hcc_patchlevel__`` patchlevel of HCC
-``__hcc_version__``	   combined string of ``__hcc_major__``, ``__hcc_minor__``, ``__hcc_patchlevel__``
-====================== ===============================================================================
-
-The rule for ``__hcc_patchlevel__`` is: yyWW-(HCC driver git commit #)-(HCC clang git commit #)
-
-   * yy stands for the last 2 digits of the year
-   * WW stands for the week number of the year
-
-Macros for language modes in use:
-
-================== ==========================================================================
- Macro             Meaning
-================== ==========================================================================
-``__KALMAR_AMP__`` 1 in case in C++ AMP mode (-std=c++amp; **Removed from ROCm 2.0 onwards**)
-``__KALMAR_HC__``  1 in case in HC mode (-hc)
-================== ==========================================================================
-
-Compilation mode: HCC is a single-source compiler where kernel codes and host codes can reside in the same file. Internally HCC would trigger 2 compilation iterations, and the following macros can be used by user programs to determine which mode the compiler is in.
-
-========================== ===============================================================
-Macro           		       Meaning
-========================== ===============================================================
-``__KALMAR_ACCELERATOR__`` not 0 in case the compiler runs in kernel code compilation mode
-``__KALMAR_CPU__``         not 0 in case the compiler runs in host code compilation mode
-========================== ===============================================================
-
 HC-specific features
-########################
+*********************
 
    * relaxed rules in operations allowed in kernels
    * new syntax of tiled_extent and tiled_index
@@ -561,7 +249,7 @@ HC-specific features
    * additional HSA-specific APIs
 
 Differences between HC API and C++ AMP
-#########################################
+***************************************
 Despite HC and C++ AMP sharing many similar program constructs (e.g. parallel_for_each, array, array_view, etc.), there are several significant differences between the two APIs.
 
 **Support for explicit asynchronous parallel_for_each**
@@ -632,141 +320,6 @@ For HSA APUs that supports system wide shared virtual memory, a GPU kernel can d
  int* cpu_memory = (int*) malloc(...); ... parallel_for_each(ext, [=](index i) [[hc]] { cpu_memory[i[0]]++; });
 
 
-HCC Profile Mode
-##################
-
-HCC supports low-overhead profiler to trace or summarize command timestamp information to stderr for any HCC or HIP program. Tho profiler messages are interleaved with the trace output from the application - which is handy to identify the region-of-interest and can complement deeper analysis with the CodeXL GUI Additionally, the hcc profiler requires only console mode access and can be used on machine where graphics are not available or are hard to access.
-
-Some other useful features:
-
-* Calculates the actual bandwidth for memory transfers
-* Identifies PeerToPeer memory copies
-* Shows start / stop timestamps for each command (if requested)
-* Shows barrier commands and the time they spent waiting to resolve (if requested)
-
-**Enable and configure**
-
-
-| HCC_PROFILE=1 shows a summary of kernel and data commands when hcc exits (under development).
-| HCC_PROFILE=2 enables a profile message after each command (kernel or data movement) completes.
-
-| Additionally, the HCC_PROFILE_VERBOSE variable controls the information shown in the profile log. This is a bit-vector:
-| 0x2 : Show start and stop timestamps for each command.
-| 0x4 : Show the device.queue.cmdseqnum for each command.
-| 0x8 : Show the short CPU TID for each command (not supported).
-| 0x10 : Show logs for barrier commands.
-
-**Sample Output**
-
-
-Kernel Commands
-++++++++++++++++
-
-This shows the simplest trace output for kernel commands with no additional verbosity flags
-
-.. code:: sh
-
- $ HCC_PROFILE=2 ./my-hcc-app ...
- profile:  kernel;            Im2Col;   17.8 us;
- profile:  kernel;  tg_betac_alphaab;   32.6 us;
- profile:  kernel;     MIOpenConvUni;  125.4 us;
-
-.. code:: sh
-
-  PROFILE:  TYPE;    KERNEL_NAME     ;  DURATION;
-
-This example shows profiled kernel commands with full verbose output
-
-.. code:: sh
-
- $ HCC_PROFILE=2 HCC_PROFILE_VERBOSE=0xf ./my-hcc-app ...
- profile:  kernel;            Im2Col;   17.8 us;  94859076277181; 94859076294941; #0.3.1;
- profile:  kernel;  tg_betac_alphaab;   32.6 us;  94859537593679; 94859537626319; #0.3.2;
- profile:  kernel;     MIOpenConvUni;  125.4 us;  94860077852212; 94860077977651; #0.3.3;
-
-.. code:: sh
-
-  PROFILE:  TYPE;    KERNEL_NAME     ;  DURATION;  START         ; STOP          ; ID
-
-* PROFILE: always "profile:" to distinguish it from other output.
-* TYPE: the command type : kernel, copy, copyslo, or barrier. The examples and descriptions in this section are all kernel commands.
-* KERNEL_NAME: the (short) kernel name.
-* DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the accelerator device.
-* START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* ID: command id in device.queue.cmd format. (if HCC_PROFILE_VERBOSE & 0x4). The cmdsequm is a unique monotonically increasing number per-queue, so the triple of device.queue.cmdseqnum uniquely identifies the command during the process execution.
-
-Memory Copy Commands
-+++++++++++++++++++++
-
-This example shows memory copy commands with full verbose output:
-
-.. code:: sh
-
- profile: copyslo; HostToDevice_sync_slow;   909.2 us; 94858703102; 94858704012; #0.0.0; 2359296 bytes;  2.2 MB;   2.5 GB/s;
- profile:    copy; DeviceToHost_sync_fast;   117.0 us; 94858726408; 94858726525; #0.0.0; 1228800 bytes;  1.2 MB;   10.0 GB/s;
- profile:    copy; DeviceToHost_sync_fast;     9.0 us; 94858726668; 94858726677; #0.0.0; 400 bytes;      0.0 MB;   0.0 GB/s;
- profile:    copy; HostToDevice_sync_fast;    15.2 us; 94858727639; 94858727654; #0.0.0; 9600 bytes;     0.0 MB;   0.6 GB/s;
- profile:    copy; HostToDevice_async_fast;  131.5 us; 94858729198; 94858729330; #0.6.1; 1228800 bytes;  1.2 MB;   8.9 GB/s;
- PROFILE:  TYPE;    COPY_NAME             ;  DURATION;       START;       STOP;  ID    ; SIZE_BYTES;     SIZE_MB;  BANDWIDTH;
-
-
-* PROFILE: always "profile:" to distinguish it from other output.
-* TYPE: the command type : kernel, copy, copyslo,or barrier. The examples and descriptions in this section are all copy or copyslo commands.
-* COPY_NAME has 3 parts:
-	* Copy kind: HostToDevice, HostToHost, DeviceToHost, DeviceToDevice, or PeerToPeer. DeviceToDevice indicates the copy occurs on a single device while PeerToPeer indicates a copy between devices.
-	* Sync or Async. Synchronous copies indicate the host waits for the completion for the copy. Asynchronous copies are launched by the host without waiting for the copy to complete.
-	* Fast or Slow. Fast copies use the GPUs optimized copy routines from the hsa_amd_memory_copy routine. Slow copies typically involve unpinned host memory and can't take the fast path.
-	* For example `HostToDevice_async_fast`.
-
-* DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the accelerator device.
-* START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* ID: command id in device.queue.cmd format. (if HCC_PROFILE_VERBOSE & 0x4). The cmdsequm is a unique mononotically increasing number per-queue, so the triple of device.queue.cmdseqnum uniquely identifies the command during the process execution.
-* SIZE_BYTES: the size of the transfer, measured in bytes.
-* SIZE_MB: the size of the transfer, measured in megabytes.
-* BANDWIDTH: the bandwidth of the transfer, measured in GB/s.
-
-Barrier Commands
-+++++++++++++++++
-
-Barrier commands are only enabled if HCC_PROFILE_VERBOSE 0x10
-
-An example barrier command with full vebosity
-
-.. code:: sh
-
- profile: barrier; deps:0_acq:none_rel:sys;  5.3 us;   94858731419410; 94858731424690; # 0.0.2;
- PROFILE:  TYPE;   BARRIER_NAME           ;  DURATION; START         ; STOP          ; ID    ;
-
-* PROFILE: always "profile:" to distinguish it from other output.
-* TYPE: the command type: either kernel, copy, copyslo, or barrier. The examples and descriptions in this section are all copy commands. Copy indicates that the runtime used a call to the fast hsa memory copy routine while copyslo indicates that the copy was implemented with staging buffers or another less optimal path. copy computes the commands using device-side timestamps while copyslo computes the bandwidth based on host timestamps.
-* BARRIER_NAME has 3 parts:
-	* **deps:#** - the number of input dependencies into the barrier packet.
-	* **acq:** - the acquire fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
-	* **rel:** - the release fence for the barrier. May be none, acc(accelerator or agent), sys(system). See HSA AQL spec for additional information.
-* DURATION: command duration measured in us. This is measured using the GPU timestamps from the time the barrier reaches the head of the queue to when it executes. Thus this includes the time to wait for all input dependencies, plus the previous command to complete, plus any fence operations performed by the barrier.
-* START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
-* ID: the command id in device.queue.cmd format. (if HCC_PROFILE_VERBOSE & 0x4). The cmdsequm is a unique mononotically increasing number per-queue, so the triple of device.queue.cmdseqnum uniquely identifies the command during the process execution.
-
-Overhead
-+++++++++
-
-The hcc profiler does not add any additional synchronization between commands or queues. Profile information is recorded when a command is deleted. The profile mode will allocate a signal for each command to record the timestamp information. This can add 1-2 us to the overall program execution for command which do not already use a completion signal. However, the command duration (start-stop) is still accurate. Trace mode will generate strings to stderr which will likely impact the overall application exection time. However, the GPU duration and timestamps are still valid. Summary mode accumulates statistics into an array and should have little impact on application execution time.
-
-Additional Details and tips
-++++++++++++++++++++++++++++
-
-* Commands are logged in the order they are removed from the internal HCC command tracker. Typically this is the same order that      	commands are dispatched, though sometimes these may diverge. For example, commands from different devices,queues, or cpu threads    	may be interleaved on the hcc trace display to stderr. If a single view in timeline order is required, enable and sort by the       	profiler START timestamps (HCC_PROFILE_VERBOSE=0x2)
-* If the application keeps a reference to a completion_future, then the command timestamp may be reported significantly after it      	occurs.
-* HCC_PROFILE has an (untested) feature to write to a log file.
-
-
-API documentation
-####################
-`API reference of HCC <https://scchan.github.io/hcc/>`_
-
 HIP Programing Guide
 ====================
 
@@ -783,7 +336,7 @@ This section describes the built-in variables and functions accessible from the 
 
 
 HIP Best Practices
-==================
+*******************
 
  * :ref:`HIP-porting-guide`
  * :ref:`HIP-terminology`
@@ -806,6 +359,6 @@ OpenCL Programing Guide
 * :ref:`Opencl-Programming-Guide`
 
 OpenCL Best Practices
-======================
+***********************
 
 * :ref:`Optimization-Opencl`
