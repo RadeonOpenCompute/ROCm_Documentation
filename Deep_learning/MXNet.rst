@@ -4,12 +4,13 @@
 MXNet 
 =========
 
+.. image:: MXNet_image1.png
+
 MXNet is a deep learning framework that has been ported to the HIP port of MXNet. It works both on HIP/ROCm and HIP/CUDA platforms.
 Mxnet makes use of rocBLAS,rocRAND,hcFFT and MIOpen APIs.
+ It allows you to mix `symbolic and imperative programming <https://mxnet.incubator.apache.org/architecture/index.html#deep-learning-system-design-concepts>`_ to **maximize** efficiency and productivity. At its core, MXNet contains a dynamic dependency scheduler that automatically parallelizes both symbolic and imperative operations on the fly. A graph optimization layer on top of that makes symbolic execution fast and memory efficient. MXNet is portable and lightweight, scaling effectively to multiple GPUs and multiple machines.
 
-**MXNet**
-
-.. image:: MXNet_image1.png
+MXNet is more than a deep learning project. It is a collection of `blue prints and guidelines <https://mxnet.incubator.apache.org/architecture/index.html#deep-learning-system-design-concepts>`_ for building deep learning systems, and interesting insights of DL systems for hackers.
 
 Installation Guide for MXNet library
 #####################################
@@ -20,18 +21,34 @@ Prerequisites
 `GCC 4.8 <https://gcc.gnu.org/gcc-4.8/>`_ or later to compile C++ 11.
 `GNU Make <https://www.gnu.org/software/make/>`_
 
-ROCm installation
-********************
-
-Follow the instructions from here -`ROCm Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
-
 **Install Dependencies to build mxnet for HIP/ROCm**
-::
- sudo apt-get install rocm-device-libs rocm-libs rocblas hipblas rocrand 
- sudo apt-get install rocm-opencl rocm-opencl-dev rocm-utils
- sudo apt-get install miopengemm miopen-hip
+
+* Install ROCm following AMD `ROCm's Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_ to setup MXNet with GPU support.
+
+* Install ROCm Libraries
+
+ ::
+  
+  sudo apt install -y rocm-device-libs rocm-libs rocblas hipblas rocrand rocfft
+
+* Install ROCm opencl
  
-`Install hcfft from source <https://github.com/ROCmSoftwarePlatform/hcFFT/wiki/Installation>`_ 
+ ::
+
+  sudo apt install -y rocm-opencl rocm-opencl-dev
+
+* Install MIOpen for acceleration
+
+ ::
+
+  sudo apt install -y miopengemm miopen-hip
+
+* Install rocthrust,rocprim, hipcub Libraries
+
+ ::
+
+  sudo apt install -y rocthrust rocprim hipcub
+ 
  
 **Install Dependencies to build mxnet for HIP/CUDA**
 
@@ -56,7 +73,8 @@ MXNet uses BLAS and LAPACK libraries for accelerated numerical computations on C
 ::
  $ sudo apt-get install -y libopenblas-dev liblapack-dev libomp-dev libatlas-dev libatlas-base-dev
 
-**Step 3: Install `OpenCV <https://opencv.org/>`_.**
+**Step 3: Install OpenCV.**
+Install OpenCV <https://opencv.org/>`_ here.
 MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  $ sudo apt-get install -y libopencv-dev
@@ -79,26 +97,29 @@ MXNet uses OpenCV for efficient image loading and augmentation operations.
 ::
  $ export HIP_PLATFORM=nvcc
  
-**Step 6:**
 
+ 
+**Step 6: To enable MIOpen for higher acceleration :**
+::
+ USE_CUDNN=1  
+ 
+
+**Step 7:**
 **If building on CPU:**
 ::
- make -jn(n=number of cores) USE_CUDA=0
+ make -jn(n=number of cores) USE_GPU=0 (For Ubuntu 16.04)
+ make -jn(n=number of cores)  CXX=g++-6 USE_GPU=0 (For Ubuntu 18.04)
  
 **If building on GPU:**
 ::
- make -jn(n=number of cores) USE_CUDA=1
+ make -jn(n=number of cores) USE_GPU=1 (For Ubuntu 16.04)
+ make -jn(n=number of cores)  CXX=g++-6 USE_GPU=1 (For Ubuntu 18.04) 
  
-**Step 7: To enable MIOpen for higher acceleration :**
-::
- make -jn(n=number of cores) USE_CUDNN=1  
- 
-NOTE: Currently this feature is under development
 
 On succesfull compilation a library called libmxnet.so is created in mxnet/lib path.
 
 **Note:**
- 1. USE_CUDA, USE_CUDNN flags can be changed in make/config.mk.
+ 1. USE_CUDA(to build on GPU), USE_CUDNN(for acceleration) flags can be changed in make/config.mk.
  2. To compile on HIP/CUDA make sure to set USE_CUDA_PATH to right CUDA installation path in make/config.mk. In most cases it is - /usr/local/cuda.
 
 
@@ -107,7 +128,11 @@ Install the MXNet Python binding
 
 **Step 1: Install prerequisites - python, setup-tools, python-pip and numpy.**
 ::
- $ sudo apt-get install -y python-dev python-setuptools python-numpy python-pip
+ $ sudo apt-get install -y python-dev python-setuptools python-numpy python-pip python-scipy
+ $ sudo apt-get install python-tk
+ $ sudo apt install -y fftw3 fftw3-dev pkg-config
+
+
 
 **Step 2: Install the MXNet Python binding.**
 ::
@@ -118,7 +143,10 @@ Install the MXNet Python binding
 ::
  $ cd example/
  $ cd bayesian-methods/
+
  To run on gpu change mx.cpu() to mx.gpu() in python script (Example- bdk_demo.py)
+
+::
  $ python bdk_demo.py
 
 

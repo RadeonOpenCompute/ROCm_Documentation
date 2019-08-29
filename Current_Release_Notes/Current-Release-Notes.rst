@@ -5,6 +5,158 @@
 Current Release Notes
 =====================
 
+Hotfix release ROCm 2.7.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This release is a hotfix release for ROCm release 2.7.1, and addresses the defect mentioned below. The features and enhancements as mentioned in `ROCm 2.7 <https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#new-features-and-enhancements-in-rocm-2-7>`_ remain relevant to ROCm release 2.7.1 as well.
+
+Defect fixed in ROCm 2.7.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**rocprofiler --hiptrace and --hsatrace fails to load roctracer library**
+
+In ROCm 2.7.1, rocprofiler --hiptrace and --hsatrace fails to load roctracer library defect has been fixed.
+To generate traces, please provide directory path also using the parameter: -d <$directoryPath> for ex:
+
+ ::
+
+ /opt/rocm/bin/rocprof  --hsa-trace -d $PWD/traces /opt/rocm/hip/samples/0_Intro/bit_extract/bit_extract
+
+
+All traces and results will be saved under $PWD/traces path
+
+Upgrading from ROCm 2.7 to 2.7.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To upgrade, please remove 2.7 completely as specified `here <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#how-to-uninstall-from-ubuntu-1604-or-Ubuntu-1804>`_ or `here <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#how-to-uninstall-rocm-from-centosrhel-76>`_, and install 2.7.1 as per instructions `here <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#installing-from-amd-rocm-repositories>`_.
+
+**Other notes**
+
+To use rocprofiler features, the following steps need to be completed before using rocprofiler:
+**Step-1:** Install roctracer
+Ubuntu 16.04 or Ubuntu 18.04:
+
+ ::
+
+   sudo apt install roctracer-dev
+
+   CentOS/RHEL 7.6:
+
+   sudo yum install roctracer-dev
+
+**Step-2:** Add /opt/rocm/roctracer/lib to LD_LIBRARY_PATH
+
+New features and enhancements in ROCm 2.7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[rocFFT] Real FFT Functional
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Improved real/complex 1D even-length transforms of unit stride. Performance improvements of up to 4.5x are observed. Large problem sizes should see approximately 2x.
+
+rocRand Enhancements and Optimizations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * Added support for new datatypes: uchar, ushort, half.
+    * Improved performance on "Vega 7nm" chips, such as on the Radeon Instinct MI50
+    * mtgp32 uniform double performance changes due generation algorithm standardization. Better quality random numbers now generated with 30% decrease in performance
+    * Up to 5% performance improvements for other algorithms
+
+RAS
+^^^^^
+
+Added support for RAS on Radeon Instinct MI50, including:
+
+    * Memory error detection
+    * Memory error detection counter
+
+ROCm-SMI enhancements
+^^^^^^^^^^^^^^^^^^^^^^
+
+Added ROCm-SMI CLI and LIB support for FW version, compute running processes, utilization rates, utilization counter, link error counter, and unique ID.
+
+New features and enhancements in ROCm 2.6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ROCmInfo enhancements
+^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCmInfo was extended to do the following: For ROCr API call errors including initialization determine if the error could be explained by:
+
+   * ROCk (driver) is not loaded / available
+   * User does not have membership in appropriate group - "video"
+   * If not above print the error string that is mapped to the returned error code
+   * If no error string is available, print the error code in hex
+
+[Thrust] Functional Support on Vega20
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCm2.6 contains the first official release of rocThrust and hipCUB. rocThrust is a port of thrust, a parallel algorithm library. hipCUB is a port of CUB, a reusable software component library. Thrust/CUB has been ported to the HIP/ROCm platform to use the rocPRIM library. The HIP ported library works on HIP/ROCm platforms.
+
+::
+
+Note: rocThrust and hipCUB library replaces `hip-thrust <https://github.com/ROCmSoftwarePlatform/thrust>`_ , i.e. hip-thrust has been separated into two libraries, rocThrust and hipCUB. Existing hip-thrust users are encouraged to port their code to rocThrust and/or hipCUB. Hip-thrust will be removed from official distribution later this year.
+
+MIGraphX v0.3
+^^^^^^^^^^^^^^^
+
+MIGraphX optimizer adds support to read models frozen from Tensorflow framework. Further details and an example usage at `<https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/wiki/Getting-started:-using-the-new-features-of-MIGraphX-0.3>`_
+
+MIOpen 2.0
+^^^^^^^^^^^^
+
+    * This release contains several new features including an immediate mode for selecting convolutions, bfloat16 support, new layers,  
+      modes, and algorithms.     
+    * MIOpenDriver, a tool for benchmarking and developing kernels is now shipped with MIOpen. BFloat16 now supported in HIP requires an     
+      updated rocBLAS as a GEMM backend.
+    * Immediate mode API now provides the ability to quickly obtain a convolution kernel.
+    * MIOpen now contains HIP source kernels and implements the ImplicitGEMM kernels. This is a new feature and is currently disabled by   
+      default. Use the environmental variable "MIOPEN_DEBUG_CONV_IMPLICIT_GEMM=1" to activation this feature. ImplicitGEMM requires an  
+      up to  date HIP version of at least 1.5.9211.     
+    * A new "loss" catagory of layers has been added, of which, CTC loss is the first. See the API reference for more details. 2.0 is the   
+      last release of active support for gfx803 architectures. In future releases, MIOpen will not actively debug and develop new features   
+      specifically for gfx803.
+    * System Find-Db in memory cache is disabled by default. Please see build instructions to enable this feature. Additional documentation  
+      can be found `here <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
+
+Bloat16 software support in rocBLAS/Tensile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Added mixed precision bfloat16/IEEE f32 to gemm_ex. The input and output matrices are bfloat16. All arithmetic is in IEEE f32.
+
+AMD Infinity Fabric™ Link enablement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ability to connect four Radeon Instinct MI60 or Radeon Instinct MI50 boards in two hives or two Radeon Instinct MI60 or Radeon Instinct MI50 boards in four hives via AMD Infinity Fabric™ Link GPU interconnect technology has been added.
+
+ROCm-smi features and bug fixes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * mGPU & Vendor check
+    * Fix clock printout if DPM is disabled
+    * Fix finding marketing info on CentOS
+    * Clarify some error messages
+
+ROCm-smi-lib enhancements
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * Documentation updates
+    * Improvements to *name_get functions
+
+RCCL2 Enablement
+^^^^^^^^^^^^^^^^^^
+
+RCCL2 supports collectives intranode communication using PCIe, Infinity Fabric™, and pinned host memory, as well as internode communication using Ethernet (TCP/IP sockets) and Infiniband/RoCE (Infiniband Verbs). Note: For Infiniband/RoCE, RDMA is not currently supported.
+
+rocFFT enhancements
+^^^^^^^^^^^^^^^^^^^^
+
+   * Added: Debian package with FFT test, benchmark, and sample programs
+   * Improved: hipFFT interfaces
+   * Improved: rocFFT CPU reference code, plan generation code and logging code
+
+Features and enhancements introduced in previous versions of ROCm can be found in `version_history.md <https://github.com/RadeonOpenCompute/ROCm/blob/master/version_history.md>`_
+
 New features and enhancements in ROCm 2.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

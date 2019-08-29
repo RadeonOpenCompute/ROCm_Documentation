@@ -25,10 +25,6 @@ HIP Math API
 
 * :ref:`HIP-MATH`
 
-Thrust API Documentation
-==========================
-
-* :ref:`HIP-thrust`
 
 Math Library API's
 ====================
@@ -36,7 +32,7 @@ Math Library API's
 
 *  :ref:`clBLAS`
 
-*  :ref:`clSPARSE_API`
+*  :ref:`clSPARSE_api`
 
 
 Deep Learning API's
