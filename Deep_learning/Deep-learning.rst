@@ -8,19 +8,28 @@ Deep Learning on ROCm
 TensorFlow
 ***********
 
-ROCm Tensorflow v2.0 Release
+ROCm Tensorflow v1.14 Release
 *****************************
+We are excited to announce the release of ROCm enabled TensorFlow v1.14 for AMD GPUs.
+In this release we have the following features enabled on top of upstream TF1.14 enhancements:
+    * We integrated ROCm RCCL library for mGPU communication, details in [RCCL github repo](https://github.com/ROCmSoftwarePlatform/rccl)
+    * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
 
-We are excited to announce the release of ROCm enabled TensorFlow v2.0 for AMD GPUs. This includes the enhanced compilation toolchain and a set of bug fixes to support TensorFlow 2.0 features natively.
+ROCm Tensorflow v2.0.0-beta1 Release
+*****************************
+In addition to Tensorflow v1.14 release, we also enabled Tensorflow v2.0.0-beta1 for AMD GPUs. The TF-ROCm 2.0.0-beta1 release supports Tensorflow V2 API.
+Both whl packages and docker containers are available below. 
 
 Tensorflow Installation
 ***********************
+
 First, you’ll need to install the open-source ROCm 2.7 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
+
 
 Then, install these other relevant ROCm packages:
 ::
    sudo apt update
-   sudo apt install rocm-libs miopen-hip cxlactivitylogger
+   sudo apt install rocm-libs miopen-hip cxlactivitylogger rccl
 
 And finally, install TensorFlow itself (via the Python Package Index):
 ::
@@ -65,6 +74,7 @@ Porting from cuDNN to MIOpen
 ****************************
 The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf>`_ highlights the key differences between the current cuDNN and MIOpen APIs.
 
+
 The ROCm 2.7 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
@@ -100,6 +110,7 @@ Building PyTorch for ROCm
 **************************
 
 This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://github.com/RadeonOpenCompute/ROCm#supported-operating-systems---new-operating-systems-available>`_ for supported operating systems and general information on the ROCm software stack.
+
 
 A ROCm install version 2.7 is required currently.
 
