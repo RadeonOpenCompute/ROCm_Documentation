@@ -48,27 +48,31 @@ The official github repository is `here <https://github.com/ROCmSoftwarePlatform
 MIOpen
 *******
 
-ROCm MIOpen v2.0 Release
+ROCm MIOpen v2.0.1 Release
 *************************
 Announcing our new Foundation for Deep Learning acceleration MIOpen 2.0 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
 
 This release includes the following:
-   * This release contains several new features including an immediate mode for selecting convolutions, bfloat16 support, new layers, modes,
-     and algorithmns.
-   * MIOpenDriver, a tool for benchmarking and developing kernels is now shipped with MIOpen.
-   * BFloat16 now supported in HIP requires an updated rocBLAS as a GEMM backend.
-   * Immediate mode API now provides the ability to quickly obtain a convolution kernel.
-   * MIOpen now contains HIP source kernels and implements the ImplicitGEMM kernels. This is a new feature and is currently disabled 
-     by default. Use the environmental variable “MIOPEN_DEBUG_CONV_IMPLICIT_GEMM=1” to activation this feature. ImplicitGEMM requires an up 
-     to date HIP version of at least 1.5.9211.
-   * A new “loss” catagory of layers has been added, of which, CTC loss is the first. See the API reference for more details.
-   * 2.0 is the last release of active support for gfx803 architectures. In future releases, MIOpen will not actively debug and 
-     develop new features specifically for gfx803.
-   * System Find-Db in memory cache is disabled by default. Please see build instructions to enable this feature.
+   
+   * This release contains bug fixes and performance improvements.
+   * Additionally, the convolution algorithm Implicit GEMM is now enabled by default
+   * Known issues:
+        * Backward propagation for batch normalization in fp16 mode may trigger NaN in some cases
+        * Softmax Log mode may produce an incorrect result in back propagation
    * `Source code <https://github.com/ROCmSoftwarePlatform/MIOpen>`_
    * Documentation
        * `MIOpen <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/apireference.html>`_
        * `MIOpenGemm <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/index.html>`_
+
+**Changes:**
+
+   * Added Winograd multi-pass convolution kernel
+   * Fixed issue with hip compiler paths
+   * Fixed immediate mode behavior with auto-tuning environment variable
+   * Fixed issue with system find-db in-memory cache, the fix enable the cache by default
+   * Improved logging
+   * Improved how symbols are hidden in the library
+   * Updated default behavior to enable implicit GEMM
 
 Porting from cuDNN to MIOpen
 ****************************
