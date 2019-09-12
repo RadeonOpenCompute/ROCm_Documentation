@@ -366,12 +366,12 @@ This section describes the built-in variables and functions accessible from the 
 HIP Best Practices
 ###################
 
- * `Installation <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_
+ * :ref:`HIP-IN`
  * :ref:`HIP-FAQ`
  * :ref:`Kernel_language`
  * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
  * :ref:`HIP-porting-guide`
- * `HIP Porting Driver Guide <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_porting_driver_api.md>`_
+ * :ref:`hip-p`
  * :ref:`hip_profiling`
  * :ref:`HIP_Debugging`
  * :ref:`HIP-terminology`

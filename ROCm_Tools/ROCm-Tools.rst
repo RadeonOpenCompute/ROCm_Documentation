@@ -368,6 +368,10 @@ ROC profiler library. Profiling with perf-counters and derived metrics. Library 
 
 HW specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes HW performance counters with complex performance metrics and HW traces.
 
+Metrics
+########
+The link to profiler default metrics XML `specification <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_.
+
 Profiling tool 'rocprof':
    *  Cmd-line tool for dumping public per kernel perf-counters/metrics and kernel timestamps
    *  Input file with counters list and kernels selecting parameters
@@ -414,31 +418,36 @@ Build environment:
   export CMAKE_BUILD_TYPE=<debug|release> # release by default
   export CMAKE_DEBUG_TRACE=1 # to enable debug tracing
 
-To configure, build, install to /opt/rocm/rocprofiler:
+
+To Build with the current installed ROCm:
+##########################################
 
 .. code:: sh
 
-  mkdir -p build
+- To build and install to /opt/rocm/rocprofiler
+  cd ../rocprofiler
+  mkdir build
   cd build
-  export CMAKE_PREFIX_PATH=/opt/rocm
-  cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm ..
+  export CMAKE_PREFIX_PATH=/opt/rocm/include/hsa:/opt/rocm
+  cmake ..
   make
-  sudo make install
+  make install
 
-To test the built library:
+**Internal 'simple_convolution' test run script:**
 
 .. code:: sh
 
-  cd build
+  cd ../rocprofiler/build
   ./run.sh
 
-To enable error messages logging to '/tmp/rocprofiler_log.txt':
+**To enable error messages logging to '/tmp/rocprofiler_log.txt':**
+
 
 .. code:: sh
 
   export ROCPROFILER_LOG=1
 
-To enable verbose tracing:
+**To enable verbose tracing:**
 
 .. code:: sh
 
@@ -466,7 +475,7 @@ The following shows the command-line usage of the 'rocprof' tool:
         # Perf counters group 1
         pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts FlatLDSInsts GDSInsts VALUUtilization FetchSize
         # Perf counters group 2
-        pmc : WriteSize L2CacheHit
+        pmc : VALUUtilization,WriteSize L2CacheHit
         # Filter by dispatches range, GPU index and kernel names
         # supported range formats: "3:9", "3:", "3"
         range: 1 : 4
@@ -491,21 +500,55 @@ The following shows the command-line usage of the 'rocprof' tool:
           kernel=""
         ></metric>
 
-  -o <output file> - output CSV file [<input file base>.csv]
+-o <output file> - output CSV file [<input file base>.csv]
+    The output CSV file columns meaning in the columns order:
+      Index - kernels dispatch order index
+      KernelName - the dispatched kernel name
+      gpu-id - GPU id the kernel was submitted to
+      queue-id - the ROCm queue unique id the kernel was submitted to
+      queue-index - The ROCm queue write index for the submitted AQL packet
+      tid - system application thread id which submitted the kernel
+      grd - the kernel's grid size
+      wgr - the kernel's work group size
+      lds - the kernel's LDS memory size
+      scr - the kernel's scratch memory size
+      vgpr - the kernel's VGPR size
+      sgpr - the kernel's SGPR size
+      fbar - the kernel's barriers limitation
+      sig - the kernel's completion signal
+      ... - The columns with the counters values per kernel dispatch
+      DispatchNs/BeginNs/EndNs/CompleteNs - timestamp columns if time-stamping was enabled
+      
   -d <data directory> - directory where profiler store profiling data including thread treaces [/tmp]
       The data directory is renoving autonatically if the directory is matching the temporary one, which is the default.
   -t <temporary directory> - to change the temporary directory [/tmp]
       By changing the temporary directory you can prevent removing the profiling data from /tmp or enable removing from not '/tmp' directory.
 
   --basenames <on|off> - to turn on/off truncating of the kernel full function names till the base ones [off]
-  --timestamp <on|off> - to turn on/off the kernel disoatches timestamps, dispatch/begin/end/complete [off]
+  --timestamp <on|off> - to turn on/off the kernel dispatches timestamps, dispatch/begin/end/complete [off]
+    Four kernel timestamps in nanoseconds are reported:
+        DispatchNs - the time when the kernel AQL dispatch packet was written to the queue
+        BeginNs - the kernel execution begin time
+        EndNs - the kernel execution end time
+        CompleteNs - the time when the completion signal of the AQL dispatch packet was received
+
   --ctx-limit <max number> - maximum number of outstanding contexts [0 - unlimited]
   --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
 
-  --hsa-trace - to trace HSA, generates API execution stats and JSON file viewable in chrome tracing
-    Requires to set three options '--hsa-trace --stats --timestamp on'
-    Will be simplified to just one option in the next release
-    Generated files: <output name>.stats.csv <output name>.hsa_stats.txt <output name>.json
+  --stats - generating kernel executino stats, file <output name>.stats.csv
+  --hip-trace - to trace HIP, generates API execution stats/trace and JSON file viewable in chrome tracing
+    'HCC_HOME' env var is required to be set to where 'hcc' is installed.
+  --hsa-trace - to trace HSA, generates API execution stats/trace and JSON file viewable in chrome tracing
+    Generated files: <output name>.hsa_stats.txt <output name>.json
+    Traced API list can be set by input .txt or .xml files.
+    Input .txt:
+      hsa: hsa_queue_create hsa_amd_memory_pool_allocate
+    Input .xml:
+      <trace name="HSA">
+        <parameters api="hsa_queue_create, hsa_amd_memory_pool_allocate">
+        </parameters>
+      </trace>
+
 
   Configuration file:
   You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/evgeny:<package path>
@@ -799,29 +842,21 @@ To build and run test
 ######################
 
 .. code:: sh
+  
+  - ROCm-2.3 or higher is required
 
    cd <your path>
 
-  - CLone development branches of roctracer and HIP/HCC:
-   git clone -b amd-master https://github.com/ROCmSoftwarePlatform/roctracer.git
-   git clone -b master https://github.com/ROCm-Developer-Tools/HIP.git
-   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
+  - CLone development branches of roctracer:
+   git clone -b amd-master https://github.com/ROCmSoftwarePlatform/roctracer
 
   - Set environment:
-   export HIP_PATH=<your path>/HIP
-   export HCC_HOME=<your path>/hcc/build
+   export HIP_PATH=/opt/rocm/HIP
+   export HCC_HOME=/opt/rocm/hcc/
    export CMAKE_PREFIX_PATH=/opt/rocm
 
-  - Build HCC:
-   cd <your path>/hcc && mkdir build && cd build &&
-   cmake -DUSE_PROF_API=1 -DPROF_API_HEADER_PATH=<your path>/roctracer/inc/ext .. && make -j <nproc>
-  
-  - Build HIP:
-   cd <your path>/HIP && mkdir build && cd build &&
-   cmake -DUSE_PROF_API=1 -DPROF_API_HEADER_PATH=<your path>/roctracer/inc/ext .. && make -j <nproc>
-   ln -s <your path>/HIP/build <your path>/HIP/lib
-  
   - Build ROCtracer
+   export CMAKE_BUILD_TYPE=<debug|release> # release by default
    cd <your path>/roctracer && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm .. && make -j <nproc>
 
   - To build and run test
