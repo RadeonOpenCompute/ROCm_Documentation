@@ -368,8 +368,8 @@ ROC profiler library. Profiling with perf-counters and derived metrics. Library 
 
 HW specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes HW performance counters with complex performance metrics and HW traces.
 
-Metrics
-########
+**Metrics**
+
 The link to profiler default metrics XML `specification <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_.
 
 Profiling tool 'rocprof':
@@ -380,8 +380,7 @@ Profiling tool 'rocprof':
    *  HSA API/activity stats and tracing
    *  Output results in CSV and JSON chrome tracing formats
 
-Download
-########
+**Download**
 
 To clone ROC Profiler from GitHub use the folowing command:
 
@@ -407,8 +406,8 @@ The library source tree:
        *  util - Test utils
        *  simple_convolution - Simple convolution test kernel
 
-Build
-#####
+**Build**
+
 
 Build environment:
 
@@ -419,8 +418,8 @@ Build environment:
   export CMAKE_DEBUG_TRACE=1 # to enable debug tracing
 
 
-To Build with the current installed ROCm:
-##########################################
+**To Build with the current installed ROCm:**
+
 
 .. code:: sh
 
@@ -454,8 +453,8 @@ To Build with the current installed ROCm:
   export ROCPROFILER_TRACE=1
 
 
-Profiling Tool 'rocprof' Usage
-##############################
+**Profiling Tool 'rocprof' Usage**
+
 
 The following shows the command-line usage of the 'rocprof' tool:
 
@@ -830,16 +829,15 @@ The library source tree:
     *  test - test suit
         *  MatrixTranspose - test based on HIP MatrixTranspose sample
 
-Documentation
-#############
+**Documentation**
 
 .. code:: sh
 
   - API description: inc/roctracer.h
   - Code example: test/MatrixTranspose/MatrixTranspose.cpp
 
-To build and run test
-######################
+**To build and run test**
+
 
 .. code:: sh
   
