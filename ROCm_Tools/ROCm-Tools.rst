@@ -797,18 +797,13 @@ To disable logging use:
 ROCm-GDB
 =========
 
-The ROCm-GDB is being revised to work with the ROCr Debug Agent to
-support debugging GPU kernels on Radeon Open Compute platforms (ROCm)
-and will be available in an upcoming release.
+**This ROCm Debugger is a Deprecated project.**
 
-Radeon Compute Profiler
-==============
+As of 2018, this is a deprecated software project. The ROCm software team is working on a new GDB-based debugger that works with the ROCr Debug Agent to support debugging GPU kernels.
 
-The Radeon Compute Profiler (RCP) is a performance analysis tool that gathers data from the API run-time and GPU for OpenCL™ and ROCm/HSA applications. This information can be used by developers to discover bottlenecks in the application and to find ways to optimize the application's performance.
+The ROCm-GDB repository includes the source code for ROCm-GDB. ROCm-GDB is a modified version of GDB 7.11 revised to work with the ROCr Debug Agent to support debugging GPU kernels on Radeon Open Compute platforms (ROCm).
 
-Please see the `RCP GitHub repository <https://github.com/GPUOpen-Tools/RCP>`_ for more information.
-
-
+For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
 
 ROC Tracer
 ============
@@ -866,20 +861,6 @@ The library source tree:
    or
    make package && dpkg -i *.deb
 
-
-
-CodeXL
-=========
-CodeXL is a comprehensive tool suite that enables developers to harness the benefits of GPUs and APUs. It includes powerful GPU debugging, comprehensive GPU profiling, and static OpenCL™, OpenGL®, Vulkan® and DirectX® kernel/shader analysis capabilities, enhancing accessibility for software developers to enter the era of heterogeneous computing. CodeXL is available as a standalone user interface application for Windows® and Linux®.
-
-Please see the `CodeXL GitHub repository <https://github.com/GPUOpen-Tools/CodeXL>`_ for more information.
-
-GPUPerfAPI
-==============
-
-The GPU Performance API (GPUPerfAPI, or GPA) is a powerful library, providing access to GPU Performance Counters. It can help analyze the performance and execution characteristics of applications using a Radeon™ GPU. This library is used by Radeon Compute Profiler and CodeXL as well as several third-party tools.
-
-Please see the `GPA GitHub repository <https://github.com/GPUOpen-Tools/GPA>`_ for more information.
 
 ROCm Binary Utilities
 ======================
