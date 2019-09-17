@@ -6,7 +6,7 @@ Are You Ready to ROCK?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems. This software enables the high-performance operation of AMD GPUs for computation oriented tasks in the Linux operating system.
                        
-Current ROCm Version: 2.7.1
+Current ROCm Version: 2.7.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The latest ROCm platform - ROCm 2.7
@@ -88,8 +88,8 @@ following GitHub repositories:
 .. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/roc-2.7.0
 .. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-2.7.0
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.7.0
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.7.0
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-2.7.2
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-2.7.2
 .. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.7.0
 
 .. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-2.7.0
