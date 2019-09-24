@@ -152,10 +152,7 @@ ROCm officially supports AMD GPUs that use following chips:
       Instinct MI8
    -  “Polaris 10” chips, such as on the AMD Radeon RX 580 and Radeon
       Instinct MI6
-   -  “Polaris 11” chips, such as on the AMD Radeon RX 570 and Radeon
-      Pro WX 4100
-   -  “Polaris 12” chips, such as on the AMD Radeon RX 550 and Radeon RX
-      540
+ 
 
 -  GFX9 GPUs
 
