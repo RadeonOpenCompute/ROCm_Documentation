@@ -255,20 +255,21 @@ SYSFS Interface
 Naming and data format standards for sysfs files
 ************************************************
 
-The libsensors library offers an interface to the raw sensors data through the sysfs interface. Since lm-sensors 3.0.0, libsensors is
-completely chip-independent. It assumes that all the kernel drivers implement the standard sysfs interface described in this document.
-This makes adding or updating support for any given chip very easy,as libsensors, and applications using it, do not need to be modified.
+The libsensors library offers an interface to the raw sensors data through the sysfs interface. Since lm-sensors 3.0.0, libsensors is completely chip-independent. It assumes that all the kernel drivers implement the standard sysfs interface described in this document. This makes adding or updating support for any given chip very easy, as libsensors, and applications using it, do not need to be modified. This is a major improvement compared to lm-sensors 2.
 
-Note that motherboards vary widely in the connections to sensor chips.There is no standard that ensures connection of sensor to CPU,variation in external resistor value and conversion calculation we can not hard code this into the driver and have to be done in user space.
+Note that motherboards vary widely in the connections to sensor chips. There is no standard that ensures, for example, that the second temperature sensor is connected to the CPU, or that the second fan is on the CPU. Also, some values reported by the chips need some computation before they make full sense. For example, most chips can only measure voltages between 0 and +4V. Other voltages are scaled back into that range using external resistors. Since the values of these resistors can change from motherboard to motherboard, the conversions cannot be hard coded into the driver and have to be done in user space.
 
-Each chip gets its own directory in the sysfs /sys/devices tree.  To find all sensor chips, it is easier to follow the device symlinks from /sys/class/hwmon/hwmon*. This document briefly describes the standards that the drivers follow, so that an application program can scan for entries and access this data in a simple and consistent way. That said, such programs will have to implement conversion, labeling and hiding of inputs
+For this reason, even if we aim at a chip-independent libsensors, it will still require a configuration file (e.g. /etc/sensors.conf) for proper values conversion, labeling of inputs and hiding of unused inputs.
 
-Up to lm-sensors 3.0.0, libsensors looks for hardware monitoring attributes in the "physical" device directory. Since lm-sensors 3.0.1, attributes found in the hwmon "class" device directory are also supported. Complex drivers (e.g. drivers for multifunction chips) may want to use this possibility to avoid namespace pollution. The only drawback will be that older versions of
-libsensors won't support the driver in question.
+An alternative method that some programs use is to access the sysfs files directly. This document briefly describes the standards that the drivers follow, so that an application program can scan for entries and access this data in a simple and consistent way. That said, such programs will have to implement conversion, labeling and hiding of inputs. For this reason, it is still not recommended to bypass the library.
+
+Each chip gets its own directory in the sysfs /sys/devices tree. To find all sensor chips, it is easier to follow the device symlinks from /sys/class/hwmon/hwmon*.
+
+Up to lm-sensors 3.0.0, libsensors looks for hardware monitoring attributes in the "physical" device directory. Since lm-sensors 3.0.1, attributes found in the hwmon "class" device directory are also supported. Complex drivers (e.g. drivers for multifunction chips) may want to use this possibility to avoid namespace pollution. The only drawback will be that older versions of libsensors won't support the driver in question.
 
 All sysfs values are fixed point numbers.
 
-There is only one value per file, unlike the older /proc specification.The common scheme for files naming is: <type><number>_<item>. Usual types for sensor chips are "in" (voltage), "temp" (temperature) and "fan" (fan). Usual items are "input" (measured value), "max" (high threshold, "min" (low threshold). Numbering usually starts from 1,except for voltages which start from 0 (because most data sheets use this). A number is always used for elements that can be present more than once, even if there is a single element of the given type on the specific chip. Other files do not refer to a specific element, so they have a simple name, and no number.
+There is only one value per file, unlike the older /proc specification. The common scheme for files naming is: <type><number>_<item>. Usual types for sensor chips are "in" (voltage), "temp" (temperature) and "fan" (fan). Usual items are "input" (measured value), "max" (high threshold, "min" (low threshold). Numbering usually starts from 1, except for voltages which start from 0 (because most data sheets use this). A number is always used for elements that can be present more than once, even if there is a single element of the given type on the specific chip. Other files do not refer to a specific element, so they have a simple name, and no number.
 
 Alarms are direct indications read from the chips. The drivers do NOT make comparisons of readings to thresholds. This allows violations between readings to be caught and alarmed. The exact definition of an alarm (for example, whether a threshold must be met or must be exceeded to cause an alarm) is chip-dependent.
 
@@ -363,6 +364,12 @@ in[0-*]_label		| Suggested voltage channel label.
 			| user-space.
 			| RO
 
+in[0-*]_enable          | Enable or disable the sensors.
+                        | When disabled the sensor read will return -ENODATA.
+                        | 1: Enable
+                        | 0: Disable
+                        | RW
+
 cpu[0-*]_vid		| CPU core reference voltage.
 			| Unit: millivolt
 			| RO
@@ -423,6 +430,12 @@ fan[1-*]_label	 | Suggested fan channel label.
 		 | Should only be created if the driver has hints about what this fan channel is being 
 		 | used for, and user-space doesn't.In all other cases, the label is provided by user-space.
 		 | RO
+
+fan[1-*]_enable  | Enable or disable the sensors
+                 | When diabled the sensor read will return -ENODATA
+                 | 1: Enable
+                 | 0: Disable
+                 | RW
 =============== =============================================================================================
 
 Also see the Alarms section for status flags associated with fans.
@@ -561,6 +574,12 @@ temp[1-*]_reset_history   | Reset temp_lowest and temp_highest
 
 temp_reset_history        | Reset temp_lowest and temp_highest for all sensors
 			  | WO
+
+temp[1-*]_enable          | Enable or diable the sensors
+                          | When diabled the sensor read will return -ENODATA
+                          | 1: Enable
+                          | 0: Disable
+                          | RW
 ========================= ==========================================================================================
 
 Some chips measure temperature using external thermistors and an ADC, and report the temperature measurement as a voltage. Converting this voltage back to a temperature (or the other way around for limits) requires mathematical functions not available in the kernel, so the conversion must occur in user space. For these chips, all temp* files described above should contain values expressed in millivolt instead of millidegree Celsius. In other words, such temperature channels are handled as voltage channels by the driver.
@@ -610,6 +629,12 @@ curr[1-*]_reset_history  |  Reset currX_lowest and currX_highest
 
 curr_reset_history 	 |  Reset currX_lowest and currX_highest for all sensors
 			 |  WO
+
+curr[1-*]_enable         | Enable or disable the sensors
+                         | When diabled the sensor read will return -ENODATA
+                         | 1: Enable
+                         | 0: Disable
+                         | RW
 ======================= ========================================================
 
 Also see the Alarms section for status flags associated with currents.
@@ -704,6 +729,11 @@ power[1-*]_crit			 | Critical maximum power.
 				 | Unit: microWatt
 				 | RW
 
+power[1-*]_enable                | Enable or disable the sensors.
+                                 | When diabled the sensor read will return -ENODATA
+                                 | 1: Enable
+                                 | 0: Disable
+                                 | RW
 ================================ ===============================================================================
 
 Also see the Alarms section for status flags associated with power readings.
@@ -716,6 +746,12 @@ Also see the Alarms section for status flags associated with power readings.
 energy[1-*]_input    |  Cumulative energy use
 		     |  Unit: microJoule
 		     |  RO
+
+energy[1-*]_enable   | Enable or disable the sensors
+                     | When diabled the sensor read will return -ENODATA
+                     | 1: Enable
+                     | 0: Disable
+                     | RW
 ==================== ========================
 
 ************
@@ -726,6 +762,12 @@ energy[1-*]_input    |  Cumulative energy use
 humidity[1-*]_input  | Humidity
 		     | Unit: milli-percent (per cent mille, pcm)
 		     | RO
+
+humidity[1-*]_enable | Enable or disable the sensors
+                     | When diabled the sensor read will return -ENODATA
+                     | 1: Enable
+                     | 0: Disable
+                     | RW
 ==================== ===========================================
 
 **********
@@ -847,6 +889,24 @@ intrusion[0-*]_beep
 			| 1: enable
 			| RW
 ======================= ===========================================================
+
+
+Average Sample Configuration
+------------------------------
+
+Devices allowing for reading {in,power,curr,temp}_average values may export attributes for controlling number of samples used to compute average.
+
+======================= ==================================================================
+
+samples			| Sets number of average samples for all types of measurements.
+                        | RW
+
+in_samples              | Sets number of average samples for specific type of measurements.
+power_samples           | Note that on some devices it won't be possible to set all of 
+curr_samples            | them to different values so changing one might also change 
+curr_samples            | some others.
+                        | RW
+
 
 sysfs attribute writes interpretation
 -------------------------------------
