@@ -5,6 +5,15 @@
 Current Release Notes
 =====================
 
+
+New features and enhancements in ROCm 2.8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Support for NCCL2.4.8 API
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Implements ncclCommAbort() and ncclCommGetAsyncError() to match the NCCL 2.4.x API
+
 Hotfix release ROCm 2.7.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
