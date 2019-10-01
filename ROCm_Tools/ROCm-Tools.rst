@@ -1104,8 +1104,9 @@ usage:
   python MIVisionX-setup.py --directory [setup directory - optional]
                             --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
                             --miopen    [MIOpen Version - optional (default:1.8.1)]
+                            --miopengemm[MIOpenGEMM Version - optional (default:1.1.5)]
                             --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]
-
+                            --rpp       [RPP Installation - optional (default:yes) [options:yes/no]]
 
 **Note:** use --installer **yum** for **CentOS**
 
@@ -1179,10 +1180,11 @@ Build & Install MIVisionX
 ::
 
   python MIVisionX-setup.py --directory [setup directory - optional]
-                          --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
-                          --miopen    [MIOpen Version - optional (default:1.8.1)]
-                          --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]    
-
+                            --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
+                            --miopen    [MIOpen Version - optional (default:1.8.1)]
+                            --miopengemm[MIOpenGEMM Version - optional (default:1.1.5)]
+                            --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]    
+                            --rpp       [RPP Installation - optional (default:yes) [options:yes/no]]
 
 
 **Note:** Use --installer yum for **CentOS**
@@ -1356,6 +1358,8 @@ Release Notes
 **Known issues**
 
    * Package (.deb & .rpm) install requires OpenCV v3.4.0 to execute AMD OpenCV extensions
+   * Latest MIOpen versions with OpenCL backend has linking errors with MIOpenGEMM. If you are facing problems with MIOpen 
+revert back to V1.8.1 or rerun the MIVisionX-setup script.
 
 **Tested configurations**
 
