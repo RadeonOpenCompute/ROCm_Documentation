@@ -160,7 +160,7 @@ Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is ho
 ::
 
   sudo docker pull rocm/rocm-terminal
-  sudo docker run -it --device=/dev/kfd --device=/dev/dri --group-add video rocm/rocm-terminal
+  sudo docker run -it --device=/dev/kfd --device=/dev/dri --security-opt seccomp=unconfined --group-add video rocm/rocm-terminal
   
   
 ROCm-docker set up guide
