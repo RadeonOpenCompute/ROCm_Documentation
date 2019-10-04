@@ -4017,6 +4017,9 @@ After the the ROCm SMI library git repository has been cloned to a local Linux m
   $ cd build
   $ cmake <location of root of ROCm SMI library CMakeLists.txt>
   $ make
+  # Install library file and header; default location is /opt/rocm
+  $ make install
+
 
 
 The built library will appear in the build folder.
@@ -4048,9 +4051,9 @@ In order to verify the build and capability of ROCm SMI on your system and to se
   $ mkdir <location for test build>
   $ cd <location for test build>
   $ cmake -DROCM_DIR=<location of ROCM SMI library .so> <ROCm SMI source root>/tests/rocm_smi_test
+  $ make
 
-
-To run the test, execute the program rsmitst that is built from the steps above. Make sure ROCm SMI library is in your library search path when executing the test program.
+To run the test, execute the program rsmitst that is built from the steps above. 
 
 Usage Basics
 ##############
