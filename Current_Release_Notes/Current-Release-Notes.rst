@@ -5,6 +5,35 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#### Initial release for Radeon Augmentation Library(RALI)
+The AMD Radeon Augmentation Library (RALI) is designed to efficiently decode and process images from a variety of storage formats and modify them through a processing graph programmable by the user. RALI currently provides C API.
+
+Quantization in MIGraphX v0.4
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+MIGraphX 0.4 introduces support for fp16 and int8 quantization. For additional details, as well as other new MIGraphX features, see  `MIGraphX documentation <https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/wiki/Getting-started:-using-the-new-features-of-MIGraphX-0.4>`_.
+
+rocSparse csrgemm
+^^^^^^^^^^^^^^^^^^
+
+csrgemm enables the user to perform matrix-matrix multiplication with two sparse matrices in CSR format.
+
+Singularity Support
+^^^^^^^^^^^^^^^^^^^^
+
+ROCm 2.9 adds support for Singularity container version 2.5.2.
+
+Initial release of rocTX
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCm 2.9 introduces rocTX, which provides a C API for code markup for performance profiling.  This initial release of rocTX supports annotation of code ranges and ASCII markers.  For an example, see this `code <https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/test/MatrixTranspose_test/MatrixTranspose.cpp>`_.
+
+Added support for Ubuntu 18.04.3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ubuntu 18.04.3 is now supported in ROCm 2.9.
 
 New features and enhancements in ROCm 2.8
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
