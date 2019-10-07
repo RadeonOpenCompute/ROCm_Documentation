@@ -3608,7 +3608,6 @@ Contributing
 ##############
 
 
-
 We'd love your help, but...
 
     #. Never check in a tab (\t); use 4 spaces.
@@ -3624,7 +3623,7 @@ Dependencies
 CMake
 -------
 
-  * CMake 2.8
+  * CMake 2.9
 
 Python
 ---------
