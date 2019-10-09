@@ -100,11 +100,11 @@ following GitHub repositories:
 .. _ROCm Clang: http://github.com/RadeonOpenCompute/clang/tree/roc-2.9.0
 .. _ROCm lld OCL: http://github.com/RadeonOpenCompute/lld/tree/roc-ocl-2.9.0
 .. _ROCm lld HCC: http://github.com/RadeonOpenCompute/lld/tree/roc-hcc-2.9.0
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-2.9.x
-
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-2.9.x
 
 .. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/roc-2.9.0
 .. _Asynchronous Task and Memory Interface (ATMI): https://github.com/RadeonOpenCompute/atmi/tree/rocm_2.9.0
+
 .. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-2.9.0
 .. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-2.9.0
 .. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-2.9.0
