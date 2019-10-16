@@ -12,7 +12,7 @@ ROCm Tensorflow v1.14 Release
 *****************************
 We are excited to announce the release of ROCm enabled TensorFlow v1.14 for AMD GPUs.
 In this release we have the following features enabled on top of upstream TF1.14 enhancements:
-    * We integrated ROCm RCCL library for mGPU communication, details in [RCCL github repo](https://github.com/ROCmSoftwarePlatform/rccl)
+    * We integrated ROCm RCCL library for mGPU communication, details in `RCCL github repo <https://github.com/ROCmSoftwarePlatform/rccl>`_
     * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
 
 ROCm Tensorflow v2.0.0-beta1 Release

@@ -424,10 +424,10 @@ Build environment:
 .. code:: sh
 
 - To build and install to /opt/rocm/rocprofiler
+  export CMAKE_PREFIX_PATH=/opt/rocm/include/hsa:/opt/rocm
   cd ../rocprofiler
   mkdir build
   cd build
-  export CMAKE_PREFIX_PATH=/opt/rocm/include/hsa:/opt/rocm
   cmake ..
   make
   make install
@@ -841,7 +841,7 @@ The library source tree:
    cd <your path>
 
   - CLone development branches of roctracer:
-   git clone -b amd-master https://github.com/ROCmSoftwarePlatform/roctracer
+    git clone -b amd-master https://github.com/ROCm-Developer-Tools/roctracer
 
   - Set environment:
    export HIP_PATH=/opt/rocm/HIP
@@ -876,7 +876,7 @@ MIVisionX
   :alt: MIVisionX
   :target: https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/
 
-**MIVisionX toolkit is a set of comprehensive computer vision and machine intelligence libraries, utilities, and applications bundled into a single toolkit. AMD MIVisionX delivers highly optimized open source implementation of the Khronos OpenVX™ and OpenVX™ Extensions along with Convolution Neural Net Model Compiler & Optimizer supporting ONNX, and Khronos NNEF™ exchange formats. The toolkit allows for rapid prototyping and deployment of optimized workloads on a wide range of computer hardware, including small embedded x86 CPUs, APUs, discrete GPUs, and heterogeneous servers.**
+MIVisionX toolkit is a set of comprehensive computer vision and machine intelligence libraries, utilities, and applications bundled into a single toolkit. AMD MIVisionX delivers highly optimized open source implementation of the `Khronos OpenVX™ <https://www.khronos.org/openvx/>`_ and OpenVX™ Extensions along with Convolution Neural Net Model Compiler & Optimizer supporting `ONNX <https://onnx.ai/>`_, and `Khronos NNEF™ <https://www.khronos.org/nnef>`_ exchange formats. The toolkit allows for rapid prototyping and deployment of optimized workloads on a wide range of computer hardware, including small embedded x86 CPUs, APUs, discrete GPUs, and heterogeneous servers.
 
 * `AMD OpenVX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx>`_
 * `AMD OpenVX Extensions <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx-extensions>`_
