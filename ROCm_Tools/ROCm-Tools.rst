@@ -894,14 +894,6 @@ HW specific low-level performance analysis interface for profiling of GPU comput
 
 The link to profiler default metrics XML `specification <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_.
 
-Profiling tool 'rocprof':
-   *  Cmd-line tool for dumping public per kernel perf-counters/metrics and kernel timestamps
-   *  Input file with counters list and kernels selecting parameters
-   *  Multiple counters groups and app runs supported
-   *  Kernel execution is serialized
-   *  HSA API/activity stats and tracing
-   *  Output results in CSV and JSON chrome tracing formats
-
 **Download**
 
 To clone ROC Profiler from GitHub use the folowing command:
