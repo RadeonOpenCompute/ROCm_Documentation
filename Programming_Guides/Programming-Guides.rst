@@ -372,14 +372,13 @@ HIP Best Practices
  * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
  * :ref:`HIP-porting-guide`
  * :ref:`hip-p`
+ * :ref:`hip-pro`
  * :ref:`hip_profiling`
  * :ref:`HIP_Debugging`
  * :ref:`HIP-terminology`
  * :ref:`HIP-Term2`
  * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
- * :ref:`HIP-bug`
 Supported CUDA APIs:
- * :ref:`hipporting-driver-api`
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
  * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_

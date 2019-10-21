@@ -7,6 +7,9 @@ Remote Device Programming
 
 ROCmRDMA
 =========
+**Peer-to-Peer bridge driver for PeerDirect - Deprecated Repo**
+
+This is now included as part of the ROCK `Kernel Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver>`_
 ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU  memory. It allows direct path for data exchange (peer-to-peer) using the standard features of PCI Express. 
 
 Currently ROCmRDMA provides the following benefits:
