@@ -423,7 +423,7 @@ Build environment:
 
 .. code:: sh
 
-- To build and install to /opt/rocm/rocprofiler
+  To build and install to /opt/rocm/rocprofiler
   export CMAKE_PREFIX_PATH=/opt/rocm/include/hsa:/opt/rocm
   cd ../rocprofiler
   mkdir build

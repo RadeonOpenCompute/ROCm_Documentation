@@ -19,28 +19,33 @@ ROCm Device Library
 ##################
 
 
-OVERVIEW
+Overview
 ********
 
 This repository contains the following libraries:
 
-======= ============================================= ==============
+======= ============================================= =================
 Name 	Comments 			               Dependencies
-======= ============================================= ==============
-irif 	Interface to LLVM IR 	
-ocml 	Open Compute Math library(:ref:`ocml`) 		irif
-oclc 	Open Compute library controls (documentation) 	
-ockl 	Open Compute Kernel library. 			irif
-opencl 	OpenCL built-in library 			ocml, ockl
-hc 	Heterogeneous Compute built-in library 		ocml, ockl
-======= ============================================= ==============
+======= ============================================= =================
+oclc*   `Open Compute library controls`_
+ocml 	`Open Compute Math library`_                 	oclc*
+ockl 	`Open Compute Kernel library`_                  oclc*
+opencl 	OpenCL built-in library 			ocml,ockl,oclc*
+hip     HIP built in library                            ocml,ockl,oclc*
+hc 	Heterogeneous Compute built-in library 		ocml,ockl,oclc*
+======= ============================================= =================
 
-All libraries are compiled to LLVM Bitcode which can be linked. Note that libraries use specific AMDGPU intrinsics.
+.. _Open Compute library controls: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md
+.. _Open Compute Math Library: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCML.md
+.. _Open Compute Kernel library: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/blob/master/doc/OCKL.md
 
-BUILDING
+
+
+
+Building
 *********
 
-To build it, use RadeonOpenCompute LLVM/LLD/Clang. Default branch on these repositories is "amd-common", which may contain AMD-specific codes yet upstreamed.
+The library sources should be compiled using a clang compiler built from sources in the amd-common branch of AMD modified clang, llvm, and lld repositories using the following commands:
 
 ::
 
@@ -57,18 +62,14 @@ To build it, use RadeonOpenCompute LLVM/LLD/Clang. Default branch on these repos
       -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" \
       ..      
 
-Testing also requires amdhsacod utility from ROCm Runtime.
-
-Use out-of-source CMake build and create separate directory to run CMake.
-
-The following build steps are performed:
+To build the library bitcodes, from the top level of this repository run the following commands:
 
 ::
 
    mkdir -p build
    cd build
-   export LLVM_BUILD=... (path to LLVM build)
-   CC=$LLVM_BUILD/bin/clang cmake -DLLVM_DIR=$LLVM_BUILD -DAMDHSACOD=$HSA_DIR/bin/x86_64/amdhsacod ..
+   export LLVM_BUILD=... (path to LLVM build directory created above)
+   CC=$LLVM_BUILD/bin/clang cmake -DLLVM_DIR=$LLVM_BUILD ..
    make
 
 It is also possible to use compiler that only has AMDGPU target enabled if you build prepare-builtins separately with host compiler and pass explicit target option to CMake:
@@ -90,45 +91,33 @@ It is also possible to use compiler that only has AMDGPU target enabled if you b
 
 To install artifacts: make install
 
-To run offline tests: make test
-
-To create packages for the library: make package
+To create packages for the libraray: make package
 
 
-USING BITCODE LIBRARIES
+
+Using Bitcode Libraries
 ***************************
-The bitcode libraries should be linked to user bitcode (obtained from source) before final code generation with llvm-link or -mlink-bitcode-file option of clang.
-
-For OpenCL, the list of bitcode libraries includes opencl, its dependencies (ocml, ockl, irif) and oclc control libraries selected according to OpenCL compilation mode. Assuming that the build of this repository was done in /srv/git/ROCm-Device-Libs/build, the following command line shows how to compile simple OpenCL source test.cl into code object test.so:
+The ROCm language runtimes automatically add the required bitcode files during the LLVM linking stage invoked during the process of creating a code object. There are options to display the exact commands excecuted, but an approximation of the command the OpenCL runtime might use is as follows:
 
 ::
 
-   clang -x cl -Xclang -finclude-default-header \
-       -target amdgcn--amdhsa -mcpu=fiji \
+  $LLVM_BUILD/bin/clang -x cl -Xclang -finclude-default-header \
+    -target amdgcn-amd-amdhsa -mcpu=gfx803 \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/opencl/opencl.amdgcn.bc \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/ocml/ocml.amdgcn.bc \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/ockl/ockl.amdgcn.bc \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_correctly_rounded_sqrt_off.amdgcn.bc \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_daz_opt_off.amdgcn.bc \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_finite_only_off.amdgcn.bc \
-       -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_isa_version_803.amdgcn.bc \
        -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_unsafe_math_off.amdgcn.bc \
-       -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/irif/irif.amdgcn.bc \
+    -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_wavefrontsize64_off.amdgcn.bc \
+    -Xclang -mlink-bitcode-file -Xclang /srv/git/ROCm-Device-Libs/build/oclc/oclc_isa_version_900.amdgcn.bc \
        test.cl -o test.so
 
-TESTING
-********
+Using from Cmake
+*****************
 
-Currently all tests are offline:
-
-   * OpenCL source is compiled to LLVM bitcode
-   * Test bitcode is linked to library bitcode with llvm-link
-   * Clang OpenCL compiler is run on resulting bitcode, producing code object.
-   * Resulting code object is passed to llvm-objdump and amdhsacod -test.
-
-The output of tests (which includes AMDGPU disassembly) can be displayed by running ctest -VV in build directory.
-
-Tests for OpenCL conformance kernels can be enabled by specifying -DOCL_CONFORMANCE_HOME= to CMake, for example, cmake ... -DOCL_CONFORMANCE_HOME=/srv/hsa/drivers/opencl/tests/extra/hsa/ocl/conformance/1.2
+The bitcode libraries are exported as CMake targets, organized in a CMake package. You can depend on this package using find_package(AMDDeviceLibs REQUIRED CONFIG) after ensuring the CMAKE_PREFIX_PATH includes either the build directory or install prefix of the bitcode libraries. The package defines a variable AMD_DEVICE_LIBS_TARGETS containing a list of the exported CMake targets.
 
 ROCr Runtime
 #############
