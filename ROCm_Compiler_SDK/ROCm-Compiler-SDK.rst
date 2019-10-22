@@ -178,14 +178,6 @@ In addition to user mode queues and AQL, the HSA runtime exposes various virtual
 
 Programmers should consult the HSA Runtime Programmer's Reference Manual for a full description of the HSA Runtime APIs, AQL and the HSA memory policy.
 
-Sample
-******
-The simplest way to check if the kernel, runtime and base development environment are installed correctly is to run a simple sample. A modified version of the vector_copy sample was taken from the HSA-Runtime-AMD repository and added to the ROCR repository to facilitate this. Build the sample and run it, using this series of commands:
-
-cd ROCR-Runtime/sample && make && ./vector_copy
-
-If the sample runs without generating errors, the installation is complete.
-
 Known issues
 **************
  
