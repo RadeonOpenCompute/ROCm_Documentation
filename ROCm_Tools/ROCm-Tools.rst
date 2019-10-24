@@ -561,6 +561,8 @@ metric groups:
    Aborted (core dumped)
    Error found, profiling aborted.
 
+________________________________
+
  - Collecting with multiple runs
 
 To collect several metric groups a full application replay is used by
