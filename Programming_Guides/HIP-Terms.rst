@@ -40,7 +40,7 @@ Table Comparing Syntax for Different Compute APIs
 | Host + Device Function |   __host__            |   __host__            |   [[hc]] [[cpu]]                                  |   restrict(amp,cpu)                                | No equivalent                   |
 |                        |   __device__          |   __device__          |                                                   |                                                    |                                 |
 +------------------------+-----------------------+-----------------------+---------------------------------------------------+----------------------------------------------------+---------------------------------+
-| Kernel Launch          |   <<< >>>             |   hipLaunchKernel     |   hc::parallel_for_each                           |   concurrency::parallel_for_each                   |   clEnqueueNDRangeKernel        |
+| Kernel Launch          |   <<< >>>             |hipLaunchKernelGGL     |   hc::parallel_for_each                           |   concurrency::parallel_for_each                   |   clEnqueueNDRangeKernel        |
 +------------------------+-----------------------+-----------------------+---------------------------------------------------+----------------------------------------------------+---------------------------------+
 | Global Memory          |   __global__          |   __global__          | Unnecessary / Implied                             | Unnecessary / Implied                              |   __global__                    |
 +------------------------+-----------------------+-----------------------+---------------------------------------------------+----------------------------------------------------+---------------------------------+

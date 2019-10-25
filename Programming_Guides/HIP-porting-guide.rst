@@ -295,10 +295,10 @@ Makefiles can use the following syntax to conditionally provide a default HIP_PA
 
   HIP_PATH ?= $(shell hipconfig --path)
 
-hipLaunchKernel
+hipLaunchKernelGGL
 ~~~~~~~~~~~~~~~~
 
-hipLaunchKernel is a variadic macro which accepts as parameters the launch configurations (grid dims, group dims, stream, dynamic shared size) followed by a variable number of kernel arguments. This sequence is then expanded into the appropriate kernel launch syntax depending on the platform.
+hipLaunchKernelGGL is a variadic macro which accepts as parameters the launch configurations (grid dims, group dims, stream, dynamic shared size) followed by a variable number of kernel arguments. This sequence is then expanded into the appropriate kernel launch syntax depending on the platform.
 While this can be a convenient single-line kernel launch syntax, the macro implementation can cause issues when nested inside other macros. For example, consider the following:
 
 ::
@@ -310,7 +310,7 @@ While this can be a convenient single-line kernel launch syntax, the macro imple
      (command);   /* The nested ( ) will cause compile error */\
   }
 
-  MY_LAUNCH (hipLaunchKernel(vAdd, dim3(1024), dim3(1), 0, 0, Ad), true, "firstCall");
+  MY_LAUNCH (hipLaunchKernelGGL(vAdd, dim3(1024), dim3(1), 0, 0, Ad), true, "firstCall");
 
 Avoid nesting macro parameters inside parenthesis - here's an alternative that will work:
 
@@ -322,7 +322,7 @@ Avoid nesting macro parameters inside parenthesis - here's an alternative that w
      command;\ 
   }
 
-  MY_LAUNCH (hipLaunchKernel(vAdd, dim3(1024), dim3(1), 0, 0, Ad), true, "firstCall");
+  MY_LAUNCH (hipLaunchKernelGGL(vAdd, dim3(1024), dim3(1), 0, 0, Ad), true, "firstCall");
 
 Compiler Options
 ~~~~~~~~~~~~~~~~
@@ -441,7 +441,7 @@ Device Code:
 
   __constant__ int Value[LEN];
 
-  __global__ void Get(hipLaunchParm lp, int *Ad)
+  __global__ void Get(int *Ad)
   {
       int tid = hipThreadIdx_x + hipBlockIdx_x * hipBlockDim_x;
       Ad[tid] = Value[tid];
@@ -461,7 +461,7 @@ Device Code:
       HIP_ASSERT(hipMalloc((void**)&Ad, SIZE));
 
       HIP_ASSERT(hipMemcpyToSymbol(HIP_SYMBOL(Value), A, SIZE, 0, hipMemcpyHostToDevice));
-      hipLaunchKernel(Get, dim3(1,1,1), dim3(LEN,1,1), 0, 0, Ad);
+      hipLaunchKernelGGL(Get, dim3(1,1,1), dim3(LEN,1,1), 0, 0, Ad);
       HIP_ASSERT(hipMemcpy(B, Ad, SIZE, hipMemcpyDeviceToHost));
 
       for(unsigned i=0;i<LEN;i++)

@@ -292,7 +292,7 @@ Heres a specific example showing the output of the square program running on HIP
  <<hip-api tid:1.4 hipMemcpy (0x50409d000, 0x7f32158ac010, 4000000, hipMemcpyHostToDevice)
    hip-api tid:1.4 hipMemcpy                      ret= 0 (hipSuccess)>>
  info: launch 'vector_square' kernel
- 1.5 hipLaunchKernel 'HIP_KERNEL_NAME(vector_square)' gridDim:{512,1,1} groupDim:{256,1,1} sharedMem:+0 stream#0.0
+ 1.5 hipLaunchKernelGGL 'HIP_KERNEL_NAME(vector_square)' gridDim:{512,1,1} groupDim:{256,1,1} sharedMem:+0 stream#0.0
  info: copy Device2Host
  <<hip-api tid:1.6 hipMemcpy (0x7f32154db010, 0x50446e000, 4000000, hipMemcpyDeviceToHost)
    hip-api tid:1.6 hipMemcpy                      ret= 0 (hipSuccess)>>
@@ -302,7 +302,7 @@ Heres a specific example showing the output of the square program running on HIP
 HIP_TRACE_API supports multiple levels of debug information:
  
  * 0x1 = print all HIP APIs. This is the most verbose setting; the flags below allow selecting a subset.
- * 0x2 = print HIP APIs which initiate GPU kernel commands. Includes hipLaunchKernel, hipLaunchModuleKernel
+ * 0x2 = print HIP APIs which initiate GPU kernel commands. Includes hipLaunchKernelGGL, hipLaunchModuleKernel
  * 0x4 = print HIP APIs which initiate GPU memory commands. Includes hipMemcpy*, hipMemset*.
  * 0x8 = print HIP APIs which allocate or free memory. Includes hipMalloc, hipHostMalloc, hipFree, hipHostFree.
 

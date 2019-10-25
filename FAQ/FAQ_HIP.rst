@@ -14,7 +14,7 @@ HIP provides the following:
 * Memory management (hipMalloc(), hipMemcpy(), hipFree(), etc.)
 * Streams (hipStreamCreate(),hipStreamSynchronize(), hipStreamWaitEvent(),  etc.)
 * Events (hipEventRecord(), hipEventElapsedTime(), etc.)
-* Kernel launching (hipLaunchKernel is a standard C/C++ function that replaces <<< >>>)
+* Kernel launching (hipLaunchKernelGGL is a standard C/C++ function that replaces <<< >>>)
 * HIP Module API to control when adn how code is loaded.
 * CUDA*style kernel coordinate functions (threadIdx, blockIdx, blockDim, gridDim)
 * Cross*lane instructions including shfl, ballot, any, all

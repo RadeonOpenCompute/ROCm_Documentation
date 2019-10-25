@@ -328,7 +328,7 @@ hipError_t hipDeviceReset(void);
  * - Any device memory subsequently allocated from this host thread (using hipMalloc) will be
  * allocated on device.
  * - Any streams or events created from this host thread will be associated with device.
- * - Any kernels launched from this host thread (using hipLaunchKernel) will be executed on device
+ * - Any kernels launched from this host thread (using hipLaunchKernelGGL) will be executed on device
  * (unless a specific stream is specified, in which case the device associated with that stream will
  * be used).
  *

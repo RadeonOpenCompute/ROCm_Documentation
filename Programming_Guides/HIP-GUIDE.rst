@@ -39,7 +39,7 @@ Supported __global__ functions are
     * Executed on the device
     * Called ("launched") from the host
 
-HIP __global__ functions must have a void return type, and the first parameter to a HIP __global__ function must have the type hipLaunchParm.see :ref:`Kernel`
+HIP __global__ functions must have a void return type.
 
 HIP lacks dynamic-parallelism support, so __global__ functions cannot be called from the device.
 
@@ -61,8 +61,8 @@ Calling __global__ Functions
 
 __global__ functions are often referred to as kernels, and calling one is termed launching the kernel. These functions require the caller to specify an "execution configuration" that includes the grid and block dimensions. The execution configuration can also include other information for the launch, such as the amount of additional shared memory to allocate and the stream where the kernel should execute. HIP introduces a standard C++ calling convention to pass the execution configuration to the kernel (this convention replaces the Cuda <<< >>> syntax). In HIP,
 
-   * Kernels launch with the "hipLaunchKernel" function
-    * The first five parameters to hipLaunchKernel are the following:
+   * Kernels launch with the "hipLaunchKernelGGL" function
+    * The first five parameters to hipLaunchKernelGGL are the following:
        *  symbol kernelName: the name of the kernel to launch. To support template kernels which contains "," use the HIP_KERNEL_NAME 		                      macro. The hipify tools insert this automatically.
        *  dim3 gridDim: 3D-grid dimensions specifying the number of blocks to launch.
        *  dim3 blockDim: 3D-block dimensions specifying the number of threads in each block.
@@ -71,16 +71,16 @@ __global__ functions are often referred to as kernels, and calling one is termed
           :ref:`Synchronization-Functions`).
    * Kernel arguments follow these first five parameters ::
     
-      //Example pseudo code introducing hipLaunchKernel
-      __global__ MyKernel(hipLaunchParm lp, float *A, float *B, float *C, size_t N)
+      //Example pseudo code introducing hipLaunchKernelGGL
+      __global__ MyKernel(float *A, float *B, float *C, size_t N)
       {
       ...
       } 
       //Replace MyKernel<<<dim3(gridDim), dim3(gridDim), 0, 0>>> (a,b,c,n);
-      hipLaunchKernel(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n)
+      hipLaunchKernelGGL(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n)
 
 
-The hipLaunchKernel macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernel, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernel parameters. The :ref:`dim3` constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See dim3. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. 
+The hipLaunchKernelGGL macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernelGGL, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernelGGL parameters. The :ref:`dim3` constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See dim3. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. 
 
  .. _Kernel:
 
@@ -98,8 +98,7 @@ Kernel-Launch Example
 
   __global__ 
   void 
-  MyKernel (hipLaunchParm lp, /*lp parm for execution configuration */
-          const float *a, const float *b, float *c, unsigned N)
+  MyKernel (const float *a, const float *b, float *c, unsigned N)
   {
      unsigned gid = hipThreadIdx_x; // <- coordinate index function
      if (gid < N) {
@@ -111,7 +110,7 @@ Kernel-Launch Example
      float *a, *b, *c; // initialization not shown...
      unsigned N = 1000000;
      const unsigned blockSize = 256;
-     hipLaunchKernel(MyKernel, 
+     hipLaunchKernelGGL(MyKernel, 
    (N/blockSize), dim3(blockSize), 0, 0,  a,b,c,N);
   }
 

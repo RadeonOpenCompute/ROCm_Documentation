@@ -97,7 +97,7 @@ hip-clang generates initializatiion and termination functions for each translati
 
 **Kernel Launching**
 
-hip-clang supports kernel launching by CUDA <<<>>> syntax, hipLaunchKernel, and hipLaunchKernelGGL. The latter two are macros which expand to CUDA <<<>>> syntax.
+hip-clang supports kernel launching by CUDA <<<>>> syntax, hipLaunchKernelGGL. The latter is a macro which expands to CUDA <<<>>> syntax.
 
 In host code, hip-clang emits a stub function with the same name and arguments as the kernel. In the body of this function, hipSetupArgument is called for each kernel argument, then hipLaunchByPtr is called with a function pointer to the stub function.
 
@@ -261,7 +261,7 @@ HIP supports texture driver APIs however texture reference should be declared in
   #include "hip/hip_runtime.h"
   extern texture<float, 2, hipReadModeElementType> tex;
 
-  __global__ void tex2dKernel(hipLaunchParm lp, float* outputData,
+  __global__ void tex2dKernel(float* outputData,
                                int width,
                                int height)
   {
