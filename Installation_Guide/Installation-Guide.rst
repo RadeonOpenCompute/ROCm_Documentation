@@ -969,11 +969,6 @@ Each ROCm component repository contains directions for building that
 component. As such, you should go to the repository you are interested
 in building to find how to build it.
 
-That said, AMD also offers `a project`_ that demonstrates how to
-download, build, package, and install ROCm software on various
-distributions. The scripts here may be useful for anyone looking to
-build ROCm components.
-
 Deprecation Notice
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
