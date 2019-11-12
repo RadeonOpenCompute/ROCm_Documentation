@@ -144,7 +144,11 @@ Initial Wavefront and Register State To launch a kernel in real hardware, the ru
    flat_store_dword  v[3:4], v1
    s_endpgm
 
-Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. initial_state
+Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. 
+
+
+.. image:: initial_state-768x387.png
+
 
 The GPR Counting
 ******************
@@ -968,6 +972,7 @@ Build environment:
 
   export ROCPROFILER_TRACE=1
 
+
 **Profiling utility usage**
 
 .. code:: sh
@@ -1071,6 +1076,9 @@ Build environment:
       ctx-limit=0
       heartbeat=0
     ></defaults>
+
+
+
 ROC Tracer
 ============
 
@@ -1868,6 +1876,7 @@ Release Notes
 **Known issues**
 
    * Package (.deb & .rpm) install requires OpenCV v3.4.0 to execute AMD OpenCV extensions
+   
 
 **Tested configurations**
 
