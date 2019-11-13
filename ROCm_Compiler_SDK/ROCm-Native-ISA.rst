@@ -11,9 +11,11 @@ GCN Native ISA LLVM Code Generator
     * :ref:`LLVM`
        *  :ref:`Target-Triples`
        *  :ref:`Processors`
+       *  :ref:`Target Features`
        *  :ref:`Address-Spaces`
        *  :ref:`Memory-Scopes`
        *  :ref:`AMDGPU-Intrinsics`
+       *  :ref:`AMDGPU Attributes`
     * :ref:`Code-Object`
        *  :ref:`Header`
        *  :ref:`Sections`
@@ -107,39 +109,41 @@ Target Triples
 ---------------
 Use the clang -target <Architecture>-<Vendor>-<OS>-<Environment> option to specify the target triple:
 
-    **AMDGPU Target Triples**
-============== ======= ======== ==============
- Architecture 	Vendor 	OS 	Environment
-============== ======= ======== ==============
-    r600 	amd 	<empty>  <empty>
-    amdgcn 	amd 	<empty>  <empty>
-    amdgcn 	amd 	amdhsa 	 <empty>
-    amdgcn 	amd 	amdhsa 	 opencl
-    amdgcn 	amd 	amdhsa 	 amdgizcl
-    amdgcn 	amd 	amdhsa 	 amdgiz
-    amdgcn 	amd 	amdhsa 	 hcc
-============== ======= ======== ==============
+    **AMDGPU Architectures**
+============== ============================================================
+ Architecture 	Description
+============== ============================================================
+    r600 	AMD GPUs HD2XXX-HD6XXX for graphics and compute shaders
+    amdgcn      AMD GPUs GCN GFX6 onwards for graphics and compute shaders
+============== ============================================================
 
-r600-amd--
-    Supports AMD GPUs HD2XXX-HD6XXX for graphics and compute shaders executed on the MESA runtime.
+**AMDGPU Vendors**
 
-amdgcn-amd--
-    Supports AMD GPUs GCN GFX6 onwards for graphics and compute shaders executed on the MESA runtime.
+============== ============================================================
+ Vendor 	Description
+============== ============================================================
+    amd         can be used for all AMD GPU usage.
+    mesa3d      can be used if the OS is mesa3d.
+============== ============================================================
 
-amdgcn-amd-amdhsa-
-    Supports AMD GCN GPUs GFX6 onwards for compute kernels executed on HSA [HSA] compatible runtimes such as AMD’s ROCm [AMD-ROCm].
+**AMDGPU Operating Systems**
 
-amdgcn-amd-amdhsa-opencl
-    Supports AMD GCN GPUs GFX6 onwards for OpenCL compute kernels executed on HSA [HSA] compatible runtimes such as AMD’s ROCm 	    	[AMD-ROCm]. See OpenCL.
+============== ==========================================================================================
+ OS      	Description
+============== ==========================================================================================
+ <empty> 	Defaults to the unknown OS.
+amdhsa 	        Compute kernels executed on HSA [HSA] compatible runtimes such as AMD’s ROCm [AMD-ROCm].
+amdpal 	        Graphic shaders and compute kernels executed on AMD PAL runtime.
+mesa3d 	        Graphic shaders and compute kernels executed on Mesa 3D runtime.
+============== ==========================================================================================
 
-amdgcn-amd-amdhsa-amdgizcl
-    Same as amdgcn-amd-amdhsa-opencl except a different address space mapping is used (see Address Spaces).
+**AMDGPU Environments**
 
-amdgcn-amd-amdhsa-amdgiz
-    Same as amdgcn-amd-amdhsa- except a different address space mapping is used (see Address Spaces).
-
-amdgcn-amd-amdhsa-hcc
-    Supports AMD GCN GPUs GFX6 onwards for AMD HC language compute kernels executed on HSA [HSA] compatible runtimes such as AMD’s  	ROCm [AMD-ROCm]. See HCC.
+============== ============================================================
+ Environment	Description
+============== ============================================================
+  <empty>       Default.
+============== ============================================================
 
 .. _Processors:
 
@@ -149,134 +153,196 @@ Use the clang -mcpu <Processor> option to specify the AMD GPU processor. The nam
 
 **AMDGPU Processors Processor**
 
-==================================== =========== ================ ============== ================== ================================ 
- Processor 		  	  	      	   Triple 
-					    	   Architecture     dGPU/ APU 	   Runtime Support    Example Products
-==================================== =========== ================ ============== ================== ================================ 
-   **R600**
+==================================== ============== ================ ============== ====================== =========== ============================== 
+ Processor 		  	      Alternative    Target Triple                    Target Features       ROCm         Example Products
+				      Processor	     Architecture     dGPU/ APU       Supported [Default]   Support
+==================================== ============== ================ ============== ====================== =========== ============================== 
+   **Radeon HD 2000/3000 Series(R600)**
     r600 	  			 		r600 		dGPU 	  	 
     r630 	  					r600 		dGPU 	  	 
     rs880 	  					r600 		dGPU 	  	 
     rv670 	  					r600 		dGPU 	  	 
-   **R700**
+   **Radeon HD 4000 Series(R700)**
     rv710 	  					r600 		dGPU 	  	 
     rv730 	  					r600 		dGPU 	  	 
     rv770 	  					r600 		dGPU 	  	 
-   **Evergreen**	
+   **Radeon HD 5000 Series(Evergreen)**	
     cedar 	  					r600 		dGPU 	  	 
     redwood 	  					r600 		dGPU 	  	 
     sumo 	  					r600 		dGPU 	  	 
     juniper 	  					r600 		dGPU 	  	 
     cypress 	  					r600 		dGPU 	  	 
-**Northern Islands**	
+  **Radeon HD 6000 Series(Northern Islands)**	
     barts 	  					r600 		dGPU 	  	 
     turks 	  					r600 		dGPU 	  	 
     caicos 	  					r600 		dGPU 	  	 
     cayman 	  					r600 		dGPU 	  	 
-**GCN GFX6(Southern Islands (SI))**   
+  **GCN GFX6(Southern Islands (SI))**   
     gfx600 				tahiti	       amdgcn 		dGPU 	
 
-    gfx601 			      * pitcairn		
+    gfx601 			      * pitcairn       amdgcn           dGPU		
        				      * verde
         			      * oland
         			      * hainan
-**GCN GFX7 (Sea Islands (CI))**
-   gfx700 			      * bonaire        amdgcn 		dGPU 	   			* Radeon HD 7790	
-  													* Radeon HD 8770
-   													* R7 260
-  													* R7 260X
+  **GCN GFX7 (Sea Islands (CI))**
+    gfx700  			      *	kaveri	       amdgcn 		APU 	  			                    * A6-7000
+													                    * A6 Pro-7050B
+   												                            * A8-7100
+    													                    * A8 Pro-7150B
+    													                    * A10-7300
+    													                    * A10 Pro-7350B
+    													                    * FX-7500
+   													                    * A8-7200P
+    													                    * A10-7400P
+    													                    * FX-7600P	
+
+    gfx701 			      * hawaii	       amdgcn 		dGPU 		                      ROCm 	    * FirePro W8100
+   													                    * FirePro W9100
+    													                    * FirePro S9150
+    													                    * FirePro S9170
+
+    gfx702 	  	  			       amdgcn		dGPU 		                      ROCm          * Radeon R9 290
+													                    * Radeon R9 290x
+  													                    * Radeon R390
+   													                    * Radeon R390x
+    gfx703 			      * kabini	       amdgcn 		APU 				                    *  E1-2100
+
+    				      *	mullins								                    *  E1-2200
+   													                    *  E1-2500
+   													                    *  E2-3000
+   													                    *  E2-3800
+   													                    *  A4-5000
+   													                    *  A4-5100
+													                    *  A6-5200
+													                    *  A4 Pro-3340B
+   gfx704 			      * Bonaire	       amdgcn 		dGPU 				                    *  Radeon HD 7790
+
+    				  							                                    *  Radeon HD 8770
+   													                    *  R7 260
+   													                    *  R7 260X
+
+ **GCN GFX8 (Volcanic Islands (VI))**
+   gfx801 			      * carrizo		amdgcn 		APU 	  	xnack [on]                          * A6-8500P
+   													                    * Pro A6-8500B
+   													                    * A8-8600P
+    													                    * Pro A8-8600B
+   													                    * FX-8800P
+    												                            * Pro A12-8800B
+							amdgcn 		APU 		xnack [on]            ROCm          * A10-8700P
+    													                    * Pro A10-8700B
+    													                    * A10-8780P
+						        amdgcn 		APU 	  	xnack [on] 	                    * A10-9600P	
+													                    * A10-9630P
+													                    * A12-9700P
+													                    * A12-9730P
+													                    * FX-9800P
+													                    * FX-9830P 
+							amdgcn 		APU 	   	xnack [on]            ROCm          * E2-9010
+												                            * A6-9210
+    													                    * A9-9410	
   
-   gfx700  			      *	kaveri	       amdgcn 		APU 	  			* A6-7000
-													* A6 Pro-7050B
-   												        * A8-7100
-    													* A8 Pro-7150B
-    													* A10-7300
-    													* A10 Pro-7350B
-    													* FX-7500
-   													* A8-7200P
-    													* A10-7400P
-    													* FX-7600P	
+   gfx802 			     * tonga 	 	amdgcn 		dGPU 		xnack [off]           ROCm          * FirePro S7150 
+                                     * iceland                                                                              * FirePro S7100
+                                                                                                                            * FirePro W7100  
+                                                                                                                            * Radeon R285
+                                                                                                                            * Radeon R9 380
+                                                                                                                            * Radeon R9 385
+                                                                                                                            * Mobile FirePro
+                                                                                                                              M7170
 
-   gfx701 			      * hawaii	       amdgcn 		dGPU 		ROCm 		* FirePro W8100
-   													* FirePro W9100
-    													* FirePro S9150
-    													* FirePro S9170
+   gfx803 	                     * fiji    		amdgcn 		dGPU 		xnack [OFF]           ROCm 	    * Radeon R9 Nano
+    													                    * Radeon R9 Fury
+    												 	                    * Radeon R9 FuryX
+    													                    * Radeon Pro Duo
+    													                    * FirePro S9300x2
+   													                    * Radeon Instinct
+                                                                                                                              MI8
 
-   gfx702 	  	  						dGPU 		ROCm 		* Radeon R9 290
-													* Radeon R9 290x
-  													* Radeon R390
-   													* Radeon R390x
-  gfx703 			      * kabini		amdgcn 		APU 				*  E1-2100
-
-    				      *	mullins								*  E1-2200
-   													*  E1-2500
-   													*  E2-3000
-   													*  E2-3800
-   													*  A4-5000
-   													*  A4-5100
-													*  A6-5200
- GCN GFX8 (Volcanic Islands (VI))
-   gfx800 			      * iceland		amdgcn 		dGPU 	 			* FirePro S7150
-													* FirePro S7100
-    													* FirePro W7100
- 	    												* Radeon R285
-   													* Radeon R9 380
-   													* Radeon R9 385
-    													* Mobile FirePro M7170
-
- gfx801 			      * carrizo		amdgcn 		APU 	  			* A6-8500P
-   													* Pro A6-8500B
-   													* A8-8600P
-    													* Pro A8-8600B
-   													* FX-8800P
-    												        * Pro A12-8800B
-							amdgcn 		APU 		ROCm 		* A10-8700P
-    													* Pro A10-8700B
-    													* A10-8780P
-						        amdgcn 		APU 	  		        * A10-9600P	
-													* A10-9630P
-													* A12-9700P
-													* A12-9730P
-													* FX-9800P
-													* FX-9830P
-							amdgcn 		APU 	   			* E2-9010
-												        * A6-9210
-    													* A9-9410	
-  
-  gfx802 			     * tonga 	 	amdgcn 		dGPU 		ROCm 		Same as gfx800
-
-  gfx803 	                     * fiji    		amdgcn 		dGPU 		ROCm 	        * Radeon R9 Nano
-    													* Radeon R9 Fury
-    												 	* Radeon R9 FuryX
-    													* Radeon Pro Duo
-    													* FirePro S9300x2
-   													* Radeon Instinct MI8
-
-				     * polaris10 	amdgcn 		dGPU 		ROCm 		* Radeon RX 470	
-  				     * polaris11 	amdgcn 		dGPU 		ROCm 		* Radeon RX 460
- gfx804 	  					amdgcn 		dGPU 	  			  Same as gfx803
- gfx810 			     * stoney 		amdgcn 		APU
+				     * polaris10 	amdgcn 		dGPU 		xnack [OFF]           ROCm 	    * Radeon RX 470
+                                                                                                                            * Radeon RX 480 
+                                                                                                                            * Radeon Instinct 
+                                                                                                                              MI6
+	
+  				     * polaris11 	amdgcn 		dGPU 		xnack [off]           ROCm 	    * Radeon RX 460
+  gfx810 			     * stoney 		amdgcn 		APU             xnack [on]  
 
 
  **GCN GFX9 [AMD-Vega]**
- gfx900 	  					amdgcn 		dGPU 	  		     * Readeon vega Frontieredition
-												     * Radeon RX Vega 56
-												     * Radeon RX Vega 64
-												     * Radeon RX Vega 64 Liquid
-												     * Radeon Instinct MI25
-
- gfx901 	  					amdgcn 		dGPU 		ROCm 	    Same as gfx900 except 
-												    XNACK is enabled
- gfx902 	  					amdgcn 		APU 	  			  TBA
- gfx903 	  					amdgcn 		APU 	  		     Same as gfx902 except
-												     XNACK is enabled
-
-
-==================================== =========== ================ ============== ================== ================================ 
+  gfx900 	  					amdgcn 		dGPU 	  	xnack [off]	      ROCm          * Readeon vega 
+                                                                                                                              Frontieredition
+												                            * Radeon RX Vega 56
+												                            * Radeon RX Vega 64
+												                            * Radeon RX Vega 64 
+                                                                                                                              Liquid
+												                            * Radeon Instinct MI25
+  gfx902 	  					amdgcn 		APU             xnack [on]                          * Ryzen 3 2200G
+                                                                                                                            * Ryzen 5 2400G    	  			  
+  gfx904 	  					amdgcn 		dGPU 	  	xnack [off]  
  
-       
+  gfx906                                                 amdgcn          dGPU            xnack [off]                         * Radeon Instinct MI50
+                                                                                                                            * Radeon Instinct MI60
+  gfx908                                                 amdgcn          dGPU            xnack [off]
+                                                                                        sram-ecc [on]
+  gfx909                                                 amdgcn          APU             xnack [on]                   
 
-    	
+ **GCN GFX10**
+ gfx1010                                                amdgcn          dGPU            xnack [off]
+                                                                                        wavefrontsize64
+                                                                                        [off]
+                                                                                        cumode [off]
+  gfx1011                                                amdgcn          dGPU           xnack [off] 
+                                                                                        wavefrontsize64
+                                                                                         [off]
+                                                                                        cumode [off]
+  gfx1012                                                amdgcn          dGPU           xnack [off]
+                                                                                        wavefrontsize64
+                                                                                        [off]
+                                                                                        cumode [off]
+            
+==================================== ============== ================ ============== ====================== =========== ============================== 
+ 
+
+.. _Target Features:  
+     
+Target Features
+-----------------
+
+Target features control how code is generated to support certain processor specific features. Not all target features are supported by all processors. The runtime must ensure that the features supported by the device used to execute the code match the features enabled when generating the code. A mismatch of features may result in incorrect execution, or a reduction in performance.
+
+The target features supported by each processor, and the default value used if not specified explicitly, is listed in AMDGPU Processors.
+
+Use the clang -m[no-]<TargetFeature> option to specify the AMD GPU target features.
+
+For example:
+
+-mxnack
+    Enable the xnack feature.
+-mno-xnack
+    Disable the xnack feature.
+   
+  **AMDGPU Target Features** 
+=================  ============================================================================
+ Target Feature 	              Description
+=================  ============================================================================
+ -m[no-]xnack 	   Enable/disable generating code that has memory clauses that are compatible 
+                   with having XNACK replay enabled.
+                   This is used for demand paging and page migration. If XNACK replay is
+                   enabled in the device, then if a page fault occurs the code may execute 
+                   incorrectly if the xnack feature is not enabled. Executing code that has
+                   the feature enabled on a device that does not have XNACK replay enabled will
+                   execute correctly, but may be less performant than code with the feature 
+                   disabled.
+
+ -m[no-]sram-ecc   Enable/disable generating code that assumes SRAM ECC is enabled/disabled.
+
+ -m[no-]wavefront
+  size64 	   Control the default wavefront size used when generating code for kernels.
+                   When disabled native wavefront size 32 is used, when enabled wavefront 
+                   size 64 is used.
+ -m[no-]cumode     Control the default wavefront execution mode used when generating code 
+                   for kernels. When disabled native WGP wavefront execution mode is used,
+                   when enabled CU wavefront execution mode is used (see Memory Model).
+=================  ============================================================================    	
     
   
 
@@ -293,27 +359,21 @@ LLVM Address Space number is used throughout LLVM (for example, in LLVM IR).
 
 **Address Space Mapping**
 
+====================== ===================    
+  LLVM Address Space 	Memory Space
+====================== ===================    
+              0 	Generic (Flat)
+              1 	Global
+              2 	Region (GDS)
+              3 	Local (group/LDS)
+              4 	Constant
+              5 	Private (Scratch)
+              6 	Constant 32-bit
+              7 	Buffer Fat Pointer
+                        (experimental)
+====================== ===================    
 
-			Memory Space
-=================== =================== ====================== ================== ===================
-LLVM Address Space    Current Default 	  amdgiz/amdgizcl 	   hcc 	   	    Future Default
-=================== =================== ====================== ================== ===================
-    0 	   	     Private (Scratch) 	 Generic (Flat) 	Generic (Flat) 	   Generic (Flat)
-    1 	    	     Global 		 Global 		Global 		   Global
-    2 	   	     Constant 		 Constant 		Constant 	   Region (GDS)
-    3 	    	     Local (group/LDS) 	 Local (group/LDS) 	Local (group/LDS)  Local (group/LDS)
-    4 	    	     Generic (Flat) 	 Region (GDS) 		Region (GDS) 	   Constant
-    5 	    	     Region (GDS) 	 Private (Scratch) 	Private (Scratch)  Private (Scratch)
-=================== =================== ====================== ================== ===================
-
-Current Default
-    This is the current default address space mapping used for all languages except hcc. This will shortly be deprecated.
-amdgiz/amdgizcl
-    This is the current address space mapping used when amdgiz or amdgizcl is specified as the target triple environment value.
-hcc
-    This is the current address space mapping used when hcc is specified as the target triple environment value.This will shortly be deprecated.
-Future Default
-    This will shortly be the only address space mapping for all languages using AMDGPU backend.
+The buffer fat pointer is an experimental address space that is currently unsupported in the backend. It exposes a non-integral pointer that is in future intended to support the modelling of 128-bit buffer descriptors + a 32-bit offset into the buffer descriptor (in total encapsulating a 160-bit ‘pointer’), allowing us to use normal LLVM load/store/atomic operations to model the buffer descriptors used heavily in graphics workloads targeting the backend.
 
 .. _Memory-Scopes:
 
@@ -322,9 +382,9 @@ Memory Scopes
 
 This section provides LLVM memory synchronization scopes supported by the AMDGPU backend memory model when the target triple OS is amdhsa (see Memory Model and Target Triples).
 
-The memory model supported is based on the HSA memory model [HSA] which is based in turn on HRF-indirect with scope inclusion [HRF]. The happens-before relation is transitive over the synchonizes-with relation independent of scope, and synchonizes-with allows the memory scope instances to be inclusive (see table AMDHSA LLVM Sync Scopes for AMDHSA).
+The memory model supported is based on the HSA memory model  which is based in turn on HRF-indirect with scope inclusion. The happens-before relation is transitive over the synchonizes-with relation independent of scope, and synchonizes-with allows the memory scope instances to be inclusive (see table AMDHSA LLVM Sync Scopes for AMDHSA).
 
-This is different to the OpenCL [OpenCL] memory model which does not have scope inclusion and requires the memory scopes to exactly match. However, this is conservatively correct for OpenCL.
+This is different to the OpenCL memory model which does not have scope inclusion and requires the memory scopes to exactly match. However, this is conservatively correct for OpenCL.
 
     **AMDHSA LLVM Sync Scopes for AMDHSA LLVM Sync Scope** 	
 ================   =================================================================================================================  
@@ -349,12 +409,10 @@ workgroup 	     Synchronizes with, and participates in modification and seq_cst 
 wavefront            Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation’s sync scope is:
 			* system, agent, workgroup or wavefront and executed by a thread in the same wavefront.
 
-singlethread 	     Only synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 	     image operations) running in the same thread for all address spaces (for example, in signal handlers).
+singlethread 	     Only synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 	              image operations) running in the same thread for all address spaces (for example, in signal handlers).
+one-as               Same as system but only synchronizes with other operations within the same address space
 
 ================   =================================================================================================================  
-
-
-
 
 
 .. _AMDGPU-Intrinsics:
@@ -366,10 +424,37 @@ The AMDGPU backend implements the following intrinsics.
 
 This section is WIP.
 
+.. _AMDGPU Attributes:
+
+AMDGPU Attributes
+-----------------------
+
+The AMDGPU backend supports the following LLVM IR attributes.
+
+    **AMDGPU LLVM IR Attributes** 
+============================================   =============================================================================================
+ LLVM Attribute 	                         Description
+============================================   =============================================================================================
+“amdgpu-flat-work-group-size”=”min,max” 	 Specify the minimum and maximum flat work group sizes that will be specified
+                                                 when the kernel is dispatched. Generated by the amdgpu_flat_work_group_size 
+                                                 CLANG attribute.
+“amdgpu-implicitarg-num-bytes”=”n” 	         Number of kernel argument bytes to add to the kernel argument block size 
+                                                 for the implicit arguments. This varies by OS and language
+“amdgpu-num-sgpr”=”n” 	                         Specifies the number of SGPRs to use. Generated by the amdgpu_num_sgpr CLANG attribute   
+“amdgpu-num-vgpr”=”n” 	                         Specifies the number of VGPRs to use. Generated by the amdgpu_num_vgpr CLANG attribute   
+“amdgpu-waves-per-eu”=”m,n” 	                 Specify the minimum and maximum number of waves per execution unit.
+                                                 Generated by the amdgpu_waves_per_eu CLANG attribute
+“amdgpu-ieee” true/false. 	                 Specify whether the function expects the IEEE field of the mode register to  
+                                                 be set on entry. Overrides the default for the calling convention.
+“amdgpu-dx10-clamp” true/false. 	         Specify whether the function expects the DX10_CLAMP field of the mode
+                                                 register to be set on entry. Overrides the default for the calling convention.
+============================================   =============================================================================================
+
  .. _Code-Object:
 
 Code Object
 #############
+
 The AMDGPU backend generates a standard ELF [ELF] relocatable code object that can be linked by lld to produce a standard ELF shared code object which can be loaded and executed on an AMDGPU target.
 
 .. _Header:
