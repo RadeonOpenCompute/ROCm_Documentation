@@ -622,7 +622,7 @@ annotation API. Annotation is visualized in JSON trace as a separate
 
 ::
 
-   // A marker created by given ASCII massage
+   // A marker created by given ASCII message
    void roctxMark(const char* message);
 
    // Returns the 0 based level of a nested range being started by given message associated to this range.
