@@ -1112,7 +1112,10 @@ The library source tree:
   
   - ROCm-2.3 or higher is required
 
-   cd <your path>
+  - Python2.7 is required.
+    The required modules: CppHeaderParser, argparse.
+    To install:
+    sudo pip install CppHeaderParser argparse
 
   - CLone development branches of roctracer:
     git clone -b amd-master https://github.com/ROCm-Developer-Tools/roctracer
