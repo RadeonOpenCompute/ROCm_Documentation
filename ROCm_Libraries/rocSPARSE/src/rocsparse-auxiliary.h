@@ -29,10 +29,8 @@
 #ifndef _ROCSPARSE_AUXILIARY_H_
 #define _ROCSPARSE_AUXILIARY_H_
 
-#include "rocsparse-types.h"
 #include "rocsparse-export.h"
-
-#include <hip/hip_runtime_api.h>
+#include "rocsparse-types.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -365,7 +365,17 @@ hipsparseXcsrmm 	              x 	  x
 hipsparseXcsrmm2 	              x 	  x 			
 ================================  ==========   =========  ================  =================  ======
 
+**Extra**
 
+================================  ==========   =========  ================  =================  ====== 
+Function 	                    single 	double 	   single complex    double complex 	halfy
+================================  ==========   =========  ================  =================  ======
+hipsparseXcsrgemmNnz	 	              
+hipsparseXcsrgemm	              x 	  x 			
+hipsparseXcsrgemm2_bufferSizeExt	
+hipsparseXcsrgemm2Nnz
+hipsparseXcsrgemm2
+================================  ==========   =========  ================  =================  ======
 **Preconditioners**
 
 =================================  ==========   =========  ================  =================  ====== 

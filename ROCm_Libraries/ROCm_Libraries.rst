@@ -1087,6 +1087,7 @@ The functionality of rocSPARSE is organized in the following categories:
     * `Sparse Level 1 Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-level1-functions>`_ describe operations between a vector in sparse format and a vector in dense format.
     * `Sparse Level 2 Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-level2-functions>`_ describe operations between a matrix in sparse format and a vector in dense format.
     * `Sparse Level 3 Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-level3-functions>`_ describe operations between a matrix in sparse format and multiple vectors in dense format.
+    *  :ref:`sparse` describe operations that manipulate sparse matrices.
     * `Preconditioner Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-precond-functions>`_ describe manipulations on a matrix in sparse format to obtain a preconditioner.
     * `Sparse Conversion Functions <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-conversion-functions>`_ describe operations on a matrix in sparse format to obtain a different matrix format.
 
@@ -1164,8 +1165,6 @@ Command           Description
 `./install.sh -d` Build dependencies and library in your local directory. The `-d` flag only needs to be |br| used once. For subsequent invocations of *install.sh* it is not necessary to rebuild the |br| dependencies.
 `./install.sh`    Build library in your local directory. It is assumed dependencies are available.
 `./install.sh -i` Build library, then build and install rocSPARSE package in `/opt/rocm/rocsparse`. You will be |br| prompted for sudo access. This will install for all users.
-`./install.sh -g` Build with debug flag
-`./install.sh --hip-clang Build library for amdgpu backend using hip-clang
 ================= ====
 
 Using *install.sh* to build dependencies + library + client
@@ -1704,6 +1703,12 @@ rocsparse_axpyi()
 .. doxygenfunction:: rocsparse_daxpyi
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_caxpyi
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zaxpyi
+   :project: rocSPARSE
+
 rocsparse_doti()
 --------------------------------
 
@@ -1714,6 +1719,21 @@ rocsparse_doti()
 .. doxygenfunction:: rocsparse_ddoti
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_cdoti
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zdoti
+   :project: rocSPARSE
+
+rocsparse_dotci()
+------------------------
+
+.. doxygenfunction:: rocsparse_cdotci
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_zdotci
+   :project: rocSPARSE
 rocsparse_gthr()
 --------------------------------
 
@@ -1722,6 +1742,12 @@ rocsparse_gthr()
    :project: rocSPARSE
 
 .. doxygenfunction:: rocsparse_dgthr
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_cgthr
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zgthr
    :project: rocSPARSE
 
 rocsparse_gthrz()
@@ -1734,6 +1760,11 @@ rocsparse_gthrz()
 .. doxygenfunction:: rocsparse_dgthrz
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_cgthrz
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zgthrz
+   :project: rocSPARSE
 rocsparse_roti()
 --------------------------------
 
@@ -1754,6 +1785,11 @@ rocsparse_sctr()
 .. doxygenfunction:: rocsparse_dsctr
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_csctr
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zsctr
+   :project: rocSPARSE
 
 Sparse Level 2 Functions
 ###########################
@@ -1772,6 +1808,11 @@ rocsparse_coomv()
 .. doxygenfunction:: rocsparse_dcoomv
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccoomv
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcoomv
+   :project: rocSPARSE
 rocsparse_csrmv_analysis()
 --------------------------------
 
@@ -1780,6 +1821,12 @@ rocsparse_csrmv_analysis()
    :outline:
 
 .. doxygenfunction:: rocsparse_dcsrmv_analysis
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_ccsrmv_analysis
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrmv_analysis
    :project: rocSPARSE
 
 rocsparse_csrmv()
@@ -1792,6 +1839,11 @@ rocsparse_csrmv()
 .. doxygenfunction:: rocsparse_dcsrmv
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsrmv
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrmv
+   :project: rocSPARSE
 rocsparse_csrmv_analysis_clear()
 --------------------------------
 
@@ -1808,6 +1860,12 @@ rocsparse_ellmv()
 .. doxygenfunction:: rocsparse_dellmv
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_cellmv
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zellmv
+   :project: rocSPARSE
+
 rocsparse_hybmv()
 --------------------------------
 
@@ -1818,6 +1876,11 @@ rocsparse_hybmv()
 .. doxygenfunction:: rocsparse_dhybmv
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_chybmv
+   :project: rocSPARSE  
+
+.. doxygenfunction:: rocsparse_zhybmv
+   :project: rocSPARSE
 rocsparse_csrsv_zero_pivot()
 --------------------------------
 
@@ -1834,6 +1897,12 @@ rocsparse_csrsv_buffer_size()
 .. doxygenfunction:: rocsparse_dcsrsv_buffer_size
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsrsv_buffer_size
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrsv_buffer_size
+   :project: rocSPARSE
+
 rocsparse_csrsv_analysis()
 --------------------------------
 
@@ -1844,6 +1913,11 @@ rocsparse_csrsv_analysis()
 .. doxygenfunction:: rocsparse_dcsrsv_analysis
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsrsv_analysis
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrsv_analysis
+   :project: rocSPARSE
 rocsparse_csrsv_solve()
 --------------------------------
 
@@ -1852,6 +1926,12 @@ rocsparse_csrsv_solve()
    :outline:
 
 .. doxygenfunction:: rocsparse_dcsrsv_solve
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_ccsrsv_solve
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrsv_solve
    :project: rocSPARSE
 
 rocsparse_csrsv_clear()
@@ -1878,6 +1958,58 @@ rocsparse_csrmm()
 .. doxygenfunction:: rocsparse_dcsrmm
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsrmm
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrmm
+   :project: rocSPARSE
+
+.. _sparse:
+
+Sparse Extra Functions
+##########################
+
+This module holds all sparse extra routines.
+
+The sparse extra routines describe operations that manipulate sparse matrices.
+
+rocsparse_csrgemm_buffer_size()
+--------------------------------
+
+.. doxygenfunction:: rocsparse_scsrgemm_buffer_size
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrgemm_buffer_size
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_ccsrgemm_buffer_size
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrgemm_buffer_size
+   :project: rocSPARSE
+
+rocsparse_csrgemm_nnz()
+------------------------
+
+.. doxygenfunction:: rocsparse_csrgemm_nnz
+   :project: rocSPARSE
+
+rocsparse_csrgemm()
+---------------------
+
+.. doxygenfunction:: rocsparse_scsrgemm
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dcsrgemm
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_ccsrgemm
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrgemm
+   :project: rocSPARSE
 
 Preconditioner Functions
 ##########################
@@ -1902,6 +2034,11 @@ rocsparse_csrilu0_buffer_size()
 .. doxygenfunction:: rocsparse_dcsrilu0_buffer_size
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsrilu0_buffer_size
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrilu0_buffer_size
+   :project: rocSPARSE
 rocsparse_csrilu0_analysis()
 --------------------------------
 
@@ -1912,6 +2049,11 @@ rocsparse_csrilu0_analysis()
 .. doxygenfunction:: rocsparse_dcsrilu0_analysis
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsrilu0_analysis
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrilu0_analysis
+   :project: rocSPARSE
 rocsparse_csrilu0()
 --------------------------------
 
@@ -1920,6 +2062,12 @@ rocsparse_csrilu0()
    :outline:
 
 .. doxygenfunction:: rocsparse_dcsrilu0
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_ccsrilu0
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsrilu0
    :project: rocSPARSE
 
 rocsparse_csrilu0_clear()
@@ -1963,6 +2111,11 @@ rocsparse_csr2csc()
 .. doxygenfunction:: rocsparse_dcsr2csc
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsr2csc
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsr2csc
+   :project: rocSPARSE
 rocsparse_csr2ell_width()
 --------------------------------
 
@@ -1979,6 +2132,12 @@ rocsparse_csr2ell()
 .. doxygenfunction:: rocsparse_dcsr2ell
    :project: rocSPARSE
 
+.. doxygenfunction:: rocsparse_ccsr2ell
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsr2ell
+   :project: rocSPARSE
+
 rocsparse_ell2csr_nnz()
 --------------------------------
 
@@ -1988,7 +2147,17 @@ rocsparse_ell2csr_nnz()
 rocsparse_ell2csr()
 ----------------------------
 
-.. doxygenfunction:: rocsparse_csr2csc_buffer_size
+.. doxygenfunction:: rocsparse_sell2csr
+   :project: rocSPARSE
+   :outline:
+
+.. doxygenfunction:: rocsparse_dell2csr
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_cell2csr
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zell2csr
    :project: rocSPARSE
 
 rocsparse_csr2hyb()
@@ -1999,6 +2168,12 @@ rocsparse_csr2hyb()
    :outline:
 
 .. doxygenfunction:: rocsparse_dcsr2hyb
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_ccsr2hyb
+   :project: rocSPARSE
+
+.. doxygenfunction:: rocsparse_zcsr2hyb
    :project: rocSPARSE
 
 rocsparse_create_identity_permutation()
@@ -3737,10 +3912,10 @@ OpenCL allows for 3-dimensional grid of work-groups, and each work-group can be 
 Languages
 ##################
 
-Tensile Benchmarking is Python
+Tensile Benchmarking is Python3
 ----------------------------------
 
-The benchmarking module, Tensile.py, is written in python. The python scripts write solution, kernels, cmake files and all other C/C++ files used for benchmarking.
+The benchmarking module, Tensile.py, is written in python3. The python scripts write solution, kernels, cmake files and all other C/C++ files used for benchmarking. Please note that Tensile is not compatible with Python2.
 
 Tensile Library
 -----------------
