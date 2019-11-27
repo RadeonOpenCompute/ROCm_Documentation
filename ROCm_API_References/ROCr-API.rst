@@ -18,7 +18,7 @@ common definition
 .. doxygenenum::  hsa_access_permission_t
    :project: rocr
 
-.. doxygenstruct:: struct hsa_dim3_s
+.. doxygenstruct:: hsa_dim3_t
    :project: rocr
 
 Initialization and Shut Down
@@ -100,19 +100,14 @@ System and Agent Information
 Signals
 --------
 
-.. doxygenclass:: hsa_signal_s
-   :project: rocr
 
-.. doxygenclass:: hsa_signal_group_s
-   :project: rocr
-
-.. doxygentypedef:: hsa_signal_t
+.. doxygenstruct:: hsa_signal_t
    :project: rocr
 
 .. doxygentypedef:: hsa_signal_value_t
    :project: rocr
 
-.. doxygentypedef:: hsa_signal_group_t
+.. doxygenstruct:: hsa_signal_group_t
    :project: rocr
 
 .. doxygenenum:: hsa_signal_condition_t
@@ -281,28 +276,17 @@ Queue
 Architected Queuing Language
 ------------------------------
 
-.. doxygenclass:: hsa_kernel_dispatch_packet_s
+
+.. doxygenstruct:: hsa_kernel_dispatch_packet_t
    :project: rocr
 
-.. doxygenclass:: hsa_agent_dispatch_packet_s
+.. doxygenstruct:: hsa_agent_dispatch_packet_t
    :project: rocr
 
-.. doxygenclass:: hsa_barrier_and_packet_s
+.. doxygenstruct:: hsa_barrier_and_packet_t
    :project: rocr
 
-.. doxygenclass:: hsa_barrier_or_packet_s
-   :project: rocr
-
-.. doxygentypedef:: hsa_kernel_dispatch_packet_t
-   :project: rocr
-
-.. doxygentypedef:: hsa_agent_dispatch_packet_t
-   :project: rocr
-
-.. doxygentypedef:: hsa_barrier_and_packet_t
-   :project: rocr
-
-.. doxygentypedef:: hsa_barrier_or_packet_t
+.. doxygenstruct:: hsa_barrier_or_packet_t
    :project: rocr
 
 .. doxygenenum:: hsa_fence_scope_t
@@ -336,6 +320,7 @@ Instruction Set Architecture.
    :project: rocr
 
 .. doxygenenum:: hsa_wavefront_info_t
+   :project: rocr
 
 .. doxygenfunction:: hsa_agent_iterate_isas()
    :project: rocr
@@ -368,7 +353,7 @@ Instruction Set Architecture.
 Executable
 ------------
 
-.. doxygentypedef:: hsa_executable_symbol_t
+.. doxygenstruct:: hsa_executable_symbol_t
    :project: rocr
 
 .. doxygenenum:: hsa_executable_info_t
