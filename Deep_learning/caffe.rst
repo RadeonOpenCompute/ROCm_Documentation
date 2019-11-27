@@ -136,6 +136,26 @@ Steps::
    ./scripts/download_model_binary.py models/bvlc_reference_caffenet
    ./build/examples/cpp_classification/classification.bin \ models/bvlc_reference_caffenet/deploy.prototxt \models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel \data/ilsvrc12/imagenet_mean.binaryproto \data/ilsvrc12/synset_words.txt \examples/images/cat.jpg
 
+Soumith's Convnet benchmarks
++++++++++++++++++++++++++++++++
+
+Steps:
+
+::
+  
+  git clone https://github.com/soumith/convnet-benchmarks.git
+  cd convnet-benchmarks/caffe
+
+
+OPTIONAL: reduce the batch sizes to avoid running out of memory for GoogleNet and VGG. For example, these configs work on Fiji: sed -i 's|input_dim: 128|input_dim: 8|1' imagenet_winners/googlenet.prototxt
+
+::
+
+  export CAFFE_ROOT=/path/to/your/caffe/installation
+  sed -i 's#./caffe/build/tools/caffe#$CAFFE_ROOT/build/tools/caffe#' ./run_imagenet.sh
+  ./run_imagenet.sh
+
+
 Known Issues
 -------------
 
