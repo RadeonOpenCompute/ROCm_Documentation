@@ -8,7 +8,8 @@ Current Release Notes
 New features and enhancements in ROCm 2.9
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#### Initial release for Radeon Augmentation Library(RALI)
+Initial release for Radeon Augmentation Library(RALI)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The AMD Radeon Augmentation Library (RALI) is designed to efficiently decode and process images from a variety of storage formats and modify them through a processing graph programmable by the user. RALI currently provides C API.
 
