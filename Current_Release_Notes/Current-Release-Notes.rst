@@ -5,11 +5,99 @@
 Current Release Notes
 =====================
 
+New features and enhancements in ROCm 2.10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+rocBLAS Support for Complex GEMM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The rocBLAS library is a gpu-accelerated implementation of the standard Basic Linear Algebra Subroutines (BLAS). rocBLAS is designed to enable you to develop algorithms, including high performance computing, image analysis, and machine learning.
+
+In the AMD ROCm release v2.10, support is extended to the General Matrix Multiply (GEMM) routine for multiple small matrices processed simultaneously for rocBLAS in AMD Radeon Instinct MI50. Both single and double precision, CGEMM and ZGEMM, are now supported in rocBLAS.
+
+Support for SLES 15 SP1
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the AMD ROCm v2.10 release, support is added for SUSE Linux® Enterprise Server (SLES) 15 SP1. SLES is a modular operating system for both multimodal and traditional IT.
+
+Note: The SUSE Linux® Enterprise Server is a licensed platform. Ensure you have registered and have a license key prior to installation. Use the following SUSE command line to apply your license: SUSEConnect -r < Key>
+
+**SLES 15 SP1**
+
+The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. Run the following commands once for a fresh install on the operating system:
+
+::
+
+sudo usermod -a -G video  $LOGNAME
+sudo usermod  -a -G sudo $LOGNAME
+sudo reboot
+
+
+**Installation**
+
+1. Install the "dkms" package.
+
+::
+
+     sudo SUSEConnect --product PackageHub/15.1/x86_64
+     sudo zypper install dkms
+
+
+
+2. Add the ROCm repo.
+
+::
+
+     sudo zypper clean --all
+     sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
+     sudo zypper ref
+     zypper install rocm-dkms
+     sudo zypper install rocm-dkms
+     sudo reboot
+
+#Run the following command once
+
+cat <<EOF | sudo tee /etc/modprobe.d/10-unsupported-modules.conf
+allow_unsupported_modules 1
+EOF
+sudo modprobe amdgpu
+
+3. Verify the ROCm installation.
+
+::
+
+   Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm 
+   installation is successful.
+
+**Uninstallation**
+
+To uninstall, use the following command:
+
+::
+
+  sudo zypper remove rocm-dkms rock-dkms
+
+
+#Ensure all other installed packages/components are removed
+
+Note: Ensure all the content in the /opt/rocm directory is completely removed.
+
+
+Code Marker Support for rocProfiler and rocTracer Libraries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Code markers provide the external correlation ID for the calling thread. This function indicates that the calling thread is entering and leaving an external API region.
+
+• The rocProfiler library enables you to profile performance counters and derived metrics. This library supports GFX8/GFX9 and provides a hardware-specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes hardware performance counters with complex performance metrics.
+
+• The rocTracer library provides a specific runtime profiler to trace API and asynchronous activity. The API provides functionality for registering the runtimes API callbacks and the asynchronous activity records pool support.
+
+• rocTX provides a C API for code markup for performance profiling and supports annotation of code ranges and ASCII markers.
+
 New features and enhancements in ROCm 2.9
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Initial release for Radeon Augmentation Library(RALI)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The AMD Radeon Augmentation Library (RALI) is designed to efficiently decode and process images from a variety of storage formats and modify them through a processing graph programmable by the user. RALI currently provides C API.
 
