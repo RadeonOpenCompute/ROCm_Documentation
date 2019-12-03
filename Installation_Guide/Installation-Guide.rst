@@ -387,11 +387,9 @@ To install from a Debian Repository:
 
 ::
 
-    wget -q0 –
-     http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | 
+    wget -q0 –http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | 
 
-    sudo apt-key add -echo 'deb [arch=amd64] 
-    http://repo.radeon.com/rocm/apt/debian/ xenial main' | 
+    sudo apt-key add -echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | 
 
     sudo tee /etc/apt/sources.list.d/rocm.list
 
@@ -439,9 +437,11 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 ::
 
-     echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
+     echo 'ADD_EXTRA_GROUPS=1' 
+     sudo tee -a /etc/adduser.conf
 
-     echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+     echo 'EXTRA_GROUPS=video'
+     sudo tee -a /etc/adduser.conf
 
 
 
@@ -499,7 +499,8 @@ You can install the ROCm user-level software without installing the AMD's custom
 
   sudo apt update	
   sudo apt install rocm-dev	
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
+  sudo tee /etc/udev/rules.d/70-kfd.rules
 
 
 .. _CentOS RHEL:
@@ -680,7 +681,8 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 ::
 
   sudo yum install rocm-dev
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
+  sudo tee /etc/udev/rules.d/70-kfd.rules
 
 Note: You can use this command instead of installing rocm-dkms.
 
