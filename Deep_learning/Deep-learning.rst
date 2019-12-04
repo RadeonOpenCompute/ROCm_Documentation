@@ -144,7 +144,7 @@ Recommended:Install using published PyTorch ROCm docker image:
   git clone https://github.com/pytorch/pytorch.git
   cd pytorch
   git submodule init
-  git submodule update
+  git submodule update --init --recursive
 
 4. Start a docker container using the downloaded image:
 
