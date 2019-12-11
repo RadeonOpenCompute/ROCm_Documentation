@@ -978,33 +978,37 @@ The chain of software installed by these meta-packages is illustrated below
   rocm-dkms
     |--rock-dkms
     \--rocm-dev
-       |--hsa-rocr-dev
-       |--hsa-ext-rocr-dev
-       |--hsakmt-roct
-       |--hsakmt-roct-dev
-       |--rocm-cmake
-       |--rocm-device-libs
+       |--comgr
        |--hcc
        |--hip_base
        |--hip_doc
        |--hip_hcc
        |--hip_samples
-       |--rocm-smi
+       |--hsakmt-roct
+       |--hsakmt-roct-dev
        |--hsa-amd-aqlprofile
-       |--comgr
+       |--hsa-ext-rocr-dev
+       |--hsa-rocr-dev
+       |--rocm-cmake
+       |--rocm-device-libs
+       |--rocm-smi
+       |--rocprofiler-dev
        |--rocr_debug_agent
        \--rocm-utils
           |--rocminfo
           \--rocm-clang-ocl # This will cause OpenCL to be installed
 
   rocm-libs
-    |--rocalution
     |--hipblas
+    |--hipcub
+    |--hipsparse
+    |--rocalution
     |--rocblas
     |--rocfft
+    |--rocprim
     |--rocrand
-    |--hipsparse
-    \--rocsparse
+    |--rocsparse
+    \--rocthrust
 
 These meta-packages are not required but may be useful to make it easier to install ROCm on most systems.
 
