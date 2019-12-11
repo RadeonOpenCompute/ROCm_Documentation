@@ -134,7 +134,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:rocm2.9_ubuntu16.04_py2.7_pytorch
+  docker pull rocm/pytorch:rocm2.10_ubuntu16.04_py3.6_pytorch
 
 3. Clone PyTorch repository on the host:
 
@@ -150,7 +150,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm2.9_ubuntu16.04_py2.7_pytorch
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/  pytorch:rocm2.10_ubuntu16.04_py3.6_pytorch
 
 Note: This will mount your host home directory on /data in the container.
 
@@ -391,7 +391,7 @@ This option provides a docker image which has Caffe2 installed. Users can launch
 
 ::
 
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm2.9_ubuntu16.04_py2.7_caffe2
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm2.10_ubuntu16.04_py3.6_caffe2
 
 This will automatically download the image if it does not exist on the host. You can also pass -v argument to mount any data directories on to the container.
 
@@ -409,8 +409,8 @@ Option 2: Install using Caffe2 ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:pytorch:rocm2.9_ubuntu16.04_py2.7_caffe2
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/pytorch:rocm2.9_ubuntu16.04_py2.7_caffe2
+  docker pull rocm / pytorch:rocm2.10_ubuntu16.04_py3.6_caffe2
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/pytorch:rocm2.10_ubuntu16.04_py3.6_caffe2
 
 3. Build Caffe2 from source
 ::
