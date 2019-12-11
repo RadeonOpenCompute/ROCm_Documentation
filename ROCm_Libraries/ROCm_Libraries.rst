@@ -105,29 +105,14 @@ rocblas_int
 .. doxygentypedef:: rocblas_int
    :project: rocBLAS
 
-rocblas_long
+rocblas_stride
 **************************
-.. doxygentypedef:: rocblas_long
-   :project: rocBLAS
-
-rocblas_float_complex
-**************************
-.. doxygentypedef:: rocblas_float_complex
-   :project: rocBLAS
-
-rocblas_double_complex
-**************************
-.. doxygentypedef:: rocblas_double_complex
+.. doxygentypedef:: rocblas_stride
    :project: rocBLAS
 
 rocblas_half
 **************************
-.. doxygentypedef:: rocblas_half
-   :project: rocBLAS
-
-rocblas_half_complex
-**************************
-.. doxygentypedef:: rocblas_half_complex
+.. doxygenstruct:: rocblas_half
    :project: rocBLAS
 
 rocblas_handle
@@ -199,12 +184,99 @@ rocblas_<type>scal()
 
 .. doxygenfunction:: rocblas_sscal
    :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cscal
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zscal
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_csscal
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdscal
+   :project: rocBLAS
+
+rocblas_<type>scal_batched()
+******************************
+.. doxygenfunction:: rocblas_sscal_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dscal_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cscal_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zscal_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_csscal_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdscal_batched
+   :project: rocBLAS
+
+rocblas_<type>scal_strided_batched()
+*****************************************
+.. doxygenfunction:: rocblas_sscal_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dscal_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cscal_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zscal_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_csscal_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdscal_strided_batched
+   :project: rocBLAS
+
 rocblas_<type>copy()
 ***************************
 .. doxygenfunction:: rocblas_dcopy
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_scopy
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_ccopy
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zcopy
+   :project: rocBLAS
+
+rocblas_<type>copy_batched()
+*****************************
+.. doxygenfunction:: rocblas_scopy_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dcopy_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_ccopy_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zcopy_batched
+   :project: rocBLAS
+
+rocblas_<type>copy_strided_batched()
+**************************************
+.. doxygenfunction:: rocblas_scopy_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dcopy_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_ccopy_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zcopy_strided_batched
    :project: rocBLAS
 
 rocblas_<type>dot()
@@ -215,12 +287,116 @@ rocblas_<type>dot()
 .. doxygenfunction:: rocblas_sdot
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_hdot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_bfdot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cdotu
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cdotc
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdotu
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdotc
+   :project: rocBLAS
+
+rocblas_<type>dot_batched()
+*****************************
+.. doxygenfunction:: rocblas_sdot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_ddot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_hdot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_bfdot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cdotu_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cdotc_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdotu_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdotc_batched
+   :project: rocBLAS
+
+rocblas_<type>dot_strided_batched()
+*************************************
+.. doxygenfunction:: rocblas_sdot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_ddot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_hdot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_bfdot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cdotu_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cdotc_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdotu_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdotc_strided_batched
+   :project: rocBLAS
+
 rocblas_<type>swap()
 ***************************
 .. doxygenfunction:: rocblas_sswap
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_dswap
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cswap
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zswap
+   :project: rocBLAS
+
+rocblas_<type>swap_batched()
+*****************************
+.. doxygenfunction:: rocblas_sswap_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dswap_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cswap_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zswap_batched
+   :project: rocBLAS
+
+rocblas_<type>swap_strided_batched()
+**************************************
+.. doxygenfunction:: rocblas_sswap_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dswap_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cswap_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zswap_strided_batched
    :project: rocBLAS
 
 rocblas_<type>axpy()
@@ -234,6 +410,12 @@ rocblas_<type>axpy()
 .. doxygenfunction:: rocblas_haxpy
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_caxpy
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zaxpy
+   :project: rocBLAS
+
 rocblas_<type>asum()
 ***************************
 .. doxygenfunction:: rocblas_dasum
@@ -242,6 +424,39 @@ rocblas_<type>asum()
 .. doxygenfunction:: rocblas_sasum
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_scasum
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dzasum
+   :project: rocBLAS
+
+rocblas_<type>asum_batched()
+*****************************
+.. doxygenfunction:: rocblas_sasum_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dasum_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_scasum_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dzasum_batched
+   :project: rocBLAS
+
+rocblas_<type>asum_strided_batched()
+**************************************
+.. doxygenfunction:: rocblas_sasum_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dasum_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_scasum_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dzasum_strided_batched
+   :project: rocBLAS
 
 rocblas_<type>nrm2()
 ***************************
@@ -251,6 +466,39 @@ rocblas_<type>nrm2()
 .. doxygenfunction:: rocblas_snrm2
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_scnrm2
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dznrm2
+   :project: rocBLAS
+
+rocblas_<type>nrm2_batched()
+*****************************
+.. doxygenfunction:: rocblas_snrm2_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dnrm2_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_scnrm2_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dznrm2_batched
+   :project: rocBLAS
+
+rocblas_<type>nrm2_strided_batched()
+***************************************
+.. doxygenfunction:: rocblas_snrm2_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dnrm2_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_scnrm2_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dznrm2_strided_batched
+   :project: rocBLAS
 
 rocblas_i<type>amax()
 ***************************
@@ -260,12 +508,230 @@ rocblas_i<type>amax()
 .. doxygenfunction:: rocblas_isamax
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_icamax
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_izamax
+   :project: rocBLAS
+
+rocblas_i<type>amax_batched()
+*****************************
+.. doxygenfunction:: rocblas_isamax_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_idamax_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_icamax_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_izamax_batched
+   :project: rocBLAS
+
+rocblas_i<type>amax_strided_batched()
+***************************************
+.. doxygenfunction:: rocblas_isamax_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_idamax_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_icamax_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_izamax_strided_batched
+   :project: rocBLAS
+
 rocblas_i<type>amin()
 ***************************
 .. doxygenfunction:: rocblas_idamin
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_isamin
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_icamin
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_izamin
+   :project: rocBLAS
+
+rocblas_i<type>amin_batched()
+*****************************
+.. doxygenfunction:: rocblas_isamin_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_idamin_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_icamin_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_izamin_batched
+   :project: rocBLAS
+
+rocblas_i<type>amin_strided_batched()
+**************************************
+.. doxygenfunction:: rocblas_isamin_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_idamin_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_icamin_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_izamin_strided_batched
+   :project: rocBLAS
+
+rocblas_<type>rot()
+*****************************
+.. doxygenfunction:: rocblas_srot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_crot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_csrot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zrot
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdrot
+   :project: rocBLAS
+
+rocblas_<type>rot_batched()
+*****************************
+.. doxygenfunction:: rocblas_srot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_crot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_csrot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zrot_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdrot_batched
+   :project: rocBLAS
+
+rocblas_<type>rot_strided_batched()
+************************************
+.. doxygenfunction:: rocblas_srot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_crot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_csrot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zrot_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zdrot_strided_batched
+   :project: rocBLAS
+
+rocblas_<type>rotg()
+*********************
+.. doxygenfunction:: rocblas_srotg
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotg
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_crotg
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zrotg
+   :project: rocBLAS
+
+rocblas_<type>rotg_batched()
+*****************************
+.. doxygenfunction:: rocblas_srotg_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotg_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_crotg_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zrotg_batched
+   :project: rocBLAS
+
+rocblas_<type>rotg_strided_batched()
+*****************************************
+.. doxygenfunction:: rocblas_srotg_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotg_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_crotg_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zrotg_strided_batched
+   :project: rocBLAS
+
+rocblas_<type>rotm()
+*****************************
+.. doxygenfunction:: rocblas_srotm
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotm
+   :project: rocBLAS
+
+rocblas_<type>rotm_batched()
+*****************************
+.. doxygenfunction:: rocblas_srotm_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotm_batched
+   :project: rocBLAS
+
+rocblas_<type>rotm_strided_batched()
+**************************************
+.. doxygenfunction:: rocblas_srotm_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotm_strided_batched
+   :project: rocBLAS
+
+rocblas_<type>rotmg()
+*****************************
+.. doxygenfunction:: rocblas_srotmg
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotmg
+   :project: rocBLAS
+
+rocblas_<type>rotmg_batched()
+*****************************
+.. doxygenfunction:: rocblas_srotmg_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotmg_batched
+   :project: rocBLAS
+
+rocblas_<type>rotmg_strided_batched()
+***************************************
+.. doxygenfunction:: rocblas_srotmg_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_drotmg_strided_batched
    :project: rocBLAS
 
 Level 2 BLAS
@@ -279,12 +745,62 @@ rocblas_<type>gemv()
 .. doxygenfunction:: rocblas_sgemv
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_cgemv
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zgemv
+   :project: rocBLAS
+
+rocblas_<type>gemv_batched()
+******************************
+.. doxygenfunction:: rocblas_sgemv_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dgemv_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cgemv_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zgemv_batched
+   :project: rocBLAS
+
+rocblas_<type>gemv_strided_batched()
+*****************************************
+.. doxygenfunction:: rocblas_sgemv_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dgemv_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cgemv_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zgemv_strided_batched
+   :project: rocBLAS
+
 rocblas_<type>trsv()
 ***************************
 .. doxygenfunction:: rocblas_dtrsv
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_strsv
+   :project: rocBLAS
+
+rocblas_<type>trsv_batched()
+******************************
+.. doxygenfunction:: rocblas_strsv_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrsv_batched
+   :project: rocBLAS
+
+rocblas_<type>trsv_strided_batched()
+***************************************
+.. doxygenfunction:: rocblas_strsv_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrsv_strided_batched
    :project: rocBLAS
 
 rocblas_<type>ger()
@@ -295,6 +811,22 @@ rocblas_<type>ger()
 .. doxygenfunction:: rocblas_sger
    :project: rocBLAS
 
+rocblas_<type>ger_batched()
+******************************
+.. doxygenfunction:: rocblas_sger_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dger_batched
+   :project: rocBLAS
+
+rocblas_<type>ger_strided_batched()
+*************************************
+.. doxygenfunction:: rocblas_sger_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dger_strided_batched
+   :project: rocBLAS
+
 rocblas_<type>syr()
 ***************************
 .. doxygenfunction:: rocblas_dsyr
@@ -303,15 +835,46 @@ rocblas_<type>syr()
 .. doxygenfunction:: rocblas_ssyr
    :project: rocBLAS
 
+rocblas_<type>syr_batched()
+******************************
+.. doxygenfunction:: rocblas_ssyr_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dsyr_batched
+   :project: rocBLAS
+
+rocblas_<type>syr_strided_batched()
+************************************
+.. doxygenfunction:: rocblas_ssyr_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dsyr_strided_batched
+   :project: rocBLAS
+
 Level 3 BLAS
 ^^^^^^^^^^^^^^^^^^
+rocblas_<type>trtri()
+******************************
+.. doxygenfunction:: rocblas_strtri
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrtri
+   :project: rocBLAS
 
 rocblas_<type>trtri_batched()
-***************************
+******************************
+.. doxygenfunction:: rocblas_strtri_batched
+   :project: rocBLAS
+
 .. doxygenfunction:: rocblas_dtrtri_batched
    :project: rocBLAS
 
-.. doxygenfunction:: rocblas_strtri_batched
+rocblas_<type>trtri_strided_batched()
+**************************************
+.. doxygenfunction:: rocblas_strtri_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrtri_strided_batched
    :project: rocBLAS
 
 rocblas_<type>trsm()
@@ -320,6 +883,30 @@ rocblas_<type>trsm()
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_strsm
+   :project: rocBLAS
+
+rocblas_<type>trsm_batched()
+*****************************
+.. doxygenfunction:: rocblas_strsm_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrsm_batched
+   :project: rocBLAS
+
+rocblas_<type>trsm_strided_batched()
+*************************************
+.. doxygenfunction:: rocblas_strsm_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrsm_strided_batched
+   :project: rocBLAS
+
+rocblas_<type>trmm()
+***********************
+.. doxygenfunction:: rocblas_strmm
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dtrmm
    :project: rocBLAS
 
 rocblas_<type>gemm()
@@ -333,6 +920,29 @@ rocblas_<type>gemm()
 .. doxygenfunction:: rocblas_hgemm
    :project: rocBLAS
 
+.. doxygenfunction:: rocblas_cgemm
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zgemm
+   :project: rocBLAS
+
+rocblas_<type>gemm_batched()
+******************************
+.. doxygenfunction:: rocblas_sgemm_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_dgemm_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_hgemm_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cgemm_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zgemm_batched
+   :project: rocBLAS
+
 rocblas_<type>gemm_strided_batched()
 *************************************
 .. doxygenfunction:: rocblas_dgemm_strided_batched
@@ -342,6 +952,12 @@ rocblas_<type>gemm_strided_batched()
    :project: rocBLAS
 
 .. doxygenfunction:: rocblas_hgemm_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_cgemm_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zgemm_strided_batched
    :project: rocBLAS
 
 rocblas_<type>gemm_kernel_name()
@@ -372,8 +988,23 @@ rocblas_gemm_ex()
    :project: rocBLAS
 
 rocblas_gemm_strided_batched_ex()
-***************************
+************************************
 .. doxygenfunction:: rocblas_gemm_strided_batched_ex
+   :project: rocBLAS
+
+rocblas_trsm_ex()
+************************************
+.. doxygenfunction:: rocblas_trsm_ex
+   :project: rocBLAS
+
+rocblas_trsm_batched_ex()
+************************************
+.. doxygenfunction:: rocblas_trsm_batched_ex
+   :project: rocBLAS
+
+rocblas_trsm_strided_batched_ex()
+************************************
+.. doxygenfunction:: rocblas_trsm_strided_batched_ex
    :project: rocBLAS
 
 Build Information
@@ -432,9 +1063,19 @@ rocblas_set_vector()
 .. doxygenfunction:: rocblas_set_vector
    :project: rocBLAS
 
+rocblas_set_vector_async()
+***************************
+.. doxygenfunction:: rocblas_set_vector_async
+   :project: rocBLAS
+
 rocblas_get_vector()
 ***************************
 .. doxygenfunction:: rocblas_get_vector
+   :project: rocBLAS
+
+ocblas_get_vector_async()
+***************************
+.. doxygenfunction:: rocblas_get_vector_async
    :project: rocBLAS
 
 rocblas_set_matrix()
@@ -445,6 +1086,37 @@ rocblas_set_matrix()
 rocblas_get_matrix()
 ***************************
 .. doxygenfunction:: rocblas_get_matrix
+   :project: rocBLAS
+
+rocblas_get_matrix_async()
+***************************
+.. doxygenfunction:: rocblas_get_matrix_async
+   :project: rocBLAS
+
+rocblas_start_device_memory_size_query()
+*****************************************
+.. doxygenfunction:: rocblas_start_device_memory_size_query
+   :project: rocBLAS
+
+rocblas_stop_device_memory_size_query()
+******************************************
+.. doxygenfunction:: rocblas_stop_device_memory_size_query
+   :project: rocBLAS
+
+rocblas_get_device_memory_size()
+************************************
+.. doxygenfunction:: rocblas_get_device_memory_size
+   :project: rocBLAS
+
+rocblas_set_device_memory_size()
+*********************************
+.. doxygenfunction:: rocblas_set_device_memory_size
+   :project: rocBLAS
+
+
+rocblas_is_managing_device_memory()
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. doxygenfunction:: rocblas_is_managing_device_memory
    :project: rocBLAS
 
 
