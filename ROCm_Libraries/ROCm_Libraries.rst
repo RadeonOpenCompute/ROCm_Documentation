@@ -5141,7 +5141,7 @@ To build the library :
   $ cd rccl
   $ mkdir build
   $ cd build
-  $ CXX=/opt/rocm/bin/hcc cmake -DCMAKE_INSTALL_PREFIX=$PWD/rccl-install ..
+  $ CXX=/opt/rocm/bin/hcc cmake 
   $ make -j 8
 
 
