@@ -1371,16 +1371,13 @@ To disable logging use:
 
    unset ROCM_DEBUG_ENABLE_AGENTLOG
 
-ROCm-GDB
-=========
+Repository Contents
+---------------------
+    src
+        * Contains the sources for building the ROCr Debug Agent. See the README.md for directions.
+    test
+        * Contains the tests for the ROCr Debug Agent. See the README.md for directions.
 
-**This ROCm Debugger is a Deprecated project.**
-
-As of 2018, this is a deprecated software project. The ROCm software team is working on a new GDB-based debugger that works with the ROCr Debug Agent to support debugging GPU kernels.
-
-The ROCm-GDB repository includes the source code for ROCm-GDB. ROCm-GDB is a modified version of GDB 7.11 revised to work with the ROCr Debug Agent to support debugging GPU kernels on Radeon Open Compute platforms (ROCm).
-
-For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
 
 
 ROCm Binary Utilities
