@@ -3080,10 +3080,47 @@ Building and Installing
 
 Installing from AMD ROCm repositories
 #####################################
-TODO, not yet available
 
-Building rocALUTION from Open-Source repository
+rocALUTION can be installed from `AMD ROCm repository <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_. The repository hosts the single-node, accelerator enabled version of the library. If a different setup is required, e.g. multi-node support, rocALUTION need to be built from source, see `Building from GitHub repository <https://rocalution.readthedocs.io/en/master/install.html#rocalution-building>`_.
+
+For detailed instructions on how to set up ROCm on different platforms, see the `AMD ROCm Platform Installation Guide for Linux <https://rocm.github.io/ROCmInstall.html>`_.
+
+rocALUTION has the following run-time dependencies
+
+   * `AMD ROCm <https://github.com/RadeonOpenCompute/ROCm>`_ 2.9 or later (optional, for HIP support)
+
+   * `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_ (optional, for HIP support)
+
+   * `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_ (optional, for HIP support)
+
+   * `OpenMP <https://www.openmp.org/>`_ (optional, for OpenMP support)
+
+   * `MPI <https://www.mcs.anl.gov/research/projects/mpi/>`_ (optional, for multi-node / multi-GPU support)
+
+
+Building rocALUTION from Github repository
 ###############################################
+
+To build rocALUTION from source, the following compile-time and run-time dependencies must be met
+
+   * `git <https://git-scm.com/>`_
+
+   * 'CMake <https://cmake.org/>`_ 3.5 or later
+
+   * `AMD ROCm <https://github.com/RadeonOpenCompute/ROCm>`_ 2.9 or later (optional, for HIP support)
+
+   * `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_ (optional, for HIP support)
+
+   * `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_ (optional, for HIP support)
+
+   * `rocPRIM <https://github.com/ROCmSoftwarePlatform/rocPRIM>`_ (optional, for HIP support)
+
+   * `OpenMP <https://www.openmp.org/>`_ (optional, for OpenMP support)
+
+   * `MPI <https://www.mcs.anl.gov/research/projects/mpi/>`_ (optional, for multi-node / multi-GPU support)
+
+   * `googletest <https://github.com/google/googletest>`_ (optional, for clients)
+
 
 Download rocALUTION
 ###################
@@ -3096,7 +3133,6 @@ Download the master branch using:
   cd rocALUTION
 
 
-Note that if you want to contribute to rocALUTION, you will need to checkout the develop branch instead of the master branch. See :ref:`rocalution_contributing` for further details.
 Below are steps to build different packages of the library, including dependencies and clients.
 It is recommended to install rocALUTION using the *install.sh* script.
 
@@ -3131,7 +3167,7 @@ Command             Description
 
 Using individual commands to build rocALUTION
 #############################################
-CMake 3.5 or later is required in order to build rocALUTION.
+CMake 3.5 or later is required in order to build rocALUTION without the use of install.sh.
 
 rocALUTION can be built with cmake using the following commands:
 
@@ -3195,31 +3231,27 @@ Common build problems
 
    **Solution:** Download HIP from github and use hcc to `build from source <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and then use the built HIP instead of /opt/rocm/hip.
 
-#. **Issue:** For Carrizo - HCC RUNTIME ERROR: Failed to find compatible kernel
+#. **Issue:** HCC RUNTIME ERROR: Failed to find compatible kernel
 
-   **Solution:** Add the following to the cmake command when configuring: `-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"`
-
-#. **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Failed to find compatible kernel
-
-   **Solution:** `export HCC_AMDGPU_TARGET=gfx900`
+   **Solution:** export HCC_AMDGPU_TARGET=gfx803,gfx900,gfx906,gfx908
 
 #. **Issue:** Could not find a package configuration file provided by "ROCM" with any of the following names:
               ROCMConfig.cmake |br|
               rocm-config.cmake
 
-   **Solution:** Install `ROCm cmake modules <https://github.com/RadeonOpenCompute/rocm-cmake>`_
+   **Solution:** Install `ROCm cmake modules <https://github.com/RadeonOpenCompute/rocm-cmake>`_ either from source or from `AMD ROCm repository <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_
 
 #. **Issue:** Could not find a package configuration file provided by "ROCSPARSE" with any of the following names:
               ROCSPARSE.cmake |br|
               rocsparse-config.cmake
 
-   **Solution:** Install `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_
+   **Solution:** Install `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_ either from source or from 'AMD ROCm repository <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_
 
 #. **Issue:** Could not find a package configuration file provided by "ROCBLAS" with any of the following names:
               ROCBLAS.cmake |br|
               rocblas-config.cmake
 
-   **Solution:** Install `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
+   **Solution:** Install `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_ either from source or from 'AMD ROCm repository <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_ 
 
 Simple Test
 ###########
