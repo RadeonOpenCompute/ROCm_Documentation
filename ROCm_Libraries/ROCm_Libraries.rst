@@ -1850,50 +1850,47 @@ The functionality of rocSPARSE is organized in the following categories:
 
 The code is open and hosted here: https://github.com/ROCmSoftwarePlatform/rocSPARSE
 
-Device and Stream Management
-#############################
-*hipSetDevice()* and *hipGetDevice()* are HIP device management APIs. They are NOT part of the rocSPARSE API.
-
-Asynchronous Execution
------------------------
-All rocSPARSE library functions, unless otherwise stated, are non blocking and executed asynchronously with respect to the host. They may return before the actual computation has finished. To force synchronization, *hipDeviceSynchronize()* or *hipStreamSynchronize()* can be used. This will ensure that all previously executed rocSPARSE functions on the device / this particular stream have completed.
-
-HIP Device Management
-----------------------
-Before a HIP kernel invocation, users need to call *hipSetDevice()* to set a device, e.g. device 1. If users do not explicitly call it, the system by default sets it as device 0. Unless users explicitly call *hipSetDevice()* to set to another device, their HIP kernels are always launched on device 0.
-
-The above is a HIP (and CUDA) device management approach and has nothing to do with rocSPARSE. rocSPARSE honors the approach above and assumes users have already set the device before a rocSPARSE routine call.
-
-Once users set the device, they create a handle with `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_.
-
-Subsequent rocSPARSE routines take this handle as an input parameter. rocSPARSE ONLY queries (by hipGetDevice()) the user’s device; rocSPARSE does NOT set the device for users. If rocSPARSE does not see a valid device, it returns an error message. It is the users’ responsibility to provide a valid device to rocSPARSE and ensure the device safety.
-
-Users CANNOT switch devices between `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_ and `rocsparse_destroy_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-destroy-handle>`_. If users want to change device, they must destroy the current handle and create another rocSPARSE handle.
-
-HIP Stream Management
-----------------------
-HIP kernels are always launched in a queue (also known as stream).
-
-If users do not explicitly specify a stream, the system provides a default stream, maintained by the system. Users cannot create or destroy the default stream. However, users can freely create new streams (with *hipStreamCreate()*) and bind it to the rocSPARSE handle. HIP kernels are invoked in rocSPARSE routines. The rocSPARSE handle is always associated with a stream, and rocSPARSE passes its stream to the kernels inside the routine. One rocSPARSE routine only takes one stream in a single invocation. If users create a stream, they are responsible for destroying it.
-
-Multiple Streams and Multiple Devices
----------------------------------------
-If the system under test has multiple HIP devices, users can run multiple rocSPARSE handles concurrently, but can NOT run a single rocSPARSE handle on different discrete devices. Each handle is associated with a particular singular device, and a new handle should be created for each additional device.
-
 Building and Installing
 #######################
 
-Installing from AMD ROCm repositories
------------------------------------------
-rocSPARSE can be installed from `AMD ROCm repositories <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_ by
+Prerequisites
+---------------
+
+rocSPARSE requires a ROCm enabled platform, more information `here <https://rocm.github.io/>`_
+
+Installing pre-built packages
+-------------------------------
+
+rocSPARSE can be installed from AMD ROCm repository. For detailed instructions on how to set up ROCm on different platforms, see the AMD ROCm Platform Installation Guide for Linux.
+
+rocSPARSE can be installed on e.g. Ubuntu using
 
 ::
 
-  sudo apt install rocsparse
+  sudo apt-get update
+  sudo apt-get install rocsparse
+
+Once installed, rocSPARSE can be used just like any other library with a C API. The header file will need to be included in the user code in order to make calls into rocSPARSE, and the rocSPARSE shared library will become link-time and run-time dependent for the user application.
 
 
 Building rocSPARSE from Open-Source repository
 ------------------------------------------------
+
+**Building rocSPARSE from source**
+
+Building from source is not necessary, as rocSPARSE can be used after installing the pre-built packages as described above. If desired, the following instructions can be used to build rocSPARSE from source. Furthermore, the following compile-time dependencies must be met
+
+    * git
+
+    * CMake 3.5 or later
+
+    * AMD ROCm
+
+    * rocPRIM
+
+    * googletest (optional, for clients)
+
+    * libboost-program-options (optional, for clients)
 
 **Download rocSPARSE**
 
@@ -1906,12 +1903,11 @@ Download the master branch using:
   cd rocSPARSE
 
 
-Note that if you want to contribute to rocSPARSE, you will need to checkout the develop branch instead of the master branch.
 
 Below are steps to build different packages of the library, including dependencies and clients.
 It is recommended to install rocSPARSE using the *install.sh* script.
 
-Using *install.sh* to build dependencies + library
+Using *install.sh* to build dependencies with library
 ----------------------------------------------------
 The following table lists common uses of *install.sh* to build dependencies + library.
 
@@ -1924,7 +1920,7 @@ Command           Description
 `./install.sh -i` Build library, then build and install rocSPARSE package in `/opt/rocm/rocsparse`. You will be |br| prompted for sudo access. This will install for all users.
 ================= ====
 
-Using *install.sh* to build dependencies + library + client
+Using *install.sh* to build dependencies with library and clients
 ------------------------------------------------------------
 The client contains example code, unit tests and benchmarks. Common uses of *install.sh* to build them are listed in the table below.
 
@@ -1959,7 +1955,7 @@ rocSPARSE can be built using the following commands:
   # Install rocSPARSE to /opt/rocm
   sudo make install
 
-Boost and GoogleTest is required in order to build rocSPARSE client.
+Boost and GoogleTest is required in order to build rocSPARSE clients.
 
 rocSPARSE with dependencies and client can be built using the following commands:
 
@@ -1967,12 +1963,10 @@ rocSPARSE with dependencies and client can be built using the following commands
 
   # Install boost on Ubuntu
   sudo apt install libboost-program-options-dev
-  # Install boost on Fedora
-  sudo dnf install boost-program-options
 
   # Install googletest
   mkdir -p build/release/deps ; cd build/release/deps
-  cmake -DBUILD_BOOST=OFF ../../../deps
+  cmake ../../../deps
   sudo make -j$(nproc) install
 
   # Change to build directory
@@ -2005,13 +1999,9 @@ Common build problems
 
    **Solution:** Download HIP from github and use hcc to `build from source <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and then use the built HIP instead of /opt/rocm/hip.
 
-#. **Issue:** For Carrizo - HCC RUNTIME ERROR: Failed to find compatible kernel
+#. **Issue:** HCC RUNTIME ERROR: Failed to find compatible kernel
 
-   **Solution:** Add the following to the cmake command when configuring: `-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx801"`
-
-#. **Issue:** For MI25 (Vega10 Server) - HCC RUNTIME ERROR: Failed to find compatible kernel
-
-   **Solution:** `export HCC_AMDGPU_TARGET=gfx900`
+   **Solution:** Add the following to the cmake command when configuring: -DCMAKE_CXX_FLAGS=”–amdgpu-target=gfx803,gfx900,gfx906,gfx908”
 
 #. **Issue:** Could not find a package configuration file provided by "ROCM" with any of the following names:
               ROCMConfig.cmake |br|
@@ -2020,33 +2010,75 @@ Common build problems
    **Solution:** Install `ROCm cmake modules <https://github.com/RadeonOpenCompute/rocm-cmake>`_
 
 
-Unit tests
-############
+Simple Test
+-------------
 
-To run unit tests, rocSPARSE has to be built with option -DBUILD_CLIENTS_TESTS=ON.
-
-::
-
-  # Go to rocSPARSE build directory
-  cd rocSPARSE; cd build/release
-
-  # Run all tests
-  ./clients/staging/rocsparse-test
-
-
-Benchmarks
-###########
-
-To run benchmarks, rocSPARSE has to be built with option -DBUILD_CLIENTS_BENCHMARKS=ON.
+You can test the installation by running one of the rocSPARSE examples, after successfully compiling the library with clients.
 
 ::
 
-  # Go to rocSPARSE build directory
-  cd rocSPARSE/build/release
+  # Navigate to clients binary directory
+  $ cd rocSPARSE/build/release/clients/staging
+ 
+  # Execute rocSPARSE example
+  $ ./example_csrmv 1000
 
-  # Run benchmark, e.g.
-  ./clients/staging/rocsparse-bench -f hybmv --laplacian-dim 2000 -i 200
 
+Supported Targets
+-------------------
+
+Currently, rocSPARSE is supported under the following operating systems
+
+    
+    * Ubuntu 16.04
+
+    * Ubuntu 18.04
+
+    * CentOS 7
+
+    * SLES 15
+
+To compile and run rocSPARSE, AMD ROCm Platform is required.
+
+The following HIP capable devices are currently supported
+
+    * gfx803 (e.g. Fiji)
+
+    * gfx900 (e.g. Vega10, MI25)
+
+    * gfx906 (e.g. Vega20, MI50, MI60)
+
+    * gfx908
+
+Device and Stream Management
+#############################
+*hipSetDevice()* and *hipGetDevice()* are HIP device management APIs. They are NOT part of the rocSPARSE API.
+
+Asynchronous Execution
+-----------------------
+All rocSPARSE library functions, unless otherwise stated, are non blocking and executed asynchronously with respect to the host. They may return before the actual computation has finished. To force synchronization, *hipDeviceSynchronize()* or *hipStreamSynchronize()* can be used. This will ensure that all previously executed rocSPARSE functions on the device / this particular stream have completed.
+
+HIP Device Management
+----------------------
+Before a HIP kernel invocation, users need to call *hipSetDevice()* to set a device, e.g. device 1. If users do not explicitly call it, the system by default sets it as device 0. Unless users explicitly call *hipSetDevice()* to set to another device, their HIP kernels are always launched on device 0.
+
+The above is a HIP (and CUDA) device management approach and has nothing to do with rocSPARSE. rocSPARSE honors the approach above and assumes users have already set the device before a rocSPARSE routine call.
+
+Once users set the device, they create a handle with `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_.
+
+Subsequent rocSPARSE routines take this handle as an input parameter. rocSPARSE ONLY queries (by hipGetDevice()) the user’s device; rocSPARSE does NOT set the device for users. If rocSPARSE does not see a valid device, it returns an error message. It is the users’ responsibility to provide a valid device to rocSPARSE and ensure the device safety.
+
+Users CANNOT switch devices between `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_ and `rocsparse_destroy_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-destroy-handle>`_. If users want to change device, they must destroy the current handle and create another rocSPARSE handle.
+
+HIP Stream Management
+----------------------
+HIP kernels are always launched in a queue (also known as stream).
+
+If users do not explicitly specify a stream, the system provides a default stream, maintained by the system. Users cannot create or destroy the default stream. However, users can freely create new streams (with *hipStreamCreate()*) and bind it to the rocSPARSE handle. HIP kernels are invoked in rocSPARSE routines. The rocSPARSE handle is always associated with a stream, and rocSPARSE passes its stream to the kernels inside the routine. One rocSPARSE routine only takes one stream in a single invocation. If users create a stream, they are responsible for destroying it.
+
+Multiple Streams and Multiple Devices
+---------------------------------------
+If the system under test has multiple HIP devices, users can run multiple rocSPARSE handles concurrently, but can NOT run a single rocSPARSE handle on different discrete devices. Each handle is associated with a particular singular device, and a new handle should be created for each additional device.
 
 Storage Formats
 #####################
