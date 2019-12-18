@@ -38,25 +38,26 @@ For detailed and up to date usage information, we recommend consulting the help:
 
 For convenience purposes, following is the output from the -h flag:
 
-usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [-i] [-v] [--showhw] [-t] [-c] [-g] [-f] [-p] [-P] [-o] [-m] [-M] [-l]
-                [-s] [-u] [--showmemuse] [-b] [--showreplaycount] [-S] [--showvoltage] [--showrasinfo BLOCK [BLOCK ...]]
-                [--showfwinfo [BLOCK [BLOCK ...]]] [--showproductname] [-a] [--showmeminfo TYPE [TYPE ...]]
-                [--showdriverversion] [--showuniqueid] [--showserial] [--showpids] [--showxgmierr] [--showpagesinfo]
-                [--showretiredpages] [--showpendingpages] [--showvoltagerange] [--showvc] [--showsclkrange]
-                [--showmclkrange] [--showunreservablepages] [--alldevices] [-r] [--setsclk LEVEL [LEVEL ...]]
+
+AMD ROCm System Management Interface | ROCM-SMI version: 1.3.1|
+
+usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [--alldevices] [--showhw] [-a] [-i] [-v] [--showdriverversion]
+                [--showfwinfo [BLOCK [BLOCK ...]]] [--showmclkrange] [--showmemvendor] [--showsclkrange]
+                [--showproductname] [--showserial] [--showuniqueid] [--showvoltagerange] [--showbus] [--showpagesinfo]
+                [--showpendingpages] [--showretiredpages] [--showunreservablepages] [-f] [-P] [-t] [-u] [--showmemuse]
+                [--showvoltage] [-b] [-c] [-g] [-l] [-M] [-m] [-o] [-p] [-S] [-s] [--showmeminfo TYPE [TYPE ...]]
+                [--showpids] [--showreplaycount] [--showrasinfo BLOCK [BLOCK ...]] [--showvc] [--showxgmierr] [-r]
+                [--resetfans] [--resetprofile] [--resetpoweroverdrive] [--resetxgmierr] [--setsclk LEVEL [LEVEL ...]]
                 [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]] [--setslevel SCLKLEVEL SCLK SVOLT]
                 [--setmlevel MCLKLEVEL MCLK MVOLT] [--setvc POINT SCLK SVOLT] [--setsrange MINMAX SCLK]
-                [--setmrange MINMAX SCLK] [--resetfans] [--setfan LEVEL] [--setperflevel LEVEL] [--setoverdrive %]
-                [--setmemoverdrive %] [--setpoweroverdrive WATTS] [--resetpoweroverdrive] [--setprofile SETPROFILE]
-                [--resetprofile] [--rasenable BLOCK ERRTYPE] [--rasdisable BLOCK ERRTYPE] [--rasinject BLOCK]
-                [--gpureset] [--resetxgmierr] [--load FILE | --save FILE] [--autorespond RESPONSE] [--loglevel ILEVEL]
-                [--json]
-
-AMD ROCm System Management Interface | ROCM-SMI version: 1.3.0 | Kernel version:
-
+                [--setmrange MINMAX SCLK] [--setfan LEVEL] [--setperflevel LEVEL] [--setoverdrive %]
+                [--setmemoverdrive %] [--setpoweroverdrive WATTS] [--setprofile SETPROFILE] [--rasenable BLOCK ERRTYPE]
+                [--rasdisable BLOCK ERRTYPE] [--rasinject BLOCK] [--gpureset] [--load FILE | --save FILE]
+                [--autorespond RESPONSE] [--loglevel LEVEL] [--json]
 
 =================================== ===================================================================================
   -h, --help                  		show this help message and exit
+  --gpureset                            Reset specified GPU (One GPU must be specified)
   --load FILE                 		Load Clock, Fan, Performance and Profile settings 
   --save FILE                 		Save Clock, Fan, Performance and Profile settings 
 =================================== ===================================================================================
@@ -64,81 +65,101 @@ AMD ROCm System Management Interface | ROCM-SMI version: 1.3.0 | Kernel version:
 
  -d DEVICE [DEVICE ...], --device DEVICE [DEVICE ...]  	   Execute command on specified device
 
-=================================== ===================================================================================
-  -i, --showid                		Show GPU ID
-  -v, --showvbios             		Show VBIOS version
-  --showhw                    		Show Hardware details
-  -t, --showtemp              		Show current temperature
-  -c, --showclocks            		Show current clock frequencies
-  -g, --showgpuclocks         		Show current GPU clock frequencies
-  -f, --showfan               		Show current fan speed
-  -p, --showperflevel         		Show current PowerPlay Performance Level
-  -P, --showpower             		Show current GPU ASIC power consumption
-  -o, --showoverdrive         		Show current OverDrive level
-  -m, --showmemoverdrive      		Show current GPU Memory Clock OverDrive level
-  -M, --showmaxpower          		Show maximum graphics package power this GPU will consume
-  -l, --showprofile           		Show Compute Profile attributes
-  -s, --showclkfrq            		Show supported GPU and Memory Clock
-  -u, --showuse               		Show current GPU use
-      --showmemuse                      Show current GPU memory used
-  -b, --showbw                		Show estimated PCIe use
-  --showreplaycount                     Show PCIe Replay Count
-  -S, --showclkvolt           		Show supported GPU and Memory Clocks and Voltages
-  --showvoltage                         Show current GPU voltage
-  --showrasinfo BLOCK [BLOCK ...]       Show RAS enablement information and error counts for the
-                                        specified block(s)
-  --showfwinfo [BLOCK [BLOCK ...]]      Show FW information
-  --showproductname                     Show SKU/Vendor name
-  -a, --showallinfo           		Show all SMI-supported values values
-  --showmeminfo TYPE [TYPE ...]         Show Memory usage information for given block(s) TYPE
-  --showdriverversion                   Show kernel driver version
-  --showuniqueid                        Show GPU's Unique ID
-  --showserial                          Show GPU's Serial Number
-  --showpids                            Show current running KFD PIDs
-  --showxgmierr                         Show XGMI error information since last read
-  --showpagesinfo                       Show retired, pending and unreservable pages
-  --showretiredpages                    Show retired pages
-  --showpendingpages                    Show pending retired pages
-  --showvoltagerange                    Show voltage range
-  --showvc                              Show voltage curve
-  --showsclkrange                       Show sclk range
-  --showmclkrange                       Show mclk range
-  --showunreservablepages               Show unreservable pages
-  --alldevices                          Execute command on non-AMD devices as well as AMD devices
-  --resetxgmierr                        Reset XGMI error count
+================================================ ======================================================================
 
-  -r, --resetclocks           		Reset clocks to OverDrive to default
-  --setsclk LEVEL [LEVEL ...] 		Set GPU Clock Frequency Level Level(s) (requires manual Perf level)
-  --setmclk LEVEL [LEVEL ...] 		Set GPU Memory Clock Frequency Level(s) (requires manual Perf level)
-  --setpcie LEVEL [LEVEL ...]       	Set PCIE Clock Frequency Level(s) (requires manual Perf level)
-  --setslevel SCLKLEVEL SCLK SVOLT  	Change GPU Clock frequency (MHz) and Voltage (mV) for a specific Level
-  --setmlevel MCLKLEVEL MCLK MVOLT  	Change GPU Memory clock frequency (MHz) and Voltage for (mV) a specific Level
-  --setvc POINT SCLK SVOLT              Change SCLK Voltage Curve (MHz mV) for a specific point
-  --setsrange MINMAX SCLK               Set min(0) or max(1) SCLK speed
-  --setmrange MINMAX SCLK               Set min(0) or max(1) MCLK speed
-  --resetfans                       	Reset fans to automatic (driver) control
-  --setfan LEVEL              		Set GPU Fan Speed Level
-  --setperflevel LEVEL        		Set PowerPlay Performance Level
-  --setoverdrive %            		Set GPU OverDrive level
-  --setmemoverdrive %               	Set GPU Memory Overclock OverDrive level (requires manual|high Perf level)
-  --setpoweroverdrive WATTS         	Set the maximum GPU power using Power OverDrive in Watts
-  --resetpoweroverdrive             	Set the maximum GPU power back to the device deafult state
-  --setprofile SETPROFILE           	Specify Power Profile level (#) or a quoted string of CUSTOM Profile
-                                    	attributes "# # # #..." (requires manual Perf level)
-  --resetprofile                    	Reset Power Profile back to default
-  --rasenable BLOCK ERRTYPE             Enable RAS for specified block and error type
-  --rasdisable BLOCK ERRTYPE            Disable RAS for specified block and error type
-  --rasinject BLOCK                     Inject RAS poison for specified block (ONLY WORKS ON UNSECURE BOARDS)
-                                                                                                   
-  --gpureset                            Reset specified GPU (One GPU must be specified)
+  Display Options:
+  --alldevices                                          Execute command on non-AMD devices as well as AMD devices
+  --showhw                                              Show Hardware details
+  -a, --showallinfo                                     Show Temperature, Fan and Clock values
 
-  --autorespond RESPONSE            	Response to automatically provide for all prompts (NOT RECOMMENDED)
+Topology:
+  -i, --showid                                          Show GPU ID
+  -v, --showvbios                                       Show VBIOS version
+  --showdriverversion                                   Show kernel driver version
+  --showfwinfo [BLOCK [BLOCK ...]]                      Show FW information
+  --showmclkrange                                       Show mclk range
+  --showmemvendor                                       Show GPU memory vendor
+  --showsclkrange                                       Show sclk range
+  --showproductname                                     Show SKU/Vendor name
+  --showserial                                          Show GPU's Serial Number
+  --showuniqueid                                        Show GPU's Unique ID
+  --showvoltagerange                                    Show voltage range
+  --showbus                                             Show PCI bus number
 
-  --loglevel ILEVEL                 	How much output will be printed for what program is doing, one of
-                                    	debug/info/warning/error/critical
-  --json                                Print output in JSON format
+Pages information:
+  --showpagesinfo                                       Show retired, pending and unreservable pages
+  --showpendingpages                                    Show pending retired pages
+  --showretiredpages                                    Show retired pages
+  --showunreservablepages                               Show unreservable pages
 
-=================================== ===================================================================================
+Hardware-related information:
+  -f, --showfan                                         Show current fan speed
+  -P, --showpower                                       Show current Average Graphics Package Power Consumption
+  -t, --showtemp                                        Show current temperature
+  -u, --showuse                                         Show current GPU use
+  --showmemuse                                          Show current GPU memory used
+  --showvoltage                                         Show current GPU voltage
+
+Software-related/controlled information:
+  -b, --showbw                                          Show estimated PCIe use
+  -c, --showclocks                                      Show current clock frequencies
+  -g, --showgpuclocks                                   Show current GPU clock frequencies
+  -l, --showprofile                                     Show Compute Profile attributes
+  -M, --showmaxpower                                    Show maximum graphics package power this GPU will consume
+  -m, --showmemoverdrive                                Show current GPU Memory Clock OverDrive level
+  -o, --showoverdrive                                   Show current GPU Clock OverDrive level
+  -p, --showperflevel                                   Show current DPM Performance Level
+  -S, --showclkvolt                                     Show supported GPU and Memory Clocks and Voltages
+  -s, --showclkfrq                                      Show supported GPU and Memory Clock
+  --showmeminfo TYPE [TYPE ...]                         Show Memory usage information for given block(s) TYPE
+  --showpids                                            Show current running KFD PIDs
+  --showreplaycount                                     Show PCIe Replay Count
+  --showrasinfo BLOCK [BLOCK ...]                       Show RAS enablement information and error counts for the
+                                                        specified block(s)
+  --showvc                                              Show voltage curve
+  --showxgmierr                                         Show XGMI error information since last read
+
+Set options:
+  --setsclk LEVEL [LEVEL ...]                           Set GPU Clock Frequency Level(s) (requires manual Perf level)
+  --setmclk LEVEL [LEVEL ...]                           Set GPU Memory Clock Frequency Level(s) (requires manual Perf
+                                                        level)
+  --setpcie LEVEL [LEVEL ...]                           Set PCIE Clock Frequency Level(s) (requires manual Perf level)
+  --setslevel SCLKLEVEL SCLK SVOLT                      Change GPU Clock frequency (MHz) and Voltage (mV) for a specific
+                                                        Level
+  --setmlevel MCLKLEVEL MCLK MVOLT                      Change GPU Memory clock frequency (MHz) and Voltage for (mV) a
+                                                        specific Level
+  --setvc POINT SCLK SVOLT                              Change SCLK Voltage Curve (MHz mV) for a specific point
+  --setsrange MINMAX SCLK                               Set min(0) or max(1) SCLK speed
+  --setmrange MINMAX SCLK                               Set min(0) or max(1) MCLK speed
+  --setfan LEVEL                                        Set GPU Fan Speed (Level or %)
+  --setperflevel LEVEL                                  Set Performance Level
+  --setoverdrive %                                      Set GPU OverDrive level (requires manual|high Perf level)
+  --setmemoverdrive %                                   Set GPU Memory Overclock OverDrive level (requires manual|high
+                                                        Perf level)
+  --setpoweroverdrive WATTS                             Set the maximum GPU power using Power OverDrive in Watts
+  --setprofile SETPROFILE                               Specify Power Profile level (#) or a quoted string of CUSTOM
+                                                        Profile attributes "# # # #..." (requires manual Perf level)
+  --rasenable BLOCK ERRTYPE                             Enable RAS for specified block and error type
+  --rasdisable BLOCK ERRTYPE                            Disable RAS for specified block and error type
+  --rasinject BLOCK                                     Inject RAS poison for specified block (ONLY WORKS ON UNSECURE
+                                                        BOARDS)
+
+Reset options:
+  -r, --resetclocks                                     Reset clocks and OverDrive to default
+  --resetfans                                           Reset fans to automatic (driver) control
+  --resetprofile                                        Reset Power Profile back to default
+  --resetpoweroverdrive                                 Set the maximum GPU power back to the device deafult state
+  --resetxgmierr                                        Reset XGMI error count
+
+Auto-response options:
+  --autorespond RESPONSE                                Response to automatically provide for all prompts (NOT
+                                                        RECOMMENDED)
+
+Output options:
+  --loglevel LEVEL                                      How much output will be printed for what program is doing, one
+                                                        of debug/info/warning/error/critical
+  --json                                                Print output in JSON format
+================================================ ======================================================================
 
 **Detailed Option Descriptions**
 
