@@ -3119,7 +3119,7 @@ For detailed instructions on how to set up ROCm on different platforms, see the 
 
 rocALUTION has the following run-time dependencies
 
-   * `AMD ROCm <https://github.com/RadeonOpenCompute/ROCm>`_ 2.9 or later (optional, for HIP support)
+   * `AMD ROCm <https://github.com/RadeonOpenCompute/ROCm>`_ 3.0 or later (optional, for HIP support)
 
    * `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_ (optional, for HIP support)
 
@@ -3139,7 +3139,7 @@ To build rocALUTION from source, the following compile-time and run-time depende
 
    * 'CMake <https://cmake.org/>`_ 3.5 or later
 
-   * `AMD ROCm <https://github.com/RadeonOpenCompute/ROCm>`_ 2.9 or later (optional, for HIP support)
+   * `AMD ROCm <https://github.com/RadeonOpenCompute/ROCm>`_ 3.0 or later (optional, for HIP support)
 
    * `rocSPARSE <https://github.com/ROCmSoftwarePlatform/rocSPARSE>`_ (optional, for HIP support)
 
