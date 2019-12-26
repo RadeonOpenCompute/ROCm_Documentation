@@ -751,6 +751,33 @@ rocblas_<type>gemv()
 .. doxygenfunction:: rocblas_zgemv
    :project: rocBLAS
 
+rocblas_<type>hemv()
+**************************
+
+.. doxygenfunction:: rocblas_chemv
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zhemv
+   :project: rocBLAS
+
+rocblas_<type>hemv_batched()
+**************************
+
+.. doxygenfunction:: rocblas_chemv_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zhemv_batched
+   :project: rocBLAS
+
+rocblas_<type>hemv_strided_batched()
+**************************
+
+.. doxygenfunction:: rocblas_chemv_strided_batched
+   :project: rocBLAS
+
+.. doxygenfunction:: rocblas_zhemv_strided_batched
+   :project: rocBLAS
+
 rocblas_<type>gemv_batched()
 ******************************
 .. doxygenfunction:: rocblas_sgemv_batched
