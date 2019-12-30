@@ -1,7 +1,9 @@
 ==============================
-AMD ROCm Release Notes v3.0
+Installation Guide
 ==============================
 
+AMD ROCm Release Notes v3.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues and deprecated features in the ROCm v3.0 release.
 
 -  `What is ROCm`_

@@ -139,6 +139,11 @@ Quick Start Guide
 | `ROCm Binary Utilities <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-binary-utilities>`_
 | -- In-progess
 
+| `AOMP <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#aomp-v-0-7-5>`_
+| This section provides details on AOMP, a scripted build of LLVM and supporting software. It has support for OpenMP target offload on AMD GPUs. Since AOMP is a clang/llvm compiler, it also supports GPU offloading with HIP, CUDA, and OpenCL.
+
+| `ROCmValidationSuite <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocmvalidationsuite>`_
+| This section provides details on ROCm Validation Suite (RVS), a system administrator’s and cluster manager’s tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
 
 `ROCm Libraries <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm-Libraries.html>`_
 *************
