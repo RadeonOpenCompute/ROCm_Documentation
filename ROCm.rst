@@ -197,7 +197,8 @@ Quick Start Guide
 
 | `RCCL <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rccl>`_ This section provides details on ROCm Communications Collectives Library. It is a stand alone library of standard collective communication routines for GPUS, implememting all-reduce, all gather, reduce, broadcast, and reduce scatter.
 
-
+| `AMD MivisionX <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#amd-migraphx>`_
+This section provides information on AMD’s graph optimization engine.
 
 
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
