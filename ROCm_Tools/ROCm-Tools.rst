@@ -896,9 +896,11 @@ ROC profiler library. Profiling with perf-counters and derived metrics. Library 
 
 HW specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes HW performance counters with complex performance metrics.
 
+`API specification can be found by the link here.<https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
+
 **Metrics**
 
-The link to profiler default metrics XML `specification <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_.
+`The link to profiler default metrics XML specification.<https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_
 
 **Download**
 
@@ -1089,14 +1091,7 @@ specific runtime profiler to trace API and asyncronous activity.
 The API provides functionality for registering the runtimes API callbacks and
 asyncronous activity records pool support.
 
-The library source tree:
-
-    *  inc/roctracer.h - Library public API
-    *  src - Library sources
-        *  core - Library API sources
-        *  util - Library utils sources
-    *  test - test suit
-        *  MatrixTranspose - test based on HIP MatrixTranspose sample
+`API specification can be found by the link here.<https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
 
 **Documentation**
 
@@ -1119,6 +1114,15 @@ The library source tree:
 
   - CLone development branches of roctracer:
     git clone -b amd-master https://github.com/ROCm-Developer-Tools/roctracer
+
+The library source tree:
+
+    *  inc/roctracer.h - Library public API
+    *  src - Library sources
+        *  core - Library API sources
+        *  util - Library utils sources
+    *  test - test suit
+        *  MatrixTranspose - test based on HIP MatrixTranspose sample
 
   - To customize environment, below are defaults:
    export HIP_PATH=/opt/rocm/HIP
