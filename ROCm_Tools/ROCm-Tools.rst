@@ -371,8 +371,8 @@ rocprof
 ***********
 
 | The rocProf is a command line tool implemented on the top of
-  rocProfiler and rocTracer APIs. Source code for rocProf may be found
-  here: GitHub:
+  rocProfiler and rocTracer APIs. Source code for rocProf can be found
+  at GitHub:
   `https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/bin/rocprof <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/bin/rocprof>`__
 | This command line tool is implemented as a script which is setting up
   the environment for attaching the profiler and then run the provided
@@ -896,11 +896,11 @@ ROC profiler library. Profiling with perf-counters and derived metrics. Library 
 
 HW specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes HW performance counters with complex performance metrics.
 
-`API specification can be found by the link here.<https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
+`API specification can be found by the link here. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
 
 **Metrics**
 
-`The link to profiler default metrics XML specification.<https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_
+`The link to profiler default metrics XML specification. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_
 
 **Download**
 
@@ -1091,7 +1091,7 @@ specific runtime profiler to trace API and asyncronous activity.
 The API provides functionality for registering the runtimes API callbacks and
 asyncronous activity records pool support.
 
-`API specification can be found by the link here.<https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
+`API specification can be found by the link here. <https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
 
 **Documentation**
 
