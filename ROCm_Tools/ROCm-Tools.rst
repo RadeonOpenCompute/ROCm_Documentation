@@ -896,7 +896,7 @@ ROC profiler library. Profiling with perf-counters and derived metrics. Library 
 
 HW specific low-level performance analysis interface for profiling of GPU compute applications. The profiling includes HW performance counters with complex performance metrics.
 
-`API specification can be found by the link here. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
+`API specification at the GitHub. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
 
 GitHub: `https://github.com/ROCm-Developer-Tools/rocprofiler <https://github.com/ROCm-Developer-Tools/rocprofiler>`_
 
@@ -981,7 +981,7 @@ specific runtime profiler to trace API and asyncronous activity.
 The API provides functionality for registering the runtimes API callbacks and
 asyncronous activity records pool support.
 
-`API specification can be found by the link here. <https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
+`API specification at the GitHub. <https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
 
 GitHub: `https://github.com/ROCm-Developer-Tools/roctracer <https://github.com/ROCm-Developer-Tools/roctracer>`_
 
