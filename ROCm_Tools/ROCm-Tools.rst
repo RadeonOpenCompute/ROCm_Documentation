@@ -1016,6 +1016,8 @@ The library source tree:
 **Build and run test**
 
 
+.. code:: sh
+  
   - To customize environment, below are defaults:
    export HIP_PATH=/opt/rocm/HIP
    export HCC_HOME=/opt/rocm/hcc/
