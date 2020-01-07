@@ -1093,3 +1093,17 @@ Where applicable, the node grouping of physical memory follows NUMA principles t
 
  [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]]
                 [--setslevel
+
+
+ROCm GPU/GCD Isolation
+======================
+
+ROCR_VISIBLE_DEVICES
+********************
+
+It is possible to rearrange or isolate the collection of ROCm GPU/GCD devices that are available on a ROCm platform. This can be achieved at the start of an application by way of ROCR_VISIBLE_DEVICES environment variable.
+
+Devices to be made visible to an application should be specified as a comma-separated list of enumerable devices. For example, to use devices 0 and 2 from a ROCm platform with four devices, set ROCR_VISIBLE_DEVICES=0,2 before launching the application. The application will then enumerate these devices as device 0 and device 1, respectively.
+
+This can used by cooperating applications to effectively allocate GPU/GCDs among themselves.
+
