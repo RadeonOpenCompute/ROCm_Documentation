@@ -1,7 +1,7 @@
 .. _FAQ-on-Installation:
 
 ====================
-FAQ on Installation
+Frequently Asked Questions - Installation
 ====================
 
 
