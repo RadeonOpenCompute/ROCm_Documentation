@@ -180,15 +180,9 @@ ROCmRDMA interface functions description
 UCX
 ====
 
-Introduction
-*****************
-.. image:: image/ucx.jpg
-  :width: 500px
-  :align: center
-
 **What is UCX ?**
 
-UCX is a framework (collection of libraries and interfaces) that provides efficient and relatively easy way to construct widely used HPC protocols: MPI tag matching, RMA operations, randevouze protocols, stream, fragmentation, remote atomic operations, etc. For more information, visit http://openucx.github.io/ucx/
+Unified Communication X (UCX) is a communication library for building Message Passing (MPI), PGAS/OpenSHMEM libraries and RPC/data-centric applications. UCX utilizes high-speed networks for inter-node and shared memory mechanisms for intra-node communication. For more information, visit http://openucx.github.io/ucx/
 
 **How to install UCX with ROCm ?**
 
