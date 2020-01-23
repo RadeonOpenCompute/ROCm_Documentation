@@ -667,6 +667,12 @@ hsa_queue_create hsa_amd_memory_pool_allocate
 
 **3.2.2. Tracing time period**
 
+Tracing can be disabled on start so it can be enabled with start/stop API:
+
+::
+
+   --trace-start <on|off>
+
 Trace can be dumped periodically with initial delay, dumping period
 length and rate:
 
@@ -715,92 +721,117 @@ The command line options can be printed with option ‘-h’:
 
 ::
 
-   $ rocprof -h
-   RPL: on '191018_023018' from '/opt/rocm/rocprofiler' in '/…./MatrixTranspose'
-   ROCm Profiling Library (RPL) run script, a part of ROCprofiler library package.
-   Full path: /opt/rocm/rocprofiler/bin/rocprof
-   Metrics definition: /opt/rocm/rocprofiler/lib/metrics.xml
+  rocprof [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
 
-   Usage:
-     rocprof [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
+  Options:
+  -h - this help
+  --verbose - verbose mode, dumping all base counters used in the input metrics
+  --list-basic - to print the list of basic HW counters
+  --list-derived - to print the list of derived metrics with formulas
+  --cmd-qts <on|off> - quoting profiled cmd line [on]
 
-   Options:
-     -h - this help
-     --verbose - verbose mode, dumping all base counters used in the input metrics
-     --list-basic - to print the list of basic HW counters
-     --list-derived - to print the list of derived metrics with formulas
+  -i <.txt|.xml file> - input file
+      Input file .txt format, automatically rerun application for every pmc line:
 
-     -i <.txt|.xml file> - input file
-         Input file .txt format, automatically rerun application for every pmc line:
+        # Perf counters group 1
+        pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts FlatLDSInsts GDSInsts FetchSize
+        # Perf counters group 2
+        pmc : VALUUtilization,WriteSize L2CacheHit
+        # Filter by dispatches range, GPU index and kernel names
+        # supported range formats: "3:9", "3:", "3"
+        range: 1 : 4
+        gpu: 0 1 2 3
+        kernel: simple Pass1 simpleConvolutionPass2
 
-           # Perf counters group 1
-           pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts FlatLDSInsts GDSInsts VALUUtilization FetchSize
-           # Perf counters group 2
-           pmc : WriteSize L2CacheHit
-           # Filter by dispatches range, GPU index and kernel names
-           # supported range formats: "3:9", "3:", "3"
-           range: 1 : 4
-           gpu: 0 1 2 3
-           kernel: simple Pass1 simpleConvolutionPass2
+      Input file .xml format, for single profiling run:
 
-         Input file .xml format, for single profiling run:
+        # Metrics list definition, also the form "<block-name>:<event-id>" can be used
+        # All defined metrics can be found in the 'metrics.xml'
+        # There are basic metrics for raw HW counters and high-level metrics for derived counters
+        <metric name=SQ:4,SQ_WAVES,VFetchInsts
+        ></metric>
 
-           # Metrics list definition, also the form "<block-name>:<event-id>" can be used
-           # All defined metrics can be found in the 'metrics.xml'
-           # There are basic metrics for raw HW counters and high-level metrics for derived counters
-           <metric name=SQ:4,SQ_WAVES,VFetchInsts
-           ></metric>
+        # Filter by dispatches range, GPU index and kernel names
+        <metric
+          # range formats: "3:9", "3:", "3"
+          range=""
+          # list of gpu indexes "0,1,2,3"
+          gpu_index=""
+          # list of matched sub-strings "Simple1,Conv1,SimpleConvolution"
+          kernel=""
+        ></metric>
 
-           # Filter by dispatches range, GPU index and kernel names
-           <metric
-             # range formats: "3:9", "3:", "3"
-             range=""
-             # list of gpu indexes "0,1,2,3"
-             gpu_index=""
-             # list of matched sub-strings "Simple1,Conv1,SimpleConvolution"
-             kernel=""
-           ></metric>
+  -o <output file> - output CSV file [<input file base>.csv]
+    The output CSV file columns meaning in the columns order:
+      Index - kernels dispatch order index
+      KernelName - the dispatched kernel name
+      gpu-id - GPU id the kernel was submitted to
+      queue-id - the ROCm queue unique id the kernel was submitted to
+      queue-index - The ROCm queue write index for the submitted AQL packet
+      tid - system application thread id which submitted the kernel
+      grd - the kernel's grid size
+      wgr - the kernel's work group size
+      lds - the kernel's LDS memory size
+      scr - the kernel's scratch memory size
+      vgpr - the kernel's VGPR size
+      sgpr - the kernel's SGPR size
+      fbar - the kernel's barriers limitation
+      sig - the kernel's completion signal
+      ... - The columns with the counters values per kernel dispatch
+      DispatchNs/BeginNs/EndNs/CompleteNs - timestamp columns if time-stamping was enabled
 
-     -o <output file> - output CSV file [<input file base>.csv]
-     -d <data directory> - directory where profiler store profiling data including traces [/tmp]
-         The data directory is renoving autonatically if the directory is matching the temporary one, which is the default.
-     -t <temporary directory> - to change the temporary directory [/tmp]
-         By changing the temporary directory you can prevent removing the profiling data from /tmp or enable removing from not '/tmp' directory.
+  -d <data directory> - directory where profiler store profiling data including thread treaces [/tmp]
+      The data directory is renoving autonatically if the directory is matching the temporary one, which is the default.
+  -t <temporary directory> - to change the temporary directory [/tmp]
+      By changing the temporary directory you can prevent removing the profiling data from /tmp or enable removing from not '/tmp' directory.
 
-     --basenames <on|off> - to turn on/off truncating of the kernel full function names till the base ones [off]
-     --timestamp <on|off> - to turn on/off the kernel disoatches timestamps, dispatch/begin/end/complete [off]
-     --ctx-wait <on|off> - to wait for outstanding contexts on profiler exit [on]
-     --ctx-limit <max number> - maximum number of outstanding contexts [0 - unlimited]
-     --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
+  --basenames <on|off> - to turn on/off truncating of the kernel full function names till the base ones [off]
+  --timestamp <on|off> - to turn on/off the kernel dispatches timestamps, dispatch/begin/end/complete [off]
+    Four kernel timestamps in nanoseconds are reported:
+        DispatchNs - the time when the kernel AQL dispatch packet was written to the queue
+        BeginNs - the kernel execution begin time
+        EndNs - the kernel execution end time
+        CompleteNs - the time when the completion signal of the AQL dispatch packet was received
 
-     --stats - generating kernel execution stats, file <output name>.stats.csv
-     --hsa-trace - to trace HSA, generates API execution stats and JSON file chrome-tracing compatible
-     --hip-trace - to trace HIP, generates API execution stats and JSON file chrome-tracing compatible
-     --sys-trace - to trace HIP/HSA APIs and GPU activity, generates stats and JSON trace chrome-tracing compatible
-       Generated files: <output name>.hsa_stats.txt <output name>.json
-       Traced API list can be set by input .txt or .xml files.
-       Input .txt:
-         hsa: hsa_queue_create hsa_amd_memory_pool_allocate
-       Input .xml:
-         <trace name="HSA">
-           <parameters list="hsa_queue_create, hsa_amd_memory_pool_allocate">
-           </parameters>
-         </trace>
+  --ctx-limit <max number> - maximum number of outstanding contexts [0 - unlimited]
+  --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
 
-     --trace-period <dealy:length:rate> - to enable trace with initial delay, with periodic sample length and rate
-       Supported time formats: <number(m|s|ms|us)>
+  --stats - generating kernel execution stats, file <output name>.stats.csv
+  --roctx-trace - to enable rocTX applicatin code annotation trace
+    Will show the application code annotation in JSON trace \"Markers and Ranges\" section.
+  --sys-trace - to trace HIP/HSA APIs and GPU activity, generates stats and JSON trace chrome-tracing compatible
+  --hip-trace - to trace HIP, generates API execution stats and JSON file chrome-tracing compatible
+  --hsa-trace - to trace HSA, generates API execution stats and JSON file chrome-tracing compatible
+  --kfd-trace - to trace KFD, generates API execution stats and JSON file chrome-tracing compatible
+    Generated files: <output name>.<domain>_stats.txt <output name>.json
+    Traced API list can be set by input .txt or .xml files.
+    Input .txt:
+      hsa: hsa_queue_create hsa_amd_memory_pool_allocate
+    Input .xml:
+      <trace name="HSA">
+        <parameters list="hsa_queue_create, hsa_amd_memory_pool_allocate">
+        </parameters>
+      </trace>
 
-   Configuration file:
-     You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/evgeny:<package path>
-     First the configuration file is looking in the current directory, then in your home, and then in the package directory.
-     Configurable options: 'basenames', 'timestamp', 'ctx-limit', 'heartbeat'.
-     An example of 'rpl_rc.xml':
-       <defaults
-         basenames=off
-         timestamp=off
-         ctx-limit=0
-         heartbeat=0
-       ></defaults> 
+  --trace-start <on|off> - to enable tracing on start [on]
+  --trace-period <dealy:length:rate> - to enable trace with initial delay, with periodic sample length and rate
+    Supported time formats: <number(m|s|ms|us)>
+  --obj-tracking <on|off> - to turn on/off kernels code objects tracking [off]
+    To support V3 code objects.
+
+  Configuration file:
+  You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/      evgeny:<package path>
+  First the configuration file is looking in the current directory, then in your home, and then in the package directory.
+  Configurable options: 'basenames', 'timestamp', 'ctx-limit', 'heartbeat', 'obj-tracking'.
+  An example of 'rpl_rc.xml':
+    <defaults
+      basenames=off
+      timestamp=off
+      ctx-limit=0
+      heartbeat=0
+      obj-tracking=off
+    ></defaults>
+
 
 6. Publicly available counters and metrics
 ******************************************
@@ -932,8 +963,8 @@ To clone ROC Profiler from GitHub:
         *  util - Test utils
         *  simple_convolution - Simple convolution test kernel
 
-**Build**
 
+**Build**
 
 Build environment:
 
@@ -946,7 +977,6 @@ Build environment:
 
 **To Build with the current installed ROCm:**
 
-
 .. code:: sh
 
   To build and install to /opt/rocm/rocprofiler
@@ -958,6 +988,7 @@ Build environment:
   make
   make install
 
+
 **Internal 'simple_convolution' test run script:**
 
 .. code:: sh
@@ -965,134 +996,19 @@ Build environment:
   cd ../rocprofiler/build
   ./run.sh
 
-**To enable error messages logging to '/tmp/rocprofiler_log.txt':**
 
+**To enable error messages logging to '/tmp/rocprofiler_log.txt':**
 
 .. code:: sh
 
   export ROCPROFILER_LOG=1
+
 
 **To enable verbose tracing:**
 
 .. code:: sh
 
   export ROCPROFILER_TRACE=1
-
-
-**Profiling utility usage**
-
-.. code:: sh
-
-  rocprof [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
-
-  Options:
-  -h - this help
-  --verbose - verbose mode, dumping all base counters used in the input metrics
-  --list-basic - to print the list of basic HW counters
-  --list-derived - to print the list of derived metrics with formulas
-  --cmd-qts <on|off> - quoting profiled cmd line [on]
-
-  -i <.txt|.xml file> - input file
-      Input file .txt format, automatically rerun application for every pmc line:
-
-        # Perf counters group 1
-        pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts FlatLDSInsts GDSInsts FetchSize
-        # Perf counters group 2
-        pmc : VALUUtilization,WriteSize L2CacheHit
-        # Filter by dispatches range, GPU index and kernel names
-        # supported range formats: "3:9", "3:", "3"
-        range: 1 : 4
-        gpu: 0 1 2 3
-        kernel: simple Pass1 simpleConvolutionPass2
-
-      Input file .xml format, for single profiling run:
-
-        # Metrics list definition, also the form "<block-name>:<event-id>" can be used
-        # All defined metrics can be found in the 'metrics.xml'
-        # There are basic metrics for raw HW counters and high-level metrics for derived counters
-        <metric name=SQ:4,SQ_WAVES,VFetchInsts
-        ></metric>
-
-        # Filter by dispatches range, GPU index and kernel names
-        <metric
-          # range formats: "3:9", "3:", "3"
-          range=""
-          # list of gpu indexes "0,1,2,3"
-          gpu_index=""
-          # list of matched sub-strings "Simple1,Conv1,SimpleConvolution"
-          kernel=""
-        ></metric>
-
-  -o <output file> - output CSV file [<input file base>.csv]
-    The output CSV file columns meaning in the columns order:
-      Index - kernels dispatch order index
-      KernelName - the dispatched kernel name
-      gpu-id - GPU id the kernel was submitted to
-      queue-id - the ROCm queue unique id the kernel was submitted to
-      queue-index - The ROCm queue write index for the submitted AQL packet
-      tid - system application thread id which submitted the kernel
-      grd - the kernel's grid size
-      wgr - the kernel's work group size
-      lds - the kernel's LDS memory size
-      scr - the kernel's scratch memory size
-      vgpr - the kernel's VGPR size
-      sgpr - the kernel's SGPR size
-      fbar - the kernel's barriers limitation
-      sig - the kernel's completion signal
-      ... - The columns with the counters values per kernel dispatch
-      DispatchNs/BeginNs/EndNs/CompleteNs - timestamp columns if time-stamping was enabled
-      
-  -d <data directory> - directory where profiler store profiling data including thread treaces [/tmp]
-      The data directory is renoving autonatically if the directory is matching the temporary one, which is the default.
-  -t <temporary directory> - to change the temporary directory [/tmp]
-      By changing the temporary directory you can prevent removing the profiling data from /tmp or enable removing from not '/tmp' directory.
-
-  --basenames <on|off> - to turn on/off truncating of the kernel full function names till the base ones [off]
-  --timestamp <on|off> - to turn on/off the kernel dispatches timestamps, dispatch/begin/end/complete [off]
-    Four kernel timestamps in nanoseconds are reported:
-        DispatchNs - the time when the kernel AQL dispatch packet was written to the queue
-        BeginNs - the kernel execution begin time
-        EndNs - the kernel execution end time
-        CompleteNs - the time when the completion signal of the AQL dispatch packet was received
-
-  --ctx-limit <max number> - maximum number of outstanding contexts [0 - unlimited]
-  --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
-
-  --stats - generating kernel execution stats, file <output name>.stats.csv
-  --roctx-trace - to enable rocTX applicatin code annotation trace
-    Will show the application code annotation in JSON trace \"Markers and Ranges\" section.
-  --sys-trace - to trace HIP/HSA APIs and GPU activity, generates stats and JSON trace chrome-tracing compatible
-  --hip-trace - to trace HIP, generates API execution stats and JSON file chrome-tracing compatible
-  --hsa-trace - to trace HSA, generates API execution stats and JSON file chrome-tracing compatible
-  --kfd-trace - to trace KFD, generates API execution stats and JSON file chrome-tracing compatible
-    Generated files: <output name>.<domain>_stats.txt <output name>.json
-    Traced API list can be set by input .txt or .xml files.
-    Input .txt:
-      hsa: hsa_queue_create hsa_amd_memory_pool_allocate
-    Input .xml:
-      <trace name="HSA">
-        <parameters list="hsa_queue_create, hsa_amd_memory_pool_allocate">
-        </parameters>
-      </trace>
-
-  --trace-start <on|off> - to enable tracing on start [on]
-  --trace-period <dealy:length:rate> - to enable trace with initial delay, with periodic sample length and rate
-    Supported time formats: <number(m|s|ms|us)>
-  --obj-tracking <on|off> - to turn on/off kernels code objects tracking [off]
-    To support V3 code objects.
-
-  Configuration file:
-  You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/      evgeny:<package path>
-  First the configuration file is looking in the current directory, then in your home, and then in the package directory.
-  Configurable options: 'basenames', 'timestamp', 'ctx-limit', 'heartbeat', 'obj-tracking'.
-  An example of 'rpl_rc.xml':
-    <defaults
-      basenames=off
-      timestamp=off
-      ctx-limit=0
-      heartbeat=0
-      obj-tracking=off
-    ></defaults>
 
 
 ROC Tracer
@@ -1128,7 +1044,6 @@ To clone ROC Tracer from GitHub:
     *  test - test suit
         *  MatrixTranspose - test based on HIP MatrixTranspose sample
 
-GitHub: `https://github.com/ROCm-Developer-Tools/roctracer <https://github.com/ROCm-Developer-Tools/roctracer>`_
 
 **Build and run test**
 
