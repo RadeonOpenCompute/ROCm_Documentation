@@ -931,11 +931,11 @@ GitHub: `https://github.com/ROCm-Developer-Tools/rocprofiler <https://github.com
 
 **Metrics**
 
-`The link to profiler default metrics XML specification. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_
+    * `The link to profiler default metrics XML specification. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/test/tool/metrics.xml>`_
 
 **API specification**
 
-`API specification at the GitHub. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
+    * `API specification at the GitHub. <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/doc/rocprofiler_spec.md>`_
 
 **To get sources**
 
@@ -1025,7 +1025,7 @@ GitHub: `https://github.com/ROCm-Developer-Tools/roctracer <https://github.com/R
 
 **API specification**
 
-`API specification at the GitHub. <https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
+    * `API specification at the GitHub. <https://github.com/ROCm-Developer-Tools/roctracer/blob/amd-master/doc/roctracer_spec.md>`_
 
 **To get sources**
 
