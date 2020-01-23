@@ -798,7 +798,7 @@ The command line options can be printed with option ‘-h’:
 
   --stats - generating kernel execution stats, file <output name>.stats.csv
   --roctx-trace - to enable rocTX applicatin code annotation trace
-    Will show the application code annotation in JSON trace \"Markers and Ranges\" section.
+    Will show the application code annotation in JSON trace "Markers and Ranges" section.
   --sys-trace - to trace HIP/HSA APIs and GPU activity, generates stats and JSON trace chrome-tracing compatible
   --hip-trace - to trace HIP, generates API execution stats and JSON file chrome-tracing compatible
   --hsa-trace - to trace HSA, generates API execution stats and JSON file chrome-tracing compatible
