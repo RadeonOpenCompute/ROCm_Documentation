@@ -435,7 +435,7 @@ An example of profiling command line for ‘MatrixTranspose’ application
    Device name Ellesmere [Radeon RX 470/480/570/570X/580/580X]
    PASSED!
 
-   ROCPRofiler: 1 contexts collected, output directory /tmp/rpl_data_191018_011134_9695/input0_results_191018_011134
+   ROCProfiler: 1 contexts collected, output directory /tmp/rpl_data_191018_011134_9695/input0_results_191018_011134
    RPL: '/…./MatrixTranspose/input.csv' is generated
 
 **2.1.1. Counters and metrics**
