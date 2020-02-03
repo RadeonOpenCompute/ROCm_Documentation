@@ -360,7 +360,7 @@ To install from a Debian Repository:
 
 ::
 
-    wget -q0 –http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | 
+    wget -qO –http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | 
 
     sudo apt-key add -echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | 
 
