@@ -1115,7 +1115,9 @@ At a system administration level, the GPU/GCD isolation is possible using the de
 For example, consider a compute node with the two AMD GPUs. The ROCk-Kernel-Driver exposes the following device files -
 
 crw-rw-rw- 1 root root 240, 0 Apr 22 10:31 /dev/kfd
+
 crw-rw---- 1 root video 226, 128 Apr 22 10:31 /dev/dri/renderD128
+
 crw-rw---- 1 root video 226, 129 Apr 22 10:31 /dev/dri/renderD129
 
 A ROCm application running on this compute node can use both GPUs only if it has access to all the above-listed device files. The administrator can restrict the devices an application can access by using device cgroup. The device cgroup subsystem allows or denies access to devices by applications in a cgroup. If a cgroup has whitelisted only /dev/kfd and /dev/dri/renderD129, then applications in that cgroup will have access only to that single GPU.
