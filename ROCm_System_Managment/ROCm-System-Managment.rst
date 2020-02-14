@@ -1124,6 +1124,8 @@ A ROCm application running on this compute node can use both GPUs only if it has
 
 Refer to the Linux kernel's cgroup documentation for information on how to create a cgroup and whitelist devices. 
 
-For `cgroup-v1 refer <https://www.kernel.org/doc/Documentation/cgroup-v1/devices.txt>` and `cgroup-v2 refer <https://www.kernel.org/doc/Documentation/cgroup-v2.txt>`.
+For cgroup-v1, refer https://www.kernel.org/doc/Documentation/cgroup-v1/devices.txt 
+
+For cgroup-v2, refer https://www.kernel.org/doc/Documentation/cgroup-v2.txt
 
 
