@@ -1112,7 +1112,7 @@ This can used by cooperating applications to effectively allocate GPU/GCDs among
 
 At a system administration level, the GPU/GCD isolation is possible using the device control group (cgroup). For all the AMD GPUs in a compute node, the ROCk-Kernel-Driver exposes a single compute device file /dev/kfd and a separate (Direct Rendering Infrastructure) render device files /dev/dri/renderDN for each device. To participate in the Linux kernel’s cgroup infrastructure, the ROCk driver relies on the render device files.
 
-For example, consider a compute node with the two AMD GPUs. The ROCk-Kernel-Driver exposes the following device files -
+For example, consider a compute node with the two AMD GPUs. The ROCk-Kernel-Driver exposes the following device files:
 
 crw-rw-rw- 1 root root 240, 0 Apr 22 10:31 /dev/kfd
 
