@@ -1107,3 +1107,21 @@ Devices to be made visible to an application should be specified as a comma-sepa
 
 This can used by cooperating applications to effectively allocate GPU/GCDs among themselves.
 
+"Device" cgroup
+***************
+
+At a system administration level, the GPU/GCD isolation is possible using the device control group (cgroup). For all the AMD GPUs in a compute node, the ROCk-Kernel-Driver exposes a single compute device file /dev/kfd and a separate (Direct Rendering Infrastructure) render device files /dev/dri/renderDN for each device. To participate in the Linux kernel’s cgroup infrastructure, the ROCk driver relies on the render device files.
+
+For example, consider a compute node with the two AMD GPUs. The ROCk-Kernel-Driver exposes the following device files -
+
+crw-rw-rw- 1 root root 240, 0 Apr 22 10:31 /dev/kfd
+crw-rw---- 1 root video 226, 128 Apr 22 10:31 /dev/dri/renderD128
+crw-rw---- 1 root video 226, 129 Apr 22 10:31 /dev/dri/renderD129
+
+A ROCm application running on this compute node can use both GPUs only if it has access to all the above-listed device files. The administrator can restrict the devices an application can access by using device cgroup. The device cgroup subsystem allows or denies access to devices by applications in a cgroup. If a cgroup has whitelisted only /dev/kfd and /dev/dri/renderD129, then applications in that cgroup will have access only to that single GPU.
+
+Refer to the Linux kernel's cgroup documentation for information on how to create a cgroup and whitelist devices. 
+
+For `cgroup-v1 refer <https://www.kernel.org/doc/Documentation/cgroup-v1/devices.txt>` and `cgroup-v2 refer <https://www.kernel.org/doc/Documentation/cgroup-v2.txt>`.
+
+
