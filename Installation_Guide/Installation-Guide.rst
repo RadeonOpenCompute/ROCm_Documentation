@@ -855,7 +855,9 @@ The upstream driver may be useful for running ROCm software on systems that are 
 |      | versions                                        | depending on kernel version               |
 +------+-------------------------------------------------+-------------------------------------------+
 |      | Not currently supported on kernels newer        | Limits GPU's usage of system memory to    |
-|      | than 4.18.                                      | 3/8 of system memory                      |
+|      | than 5.4.                                       | 3/8 of system memory (before 5.6).        |             |							    | For 5.6 and beyond, both DKMS and upstream|
+|			                                 | kernels allow use of 15/16 of system      |
+|                                                        |memory                                     |
 +------+-------------------------------------------------+-------------------------------------------+
 |      |                                                 | IPC and RDMA capabilities not yet enabled |
 +------+-------------------------------------------------+-------------------------------------------+
