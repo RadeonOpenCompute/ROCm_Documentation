@@ -1,9 +1,4 @@
 
-.. _Current-Release-Notes:
-
-=====================
-Release Notes
-=====================
 
 # AMD ROCm Release Notes v3.1.0
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software.
