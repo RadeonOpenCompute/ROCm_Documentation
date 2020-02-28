@@ -2,8 +2,18 @@
 .. _Current-Release-Notes:
 
 =====================
-Current Release Notes
+Release Notes
 =====================
+
+New features and enhancements in ROCm 3.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- [What\'s New in This Release](#Whats-New-in-This-Release)
+  * [Change in ROCm Installation Directory Structure](#Change-in-ROCm-Installation-Directory-Structure)
+  * [Reliability, Accessibility, and Serviceability Support for Vega7nm](#Reliability-Accessibility-and-Serviceability-Support-for-Vega7nm)
+  * [SLURM Support for AMD GPU](#SLURM-Support-for-AMD-GPU)
+
+
 
 New features and enhancements in ROCm 3.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
