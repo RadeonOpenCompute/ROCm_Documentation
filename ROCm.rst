@@ -1,6 +1,6 @@
 .. _GuidedIntro:
 
-Quick Start Guide
+About ROCm Documentation
 ===================
 
 `Current Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#current-release-notes>`_
