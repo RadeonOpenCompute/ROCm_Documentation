@@ -7,6 +7,7 @@ What\'s New in This Release
 ===========================
 
 **Change in ROCm Installation Directory Structure**
+###################################################
 
 A fresh installation of the ROCm toolkit installs the packages in the */opt/rocm-\<version>* folder. 
 	
@@ -15,6 +16,7 @@ Previously, ROCm toolkit packages were installed in the */opt/rocm* folder.
 
 
 **Reliability, Accessibility, and Serviceability Support for Vega7nm**
+######################################################################
 
 The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is now available. The support includes:
 
@@ -25,6 +27,7 @@ The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is 
 
 
 **SLURM Support for AMD GPU**
+##############################
 
 SLURM (Simple Linux Utility for Resource Management) is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters. The latest version 20.02.0 of SLURM includes AMD plugins that enable SLURM to detect and configure AMD GPUs automatically.  It also collects and reports the energy consumption of AMD GPUs.
 
