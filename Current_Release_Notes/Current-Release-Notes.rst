@@ -13,7 +13,7 @@ A fresh installation of the ROCm toolkit installs the packages in the */opt/rocm
 	
 Previously, ROCm toolkit packages were installed in the */opt/rocm* folder. 
 
-..image:: Versionchange1.png
+
 
 **Reliability, Accessibility, and Serviceability Support for Vega7nm**
 ######################################################################
