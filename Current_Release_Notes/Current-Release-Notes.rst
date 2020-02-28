@@ -13,6 +13,7 @@ A fresh installation of the ROCm toolkit installs the packages in the */opt/rocm
 Previously, ROCm toolkit packages were installed in the */opt/rocm* folder. 
 
 
+
 **Reliability, Accessibility, and Serviceability Support for Vega7nm**
 
 The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is now available. The support includes:
@@ -20,6 +21,7 @@ The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is 
 * UMC RAS – HBM ECC (uncorrectable error injection), page retirement, RAS recovery via GPU (BACO) reset
 * GFX RAS – GFX, MMHUB ECC (uncorrectable error injection), RAS recovery via GPU (BACO) reset
 * PCIE RAS – PCIE_BIF ECC (uncorrectable error injection), RAS recovery via GPU (BACO) reset
+
 
 
 **SLURM Support for AMD GPU**
