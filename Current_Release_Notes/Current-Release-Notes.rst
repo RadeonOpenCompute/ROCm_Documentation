@@ -1,6 +1,6 @@
 
 
-AMD ROCm Release Notes v3.1.0
+AMD Radeon Open Compute platforM (ROCm) Release Notes v3.1.0
 ==============================
 
 What\'s New in This Release
