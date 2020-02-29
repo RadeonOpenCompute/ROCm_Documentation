@@ -80,7 +80,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'ROCm Documentation'
-copyright = '2014, Advanced Micro Devices, Inc'
+copyright = '2020, Advanced Micro Devices, Inc'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
