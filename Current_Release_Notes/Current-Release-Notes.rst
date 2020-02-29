@@ -39,6 +39,10 @@ It also covers known issues and deprecated features in the ROCm v3.1 release.
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
 
-The GitHub link also consists of ROCm installation instructions for all platforms.
+Refer the QuickStart Installation Guide.pdf for ROCm installation instructions on the following platforms:
+
+* Ubuntu
+* CentOS/RHEL
+* SLES 15 Service Pack 1
 
 
