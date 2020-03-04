@@ -6,6 +6,7 @@
 
 
 .. _ROCm_Install_Guide:
+
 2.0 Installation Guide
 ======================
 
@@ -18,7 +19,7 @@
 
 
  
-.. _ROCm_Programing_Guide:
+.. _ROCm_Developer_Guides:
 
 3.0 Programing Guides
 ======================
