@@ -1,2 +1,2 @@
 breathe
-sphinxcontrib-bibtex
+sphinxcontrib-bibtex>=2.0
