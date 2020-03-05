@@ -266,18 +266,6 @@
 .. _ROCm_Hardware_Tunning_Guides:
 
 
-4.0 ROCm GPU Tunning Guides 
-============================
-
-4.1 GFX7 Tuning Guide
----------------------
-
-4.2 GFX8 Tuning Guide
----------------------
-
-4.3 GFX9 Tuning Guide
----------------------
-
 .. _GCN_ISA_Manuals:
 
 5.0 GCN ISA Manuals 
