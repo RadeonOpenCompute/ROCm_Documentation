@@ -435,6 +435,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
   sudo yum install rock-dkms rocm-opencl-devel
 
+.. _ROCm Installation Known Issues and Workarounds:
 
 ROCm Installation - Known Issues and Workarounds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
