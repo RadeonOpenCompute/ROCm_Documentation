@@ -11,6 +11,8 @@
 -  `ROCm Installation Known Issues and Workarounds`_
 
 
+
+
 .. _Deploying ROCm:
 
 Deploying ROCm
@@ -441,7 +443,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
 
 ROCm Installation Known Issues and Workarounds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Closed source components
 ''''''''''''''''''''''''''
