@@ -382,8 +382,8 @@ SLES 15 Service Pack 1
 
 The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
 
-Installation
-------------
+**Installation**
+
 
 1. Install the "dkms" package.
 
@@ -437,7 +437,8 @@ echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bi
 
 	sudo tee -a /etc/profile.d/rocm.sh
 
-### Uninstallation
+**Uninstallation**
+
 To uninstall, use the following command:
 
 	sudo zypper remove rocm-dkms rock-dkms
