@@ -101,8 +101,10 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      sudo tee -a /etc/adduser.conf
 |
 7. Restart the system.
+
 |
 8. Test the basic ROCm installation.
+
 |
 9. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
