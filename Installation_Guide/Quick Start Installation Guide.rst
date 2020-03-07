@@ -1,6 +1,9 @@
 .. image:: /Installation_Guide/AMD1.png
 
-AMD ROCm QuickStart Installation Guide
+==============================================
+AMD ROCm QuickStart Installation Guide v3.1.0
+==============================================
+
 |
 -  `Deploying ROCm`_
 
