@@ -485,7 +485,7 @@ Each ROCm component repository contains directions for building that component. 
 
 
 ROCm Installation Known Issues and Workarounds 
-================================================
+***********************************************
 
 Closed source components
 ''''''''''''''''''''''''''
