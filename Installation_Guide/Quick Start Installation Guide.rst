@@ -7,10 +7,9 @@
    -  `SLES 15 Service Pack 1`_
 |
 -  `Getting the ROCm Source Code`_
-|
+
 -  `ROCm Installation Known Issues and Workarounds`_
 
-|
 |
 
 
@@ -442,7 +441,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
 .. _ROCm Installation Known Issues and Workarounds:
 
-
+================================================
 ROCm Installation Known Issues and Workarounds
 ================================================
 
