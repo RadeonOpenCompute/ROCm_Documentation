@@ -5,11 +5,9 @@
    -  `Ubuntu`_
    -  `Centos RHEL v7.7`_
    -  `SLES 15 Service Pack 1`_
-
 |
 
 -  `ROCM Installation`_
-
 
 |
 -  `Getting the ROCm Source Code`_
@@ -24,7 +22,7 @@ AMD hosts both Debian and RPM repositories for the ROCm v3.0x packages.
 
 The following directions show how to install ROCm on supported Debian-based systems such as Ubuntu 18.04.x
 
-Note: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
+**Note**: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
 For more information on the ROCm binary structure, see https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#rocm-binary-package-structure
 
@@ -51,10 +49,7 @@ To install from a Debian Repository:
     sudo apt install libnuma-dev
 
     sudo reboot 
-
-
-
-
+|
 2. Add the ROCm apt repository.
 
   For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
@@ -75,10 +70,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
   e85a40d1a43453fe37d63aa6899bc96e08f2817a rocm.gpg.key
-
-
-
-
+|
 3. Install the ROCm meta-package. Update the appropriate repository list and install the rocm-dkms meta-package:
 
 ::
@@ -86,27 +78,20 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      sudo apt update
 
      sudo apt install rocm-dkms
-
-
-
-
+|
 4. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
 
 ::
 
      groups
-
-
-
+|
 
 5. To add your user to the video group, use the following command for the sudo password:
 
 ::
 
      sudo usermod -a -G video $LOGNAME
-
-
-
+|
 6. By default, add any future users to the video group. Run the following command to add users to the video group:
 
 ::
@@ -116,13 +101,11 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
      echo 'EXTRA_GROUPS=video'
      sudo tee -a /etc/adduser.conf
-
-
-
+|
 7. Restart the system.
-
+|
 8. Test the basic ROCm installation.
-
+|
 9. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
 ::
@@ -315,14 +298,7 @@ Note: Add the ROCm binaries in your PATH for easy implementation of the ROCm pro
 For more information about installation issues, see: https://rocm.github.io/install_issues.html
 
 
-Performing an OpenCL-only Installation of ROCm
-''''''''''''''''''''''''''''''''''''''''''''''''
 
-Some users may want to install a subset of the full ROCm installation. If you are trying to install on a system with a limited amount of storage space, or which will only run a small collection of known applications, you may want to install only the packages that are required to run OpenCL applications. To do that, you can run the following installation command instead of the command to install rocm-dkms.
-
-::
-
-  sudo yum install rock-dkms rocm-opencl-devel
 
 
 Compiling Applications Using HCC, HIP, and Other ROCm Software
@@ -464,6 +440,15 @@ To uninstall, use the following command:
 Note: Ensure all other installed packages/components are removed.
 Note: Ensure all the content in the /opt/rocm directory is completely removed.
 
+Performing an OpenCL-only Installation of ROCm
+''''''''''''''''''''''''''''''''''''''''''''''''
+
+Some users may want to install a subset of the full ROCm installation. If you are trying to install on a system with a limited amount of storage space, or which will only run a small collection of known applications, you may want to install only the packages that are required to run OpenCL applications. To do that, you can run the following installation command instead of the command to install rocm-dkms.
+
+::
+
+  sudo yum install rock-dkms rocm-opencl-devel
+
 
 ROCm Installation - Known Issues and Workarounds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -483,7 +468,6 @@ AMD ROCm is built from open source software. It is, therefore, possible to modif
 
 Installing the Repo
 ^^^^^^^^^^^^^^^^^^^^^
-
 
 The repo tool from Google® allows you to manage multiple git repositories simultaneously. Run the following commands to install the repo:
 
