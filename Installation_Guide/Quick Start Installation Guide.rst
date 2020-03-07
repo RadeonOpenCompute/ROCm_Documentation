@@ -441,7 +441,6 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
 .. _ROCm Installation Known Issues and Workarounds:
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ROCm Installation Known Issues and Workarounds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
