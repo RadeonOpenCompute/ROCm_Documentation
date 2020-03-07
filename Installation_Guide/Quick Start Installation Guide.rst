@@ -8,7 +8,7 @@
 |
 -  `Getting the ROCm Source Code`_
 |
--  `ROCm Installation - Known Issues and Workarounds `_
+-  `ROCm Installation Known Issues and Workarounds`_
 
 
 .. _Deploying ROCm:
