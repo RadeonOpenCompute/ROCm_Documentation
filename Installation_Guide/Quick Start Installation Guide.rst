@@ -10,10 +10,10 @@ AMD ROCm QuickStart Installation Guide v3.1.0
    -  `Ubuntu`_
    -  `Centos RHEL v7.7`_
    -  `SLES 15 Service Pack 1`_
-   
--  `Getting the ROCm Source Code`_
 
 -  `ROCm Installation Known Issues and Workarounds`_
+   
+-  `Getting the ROCm Source Code`_
 
 |
 
