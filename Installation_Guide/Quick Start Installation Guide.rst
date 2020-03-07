@@ -50,7 +50,7 @@ To install from a Debian Repository:
 
 2. Add the ROCm apt repository.
 
-  For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
+For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
 
 ::
 
