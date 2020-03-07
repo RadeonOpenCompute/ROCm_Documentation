@@ -3,7 +3,7 @@
 -  `Deploying ROCm`_
 
    -  `Ubuntu`_
-   -  `Centos RHEL`_
+   -  `Centos RHEL v7.7`_
    -  `SLES 15 Service Pack 1`_
 
 
@@ -179,7 +179,7 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 .. _CentOS RHEL:
 
-CentOS RHEL
+CentOS RHEL v7.7
 ^^^^^^^^^^^^^^
 
 This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7.
@@ -373,6 +373,13 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
   sudo tee /etc/udev/rules.d/70-kfd.rules
 
 Note: You can use this command instead of installing rocm-dkms.
+
+.. _SLES 15 Service Pack 1:
+
+
+SLES 15 Service Pack 1
+^^^^^^^^^^^^^^^^^^^^^^^
+
 
 
 ROCm Installation - Known Issues and Workarounds
