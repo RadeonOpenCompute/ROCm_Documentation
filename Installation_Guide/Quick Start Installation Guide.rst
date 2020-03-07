@@ -6,9 +6,7 @@
    -  `Centos RHEL v7.7`_
    -  `SLES 15 Service Pack 1`_
 |
-
 -  `ROCM Installation`_
-
 |
 -  `Getting the ROCm Source Code`_
 
