@@ -217,7 +217,7 @@ Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
 .. _ROCM install:
 
 Installing ROCm
-^^^^^^^^^^^^^^^^^
+'''''''''''''''''
 
 To install ROCm on your system, follow the instructions below:
 
