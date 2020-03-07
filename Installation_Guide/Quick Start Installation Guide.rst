@@ -1,4 +1,5 @@
-
+.. image:: /Installation_Guide/AMD1.png
+|
 -  `Deploying ROCm`_
 
    -  `Ubuntu`_
