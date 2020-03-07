@@ -82,7 +82,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
      groups
-|
+     
 
 5. To add your user to the video group, use the following command for the sudo password:
 
@@ -120,7 +120,6 @@ Note: To run the ROCm programs more efficiently, add the ROCm binaries in your P
 	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
 	sudo tee -a /etc/profile.d/rocm.sh
 
-If you have an installation issue, refer the FAQ at: https://rocm.github.io/install_issues.html
 
 Uninstalling ROCm Packages from Ubuntu
 ''''''''''''''''''''''''''''''''''''''''
