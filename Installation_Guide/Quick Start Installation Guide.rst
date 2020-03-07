@@ -203,7 +203,7 @@ To setup the Devtoolset-7 environment, follow the instructions on this page: htt
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
 
 Installing CentOS/RHEL (v7.7) for DKMS
-=======================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
 
