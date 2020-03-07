@@ -52,7 +52,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    
    ROCm
    Current_Release_Notes/Current-Release-Notes
-   Installation_Guide/Installation-Guide
+   Installation_Guide/Quick-Start-Installation-Guide
    Programming_Guides/Programming-Guides
    ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides
    GCN_ISA_Manuals/GCN-ISA-Manuals
