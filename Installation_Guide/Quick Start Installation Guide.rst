@@ -6,9 +6,9 @@
    -  `Centos RHEL v7.7`_
    -  `SLES 15 Service Pack 1`_
 |
--  `ROCM Installation`_
-|
 -  `Getting the ROCm Source Code`_
+|
+-  `ROCm Installation - Known Issues and Workarounds `_
 
 
 .. _Deploying ROCm:
@@ -437,7 +437,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
 
 ROCm Installation - Known Issues and Workarounds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Closed source components
 ''''''''''''''''''''''''''
