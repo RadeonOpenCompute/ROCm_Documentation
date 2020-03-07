@@ -483,7 +483,7 @@ Building the ROCm Source Code
 Each ROCm component repository contains directions for building that component. You can access the desired component for instructions to build the repository.
 
 
-ROCm Installation Known Issues
+ROCm Installation Known Issues and Workarounds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
