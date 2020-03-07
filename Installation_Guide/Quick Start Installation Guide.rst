@@ -214,8 +214,8 @@ Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
 
 .. _ROCM install:
 
-ROCm Installation
-##################
+Installing ROCm
+'''''''''''''''''''
 
 To install ROCm on your system, follow the instructions below:
 
@@ -242,25 +242,20 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
 
 4. Restart the system. The rock-dkms component is installed and the /dev/kfd device is now available.
 
-Setting Permissions
-'''''''''''''''''''''
-
-To configure permissions, following the instructions below:
-
-1. Ensure that your user account is a member of the "video" or "wheel" group prior to using the ROCm driver. You can find which groups you are a member of with the following command:
+5. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
 
 ::
 
     groups
 
-2. Add your user to the video (or wheel) group you will need the sudo password and can use the following command:
+6. To add your user to the video group, use the following command for the sudo password:
 
 ::
 
     sudo usermod -a -G video $LOGNAME
 
 
-Note: All future users must be added to the "video" group by default. To add the users to the group, run the following commands
+7.  By default, add any future users to the video group. Run the following command to add users to the video group:
 
 ::
 
@@ -269,12 +264,13 @@ Note: All future users must be added to the "video" group by default. To add the
 
 Note: The current release supports CentOS/RHEL v7.6. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
 
-3. Restart the system.
+8. Restart the system.
+
+9. Test the ROCm installation.
 
 
 Testing the ROCm Installation
 '''''''''''''''''''''''''''''''
-
 
 After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed, you are good to go!
 
@@ -284,7 +280,7 @@ After restarting the system, run the following commands to verify that the ROCm 
   /opt/rocm/opencl/bin/x86_64/clinfo
 
 
-Note: Add the ROCm binaries in your PATH for easy implementation of the ROCm programs.
+**Note**: Add the ROCm binaries in your PATH for easy implementation of the ROCm programs.
 
 ::
 
@@ -292,9 +288,6 @@ Note: Add the ROCm binaries in your PATH for easy implementation of the ROCm pro
   sudo tee -a /etc/profile.d/rocm.sh
 
 For more information about installation issues, see: https://rocm.github.io/install_issues.html
-
-
-
 
 
 Compiling Applications Using HCC, HIP, and Other ROCm Software
@@ -310,8 +303,6 @@ To compile applications or samples, run the following command to use gcc-7.2 pro
 
 Uninstalling ROCm from CentOS/RHEL v7.7
 ''''''''''''''''''''''''''''''''''''''''
-
-
 
 To uninstall the ROCm packages, run the following command:
 
@@ -335,7 +326,6 @@ Note: To execute ROCm-enabled applications, you will require a system installed 
 Using ROCm with Upstream Kernel Drivers
 '''''''''''''''''''''''''''''''''''''''''
 
-
 You can install ROCm user-level software without installing AMD's custom ROCk kernel driver. To use the upstream kernel drivers, run the following commands
 
 ::
@@ -344,7 +334,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
   echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
   sudo tee /etc/udev/rules.d/70-kfd.rules
 
-Note: You can use this command instead of installing rocm-dkms.
+**Note**: You can use this command instead of installing rocm-dkms.
 
 .. _SLES 15 Service Pack 1:
 
