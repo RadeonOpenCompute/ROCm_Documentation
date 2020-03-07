@@ -205,7 +205,7 @@ To setup the Devtoolset-7 environment, follow the instructions on this page: htt
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
 
 Installing CentOS/RHEL (v7.7) for DKMS
-'''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
 
@@ -217,7 +217,7 @@ Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
 .. _ROCM install:
 
 Installing ROCm
-'''''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 To install ROCm on your system, follow the instructions below:
 
@@ -441,8 +441,8 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
 .. _ROCm Installation Known Issues and Workarounds:
 
-ROCm Installation Known Issues and Workarounds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ROCm Installation Known Issues and Workarounds 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Closed source components
 ''''''''''''''''''''''''''
