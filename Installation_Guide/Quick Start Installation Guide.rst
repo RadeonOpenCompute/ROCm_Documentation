@@ -380,6 +380,70 @@ Note: You can use this command instead of installing rocm-dkms.
 SLES 15 Service Pack 1
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
+
+Installation
+------------
+
+1. Install the "dkms" package.
+
+	sudo SUSEConnect --product PackageHub/15.1/x86_64
+	sudo zypper install dkms
+	
+2. Add the ROCm repo.
+ 
+	sudo zypper clean –all
+	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
+	sudo zypper ref
+	zypper install rocm-dkms
+	sudo zypper install rocm-dkms
+	sudo reboot
+
+3. Run the following command once
+
+	cat <<EOF | sudo tee /etc/modprobe.d/10-unsupported-modules.conf
+	allow_unsupported_modules 1
+	EOF
+	sudo modprobe amdgpu
+
+4. Verify the ROCm installation.
+
+5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
+
+6. Set permissions. 
+
+To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using 	 ROCm. To identify the groups you are a member of, use the following command:
+
+		groups
+
+7. To add your user to the video group, use the following command for the sudo password:
+	
+		sudo usermod -a -G video $LOGNAME
+	
+8. By default, add any future users to the video group. Run the following command to add users to the video group:
+
+		echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
+		echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+
+9. Restart the system.
+10. Test the basic ROCm installation.
+11. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
+
+		/opt/rocm/bin/rocminfo
+		/opt/rocm/opencl/bin/x86_64/clinfo
+
+Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
+echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
+
+	sudo tee -a /etc/profile.d/rocm.sh
+
+### Uninstallation
+To uninstall, use the following command:
+
+	sudo zypper remove rocm-dkms rock-dkms
+
+Note: Ensure all other installed packages/components are removed.
+Note: Ensure all the content in the /opt/rocm directory is completely removed.
 
 
 ROCm Installation - Known Issues and Workarounds
