@@ -51,8 +51,11 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :hidden:
    
    ROCm
+   Release Notes
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
+   
+   Developer Guides
    Programming_Guides/Programming-Guides
    ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides
    GCN_ISA_Manuals/GCN-ISA-Manuals
