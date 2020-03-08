@@ -1,4 +1,5 @@
 .. image:: /Installation_Guide/AMD1.png
+
 |
 ==========================================================
 AMD ROCm Release Notes v3.0 
