@@ -1,6 +1,7 @@
 .. image:: /Current_Release_Notes/AMD1.png
 
 |
+
 =============================================================
 AMD Radeon Open Compute platforM (ROCm) Release Notes v3.1.0
 =============================================================
