@@ -10,8 +10,8 @@
 2.0 Installation Guide
 ======================
 
-2.1 Quick Start Installation Guide
-----------------------------------
+2.1 Quick Start Guide
+----------------------------
 2.2 Installation Guide Ubuntu
 -----------------------------
 2.3 Installation Guide Fedora
