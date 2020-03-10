@@ -35,6 +35,19 @@ This guide provides documentation on the ROCm programming model and programming 
 * technical specifications of various devices
 * introduction to the low-level driver API 
 
++------------+------------+-----------+
+| Sections   | Description            |
++============+============+===========+
+|  `ROCm Languages <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#rocm-languages>`_ | ROCm stack offers options for multiple programming-languages|
++------------+------------+-----------+
+| body row 2 |                        |
++------------+------------+-----------+
+| body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+| body row 4 |            | - blocks. |
++------------+------------+-----------+
+
+
 | -  `ROCm Languages <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#rocm-languages>`_
 
 ROCm stack offers options for multiple programming-languages
