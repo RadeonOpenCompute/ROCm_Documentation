@@ -57,7 +57,7 @@ This guide provides documentation on the ROCm programming model and programming 
 | This section provides information on Performance and optimization for various device types such as GCN devices.
 |
 
-	
+|	
 `GCN ISA Manuals <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-isa-manuals>`_
 
 * `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_  - For information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
