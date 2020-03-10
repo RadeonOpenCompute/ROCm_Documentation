@@ -7,7 +7,7 @@ About ROCm Documentation
 ===================
 
 | `Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#rocm-1-8-what-new>`_
-| The Release Notes for the latest version of AMD ROCm.
+| Release Notes for the latest version of AMD ROCm.
 
 
 `Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_
