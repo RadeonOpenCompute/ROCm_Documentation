@@ -111,7 +111,8 @@ This guide provides documentation on the ROCm programming model and programming 
 Provides details on AOMP, a scripted build of LLVM and supporting software. Supports OpenMP target offload on AMD GPUs. Since AOMP is a clang/llvm compiler, it also supports GPU offloading with HIP, CUDA, and OpenCL.
 
 
-`ROCmValidationSuite <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocmvalidationsuite>`_ |
+`ROCmValidationSuite <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocmvalidationsuite>`_ 
+
 Provides details on ROCm Validation Suite (RVS), a system administrator’s and cluster manager’s tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
 
 |
