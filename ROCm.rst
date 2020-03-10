@@ -60,7 +60,7 @@ About ROCm Documentation
 | `OpenCL Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#opencl-best-practices>`_
 | This section provides information on Performance and optimization for various device types such as GCN devices.
 
-`ROCm GPU Tunning Guides <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#rocm-gpu-tunning-guides>`_
+`ROCm GPU Tuning Guides <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#rocm-gpu-tunning-guides>`_
 ***************************
 | `GFX7 Tuning Guide <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#gfx7-tuning-guide>`_
 | -- In-Progress
