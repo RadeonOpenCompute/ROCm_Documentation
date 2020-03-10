@@ -27,10 +27,15 @@ AMD ROCm Documentation
 
 
 `Programming Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#programming-guide>`_
-********************
 
-| This guide provides a detailed discussion of the ROCm programming model and programming interface. It describes the hardware implementation and provides guidance on how to achieve maximum performance.
-| The appendices include a list of all ROCm-enabled devices, detailed description of all extensions to the C language, listings of supported mathematical functions, C++ features supported in host and device code, technical specifications of various devices, and concludes by introducing the low-level driver API.
+| This guide provides documentation on the ROCm programming model and programming interface. It describes the hardware implementation and provides guidance on how to achieve maximum performance. The appendices include:
+
+* a list of all ROCm-enabled devices
+* detailed description of all extensions to the C language
+* listings of supported mathematical functions
+* C++ features supported in host and device code
+* technical specifications of various devices
+* introduction to the low-level driver API 
 
 | `ROCm Languages <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#rocm-languages>`_
 | This guide provides information on different ROCm languages. ROCm stack offers multiple programming-language choices found in this section.
