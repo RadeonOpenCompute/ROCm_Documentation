@@ -43,10 +43,10 @@ This guide provides documentation on the ROCm programming model and programming 
 |
 | -  `HC Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hc-best-practices>`_
 | This section deals with detailed working with HCC, build the program, Build-in Macros, HCC Profiler mode and API Documentaion.
- |
+|
 | -  `HIP Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-programing-guide>`_
 | This guide provides a detailed discussion of The HIP programming, installation requirements, methods to install on various platfroms and how to build it from source
- |
+|
 | -  `HIP Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-best-practices>`_
 | This section Provides details regarding various concepts of HIP Porting, Debugging, Bugs, FAQ and other aspects of the HIP.
 |
