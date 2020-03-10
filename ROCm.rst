@@ -109,7 +109,7 @@ This guide provides documentation on the ROCm programming model and programming 
 
 
 
- `AOMP <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#aomp-v-0-7-5>`_ 
+`AOMP <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#aomp-v-0-7-5>`_ 
 Provides details on AOMP, a scripted build of LLVM and supporting software. Supports OpenMP target offload on AMD GPUs. Since AOMP is a clang/llvm compiler, it also supports GPU offloading with HIP, CUDA, and OpenCL.
 
 
