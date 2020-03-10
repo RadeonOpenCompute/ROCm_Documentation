@@ -2,9 +2,6 @@
 
 .. image:: AMD1.png
 
-.. image:: ROCmlogo.png
-  
-  :align: right
 
 About ROCm Documentation
 ===================
