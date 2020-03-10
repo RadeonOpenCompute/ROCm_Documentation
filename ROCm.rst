@@ -70,29 +70,23 @@ This guide provides documentation on the ROCm programming model and programming 
 |
 
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
-
-| Here API References are listed out for users
+|
+*  `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_ 
 | 
-| `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_
-| ROCr System Runtime API Details are listed here
-| 
-| `HCC Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hcc-language-runtime-api>`_
-| HCC Language Runtime APIDetails are listed here
+* `HCC Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hcc-language-runtime-api>`_
+|
+* `HIP Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hip-language-runtime-api>`_
+|
+* `HIP Math API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hip-math-api>`_
+|
+* `Thrust API Documentation <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#thrust-api-documentation>`_
+|
+* `Math Library API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_
+Includes HIP MAth API with hcRNG, clBLAS, clSPARSE APIs.
+|
+* `Deep Learning API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_
+Includes MIOpen API and MIOpenGEMM APIs	
 
-| `HIP Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hip-language-runtime-api>`_
-| HIP Language Runtime API Details are listed here
-
-| `HIP Math API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hip-math-api>`_
-| Here HIP Math API are listed with sample working classes
-
-| `Thrust API Documentation <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#thrust-api-documentation>`_
-| Here you can find all the details on installation, working of Thrust Library and Thrust API List
-
-| `Math Library API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_
-| HIP MAth API with hcRNG, clBLAS, clSPARSE API's.
-
-| `Deep Learning API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_
-| Here MIOpen API and MIOpenGEMM API are listed.	
 
 `ROCm Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-tools>`_
 
