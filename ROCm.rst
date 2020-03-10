@@ -36,9 +36,9 @@ This guide provides documentation on the ROCm programming model and programming 
 * introduction to the low-level driver API 
 
 +------------+------------+-----------+
-| Sections   | Description            |
+| Section    | Description            |
 +============+============+===========+
-|  `ROCm Languages <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#rocm-languages>`_ | ROCm stack offers options for multiple programming-languages|
+|            |            |           |  
 +------------+------------+-----------+
 | body row 2 |                        |
 +------------+------------+-----------+
