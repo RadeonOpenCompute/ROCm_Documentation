@@ -13,20 +13,16 @@ AMD ROCm Documentation
 
 `Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_
 
-*  `Installing from AMD ROCm Repositories <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
+*  `AMD ROCm Repositories <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
 | 
-
-*  `Installing from an Ubuntu Debian Repository <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#ubuntu-support-installing-from-a-debian-repository>`_
+*  `Ubuntu Debian Repository <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#ubuntu-support-installing-from-a-debian-repository>`_
 | 	
-
-*  `Installing from a Yum Repository <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#centos-rhel-7-both-7-4-and-7-5-support>`__
+*  `Yum Repository <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#centos-rhel-7-both-7-4-and-7-5-support>`__
 | 	
 *  `Getting ROCm Source Code <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#getting-rocm-source-code>`_
 | 
-
 *  `Installing ROCk-Kernel <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/ROCk-kernel.html#rock-kernel>`_
 |	 .
-
 *  `Installation FAQ <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/FAQ-on-Installation.html#faq-on-installation>`_
 | 	This section provides answers for various frequently asked questions related to installation steps and issues faced during 		installation.
 
