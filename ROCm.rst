@@ -191,7 +191,7 @@ This section provides information on AMD’s graph optimization engine.
 | This section refers the user-mode API interfaces and libraries necessary for host applications to launch compute kernels to available HSA ROCm kernel agents. we can find installation details and Infrastructure details related to ROCr.
 
 `ROCm System Management <http://rocm-documentation.readthedocs.io/en/latest/ROCm_System_Managment/ROCm-System-Managment.html#rocm-system-management>`_
-************************
+
 
 | `ROCm-SMI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_System_Managment/ROCm-System-Managment.html#rocm-smi>`_
 | ROCm System Management Interface a complete guide to use and work with rocm-smi tool.
@@ -225,7 +225,7 @@ This section provides information on AMD’s graph optimization engine.
 | This section gives information related to IPC.
 
 `Deep Learning on ROCm <http://rocm-documentation.readthedocs.io/en/latest/Deep_learning/Deep-learning.html#deep-learning-on-rocm>`_
-**********************
+
 | This section provides details on ROCm Deep Learning concepts.
 
 | `Porting from cuDNN to MIOpen <http://rocm-documentation.readthedocs.io/en/latest/Deep_learning/Deep-learning.html#porting-from-cudnn-to-miopen>`_
