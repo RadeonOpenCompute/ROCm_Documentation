@@ -102,23 +102,17 @@ Performance and optimization for various device types such as GCN devices
 
 * `GCN Assembler and Disassembler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-and-disassembler>`_
 
-* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_  
-AMDGPU ISA Assembler 
+* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_  - AMDGPU ISA Assembler 
 
-* `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_ 
-ROCm-GDB tool including installtion, configuration, and working of Debugger and APIs
+* `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_ - ROCm-GDB tool including installtion, configuration, and working of Debugger and APIs
 
-* `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_ 
-Radeon Compute Profiler- performance analysis tool
+* `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_ - Radeon Compute Profiler- performance analysis tool
 
-* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ 
-ROCm Tracer - provides a generic independent from specific runtime profiler to trace API and asyncronous activity. Includes details on library source tree, steps to build and run test
+* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ - ROCm Tracer - provides a generic independent from specific runtime profiler to trace API and asyncronous activity. Includes details on library source tree, steps to build and run test
 
 * `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_ 
 
-* `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_ 
-GPU Performance API, cloning, system requiments, and source code directory layout
-
+* `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_ - GPU Performance API, cloning, system requiments, and source code directory layout
 
 
 
