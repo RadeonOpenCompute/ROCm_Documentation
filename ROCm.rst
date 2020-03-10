@@ -5,7 +5,8 @@
 About ROCm Documentation
 ===================
 
-.. image:: ROCmlogo.png `Current Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#current-release-notes>`_
+.. image:: ROCmlogo.png 
+`Current Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#current-release-notes>`_
 ************************
 | `Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#rocm-1-8-what-new>`_
 | The Release Notes for the ROCm Latest version.
