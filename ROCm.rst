@@ -3,7 +3,7 @@
 .. image:: AMD1.png
 
 
-About ROCm Documentation
+AMD ROCm Documentation
 ===================
 
 | `Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#rocm-1-8-what-new>`_
