@@ -76,6 +76,7 @@ Performance and optimization for various device types such as GCN devices
 * `Inline GCN ISA Assembly Guide <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#inline-gcn-isa-assembly-guide>`_ - Covers various concepts of AMDGCN Assembly, DS Permute Instructions, Parameters to a Kernel, GPR Counting.
 
 
+
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
 
 *  `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_ 
@@ -88,9 +89,10 @@ Performance and optimization for various device types such as GCN devices
 
 * `Thrust API Documentation <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#thrust-api-documentation>`_
 
-* `Math Library API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_ - Includes HIP MAth API with hcRNG, clBLAS, clSPARSE APIs
+* `Math Library API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_ - Includes HIP MAth API with hcRNG, clBLAS, clSPARSE APIs
 
-* `Deep Learning API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_ - Includes MIOpen API and MIOpenGEMM APIs	
+* `Deep Learning API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_ - Includes MIOpen API and MIOpenGEMM APIs	
+
 
 
 `ROCm Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-tools>`_
@@ -100,17 +102,22 @@ Performance and optimization for various device types such as GCN devices
 
 * `GCN Assembler and Disassembler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-and-disassembler>`_
 
-* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_ For information related to AMDGPU ISA Assembler 
+* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_  
+AMDGPU ISA Assembler 
 
-* `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_ Information about ROCm-GDB tool including installtion, configuration, and working of Debugger and APIs
+* `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_ 
+ROCm-GDB tool including installtion, configuration, and working of Debugger and APIs
 
-* `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_ For details on Radeon Compute Profiler- performance analysis tool
+* `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_ 
+Radeon Compute Profiler- performance analysis tool
 
-* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ For information on ROCm Tracer, which provides a generic independent from specific runtime profiler to trace API and asyncronous activity, includes details on library source tree, steps to build and run test
+* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ 
+ROCm Tracer - provides a generic independent from specific runtime profiler to trace API and asyncronous activity. Includes details on library source tree, steps to build and run test
 
 * `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_ 
 
-* `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_ Provides details on GPU Performance API, cloning, system requiments, and source code directory layout
+* `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_ 
+GPU Performance API, cloning, system requiments, and source code directory layout
 
 
 
