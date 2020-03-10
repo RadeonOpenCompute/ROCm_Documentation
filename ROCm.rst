@@ -8,7 +8,7 @@ AMD ROCm Documentation
 
 | `Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#rocm-1-8-what-new>`_
 | Release Notes for the latest version of AMD ROCm.
-|
+
 `Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_
 
 *  `AMD ROCm Repositories <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
@@ -23,7 +23,7 @@ AMD ROCm Documentation
 
 *  `Installation FAQ <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/FAQ-on-Installation.html#faq-on-installation>`_
 
-|
+
 `Programming Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#pro`gramming-guide>`_
 
 This guide provides documentation on the ROCm programming model and programming interface. It describes the hardware implementation and provides guidance on how to achieve maximum performance. The appendices include:
