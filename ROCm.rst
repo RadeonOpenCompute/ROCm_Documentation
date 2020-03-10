@@ -64,8 +64,7 @@ AMD ROCm Documentation
 
 * `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_ This Section gives information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
 
-* GCN 2.0 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-2-0>`_
-This Section gives information on ISA Manual for Fiji and Polaris (AMD Accelerated Parallel Processing technology)
+* `GCN 2.0 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-2-0>`_  This Section gives information on ISA Manual for Fiji and Polaris (AMD Accelerated Parallel Processing technology)
 
 * `Vega <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#vega>`_ This section provides “Vega” Instruction Set Architecture, Program Organization, Mode register and more details. 	
 
