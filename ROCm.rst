@@ -45,7 +45,7 @@ Heterogeneous Compute (HC) programming installation requirements, methods to ins
 
 | -  `HC Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hc-best-practices>`_
 
-- Build-in Macros, HCC Profiler mode, and API Documentaion
+Build-in Macros, HCC Profiler mode, and API Documentaion
 
 | -  `HIP Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-programing-guide>`_
 
@@ -53,7 +53,7 @@ HIP programming, installation requirements, methods to install on various platfr
 
 | -  `HIP Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-best-practices>`_
 
-- HIP Porting, Debugging, Bugs, FAQ and other aspects of HIP
+HIP Porting, Debugging, Bugs, FAQ and other aspects of HIP
 
 | -  `OpenCL Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#opencl-programing-guide>`_
 
