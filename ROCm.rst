@@ -55,9 +55,8 @@ This guide provides documentation on the ROCm programming model and programming 
 |
 | -  `OpenCL Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#opencl-best-practices>`_
 | This section provides information on Performance and optimization for various device types such as GCN devices.
-|
 
-|	
+
 `GCN ISA Manuals <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-isa-manuals>`_
 
 * `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_  - For information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
@@ -67,7 +66,7 @@ This guide provides documentation on the ROCm programming model and programming 
 * `Vega <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#vega>`_  - Provides “Vega” Instruction Set Architecture, Program Organization, Mode register and more details. 	
 
 * `Inline GCN ISA Assembly Guide <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#inline-gcn-isa-assembly-guide>`_ - Covers various concepts of AMDGCN Assembly, DS Permute Instructions, Parameters to a Kernel, GPR Counting.
-|
+
 
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
 
@@ -86,7 +85,6 @@ This guide provides documentation on the ROCm programming model and programming 
 * `Deep Learning API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_ - Includes MIOpen API and MIOpenGEMM APIs	
 
 
-|
 `ROCm Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-tools>`_
 
 * `Heterogeneous Compute Compiler (HCC) <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_
