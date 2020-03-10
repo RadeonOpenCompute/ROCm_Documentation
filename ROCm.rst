@@ -24,9 +24,8 @@ AMD ROCm Documentation
 *  `Installation FAQ <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/FAQ-on-Installation.html#faq-on-installation>`_
 
 
-`
-Programming Guide 
-<http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#programming-guide>`_
+`Programming Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#pro`gramming-guide>`_
+
 This guide provides documentation on the ROCm programming model and programming interface. It describes the hardware implementation and provides guidance on how to achieve maximum performance. The appendices include:
 
 * a list of all ROCm-enabled devices
