@@ -1,7 +1,7 @@
 .. _GuidedIntro:
 
 .. image:: AMD1.png
-
+|
 
 AMD ROCm Documentation
 ===================
@@ -9,8 +9,6 @@ AMD ROCm Documentation
 | `Release Notes <http://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html#rocm-1-8-what-new>`_
 | Release Notes for the latest version of AMD ROCm.
 |
-
-
 `Installation Guide <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide>`_
 
 *  `AMD ROCm Repositories <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installing-from-amd-rocm-repositories>`_
@@ -72,7 +70,7 @@ AMD ROCm Documentation
 |
 
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
-************************
+
 | Here API References are listed out for users
 | 
 | `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_
@@ -97,7 +95,6 @@ AMD ROCm Documentation
 | Here MIOpen API and MIOpenGEMM API are listed.	
 
 `ROCm Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-tools>`_
-*************
 
 | `HCC <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_
 | Complete description of Heterogeneous Compute Compiler has been listed and documented.
@@ -133,7 +130,7 @@ AMD ROCm Documentation
 | This section provides details on ROCm Validation Suite (RVS), a system administrator’s and cluster manager’s tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
 
 `ROCm Libraries <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm-Libraries.html>`_
-*************
+
 | `rocFFT <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocFFT.html#rocfft>`_
 | This section provides details on rocFFT,it is a AMD's software library compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
 
@@ -189,7 +186,7 @@ This section provides information on AMD’s graph optimization engine.
 
 
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
-************************
+
 | `GCN Native ISA LLVM Code Generator <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#gcn-native-isa-llvm-code-generator>`_
 | This section provide complete description on LLVM such as introduction, Code Object, Code conventions, Source languages, etc.,
 
@@ -215,7 +212,7 @@ This section provides information on AMD’s graph optimization engine.
 | KFD Kernel Topology is the system file structure which describes about AMD GPU related information such as nodes, Memory, Cache and IO-links.
 
 `ROCm Virtualization & Containers <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers.html#rocm-virtualization-containers>`_
-***********************************
+
 | `PCIe Passthrough on KVM <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers.html#pcie-passthrough-on-kvm>`_
 | Here PCIe Passthrough on KVM is described. A KVM-based instructions assume a headless host with an input/output memory management unit (IOMMU) to pass peripheral devices such as a GPU to guest virtual machines.more information can be found on the same here.
 
@@ -223,7 +220,7 @@ This section provides information on AMD’s graph optimization engine.
 | A framework for building the software layers defined in the Radeon Open Compute Platform into portable docker images. Detailed Information related to ROCm-Docker can be found.
 
 `Remote Device Programming <http://rocm-documentation.readthedocs.io/en/latest/Remote_Device_Programming/Remote-Device-Programming.html#remote-device-programming>`_
-**************************
+
 | `ROCnRDMA <http://rocm-documentation.readthedocs.io/en/latest/Remote_Device_Programming/Remote-Device-Programming.html#rocnrdma>`_
 | ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU memory. Complete indoemation related to ROCmRDMA is Documented here.
 
@@ -250,16 +247,16 @@ This section provides information on AMD’s graph optimization engine.
 | Here Tutorials on different DeepLearning Frameworks are documented.
 
 `System Level Debug <http://rocm-documentation.readthedocs.io/en/latest/Other_Solutions/Other-Solutions.html#system-level-debug>`_
-*******************
+
 | `ROCm Language & System Level Debug, Flags and Environment Variables <http://rocm-documentation.readthedocs.io/en/latest/Other_Solutions/Other-Solutions.html#rocm-language-system-level-debug-flags-and-environment-variables>`_
 | Here in this section we have details regardinf various system related debugs and commands for isssues faced while using ROCm.
 
 `Tutorial <http://rocm-documentation.readthedocs.io/en/latest/Tutorial/Tutorial.html#tutorial>`_
-**********
+
 | This section Provide details related to few Concepts of HIP and other sections.
 
 `ROCm Glossary <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Glossary/ROCm-Glossary.html#rocm-glossary>`_
-**************
+
 | ROCm Glossary gives highlight concept and their main concept of how they work.
 
 
