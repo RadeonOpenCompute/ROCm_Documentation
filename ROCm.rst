@@ -80,9 +80,9 @@ Performance and optimization for various device types such as GCN devices
 
 
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
-
+========================================================================================================================================
 *  `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_ 
-
+----------------------------------------------------------------------------------------------------------------------------------------
 * `HCC Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hcc-language-runtime-api>`_
 
 * `HIP Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hip-language-runtime-api>`_
