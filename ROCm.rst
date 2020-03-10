@@ -108,7 +108,7 @@ Performance and optimization for various device types such as GCN devices
 
 * `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_ - Radeon Compute Profiler- performance analysis tool
 
-* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ - ROCm Tracer - provides a generic independent from specific runtime profiler to trace API and asynchronous activity. Includes details on library source tree, steps to build and run test
+* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ - ROCm Tracer - provides a generic independent from specific runtime profiler to trace API and asynchronous activity. Includes details on library source tree, steps to build and run the test
 
 * `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_ 
 
