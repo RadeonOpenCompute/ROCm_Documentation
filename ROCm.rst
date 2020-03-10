@@ -62,13 +62,13 @@ AMD ROCm Documentation
 	
 `GCN ISA Manuals <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-isa-manuals>`_
 
-* `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_ For information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
+* `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_  - For information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
 
-* `GCN 2.0 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-2-0>`_  For information on ISA Manual for Fiji and Polaris (AMD Accelerated Parallel Processing technology)
+* `GCN 2.0 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-2-0>`_  - For information on ISA Manual for Fiji and Polaris (AMD Accelerated Parallel Processing technology)
 
-* `Vega <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#vega>`_ Provides “Vega” Instruction Set Architecture, Program Organization, Mode register and more details. 	
+* `Vega <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#vega>`_  - Provides “Vega” Instruction Set Architecture, Program Organization, Mode register and more details. 	
 
-* `Inline GCN ISA Assembly Guide <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#inline-gcn-isa-assembly-guide>`_ Covers various concepts of AMDGCN Assembly, DS Permute Instructions, Parameters to a Kernel, GPR Counting.
+* `Inline GCN ISA Assembly Guide <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#inline-gcn-isa-assembly-guide>`_ - Covers various concepts of AMDGCN Assembly, DS Permute Instructions, Parameters to a Kernel, GPR Counting.
 |
 
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
