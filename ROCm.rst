@@ -58,19 +58,8 @@ AMD ROCm Documentation
 | `OpenCL Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#opencl-best-practices>`_
 | This section provides information on Performance and optimization for various device types such as GCN devices.
 
-`ROCm GPU Tuning Guides <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#rocm-gpu-tunning-guides>`_
-***************************
-| `GFX7 Tuning Guide <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#gfx7-tuning-guide>`_
-| -- In-Progress
-
-| `GFX8 Tuning Guide <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#gfx8-tuning-guide>`_
-| -- In-Progress
-
-| `Vega Tuning Guide <http://rocm-documentation.readthedocs.io/en/latest/ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides.html#vega-tuning-guide>`_
-| -- In-Progress
 	
 `GCN ISA Manuals <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-isa-manuals>`_
-********************
 
 | `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_
 | This Section gives information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
