@@ -81,36 +81,30 @@ This guide provides documentation on the ROCm programming model and programming 
 
 * `Thrust API Documentation <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#thrust-api-documentation>`_
 
-* `Math Library API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_ - Includes HIP MAth API with hcRNG, clBLAS, clSPARSE APIs.
+* `Math Library API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_ - Includes HIP MAth API with hcRNG, clBLAS, clSPARSE APIs
 
 * `Deep Learning API’s <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_ - Includes MIOpen API and MIOpenGEMM APIs	
 
 
+|
 `ROCm Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-tools>`_
 
-| `HCC <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_
-| Complete description of Heterogeneous Compute Compiler has been listed and documented.
+* `Heterogeneous Compute Compiler (HCC) <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_
 
-| `GCN Assembler and Disassembler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-and-disassembler>`_
-| This Section provides details regarding GCN in-detail.
 
-| `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_
-| In this Section, information related to AMDGPU ISA assembler is documented.
+* `GCN Assembler and Disassembler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-and-disassembler>`_
 
-| `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_
-| Complete Documentaion of ROCm-GDB tool is provided here. Installtion, Build steps and working of Debugger and API related to it has been documented here.
+* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_ For information related to AMDGPU ISA Assembler 
 
-| `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_
-| This section gives details on Radeon Compute Profiler- performance analysis tool,and we have details on how to clone and use it.
+* `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_ Information about ROCm-GDB tool including installtion, configuration, and working of Debugger and APIs
 
-| `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_
-| This section gives Details on ROCm Tracer, which provides a generic independent from specific runtime profiler to trace API and asyncronous activity. Here we have details on library source tree, steps to build and run test.
+* `ROCm-Profiler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-profiler>`_ For details on Radeon Compute Profiler- performance analysis tool
 
-| `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_
-| This section provides details on CodeXL, a comprehensive tool suite. The Documentaion of Installation and builds and other details related to Codexl is given.
+* `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ For information on ROCm Tracer, which provides a generic independent from specific runtime profiler to trace API and asyncronous activity, includes details on library source tree, steps to build and run test
 
-| `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_
-| This section provides details on GPU Performance API. The content related to how to clone, system requiments and source code directory layout can be found.
+* `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_ | 
+
+* `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_ Provides details on GPU Performance API, cloning, system requiments, and source code directory layout
 
 | `ROCm Binary Utilities <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-binary-utilities>`_
 | -- In-progess
