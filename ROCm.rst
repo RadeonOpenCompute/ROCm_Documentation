@@ -1,6 +1,6 @@
 .. _GuidedIntro:
 
-.. image:: AMD1.jpg
+.. image:: AMD1.png
 
 About ROCm Documentation
 ===================
