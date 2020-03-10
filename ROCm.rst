@@ -38,27 +38,27 @@ This guide provides documentation on the ROCm programming model and programming 
 | -  `ROCm Languages <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#rocm-languages>`_
 
 ROCm stack offers options for multiple programming-languages
-|
+
 | -  `HC Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hc-programing-guide>`_
 
 Heterogeneous Compute (HC) programming installation requirements, methods to install on various platforms, and how to build it from source
-|
+
 | -  `HC Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hc-best-practices>`_
 
 - Build-in Macros, HCC Profiler mode, and API Documentaion
-|
+
 | -  `HIP Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-programing-guide>`_
 
 HIP programming, installation requirements, methods to install on various platfroms, and how to build it from source
-|
+
 | -  `HIP Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-best-practices>`_
 
 - HIP Porting, Debugging, Bugs, FAQ and other aspects of HIP
-|
+
 | -  `OpenCL Programing Guide <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#opencl-programing-guide>`_
 
 OpenCL Architecture, AMD Implementation, Profiling, and other aspects of OpenCL
-|
+
 | -  `OpenCL Best Practices <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#opencl-best-practices>`_
 
 Performance and optimization for various device types such as GCN devices
