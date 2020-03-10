@@ -1,5 +1,7 @@
 .. _GuidedIntro:
 
+.. image:: ROCm1.png
+
 About ROCm Documentation
 ===================
 
