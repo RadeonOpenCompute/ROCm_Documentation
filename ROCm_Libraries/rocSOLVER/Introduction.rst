@@ -6,21 +6,27 @@
 Introduction
 *************
 
-An implementation of Lapack routines on top of AMD’s Radeon Open Compute Platform (ROCm) runtime and toolchains. 
+This is an implementation of Lapack routines on top of AMD’s Radeon Open Compute Platform (ROCm) runtime and toolchains. 
 rocSOLVER is implemented in the HIP programming language; it is based on rocBLAS, an optimized BLAS 
-implementation for AMD’s latest discrete GPUs. More information about rocBLAS can be found 
-`here <https://rocblas.readthedocs.io/en/latest/index.html>`_.
+implementation for AMD’s latest discrete GPUs. For more information about rocBLAS, _see  
+<https://rocblas.readthedocs.io/en/latest/index.html>`_.
 
-Build and install
+Build and Install
 ===================
 
-rocSOLVER requires `cmake <https://cmake.org/install/>`_ 
+Prerequisites
+--------------
+
+For installation, rocSOLVER requires `cmake <https://cmake.org/install/>`_ 
 and `ROCm <https://rocm.github.io/install.html>`_, including 
 `hip <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and 
-`rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_, to be installed. 
+`rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_,   
 
-Once these requirements are satisfied, the following
-instructions will build and install rocSOLVER:
+
+Installation
+-------------
+
+Follow the instructions below to build and install rocSOLVER:
 
 .. code-block:: bash
    
@@ -29,13 +35,13 @@ instructions will build and install rocSOLVER:
     make
     make install
 
-Brief description and functionality
-====================================
 
-rocSolver Library is in early stages of active development. New features and functionality is being continuosly added. New 
-functionality is documented at each release of the ROCm platform. 
+About rocSolver
+==================
 
-The following table summarizes the LAPACK functionality implemented in rocSOLVER's last release.
+Note, the rocSOLVER library is in the early stages of active development. New features and functionality are being continuously added. You can find new and updated information about the library with each release of the AMD ROCm platform.
+
+The following table summarizes the LAPACK functionality implemented in rocSOLVER's latest release.
 
 =============================== ====== ====== ============== ==============
 Lapack Auxiliary Function       single double single complex double complex
@@ -86,12 +92,12 @@ rocsolver_getrs_batched         x      x          x             x
 rocsolver_getrs_strided_batched x      x          x             x
 =============================== ====== ====== ============== ==============
 
-Benchmarking and testing
+Benchmarking and Testing
 ==========================
 
-Additionaly, rocSOLVER has a basic/preliminary infrastructure for testing and benchmarking similar to that of rocBLAS. 
+For testing and benchmarking, rocSOLVER has a basic/preliminary infrastructure similar to rocBLAS. 
 
-On a normal installation, clients should be located in the directory **<rocsolverDIR>/build/clients/staging**. 
+On a normal installation, clients are located in the directory **<rocsolverDIR>/build/clients/staging**. 
 
 **rocsolver-test** executes a suite of `Google tests <https://github.com/google/googletest>`_ (*gtest*) that verifies the correct
 functioning of the library; the results computed by rocSOLVER, for random input data, are compared with the results computed by 
