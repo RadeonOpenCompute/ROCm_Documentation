@@ -8,7 +8,7 @@ Introduction
 
 This is an implementation of Lapack routines on top of AMD’s Radeon Open Compute Platform (ROCm) runtime and toolchains. 
 rocSOLVER is implemented in the HIP programming language; it is based on rocBLAS, an optimized BLAS 
-implementation for AMD’s latest discrete GPUs. For more information about rocBLAS, _see  
+implementation for AMD’s latest discrete GPUs. For more information about rocBLAS, _ see  
 <https://rocblas.readthedocs.io/en/latest/index.html>`_.
 
 Build and Install
