@@ -30,7 +30,7 @@ Follow the instructions below to build and install rocSOLVER:
 
 .. code-block:: bash
    
-     mkdir build && cd build
+    mkdir build && cd build
     CXX=/opt/rocm/bin/hcc cmake ..
     make
     make install
