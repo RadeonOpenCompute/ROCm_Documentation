@@ -20,7 +20,7 @@ Prerequisites
 For installation, rocSOLVER requires `cmake <https://cmake.org/install/>`_ 
 and `ROCm <https://rocm.github.io/install.html>`_, including 
 `hip <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and 
-`rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_,   
+`rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
 
 
 Installation
