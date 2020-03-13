@@ -7,7 +7,7 @@ ROCm API References
 
 
 ROCr System Runtime API
-^^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 *  :ref:`ROCr-API`
 
