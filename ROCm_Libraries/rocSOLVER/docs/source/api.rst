@@ -3,7 +3,7 @@
    :caption: Contents:
 
 *************
-rocSOLVER API
+rocSOLVER API - In progress
 *************
 
 This section provides details of the rocSOLVER library API as in release 
