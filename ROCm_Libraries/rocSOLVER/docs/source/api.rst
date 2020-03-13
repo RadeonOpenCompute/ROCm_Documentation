@@ -6,7 +6,7 @@
 rocSOLVER API - (Documentation in progress....)
 *************
 
-This section provides details of the rocSOLVER library API as in release 
+This section provides details of the rocSOLVER library API as of Release 
 `ROCm 2.10 <https://github.com/ROCmSoftwarePlatform/rocSOLVER/tree/master-rocm-2.10>`_.
 
 
