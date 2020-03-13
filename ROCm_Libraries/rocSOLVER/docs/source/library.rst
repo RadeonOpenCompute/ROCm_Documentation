@@ -90,7 +90,7 @@ rocsolver_getrs_strided_batched x      x          x             x
 Benchmarking and testing
 ==========================
 
-Additionaly, rocSOLVER has a basic/preliminary infrastructure for testing and benchmarking similar to that of rocBLAS. 
+Additionally, rocSOLVER has a basic/preliminary infrastructure for testing and benchmarking similar to that of rocBLAS. 
 
 On a normal installation, clients should be located in the directory **<rocsolverDIR>/build/clients/staging**. 
 
