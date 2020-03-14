@@ -3171,6 +3171,7 @@ Definitions
 rocsolver_int
 ^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_int
+   :project: rocSOLVER
 
 Enums
 ------------
