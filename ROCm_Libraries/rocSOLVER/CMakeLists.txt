@@ -1,153 +1,183 @@
 # ########################################################################
-# Copyright 2016-2019 Advanced Micro Devices, Inc.
+# Copyright 2016 Advanced Micro Devices, Inc.
 # ########################################################################
 
-# The following helper functions wrap common cmake functions.  They are
-# used to cope with a few wierdnesses of hipcc/nvcc.
-# ########################################################################
-# HELPER FUNCTIONS
-# ########################################################################
+# The ROCm platform requires Ubuntu 16.04 or Fedora 24, which has cmake 3.5
+cmake_minimum_required( VERSION 3.5 )
 
-# ########################################################################
-# target_compile_features() override
-# ########################################################################
-function( target_compile_features target_name )
-  # With Cmake v3.5, hipcc (with nvcc backend) does not work with target_compile_features
-  # Turn on -std=c++14 manually
-  if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$|.*/hipcc$" )
-    set_target_properties( ${target_name} PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON )
-  else( )
-    _target_compile_features( ${target_name} ${ARGN} )
-  endif( )
-endfunction( )
+# We use C++14 features, this will add compile option: -std=c++14
+set( CMAKE_CXX_STANDARD 14 )
+# Without this line, it will add -std=gnu++14 instead, which has some issues.
+set( CMAKE_CXX_EXTENSIONS OFF )
+
+# This has to be initialized before the project() command appears
+# Set the default of CMAKE_BUILD_TYPE to be release, unless user specifies with -D.  MSVC_IDE does not use CMAKE_BUILD_TYPE
+if( NOT DEFINED CMAKE_CONFIGURATION_TYPES AND NOT DEFINED CMAKE_BUILD_TYPE )
+  set( CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." )
+endif()
+
+# Honor per-config flags in try_compile() source-file signature. cmake v3.7 and up
+if( POLICY CMP0066 )
+  cmake_policy( SET CMP0066 NEW )
+endif( )
+
+if ( NOT DEFINED CMAKE_Fortran_COMPILER AND NOT DEFINED ENV{FC} )
+  set( CMAKE_Fortran_COMPILER  "gfortran" )
+endif()
+
+project( rocsolver LANGUAGES CXX )
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 # ########################################################################
-# target_link_libraries() override
+# NOTE:  CUDA compiling path
 # ########################################################################
-function( target_link_libraries target_name )
-  # hipcc takes care of finding hip library dependencies internally; remove
-  # explicit mentions of them so cmake doesn't complain on nvcc path
-  if( CMAKE_CXX_COMPILER MATCHES ".*/hipcc$" )
-    foreach( link_library ${ARGN} )
-      if( (link_library MATCHES "^hip::|^hcc::") )
-      else( )
-        if( TARGET ${link_library} )
-          list( APPEND new_list -Xlinker ${link_library} )
-        else( )
-          list( APPEND new_list ${link_library} )
-        endif( )
-      endif( )
-    endforeach( )
-    _target_link_libraries( ${target_name} ${new_list} )
-  else( )
-    _target_link_libraries( ${target_name} ${ARGN} )
-  endif( )
-endfunction( )
+# I have tried compiling rocBLAS library source with multiple methods,
+# and ended up using the approach where we set the CXX compiler to hipcc.
+# I didn't like using the HIP_ADD_LIBRARY or CUDA_ADD_LIBRARY approaches,
+# for the reasons I list here.
+# 1.  Adding header include directories is through HIP_INCLUDE_DIRECTORIES(), which
+# is global to a directory and affects all targets
+# 2.  You must add HIP_SOURCE_PROPERTY_FORMAT OBJ properties to .cpp files
+# to get HIP_ADD_LIBRARY to recognize the file
+# 3.  HIP_ADD_LIBRARY invokes a call to add_custom_command() to compile files,
+# and rocBLAS does the same.  The order in which custom commands execute is
+# undefined, and sometimes a file is attempted to be compiled before it has
+# been generated.  The fix for this is to create 'PHONY' targets, which I
+# don't desire.
+
+# Using hipcc allows us to avoid the above problems, with two primary costs:
+# 1.  The cmake logic to detect compiler features fails with nvcc backend
+# 2.  Upfront cost to figure out all the strange compiler/linker flags I define
+# below.
+
+# Hopefully, cost #2 is already paid.  All in all, I want to get rid of the
+# need for hipcc, and hope that at some point of time in the future we
+# can use the export config files from hip & hcc for both ROCm & nvcc backends.
+# ########################################################################
 
 # ########################################################################
 # Main
 # ########################################################################
 
-# This is incremented when the ABI to the library changes
-set( rocsolver_SOVERSION 0.1 )
-
-list( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake )
-
-# This option only works for make/nmake and the ninja generators, but no reason it shouldn't be on all the time
-# This tells cmake to create a compile_commands.json file that can be used with clang tooling or vim
-set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
-
-# set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-Bsymbolic")
-
-# include( build-bitness )
-
-# Print out compiler flags for viewing/debug
-if( BUILD_VERBOSE )
-  message( STATUS "rocfft_VERSION: ${rocfft_VERSION}" )
-  message( STATUS "\t==>CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}" )
-  message( STATUS "\t==>BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}" )
-  message( STATUS "\t==>CMAKE_INSTALL_PREFIX link: " ${CMAKE_INSTALL_PREFIX} )
-  message( STATUS "\t==>CMAKE_MODULE_PATH link: " ${CMAKE_MODULE_PATH} )
-  message( STATUS "\t==>CMAKE_PREFIX_PATH link: " ${CMAKE_PREFIX_PATH} )
-  message( STATUS "==============" )
-  message( STATUS "\t==>CMAKE_CXX_COMPILER: " ${CMAKE_CXX_FLAGS} )
-  message( STATUS "\t==>CMAKE_CXX_COMPILER debug: " ${CMAKE_CXX_FLAGS_DEBUG} )
-  message( STATUS "\t==>CMAKE_CXX_COMPILER release: " ${CMAKE_CXX_FLAGS_RELEASE} )
-  message( STATUS "\t==>CMAKE_CXX_COMPILER relwithdebinfo: " ${CMAKE_CXX_FLAGS_RELWITHDEBINFO} )
-  message( STATUS "\t==>CMAKE_EXE_LINKER_FLAGS: " ${CMAKE_EXE_LINKER_FLAGS} )
-  message( STATUS "\t==>CMAKE_EXE_LINKER_FLAGS_RELEASE: " ${CMAKE_EXE_LINKER_FLAGS_RELEASE} )
-  message( STATUS "\t==>CMAKE_SHARED_LINKER_FLAGS: " ${CMAKE_SHARED_LINKER_FLAGS} )
-  message( STATUS "\t==>CMAKE_SHARED_LINKER_FLAGS_RELEASE: " ${CMAKE_SHARED_LINKER_FLAGS_RELEASE} )
-  message( STATUS "==============" )
-  message( STATUS "\t==>CMAKE_SHARED_LIBRARY_C_FLAGS: ${CMAKE_SHARED_LIBRARY_C_FLAGS}" )
-  message( STATUS "\t==>CMAKE_SHARED_LIBRARY_CXX_FLAGS: ${CMAKE_SHARED_LIBRARY_CXX_FLAGS}" )
-  message( STATUS "\t==>CMAKE_SHARED_LINKER_FLAGS: ${CMAKE_SHARED_LINKER_FLAGS}" )
-  message( STATUS "\t==>CMAKE_SHARED_LINKER_FLAGS_DEBUG: ${CMAKE_SHARED_LINKER_FLAGS_DEBUG}" )
-  message( STATUS "\t==>CMAKE_SHARED_LINKER_FLAGS_RELEASE: ${CMAKE_SHARED_LINKER_FLAGS_RELEASE}" )
-endif( )
-
-# configure a header file to pass the CMake version settings to the source, and package the header files in the output archive
-configure_file( "${CMAKE_CURRENT_SOURCE_DIR}/include/rocsolver-version.h.in" "${PROJECT_BINARY_DIR}/include/rocsolver-version.h" )
-
-set( rocsolver_headers_public
-  include/rocsolver.h
-  include/rocsolver-types.h
-  include/rocsolver-auxiliary.h
-  include/rocsolver-functions.h
-  ${PROJECT_BINARY_DIR}/include/rocsolver-version.h
-)
-
-source_group( "Header Files\\Public" FILES ${rocsolver_headers_public} )
-
-include( GNUInstallDirs )
-
-set( BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
-set( LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
-set( INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
-
-# Build into subdirectories
-add_subdirectory( src )
-
-# The following code is setting variables to control the behavior of CPack to generate our
-# if( WIN32 )
-#     set( CPACK_SOURCE_GENERATOR "ZIP" )
-#     set( CPACK_GENERATOR "ZIP" )
-# else( )
-#     set( CPACK_SOURCE_GENERATOR "TGZ" )
-#     set( CPACK_GENERATOR "DEB;RPM" CACHE STRING "cpack list: 7Z, DEB, IFW, NSIS, NSIS64, RPM, STGZ, TBZ2, TGZ, TXZ, TZ, ZIP" )
-#     # set( CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON )
-# endif( )
-
-# Package specific CPACK vars
-if( NOT CXX_VERSION_STRING MATCHES "clang" )
-    set( CPACK_DEBIAN_PACKAGE_DEPENDS "rocm-dev (>= 2.5.27)" )
-    set( CPACK_RPM_PACKAGE_REQUIRES "rocm-dev >= 2.5.27" )
+if( CMAKE_CXX_COMPILER MATCHES ".*/hipcc$" OR CMAKE_CXX_COMPILER MATCHES ".*/hcc$")
+  # Determine if CXX Compiler is hcc, hip-clang or nvcc
+  execute_process(COMMAND ${CMAKE_CXX_COMPILER} "--version" OUTPUT_VARIABLE CXX_OUTPUT
+                  OUTPUT_STRIP_TRAILING_WHITESPACE
+                  ERROR_STRIP_TRAILING_WHITESPACE)
+  string(REGEX MATCH "[A-Za-z]* ?clang version" TMP_CXX_VERSION ${CXX_OUTPUT})
+  string(REGEX MATCH "[A-Za-z]+" CXX_VERSION_STRING ${TMP_CXX_VERSION})
 endif()
 
-set( CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/../LICENSE.md" )
+if( CXX_VERSION_STRING MATCHES "clang" )
+  message( STATUS "Use hip-clang to build for amdgpu backend" )
+# set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Xclang -fallow-half-arguments-and-returns" )
+  set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__HIP_HCC_COMPAT_MODE__=1" )
+elseif( CXX_VERSION_STRING MATCHES "nvcc" )
+  message( STATUS "HIPCC nvcc compiler detected; CUDA backend selected" )
 
-if( NOT CPACK_PACKAGING_INSTALL_PREFIX )
-  set( CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" )
+  set( CMAKE_C_COMPILE_OPTIONS_PIC "-Xcompiler ${CMAKE_C_COMPILE_OPTIONS_PIC}" )
+  set( CMAKE_CXX_COMPILE_OPTIONS_PIC "-Xcompiler ${CMAKE_CXX_COMPILE_OPTIONS_PIC}" )
+  set( CMAKE_SHARED_LIBRARY_C_FLAGS "-Xlinker ${CMAKE_SHARED_LIBRARY_C_FLAGS}" )
+  set( CMAKE_SHARED_LIBRARY_CXX_FLAGS "-Xlinker ${CMAKE_SHARED_LIBRARY_CXX_FLAGS}" )
+  set( CMAKE_SHARED_LIBRARY_SONAME_C_FLAG "-Xlinker -soname," )
+  set( CMAKE_SHARED_LIBRARY_SONAME_CXX_FLAG "-Xlinker -soname," )
+  set( CMAKE_SHARED_LIBRARY_RUNTIME_C_FLAG "-Xlinker -rpath," )
+  set( CMAKE_SHARED_LIBRARY_RUNTIME_CXX_FLAG "-Xlinker -rpath," )
+  set( CMAKE_EXECUTABLE_RUNTIME_C_FLAG "-Xlinker -rpath," )
+  set( CMAKE_EXECUTABLE_RUNTIME_CXX_FLAG "-Xlinker -rpath," )
+  set( CMAKE_C_COMPILE_OPTIONS_VISIBILITY "-Xcompiler ${CMAKE_C_COMPILE_OPTIONS_VISIBILITY}" )
+  set( CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY "-Xcompiler ${CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY}" )
+  set( CMAKE_C_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN "-Xcompiler ${CMAKE_C_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN}" )
+  set( CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN "-Xcompiler ${CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN}" )
+elseif( CXX_VERSION_STRING MATCHES "HCC" )
+  message( STATUS "HCC compiler set; ROCm backend selected [ CXX=/opt/rocm/bin/hcc cmake ... ]" )
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -hc")
 endif( )
 
-set( CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION "\${CPACK_PACKAGING_INSTALL_PREFIX}" "\${CPACK_PACKAGING_INSTALL_PREFIX}/include" "\${CPACK_PACKAGING_INSTALL_PREFIX}/lib" )
+# This finds the rocm-cmake project, and installs it if not found
+# rocm-cmake contains common cmake code for rocm projects to help setup and install
+set( PROJECT_EXTERN_DIR ${CMAKE_CURRENT_BINARY_DIR}/extern )
 
-# Give rocsolver compiled for CUDA backend a different name
-if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" OR CXX_VERSION_STRING MATCHES "clang" )
-    set( package_name rocsolver )
-else( )
-    set( package_name rocsolver-alt )
+if(NOT ROCM_PATH)
+  set(ROCM_PATH /opt/rocm)
+endif()
+
+find_package( ROCM CONFIG QUIET PATHS ${ROCM_PATH} )
+if( NOT ROCM_FOUND )
+  set( rocm_cmake_tag "master" CACHE STRING "rocm-cmake tag to download" )
+  file( DOWNLOAD https://github.com/RadeonOpenCompute/rocm-cmake/archive/${rocm_cmake_tag}.zip
+      ${PROJECT_EXTERN_DIR}/rocm-cmake-${rocm_cmake_tag}.zip STATUS status LOG log)
+
+  list(GET status 0 status_code)
+  list(GET status 1 status_string)
+
+  if(NOT status_code EQUAL 0)
+    message(FATAL_ERROR "error: downloading
+    'https://github.com/RadeonOpenCompute/rocm-cmake/archive/${rocm_cmake_tag}.zip' failed
+    status_code: ${status_code}
+    status_string: ${status_string}
+    log: ${log}
+    ")
+  endif()
+
+  message(STATUS "downloading... done")
+
+  execute_process( COMMAND ${CMAKE_COMMAND} -E tar xzvf ${PROJECT_EXTERN_DIR}/rocm-cmake-${rocm_cmake_tag}.zip
+    WORKING_DIRECTORY ${PROJECT_EXTERN_DIR} )
+
+  find_package( ROCM REQUIRED CONFIG PATHS ${PROJECT_EXTERN_DIR}/rocm-cmake-${rocm_cmake_tag} )
 endif( )
 
-set( ROCBLAS_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}" CACHE PATH "Path placed into ldconfig file" )
+include( ROCMSetupVersion )
+include( ROCMCreatePackage )
+include( ROCMInstallTargets )
+include( ROCMPackageConfigHelpers )
+include( ROCMInstallSymlinks )
 
-rocm_create_package(
-    NAME ${package_name}
-    DESCRIPTION "Radeon Open Compute SOLVER library"
-    MAINTAINER "RocSOLVER maintainer <rocsolver-maintainer@amd.com>"
-    LDCONFIG
-    LDCONFIG_DIR ${ROCBLAS_CONFIG_DIR}
-)
+include (cmake/os-detection.cmake)
+get_os_id(OS_ID)
+message (STATUS "OS detected is ${OS_ID}")
+
+# Versioning via rocm-cmake
+set ( VERSION_STRING "2.7.0" )
+rocm_setup_version( VERSION ${VERSION_STRING} )
+
+# Append our library helper cmake path and the cmake path for hip (for convenience)
+# Users may override HIP path by specifying their own in CMAKE_MODULE_PATH
+list( APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
+
+# NOTE:  workaround until hcc & hip cmake modules fixes symlink logic in their config files; remove when fixed
+list( APPEND CMAKE_PREFIX_PATH ${ROCM_PATH}/hcc ${ROCM_PATH}/hip /opt/rocm/hcc /opt/rocm/hip )
+
+option( BUILD_VERBOSE "Output additional build information" OFF )
+
+# BUILD_SHARED_LIBS is a cmake built-in; we make it an explicit option such that it shows in cmake-gui
+option( BUILD_SHARED_LIBS "Build rocSOLVER as a shared library" ON )
+
+include( clients/cmake/build-options.cmake )
+
+# force library install path to lib (CentOS 7 defaults to lib64)
+set(CMAKE_INSTALL_LIBDIR "lib" CACHE INTERNAL "Installation directory for libraries" FORCE)
+
+# Find HCC/HIP dependencies
+if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
+  find_package( hcc REQUIRED CONFIG PATHS ${ROCM_PATH} )
+  find_package( hip REQUIRED CONFIG PATHS ${ROCM_PATH} )
+endif( )
+
+
+find_package( rocblas REQUIRED CONFIG PATHS ${ROCM_PATH} )
+include_directories( ${rocblas_INCLUDE_DIR} )
+
+
+# CMake list of machine targets
+set( AMDGPU_TARGETS gfx803;gfx900;gfx906;gfx908 CACHE STRING "List of specific machine types for library to target" )
+
+add_subdirectory( library )
+
+# Build clients of the library
+if( BUILD_CLIENTS_SAMPLES OR BUILD_CLIENTS_TESTS OR BUILD_CLIENTS_BENCHMARKS )
+  add_subdirectory( clients )
+endif( )
