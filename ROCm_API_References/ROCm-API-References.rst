@@ -5,6 +5,10 @@
 ROCm API References
 =====================
 
+rocSOLVER Library API
+========================
+
+*  :ref:`rocSOLVER-API`
 
 ROCr System Runtime API
 ========================
@@ -35,7 +39,7 @@ Math Library API's
 *  :ref:`clSPARSE_api`
 
 
-Deep Learning API's
+Deep Learning APIs
 ====================
 
 * `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
