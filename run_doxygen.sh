@@ -24,5 +24,7 @@ sed -i 's/#include "rocsparse-export.h"//g' rocsparse-auxiliary_sed.h
 
 doxygen ROCm_Libraries/rocSPARSE/Doxyfile
 
+doxygen ROCm_Libraries/rocSOLVER/Doxyfile
+
 doxygen ROCm_Libraries/rocr/Doxyfile
 
