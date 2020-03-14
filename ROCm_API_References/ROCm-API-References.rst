@@ -8,7 +8,7 @@ ROCm API References
 rocSOLVER Library API
 ========================
 
-*  :ref:`rocSOLVER-API`
+*  :ref:`API`
 
 ROCr System Runtime API
 ========================
