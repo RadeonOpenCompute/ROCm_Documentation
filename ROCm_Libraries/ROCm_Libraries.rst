@@ -3179,6 +3179,7 @@ Enums
 rocsolver_handle
 ^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_handle
+   :project: rocSOLVER
 
 rocsolver_operation
 ^^^^^^^^^^^^^^^^^^^^^^
