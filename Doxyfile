@@ -386,6 +386,9 @@ INLINE_SIMPLE_STRUCTS  = NO
 #No -> Yes for getting enum in rocBLAS
 TYPEDEF_HIDES_STRUCT   = YES
 
+#No -> Yes for getting enum in rocSOLVER
+TYPEDEF_HIDES_STRUCT   = YES
+
 # The size of the symbol lookup cache can be set using LOOKUP_CACHE_SIZE. This
 # cache is used to resolve symbols given their name and scope. Since this can be
 # an expensive process and often the same symbol appears multiple times in the
