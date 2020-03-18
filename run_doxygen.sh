@@ -24,7 +24,11 @@ sed -i 's/#include "rocsparse-export.h"//g' rocsparse-auxiliary_sed.h
 
 doxygen ROCm_Libraries/rocSPARSE/Doxyfile
 
+sed -e 's/ROCSOLVER_EXPORT //g' ROCm_Libraries/rocSOLVER/library/include/rocsolver.h > ROCm_Libraries/rocSOLVER/src/rocsolver.h
+sed -e 's/ROCSOLVER_EXPORT //g' ROCm_Libraries/rocSOLVER/library/include/rocsolver-functions.h > ROCm_Libraries/rocSOLVER/src/rocsolver-functions.h
+sed -e 's/ROCSOLVER_EXPORT //g' ROCm_Libraries/rocSOLVER/library/include/rocsolver-types.h > ROCm_Libraries/rocSOLVER/src/rocsolver-types.h
+sed -e 's/ROCSOLVER_EXPORT //g' -e 's/__inline //g' ROCm_Libraries/rocSOLVER/library/include/rocsolver-auxiliary.h > ROCm_Libraries/rocSOLVER/src/rocsolver-auxiliary.h
+
 doxygen ROCm_Libraries/rocSOLVER/Doxyfile
 
 doxygen ROCm_Libraries/rocr/Doxyfile
-

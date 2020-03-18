@@ -3184,30 +3184,37 @@ rocsolver_handle
 rocsolver_operation
 ^^^^^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_operation
+   :project: rocSOLVER
 
 rocsolver_fill
 ^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_fill
+   :project: rocSOLVER
 
 rocsolver_diagonal
 ^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_diagonal
+   :project: rocSOLVER
 
 rocsolver_side
 ^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_side
+   :project: rocSOLVER
 
 rocsolver_direct
 ^^^^^^^^^^^^^^^^^^
 .. doxygenenum:: rocsolver_direct
+   :project: rocSOLVER
 
 rocsolver_storev
 ^^^^^^^^^^^^^^^^^^
 .. doxygenenum:: rocsolver_storev
+   :project: rocSOLVER
 
 rocsolver_status
 ^^^^^^^^^^^^^^^^^^
 .. doxygentypedef:: rocsolver_status
+   :project: rocSOLVER
 
 
 
@@ -3223,9 +3230,13 @@ Matrix permutations and manipulations
 rocsolver_<type>laswp()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zlaswp
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_claswp
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dlaswp
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_slaswp
+   :project: rocSOLVER
 
 Householder reflexions
 --------------------------
@@ -3233,22 +3244,30 @@ Householder reflexions
 rocsolver_<type>larfg()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dlarfg
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_slarfg
+   :project: rocSOLVER
 
 rocsolver_<type>larft()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dlarft
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_slarft
+   :project: rocSOLVER
 
 rocsolver_<type>larf()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dlarf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_slarf
+   :project: rocSOLVER
 
 rocsolver_<type>larfb()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dlarfb
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_slarfb
+   :project: rocSOLVER
 
 Orthonormal matrices
 ---------------------------
@@ -3256,37 +3275,51 @@ Orthonormal matrices
 rocsolver_<type>org2r()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dorg2r
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sorg2r
+   :project: rocSOLVER
 
 rocsolver_<type>orgqr()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dorgqr
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sorgqr
+   :project: rocSOLVER
 
 rocsolver_<type>orgl2()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dorgl2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sorgl2
+   :project: rocSOLVER
 
 rocsolver_<type>orglq()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dorglq
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sorglq
+   :project: rocSOLVER
 
 rocsolver_<type>orgbr()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dorgbr
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sorgbr
+   :project: rocSOLVER
 
 rocsolver_<type>orm2r()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dorm2r
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sorm2r
+   :project: rocSOLVER
 
 rocsolver_<type>ormqr()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dormqr
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sormqr
+   :project: rocSOLVER
 
 
 Lapack Functions
@@ -3300,32 +3333,44 @@ Special Matrix Factorizations
 rocsolver_<type>potf2()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dpotf2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_spotf2
+   :project: rocSOLVER
 
 rocsolver_<type>potf2_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dpotf2_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_spotf2_batched
+   :project: rocSOLVER
 
 rocsolver_<type>potf2_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dpotf2_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_spotf2_strided_batched
+   :project: rocSOLVER
 
 rocsolver_<type>potrf()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dpotrf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_spotrf
+   :project: rocSOLVER
 
 rocsolver_<type>potrf_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dpotrf_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_spotrf_batched
+   :project: rocSOLVER
 
 rocsolver_<type>potrf_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dpotrf_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_spotrf_strided_batched
+   :project: rocSOLVER
 
 
 General Matrix Factorizations
@@ -3334,104 +3379,152 @@ General Matrix Factorizations
 rocsolver_<type>getf2()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetf2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetf2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetf2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetf2
+   :project: rocSOLVER
 
 rocsolver_<type>getf2_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetf2_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetf2_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetf2_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetf2_batched
+   :project: rocSOLVER
 
 rocsolver_<type>getf2_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetf2_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetf2_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetf2_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetf2_strided_batched
+   :project: rocSOLVER
 
 rocsolver_<type>getrf()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetrf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetrf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetrf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetrf
+   :project: rocSOLVER
 
 rocsolver_<type>getrf_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetrf_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetrf_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetrf_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetrf_batched
+   :project: rocSOLVER
 
 rocsolver_<type>getrf_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetrf_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetrf_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetrf_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetrf_strided_batched
+   :project: rocSOLVER
 
 rocsolver_<type>geqr2()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgeqr2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgeqr2
+   :project: rocSOLVER
 
 rocsolver_<type>geqr2_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgeqr2_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgeqr2_batched
+   :project: rocSOLVER
 
 rocsolver_<type>geqr2_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgeqr2_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgeqr2_strided_batched
+   :project: rocSOLVER
 
 rocsolver_<type>geqrf()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgeqrf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgeqrf
+   :project: rocSOLVER
 
 rocsolver_<type>geqrf_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgeqrf_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgeqrf_batched
+   :project: rocSOLVER
 
 rocsolver_<type>geqrf_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgeqrf_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgeqrf_strided_batched
+   :project: rocSOLVER
 
 rocsolver_<type>gelq2()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgelq2
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgelq2
+   :project: rocSOLVER
 
 rocsolver_<type>gelq2_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgelq2_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgelq2_batched
+   :project: rocSOLVER
 
 rocsolver_<type>gelq2_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgelq2_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgelq2_strided_batched
+   :project: rocSOLVER
 
 rocsolver_<type>gelqf()
 ^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgelqf
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgelqf
+   :project: rocSOLVER
 
 rocsolver_<type>gelqf_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgelqf_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgelqf_batched
+   :project: rocSOLVER
 
 rocsolver_<type>gelqf_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_dgelqf_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgelqf_strided_batched
+   :project: rocSOLVER
 
 General systems solvers
 --------------------------
@@ -3439,23 +3532,35 @@ General systems solvers
 rocsolver_<type>getrs()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetrs
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetrs
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetrs
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetrs
+   :project: rocSOLVER
 
 rocsolver_<type>getrs_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetrs_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetrs_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetrs_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetrs_batched
+   :project: rocSOLVER
 
 rocsolver_<type>getrs_strided_batched()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_zgetrs_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_cgetrs_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_dgetrs_strided_batched
+   :project: rocSOLVER
 .. doxygenfunction:: rocsolver_sgetrs_strided_batched
+   :project: rocSOLVER
 
 
 
@@ -3471,22 +3576,27 @@ rocSOLVER handle auxiliaries
 rocsolver_create_handle()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_create_handle
+   :project: rocSOLVER
 
 rocsolver_destroy_handle()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_destroy_handle
+   :project: rocSOLVER
 
 rocsolver_add_stream()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_add_stream
+   :project: rocSOLVER
 
 rocsolver_set_stream()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_set_stream
+   :project: rocSOLVER
 
 rocsolver_get_stream()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_get_stream
+   :project: rocSOLVER
 
 Other auxiliaries
 ------------------------
@@ -3494,18 +3604,22 @@ Other auxiliaries
 rocsolver_set_vector()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_set_vector
+   :project: rocSOLVER
 
 rocsolver_get_vector()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_get_vector
+   :project: rocSOLVER
 
 rocsolver_set_matrix()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_set_matrix
+   :project: rocSOLVER
 
 rocsolver_get_matrix()
 ^^^^^^^^^^^^^^^^^^^^^^^
 .. doxygenfunction:: rocsolver_get_matrix
+   :project: rocSOLVER
 
 
 ***********
