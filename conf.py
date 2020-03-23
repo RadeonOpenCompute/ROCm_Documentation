@@ -139,11 +139,8 @@ pygments_style = 'sphinx'
 html_theme = 'sphinx_rtd_theme'
 
 # To resolve spacing issue in APIs
-.classifier:before {
-    font-style: normal;
-    margin: 0.5em;
-    content: ":";
-}
+def setup(app):
+    app.add_stylesheet("basic.css")
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
