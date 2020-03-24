@@ -14,8 +14,6 @@ AMD ROCm QuickStart Installation Guide v3.1.0
    
 -  `Getting the ROCm Source Code`_
 
-|
-
 
 .. _Deploying ROCm:
 
@@ -74,7 +72,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
   e85a40d1a43453fe37d63aa6899bc96e08f2817a rocm.gpg.key
-|
+
 3. Install the ROCm meta-package. Update the appropriate repository list and install the rocm-dkms meta-package:
 
 ::
@@ -82,7 +80,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      sudo apt update
 
      sudo apt install rocm-dkms
-|
+
 4. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
 
 ::
@@ -95,7 +93,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
      sudo usermod -a -G video $LOGNAME
-|
+
 6. By default, add any future users to the video group. Run the following command to add users to the video group:
 
 ::
@@ -105,13 +103,11 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
      echo 'EXTRA_GROUPS=video'
      sudo tee -a /etc/adduser.conf
-|
+
 7. Restart the system.
 
-|
 8. Test the basic ROCm installation.
 
-|
 9. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
 ::
@@ -493,6 +489,15 @@ Each ROCm component repository contains directions for building that component. 
 
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
+
+===================================================================================
+Machine Learning and High Performance Computing Software Stack for AMD GPU v3.1.0
+===================================================================================
+
+For AMD ROCm v3.1 Machine Learning and High Performance Computing Software Stack, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
+
 
 Machine Learning and High Performance Computing Software Stack for AMD GPU
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
