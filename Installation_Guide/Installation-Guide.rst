@@ -1,4 +1,4 @@
-.. image:: /Installation_Guide/AMD1.png
+.. image:: /Installation_Guide/amdblack.jpg
 
 |
 ==========================================================
