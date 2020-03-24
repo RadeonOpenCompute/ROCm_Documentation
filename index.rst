@@ -71,22 +71,13 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
    
-   .. toctree::
-      :maxdepth: 6
-      :hidden:
-      :caption: Developer Reference Documentation
-     
+      
    ROCm_Libraries/ROCm_Libraries
    ROCm_API_References/ROCm-API-References
    ROCm_Tools/ROCm-Tools
    GCN_ISA_Manuals/GCN-ISA-Manuals
    Deep_learning/Deep-learning
   
-   
-  .. toctree::
-      :maxdepth: 6
-      :hidden:
-      :caption: Additional Documentation
    
    Remote_Device_Programming/Remote-Device-Programming
    Other_Solutions/Other-Solutions
