@@ -53,7 +53,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Release Information 
+   :caption: Release Documentation
 
    Release Notes
    Current_Release_Notes/Current-Release-Notes
@@ -62,22 +62,33 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
 .. toctree::
    :maxdepth: 6
    :hidden:
+   :caption:  Developer Documentation
    
    ROCm
-   
   
-   
-   Developer Guides
    Programming_Guides/Programming-Guides
-   GCN_ISA_Manuals/GCN-ISA-Manuals
-   ROCm_API_References/ROCm-API-References
-   ROCm_Tools/ROCm-Tools
-   ROCm_Libraries/ROCm_Libraries
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
-   Remote_Device_Programming/Remote-Device-Programming
+   
+   .. toctree::
+      :maxdepth: 6
+      :hidden:
+      :caption: Developer Reference Documentation
+     
+   ROCm_Libraries/ROCm_Libraries
+   ROCm_API_References/ROCm-API-References
+   ROCm_Tools/ROCm-Tools
+   GCN_ISA_Manuals/GCN-ISA-Manuals
    Deep_learning/Deep-learning
+  
+   
+  .. toctree::
+      :maxdepth: 6
+      :hidden:
+      :caption: Additional Documentation
+   
+   Remote_Device_Programming/Remote-Device-Programming
    Other_Solutions/Other-Solutions
    Tutorial/Tutorial
    ROCm_Glossary/ROCm-Glossary
