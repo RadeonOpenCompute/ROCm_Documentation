@@ -1,3 +1,5 @@
+ .. image:: amdblack.jpg
+
 .. _Programming-Guides:
 
 =================
