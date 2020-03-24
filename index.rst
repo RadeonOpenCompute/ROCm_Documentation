@@ -1,6 +1,6 @@
 
  
- .. image:: AMD_E_Wh_RGB.png
+ .. image:: AMDlogo1.png
  
  .. rocm documentation master file, created by
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
