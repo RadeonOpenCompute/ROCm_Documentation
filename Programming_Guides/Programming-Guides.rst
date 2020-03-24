@@ -483,3 +483,14 @@ OpenCL Best Practices
 ######################
 
 * :ref:`Optimization-Opencl`
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: Developer Guides
+
+   Programming_Guides/Programming-Guides
+   ROCm_System_Managment/ROCm-System-Managment
+   
+
+   
