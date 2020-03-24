@@ -1,6 +1,6 @@
 .. _GuidedIntro:
 
-.. image:: AMD1.png
+.. image:: amdblack.jpg
 |
 
 AMD ROCm Documentation
