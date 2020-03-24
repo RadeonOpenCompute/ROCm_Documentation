@@ -1,5 +1,5 @@
 
- .. image:: amdteal1.jpg
+ .. image:: amdblack.jpg
  
  .. rocm documentation master file, created by
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
