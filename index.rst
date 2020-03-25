@@ -55,6 +55,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :hidden:
    :caption: Release Documentation
 
+   ROCm
    Release Notes
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
@@ -63,8 +64,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :maxdepth: 6
    :hidden:
    :caption:  Developer Documentation
-   
-   ROCm
+    
   
    Programming_Guides/Programming-Guides
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
