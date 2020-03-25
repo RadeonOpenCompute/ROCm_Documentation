@@ -500,8 +500,8 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
 
 |
 
-Machine Learning and High Performance Computing Software Stack for AMD GPU
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Machine Learning and High Performance Computing Software Stack for AMD GPU v3.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **ROCm Version 3.0**
 
