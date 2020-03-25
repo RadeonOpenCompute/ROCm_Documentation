@@ -4,7 +4,7 @@
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
+|
 
 Welcome to ROCm Platform
 =======================
@@ -70,6 +70,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
+   Other_Solutions/Other-Solutions
    
 .. toctree::
    :maxdepth: 6
@@ -88,7 +89,6 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :caption: Additional Documentation 
    
    Remote_Device_Programming/Remote-Device-Programming
-   Other_Solutions/Other-Solutions
    Tutorial/Tutorial
    ROCm_Glossary/ROCm-Glossary
 
