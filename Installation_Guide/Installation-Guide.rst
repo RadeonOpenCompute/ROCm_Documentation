@@ -621,6 +621,12 @@ Similarly, a user that only wants to install OpenCL support instead of HCC and H
 ROCm Platform Packages
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+For AMD ROCm v3.1 Machine Learning and High Performance Computing Software Stack, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
+
+The following platform packages are for ROCm v3.0:
+
 Drivers, ToolChains, Libraries, and Source Code
 
 The latest supported version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available from the following GitHub repositories:
