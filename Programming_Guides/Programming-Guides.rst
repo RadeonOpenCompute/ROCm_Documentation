@@ -1,4 +1,4 @@
- .. image:: amdblack.jpg
+.. image:: amdblack.jpg
 
 .. _Programming-Guides:
 
