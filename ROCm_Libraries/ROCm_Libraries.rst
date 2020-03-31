@@ -8,7 +8,7 @@ ROCm Libraries
 rocBLAS
 ******************
 
-Please refer `rocBLAS Github link <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
+Refer the following page for the updated rocBLAS user manual `rocBLAS User Guide <https://rocblas.readthedocs.io/en/latest/usermanual.html>`_
 
 A BLAS implementation on top of AMD's Radeon Open Compute `ROCm <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_ runtime and toolchains. rocBLAS is implemented in the `HIP <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#hip-programing-guide>`_ programming language and optimized for AMD's latest discrete GPUs.
 
