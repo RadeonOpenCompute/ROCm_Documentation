@@ -99,11 +99,9 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 ::
 
-     echo 'ADD_EXTRA_GROUPS=1' 
-     sudo tee -a /etc/adduser.conf
+     echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
 
-     echo 'EXTRA_GROUPS=video'
-     sudo tee -a /etc/adduser.conf
+     echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
 7. Restart the system.
 
