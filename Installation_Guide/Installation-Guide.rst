@@ -583,7 +583,7 @@ The chain of software installed by these meta-packages is illustrated below
        |--rocm-device-libs
        |--rocm-smi-lib64
        |--rocprofiler-dev
-       |--rocr-debug-agent
+       |--rocm-debug-agent
        \--rocm-utils
           |--rocminfo
           \--rocm-clang-ocl # This will cause OpenCL to be installed
@@ -613,10 +613,6 @@ Similarly, a user that only wants to install OpenCL support instead of HCC and H
 
 ROCm Platform Packages
 ^^^^^^^^^^^^^^^^^^^^^^^
-
-For AMD ROCm v3.1 Machine Learning and High Performance Computing Software Stack, see
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
 
 The following platform packages are for ROCm v3.0:
 
