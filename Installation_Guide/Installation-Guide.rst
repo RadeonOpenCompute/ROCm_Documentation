@@ -785,7 +785,7 @@ ROCm Libraries
 
 .. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.3.0
 
-.. _AMDMIGraphX: (https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/d1e945dabce0078d44c78de67b00232b856e18bc 
+.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/d1e945dabce0078d44c78de67b00232b856e18bc 
 
 
 
