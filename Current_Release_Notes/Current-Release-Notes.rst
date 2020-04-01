@@ -38,7 +38,7 @@ Supported Operating Systems
 The ROCm v3.1.x platform is designed to support the following operating systems:
 
 
-* Ubuntu 16.04.6(Kernel 4.15) and 18.04.3(Kernel 5.3)
+* Ubuntu 16.04.6(Kernel 4.15) and 18.04.4(Kernel 5.3)
 
 * CentOS v7.7 (Using devtoolset-7 runtime support)
 
@@ -156,6 +156,24 @@ The AMD Neural Net Intermediate Representation (NNIR) is enhanced to handle the 
 .. image:: /Current_Release_Notes/onnx.png
 
 
+Deprecations in the v3.3 Release
+##################################
+
+Code Object Manager (Comgr) Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following Code Object Manager (Comgr) functions are deprecated.
+
+* `amd_comgr_action_info_set_options` 
+* `amd_comgr_action_info_get_options` 
+
+These functions were originally deprecated in version 1.3 of the Comgr library as they no longer support options with embedded spaces. 
+
+The deprecated functions are now replaced with the array-oriented options API, which includes 
+
+*	`amd_comgr_action_info_set_option_list`
+*	`amd_comgr_action_info_get_option_list_count`
+* `amd_comgr_action_info_get_option_list_item`
 
 
 
