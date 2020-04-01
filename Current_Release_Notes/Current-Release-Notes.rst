@@ -94,7 +94,7 @@ For example,
 
 A fresh installation or an upgrade of the single-version installation will remove the existing version completely and install the new version in the */opt/rocm-<version>* folder.
 
-.. image:: /Current_Release_Notes/Versionchange1.png
+.. image:: /Current_Release_Notes/singleinstance.png
 
 **Multi-version Installation**
 
