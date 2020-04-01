@@ -46,30 +46,11 @@ The ROCm v3.1.x platform is designed to support the following operating systems:
 
 * SLES 15 SP1 
 
-Important ROCm Links
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Access the following links for more information on:
-
-* ROCm documentation, see 
-https://rocm-documentation.readthedocs.io/en/latest/index.html
-
-* ROCm binary structure, see
-https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#rocm-binary-package-structure
-
-* Common ROCm installation issues, see
-https://rocm.github.io/install_issues.html
-
-* Instructions to install PyTorch after ROCm is installed – https://rocm-documentation.readthedocs.io/en/latest/Deep_learning/Deep-learning.html#pytorch
-
-Note: These instructions reference the rocm/pytorch:rocm3.0_ubuntu16.04_py2.7_pytorch image. However, you can substitute the Ubuntu 18.04 image listed at https://hub.docker.com/r/rocm/pytorch/tags
-
-
 
 What\'s New in This Release
 ===========================
 
-**Change in ROCm Installation Directory Structure**
+**Multi-Version Installation**
 ###################################################
 
 A fresh installation of the ROCm toolkit installs the packages in the */opt/rocm-\<version>* folder. 
