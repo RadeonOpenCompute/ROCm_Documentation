@@ -614,7 +614,7 @@ Similarly, a user that only wants to install OpenCL support instead of HCC and H
 ROCm Platform Packages
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following platform packages are for ROCm v3.0:
+The following platform packages are for ROCm v3.3.0:
 
 Drivers, ToolChains, Libraries, and Source Code
 
@@ -679,25 +679,45 @@ The latest supported version of the drivers, tools, libraries and source code fo
    -  `hipCUB`_
    -  `AMDMIGraphX`_
 
-.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-3.0.0
-.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-3.0.0
-.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-3.0.0
+ROCm Core Components
+=====================
 
-.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-3.0.0
+.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-3.3.0
+
+.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/rocm-3.3.0
+
+.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-3.3.0
+
+
+ROCm Support Software
+======================
+
+.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-3.3.0
+
 .. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/roc-3.0.0
-.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/roc-3.0.0
-.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/roc-3.0.0
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/roc-hcc-3.0.0
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/roc-3.0.0
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-hcc-3.0.0
+.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.3.0
+
+.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.3.0
+
+
+ROCm Development ToolChains
+============================
+
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-hcc-3.3.0
+
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.3.0
+
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-ocl-3.3.0
+
+ROCm OpenCL, which is created from the following components:
 
 .. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.0.0
 
 .. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-3.0.0
-.. _ROCm DeviceLibraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/roc-ocl-3.0.0
 
 .. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/3.0.0
+
 .. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm_3.0.0
 
 .. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-3.0.0
