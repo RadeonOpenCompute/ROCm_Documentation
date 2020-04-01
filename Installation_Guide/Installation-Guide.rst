@@ -1,7 +1,7 @@
 .. image:: /Installation_Guide/amdblack.jpg
 
 ==============================================
-AMD ROCm QuickStart Installation Guide v3.1.0
+AMD ROCm QuickStart Installation Guide v3.3.0
 ==============================================
 
 -  `Deploying ROCm`_
