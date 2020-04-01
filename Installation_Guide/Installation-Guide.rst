@@ -371,7 +371,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 6. Set permissions. 
 
-To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using 	 ROCm. To identify the groups you are a member of, use the following command:
+To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
 
 ::
 
@@ -518,16 +518,27 @@ The packages for each of the major ROCm components are:
     
 -    ROCm Development Tools
      -   HCC compiler: ``hcc``
+     
      -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``
+     
      -   ROCm Device Libraries: ``rocm-device-libs``
+     
      -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
+     
      -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
+     
      -   Asynchronous Task and Memory Interface (ATMI): ``atmi``
+     
      -   ROCm Debug Agent: ``rocm_debug_agent``
+     
      -   ROCm Code Object Manager: ``comgr``
+     
      -   ROC Profiler: ``rocprofiler-dev``
+     
      -   ROC Tracer: ``roctracer-dev``
+     
      -   Radeon Compute Profiler: ``rocm-profiler``
+     
 
 -    ROCm Libraries
  
