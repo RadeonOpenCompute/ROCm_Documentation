@@ -498,20 +498,26 @@ ROCm is a collection of software ranging from drivers and runtimes to libraries 
 
 The packages for each of the major ROCm components are:
 
--    ROCm Core Components
+ROCm Core Components
+=====================
 
      -   ROCk Kernel Driver: ``rock-dkms``
      -   ROCr Runtime: ``hsa-rocr-dev``, ``hsa-ext-rocr-dev``
      -   ROCt Thunk Interface: ``hsakmt-roct``, ``hsakmt-roct-dev``
 
--    ROCm Support Software
+
+ROCm Support Software
+======================
 
      -   ROCm SMI: ``rocm-smi``
      -   ROCm cmake: ``rocm-cmake``
      -   rocminfo: ``rocminfo``
      -   ROCm Bandwidth Test: ``rocm_bandwidth_test``
+     
     
--    ROCm Development Tools
+ROCm Development ToolChain
+===========================
+
      -   HCC compiler: ``hcc``
      
      -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``
@@ -535,7 +541,8 @@ The packages for each of the major ROCm components are:
      -   Radeon Compute Profiler: ``rocm-profiler``
      
 
--    ROCm Libraries
+ROCm Libraries
+==============
  
      -  rocALUTION: ``rocalution``
      -  rocBLAS: ``rocblas``
@@ -622,64 +629,61 @@ Drivers, ToolChains, Libraries, and Source Code
 
 The latest supported version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available from the following GitHub repositories:
 
--  **ROCm Core Components**
+**ROCm Core Components**
 
    -  `ROCk Kernel Driver`_
    -  `ROCr Runtime`_
    -  `ROCt Thunk Interface`_
 
--  **ROCm Support Software**
+**ROCm Support Software**
 
    -  `ROCm SMI`_
    -  `ROCm cmake`_
    -  `rocminfo`_
    -  `ROCm Bandwidth Test`_
 
--  **ROCm Development ToolChains**
+**ROCm Development ToolChain**
 
-   -  `HCC compiler`_
-   -  `HIP`_
-   -  `ROCm Device Libraries`_
-   -  ROCm OpenCL, which is created from the following components:
+  -  `HCC compiler`_
+  -  `HIP`_
+  -  `ROCm Device Libraries`_
 
-      -  `ROCm OpenCL Runtime`_
-      -  The ROCm OpenCL compiler, which is created from the following
-         components:
-      -  `ROCm LLVM OCL`_
-      -  `ROCm DeviceLibraries`_
+ -  `ROCm OpenCL Runtime`_
+ -  `ROCm LLVM OCL`_
+ -  `ROCm DeviceLibraries`_
          
-   -  `ROCM Clang-OCL Kernel Compiler`_
-   -  `Asynchronous Task and Memory Interface`_
-   -  `ROCm Debug Agent`_
-   -  `ROCm Code Object Manager`_
-   -  `ROC Profiler`_
-   -  `ROC Tracer`_
-   -  `AOMP`_
-   -  `Radeon Compute Profiler`_
-   -  `ROCm Validation Suite`_
+ -  `ROCM Clang-OCL Kernel Compiler`_
+ -  `Asynchronous Task and Memory Interface`_
+ -  `ROCm Debug Agent`_
+ -  `ROCm Code Object Manager`_
+ -  `ROC Profiler`_
+ -  `ROC Tracer`_
+ -  `AOMP`_
+ -  `Radeon Compute Profiler`_
+ -  `ROCm Validation Suite`_
 
-   -  Example Applications:
+ Example Applications:
 
-      -  `HCC Examples`_
-      -  `HIP Examples`_
+  -  `HCC Examples`_
+  -  `HIP Examples`_
 
--  **ROCm Libraries**
+**ROCm Libraries**
 
-   -  `rocBLAS`_
-   -  `hipBLAS`_
-   -  `rocFFT`_
-   -  `rocRAND`_
-   -  `rocSPARSE`_
-   -  `hipSPARSE`_
-   -  `rocALUTION`_
-   -  `MIOpenGEMM`_
-   -  `mi open`_
-   -  `rocThrust`_
-   -  `ROCm SMI Lib`_
-   -  `RCCL`_
-   -  `MIVisionX`_
-   -  `hipCUB`_
-   -  `AMDMIGraphX`_
+ -  `rocBLAS`_
+ -  `hipBLAS`_
+ -  `rocFFT`_
+ -  `rocRAND`_
+ -  `rocSPARSE`_
+ -  `hipSPARSE`_
+ -  `rocALUTION`_
+ -  `MIOpenGEMM`_
+ -  `mi open`_
+ -  `rocThrust`_
+ -  `ROCm SMI Lib`_
+ -  `RCCL`_
+ -  `MIVisionX`_
+ -  `hipCUB`_
+ -  `AMDMIGraphX`_
 
 
 ROCm Core Components
