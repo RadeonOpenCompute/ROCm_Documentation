@@ -701,7 +701,7 @@ ROCm Support Software
 .. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.3.0
 
 
-ROCm Development ToolChains
+ROCm Development ToolChain
 ============================
 
 .. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-hcc-3.3.0
@@ -710,40 +710,68 @@ ROCm Development ToolChains
 
 .. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-ocl-3.3.0
 
-ROCm OpenCL, which is created from the following components:
+ROCm OpenCL is created from the following components:
 
-.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.0.0
+.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.3.0
 
-.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/roc-ocl-3.0.0
+.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/rocm-ocl-3.3.0
 
-.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/3.0.0
+.. _ROCm Device Libraries OCL: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-ocl-3.3.0
 
-.. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm_3.0.0
+.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/rocm-3.3.0
 
-.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-3.0.0
-.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/roc-3.0.0
+.. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm-3.3.0
+
+.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-3.3.0
+
+.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/rocm-3.3.0
+
 .. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-3.0.0
-.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-3.0.x
-.. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/roc-3.0.0
-.. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
-.. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/roc-3.0.0
-.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/roc-3.0.0
 
-.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.0
-.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.0
-.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.0
-.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/3.0
-.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.0
-.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.0
-.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.0
+.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-3.0.x
+
+.. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/roc-3.3.0
+
+.. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
+
+.. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/roc-3.3.0
+
+.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
+
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.3.0
+
+
+ROCm Libraries
+===============
+
+.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.3.0
+
+.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.3.0
+
+.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.3
+
+.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/rocm-3.3.0
+
+.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.3.0
+
+.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.3.0
+
+.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.3.0
+
 .. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/6275a879
-.. _mi open: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-3.0.0
-.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/3.0.0
-.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/roc.3.0.0
-.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/3.0.0
+
+.. _mi open: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/roc-3.3.0
+
+.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/rocm-3.3.0
+
+.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/rocm-3.3.0
+
+.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/rocm-3.3.0
+
 .. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.5
-.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/3.0.0
+
+.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.3.0
+
 .. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphx/tree/0.5-hip-hcc
 
 
