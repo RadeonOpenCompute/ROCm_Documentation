@@ -125,32 +125,38 @@ For example,
 **NOTE**: The multi-instance installation applies only to ROCm v3.3 and above. This package requires a fresh installation after the complete removal of existing ROCm packages. The multi-version installation is not backward compatible. 
 
 
-**Reliability, Accessibility, and Serviceability Support for Vega7nm**
-######################################################################
+**GPU Process Information**
+############################
 
-The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is now available. The support includes:
+A new functionality to display process information for GPUs is available in this release. For example,  you can view the process details to determine if the GPU(s) must be reset. 
 
-* UMC RAS – HBM ECC (uncorrectable error injection), page retirement, RAS recovery via GPU (BACO) reset
-* GFX RAS – GFX, MMHUB ECC (uncorrectable error injection), RAS recovery via GPU (BACO) reset
-* PCIE RAS – PCIE_BIF ECC (uncorrectable error injection), RAS recovery via GPU (BACO) reset
+To display the GPU process details, you can:
 
+* Invoke the API 
+or
+* Use the Command Line Interface (CLI)
 
-
-**SLURM Support for AMD GPU**
-##############################
-
-SLURM (Simple Linux Utility for Resource Management) is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters. The latest version 20.02.0 of SLURM includes AMD plugins that enable SLURM to detect and configure AMD GPUs automatically.  It also collects and reports the energy consumption of AMD GPUs.
+For more details about the API and the command instructions, see
+https://github.com/RadeonOpenCompute/rocm_smi_lib/blob/master/docs/ROCm_SMI_Manual.pdf
 
 
-The following webpage describes the features, fixed issues, and information about downloading and installing the ROCm software.
-It also covers known issues and deprecated features in the ROCm v3.1 release.
+**Support for 3D Pooling Layers**
+###################################
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
+AMD ROCm is enhanced to include support for 3D pooling layers. The implementation of 3D pooling layers now allows users to run 3D convolutional networks, such as ResNext3D, on AMD Radeon Instinct GPUs. 
 
-Refer the QuickStart Installation Guide.pdf for ROCm installation instructions on the following platforms:
 
-* Ubuntu
-* CentOS/RHEL
-* SLES 15 Service Pack 1
+**ONNX Enhancements**
+##########################
+
+Open Neural Network eXchange (ONNX) is a widely-used neural net exchange format. The AMD model compiler & optimizer support the pre-trained models in ONNX, NNEF, & Caffe formats. Currently, ONNX versions 1.3 and below are supported. 
+
+The AMD Neural Net Intermediate Representation (NNIR) is enhanced to handle the rapidly changing ONNX versions and its layers. 
+
+.. image:: /Current_Release_Notes/onnx.png
+
+
+
+
 
 
