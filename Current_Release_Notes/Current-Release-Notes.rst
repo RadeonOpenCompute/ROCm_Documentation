@@ -157,10 +157,10 @@ The AMD Neural Net Intermediate Representation (NNIR) is enhanced to handle the 
 
 
 Deprecations in the v3.3 Release
-##################################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Code Object Manager (Comgr) Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##################################
 
 The following Code Object Manager (Comgr) functions are deprecated.
 
