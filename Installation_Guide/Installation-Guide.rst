@@ -165,8 +165,6 @@ CentOS RHEL v7.7
 
 This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7.
 
-For more details, refer: https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#rocm-binary-package-structure
-
 
 Preparing RHEL v7 (7.7) for Installation
 '''''''''''''''''''''''''''''''''''''''''''
