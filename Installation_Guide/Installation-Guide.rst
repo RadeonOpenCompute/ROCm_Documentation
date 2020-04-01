@@ -558,10 +558,7 @@ It will install the ``rock-dkms`` kernel driver, and another meta-package
  (``rocm-dev``) which installs most of the user-land ROCm core components, support software, and development tools.
  
 
-The ``rocm-utils``meta-package will install useful utilities that,
-while not required for ROCm to operate, may still be beneficial to have.
-Finally, the ``rocm-libs``meta-package will install some (but not all)
-of the libraries that are part of ROCm.
+The *rocm-utils* meta-package will install useful utilities that, while not required for ROCm to operate, may still be beneficial to have. Finally, the *rocm-libs* meta-package will install some (but not all) of the libraries that are part of ROCm.
 
 The chain of software installed by these meta-packages is illustrated below:
 
@@ -608,7 +605,7 @@ The chain of software installed by these meta-packages is illustrated below:
 
 These meta-packages are not required but may be useful to make it easier to install ROCm on most systems.
 
-Note:Some users may want to skip certain packages. For instance, a user that wants to use the upstream kernel drivers (rather than those supplied by AMD) may want to skip the rocm-dkms and rock-dkms packages. Instead, they could directly install rocm-dev.
+Note: Some users may want to skip certain packages. For instance, a user that wants to use the upstream kernel drivers (rather than those supplied by AMD) may want to skip the rocm-dkms and rock-dkms packages. Instead, they could directly install rocm-dev.
 
 Similarly, a user that only wants to install OpenCL support instead of HCC and HIP may want to skip the rocm-dkms and rocm-dev packages. Instead, they could directly install rock-dkms, rocm-opencl, and rocm-opencl-dev and their dependencies.
 
