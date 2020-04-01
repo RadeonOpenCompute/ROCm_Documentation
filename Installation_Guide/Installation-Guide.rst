@@ -768,7 +768,7 @@ ROCm Libraries
 
 .. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/rocm-3.3.0
 
-.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.5
+.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.7
 
 .. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.3.0
 
