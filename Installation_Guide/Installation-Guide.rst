@@ -58,7 +58,7 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
 
 ::
 
-    wget -q -O – http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+    wget -q --O - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
 
     echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
