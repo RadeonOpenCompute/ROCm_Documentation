@@ -1110,10 +1110,16 @@ Creates a stream with the specified priority. It creates a stream on which enque
 
 OpenCL 2.0 support
 
-ROCm 2.0 introduces full support for kernels written in the OpenCL 2.0 C language on certain devices and systems.  Applications can detect this support by calling the “clGetDeviceInfo” query function with “parame_name” argument set to “CL_DEVICE_OPENCL_C_VERSION”.  In order to make use of OpenCL 2.0 C language features, the application must include the option “-cl-std=CL2.0” in options passed to the runtime API calls responsible for compiling or building device programs.  The complete specification for the OpenCL 2.0 C language can be obtained using the following link: https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf
+ROCm 2.0 introduces full support for kernels written in the OpenCL 2.0 C language on certain devices and systems.  Applications can detect this support by calling the “clGetDeviceInfo” query function with “parame_name” argument set to “CL_DEVICE_OPENCL_C_VERSION”.  
+
+In order to make use of OpenCL 2.0 C language features, the application must include the option “-cl-std=CL2.0” in options passed to the runtime API calls responsible for compiling or building device programs.  The complete specification for the OpenCL 2.0 C language can be obtained using the following link: https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf
+
 Improved Virtual Addressing (48 bit VA) management for Vega 10 and later GPUs
+
 Fixes Clang AddressSanitizer and potentially other 3rd-party memory debugging tools with ROCm
+
 Small performance improvement on workloads that do a lot of memory management
+
 Removes virtual address space limitations on systems with more VRAM than system memory
 Kubernetes support
 
@@ -1121,25 +1127,40 @@ New features and enhancements in ROCm 1.9.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 RDMA(MPI) support on Vega 7nm
+
 Support ROCnRDMA based on Mellanox InfiniBand
+
 Improvements to HCC
+
 Improved link time optimization
+
 Improvements to ROCProfiler tool
+
 General bug fixes and implemented versioning APIs
+
 New features and enhancements in ROCm 1.9.2
+
 RDMA(MPI) support on Vega 7nm
+
 Support ROCnRDMA based on Mellanox InfiniBand
+
 Improvements to HCC
+
 Improved link time optimization
+
 Improvements to ROCProfiler tool
+
 General bug fixes and implemented versioning APIs
+
 Critical bug fixes
 
 New features and enhancements in ROCm 1.9.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Added DPM support to Vega 7nm
+
 Dynamic Power Management feature is enabled on Vega 7nm.
+
 Fix for 'ROCm profiling' that used to fail with a “Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1” error
 
 New features and enhancements in ROCm 1.9.0
@@ -1147,25 +1168,39 @@ New features and enhancements in ROCm 1.9.0
 
 Preview for Vega 7nm
 Enables developer preview support for Vega 7nm
+
 System Management Interface
 Adds support for the ROCm SMI (System Management Interface) library, which provides monitoring and management capabilities for AMD GPUs.
+
 Improvements to HIP/HCC
 Support for gfx906
+
 Added deprecation warning for C++AMP. This will be the last version of HCC supporting C++AMP.
+
 Improved optimization for global address space pointers passing into a GPU kernel
+
 Fixed several race conditions in the HCC runtime
+
 Performance tuning to the unpinned copy engine
+
 Several codegen enhancement fixes in the compiler backend
+
 Preview for rocprof Profiling Tool
+
 Developer preview (alpha) of profiling tool rocProfiler. It includes a command-line front-end, rpl_run.sh, which enables:
 
 Cmd-line tool for dumping public per kernel perf-counters/metrics and kernel timestamps
+
 Input file with counters list and kernels selecting parameters
+
 Multiple counters groups and app runs supported
+
 Output results in CSV format
+
 The tool can be installed from the rocprofiler-dev package. It will be installed into: /opt/rocm/bin/rpl_run.sh
 
 Preview for rocr Debug Agent rocr_debug_agent
+
 The ROCr Debug Agent is a library that can be loaded by ROCm Platform Runtime to provide the following functionality:
 
 Print the state for wavefronts that report memory violation or upon executing a "s_trap 2" instruction.
