@@ -11,9 +11,11 @@ AMD ROCm QuickStart Installation Guide v3.3.0
    -  `Centos RHEL v7.7`_
    
    -  `SLES 15 Service Pack 1`_
-   |
+   
+   
 -  `ROCm Installation Known Issues and Workarounds`_
-|
+
+
 -  `Getting the ROCm Source Code`_
 
 
@@ -703,7 +705,7 @@ ROCm Support Software
 
 .. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-3.3.0
 
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/roc-3.3.0
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/rocm-3.3.0
 
 .. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.3.0
 
@@ -734,9 +736,9 @@ ROCm Development ToolChain
 
 .. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/rocm-3.3.0
 
-.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-3.0.0
+.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/roc-3.3.0
 
-.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-3.0.x
+.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/roc-3.3.0
 
 .. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/roc-3.3.0
 
