@@ -73,7 +73,7 @@ Ensure the existing installations of ROCm, including */opt/rocm*, are completely
 **Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
 
 
-**Before You Begin
+Before You Begin
 ~~~~~~~~~~~~~~~~~~~~
 
 Review the following important notes:
