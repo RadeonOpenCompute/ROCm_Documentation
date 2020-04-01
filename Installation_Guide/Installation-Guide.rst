@@ -747,6 +747,28 @@ ROCm Version History
 
 This file contains archived version history information for the ROCm project
 
+New features and enhancements in ROCm v3.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This release was not productized.
+
+
+New features and enhancements in ROCm v3.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Change in ROCm Installation Directory Structure**
+
+A fresh installation of the ROCm toolkit installs the packages in the /opt/rocm-<version> folder. 
+Previously, ROCm toolkit packages were installed in the /opt/rocm folder.
+
+**Reliability, Accessibility, and Serviceability Support for Vega 7nm**
+
+The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is now available. 
+
+**SLURM Support for AMD GPU**
+
+SLURM (Simple Linux Utility for Resource Management) is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters. 
+
+
 New features and enhancements in ROCm v3.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
