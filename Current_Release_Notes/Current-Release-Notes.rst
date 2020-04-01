@@ -38,7 +38,7 @@ Supported Operating Systems
 The ROCm v3.1.x platform is designed to support the following operating systems:
 
 
-* Ubuntu 16.04.6(Kernel 4.15) and 18.04.4(Kernel 5.3)
+* Ubuntu 16.04.6(Kernel 4.15) and 18.04.4 (Kernel 5.3)
 
 * CentOS v7.7 (Using devtoolset-7 runtime support)
 
@@ -59,18 +59,16 @@ Previously, users could install only a single version of the ROCm toolkit.
 
 Now, users have the option to install multiple versions simultaneously and toggle to the desired version of the ROCm toolkit. From the v3.3 release, multiple versions of ROCm packages can be installed in the */opt/rocm-<version>* folder.
  
-**Prerequisites
+**Prerequisites**
 ~~~~~~~~~~~~~~~~~~
 
 Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.3 ROCm toolkit installation. The ROCm v3.3 package requires a clean installation.
 
 * To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
 
-* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. 
-For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
 
-* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. 
-For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
 
 **Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
 
@@ -133,7 +131,9 @@ A new functionality to display process information for GPUs is available in this
 To display the GPU process details, you can:
 
 * Invoke the API 
+
 or
+
 * Use the Command Line Interface (CLI)
 
 For more details about the API and the command instructions, see
