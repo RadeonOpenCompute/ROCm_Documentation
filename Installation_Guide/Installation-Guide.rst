@@ -1197,31 +1197,54 @@ New features as of ROCm 1.8
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DKMS driver installation
+
 Debian packages are provided for DKMS on Ubuntu
+
 RPM packages are provided for CentOS/RHEL 7.4 and 7.5 support
+
 See the ROCT-Thunk-Interface and ROCK-Kernel-Driver for additional documentation on driver setup
+
 New distribution support
+
 Binary package support for Ubuntu 16.04 and 18.04
+
 Binary package support for CentOS 7.4 and 7.5
+
 Binary package support for RHEL 7.4 and 7.5
+
 Improved OpenMPI via UCX support
+
 UCX support for OpenMPI
+
 ROCm RDMA
 
 New Features as of ROCm 1.7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DKMS driver installation
+
 New driver installation uses Dynamic Kernel Module Support (DKMS)
+
 Only amdkfd and amdgpu kernel modules are installed to support AMD hardware
+
 Currently only Debian packages are provided for DKMS (no Fedora suport available)
+
 See the ROCT-Thunk-Interface and ROCK-Kernel-Driver for additional documentation on driver setup
+
 New Features as of ROCm 1.5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Developer preview of the new OpenCL 1.2 compatible language runtime and compiler
+
 OpenCL 2.0 compatible kernel language support with OpenCL 1.2 compatible runtime
+
 Supports offline ahead of time compilation today; during the Beta phase we will add in-process/in-memory compilation.
+
 Binary Package support for Ubuntu 16.04
+
 Binary Package support for Fedora 24 is not currently available
+
 Dropping binary package support for Ubuntu 14.04, Fedora 23
+
 IPC support
                  
