@@ -176,5 +176,12 @@ The deprecated functions are now replaced with the array-oriented options API, w
 * `amd_comgr_action_info_get_option_list_item`
 
 
+Hardware and Software Support Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+AMD ROCm is focused on using AMD GPUs to accelerate computational tasks such as machine learning, engineering workloads, and scientific computing. In order to focus our development efforts on these domains of interest, ROCm supports a targeted set of hardware configurations. 
+
+For more information, see 
+
+https://github.com/RadeonOpenCompute/ROCm
 
