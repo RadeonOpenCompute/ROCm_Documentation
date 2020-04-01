@@ -21,7 +21,7 @@ AMD ROCm QuickStart Installation Guide v3.1.0
 Deploying ROCm
 ~~~~~~~~~~~~~~~~
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.0x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v3.x packages.
 
 The following directions show how to install ROCm on supported Debian-based systems such as Ubuntu 18.04.x
 
@@ -123,11 +123,11 @@ Note: To run the ROCm programs more efficiently, add the ROCm binaries in your P
 Uninstalling ROCm Packages from Ubuntu
 ''''''''''''''''''''''''''''''''''''''''
 
-To uninstall the ROCm packages from Ubuntu 1v6.04 or Ubuntu v18.04.x, run the following command:
+To uninstall the ROCm packages from Ubuntu 16.04.6 or Ubuntu 18.04.4, run the following command:
 
 ::
 
-  sudo apt autoremove rocm-dkms rocm-dev rocm-utils
+  sudo apt autoremove rocm-opencl rocm-dkms rocm-dev rocm-utils
 
 
 Installing Development Packages for Cross Compilation
@@ -190,7 +190,7 @@ Note: The following steps do not apply to the CentOS installation.
 
 ::
 
-   sudo rpm -ivh
+   sudo rpm -ivh <repo>
 
 
 For more details, see https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -286,8 +286,6 @@ After restarting the system, run the following commands to verify that the ROCm 
   echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' |
   sudo tee -a /etc/profile.d/rocm.sh
 
-For more information about installation issues, see: https://rocm.github.io/install_issues.html
-
 
 Compiling Applications Using HCC, HIP, and Other ROCm Software
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -307,7 +305,7 @@ To uninstall the ROCm packages, run the following command:
 
 ::
 
-  sudo yum autoremove rocm-dkms rock-dkms
+  sudo yum autoremove rocm-opencl rocm-dkms rock-dkms
 
 
 Installing Development Packages for Cross Compilation
@@ -408,11 +406,11 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 	/opt/rocm/opencl/bin/x86_64/clinfo
 
 Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
-echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
+
 
 ::
 
-	sudo tee -a /etc/profile.d/rocm.sh
+echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64'|sudo tee -a /etc/profile.d/rocm.sh
 
 **Uninstallation**
 
@@ -420,10 +418,10 @@ To uninstall, use the following command:
 
 ::
 
-	sudo zypper remove rocm-dkms rock-dkms
+	sudo zypper remove rocm-opencl rocm-dkms rock-dkms
 
 Note: Ensure all other installed packages/components are removed.
-Note: Ensure all the content in the /opt/rocm directory is completely removed.
+Note: Ensure all the content in the /opt/rocm directory is completely removed. If the command does not remove all the ROCm components/packages, ensure you remove them individually.
 
 Performing an OpenCL-only Installation of ROCm
 ''''''''''''''''''''''''''''''''''''''''''''''''
@@ -531,7 +529,7 @@ The packages for each of the major ROCm components are:
      -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
      -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
      -   Asynchronous Task and Memory Interface (ATMI): ``atmi``
-     -   ROCr Debug Agent: ``rocr_debug_agent``
+     -   ROCm Debug Agent: ``rocm_debug_agent``
      -   ROCm Code Object Manager: ``comgr``
      -   ROC Profiler: ``rocprofiler-dev``
      -   ROC Tracer: ``roctracer-dev``
@@ -547,7 +545,7 @@ The packages for each of the major ROCm components are:
      -  rocRAND: ``rocrand``
      -  rocSPARSE: ``rocsparse``
      -  hipSPARSE: ``hipsparse``
-     -  ROCm SMI Lib: ``rocm_smi_lib64``
+     -  ROCm SMI Lib: ``rocm-smi-lib64``
      -  rocThrust: ``rocThrust``
      -  MIOpen: ``MIOpen-HIP`` (for the HIP version), ``MIOpen-OpenCL`` (for the OpenCL version)
      -  MIOpenGEMM: ``miopengemm``
@@ -573,10 +571,10 @@ The chain of software installed by these meta-packages is illustrated below
     \--rocm-dev
        |--comgr
        |--hcc
-       |--hip_base
-       |--hip_doc
-       |--hip_hcc
-       |--hip_samples
+       |--hip-base
+       |--hip-doc
+       |--hip-hcc
+       |--hip-samples
        |--hsakmt-roct
        |--hsakmt-roct-dev
        |--hsa-amd-aqlprofile
@@ -584,9 +582,9 @@ The chain of software installed by these meta-packages is illustrated below
        |--hsa-rocr-dev
        |--rocm-cmake
        |--rocm-device-libs
-       |--rocm-smi
+       |--rocm-smi-lib64
        |--rocprofiler-dev
-       |--rocr_debug_agent
+       |--rocr-debug-agent
        \--rocm-utils
           |--rocminfo
           \--rocm-clang-ocl # This will cause OpenCL to be installed
@@ -655,7 +653,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
          
    -  `ROCM Clang-OCL Kernel Compiler`_
    -  `Asynchronous Task and Memory Interface`_
-   -  `ROCr Debug Agent`_
+   -  `ROCm Debug Agent`_
    -  `ROCm Code Object Manager`_
    -  `ROC Profiler`_
    -  `ROC Tracer`_
