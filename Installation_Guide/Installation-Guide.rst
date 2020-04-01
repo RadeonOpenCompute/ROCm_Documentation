@@ -27,10 +27,6 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Note**: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
-For more information on the ROCm binary structure, see https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#rocm-binary-package-structure
-
-For information about upstream kernel drivers, see the Using Debian-based ROCm with Upstream Kernel Drivers section.
-
 .. _Ubuntu:
 
 Ubuntu
