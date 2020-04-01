@@ -53,9 +53,30 @@ What\'s New in This Release
 **Multi-Version Installation**
 ###################################################
 
-A fresh installation of the ROCm toolkit installs the packages in the */opt/rocm-\<version>* folder. 
-	
-Previously, ROCm toolkit packages were installed in the */opt/rocm* folder. 
+Users can install and access multiple versions of the ROCm toolkit simultaneously.
+
+Previously, users could install only a single version of the ROCm toolkit. 
+
+Now, users have the option to install multiple versions simultaneously and toggle to the desired version of the ROCm toolkit. From the v3.3 release, multiple versions of ROCm packages can be installed in the */opt/rocm-<version>* folder.
+ 
+**Prerequisites**
+=====================
+
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.3 ROCm toolkit installation. The ROCm v3.3 package requires a clean installation.
+
+* To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
+
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. 
+For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. 
+For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+
+**Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
+
+
+**Before You Begin**
+======================
 
 .. image:: /Current_Release_Notes/Versionchange1.png
 
