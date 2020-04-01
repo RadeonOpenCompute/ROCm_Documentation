@@ -17,7 +17,7 @@ Note: You can also clone the source code for individual ROCm components from the
 ROCm Components
 ~~~~~~~~~~~~~~~~
 
-The following components for the ROCm platform are released and available for the v3.1
+The following components for the ROCm platform are released and available for the v3.3
 release:
 
 • Drivers
@@ -35,7 +35,7 @@ https://github.com/RadeonOpenCompute/ROCm
 Supported Operating Systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ROCm v3.1.x platform is designed to support the following operating systems:
+The ROCm v3.3.x platform is designed to support the following operating systems:
 
 
 * Ubuntu 16.04.6(Kernel 4.15) and 18.04.4 (Kernel 5.3)
