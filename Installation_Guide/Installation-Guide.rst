@@ -551,17 +551,20 @@ The packages for each of the major ROCm components are:
      -  MIVisionX: ``mivisionx``
      -  RCCL: ``rccl``
 
+
 To make it easier to install ROCm, the AMD binary repositories provide a number of meta-packages that will automatically install multiple other packages. For example, ``rocm-dkms`` is the primary meta-package that is
 used to install most of the base technology needed for ROCm to operate.
 It will install the ``rock-dkms`` kernel driver, and another meta-package 
  (``rocm-dev``) which installs most of the user-land ROCm core components, support software, and development tools.
+ 
 
 The ``rocm-utils``meta-package will install useful utilities that,
 while not required for ROCm to operate, may still be beneficial to have.
 Finally, the ``rocm-libs``meta-package will install some (but not all)
 of the libraries that are part of ROCm.
 
-The chain of software installed by these meta-packages is illustrated below
+The chain of software installed by these meta-packages is illustrated below:
+
 
 ::
 
@@ -610,6 +613,7 @@ Note:Some users may want to skip certain packages. For instance, a user that wan
 Similarly, a user that only wants to install OpenCL support instead of HCC and HIP may want to skip the rocm-dkms and rocm-dev packages. Instead, they could directly install rock-dkms, rocm-opencl, and rocm-opencl-dev and their dependencies.
 
 .. _ROCm Platform Packages:
+
 
 ROCm Platform Packages
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -694,7 +698,7 @@ ROCm Support Software
 
 .. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-3.3.0
 
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/roc-3.0.0
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/roc-3.3.0
 
 .. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.3.0
 
