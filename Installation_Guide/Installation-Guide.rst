@@ -1,6 +1,5 @@
 .. image:: /Installation_Guide/amdblack.jpg
-
-
+|
 ==============================================
 AMD ROCm QuickStart Installation Guide v3.3.0
 ==============================================
@@ -12,10 +11,10 @@ AMD ROCm QuickStart Installation Guide v3.3.0
    -  `Centos RHEL v7.7`_
    
    -  `SLES 15 Service Pack 1`_
-   
+   |
 
 -  `ROCm Installation Known Issues and Workarounds`_
-
+|
    
 -  `Getting the ROCm Source Code`_
 
