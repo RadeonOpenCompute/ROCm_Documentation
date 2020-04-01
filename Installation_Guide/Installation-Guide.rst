@@ -680,8 +680,10 @@ The latest supported version of the drivers, tools, libraries and source code fo
    -  `hipCUB`_
    -  `AMDMIGraphX`_
 
+
 ROCm Core Components
 =====================
+
 
 .. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/roc-3.3.0
 
@@ -692,6 +694,7 @@ ROCm Core Components
 
 ROCm Support Software
 ======================
+
 
 .. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-3.3.0
 
@@ -705,13 +708,16 @@ ROCm Support Software
 ROCm Development ToolChain
 ============================
 
+
 .. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-hcc-3.3.0
 
 .. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.3.0
 
 .. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-ocl-3.3.0
 
+
 ROCm OpenCL is created from the following components:
+
 
 .. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.3.0
 
@@ -740,6 +746,7 @@ ROCm OpenCL is created from the following components:
 .. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
 
 .. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.3.0
+
 
 
 ROCm Libraries
