@@ -786,9 +786,9 @@ ROCm Libraries
 
 Features and enhancements introduced in previous versions of ROCm can be found in :ref:`Current-Release-Notes`.
 
-======================
-ROCm Version History
-======================
+=========================
+AMD ROCm Version History
+=========================
 
 This file contains archived version history information for the ROCm project
 
