@@ -715,10 +715,6 @@ ROCm Development ToolChain
 
 .. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-ocl-3.3.0
 
-
-ROCm OpenCL is created from the following components:
-
-
 .. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.3.0
 
 .. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/rocm-ocl-3.3.0
