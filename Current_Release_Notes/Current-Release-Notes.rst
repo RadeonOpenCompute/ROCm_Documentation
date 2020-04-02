@@ -50,7 +50,7 @@ The ROCm v3.3.x platform is designed to support the following operating systems:
 What\'s New in This Release
 ===========================
 
-**Multi\- Version Installation**
+**Multi\-Version Installation**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
