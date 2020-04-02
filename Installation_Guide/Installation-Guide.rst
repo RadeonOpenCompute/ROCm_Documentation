@@ -652,7 +652,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
  -  `ROCm OpenCL Runtime`_
  -  `ROCm LLVM OCL`_
- -  `ROCm DeviceLibraries`_
+ -  `ROCm Device Libraries OCL`_
          
  -  `ROCM Clang-OCL Kernel Compiler`_
  -  `Asynchronous Task and Memory Interface`_
