@@ -50,7 +50,7 @@ The ROCm v3.3.x platform is designed to support the following operating systems:
 What\'s New in This Release
 ===========================
 
-**Multi Version Installation**
+**Multi\- Version Installation**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
@@ -157,7 +157,7 @@ The AMD Neural Net Intermediate Representation (NNIR) is enhanced to handle the 
 
 
 Deprecations in the v3.3 Release
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================
 
 Code Object Manager (Comgr) Functions
 ##################################
@@ -177,7 +177,7 @@ The deprecated functions are now replaced with the array-oriented options API, w
 
 
 Hardware and Software Support Information
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================================
 
 AMD ROCm is focused on using AMD GPUs to accelerate computational tasks such as machine learning, engineering workloads, and scientific computing. In order to focus our development efforts on these domains of interest, ROCm supports a targeted set of hardware configurations. 
 
