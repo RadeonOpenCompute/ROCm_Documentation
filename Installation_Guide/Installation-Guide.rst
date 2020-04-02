@@ -716,7 +716,7 @@ ROCm Development ToolChain
 ============================
 
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-hcc-3.3.0
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-3.3.0 
 
 .. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.3.0
 
