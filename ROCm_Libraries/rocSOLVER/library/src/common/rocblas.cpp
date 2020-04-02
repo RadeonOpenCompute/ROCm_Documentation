@@ -104,7 +104,7 @@ rocblas_status rocblas_iamax(rocblas_handle handle, rocblas_int n,
   return rocblas_izamax(handle, n, x, incx, result);
 }
 
-//ger 
+//ger
 
 template <>
 rocblas_status rocblas_ger<false>(rocblas_handle handle, rocblas_int m, rocblas_int n,

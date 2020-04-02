@@ -30,38 +30,38 @@ Installing ROCm Debian packages:
 ::
 
   PKG_REPO="http://repo.radeon.com/rocm/apt/debian/"
-   
+
   wget -qO - $PKG_REPO/rocm.gpg.key | sudo apt-key add -
-  
+
   sudo sh -c "echo deb [arch=amd64] $PKG_REPO xenial main > /etc/apt/sources.list.d/rocm.list"
- 
+
   sudo apt-get update
-  
+
   sudo apt-get install rocm rocm-utils rocm-opencl rocm-opencl-dev rocm-profiler cxlactivitylogger
 
   echo 'export PATH=/opt/rocm/bin:$PATH' >> $HOME/.bashrc
-  
+
   echo 'export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH' >> $HOME/.bashrc
 
   source $HOME/.bashrc
-  
+
   sudo reboot
-  
+
 Then, verify the installation. Double-check your kernel (at a minimum, you should see "kfd" in the name)::
- 
+
    uname -r
-  
+
 In addition, check that you can run the simple HSA vector_copy sample application::
-  
+
   cd /opt/rocm/hsa/sample
   make
   ./vector_copy
-  
+
 Pre-requisites Installation
 ++++++++++++++++++++++++++++
 
 Install Caffe dependencies::
- 
+
  sudo apt-get install \
  	pkg-config \
  	protobuf-compiler \
@@ -78,24 +78,24 @@ Install Caffe dependencies::
  	libopencv-dev \
  	libfftw3-dev \
  	libelf-dev
- 
+
 
 Install the necessary ROCm compute libraries::
- 
+
  sudo apt-get install rocm-libs miopen-hip miopengemm
 
 hipCaffe Build Steps
 +++++++++++++++++++++
 Clone hipCaffe::
- 
- git clone https://github.com/ROCmSoftwarePlatform/hipCaffe.git 
- 
+
+ git clone https://github.com/ROCmSoftwarePlatform/hipCaffe.git
+
  cd hipCaffe
- 
+
 You may need to modify the Makefile.config file for your own installation. Then, build it::
- 
+
  cp ./Makefile.config.example ./Makefile.config
- make 
+ make
 
 To improve build time, consider invoking parallel make with the "-j$(nproc)" flag.
 
@@ -103,7 +103,7 @@ Unit Testing
 -------------
 
 Run the following commands to perform unit testing of different components of Caffe.
-:: 
+::
  make test
  ./build/test/test_all.testbin
 
@@ -114,7 +114,7 @@ MNIST training
 ++++++++++++++++
 
 Steps::
- 
+
     ./data/mnist/get_mnist.sh
     ./examples/mnist/create_mnist.sh
     ./examples/mnist/train_lenet.sh
@@ -123,7 +123,7 @@ CIFAR-10 training
 ++++++++++++++++++
 
 Steps::
- 
+
     ./data/cifar10/get_cifar10.sh
     ./examples/cifar10/create_cifar10.sh
     ./build/tools/caffe train --solver=examples/cifar10/cifar10_quick_solver.prototxt
@@ -163,7 +163,7 @@ Sometimes when training with multiple GPUs, we hit this type of error signature:
      @           0x8015c3 caffe::Solver<>::Solve()
      @           0x71a277 caffe::P2PSync<>::Run()
      @           0x42dcbc train()
- 
+
 
 See this `comment <https://github.com/ROCmSoftwarePlatform/hipCaffe/issues/11#issuecomment-318518802>`_.
 

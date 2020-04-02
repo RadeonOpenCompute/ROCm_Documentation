@@ -61,7 +61,7 @@ Use the following commands:
       -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" \
       ../llvm
    make
-            
+
 
 To build the library bitcodes, clone the amd_stg_open branch of this repository.
 Run the following commands:
@@ -189,7 +189,7 @@ Programmers should consult the HSA Runtime Programmer's Reference Manual for a f
 
 Known issues
 **************
- 
+
   *  Each HSA process creates an internal DMA queue, but there is a system-wide limit of four DMA queues. When the limit is reached HSA processes will use internal kernels for copies.
 
 **Disclaimer**

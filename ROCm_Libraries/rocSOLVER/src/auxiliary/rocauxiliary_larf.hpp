@@ -19,8 +19,8 @@
 
 template <typename T, typename U>
 rocblas_status rocsolver_larf_template(rocsolver_handle handle, const rocsolver_side side, const rocsolver_int m,
-                                        const rocsolver_int n, U x, const rocblas_int shiftx, const rocsolver_int incx, 
-                                        const rocblas_int stridex, const T* alpha, const rocblas_int stridep, U A, const rocblas_int shiftA, 
+                                        const rocsolver_int n, U x, const rocblas_int shiftx, const rocsolver_int incx,
+                                        const rocblas_int stridex, const T* alpha, const rocblas_int stridep, U A, const rocblas_int shiftA,
                                         const rocsolver_int lda, const rocblas_int stridea, const rocblas_int batch_count)
 {
     // quick return
@@ -40,7 +40,7 @@ rocblas_status rocsolver_larf_template(rocsolver_handle handle, const rocsolver_
     T* zeroInt;                 //constant 0 in device
     hipMalloc(&zeroInt, sizeof(T));
     hipMemcpy(zeroInt, &zero, sizeof(T), hipMemcpyHostToDevice);
-    
+
     #ifdef batched
         // **** THIS SYNCHRONIZATION WILL BE REQUIRED UNTIL
         //      BATCH-BLAS FUNCTIONALITY IS ENABLED. ****
@@ -66,16 +66,16 @@ rocblas_status rocsolver_larf_template(rocsolver_handle handle, const rocsolver_
     //      OF A AND X, AS THIS WOULD REQUIRE SYNCHRONIZATION WITH GPU.
     //      IT WILL WORK ON THE ENTIRE MATRIX/VECTOR REGARDLESS OF
     //      ZERO ENTRIES ****
- 
+
     //memory in GPU (workspace)
     T *workvec;
     hipMalloc(&workvec, sizeof(T)*order*batch_count);
 
-    
+
     // **** BATCH IS EXECUTED IN A FOR-LOOP UNTIL BATCH-BLAS
     //      FUNCITONALITY IS ENABLED. ALSO ROCBLAS CALLS SHOULD
     //      BE MADE TO THE CORRESPONDING TEMPLATE_FUNCTIONS ****
-    
+
     //compute the matrix vector product  (W=tau*A'*X or W=tau*A*X)
     for (int b=0;b<batch_count;++b) {
         xp = load_ptr_batch<T>(xx,shiftx,b,stridex);

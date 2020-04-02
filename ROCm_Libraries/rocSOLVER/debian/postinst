@@ -1,4 +1,3 @@
 
             echo "/opt/rocm/lib" > /etc/ld.so.conf.d/rocsolver-alt.conf
             ldconfig
-        

@@ -26,7 +26,7 @@ rocblas_status rocsolver_larfg_impl(rocblas_handle handle, const rocblas_int n, 
                                         incx,
                                         stridex,
                                         tau,
-                                        strideP, 
+                                        strideP,
                                         batch_count);
 }
 

@@ -3,13 +3,13 @@
 Event Management
 =================
 
-hipEventCreateWithFlags 
+hipEventCreateWithFlags
 ------------------------
-.. doxygenfunction:: hipEventCreateWithFlags 
+.. doxygenfunction:: hipEventCreateWithFlags
 
-hipEventCreate 
+hipEventCreate
 ----------------
-.. doxygenfunction:: hipEventCreate 
+.. doxygenfunction:: hipEventCreate
 
 hipEventRecord
 ----------------
@@ -29,7 +29,7 @@ hipEventElapsedTime
 
 hipEventQuery S
 ----------------
-.. doxygenfunction:: hipEventQuery 
+.. doxygenfunction:: hipEventQuery
 
 
 

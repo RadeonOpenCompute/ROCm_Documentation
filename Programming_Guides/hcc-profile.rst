@@ -27,7 +27,7 @@ Kernel Commands
 ++++++++++++++++
 
 This shows the simplest trace output for kernel commands with no additional verbosity flags::
- 
+
  $ HCC_PROFILE=2 ./my-hcc-app ...
  profile:  kernel;            Im2Col;   17.8 us;
  profile:  kernel;  tg_betac_alphaab;   32.6 us;
@@ -36,7 +36,7 @@ This shows the simplest trace output for kernel commands with no additional verb
 ::
 
   PROFILE:  TYPE;    KERNEL_NAME     ;  DURATION;
- 
+
 This example shows profiled kernel commands with full verbose output::
 
  $ HCC_PROFILE=2 HCC_PROFILE_VERBOSE=0xf ./my-hcc-app ...
@@ -77,7 +77,7 @@ This example shows memory copy commands with full verbose output:
 	* Sync or Async. Synchronous copies indicate the host waits for the completion for the copy. Asynchronous copies are launched by the host without waiting for the copy to complete.
 	* Fast or Slow. Fast copies use the GPUs optimized copy routines from the hsa_amd_memory_copy routine. Slow copies typically involve unpinned host memory and can't take the fast path.
 	* For example `HostToDevice_async_fast.
-	
+
 * DURATION: command duration measured in us. This is measured using the GPU timestamps and represents the command execution on the acclerator device.
 * START: command start time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
 * STOP: command stop time in ns. (if HCC_PROFILE_VERBOSE & 0x2)
@@ -94,7 +94,7 @@ Barrier commands are only enabled if HCC_PROFILE_VERBOSE 0x
 An example barrier command with full vebosity::
 
  profile: barrier; deps:0_acq:none_rel:sys;  5.3 us;   94858731419410; 94858731424690; #0.0.2;
- PROFILE:  TYPE;   BARRIER_NAME           ;  DURATION; START         ; STOP          ; ID    ; 
+ PROFILE:  TYPE;   BARRIER_NAME           ;  DURATION; START         ; STOP          ; ID    ;
 
 * PROFILE: always "profile:" to distinguish it from other output.
 * TYPE: the command type: either kernel, copy, copyslo, or barrier. The examples and descriptions in this section are all copy commands. Copy indicates that the runtime used a call to the fast hsa memory copy routine while copyslo indicates that the copy was implemented with staging buffers or another less optimal path. copy computes the commands using device-side timestamps while copyslo computes the bandwidth based on host timestamps.

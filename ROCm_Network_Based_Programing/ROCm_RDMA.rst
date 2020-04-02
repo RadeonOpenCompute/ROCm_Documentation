@@ -1,7 +1,7 @@
 RDMA
 OpenMPI
 MPICH
-GasNet 
+GasNet
 OpenSHEMM
-Chapel 
+Chapel
 UPC++

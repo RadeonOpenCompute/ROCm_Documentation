@@ -31,7 +31,7 @@ Runtime/Driver API features
 
 At a high*level, the following features are not supported:
 
-* Textures 
+* Textures
 * Dynamic parallelism (CUDA 5.0)
 * Managed memory (CUDA 6.5)
 * Graphics interoperability with OpenGL or Direct3D
@@ -48,9 +48,9 @@ Kernel language features
 
 * Device*side dynamic memory allocations (malloc, free, new, delete) (CUDA 4.0)
 * Virtual functions, indirect functions and try/catch (CUDA 4.0)
-* `__prof_trigger` 
+* `__prof_trigger`
 * PTX assembly (CUDA 4.0).  HCC supports inline GCN assembly.
-* Several kernel features are under development.  See the `HIP Kernel Language <hip_kernel_language.md>`_ for more information.  
+* Several kernel features are under development.  See the `HIP Kernel Language <hip_kernel_language.md>`_ for more information.
 
 These include
 
@@ -66,23 +66,23 @@ Is HIP a drop*in replacement for CUDA?
 ******************************
 
 No. HIP provides porting tools which do most of the work to convert CUDA code into portable C++ code that uses the HIP APIs.
-Most developers will port their code from CUDA to HIP and then maintain the HIP version. 
+Most developers will port their code from CUDA to HIP and then maintain the HIP version.
 HIP code provides the same performance as native CUDA code, plus the benefits of running on AMD platforms.
 
 What specific version of CUDA does HIP support?
 *************************************
 
-HIP APIs and features do not map to a specific CUDA version. HIP provides a strong subset of functionality provided in CUDA, and the hipify tools can 
+HIP APIs and features do not map to a specific CUDA version. HIP provides a strong subset of functionality provided in CUDA, and the hipify tools can
 scan code to identify any unsupported CUDA functions * this is useful for identifying the specific features required by a given application.
 
 However, we can provide a rough summary of the features included in each CUDA SDK and the support level in HIP:
 
-* CUDA 4.0 and earlier :  
+* CUDA 4.0 and earlier :
     * HIP supports CUDA 4.0 except for the limitations described above.
-* CUDA 5.0 : 
-    * Dynamic Parallelism (not supported) 
+* CUDA 5.0 :
+    * Dynamic Parallelism (not supported)
     * cuIpc functions (under development).
-* CUDA 5.5 : 
+* CUDA 5.5 :
     * CUPTI (not directly supported), `AMD GPUPerfAPI <http://developer.amd.com/tools*and*sdks/graphics*development/gpuperfapi/>`_ can be used as an alternative in some cases)
 * CUDA 6.0
     * Managed memory (under development)
@@ -100,15 +100,15 @@ What libraries does HIP support?
 *****************************
 
 HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse.
-These offer pointer*based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HCC applications.  Developers should use conditional compilation if portability to nvcc systems is desired * using calls to cu* routines on one path and hc* routines on the other.  
+These offer pointer*based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HCC applications.  Developers should use conditional compilation if portability to nvcc systems is desired * using calls to cu* routines on one path and hc* routines on the other.
 
 * `rocblas <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_
 * `rocfft <https://github.com/ROCmSoftwarePlatform/rocFFT>`_
 * `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>`_
-* hipRAND Under Development 
-   
+* hipRAND Under Development
+
 Additionally, some of the cublas routines are automatically converted to hipblas equivalents by the hipify*clang tool.  These APIs use cublas or hcblas depending on the platform, and replace the need
-to use conditional compilation. 
+to use conditional compilation.
 
 How does HIP compare with OpenCL?
 *****************************
@@ -137,10 +137,10 @@ HIP and CUDA provide similar math library calls as well.  In summary, the HIP ph
 This reduces the potential for error, and also makes it easy to automate the translation.  HIP's goal is to quickly get the ported program running on both platforms with little manual intervention,
 so that the programmer can focus on performance optimizations.
 
-There have been several tools that have attempted to convert CUDA into OpenCL, such as CU2CL.  OpenCL is a C99*based kernel language (rather than C++) and also does not support single*source compilation.  
+There have been several tools that have attempted to convert CUDA into OpenCL, such as CU2CL.  OpenCL is a C99*based kernel language (rather than C++) and also does not support single*source compilation.
 As a result, the OpenCL syntax is different from CUDA, and the porting tools have to perform some heroic transformations to bridge this gap.
 
-The tools also struggle with more complex CUDA applications, in particular those that use templates, classes, or other C++ features inside the kernel.  
+The tools also struggle with more complex CUDA applications, in particular those that use templates, classes, or other C++ features inside the kernel.
 
 
 What hardware does HIP support?
@@ -152,12 +152,12 @@ What hardware does HIP support?
 Does Hipify automatically convert all source code?
 *****************************
 
-Typically, hipify can automatically convert almost all run*time code, and the coordinate indexing device code ( threadIdx.x *> hipThreadIdx_x ).  
+Typically, hipify can automatically convert almost all run*time code, and the coordinate indexing device code ( threadIdx.x *> hipThreadIdx_x ).
 
-Most device code needs no additional conversion, since HIP and CUDA have similar names for math and built*in functions. 
+Most device code needs no additional conversion, since HIP and CUDA have similar names for math and built*in functions.
 The hipify*clang tool will automatically modify the kernel signature as needed (automating a step that used to be done manually)
 
-Additional porting may be required to deal with architecture feature queries or with CUDA capabilities that HIP doesn't support. 
+Additional porting may be required to deal with architecture feature queries or with CUDA capabilities that HIP doesn't support.
 
 In general, developers should always expect to perform some platform*specific tuning and optimization.
 
@@ -175,8 +175,8 @@ Why use HIP rather than supporting CUDA directly?
 *****************************
 While HIP is a strong subset of the CUDA, it is a subset.  The HIP layer allows that subset to be clearly defined and documented.
 
-Developers who code to the HIP API can be assured their code will remain portable across Nvidia and AMD platforms.  
-In addition, HIP defines portable mechanisms to query architectural features, and supports a larger 64*bit wavesize which expands the return type for cross*lane functions like ballot and shuffle from 32*bit ints to 64*bit ints.  
+Developers who code to the HIP API can be assured their code will remain portable across Nvidia and AMD platforms.
+In addition, HIP defines portable mechanisms to query architectural features, and supports a larger 64*bit wavesize which expands the return type for cross*lane functions like ballot and shuffle from 32*bit ints to 64*bit ints.
 
 Can I develop HIP code on an Nvidia CUDA platform?
 *****************************
@@ -192,7 +192,7 @@ In some cases CUDA has a richer set of modes for some APIs, and some C++ capabil
 Can I develop HIP code on an AMD HCC platform?
 *****************************
 
-Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile* or run*time errors. Developers must use the HIP API for most accelerator code and bracket any HCC*specific code with preprocessor conditionals. 
+Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile* or run*time errors. Developers must use the HIP API for most accelerator code and bracket any HCC*specific code with preprocessor conditionals.
 
 Those concerned about portability should, of course, test their code on both platforms and should tune it for performance. Typically, HCC supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the hc path.
 

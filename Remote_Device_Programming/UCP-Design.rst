@@ -26,7 +26,7 @@ MPI Tag Matching strategies
 
 Data specification
 ********************
-  
+
  * Contiguous data (no lkey required)
  * Non-contiguous data with strides and hierarchy, but without memory key
  * Pack/unpack callbacks

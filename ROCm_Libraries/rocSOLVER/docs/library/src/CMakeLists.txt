@@ -82,7 +82,7 @@ add_library( rocsolver
   ${rocsolver_lapack_source}
   ${relative_rocsolver_headers_public}
   ${rocsolver_auxiliary_source}
-  ${rocsolver_common_source}  
+  ${rocsolver_common_source}
 )
 
 add_library( roc::rocsolver ALIAS rocsolver )

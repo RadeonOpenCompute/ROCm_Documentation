@@ -16,7 +16,7 @@ It is my recommendation to install the rocm kernel first. Depending on how distr
 Step 1: Install rocm-kernel
 ****************************
 
-:: 
+::
 
   wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
   sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ trusty main  \

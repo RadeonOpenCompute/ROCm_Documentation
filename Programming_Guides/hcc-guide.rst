@@ -22,7 +22,7 @@ The Heterogeneous Compute Compiler (HCC) provides two important benefits:
 
 **Full control over the machine**
 
- * Access AMD scratchpad memories (“LDS”)
+ * Access AMD scratchpad memories ("LDS")
  * Fully control data movement, prefetch and discard
  * Fully control asynchronous kernel launch and completion
  * Get device-side dependency resolution for kernel and data commands (without host involvement)

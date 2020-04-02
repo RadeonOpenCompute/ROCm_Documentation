@@ -101,7 +101,7 @@ Summary of kernel instruction changes in Vega GPUs:
 -  New packed 16-bit math instructions.
 
    ::
-    
+
     V_PK_MAD_I16       V_PK_MUL_LO_U16    V_PK_ADD_I16       V_PK_SUB_I16
     V_PK_LSHLREV_B16   V_PK_LSHRREV_B16   V_PK_ASHRREV_I16   V_PK_MAX_I16
     V_PK_MIN_I16       V_PK_MAD_U16       V_PK_ADD_U16       V_PK_SUB_U16
@@ -159,7 +159,7 @@ The figure below shows a block diagram of the AMD GCN Vega Generation series pro
 
 AMD GCN VEGA Generation Series Block Diagram
 
-The GCN device includes a data-parallel processor (DPP) array, a command processor, a memory controller, and other logic (not shown). The GCN command processor reads commands that the host has written to memory-mapped GCN registers in the system-memory address space. The command processor sends hardware-generated interrupts to the host when the command is completed. The GCN memory controller has direct access to all GCN device memory and the host-specified areas of system memory. To satisfy read and write requests, the memory controller performs the functions of a direct-memory access (DMA) controller, including computing memory-address offsets based on the format of the requested data in memory. In the GCN environment, a complete application includes two parts: 
+The GCN device includes a data-parallel processor (DPP) array, a command processor, a memory controller, and other logic (not shown). The GCN command processor reads commands that the host has written to memory-mapped GCN registers in the system-memory address space. The command processor sends hardware-generated interrupts to the host when the command is completed. The GCN memory controller has direct access to all GCN device memory and the host-specified areas of system memory. To satisfy read and write requests, the memory controller performs the functions of a direct-memory access (DMA) controller, including computing memory-address offsets based on the format of the requested data in memory. In the GCN environment, a complete application includes two parts:
 -  a program running on the host processor, and
 
 -  programs, called kernels, running on the GCN processor.
@@ -175,16 +175,16 @@ The GCN programs are controlled by host commands that
 -  cause the GCN GPU to begin execution of a program.
 
 The GCN driver program runs on the host.
- 
+
 The DPP array is the heart of the GCN processor. The array is organized as a set of compute unit pipelines, each independent from the others, that operate in parallel on streams of floating-point or integer data.The compute unit pipelines can process data or, through the memory controller, transfer data to, or from, memory. Computation in a compute unit pipeline can be made conditional. Outputs written to memory can also be made conditional.
 
-When it receives a request, the compute unit pipeline loads instructions and data from memory, begins execution, and continues until the end of the kernel. As kernels are running, the GCN hardware automatically fetches instructions from memory into on-chip caches; GCN software plays no role in this. GCN kernels can load data from off-chip memory into on-chip general-purpose registers (GPRs) and caches. 
+When it receives a request, the compute unit pipeline loads instructions and data from memory, begins execution, and continues until the end of the kernel. As kernels are running, the GCN hardware automatically fetches instructions from memory into on-chip caches; GCN software plays no role in this. GCN kernels can load data from off-chip memory into on-chip general-purpose registers (GPRs) and caches.
 
 The AMD GCN devices can detect floating point exceptions and can generate interrupts. In particular, they detect IEEE floating-point
 exceptions in hardware; these can be recorded for post-execution analysis. The software interrupts shown in the previous figure from the command processor to the host represent hardware-generated interrupts for signaling command-completion and related management functions.
 
 The GCN processor hides memory latency by keeping track of potentially hundreds of work-items in different stages of execution, and by
-overlapping compute operations with memory-access operations. 
+overlapping compute operations with memory-access operations.
 
 The figure below shows the dataflow for a GCN application. For general-purpose applications, only one processing block performs all
 computation.
@@ -247,7 +247,7 @@ Terminology
 |                       | address, data format, stride, etc.                 |
 +-----------------------+----------------------------------------------------+
 
-	**Table : Basic Terms Uses** 
+	**Table : Basic Terms Uses**
 
 Program Organization
 ====================
@@ -701,7 +701,7 @@ SGPR Allocation and storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A wavefront can be allocated 16 to 102 SGPRs, in units of 16 GPRs (Dwords). These are logically viewed as SGPRs 0-101. The VCC is
-physically stored as part of the wavefront’s SGPRs in the highest numbered two SGPRs (SGPR 106 and 107; the source/destination VCC is an alias for those two SGPRs). When a trap handler is present, 16 additional SGPRs are reserved after VCC to hold the trap addresses, as well as saved-PC and trap-handler temps. These all are privileged (cannot be written to unless privilege is set). Note that if a wavefront allocates 16 SGPRs, 2 SGPRs are normally used as VCC, the remaining 14 are available to the shader. Shader hardware does not prevent use of all 16 SGPRs.
+physically stored as part of the wavefront's SGPRs in the highest numbered two SGPRs (SGPR 106 and 107; the source/destination VCC is an alias for those two SGPRs). When a trap handler is present, 16 additional SGPRs are reserved after VCC to hold the trap addresses, as well as saved-PC and trap-handler temps. These all are privileged (cannot be written to unless privilege is set). Note that if a wavefront allocates 16 SGPRs, 2 SGPRs are normally used as VCC, the remaining 14 are available to the shader. Shader hardware does not prevent use of all 16 SGPRs.
 
 SGPR Alignment
 ~~~~~~~~~~~~~~
@@ -736,13 +736,13 @@ for:
 
 -  Local Data Share (LDS)
 
-   -  Interpolation: holds { 1’b0, new\_prim\_mask[15:1],
+   -  Interpolation: holds { 1'b0, new\_prim\_mask[15:1],
       parameter\_offset[15:0] } // in bytes
 
-   -  LDS direct-read offset and data type: { 13’b0, DataType[2:0],
+   -  LDS direct-read offset and data type: { 13'b0, DataType[2:0],
       LDS\_address[15:0] } // addr in bytes
 
-   -  LDS addressing for Memory/Vfetch → LDS: {16’h0, lds\_offset[15:0]}
+   -  LDS addressing for Memory/Vfetch -> LDS: {16'h0, lds\_offset[15:0]}
       // in bytes
 
 -  Global Data Share (GDS)
@@ -791,7 +791,7 @@ The EXEC mask determines which threads execute an instruction. The VCC indicates
 
    <div class="informalexample">
 
-V\_CMP\_\* ⇒ VCC[n] = EXEC[n] & (test passed for thread[n])
+V\_CMP\_\* => VCC[n] = EXEC[n] & (test passed for thread[n])
 
 .. raw:: html
 
@@ -811,7 +811,7 @@ SGPRs that happen to hold VCC).
 Trap and Exception registers
 ----------------------------
 
-Each type of exception can be enabled or disabled independently by setting, or clearing, bits in the TRAPSTS register’s EXCP\_EN field.This section describes the registers which control and report kernel exceptions.
+Each type of exception can be enabled or disabled independently by setting, or clearing, bits in the TRAPSTS register's EXCP\_EN field.This section describes the registers which control and report kernel exceptions.
 
 All Trap temporary SGPRs (TTMP\*) are privileged for writes - they can be written only when in the trap handler (status.priv = 1). When not privileged, writes to these are ignored. TMA and TBA are read-only; they can be accessed through S\_GETREG\_B32.
 
@@ -829,7 +829,7 @@ PC of the faulting instruction will be: (PC - PC\_rewind\*4).
 
 **STATUS . TRAP\_EN** - This bit indicates to the shader whether or not
 a trap handler is present. When one is not present, traps are not taken,
-no matter whether they’re floating point, user-, or host-initiated
+no matter whether they're floating point, user-, or host-initiated
 traps. When the trap handler is present, the wavefront uses an extra 16
 SGPRs for trap processing. If trap\_en == 0, all traps and exceptions
 are ignored, and s\_trap is converted by hardware to NOP.
@@ -940,7 +940,7 @@ Memory violations are not reported for instruction or scalar-data accesses.
 
 Memory Buffer to LDS does NOT return a memory violation if the LDS address is out of range, but masks off EXEC bits of threads that would go out of range.
 
-When a memory access is in violation, the appropriate memory (LDS or TC) returns MEM\_VIOL to the wave. This is stored in the wave’s
+When a memory access is in violation, the appropriate memory (LDS or TC) returns MEM\_VIOL to the wave. This is stored in the wave's
 TRAPSTS.mem\_viol bit. This bit is sticky, so once set to 1, it remains at 1 until the user clears it.
 
 There is a corresponding exception enable bit (EXCP\_EN.mem\_viol). If this bit is set when the memory returns with a violation, the wave jumps to the trap handler.
@@ -1235,7 +1235,7 @@ This method compares how many of the 64 threads go down the PASS path instead of
 The following pseudo-code shows the details of CBRANCH Fork and Join operations.
 
 ::
-   
+
     S_CBRANCH_G_FORK arg0, arg1
         // arg1 is an sgpr-pair which holds 64bit (48bit) target address
 
@@ -1270,8 +1270,8 @@ The following pseudo-code shows the details of CBRANCH Fork and Join operations.
     else
         CSP -- // this is the 1st time to JOIN: jump to other FORK path
         {PC, EXEC} = SGPR[CSP*4] // read 128-bits from 4 consecutive SGPRs
-    
-    
+
+
 
 Scalar ALU Operations
 =====================
@@ -1550,7 +1550,7 @@ comparison yielded a TRUE result.
 | S\_BITCMP1\_{B32,B64 | SOPC     | y        | Test for "is a bit one". SCC =     |
 | }                    |          |          | S0[S1].                            |
 +----------------------+----------+----------+------------------------------------+
-	
+
 	**Table : Conditional Instructions**
 
 Bit-Wise Instructions
@@ -1628,7 +1628,7 @@ below, SCC is set if the result is nonzero.
 | | S\_FLBIT\_I32           | SOP1    | n      | | Count how many bits in a row   |
 | | S\_FLBIT\_I32\_I64      |         |        |   (from MSB to LSB) are the same |
 |                           |         |        |   as the sign bit. Return -1 if  |
-|                           |         |        |   the input is zero or all 1’s   |
+|                           |         |        |   the input is zero or all 1's   |
 |                           |         |        |   (-1). 32-bit pseudo-code:      |
 |                           |         |        | | if (S0 == 0 \|\| S0 == -1) D = |
 |                           |         |        |   -1                             |
@@ -1973,7 +1973,7 @@ bits; codes 0 to 255 can be the scalar source if it is eight bits; codes
 +-----------+--------------------+-----------------------------------------------+
 | 236       | SHARED\_LIMIT      |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 237       | PRIVATE\_BASE      |                                               |      
+| 237       | PRIVATE\_BASE      |                                               |
 +-----------+--------------------+-----------------------------------------------+
 | 238       | PRIVATE\_LIMIT     |                                               |
 +-----------+--------------------+-----------------------------------------------+
@@ -1994,7 +1994,7 @@ bits; codes 0 to 255 can be the scalar source if it is eight bits; codes
 +-----------+--------------------+-----------------------------------------------+
 | 243       | -1.0               |                                               |
 +-----------+--------------------+-----------------------------------------------+
-| 244       | 2.0                |                                               |       
+| 244       | 2.0                |                                               |
 +-----------+--------------------+-----------------------------------------------+
 | 245       | -2.0               |                                               |
 +-----------+--------------------+-----------------------------------------------+
@@ -2200,7 +2200,7 @@ encoding.
 
 Table: VALU Instruction Set
 
-| 
+|
 | The next table lists the compare instructions.
 
 +----------------+----------------+------------------------------+------------------------------+
@@ -2209,7 +2209,7 @@ Table: VALU Instruction Set
 | V\_CMP         | I16, I32, I64, | F, LT, EQ, LE, GT, LG, GE, T | Write VCC..                  |
 |                | U16, U32, U64  |                              |                              |
 +----------------+----------------+------------------------------+------------------------------+
-| V\_CMPX        | Write VCC and  |                              |                              | 
+| V\_CMPX        | Write VCC and  |                              |                              |
 |                | exec.          |                              |                              |
 +----------------+----------------+------------------------------+------------------------------+
 | V\_CMP         | F16, F32, F64  | | F, LT, EQ,LE, GT, LG, GE,  | Write VCC.                   |
@@ -2823,7 +2823,7 @@ VGPRs.
 | | TBUFFER\_STORE\_FORMAT\_{x, |                                            |
 |   xy,xyz,xyzw}                |                                            |
 +-------------------------------+--------------------------------------------+
-| MUBUF Instructions            |                                            | 
+| MUBUF Instructions            |                                            |
 +-------------------------------+--------------------------------------------+
 | | BUFFER\_LOAD\_FORMAT\_{x,xy | | Read to, or write from, an untyped       |
 |   ,xyz,xyzw}                  |   buffer object.                           |
@@ -3051,14 +3051,14 @@ Dst\_sel comes from the resource, but is ignored for many operations.
 
 Table: Buffer Instructions
 
-**Instruction** : The instruction’s dfmt and nfmt fields are used
-instead of the resource’s fields.
+**Instruction** : The instruction's dfmt and nfmt fields are used
+instead of the resource's fields.
 
 **Data format derived** : The data format is derived from the opcode and
 ignores the resource definition. For example, buffer\_load\_ubyte sets
 the data-format to 8 and number-format to uint.
 
-.. note:: The resource’s data format must not be INVALID; that format has special meaning (unbound resource), and for that case the data format is not replaced by the instruction’s implied data format.
+.. note:: The resource's data format must not be INVALID; that format has special meaning (unbound resource), and for that case the data format is not replaced by the instruction's implied data format.
 
 **DST\_SEL identity** : Depending on the number of components in the
 data-format, this is: X000, XY00, XYZ0, or XYZW.
@@ -3271,7 +3271,7 @@ Swizzled Buffer Addressing
 Swizzled addressing rearranges the data in the buffer to help provide
 improved cache locality for arrays of structures. Swizzled addressing
 also requires Dword-aligned accesses. A single fetch instruction cannot
-attempt to fetch a unit larger than const-element-size. The buffer’s
+attempt to fetch a unit larger than const-element-size. The buffer's
 STRIDE must be a multiple of element\_size.
 
 ::
@@ -3434,7 +3434,7 @@ the following subset of MUBUF instructions.
 
 -  BUFFER\_LOAD\_{ubyte, sbyte, ushort, sshort, dword, format\_x}.
 
--  It is illegal to set the instruction’s TFE bit for loads to LDS.
+-  It is illegal to set the instruction's TFE bit for loads to LDS.
 
 .. raw:: html
 
@@ -3783,19 +3783,19 @@ image opcodes.
 | 1                  | 1D     | x           | slice     |           |           |           |
 |                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 1                  | 2D     | x           | y         |           |           |           | 
+| 1                  | 2D     | x           | y         |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 2                  | 2D     | x           | y         | fragid    |           |           |
 |                    | MSAA   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 2D     | x           | y         | slice     |           |           | 
-|                    | Array  |             |           |           |           |           | 
+| 2                  | 2D     | x           | y         | slice     |           |           |
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | 2D     | x           | y         | slice     | fragid    |           |
 |                    | Array  |             |           |           |           |           |
-|                    | MSAA   |             |           |           |           |           | 
+|                    | MSAA   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 3D     | x           | y         | z         |           |           | 
+| 2                  | 3D     | x           | y         | z         |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 2                  | Cube   | x           | y         | face\_id  |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
@@ -3807,7 +3807,7 @@ image opcodes.
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 2                  | 2D     | x           | y         | mipid     |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | mipid     |           | 
+| 3                  | 2D     | x           | y         | slice     | mipid     |           |
 |                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | 3D     | x           | y         | z         | mipid     |           |
@@ -3847,11 +3847,11 @@ gradients.
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 2                  | 3D     | x           | y         | z         |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | Cube   | x           | y         | face\_id  |           |           | 
+| 2                  | Cube   | x           | y         | face\_id  |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | sample\_l          | 1      | 1D          | x         | lod       |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | 1D     | x           | slice     | lod       |           |           | 
+| 2                  | 1D     | x           | slice     | lod       |           |           |
 |                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 2                  | 2D     | x           | y         | lod       |           |           |
@@ -3860,20 +3860,20 @@ gradients.
 |                    | interl |             |           |           |           |           |
 |                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | slice     | lod       |           | 
+| 3                  | 2D     | x           | y         | slice     | lod       |           |
 |                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 3D     | x           | y         | z         | lod       |           | 
+| 3                  | 3D     | x           | y         | z         | lod       |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | Cube   | x           | y         | face\_id  | lod       |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | sample\_cl         | 1      | 1D          | x         | clamp     |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 2                  | 1D     | x           | slice     | clamp     |           |           |
-|                    | Array  |             |           |           |           |           | 
+|                    | Array  |             |           |           |           |           |
 | 2                  | 2D     | x           | y         | clamp     |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | field     | clamp     |           |   
+| 3                  | 2D     | x           | y         | field     | clamp     |           |
 |                    | interl |             |           |           |           |           |
 |                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
@@ -3882,7 +3882,7 @@ gradients.
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | 3D     | x           | y         | z         | clamp     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | clamp     |           | 
+| 3                  | Cube   | x           | y         | face\_id  | clamp     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | gather4            | 1      | 2D          | x         | y         |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
@@ -3893,29 +3893,29 @@ gradients.
 | 2                  | 2D     | x           | y         | slice     |           |           |
 |                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 2                  | Cube   | x           | y         | face\_id  |           |           | 
+| 2                  | Cube   | x           | y         | face\_id  |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | gather4\_l         | 2      | 2D          | x         | y         | lod       |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | 2D     | x           | y         | field     | lod       |           |     
+| 3                  | 2D     | x           | y         | field     | lod       |           |
 |                    | interl |             |           |           |           |           |
 |                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | 2D     | x           | y         | slice     | lod       |           |
 |                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | lod       |           | 
+| 3                  | Cube   | x           | y         | face\_id  | lod       |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | gather4\_cl        | 2      | 2D          | x         | y         | clamp     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | 2D     | x           | y         | field     | clamp     |           |
-|                    | interl |             |           |           |           |           | 
+|                    | interl |             |           |           |           |           |
 |                    | aced   |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 | 3                  | 2D     | x           | y         | slice     | clamp     |           |
-|                    | Array  |             |           |           |           |           | 
+|                    | Array  |             |           |           |           |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
-| 3                  | Cube   | x           | y         | face\_id  | clamp     |           | 
+| 3                  | Cube   | x           | y         | face\_id  | clamp     |           |
 +--------------------+--------+-------------+-----------+-----------+-----------+-----------+
 
 Table: Image Opcodes with Sampler
@@ -3954,7 +3954,7 @@ instructions:
 |                    |                    |                    | for it to used in  |
 |                    |                    |                    | LOD computation.   |
 +--------------------+--------------------+--------------------+--------------------+
-| \_CD               | Coarse Derivative  | Send dx/dv, dx/dy, |                    | 
+| \_CD               | Coarse Derivative  | Send dx/dv, dx/dy, |                    |
 |                    |                    | etc. slopes to TA  |                    |
 |                    |                    | for it to used in  |                    |
 |                    |                    | LOD computation.   |                    |
@@ -4030,7 +4030,7 @@ These are all packed into consecutive VGPRs.
 -  Writes: When writing an image object, it is only possible to write an
    entire element (all components), not just individual components. The
    components come from consecutive VGPRs, and the texture system fills
-   in the value zero for any missing components of the image’s data
+   in the value zero for any missing components of the image's data
    format; it ignores any values that are not part of the stored data
    format. For example, if the DMASK=1001, the shader sends Red from
    VGPR\_N, and Alpha from VGPR\_N+1, to the texture unit. If the image
@@ -4075,7 +4075,7 @@ MIMG instructions.
 +----------+--------+---------------+---------------------------------------------+
 | Bits     | Size   | Name          | Comments                                    |
 +==========+========+===============+=============================================+
-| **128-bi |        |               |                                             |  
+| **128-bi |        |               |                                             |
 | t        |        |               |                                             |
 | Resource |        |               |                                             |
 | :        |        |               |                                             |
@@ -4102,16 +4102,16 @@ MIMG instructions.
 +----------+--------+---------------+---------------------------------------------+
 | 91:78    | 14     | height        | height-1 of mip0 in texels                  |
 +----------+--------+---------------+---------------------------------------------+
-| 94:92    | 3      | perf          | Scales sampler’s perf\_z, perf\_mip,        |
+| 94:92    | 3      | perf          | Scales sampler's perf\_z, perf\_mip,        |
 |          |        | modulation    | aniso\_bias, lod\_bias\_sec.                |
 +----------+--------+---------------+---------------------------------------------+
 | 98:96    | 3      | dst\_sel\_x   | 0 = 0, 1 = 1, 4 = R, 5 = G, 6 = B, 7 = A.   |
 +----------+--------+---------------+---------------------------------------------+
-| 101:99   | 3      | dst\_sel\_y   |                                             | 
+| 101:99   | 3      | dst\_sel\_y   |                                             |
 +----------+--------+---------------+---------------------------------------------+
 | 104:102  | 3      | dst\_sel\_z   |                                             |
-+----------+--------+---------------+---------------------------------------------+ 
-| 107:105  | 3      | dst\_sel\_w   |                                             | 
++----------+--------+---------------+---------------------------------------------+
+| 107:105  | 3      | dst\_sel\_w   |                                             |
 +----------+--------+---------------+---------------------------------------------+
 | 111:108  | 4      | base level    | largest mip level in the resource view. For |
 |          |        |               | msaa, set to zero.                          |
@@ -4129,7 +4129,7 @@ MIMG instructions.
 |          |        |               | 2d-msaa, 15 = 2d-msaa-array. 1-7 are        |
 |          |        |               | reserved.                                   |
 +----------+--------+---------------+---------------------------------------------+
-| **256-bi |        |               |                                             |        
+| **256-bi |        |               |                                             |
 | t        |        |               |                                             |
 | Resource |        |               |                                             |
 | :        |        |               |                                             |
@@ -4181,7 +4181,7 @@ MIMG instructions.
 | 213      | 1      | Compression   | enable delta color compression              |
 |          |        | Enable        |                                             |
 +----------+--------+---------------+---------------------------------------------+
-| 214      | 1      | Alpha is on   | Set to 1 if the surface’s component swap is |
+| 214      | 1      | Alpha is on   | Set to 1 if the surface's component swap is |
 |          |        | MSB           | not reversed (DCC)                          |
 +----------+--------+---------------+---------------------------------------------+
 | 215      | 1      | Color         | Auto=0, none=1 (DCC)                        |
@@ -4217,7 +4217,7 @@ with every sample instruction.
 +====================+====================+====================+====================+
 | 2:0                | 3                  | clamp x            | Clamp/wrap mode.   |
 +--------------------+--------------------+--------------------+--------------------+
-| 5:3                | 3                  | clamp y            |                    |  
+| 5:3                | 3                  | clamp y            |                    |
 +--------------------+--------------------+--------------------+--------------------+
 | 8:6                | 3                  | clamp z            |                    |
 +--------------------+--------------------+--------------------+--------------------+
@@ -4312,11 +4312,11 @@ VGPRs and sent to the texture cache. Any texture or buffer resources and
 samplers are also sent immediately. However, write-data is not
 immediately sent to the texture cache.
 
-The shader developer’s responsibility to avoid data hazards associated
+The shader developer's responsibility to avoid data hazards associated
 with VMEM instructions include waiting for VMEM read instruction
 completion before reading data fetched from the TC (VMCNT).
 
-This is explained in the section: 
+This is explained in the section:
 
 :ref:`Vector Memory Operations`
 
@@ -4516,10 +4516,10 @@ Table: Flat, Global and Scratch Microcode Formats
 +-------------------------+-------------------------+--------------------------+
 | FLAT\_ATOMIC\_DEC       | GLOBAL\_ATOMIC\_DEC     | none                     |
 +-------------------------+-------------------------+--------------------------+
-| The atomic instructions |                         |			       | 
-| above are also          |                         |			       | 
-| available in "\_X2"     |                         |			       | 
-| versions (64-bit).      |                         |			       | 
+| The atomic instructions |                         |			       |
+| above are also          |                         |			       |
+| available in "\_X2"     |                         |			       |
+| versions (64-bit).      |                         |			       |
 +-------------------------+-------------------------+--------------------------+
 
 Table: Flat, Global and Scratch Opcodes
@@ -4657,7 +4657,7 @@ The policy for threads with bad addresses is: writes outside this range
 do not write a value, and reads return zero.
 
 Addressing errors from either LDS or TA are returned on their respective
-"instruction done" busses as MEM\_VIOL. This sets the wave’s MEM\_VIOL
+"instruction done" busses as MEM\_VIOL. This sets the wave's MEM\_VIOL
 TrapStatus bit and causes an exception (trap) if the corresponding
 EXCPEN bit is set.
 
@@ -4741,9 +4741,9 @@ memory structure.
 |fig 10 2|
 
 To load data into LDS from global memory, it is read from global memory
-and placed into the work-item’s registers; then, a store is performed to
+and placed into the work-item's registers; then, a store is performed to
 LDS. Similarly, to store data into global memory, data is read from LDS
-and placed into the workitem’s registers, then placed into global
+and placed into the workitem's registers, then placed into global
 memory. To make effective use of the LDS, an algorithm must perform many
 operations on what is transferred between global memory and LDS. It also
 is possible to load data from a memory buffer directly into LDS,
@@ -4851,7 +4851,7 @@ number (0 to 32) and the component number (0=x, 1=y, 2=z and 3=w).
 |             |             | v\_interp\_p1 as a macro of two instructions.    |
 +-------------+-------------+--------------------------------------------------+
 | ( M0 )      | 32          | Use of the M0 register is automatic. M0 must     |
-|             |             | contain: { 1’b0, new\_prim\_mask[15:1],          |
+|             |             | contain: { 1'b0, new\_prim\_mask[15:1],          |
 |             |             | lds\_param\_offset[15:0] }                       |
 +-------------+-------------+--------------------------------------------------+
 
@@ -4906,7 +4906,7 @@ The table below lists and briefly describes the LDS instruction fields.
 |             |             | ops treat the offset as a 16-bit signed Dword    |
 |             |             | offset.                                          |
 +-------------+-------------+--------------------------------------------------+
-| OFFSET1     | 8           |                                                  | 
+| OFFSET1     | 8           |                                                  |
 +-------------+-------------+--------------------------------------------------+
 | VDST        | 8           | VGPR to which result is written: either from     |
 |             |             | LDS-load or atomic return value.                 |
@@ -5120,7 +5120,7 @@ The export instruction uses the EXP microcode format.
 |                         |                         | | MRT: vsrc0=R, 1=G,     |
 |                         |                         |   2=B, 3=A               |
 +-------------------------+-------------------------+--------------------------+
-| VSRC2                   | 8                       |                          |    
+| VSRC2                   | 8                       |                          |
 +-------------------------+-------------------------+--------------------------+
 | VSRC1                   | 8                       |                          |
 +-------------------------+-------------------------+--------------------------+
@@ -5188,7 +5188,7 @@ Multiple export instructions can be outstanding at one time. Exports of
 the same type (for example: position) are completed in order, but
 exports of different types can be completed out of order.
 
-If the STATUS register’s SKIP\_EXPORT bit is set to one, the hardware
+If the STATUS register's SKIP\_EXPORT bit is set to one, the hardware
 treats all EXPORT instructions as if they were NOPs.
 
 Instructions
@@ -6132,7 +6132,7 @@ send data from the SIMM16 field and in some cases from EXEC.
 |            |            | 2=emit,    |                                           |
 |            |            | 3=emit-cut |                                           |
 +------------+------------+------------+-------------------------------------------+
-| GS-done    | 3          |            |                                           |  
+| GS-done    | 3          |            |                                           |
 +------------+------------+------------+-------------------------------------------+
 | save wave  | 4          | -          | used in context switching                 |
 +------------+------------+------------+-------------------------------------------+
@@ -7292,7 +7292,7 @@ The bitfield map for VOPC is:
         for which the bitfield is:
 
 Compare instructions perform the same compare operation on each lane
-(workItem or thread) using that lane’s private data, and producing a 1
+(workItem or thread) using that lane's private data, and producing a 1
 bit result per lane into VCC or EXEC.
 
 Instructions in this format may use a 32-bit literal constant which
@@ -10918,14 +10918,14 @@ sections that follow provide details
 | SOP2                                    | `section\_title <#_so | 32         |
 |                                         | p2>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| SOP1                                    | `section\_title <#_so |            | 
+| SOP1                                    | `section\_title <#_so |            |
 |                                         | p1>`__                |            |
 +-----------------------------------------+-----------------------+------------+
 | SOPK                                    | `section\_title <#_so |            |
 |                                         | pk>`__                |            |
 +-----------------------------------------+-----------------------+------------+
 | SOPP                                    | `section\_title <#_so |            |
-|                                         | pp>`__                |            | 
+|                                         | pp>`__                |            |
 +-----------------------------------------+-----------------------+------------+
 | SOPC                                    | `section\_title <#_so |            |
 |                                         | pc>`__                |            |
@@ -10961,7 +10961,7 @@ sections that follow provide details
 | SDWA                                    | `section\_title <#_vo | 32         |
 |                                         | p2>`__                |            |
 +-----------------------------------------+-----------------------+------------+
-| **Vector Parameter Interpolation        |                       |            | 
+| **Vector Parameter Interpolation        |                       |            |
 | Format**                                |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | VINTRP                                  | `section\_title <#_vi | 32         |
@@ -10979,7 +10979,7 @@ sections that follow provide details
 | MUBUF                                   | `section\_title <#_mu | 64         |
 |                                         | buf>`__               |            |
 +-----------------------------------------+-----------------------+------------+
-| **Vector Memory Image Format**          |                       |            |     
+| **Vector Memory Image Format**          |                       |            |
 +-----------------------------------------+-----------------------+------------+
 | MIMG                                    | `section\_title <#_mi | 64         |
 |                                         | mg>`__                |            |
@@ -12389,8 +12389,8 @@ VOP3 format.
 | Operation       | Offset  |                                                   |
 +=================+=========+===================================================+
 | Sixteen Compare |         |                                                   |
-| Operations      |         |                                                   | 
-| (OP16)          |         |                                                   |    
+| Operations      |         |                                                   |
+| (OP16)          |         |                                                   |
 +-----------------+---------+---------------------------------------------------+
 | F               | 0       | D.u = 0                                           |
 +-----------------+---------+---------------------------------------------------+
@@ -13500,7 +13500,7 @@ SDWA
 |                 |         |   the VGPR that are not selected by DST\_SEL:     |
 |                 |         | | 0 = pad with zeros + 1 = sign extend upper /    |
 |                 |         |   zero lower                                      |
-|                 |         | | 2 = preserve (don’t modify)                     |
+|                 |         | | 2 = preserve (don't modify)                     |
 |                 |         | | 3 = reserved                                    |
 +-----------------+---------+---------------------------------------------------+
 | CLMP            | [45]    | 1 = clamp result                                  |
@@ -14192,7 +14192,7 @@ MTBUF
 |                 |         | read-data.                                        |
 +-----------------+---------+---------------------------------------------------+
 | SRSRC           | [52:48] | SGPR to supply V# (resource constant) in 4 or 8   |
-|                 |         | consecutive SGPRs. It is missing 2 LSB’s of       |
+|                 |         | consecutive SGPRs. It is missing 2 LSB's of       |
 |                 |         | SGPR-address since must be aligned to 4.          |
 +-----------------+---------+---------------------------------------------------+
 | SLC             | [54]    | System level coherent: bypass L2 cache.           |
@@ -14288,7 +14288,7 @@ MUBUF
 |                 |         | read-data.                                        |
 +-----------------+---------+---------------------------------------------------+
 | SRSRC           | [52:48] | SGPR to supply V# (resource constant) in 4 or 8   |
-|                 |         | consecutive SGPRs. It is missing 2 LSB’s of       |
+|                 |         | consecutive SGPRs. It is missing 2 LSB's of       |
 |                 |         | SGPR-address since must be aligned to 4.          |
 +-----------------+---------+---------------------------------------------------+
 | TFE             | [55]    | Partially resident texture, texture fail enable.  |
@@ -14471,7 +14471,7 @@ MIMG
 |                 |         |   VGPRn+1.                                        |
 |                 |         | | For D16 writes, DMASK is only used as a word    |
 |                 |         |   count: each bit represents 16 bits of data to   |
-|                 |         |   be written starting at the LSB’s of VADDR, then |
+|                 |         |   be written starting at the LSB's of VADDR, then |
 |                 |         |   MSBs, then VADDR+1 etc. Bit position is         |
 |                 |         |   ignored.                                        |
 +-----------------+---------+---------------------------------------------------+
@@ -14518,11 +14518,11 @@ MIMG
 |                 |         | read-data.                                        |
 +-----------------+---------+---------------------------------------------------+
 | SRSRC           | [52:48] | SGPR to supply V# (resource constant) in 4 or 8   |
-|                 |         | consecutive SGPRs. It is missing 2 LSB’s of       |
+|                 |         | consecutive SGPRs. It is missing 2 LSB's of       |
 |                 |         | SGPR-address since must be aligned to 4.          |
 +-----------------+---------+---------------------------------------------------+
 | SSAMP           | [57:53] | SGPR to supply V# (resource constant) in 4 or 8   |
-|                 |         | consecutive SGPRs. It is missing 2 LSB’s of       |
+|                 |         | consecutive SGPRs. It is missing 2 LSB's of       |
 |                 |         | SGPR-address since must be aligned to 4.          |
 +-----------------+---------+---------------------------------------------------+
 | D16             | [63]    | Address offset, unsigned byte.                    |
@@ -14769,7 +14769,7 @@ FLAT
 | ENCODING        | [31:26] | Must be: 110111                                   |
 +-----------------+---------+---------------------------------------------------+
 | ADDR            | [39:32] | | VGPR which holds address or offset. For 64-bit  |
-|                 |         |   addresses, ADDR has the LSB’s and ADDR+1 has    |
+|                 |         |   addresses, ADDR has the LSB's and ADDR+1 has    |
 |                 |         |   the MSBs. For offset a single VGPR has a 32 bit |
 |                 |         |   unsigned offset.                                |
 |                 |         | | For FLAT\_\*: always specifies an address.      |

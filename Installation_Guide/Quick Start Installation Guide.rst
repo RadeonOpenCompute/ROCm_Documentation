@@ -12,7 +12,7 @@ AMD ROCm QuickStart Installation Guide v3.1.0
    -  `SLES 15 Service Pack 1`_
 
 -  `ROCm Installation Known Issues and Workarounds`_
-   
+
 -  `Getting the ROCm Source Code`_
 
 |
@@ -53,7 +53,7 @@ To install from a Debian Repository:
 
     sudo apt install libnuma-dev
 
-    sudo reboot 
+    sudo reboot
 
 2. Add the ROCm apt repository.
 
@@ -87,7 +87,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
      groups
-     
+
 
 5. To add your user to the video group, use the following command for the sudo password:
 
@@ -99,7 +99,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 ::
 
-     echo 'ADD_EXTRA_GROUPS=1' 
+     echo 'ADD_EXTRA_GROUPS=1'
      sudo tee -a /etc/adduser.conf
 
      echo 'EXTRA_GROUPS=video'
@@ -122,7 +122,7 @@ Note: To run the ROCm programs more efficiently, add the ROCm binaries in your P
 
 ::
 
-	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
+	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' |
 	sudo tee -a /etc/profile.d/rocm.sh
 
 
@@ -158,9 +158,9 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 ::
 
-  sudo apt update	
-  sudo apt install rocm-dev	
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
+  sudo apt update
+  sudo apt install rocm-dev
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"'
   sudo tee /etc/udev/rules.d/70-kfd.rules
 
 
@@ -186,8 +186,8 @@ Note: The following steps do not apply to the CentOS installation.
 2. Enable the following repositories:
 
 ::
-   
-    sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms 
+
+    sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
     sudo subscription-manager repos --enable rhel-7-server-optional-rpms
     sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 
@@ -230,13 +230,13 @@ To install ROCm on your system, follow the instructions below:
 
 ::
 
-    [ROCm] 
+    [ROCm]
     name=ROCm
-    baseurl=http://repo.radeon.com/rocm/yum/rpm 
+    baseurl=http://repo.radeon.com/rocm/yum/rpm
     enabled=1
     gpgcheck=0
 
-Note: The URL of the repository must point to the location of the repositories’ repodata database.
+Note: The URL of the repository must point to the location of the repositories' repodata database.
 
 3. Install ROCm components using the following command:
 
@@ -336,7 +336,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 ::
 
   sudo yum install rocm-dev
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"'
   sudo tee /etc/udev/rules.d/70-kfd.rules
 
 **Note**: You can use this command instead of installing rocm-dkms.
@@ -347,7 +347,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 SLES 15 Service Pack 1
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
+The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1.
 
 **Installation**
 
@@ -358,13 +358,13 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 	sudo SUSEConnect --product PackageHub/15.1/x86_64
 	sudo zypper install dkms
-	
+
 2. Add the ROCm repo.
- 
+
 ::
 
-	sudo zypper clean –all
-	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
+	sudo zypper clean -all
+	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm
 	sudo zypper ref
 	zypper install rocm-dkms
 	sudo zypper install rocm-dkms
@@ -383,7 +383,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
 
-6. Set permissions. 
+6. Set permissions.
 
 To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using 	 ROCm. To identify the groups you are a member of, use the following command:
 
@@ -392,11 +392,11 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 	groups
 
 7. To add your user to the video group, use the following command for the sudo password:
-	
+
 ::
 
 	sudo usermod -a -G video $LOGNAME
-	
+
 8. By default, add any future users to the video group. Run the following command to add users to the video group:
 
 ::
@@ -414,7 +414,7 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 	/opt/rocm/opencl/bin/x86_64/clinfo
 
 Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
-echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
+echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' |
 
 ::
 
@@ -439,9 +439,9 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 ::
 
   sudo yum install rock-dkms rocm-opencl-devel
-  
 
-ROCm Installation Known Issues and Workarounds 
+
+ROCm Installation Known Issues and Workarounds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Closed source components
@@ -449,7 +449,7 @@ Closed source components
 
 The ROCm platform relies on some closed source components to provide functionalities like HSA image support. These components are only available through the ROCm repositories, and they may be deprecated or become open source components in the future. These components are made available in the following packages:
 
-• hsa-ext-rocr-dev
+o hsa-ext-rocr-dev
 
 
 Getting the ROCm Source Code
@@ -460,7 +460,7 @@ AMD ROCm is built from open source software. It is, therefore, possible to modif
 Installing the Repo
 ^^^^^^^^^^^^^^^^^^^^^
 
-The repo tool from Google® allows you to manage multiple git repositories simultaneously. Run the following commands to install the repo:
+The repo tool from Google(R) allows you to manage multiple git repositories simultaneously. Run the following commands to install the repo:
 
 ::
 

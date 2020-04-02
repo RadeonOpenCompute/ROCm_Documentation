@@ -12,7 +12,7 @@ The library will contain an abstraction layer called "transport" or "tl". It ena
 
 Communication primitives
 *************************
- * Remote memory access: 
+ * Remote memory access:
     * put
     * get
  * Remote memory atomics:
@@ -147,7 +147,7 @@ Data specifications
  * single-dimension scatter/gather - iovec (can be either local or remote)
     * iovec element has: pointer, length, stride, count, key / iovec+len
     * the key should have been obtained from mmap functions.
-    * transport exposes its max number of entries in the iovec  
+    * transport exposes its max number of entries in the iovec
     * IB implementation note: tl will post umr-s in correct order as needed, with temporary memory keys.
  * atomics - pass the arguments directly without local key, since cost of copying the result is negligible.
 

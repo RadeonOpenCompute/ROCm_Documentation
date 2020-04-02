@@ -9,20 +9,20 @@
 Welcome to AMD ROCm Platform
 =============================
 
-We are excited to present ROCm, the first open-source HPC/Hyperscale-class platform for GPU computing that’s also programming-language independent. We are bringing the UNIX philosophy of choice, minimalism and modular software development to GPU computing. The new ROCm foundation lets you choose or even develop tools and a language run time for your application.
+We are excited to present ROCm, the first open-source HPC/Hyperscale-class platform for GPU computing that's also programming-language independent. We are bringing the UNIX philosophy of choice, minimalism and modular software development to GPU computing. The new ROCm foundation lets you choose or even develop tools and a language run time for your application.
 
 **ROCm is built for scale**; it supports multi-GPU computing in and out of server-node communication through RDMA. It also simplifies the stack when the driver directly incorporates RDMA peer-sync support.
 
 **ROCm has a rich system run time** with the critical features that large-scale application, compiler and language-run-time development requirements.
 
 
-Going to 11: Amping Up the Programming-Language Run-Time Foundation 
+Going to 11: Amping Up the Programming-Language Run-Time Foundation
 ####################################################################
-The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
+The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP, the Khronos Group's OpenCL, and Continuum's Anaconda Python.
 
 .. image:: ROCm_Stack.png
     :align: center
-    
+
 
 Important features include the following:
 
@@ -40,7 +40,7 @@ Important features include the following:
 
 .. image:: ROCm_Core_Stack.png
     :align: center
-    
+
 Solid Compilation Foundation and Language Support
 ####################################################
     * LLVM compiler foundation
@@ -54,7 +54,7 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :maxdepth: 2
    :hidden:
    :caption: Release Documentation
-  
+
    Release Notes
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
@@ -63,33 +63,33 @@ The frontiers of what you can accomplish with ROCm are vast and uncharted. We lo
    :maxdepth: 6
    :hidden:
    :caption:  Developer Documentation
-    
-  
+
+
    Programming_Guides/Programming-Guides
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
    Other_Solutions/Other-Solutions
-   
+
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption: Reference Documentation 
-   
+   :caption: Reference Documentation
+
    ROCm_Libraries/ROCm_Libraries
    ROCm_API_References/ROCm-API-References
    ROCm_Tools/ROCm-Tools
    GCN_ISA_Manuals/GCN-ISA-Manuals
    Deep_learning/Deep-learning
-  
+
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption: Additional Documentation 
-   
+   :caption: Additional Documentation
+
    Remote_Device_Programming/Remote-Device-Programming
    Tutorial/Tutorial
    ROCm_Glossary/ROCm-Glossary
 
 
-   
+

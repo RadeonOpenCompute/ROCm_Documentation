@@ -38,7 +38,7 @@ constexpr char rocblas_copy_name<rocblas_double_complex>[] = "rocblas_zcopy";
 /*! \brief BLAS Level 1 API
 
     \details
-    copy  copies the vector x[i] into the vector y[i], for  i = 1 , … , n
+    copy  copies the vector x[i] into the vector y[i], for  i = 1 , ... , n
 
         y := x,
 

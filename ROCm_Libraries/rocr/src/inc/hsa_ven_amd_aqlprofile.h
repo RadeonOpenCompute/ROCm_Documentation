@@ -75,7 +75,7 @@ uint32_t hsa_ven_amd_aqlprofile_version_minor();
 // output data.
 //
 // Returned status:
-//     hsa_status_t – HSA status codes are used from hsa.h header
+//     hsa_status_t - HSA status codes are used from hsa.h header
 //
 // Supported profiling features:
 //
@@ -91,7 +91,7 @@ typedef enum {
 
 // Supported performance counters (PMC) blocks
 // The block ID is the same for a block instances set, for example
-// each block instance from the TCC block set, TCC0, TCC1, …, TCCN
+// each block instance from the TCC block set, TCC0, TCC1, ..., TCCN
 // will have the same block ID HSA_VEN_AMD_AQLPROFILE_BLOCKS_TCC.
 typedef enum {
   HSA_VEN_AMD_AQLPROFILE_BLOCK_NAME_CPC = 0,
@@ -132,8 +132,8 @@ typedef enum {
 } hsa_ven_amd_aqlprofile_block_name_t;
 
 // PMC event object structure
-// ‘counter_id’ value is specified in GFXIPs perfcounter user guides
-// which is the counters select value, “Performance Counters Selection”
+// 'counter_id' value is specified in GFXIPs perfcounter user guides
+// which is the counters select value, "Performance Counters Selection"
 // chapter.
 typedef struct {
   hsa_ven_amd_aqlprofile_block_name_t block_name;
@@ -242,7 +242,7 @@ hsa_status_t hsa_ven_amd_aqlprofile_legacy_get_pm4(
 // Get profile info:
 // Generic method for getting various profile info including profile buffers
 // attributes like the command buffer size and the profiling PMC results.
-// It’s implied that all counters are 64bit values.
+// It's implied that all counters are 64bit values.
 //
 // Profile generic output data:
 typedef struct {

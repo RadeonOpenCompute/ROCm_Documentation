@@ -19,12 +19,12 @@
 #include "ideal_sizes.hpp"
 #include "roclapack_potf2.hpp"
 
-inline __global__ void chk_positive(rocblas_int *iinfo, rocblas_int *info, int j) 
+inline __global__ void chk_positive(rocblas_int *iinfo, rocblas_int *info, int j)
 {
     int id = hipBlockIdx_x;
 
     if (info[id] == 0 && iinfo[id] > 0)
-            info[id] = iinfo[id] + j;   
+            info[id] = iinfo[id] + j;
 }
 
 template <typename T, typename U>
@@ -32,14 +32,14 @@ rocblas_status rocsolver_potrf_template(rocblas_handle handle,
                                         const rocblas_fill uplo, const rocblas_int n, U A,
                                         const rocblas_int shiftA,
                                         const rocblas_int lda, const rocblas_int strideA,
-                                        rocblas_int *info, const rocblas_int batch_count) 
+                                        rocblas_int *info, const rocblas_int batch_count)
 {
     // quick return
-    if (n == 0 || batch_count == 0) 
+    if (n == 0 || batch_count == 0)
         return rocblas_status_success;
 
     // if the matrix is small, use the unblocked (BLAS-levelII) variant of the algorithm
-    if (n < POTRF_POTF2_SWITCHSIZE) 
+    if (n < POTRF_POTF2_SWITCHSIZE)
         return rocsolver_potf2_template<T>(handle, uplo, n, A, shiftA, lda, strideA, info, batch_count);
 
     #ifdef batched
@@ -61,7 +61,7 @@ rocblas_status rocsolver_potrf_template(rocblas_handle handle,
     hipMemcpy(d_minone, &h_minone, sizeof(T), hipMemcpyHostToDevice);
 
     //info in device (device memory workspace to avoid synchronization with CPU)
-    rocblas_int *iinfo; 
+    rocblas_int *iinfo;
     hipMalloc(&iinfo, sizeof(rocblas_int)*batch_count);
 
     hipStream_t stream;
@@ -81,14 +81,14 @@ rocblas_status rocsolver_potrf_template(rocblas_handle handle,
 
     if (uplo == rocblas_fill_upper) { // Compute the Cholesky factorization A = U'*U.
         for (rocblas_int j = 0; j < n; j += POTRF_POTF2_SWITCHSIZE) {
-            // Factor diagonal and subdiagonal blocks 
+            // Factor diagonal and subdiagonal blocks
             jb = min(n - j, POTRF_POTF2_SWITCHSIZE);  //number of columns in the block
             hipLaunchKernelGGL(reset_info,gridReset,threads,0,stream,iinfo,batch_count,0);
             rocsolver_potf2_template<T>(handle, uplo, jb, A, shiftA + idx2D(j, j, lda), lda, strideA, iinfo, batch_count);
-            
+
             // test for non-positive-definiteness.
             hipLaunchKernelGGL(chk_positive,gridReset,threads,0,stream,iinfo,info,j);
-            
+
             if (j + jb < n) {
                 // update trailing submatrix
                 for (int b=0;b<batch_count;++b) {
@@ -98,7 +98,7 @@ rocblas_status rocsolver_potrf_template(rocblas_handle handle,
                              (M + idx2D(j, j, lda)), lda, (M + idx2D(j, j + jb, lda)), lda);
                 }
 
-                // *** GEMM MUST BE REPLACED BY SYRK ONCE IT IS AVAILABLE IN ROCBLAS ****                
+                // *** GEMM MUST BE REPLACED BY SYRK ONCE IT IS AVAILABLE IN ROCBLAS ****
                 for (int b=0;b<batch_count;++b) {
                     M = load_ptr_batch<T>(AA,shiftA,b,strideA);
                     rocblas_gemm(handle, rocblas_operation_transpose, rocblas_operation_none,
@@ -112,14 +112,14 @@ rocblas_status rocsolver_potrf_template(rocblas_handle handle,
 
     } else { // Compute the Cholesky factorization A = L'*L.
         for (rocblas_int j = 0; j < n; j += POTRF_POTF2_SWITCHSIZE) {
-            // Factor diagonal and subdiagonal blocks 
+            // Factor diagonal and subdiagonal blocks
             jb = min(n - j, POTRF_POTF2_SWITCHSIZE);  //number of columns in the block
             hipLaunchKernelGGL(reset_info,gridReset,threads,0,stream,iinfo,batch_count,0);
             rocsolver_potf2_template<T>(handle, uplo, jb, A, shiftA + idx2D(j, j, lda), lda, strideA, iinfo, batch_count);
-            
+
             // test for non-positive-definiteness.
             hipLaunchKernelGGL(chk_positive,gridReset,threads,0,stream,iinfo,info,j);
-            
+
             if (j + jb < n) {
                 // update trailing submatrix
                 for (int b=0;b<batch_count;++b) {
@@ -129,7 +129,7 @@ rocblas_status rocsolver_potrf_template(rocblas_handle handle,
                              (M + idx2D(j, j, lda)), lda, (M + idx2D(j + jb, j, lda)), lda);
                 }
 
-                // *** GEMM MUST BE REPLACED BY SYRK ONCE IT IS AVAILABLE IN ROCBLAS ****                
+                // *** GEMM MUST BE REPLACED BY SYRK ONCE IT IS AVAILABLE IN ROCBLAS ****
                 for (int b=0;b<batch_count;++b) {
                     M = load_ptr_batch<T>(AA,shiftA,b,strideA);
                     rocblas_gemm(handle, rocblas_operation_none, rocblas_operation_transpose,

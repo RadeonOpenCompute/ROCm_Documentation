@@ -5,8 +5,8 @@
 #include "rocauxiliary_orgbr.hpp"
 
 template <typename T>
-rocblas_status rocsolver_orgbr_impl(rocsolver_handle handle, const rocsolver_storev storev, 
-                                   const rocsolver_int m, const rocsolver_int n, 
+rocblas_status rocsolver_orgbr_impl(rocsolver_handle handle, const rocsolver_storev storev,
+                                   const rocsolver_int m, const rocsolver_int n,
                                    const rocsolver_int k, T* A, const rocsolver_int lda, T* ipiv)
 {
     if(!handle)

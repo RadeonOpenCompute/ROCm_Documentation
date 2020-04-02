@@ -119,7 +119,7 @@ Documentation is TBD.
 	rocfft_transform_type_complex_forward,
 	rocfft_transform_type_complex_inverse,
 	rocfft_transform_type_real_forward,
-	rocfft_transform_type_real_inverse,	
+	rocfft_transform_type_real_inverse,
   } rocfft_transform_type;
 
   // Precision
@@ -136,14 +136,14 @@ Documentation is TBD.
 	rocfft_element_type_complex_double,
 	rocfft_element_type_single,
 	rocfft_element_type_double,
-	rocfft_element_type_byte,	
+	rocfft_element_type_byte,
   } rocfft_element_type;
 
   // Result placement
   typedef enum rocfft_result_placement_e
   {
 	rocfft_placement_inplace,
-	rocfft_placement_notinplace,	
+	rocfft_placement_notinplace,
   } rocfft_result_placement;
 
   // Array type
@@ -153,7 +153,7 @@ Documentation is TBD.
 	rocfft_array_type_complex_planar,
 	rocfft_array_type_real,
 	rocfft_array_type_hermitian_interleaved,
-	rocfft_array_type_hermitian_planar,	
+	rocfft_array_type_hermitian_planar,
   } rocfft_array_type;
 
   // Execution mode
@@ -178,7 +178,7 @@ To give an idea of how the library API is intended to be used, the following seq
   status = rocfft_plan_description_create(&description);
   status = rocfft_plan_description_set_data_layout(&description, ...);
 
-  // create plan 
+  // create plan
   status = rocfft_plan_create(&plan, ..., &description);
 
   // create execution_info as needed

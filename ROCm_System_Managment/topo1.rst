@@ -9,7 +9,7 @@ sysfs-class-kfd-topology
 | Description:      Gives the details of system platform
 
 
-| What:             /sys/class/kfd/topology/platform_oem 
+| What:             /sys/class/kfd/topology/platform_oem
 | Date:             may 2018
 | KernelVersion:    4.13
 | description:      This field gives the OEM(original equipment manufacturer) ID. Identifies HSA platform, reflects the OEMID in the CRAT

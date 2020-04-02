@@ -90,7 +90,7 @@ GCN Native ISA LLVM Code Generator
                * :ref:`.amdgpu_metadata`
         * :ref:`Code Object V3 Example Source Code (-mattr=+code-object-v3)`
         * :ref:`Additional Documentation`
-               
+
 
 .. _Introductio:
 
@@ -130,7 +130,7 @@ Use the clang -target <Architecture>-<Vendor>-<OS>-<Environment> option to speci
  OS      	Description
 ============== ==========================================================================================
  <empty> 	Defaults to the unknown OS.
-amdhsa 	        Compute kernels executed on HSA [HSA] compatible runtimes such as AMD’s ROCm [AMD-ROCm].
+amdhsa 	        Compute kernels executed on HSA [HSA] compatible runtimes such as AMD's ROCm [AMD-ROCm].
 amdpal 	        Graphic shaders and compute kernels executed on AMD PAL runtime.
 mesa3d 	        Graphic shaders and compute kernels executed on Mesa 3D runtime.
 ============== ==========================================================================================
@@ -343,10 +343,10 @@ Use the clang -mcpu <Processor> option to specify the AMD GPU processor. The nam
 |           |             |              |       | cumode          |         |                      |
 |           |             |              |       | [off]           |         |                      |
 +-----------+-------------+--------------+-------+-----------------+---------+----------------------+
- 
 
-.. _Target Features:  
-     
+
+.. _Target Features:
+
 Target Features
 -----------------
 
@@ -362,32 +362,32 @@ For example:
     Enable the xnack feature.
 -mno-xnack
     Disable the xnack feature.
-   
-  **AMDGPU Target Features** 
+
+  **AMDGPU Target Features**
 =================  ============================================================================
  Target Feature 	              Description
 =================  ============================================================================
- -m[no-]xnack 	   Enable/disable generating code that has memory clauses that are compatible 
+ -m[no-]xnack 	   Enable/disable generating code that has memory clauses that are compatible
                    with having XNACK replay enabled.
                    This is used for demand paging and page migration. If XNACK replay is
-                   enabled in the device, then if a page fault occurs the code may execute 
+                   enabled in the device, then if a page fault occurs the code may execute
                    incorrectly if the xnack feature is not enabled. Executing code that has
                    the feature enabled on a device that does not have XNACK replay enabled will
-                   execute correctly, but may be less performant than code with the feature 
+                   execute correctly, but may be less performant than code with the feature
                    disabled.
 
  -m[no-]sram-ecc   Enable/disable generating code that assumes SRAM ECC is enabled/disabled.
 
  -m[no-]wavefront
   size64 	   Control the default wavefront size used when generating code for kernels.
-                   When disabled native wavefront size 32 is used, when enabled wavefront 
+                   When disabled native wavefront size 32 is used, when enabled wavefront
                    size 64 is used.
- -m[no-]cumode     Control the default wavefront execution mode used when generating code 
+ -m[no-]cumode     Control the default wavefront execution mode used when generating code
                    for kernels. When disabled native WGP wavefront execution mode is used,
                    when enabled CU wavefront execution mode is used (see Memory Model).
-=================  ============================================================================    	
-    
-  
+=================  ============================================================================
+
+
 
 .. _Address-Spaces:
 
@@ -402,9 +402,9 @@ LLVM Address Space number is used throughout LLVM (for example, in LLVM IR).
 
 **Address Space Mapping**
 
-====================== ===================    
+====================== ===================
   LLVM Address Space 	Memory Space
-====================== ===================    
+====================== ===================
               0 	Generic (Flat)
               1 	Global
               2 	Region (GDS)
@@ -414,9 +414,9 @@ LLVM Address Space number is used throughout LLVM (for example, in LLVM IR).
               6 	Constant 32-bit
               7 	Buffer Fat Pointer
                         (experimental)
-====================== ===================    
+====================== ===================
 
-The buffer fat pointer is an experimental address space that is currently unsupported in the backend. It exposes a non-integral pointer that is in future intended to support the modelling of 128-bit buffer descriptors + a 32-bit offset into the buffer descriptor (in total encapsulating a 160-bit ‘pointer’), allowing us to use normal LLVM load/store/atomic operations to model the buffer descriptors used heavily in graphics workloads targeting the backend.
+The buffer fat pointer is an experimental address space that is currently unsupported in the backend. It exposes a non-integral pointer that is in future intended to support the modelling of 128-bit buffer descriptors + a 32-bit offset into the buffer descriptor (in total encapsulating a 160-bit 'pointer'), allowing us to use normal LLVM load/store/atomic operations to model the buffer descriptors used heavily in graphics workloads targeting the backend.
 
 .. _Memory-Scopes:
 
@@ -429,33 +429,33 @@ The memory model supported is based on the HSA memory model  which is based in t
 
 This is different to the OpenCL memory model which does not have scope inclusion and requires the memory scopes to exactly match. However, this is conservatively correct for OpenCL.
 
-    **AMDHSA LLVM Sync Scopes** 	
-================   =================================================================================================================  
+    **AMDHSA LLVM Sync Scopes**
+================   =================================================================================================================
 LLVM Sync Scope 	Description
-================   =================================================================================================================  
+================   =================================================================================================================
 none 		      The default: system.
-		      Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			      image operations) for all address spaces (except private, or generic that accesses private) provided the other 			      operation’s sync scope is:
+		      Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			      image operations) for all address spaces (except private, or generic that accesses private) provided the other 			      operation's sync scope is:
     			* system.
     			* agent and executed by a thread on the same agent.
     			* workgroup and executed by a thread in the same workgroup.
    			* wavefront and executed by a thread in the same wavefront.
 
-agent 		     Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation’s sync scope is:
+agent 		     Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation's sync scope is:
 			* system or agent and executed by a thread on the same agent.
     			* workgroup and executed by a thread in the same workgroup.
    			* wavefront and executed by a thread in the same wavefront.
 
-workgroup 	     Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation’s sync scope is:
+workgroup 	     Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation's sync scope is:
 			* system, agent or workgroup and executed by a thread in the same workgroup.
    			* wavefront and executed by a thread in the same wavefront.
 
-wavefront            Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation’s sync scope is:
+wavefront            Synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 			     image operations) for all address spaces (except private, or generic that accesses private) provided the other 			     operation's sync scope is:
 			* system, agent, workgroup or wavefront and executed by a thread in the same wavefront.
 
 singlethread 	     Only synchronizes with, and participates in modification and seq_cst total orderings with, other operations (except 	              image operations) running in the same thread for all address spaces (for example, in signal handlers).
 one-as               Same as system but only synchronizes with other operations within the same address space
 
-================   =================================================================================================================  
+================   =================================================================================================================
 
 
 .. _AMDGPU-Intrinsics:
@@ -474,22 +474,22 @@ AMDGPU Attributes
 
 The AMDGPU backend supports the following LLVM IR attributes.
 
-    **AMDGPU LLVM IR Attributes** 
+    **AMDGPU LLVM IR Attributes**
 ============================================   =============================================================================================
  LLVM Attribute 	                         Description
 ============================================   =============================================================================================
-“amdgpu-flat-work-group-size”=”min,max” 	 Specify the minimum and maximum flat work group sizes that will be specified
-                                                 when the kernel is dispatched. Generated by the amdgpu_flat_work_group_size 
+"amdgpu-flat-work-group-size"="min,max" 	 Specify the minimum and maximum flat work group sizes that will be specified
+                                                 when the kernel is dispatched. Generated by the amdgpu_flat_work_group_size
                                                  CLANG attribute.
-“amdgpu-implicitarg-num-bytes”=”n” 	         Number of kernel argument bytes to add to the kernel argument block size 
+"amdgpu-implicitarg-num-bytes"="n" 	         Number of kernel argument bytes to add to the kernel argument block size
                                                  for the implicit arguments. This varies by OS and language
-“amdgpu-num-sgpr”=”n” 	                         Specifies the number of SGPRs to use. Generated by the amdgpu_num_sgpr CLANG attribute   
-“amdgpu-num-vgpr”=”n” 	                         Specifies the number of VGPRs to use. Generated by the amdgpu_num_vgpr CLANG attribute   
-“amdgpu-waves-per-eu”=”m,n” 	                 Specify the minimum and maximum number of waves per execution unit.
+"amdgpu-num-sgpr"="n" 	                         Specifies the number of SGPRs to use. Generated by the amdgpu_num_sgpr CLANG attribute
+"amdgpu-num-vgpr"="n" 	                         Specifies the number of VGPRs to use. Generated by the amdgpu_num_vgpr CLANG attribute
+"amdgpu-waves-per-eu"="m,n" 	                 Specify the minimum and maximum number of waves per execution unit.
                                                  Generated by the amdgpu_waves_per_eu CLANG attribute
-“amdgpu-ieee” true/false. 	                 Specify whether the function expects the IEEE field of the mode register to  
+"amdgpu-ieee" true/false. 	                 Specify whether the function expects the IEEE field of the mode register to
                                                  be set on entry. Overrides the default for the calling convention.
-“amdgpu-dx10-clamp” true/false. 	         Specify whether the function expects the DX10_CLAMP field of the mode
+"amdgpu-dx10-clamp" true/false. 	         Specify whether the function expects the DX10_CLAMP field of the mode
                                                  register to be set on entry. Overrides the default for the calling convention.
 ============================================   =============================================================================================
 
@@ -522,7 +522,7 @@ The AMDGPU backend uses the following ELF header:
 =========================== ===================================
 
     **AMDGPU ELF Header Enumeration Values**
-    
+
 ========================== ===============
  Name 			             Value
 ========================== ===============
@@ -569,8 +569,8 @@ Sections
 
 An AMDGPU target ELF code object has the standard ELF sections which include:
 
-    **AMDGPU ELF Sections** 
-    
+    **AMDGPU ELF Sections**
+
 =============== ================ ====================================
 Name 		     Type			Attributes
 =============== ================ ====================================
@@ -605,7 +605,7 @@ These sections have their standard meanings and are only generated if needed.
 
 .relaname, .rela.dyn
     For relocatable code objects, name is the name of the section that the relocation records apply. For example, .rela.text is the section name for relocation records associated with the .text section.
-    For linked shared code objects, .rela.dyn contains all the relocation records from each of the relocatable code object’s .relaname sections.
+    For linked shared code objects, .rela.dyn contains all the relocation records from each of the relocatable code object's .relaname sections.
     See Relocation Records for the relocation records supported by the AMDGPU backend.
 
 .text
@@ -618,18 +618,18 @@ Note Records
 
 As required by ELFCLASS64, minimal zero byte padding must be generated after the name field to ensure the desc field is 4 byte aligned. In addition, minimal zero byte padding must be generated to ensure the desc field size is a multiple of 4 bytes. The sh_addralign field of the .note section must be at least 4 to indicate at least 8 byte alignment.
 
-The AMDGPU backend code object uses the following ELF note records in the .note section. The Description column specifies the layout of the note record’s desc field. All fields are consecutive bytes. Note records with variable size strings have a corresponding *_size field that specifies the number of bytes, including the terminating null character, in the string. The string(s) come immediately after the preceding fields.
+The AMDGPU backend code object uses the following ELF note records in the .note section. The Description column specifies the layout of the note record's desc field. All fields are consecutive bytes. Note records with variable size strings have a corresponding *_size field that specifies the number of bytes, including the terminating null character, in the string. The string(s) come immediately after the preceding fields.
 
 Additional note records can be present.
 
 				**AMDGPU ELF Note Records**
-		
-================ ============================== ========================================== 
+
+================ ============================== ==========================================
    Name  	       Type 		                 Description
-================ ============================== ========================================== 
- “AMD” 	           NT_AMD_AMDGPU_HSA_METADATA 	  <metadata null terminated string>
- “AMD” 	           NT_AMD_AMDGPU_ISA 		      <isa name null terminated string>
-================ ============================== ========================================== 
+================ ============================== ==========================================
+ "AMD" 	           NT_AMD_AMDGPU_HSA_METADATA 	  <metadata null terminated string>
+ "AMD" 	           NT_AMD_AMDGPU_ISA 		      <isa name null terminated string>
+================ ============================== ==========================================
 
 
 
@@ -637,7 +637,7 @@ Additional note records can be present.
 	**AMDGPU ELF Note Record Enumeration Values**
 ============================= ==================
 Name			            Value
-============================= ================== 
+============================= ==================
 reserved 		               0-9
 NT_AMD_AMDGPU_HSA_METADATA   	     10
 NT_AMD_AMDGPU_ISA	               11
@@ -658,7 +658,7 @@ NT_AMD_AMDGPU_ISA
     where:
 
         ``architecture``
-           The architecture from table AMDGPU Target Triples. 
+           The architecture from table AMDGPU Target Triples.
            This is always amdgcn when the target triple OS is amdhsa (see Target Triples).
 
         ``vendor``
@@ -667,22 +667,22 @@ NT_AMD_AMDGPU_ISA
 
         ``OS``
            The OS from table AMDGPU Target Triples.
-        
+
         ``environment``
            An environment from table AMDGPU Target Triples, or blank if the environment has no affect on the execution of the code 		   object.
            For the AMDGPU backend this is currently always blank.
-   	
+
         ``processor``
            The processor from table AMDGPU Processors.
 
     For example::
-        
+
         amdgcn-amd-amdhsa--gfx901
 
 
 ``NT_AMD_AMDGPU_HSA_METADATA``
 
-    Specifies extensible metadata associated with the code objects executed on HSA [HSA] compatible runtimes such as AMD’s ROCm [AMD-ROCm]. It is required when the target triple OS is amdhsa (see Target Triples). See Code Object Metadata for the syntax of the code object metadata string.
+    Specifies extensible metadata associated with the code objects executed on HSA [HSA] compatible runtimes such as AMD's ROCm [AMD-ROCm]. It is required when the target triple OS is amdhsa (see Target Triples). See Code Object Metadata for the syntax of the code object metadata string.
 
 .. _Symbols:
 
@@ -692,7 +692,7 @@ Symbols
 Symbols include the following:
 
     **AMDGPU ELF Symbols**
-    
+
 +----------------+------------+-----------+--------------------+
 | Name           | Type       | Section   | Description        |
 +================+============+===========+====================+
@@ -744,7 +744,7 @@ Following notations are used for specifying relocation calculations:
 **A**
     Represents the addend used to compute the value of the relocatable field.
 **G**
-    Represents the offset into the global offset table at which the relocation entry’s symbol will reside during execution.
+    Represents the offset into the global offset table at which the relocation entry's symbol will reside during execution.
 **GOT**
     Represents the address of the global offset table.
 **P**
@@ -784,7 +784,7 @@ The following relocation types are supported:
 | R_AMDGPU_REL32_HI      | 11    | word32 | (S + A - P) >> 32              |
 +------------------------+-------+--------+--------------------------------+
 
- 
+
 .. _DWARF:
 
 DWARF
@@ -798,7 +798,7 @@ Address Space Mapping
 The following address space mapping is used:
 
 		AMDGPU DWARF Address Space Mapping
-======================== ========================		
+======================== ========================
  DWARF Address Space   	   Memory Space
 ======================== ========================
     1 			       Private (Scratch)
@@ -847,7 +847,7 @@ This section provides code conventions used when the target triple OS is amdhsa 
 
 Code Object Metadata
 +++++++++++++++++++++
-The code object metadata specifies extensible metadata associated with the code objects executed on HSA [HSA] compatible runtimes such as AMD’s ROCm [AMD-ROCm]. It is specified by the NT_AMD_AMDGPU_HSA_METADATA note record (see Note Records) and is required when the target triple OS is amdhsa (see Target Triples). It must contain the minimum information necessary to support the ROCM kernel queries. For example, the segment sizes needed in a dispatch packet. In addition, a high level language runtime may require other information to be included. For example, the AMD OpenCL runtime records kernel argument information.
+The code object metadata specifies extensible metadata associated with the code objects executed on HSA [HSA] compatible runtimes such as AMD's ROCm [AMD-ROCm]. It is specified by the NT_AMD_AMDGPU_HSA_METADATA note record (see Note Records) and is required when the target triple OS is amdhsa (see Target Triples). It must contain the minimum information necessary to support the ROCM kernel queries. For example, the segment sizes needed in a dispatch packet. In addition, a high level language runtime may require other information to be included. For example, the AMD OpenCL runtime records kernel argument information.
 
 The metadata is specified as a YAML formatted string (see [YAML] and YAML I/O).
 
@@ -855,19 +855,19 @@ The metadata is represented as a single YAML document comprised of the mapping d
 
 For boolean values, the string values of false and true are used for false and true respectively.
 
-Additional information can be added to the mappings. To avoid conflicts, any non-AMD key names should be prefixed by “vendor-name.”.
+Additional information can be added to the mappings. To avoid conflicts, any non-AMD key names should be prefixed by "vendor-name.".
 
     AMDHSA Code Object Metadata Mapping
 +------------+------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------------------------+
 | String Key | Value Type             | Required? | Description                                                                                                                                    |
 +============+========================+===========+================================================================================================================================================+
-| “Version”  | sequence of 2 integers | Required  | * The first integer is the major version. Currently 1.                                                                                         |
+| "Version"  | sequence of 2 integers | Required  | * The first integer is the major version. Currently 1.                                                                                         |
 |            |                        |           | * The second integer is the minor version. Currently 0.                                                                                        |
 +------------+------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Printf”   | sequence of strings    |           | Each string is encoded information about a printf function call.                                                                               |
+| "Printf"   | sequence of strings    |           | Each string is encoded information about a printf function call.                                                                               |
 |            |                        |           | The encoded information is organized as fields separated by colon                                                                              |
 |            |                        |           |                                                                                                                                                |
-|            |                        |           | (‘:’):ID:N:S[0]:S[1]:...:S[N-1]:FormatString                                                                                                   |
+|            |                        |           | (':'):ID:N:S[0]:S[1]:...:S[N-1]:FormatString                                                                                                   |
 |            |                        |           |                                                                                                                                                |
 |            |                        |           | where:                                                                                                                                         |
 |            |                        |           | ID                                                                                                                                             |
@@ -880,7 +880,7 @@ Additional information can be added to the mappings. To avoid conflicts, any non
 |            |                        |           | FormatString                                                                                                                                   |
 |            |                        |           | The format string passed to the printf function call.                                                                                          |
 +------------+------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Kernels”  | sequence of mapping    | Required  | Sequence of the mappings for each kernel in the code object. See AMDHSA Code Object Kernel Metadata Mapping for the definition of the mapping. |
+| "Kernels"  | sequence of mapping    | Required  | Sequence of the mappings for each kernel in the code object. See AMDHSA Code Object Kernel Metadata Mapping for the definition of the mapping. |
 +------------+------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -891,26 +891,26 @@ Additional information can be added to the mappings. To avoid conflicts, any non
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | String Key        | value Type             | Required? | Description                                                                                                                                        |
 +===================+========================+===========+====================================================================================================================================================+
-| “Name”            | string                 | Required  | Source name of the kernel.                                                                                                                         |
+| "Name"            | string                 | Required  | Source name of the kernel.                                                                                                                         |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “SymbolName”      | string                 | Required  | Name of the kernel descriptor ELF symbol.                                                                                                          |
+| "SymbolName"      | string                 | Required  | Name of the kernel descriptor ELF symbol.                                                                                                          |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Language”        | string                 |           | Source language of the kernel. Values include:                                                                                                     |
-|                   |                        |           | * “OpenCL C”                                                                                                                                       |
-|                   |                        |           | * “OpenCL C++”                                                                                                                                     |
-|                   |                        |           | * “HCC”                                                                                                                                            |
-|                   |                        |           | * “OpenMP”                                                                                                                                         |
+| "Language"        | string                 |           | Source language of the kernel. Values include:                                                                                                     |
+|                   |                        |           | * "OpenCL C"                                                                                                                                       |
+|                   |                        |           | * "OpenCL C++"                                                                                                                                     |
+|                   |                        |           | * "HCC"                                                                                                                                            |
+|                   |                        |           | * "OpenMP"                                                                                                                                         |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “LanguageVersion” | sequence of 2 integers |           | * The first integer is the major version.                                                                                                          |
+| "LanguageVersion" | sequence of 2 integers |           | * The first integer is the major version.                                                                                                          |
 |                   |                        |           | * The second integer is the minor version.                                                                                                         |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Attrs”           | mapping                |           | Mapping of kernel attributes. See AMDHSA Code Object Kernel Attribute Metadata Mapping for the mapping definition.                                 |
+| "Attrs"           | mapping                |           | Mapping of kernel attributes. See AMDHSA Code Object Kernel Attribute Metadata Mapping for the mapping definition.                                 |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Arguments”       | sequence of mapping    |           | Sequence of mappings of the kernel arguments. See AMDHSA Code Object Kernel Argument Metadata Mapping for the definition of the mapping.           |
+| "Arguments"       | sequence of mapping    |           | Sequence of mappings of the kernel arguments. See AMDHSA Code Object Kernel Argument Metadata Mapping for the definition of the mapping.           |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “CodeProps”       | mapping                |           | Mapping of properties related to the kernel code. See AMDHSA Code Object Kernel Code Properties Metadata Mapping for the mapping definition.       |
+| "CodeProps"       | mapping                |           | Mapping of properties related to the kernel code. See AMDHSA Code Object Kernel Code Properties Metadata Mapping for the mapping definition.       |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| “DebugProps”      | mapping                |           | Mapping of properties related to the kernel debugging. See AMDHSA Code Object Kernel Debug Properties Metadata Mapping for the mapping definition. |
+| "DebugProps"      | mapping                |           | Mapping of properties related to the kernel debugging. See AMDHSA Code Object Kernel Debug Properties Metadata Mapping for the mapping definition. |
 +-------------------+------------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -922,152 +922,152 @@ Additional information can be added to the mappings. To avoid conflicts, any non
 +---------------------+------------------------+-----------+-----------------------------------------------------------------------------+
 | String Key          | Value Type             | Required? | Description                                                                 |
 +=====================+========================+===========+=============================================================================+
-| “ReqdWorkGroupSize” | sequence of 3 integers |           | The dispatch work-group size X,Y,Z must correspond to the specified values. |
+| "ReqdWorkGroupSize" | sequence of 3 integers |           | The dispatch work-group size X,Y,Z must correspond to the specified values. |
 |                     |                        |           | Corresponds to the OpenCL reqd_work_group_size attribute.                   |
 +---------------------+------------------------+-----------+-----------------------------------------------------------------------------+
-| “WorkGroupSizeHint” | sequence of 3 integers |           | The dispatch work-group size X,Y,Z is likely to be the specified values.    |
+| "WorkGroupSizeHint" | sequence of 3 integers |           | The dispatch work-group size X,Y,Z is likely to be the specified values.    |
 |                     |                        |           | Corresponds to the OpenCL work_group_size_hint attribute.                   |
 +---------------------+------------------------+-----------+-----------------------------------------------------------------------------+
-| “VecTypeHint”       | string                 |           | The name of a scalar or vector type.                                        |
+| "VecTypeHint"       | string                 |           | The name of a scalar or vector type.                                        |
 |                     |                        |           | Corresponds to the OpenCL vec_type_hint attribute.                          |
 +---------------------+------------------------+-----------+-----------------------------------------------------------------------------+
 
 
-   
-   
+
+
    **AMDHSA Code Object Kernel Argument Metadata Mapping**
-   
-   
+
+
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | String Key      | Value Type | Required? | Description                                                                                                                                                                                                                                                                                                                                       |
 +=================+============+===========+===================================================================================================================================================================================================================================================================================================================================================+
-| “Name”          | string     |           | Kernel argument name.                                                                                                                                                                                                                                                                                                                             |
+| "Name"          | string     |           | Kernel argument name.                                                                                                                                                                                                                                                                                                                             |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “TypeName”      | string     |           | Kernel argument type name.                                                                                                                                                                                                                                                                                                                        |
+| "TypeName"      | string     |           | Kernel argument type name.                                                                                                                                                                                                                                                                                                                        |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Size”          | integer    | Required  | Kernel argument size in bytes.                                                                                                                                                                                                                                                                                                                    |
+| "Size"          | integer    | Required  | Kernel argument size in bytes.                                                                                                                                                                                                                                                                                                                    |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “Align”         | integer    | Required  | Kernel argument alignment in bytes. Must be a power of two.                                                                                                                                                                                                                                                                                       |
+| "Align"         | integer    | Required  | Kernel argument alignment in bytes. Must be a power of two.                                                                                                                                                                                                                                                                                       |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “ValueKind”     | string     | Required  | Kernel argument kind that specifies how to set up the corresponding argument. Values include :                                                                                                                                                                                                                                                    |
-|                 |            |           |  “ByValue”                                                                                                                                                                                                                                                                                                                                        |
+| "ValueKind"     | string     | Required  | Kernel argument kind that specifies how to set up the corresponding argument. Values include :                                                                                                                                                                                                                                                    |
+|                 |            |           |  "ByValue"                                                                                                                                                                                                                                                                                                                                        |
 |                 |            |           |     The argument is copied directly into the kernarg.                                                                                                                                                                                                                                                                                             |
-|                 |            |           |  “GlobalBuffer”                                                                                                                                                                                                                                                                                                                                   |
+|                 |            |           |  "GlobalBuffer"                                                                                                                                                                                                                                                                                                                                   |
 |                 |            |           |     A global address space pointer to the buffer data is passed in the kernarg.                                                                                                                                                                                                                                                                   |
-|                 |            |           |  “DynamicSharedPointer”                                                                                                                                                                                                                                                                                                                           |
+|                 |            |           |  "DynamicSharedPointer"                                                                                                                                                                                                                                                                                                                           |
 |                 |            |           |     A group address space pointer to dynamically allocated LDS is passed in the kernarg.                                                                                                                                                                                                                                                          |
-|                 |            |           |  “Sampler”                                                                                                                                                                                                                                                                                                                                        |
+|                 |            |           |  "Sampler"                                                                                                                                                                                                                                                                                                                                        |
 |                 |            |           |     A global address space pointer to a S# is passed in the kernarg.                                                                                                                                                                                                                                                                              |
-|                 |            |           |  “Image”                                                                                                                                                                                                                                                                                                                                          |
+|                 |            |           |  "Image"                                                                                                                                                                                                                                                                                                                                          |
 |                 |            |           |     A global address space pointer to a T# is passed in the kernarg.                                                                                                                                                                                                                                                                              |
-|                 |            |           |  “Pipe”                                                                                                                                                                                                                                                                                                                                           |
+|                 |            |           |  "Pipe"                                                                                                                                                                                                                                                                                                                                           |
 |                 |            |           |     A global address space pointer to an OpenCL pipe is passed in the kernarg.                                                                                                                                                                                                                                                                    |
-|                 |            |           |  “Queue”                                                                                                                                                                                                                                                                                                                                          |
+|                 |            |           |  "Queue"                                                                                                                                                                                                                                                                                                                                          |
 |                 |            |           |     A global address space pointer to an OpenCL device enqueue queue is passed in the kernarg.                                                                                                                                                                                                                                                    |
-|                 |            |           |  “HiddenGlobalOffsetX”                                                                                                                                                                                                                                                                                                                            |
+|                 |            |           |  "HiddenGlobalOffsetX"                                                                                                                                                                                                                                                                                                                            |
 |                 |            |           |     The OpenCL grid dispatch global offset for the X dimension is passed in the kernarg.                                                                                                                                                                                                                                                          |
-|                 |            |           |  “HiddenGlobalOffsetY”                                                                                                                                                                                                                                                                                                                            |
+|                 |            |           |  "HiddenGlobalOffsetY"                                                                                                                                                                                                                                                                                                                            |
 |                 |            |           |     The OpenCL grid dispatch global offset for the Y dimension is passed in the kernarg.                                                                                                                                                                                                                                                          |
-|                 |            |           |  “HiddenGlobalOffsetZ”                                                                                                                                                                                                                                                                                                                            |
+|                 |            |           |  "HiddenGlobalOffsetZ"                                                                                                                                                                                                                                                                                                                            |
 |                 |            |           |     The OpenCL grid dispatch global offset for the Z dimension is passed in the kernarg.                                                                                                                                                                                                                                                          |
-|                 |            |           |  “HiddenNone”                                                                                                                                                                                                                                                                                                                                     |
+|                 |            |           |  "HiddenNone"                                                                                                                                                                                                                                                                                                                                     |
 |                 |            |           |     An argument that is not used by the kernel. Space needs to be left for it, but it does not need to be set up.                                                                                                                                                                                                                                 |
-|                 |            |           |  “HiddenPrintfBuffer”                                                                                                                                                                                                                                                                                                                             |
+|                 |            |           |  "HiddenPrintfBuffer"                                                                                                                                                                                                                                                                                                                             |
 |                 |            |           |     A global address space pointer to the runtime printf buffer is passed in kernarg.                                                                                                                                                                                                                                                             |
-|                 |            |           |  “HiddenDefaultQueue”                                                                                                                                                                                                                                                                                                                             |
+|                 |            |           |  "HiddenDefaultQueue"                                                                                                                                                                                                                                                                                                                             |
 |                 |            |           |     A global address space pointer to the OpenCL device enqueue queue that should be used by the kernel by default is passed in the kernarg.                                                                                                                                                                                                      |
-|                 |            |           |  “HiddenCompletionAction”                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |  "HiddenCompletionAction"                                                                                                                                                                                                                                                                                                                         |
 |                 |            |           |     TBD                                                                                                                                                                                                                                                                                                                                           |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “ValueType”     | Value Type | Required  | Kernel argument value type. Only present if “ValueKind” is “ByValue”. For vector data types, the value is for the element type.Values include:                                                                                                                                                                                                    |
-|                 |            |           |   * “Struct”                                                                                                                                                                                                                                                                                                                                      |
-|                 |            |           |   * “I8”                                                                                                                                                                                                                                                                                                                                          |
-|                 |            |           |   * “U8”                                                                                                                                                                                                                                                                                                                                          |
-|                 |            |           |   * “I16”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “U16”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “F16”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “I32”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “U32”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “F32”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “I64”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “U64”                                                                                                                                                                                                                                                                                                                                         |
-|                 |            |           |   * “F64”                                                                                                                                                                                                                                                                                                                                         |
+| "ValueType"     | Value Type | Required  | Kernel argument value type. Only present if "ValueKind" is "ByValue". For vector data types, the value is for the element type.Values include:                                                                                                                                                                                                    |
+|                 |            |           |   * "Struct"                                                                                                                                                                                                                                                                                                                                      |
+|                 |            |           |   * "I8"                                                                                                                                                                                                                                                                                                                                          |
+|                 |            |           |   * "U8"                                                                                                                                                                                                                                                                                                                                          |
+|                 |            |           |   * "I16"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "U16"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "F16"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "I32"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "U32"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "F32"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "I64"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "U64"                                                                                                                                                                                                                                                                                                                                         |
+|                 |            |           |   * "F64"                                                                                                                                                                                                                                                                                                                                         |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “PointeeAlign”  | integer    |           | Alignment in bytes of pointee type for pointer type kernel argument. Must be a power of 2. Only present if “ValueKind” is “DynamicSharedPointer”.                                                                                                                                                                                                 |
+| "PointeeAlign"  | integer    |           | Alignment in bytes of pointee type for pointer type kernel argument. Must be a power of 2. Only present if "ValueKind" is "DynamicSharedPointer".                                                                                                                                                                                                 |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “AddrSpaceQual” | string     |           | Kernel argument address space qualifier. Only present if “ValueKind” is “GlobalBuffer” or “DynamicSharedPointer”.Values are :                                                                                                                                                                                                                     |
-|                 |            |           |   * “Private”                                                                                                                                                                                                                                                                                                                                     |
-|                 |            |           |   * “Global”                                                                                                                                                                                                                                                                                                                                      |
-|                 |            |           |   * “Constant”                                                                                                                                                                                                                                                                                                                                    |
-|                 |            |           |   * “Local”                                                                                                                                                                                                                                                                                                                                       |
-|                 |            |           |   * “Generic”                                                                                                                                                                                                                                                                                                                                     |
-|                 |            |           |   * “Region”                                                                                                                                                                                                                                                                                                                                      |
+| "AddrSpaceQual" | string     |           | Kernel argument address space qualifier. Only present if "ValueKind" is "GlobalBuffer" or "DynamicSharedPointer".Values are :                                                                                                                                                                                                                     |
+|                 |            |           |   * "Private"                                                                                                                                                                                                                                                                                                                                     |
+|                 |            |           |   * "Global"                                                                                                                                                                                                                                                                                                                                      |
+|                 |            |           |   * "Constant"                                                                                                                                                                                                                                                                                                                                    |
+|                 |            |           |   * "Local"                                                                                                                                                                                                                                                                                                                                       |
+|                 |            |           |   * "Generic"                                                                                                                                                                                                                                                                                                                                     |
+|                 |            |           |   * "Region"                                                                                                                                                                                                                                                                                                                                      |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “AccQual”       | string     |           | Kernel argument access qualifier. Only present if “ValueKind” is “Image” or “Pipe”. Values are :                                                                                                                                                                                                                                                  |
-|                 |            |           |   * “ReadOnly”                                                                                                                                                                                                                                                                                                                                    |
-|                 |            |           |   * “WriteOnly”                                                                                                                                                                                                                                                                                                                                   |
-|                 |            |           |   * “ReadWrite”                                                                                                                                                                                                                                                                                                                                   |
+| "AccQual"       | string     |           | Kernel argument access qualifier. Only present if "ValueKind" is "Image" or "Pipe". Values are :                                                                                                                                                                                                                                                  |
+|                 |            |           |   * "ReadOnly"                                                                                                                                                                                                                                                                                                                                    |
+|                 |            |           |   * "WriteOnly"                                                                                                                                                                                                                                                                                                                                   |
+|                 |            |           |   * "ReadWrite"                                                                                                                                                                                                                                                                                                                                   |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “ActualAcc”     | string     |           | The actual memory accesses performed by the kernel on the kernel argument.Only present if “ValueKind” is “GlobalBuffer”, “Image”, or “Pipe”. This may be more restrictive than indicated by “AccQual” to reflect what the kernel actual does.If not present then the runtime must assume what is implied by “AccQual” and “IsConst”. Values are : |
-|                 |            |           |   * “ReadOnly”                                                                                                                                                                                                                                                                                                                                    |
-|                 |            |           |   * “WriteOnly”                                                                                                                                                                                                                                                                                                                                   |
-|                 |            |           |   * “ReadWrite”                                                                                                                                                                                                                                                                                                                                   |
+| "ActualAcc"     | string     |           | The actual memory accesses performed by the kernel on the kernel argument.Only present if "ValueKind" is "GlobalBuffer", "Image", or "Pipe". This may be more restrictive than indicated by "AccQual" to reflect what the kernel actual does.If not present then the runtime must assume what is implied by "AccQual" and "IsConst". Values are : |
+|                 |            |           |   * "ReadOnly"                                                                                                                                                                                                                                                                                                                                    |
+|                 |            |           |   * "WriteOnly"                                                                                                                                                                                                                                                                                                                                   |
+|                 |            |           |   * "ReadWrite"                                                                                                                                                                                                                                                                                                                                   |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “IsConst”       | boolean    |           | Indicates if the kernel argument is const qualified. Only present if “ValueKind” is “GlobalBuffer”.                                                                                                                                                                                                                                               |
+| "IsConst"       | boolean    |           | Indicates if the kernel argument is const qualified. Only present if "ValueKind" is "GlobalBuffer".                                                                                                                                                                                                                                               |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “IsRestrict”    | boolean    |           | Indicates if the kernel argument is restrict qualified. Only present if “ValueKind” is “GlobalBuffer”.                                                                                                                                                                                                                                            |
+| "IsRestrict"    | boolean    |           | Indicates if the kernel argument is restrict qualified. Only present if "ValueKind" is "GlobalBuffer".                                                                                                                                                                                                                                            |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “IsVolatile”    | boolean    |           | Indicates if the kernel argument is volatile qualified. Only present if “ValueKind” is “GlobalBuffer”.                                                                                                                                                                                                                                            |
+| "IsVolatile"    | boolean    |           | Indicates if the kernel argument is volatile qualified. Only present if "ValueKind" is "GlobalBuffer".                                                                                                                                                                                                                                            |
 +-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| “IsPipe”        | boolean    |           | Indicates if the kernel argument is pipe qualified. Only present if “ValueKind” is “Pipe”.                                                                                                                                                                                                                                                        |
-+-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+  
-  
+| "IsPipe"        | boolean    |           | Indicates if the kernel argument is pipe qualified. Only present if "ValueKind" is "Pipe".                                                                                                                                                                                                                                                        |
++-----------------+------------+-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
    **AMDHSA Code Object Kernel Code Properties Metadata Mapping**
-   
-   
+
+
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 | String Key                | Value Type | Required? | Description                                                                                                              |
 +===========================+============+===========+==========================================================================================================================+
-| “KernargSegmentSize”      | integer    | Required  | The size in bytes of the kernarg segment that holds the values of the arguments to the kernel.                           |
+| "KernargSegmentSize"      | integer    | Required  | The size in bytes of the kernarg segment that holds the values of the arguments to the kernel.                           |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “GroupSegmentFixedSize”   | integer    | Required  | The amount of group segment memory required by a work-group in bytes.                                                    |
+| "GroupSegmentFixedSize"   | integer    | Required  | The amount of group segment memory required by a work-group in bytes.                                                    |
 |                           |            |           | This does not include any dynamically allocated group segment memory that may be added when the kernel is dispatched.    |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “PrivateSegmentFixedSize” | integer    | Required  | The amount of fixed private address space memory required for a work-item in bytes.                                      |
+| "PrivateSegmentFixedSize" | integer    | Required  | The amount of fixed private address space memory required for a work-item in bytes.                                      |
 |                           |            |           |  If IsDynamicCallstack is 1 then additional space must be added to this value for the call stack.                        |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “KernargSegmentAlign”     | integer    | Required  | The maximum byte alignment of arguments in the kernarg segment. Must be a power of 2.                                    |
+| "KernargSegmentAlign"     | integer    | Required  | The maximum byte alignment of arguments in the kernarg segment. Must be a power of 2.                                    |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “WavefrontSize”           | integer    | Required  | Wavefront size. Must be a power of 2.                                                                                    |
+| "WavefrontSize"           | integer    | Required  | Wavefront size. Must be a power of 2.                                                                                    |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “NumSGPRs”                | integer    |           | Number of scalar registers used by a wavefront for GFX6-GFX9.                                                            |
+| "NumSGPRs"                | integer    |           | Number of scalar registers used by a wavefront for GFX6-GFX9.                                                            |
 |                           |            |           | This includes the special SGPRs for VCC, Flat Scratch (GFX7-GFX9) and XNACK (for GFX8-GFX9).                             |
 |                           |            |           |  It does not include the 16 SGPR added if a trap handler is enabled. It is not rounded up to the allocation granularity. |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “NumVGPRs”                | integer    |           | Number of vector registers used by each work-item for GFX6-GFX9                                                          |
+| "NumVGPRs"                | integer    |           | Number of vector registers used by each work-item for GFX6-GFX9                                                          |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “MaxFlatWorkgroupSize”    | integer    |           | Maximum flat work-group size supported by the kernel in work-items.                                                      |
+| "MaxFlatWorkgroupSize"    | integer    |           | Maximum flat work-group size supported by the kernel in work-items.                                                      |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “IsDynamicCallStack”      | boolean    |           | Indicates if the generated machine code is using a dynamically sized call stack.                                         |
+| "IsDynamicCallStack"      | boolean    |           | Indicates if the generated machine code is using a dynamically sized call stack.                                         |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-| “IsXNACKEnabled”          | boolean    |           | Indicates if the generated machine code is capable of supporting XNACK.                                                  |
+| "IsXNACKEnabled"          | boolean    |           | Indicates if the generated machine code is capable of supporting XNACK.                                                  |
 +---------------------------+------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
- 
+
     **AMDHSA Code Object Kernel Debug Properties Metadata Mapping**
-    
+
 +-------------------------------------+------------+-----------+-------------+
 | String Key                          | Value Type | Required? | Description |
 +=====================================+============+===========+=============+
-| “DebuggerABIVersion”                | string     |           |             |
+| "DebuggerABIVersion"                | string     |           |             |
 +-------------------------------------+------------+-----------+-------------+
-| “ReservedNumVGPRs”                  | integer    |           |             |
+| "ReservedNumVGPRs"                  | integer    |           |             |
 +-------------------------------------+------------+-----------+-------------+
-| “ReservedFirstVGPR”                 | integer    |           |             |
+| "ReservedFirstVGPR"                 | integer    |           |             |
 +-------------------------------------+------------+-----------+-------------+
-| “PrivateSegmentBufferSGPR”          | integer    |           |             |
+| "PrivateSegmentBufferSGPR"          | integer    |           |             |
 +-------------------------------------+------------+-----------+-------------+
-| “WavefrontPrivateSegmentOffsetSGPR” | integer    |           |             |
-+-------------------------------------+------------+-----------+-------------+ 
+| "WavefrontPrivateSegmentOffsetSGPR" | integer    |           |             |
++-------------------------------------+------------+-----------+-------------+
 
 
 .. _Kernel Dispatch:
@@ -1085,7 +1085,7 @@ To dispatch a kernel the following actions are performed. This can occur in the 
    1. A pointer to an AQL queue for the kernel agent on which the kernel is to be executed is obtained.
    2. A pointer to the kernel descriptor (see Kernel Descriptor) of the kernel to execute is obtained. It must be for a kernel that is contained in a code object that that was loaded by the ROCm runtime on the kernel agent with which the AQL queue is associated.
    3. Space is allocated for the kernel arguments using the ROCm runtime allocator for a memory region with the kernarg property for the kernel agent that will execute the kernel. It must be at least 16 byte aligned.
-   4. Kernel argument values are assigned to the kernel argument memory allocation. The layout is defined in the HSA Programmer’s Language Reference [HSA]. For AMDGPU the kernel execution directly accesses the kernel argument memory in the same way constant memory is accessed. (Note that the HSA specification allows an implementation to copy the kernel argument contents to another location that is accessed by the kernel.)
+   4. Kernel argument values are assigned to the kernel argument memory allocation. The layout is defined in the HSA Programmer's Language Reference [HSA]. For AMDGPU the kernel execution directly accesses the kernel argument memory in the same way constant memory is accessed. (Note that the HSA specification allows an implementation to copy the kernel argument contents to another location that is accessed by the kernel.)
    5. An AQL kernel dispatch packet is created on the AQL queue. The ROCm runtime api uses 64 bit atomic operations to reserve space in the AQL queue for the packet. The packet must be set up, and the final write must use an atomic store release to set the packet kind to ensure the packet contents are visible to the kernel agent. AQL defines a doorbell signal mechanism to notify the kernel agent that the AQL queue has been updated. These rules, and the layout of the AQL queue and kernel dispatch packet is defined in the HSA System Architecture Specification [HSA].
    6. A kernel dispatch packet includes information about the actual dispatch, such as grid and work-group size, together with information from the code object about the kernel, such as segment sizes. The ROCm runtime queries on the kernel symbol can be used to obtain the code object values which are recorded in the Code Object Metadata.
    7. CP executes micro-code and is responsible for detecting and setting up the GPU to execute the wavefronts of a kernel dispatch.
@@ -1170,7 +1170,7 @@ Kernel Descriptor for GFX6-GFX9
 CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 
     Kernel Descriptor for GFX6-GFX9
- 
+
 +---------+--------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Bits    | Size                     | Field Name                          | Description                                                                                                                                                                                                    |
 +=========+==========================+=====================================+================================================================================================================================================================================================================+
@@ -1186,7 +1186,7 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 +---------+--------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 127:98  | 30 bits                  |                                     | Reserved. Must be 0.                                                                                                                                                                                           |
 +---------+--------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 191:128 | 8 bytes                  | kernel_code_entry_byte_offset       | Byte offset (possibly negative) from base address of kernel descriptor to kernel’s entry point instruction which must be 256 byte aligned.                                                                     |
+| 191:128 | 8 bytes                  | kernel_code_entry_byte_offset       | Byte offset (possibly negative) from base address of kernel descriptor to kernel's entry point instruction which must be 256 byte aligned.                                                                     |
 +---------+--------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 383:192 | 24 bytes                 |                                     | Reserved. Must be 0.                                                                                                                                                                                           |
 +---------+--------------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1225,7 +1225,7 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 
 
     **compute_pgm_rsrc1 for GFX6-GFX9**
-    
+
 +-------+------------------------+---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Bits  | Size                   | Field Name                      | Description                                                                                                                                                                                                                                                                          |
 +=======+========================+=================================+======================================================================================================================================================================================================================================================================================+
@@ -1267,7 +1267,7 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 |       |                        |                                 | CP is responsible for filling in ``COMPUTE_PGM_RSRC1.PRIV.``                                                                                                                                                                                                                         |
 +-------+------------------------+---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 21    | 1 bit                  | enable_dx10_clamp               | Wavefront starts execution with DX10 clamp mode enabled.                                                                                                                                                                                                                             |
-|       |                        |                                 | Used by the vector ALU to force DX-10 style treatment of NaN’s (when set, clamp NaN to zero, otherwise pass NaN through).                                                                                                                                                            |
+|       |                        |                                 | Used by the vector ALU to force DX-10 style treatment of NaN's (when set, clamp NaN to zero, otherwise pass NaN through).                                                                                                                                                            |
 |       |                        |                                 | Used by CP to set up`` COMPUTE_PGM_RSRC1.DX10_CLAMP.``                                                                                                                                                                                                                               |
 +-------+------------------------+---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 22    | 1 bit                  | debug_mode                      | Must be 0.                                                                                                                                                                                                                                                                           |
@@ -1289,10 +1289,10 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 +-------+------------------------+---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 32    | **Total size 4 bytes** |                                 |                                                                                                                                                                                                                                                                                      |
 +-------+------------------------+---------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
- 
+
  **compute_pgm_rsrc2 for GFX6-GFX9**
 
-    
+
 +-------+---------------------+-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Bits  | Size                | Field Name                                      | Description                                                                                                                                                                                   |
 +=======+=====================+=================================================+===============================================================================================================================================================================================+
@@ -1362,10 +1362,10 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 +-------+---------------------+-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 32    | Total size 4 bytes. |                                                 |                                                                                                                                                                                               |
 +-------+---------------------+-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   
-   
-    Floating Point Rounding Mode Enumeration Values 
-    
+
+
+    Floating Point Rounding Mode Enumeration Values
+
 +-------------------------------------+-------+------------------------+
 | Enumeration Name                    | Value | Description            |
 +=====================================+=======+========================+
@@ -1378,7 +1378,7 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 | AMD_FLOAT_ROUND_MODE_ZERO           | 3     | Round Toward 0         |
 +-------------------------------------+-------+------------------------+
 
-	Floating Point Denorm Mode 
+	Floating Point Denorm Mode
 +-------------------------------------+-------+--------------------------------------+
 | Enumeration Values Enumeration Name | Value | Description                          |
 +=====================================+=======+======================================+
@@ -1392,8 +1392,8 @@ CP microcode requires the Kernel descritor to be allocated on 64 byte alignment.
 +-------------------------------------+-------+--------------------------------------+
 
 
-    			System VGPR Work-Item ID 
-    
+    			System VGPR Work-Item ID
+
 +---------------------------------------+-------+-----------------------------------------+
 | Enumeration Values Enumeration Name   | Value | Description                             |
 +=======================================+=======+=========================================+
@@ -1447,13 +1447,13 @@ SGPR register initial state is defined in SGPR Register Set Up Order.
 |            |                                                                                              |                 |  FLAT_SCRATCH_HI corresponds to SGPRn-4 on GFX7, and SGPRn-6 on GFX8 (where SGPRn is the highest numbered SGPR allocated to the wave).                                                                                                                      |
 |            |                                                                                              |                 |  FLAT_SCRATCH_HI is multiplied by 256 (as it is in units of 256 bytes) and added to SH_HIDDEN_PRIVATE_BASE_VIMID to calculate the per wave FLAT SCRATCH BASE in flat memory instructions that access the scratch apperture.                                 |
 |            |                                                                                              |                 |                                                                                                                                                                                                                                                             |
-|            |                                                                                              |                 |  The second SGPR is 32 bit byte size of a single work-item’s scratch memory usage.                                                                                                                                                                          |
-|            |                                                                                              |                 |  CP obtains this from the runtime, and it is always a multiple of DWORD. CP checks that the value in the kernel dispatch packet Private Segment Byte Size is not larger, and requests the runtime to increase the queue’s scratch size if necessary.        |
+|            |                                                                                              |                 |  The second SGPR is 32 bit byte size of a single work-item's scratch memory usage.                                                                                                                                                                          |
+|            |                                                                                              |                 |  CP obtains this from the runtime, and it is always a multiple of DWORD. CP checks that the value in the kernel dispatch packet Private Segment Byte Size is not larger, and requests the runtime to increase the queue's scratch size if necessary.        |
 |            |                                                                                              |                 |  The kernel code must move it to FLAT_SCRATCH_LO which is SGPRn-3 on GFX7 and SGPRn-5 on GFX8. FLAT_SCRATCH_LO is used as the FLAT SCRATCH SIZE in flat memory instructions.                                                                                |
 |            |                                                                                              |                 |  Having CP load it once avoids loading it at the beginning of every wavefront. GFX9 This is the 64 bit base address of the per SPI scratch backing memory managed by SPI for the queue executing the kernel dispatch. CP obtains this from the runtime      |
 |            |                                                                                              |                 |  (and divides it if there are multiple Shader Arrays each with its own SPI).                                                                                                                                                                                |
 |            |                                                                                              |                 |  The value of Scratch Wave Offset must be added by the kernel machine code and the result moved to the FLAT_SCRATCH SGPR which is SGPRn-6 and SGPRn-5.                                                                                                      |
-|            |                                                                                              |                 |  It is used as the FLAT SCRATCH BASE in flat memory instructions. then Private Segment Size 1 The 32 bit byte size of a (enable_sgpr_private single work-item’s scratch_segment_size) memory allocation.                                                    |
+|            |                                                                                              |                 |  It is used as the FLAT SCRATCH BASE in flat memory instructions. then Private Segment Size 1 The 32 bit byte size of a (enable_sgpr_private single work-item's scratch_segment_size) memory allocation.                                                    |
 |            |                                                                                              |                 |  This is the value from the kernel dispatch packet Private Segment Byte Size rounded up by CP to a multiple of DWORD.                                                                                                                                       |
 |            |                                                                                              |                 |  Having CP load it once avoids loading it at the beginning of every wavefront.                                                                                                                                                                              |
 |            |                                                                                              |                 |                                                                                                                                                                                                                                                             |
@@ -1477,7 +1477,7 @@ SGPR register initial state is defined in SGPR Register Set Up Order.
 +------------+----------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | then       | Work-Group Id Z (enable_sgpr_workgroup_id _Z)                                                | 1               | 32 bit work-group id in Z dimension of grid for wavefront.                                                                                                                                                                                                  |
 +------------+----------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| then       | Work-Group Info (enable_sgpr_workgroup _info)                                                | 1               | {first_wave, 14’b0000, ordered_append_term[10:0], threadgroup_size_in_waves[5:0]}                                                                                                                                                                           |
+| then       | Work-Group Info (enable_sgpr_workgroup _info)                                                | 1               | {first_wave, 14'b0000, ordered_append_term[10:0], threadgroup_size_in_waves[5:0]}                                                                                                                                                                           |
 +------------+----------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | then       | Scratch Wave Offset (enable_sgpr_private _segment_wave_offset)                               | 1               | 32 bit byte offset from base of scratch base of queue executing the kernel dispatch.                                                                                                                                                                        |
 |            |                                                                                              |                 | Must be used as an offset with Private segment address when using Scratch Segment Buffer.                                                                                                                                                                   |
@@ -1489,7 +1489,7 @@ The order of the VGPR registers is defined, but the compiler can specify which o
 VGPR register initial state is defined in VGPR Register Set Up Order.
 
     VGPR Register Set Up Order
-    
+
 +------------+----------------------------------------------+-----------------+----------------------------------------------------------------------+
 | VGPR Order | Name (kernel descriptor enable field)        | Number of VGPRs | Description                                                          |
 +============+==============================================+=================+======================================================================+
@@ -1542,9 +1542,9 @@ If the kernel may use flat operations to access scratch memory, the prolog code 
 
 GFX6
     Flat scratch is not supported.
-    
+
 GFX7-8
-    1. The low word of Flat Scratch Init is 32 bit byte offset from SH_HIDDEN_PRIVATE_BASE_VIMID to the base of scratch backing memory being managed by SPI for the queue executing the kernel dispatch. This is the same value used in the Scratch Segment Buffer V# base address. The prolog must add the value of Scratch Wave Offset to get the wave’s byte scratch backing memory offset from SH_HIDDEN_PRIVATE_BASE_VIMID. Since FLAT_SCRATCH_LO is in units of 256 bytes, the offset must be right shifted by 8 before moving into FLAT_SCRATCH_LO.
+    1. The low word of Flat Scratch Init is 32 bit byte offset from SH_HIDDEN_PRIVATE_BASE_VIMID to the base of scratch backing memory being managed by SPI for the queue executing the kernel dispatch. This is the same value used in the Scratch Segment Buffer V# base address. The prolog must add the value of Scratch Wave Offset to get the wave's byte scratch backing memory offset from SH_HIDDEN_PRIVATE_BASE_VIMID. Since FLAT_SCRATCH_LO is in units of 256 bytes, the offset must be right shifted by 8 before moving into FLAT_SCRATCH_LO.
     2. The second word of Flat Scratch Init is 32 bit byte size of a single work-items scratch memory usage. This is directly loaded from the kernel dispatch packet Private Segment Byte Size and rounded up to a multiple of DWORD. Having CP load it once avoids loading it at the beginning of every wavefront. The prolog must move it to FLAT_SCRATCH_LO for use as FLAT SCRATCH SIZE.
 
 GFX9
@@ -1953,7 +1953,7 @@ On dGPU the kernarg backing memory is accessed as UC (uncached) to avoid needing
 The memory order also adds the single thread optimization constrains defined in table AMDHSA Memory Model Single Thread Optimization Constraints GFX6-GFX9.
 
     AMDHSA Memory Model Single Thread Optimization Constraints GFX6-GFX9
-    
+
 +-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | LLVM Memory | Optimization Constraints                                                                                                                                                                   |
 +=============+============================================================================================================================================================================================+
@@ -2000,8 +2000,8 @@ For code objects generated by AMDGPU backend for HSA [HSA] compatible runtimes (
 |                     |               |  queue_ptr          |                                                                                                                                                          |
 +---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | llvm.debugtrap      | s_trap 0x03   |                     | If debugger not installed then behaves as a no-operation. The trap handler is entered and immediately returns to continue execution of the wavefront.    |
-|                     |               |                     | If the debugger is installed, causes the debug trap to be reported by the debugger and the wavefront is put in the halt state until resumed by debugger. |                                         
-+---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+                                                                                                        
+|                     |               |                     | If the debugger is installed, causes the debug trap to be reported by the debugger and the wavefront is put in the halt state until resumed by debugger. |
++---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | reserved            | s_trap 0x04   |                     | Reserved                                                                                                                                                 |
 +---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | reserved            | s_trap 0x05   |                     | Reserved                                                                                                                                                 |
@@ -2012,7 +2012,7 @@ For code objects generated by AMDGPU backend for HSA [HSA] compatible runtimes (
 +---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | reserved            | s_trap 0x08   |                     | Reserved                                                                                                                                                 |
 +---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| reserved            | s_trap 0xfe   |                     | Reserved                                                                                                                                                 | 
+| reserved            | s_trap 0xfe   |                     | Reserved                                                                                                                                                 |
 +---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | reserved            | s_trap 0xff   |                     | Reserved                                                                                                                                                 |
 +---------------------+---------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2041,17 +2041,17 @@ Note that there are always 10 available user data entries in registers - entries
 
         **PAL Compute Shader User Data Registers**
 
-  ================ ===================================================== 
-   User Register 	  Description	 
-  ================ ===================================================== 
+  ================ =====================================================
+   User Register 	  Description
+  ================ =====================================================
    0	             Global Internal Table (32-bit pointer)
    1	             Per-Shader Internal Table (32-bit pointer)
    2 - 11	     Application-Controlled User Data (10 32-bit values)
    12	             Spill Table (32-bit pointer)
    13 - 14           Thread Group Count (64-bit pointer)
-   15          	     GDS Range  
-  ================ =====================================================                
- 
+   15          	     GDS Range
+  ================ =====================================================
+
 .. _Graphics-User-Data:
 
 Graphics User Data
@@ -2108,7 +2108,7 @@ The following table illustrates the required format:
     52	        vaRange::ShadowDescriptorTable High Bits
   =========  ==============================================
 
-The pointer to the global internal table passed to the shader as user data is a 32-bit pointer. The top 32 bits should be assumed to be the same as the top 32 bits of the pipeline, so the shader may use the program counter’s top 32 bits.
+The pointer to the global internal table passed to the shader as user data is a 32-bit pointer. The top 32 bits should be assumed to be the same as the top 32 bits of the pipeline, so the shader may use the program counter's top 32 bits.
 
 
 .. _Unspecified OS:
@@ -2218,7 +2218,7 @@ The following syntax for register operands is supported:
  * Register pairs, quads, etc: s[2:3], v[10:11], ttmp[5:6], s[4:7], v[12:15], ttmp[4:7], s[8:15], ...
  * Register lists: [s0, s1], [ttmp0, ttmp1, ttmp2, ttmp3]
  * Register index expressions: v[2*2], s[1-1:2-1]
- * ‘off’ indicates that an operand is not enabled
+ * 'off' indicates that an operand is not enabled
 
 The following extra operands are supported:
 
@@ -2258,29 +2258,29 @@ DS
 ***
 
 ::
- 
+
  ds_add_u32 v2, v4 offset:16
  ds_write_src2_b64 v2 offset0:4 offset1:8
- ds_cmpst_f32 v2, v4, v6 
+ ds_cmpst_f32 v2, v4, v6
  ds_min_rtn_f64 v[8:9], v2, v[4:5]
- 
 
-For full list of supported instructions, refer to “LDS/GDS instructions” in ISA Manual.
+
+For full list of supported instructions, refer to "LDS/GDS instructions" in ISA Manual.
 
 .. _FLAT:
 
 FLAT
 *****
 ::
- 
+
  flat_load_dword v1, v[3:4]
  flat_store_dwordx3 v[3:4], v[5:7]
  flat_atomic_swap v1, v[3:4], v5 glc
  flat_atomic_cmpswap v1, v[3:4], v[5:6] glc slc
  flat_atomic_fmax_x2 v[1:2], v[3:4], v[5:6] glc
- 
 
-For full list of supported instructions, refer to “FLAT instructions” in ISA Manual.
+
+For full list of supported instructions, refer to "FLAT instructions" in ISA Manual.
 
 
 .. _MUBUF:
@@ -2288,35 +2288,35 @@ For full list of supported instructions, refer to “FLAT instructions” in ISA
 MUBUF
 ******
 ::
-  
+
  buffer_load_dword v1, off, s[4:7], s1
  buffer_store_dwordx4 v[1:4], v2, ttmp[4:7], s1 offen offset:4 glc tfe
  buffer_store_format_xy v[1:2], off, s[4:7], s1
  buffer_wbinvl1
  buffer_atomic_inc v1, v2, s[8:11], s4 idxen offset:4 slc
 
-For full list of supported instructions, refer to “MUBUF Instructions” in ISA Manual.
+For full list of supported instructions, refer to "MUBUF Instructions" in ISA Manual.
 
 .. _SMRD/SMEM:
 
 SMRD/SMEM
 **********
 ::
- 
+
  s_load_dword s1, s[2:3], 0xfc
  s_load_dwordx8 s[8:15], s[2:3], s4
  s_load_dwordx16 s[88:103], s[2:3], s4
  s_dcache_inv_vol
  s_memtime s[4:5]
 
-For full list of supported instructions, refer to “Scalar Memory Operations” in ISA Manual.
+For full list of supported instructions, refer to "Scalar Memory Operations" in ISA Manual.
 
 .. _SOP1:
 
 SOP1
 *****
 ::
- 
+
  s_mov_b32 s1, s2
  s_mov_b64 s[0:1], 0x80000000
  s_cmov_b32 s1, 200
@@ -2325,14 +2325,14 @@ SOP1
  s_swappc_b64 s[2:3], s[4:5]
  s_cbranch_join s[4:5]
 
-For full list of supported instructions, refer to “SOP1 Instructions” in ISA Manual.
+For full list of supported instructions, refer to "SOP1 Instructions" in ISA Manual.
 
 .. _SOP2:
 
 SOP2
 *****
 ::
- 
+
  s_add_u32 s1, s2, s3
  s_and_b64 s[2:3], s[4:5], s[6:7]
  s_cselect_b32 s1, s2, s3
@@ -2342,28 +2342,28 @@ SOP2
  s_bfm_b64 s[2:3], s4, s6
  s_bfe_i64 s[2:3], s[4:5], s6
  s_cbranch_g_fork s[4:5], s[6:7]
- 
-For full list of supported instructions, refer to “SOP2 Instructions” in ISA Manual.
+
+For full list of supported instructions, refer to "SOP2 Instructions" in ISA Manual.
 
 .. _SOPC:
 
 SOPC
 *****
 ::
- 
+
  s_cmp_eq_i32 s1, s2
  s_bitcmp1_b32 s1, s2
  s_bitcmp0_b64 s[2:3], s4
  s_setvskip s3, s5
- 
-For full list of supported instructions, refer to “SOPC Instructions” in ISA Manual.
+
+For full list of supported instructions, refer to "SOPC Instructions" in ISA Manual.
 
 .. _SOPP:
 
 SOPP
 *****
 ::
- 
+
  s_barrier
  s_nop 2
  s_endpgm
@@ -2375,8 +2375,8 @@ SOPP
  s_sendmsg 0x1
  s_sendmsg sendmsg(MSG_INTERRUPT)
  s_trap 1
- 
-For full list of supported instructions, refer to “SOPP Instructions” in ISA Manual.
+
+For full list of supported instructions, refer to "SOPP Instructions" in ISA Manual.
 
 Unless otherwise mentioned, little verification is performed on the operands of SOPP Instructions, so it is up to the programmer to be familiar with the range or acceptable values.
 
@@ -2393,7 +2393,7 @@ For vector ALU instruction opcodes (VOP1, VOP2, VOP3, VOPC, VOP_DPP, VOP_SDWA), 
 
 VOP1/VOP2/VOP3/VOPC examples
 *****************************
- 
+
 ::
 
  v_mov_b32 v1, v2
@@ -2411,9 +2411,9 @@ VOP1/VOP2/VOP3/VOPC examples
 
 VOP_DPP examples
 ******************
- 
+
 ::
-  
+
  v_mov_b32 v0, v0 quad_perm:[0,2,1,1]
  v_sin_f32 v0, v0 row_shl:1 row_mask:0xa bank_mask:0x1 bound_ctrl:0
  v_mov_b32 v0, v0 wave_shl:1
@@ -2427,14 +2427,14 @@ VOP_SDWA examples
 ******************
 
 ::
- 
+
  v_mov_b32 v1, v2 dst_sel:BYTE_0 dst_unused:UNUSED_PRESERVE src0_sel:DWORD
  v_min_u32 v200, v200, v1 dst_sel:WORD_1 dst_unused:UNUSED_PAD src0_sel:BYTE_1 src1_sel:DWORD
  v_sin_f32 v0, v0 dst_unused:UNUSED_PAD src0_sel:WORD_1
  v_fract_f32 v0, |v0| dst_sel:DWORD dst_unused:UNUSED_PAD src0_sel:WORD_1
  v_cmpx_le_u32 vcc, v1, v2 src0_sel:BYTE_2 src1_sel:WORD_0
- 
-For full list of supported instructions, refer to “Vector ALU instructions”.
+
+For full list of supported instructions, refer to "Vector ALU instructions".
 
 
 .. _Code Object V2 Predefined Symbols (-mattr=-code-object-v3):
@@ -2457,7 +2457,7 @@ The AMDGPU assembler defines and updates some symbols automatically. These symbo
 .option.machine_version_major
 ++++++++++++++++++++++++++++++
 
-Set to the GFX major generation number of the target being assembled for. For example, when assembling for a “GFX9” target this will be set to the integer value “9”. The possible GFX major generation numbers are presented in :ref:`Processors`.
+Set to the GFX major generation number of the target being assembled for. For example, when assembling for a "GFX9" target this will be set to the integer value "9". The possible GFX major generation numbers are presented in :ref:`Processors`.
 
 
 .. _.option.machine_version_minor:
@@ -2465,10 +2465,10 @@ Set to the GFX major generation number of the target being assembled for. For ex
 .option.machine_version_minor
 ++++++++++++++++++++++++++++++
 
-Set to the GFX minor generation number of the target being assembled for. For example, when assembling for a “GFX810” target this will be set to the integer value “1”. The possible GFX minor generation numbers are presented in :ref:`Processors`.
+Set to the GFX minor generation number of the target being assembled for. For example, when assembling for a "GFX810" target this will be set to the integer value "1". The possible GFX minor generation numbers are presented in :ref:`Processors`.
 .option.machine_version_stepping
 
-Set to the GFX stepping generation number of the target being assembled for. For example, when assembling for a “GFX704” target this will be set to the integer value “4”. The possible GFX stepping generation numbers are presented in :ref:`Processors`.
+Set to the GFX stepping generation number of the target being assembled for. For example, when assembling for a "GFX704" target this will be set to the integer value "4". The possible GFX stepping generation numbers are presented in :ref:`Processors`.
 
 
 .. _.option.machine_version_stepping:
@@ -2476,7 +2476,7 @@ Set to the GFX stepping generation number of the target being assembled for. For
 .option.machine_version_stepping
 +++++++++++++++++++++++++++++++++
 
-Set to the GFX stepping generation number of the target being assembled for. For example, when assembling for a “GFX704” target this will be set to the integer value “4”. The possible GFX stepping generation numbers are presented in :ref:`Processors`.
+Set to the GFX stepping generation number of the target being assembled for. For example, when assembling for a "GFX704" target this will be set to the integer value "4". The possible GFX stepping generation numbers are presented in :ref:`Processors`.
 
 .. _.kernel.vgpr_count:
 
@@ -2501,7 +2501,7 @@ Code Object V2 Directives (-mattr=-code-object-v3)
 
 ::
 
-  Code Object V2 is not the default code object version emitted by this version of LLVM. For a description of the directives supported 
+  Code Object V2 is not the default code object version emitted by this version of LLVM. For a description of the directives supported
   with  the default configuration (Code Object V3) see :ref:`Code Object V3 Directives (-mattr=+code-object-v3)`.
 
 AMDGPU ABI defines auxiliary data in output code object. In assembly source, one can specify them with assembler directives.
@@ -2520,7 +2520,7 @@ major and minor are integers that specify the version of the HSA code object tha
 
 major, minor, and stepping are all integers that describe the instruction set architecture (ISA) version of the assembly program.
 
-vendor and arch are quoted strings. vendor should always be equal to “AMD” and arch should always be equal to “AMDGPU”.
+vendor and arch are quoted strings. vendor should always be equal to "AMD" and arch should always be equal to "AMDGPU".
 
 By default, the assembler will derive the ISA version, vendor, and arch from the value of the -mcpu option that is passed to the assembler.
 
@@ -2561,7 +2561,7 @@ Code Object V2 Example Source Code (-mattr=-code-object-v3)
 
 ::
 
- Code Object V2 is not the default code object version emitted by this version of LLVM. For a description of the predefined symbols 
+ Code Object V2 is not the default code object version emitted by this version of LLVM. For a description of the predefined symbols
  available with the default configuration (Code Object V3).
 
 Here is an example of a minimal assembly source file, defining one HSA kernel:
@@ -2611,21 +2611,21 @@ The AMDGPU assembler defines and updates some symbols automatically. These symbo
 .amdgcn.gfx_generation_number
 ++++++++++++++++++++++++++++++
 
-Set to the GFX major generation number of the target being assembled for. For example, when assembling for a “GFX9” target this will be set to the integer value “9”. The possible GFX major generation numbers are presented in :ref:`Processors`.
+Set to the GFX major generation number of the target being assembled for. For example, when assembling for a "GFX9" target this will be set to the integer value "9". The possible GFX major generation numbers are presented in :ref:`Processors`.
 
 .. _.amdgcn.gfx_generation_minor:
 
 .amdgcn.gfx_generation_minor
 ++++++++++++++++++++++++++++++
 
-Set to the GFX minor generation number of the target being assembled for. For example, when assembling for a “GFX810” target this will be set to the integer value “1”. The possible GFX minor generation numbers are presented in :ref:`Processors`.
+Set to the GFX minor generation number of the target being assembled for. For example, when assembling for a "GFX810" target this will be set to the integer value "1". The possible GFX minor generation numbers are presented in :ref:`Processors`.
 
 .. _.amdgcn.gfx_generation_stepping:
 
 .amdgcn.gfx_generation_stepping
 +++++++++++++++++++++++++++++++++
 
-Set to the GFX stepping generation number of the target being assembled for. For example, when assembling for a “GFX704” target this will be set to the integer value “4”. The possible GFX stepping generation numbers are presented in :ref:`Processors`.
+Set to the GFX stepping generation number of the target being assembled for. For example, when assembling for a "GFX704" target this will be set to the integer value "4". The possible GFX stepping generation numbers are presented in :ref:`Processors`.
 
 .. _.amdgcn.next_free_vgpr:
 
@@ -2670,7 +2670,7 @@ Optional directive which declares the target supported by the containing assembl
 
 Creates a correctly aligned AMDHSA kernel descriptor and a symbol, <name>.kd, in the current location of the current section. Only valid when the OS is amdhsa. <name> must be a symbol that labels the first instruction to execute, and does not need to be previously defined.
 
-Marks the beginning of a list of directives used to generate the bytes of a kernel descriptor, as described in Kernel Descriptor. Directives which may appear in this list are described in AMDHSA Kernel Assembler Directives. Directives may appear in any order, must be valid for the target being assembled for, and cannot be repeated. Directives support the range of values specified by the field they reference in Kernel Descriptor. If a directive is not specified, it is assumed to have its default value, unless it is marked as “Required”, in which case it is an error to omit the directive. This list of directives is terminated by an .end_amdhsa_kernel directive.
+Marks the beginning of a list of directives used to generate the bytes of a kernel descriptor, as described in Kernel Descriptor. Directives which may appear in this list are described in AMDHSA Kernel Assembler Directives. Directives may appear in any order, must be valid for the target being assembled for, and cannot be repeated. Directives support the range of values specified by the field they reference in Kernel Descriptor. If a directive is not specified, it is assumed to have its default value, unless it is marked as "Required", in which case it is an error to omit the directive. This list of directives is terminated by an .end_amdhsa_kernel directive.
 
 **AMDHSA Kernel Assembler Directives**
 
@@ -2785,7 +2785,7 @@ If an assembly source file contains multiple kernels and/or functions, the .amdg
 
  .amdgcn_target "amdgcn-amd-amdhsa--gfx900+xnack" // optional
  // gpr tracking symbols are implicitly set to zero
- .text 
+ .text
  .globl kern0
  .p2align 8
  .type kern0,@function
@@ -2860,7 +2860,7 @@ Additional Documentation
 
 [AMD-GCN-GFX8]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id9>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id41>`_) `AMD GCN3 Instruction Set Architecture <http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
 
-[AMD-GCN-GFX9]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id10>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id42>`_) `AMD “Vega” Instruction Set Architecture <http://developer.amd.com/wordpress/media/2013/12/Vega_Shader_ISA_28July2017.pdf>`_
+[AMD-GCN-GFX9]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id10>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id42>`_) `AMD "Vega" Instruction Set Architecture <http://developer.amd.com/wordpress/media/2013/12/Vega_Shader_ISA_28July2017.pdf>`_
 
 [AMD-ROCm]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id2>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id21>`_, `3 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id26>`_, `4 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id37>`_) `ROCm: Open Platform for Development, Discovery and Education Around GPU Computing <http://gpuopen.com/compute-product/rocm/>`_
 
@@ -2870,7 +2870,7 @@ Additional Documentation
 
 [`DWARF <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id24>`_]	`DWARF Debugging Information Format <http://dwarfstd.org/>`_
 
-[YAML]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id27>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id43>`_) `YAML Ain’t Markup Language (YAML™) Version 1.2 <http://www.yaml.org/spec/1.2/spec.html>`_
+[YAML]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id27>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id43>`_) `YAML Ain't Markup Language (YAML(TM)) Version 1.2 <http://www.yaml.org/spec/1.2/spec.html>`_
 
 [MsgPack]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id22>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id23>`_, `3 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id28>`_) `Message Pack <http://www.msgpack.org/>`_
 

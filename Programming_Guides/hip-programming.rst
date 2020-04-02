@@ -1,6 +1,6 @@
 
 .. _hip-pro:
- 
+
 #####################
 HIP Programming Guide
 #####################
@@ -10,7 +10,7 @@ Host Memory
 
 Introduction
 -------------
- 
+
 hipHostMalloc allocates pinned host memory which is mapped into the address space of all GPUs in the system. There are two use cases for this host memory:
 
  * Faster HostToDevice and DeviceToHost Data Transfers: The runtime tracks the hipHostMalloc allocations and can avoid some of the setup required for regular unpinned memory. For exact measurements on a specific system, experiment with --unpinned and --pinned switches for the hipBusBandwidth tool.
@@ -55,7 +55,7 @@ hipEventSynchronize
 
 Developers can control the release scope for hipEvents:
 
- * By default, the GPU performs a device-scope acquire and release operation with each recorded event.  This will make host and device memory visible to other commands executing on the same device. 
+ * By default, the GPU performs a device-scope acquire and release operation with each recorded event.  This will make host and device memory visible to other commands executing on the same device.
 
 A stronger system-level fence can be specified when the event is created with hipEventCreateWithFlags:
 

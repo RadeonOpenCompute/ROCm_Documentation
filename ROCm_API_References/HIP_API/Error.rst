@@ -6,17 +6,17 @@ Error Handling
 Error Handling types and functions.
 
 
-hipGetLastError 
+hipGetLastError
 ----------------
-.. doxygenfunction:: hipGetLastError 
+.. doxygenfunction:: hipGetLastError
 
-hipPeekAtLastError 
+hipPeekAtLastError
 -------------------
-.. doxygenfunction:: hipPeekAtLastError 
+.. doxygenfunction:: hipPeekAtLastError
 
-hipGetErrorName 
+hipGetErrorName
 ----------------
-.. doxygenfunction:: hipGetErrorName 
+.. doxygenfunction:: hipGetErrorName
 
 hipGetErrorString
 -------------------

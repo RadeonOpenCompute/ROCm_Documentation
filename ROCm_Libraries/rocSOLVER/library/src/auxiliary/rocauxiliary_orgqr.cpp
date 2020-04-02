@@ -5,7 +5,7 @@
 #include "rocauxiliary_orgqr.hpp"
 
 template <typename T>
-rocblas_status rocsolver_orgqr_impl(rocsolver_handle handle, const rocsolver_int m, const rocsolver_int n, 
+rocblas_status rocsolver_orgqr_impl(rocsolver_handle handle, const rocsolver_int m, const rocsolver_int n,
                                    const rocsolver_int k, T* A, const rocsolver_int lda, T* ipiv)
 {
     if(!handle)

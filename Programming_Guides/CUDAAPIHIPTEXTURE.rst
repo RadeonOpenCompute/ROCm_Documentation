@@ -623,7 +623,7 @@ CUDA Runtime API functions supported by HIP
 28. C++ API Routines
 -----------------------
 
-(7.0 contains, 7.5 doesn’t)
+(7.0 contains, 7.5 doesn't)
 
 +-------------------------------------------------------------+--------------------------------------------------+
 | CUDA                                                        | HIP                                              |

@@ -5,8 +5,8 @@
 #include "rocauxiliary_larft.hpp"
 
 template <typename T>
-rocblas_status rocsolver_larft_impl(rocsolver_handle handle, const rocsolver_direct direct, 
-                                   const rocsolver_storev storev, const rocsolver_int n, 
+rocblas_status rocsolver_larft_impl(rocsolver_handle handle, const rocsolver_direct direct,
+                                   const rocsolver_storev storev, const rocsolver_int n,
                                    const rocsolver_int k, T* V, const rocsolver_int ldv, T* tau,
                                    T* F, const rocsolver_int ldf)
 {
@@ -38,7 +38,7 @@ rocblas_status rocsolver_larft_impl(rocsolver_handle handle, const rocsolver_dir
                                       stridet,
                                       F,
                                       ldf,
-                                      stridef, 
+                                      stridef,
                                       batch_count);
 }
 

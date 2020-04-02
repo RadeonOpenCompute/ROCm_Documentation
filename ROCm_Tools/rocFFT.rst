@@ -82,7 +82,7 @@ The following is a simple example code that shows how to use rocFFT to compute a
           // Copy result back to host
           std::vector<float2> y(N);
           hipMemcpy(y.data(), x, Nbytes, hipMemcpyDeviceToHost);
- 
+
           // Print results
           for (size_t i = 0; i < N; i++)
           {

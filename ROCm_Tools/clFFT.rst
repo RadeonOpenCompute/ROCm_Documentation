@@ -164,7 +164,7 @@ Build dependencies
 
 To develop the clFFT library code on a Windows operating system, ensure to install the following packages on your system:
 
- * Windows® 7/8.1
+ * Windows(R) 7/8.1
 
  * Visual Studio 2012 or later
 
@@ -193,7 +193,7 @@ To test the developed clFFT library code, ensure to install the following packag
  * Googletest v1.6
 
  * Latest FFTW
- 
+
  * Latest Boost
 
 Performance infrastructure

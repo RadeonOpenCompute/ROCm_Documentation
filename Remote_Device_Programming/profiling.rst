@@ -50,8 +50,8 @@ Run an application and collect profile:
 Read profile output file:
 
 ::
- 
-  $ ucx_read_profile ucx.prof      
+
+  $ ucx_read_profile ucx.prof
 
    command : ./app
    host    : my_host

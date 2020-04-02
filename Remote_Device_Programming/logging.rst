@@ -9,10 +9,10 @@ UCS has logging infrastructure. logging is controlled by a single level:
  * fatal - stops the program
  * error - an error which does not stop the program and can be reported back to user.
  * warn - a warning which does not return error to the user.
- 
+
 info
  * debug - debugging messages, low volume, about initialization/cleanup.
- * trace - debugging messages, high volume, during runtime, for “special” events.
+ * trace - debugging messages, high volume, during runtime, for "special" events.
  * req - details of every send/receive request and tag matching.
  * data - headers of every packet being sent/received.
  * async - async notifications and progress thread.

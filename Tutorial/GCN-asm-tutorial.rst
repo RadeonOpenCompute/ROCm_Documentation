@@ -7,16 +7,16 @@ GCN asm Tutorial
 
 The Art of AMDGCN Assembly: How to Bend the Machine to Your Will
 ******************************************************************
-The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog  we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
+The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog  we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won't always employ 100% of the GPU's capabilities. Some reasons are the following:
 
  * The program may be written in a high level language that does not expose all of the features available on the hardware.
- * The compiler is unable to produce optimal ISA code, either because the compiler needs to ‘play it safe’ while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
+ * The compiler is unable to produce optimal ISA code, either because the compiler needs to 'play it safe' while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
 
-Consider a program that uses one of GCN’s new features (source code is available on `GitHub <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_). Recent hardware architecture updates—DPP and DS Permute instructions—enable efficient data sharing between wavefront lanes. To become more familiar with the instruction set, review the `GCN ISA Reference Guide <https://github.com/olvaffe/gpu-docs/blob/master/amd-open-gpu-docs/AMD_GCN3_Instruction_Set_Architecture.pdf>`_. Note: the assembler is currently experimental; some of syntax we describe may change.
+Consider a program that uses one of GCN's new features (source code is available on `GitHub <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_). Recent hardware architecture updates--DPP and DS Permute instructions--enable efficient data sharing between wavefront lanes. To become more familiar with the instruction set, review the `GCN ISA Reference Guide <https://github.com/olvaffe/gpu-docs/blob/master/amd-open-gpu-docs/AMD_GCN3_Instruction_Set_Architecture.pdf>`_. Note: the assembler is currently experimental; some of syntax we describe may change.
 
 DS Permute Instructions
 **************************
-Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says “put my lane data in lane i,” and ds_bpermute_b32 says “read data from lane i.” The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
+Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don't write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says "put my lane data in lane i," and ds_bpermute_b32 says "read data from lane i." The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
 
 ::
 
@@ -28,7 +28,7 @@ Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to mov
 
 Passing Parameters to a Kernel
 *******************************
-Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
+Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables--except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
 
 ::
 
@@ -50,7 +50,7 @@ Formal HSA arguments are passed to a kernel using a special read-only memory seg
   aql->kernarg_address = args;
   /*
   * Write the args directly to the kernargs buffer;
-  * the code assumes that memory is already allocated for the 
+  * the code assumes that memory is already allocated for the
   * buffers that in_ptr, index_ptr and out_ptr point to
   */
   args->in = in_ptr;
@@ -71,9 +71,9 @@ The host program should also allocate memory for the in, index and out buffers. 
   out = AllocateBuffer(size);
 
   // Fill Kernarg memory
-  Kernarg(in); // Add base pointer to “in” buffer
-  Kernarg(index); // Append base pointer to “index” buffer
-  Kernarg(out); // Append base pointer to “out” buffer
+  Kernarg(in); // Add base pointer to "in" buffer
+  Kernarg(index); // Append base pointer to "index" buffer
+  Kernarg(out); // Append base pointer to "out" buffer
 
 Initial Wavefront and Register State To launch a kernel in real hardware, the run time needs information about the kernel, such as
 
@@ -91,7 +91,7 @@ Initial Wavefront and Register State To launch a kernel in real hardware, the ru
    .text
    .p2align 8
    .amdgpu_hsa_kernel hello_world
- 
+
    hello_world:
 
    .amd_kernel_code_t
@@ -131,7 +131,7 @@ Currently, a programmer must manually set all non-default values to provide the 
 
 The GPR Counting
 ******************
-The next amd_kernel_code_t fields are obvious: is_ptr64 = 1 says we are in 64-bit mode, and kernarg_segment_byte_size = 24 describes the kernarg segment size. The GPR counting is less straightforward, however. The workitem_vgpr_count holds the number of vector registers that each work item uses, and wavefront_sgpr_count holds the number of scalar registers that a wavefront uses. The code above employs v0–v4, so workitem_vgpr_count = 5. But wavefront_sgpr_count = 8 even though the code only shows s0–s5, since the special registers VCC, FLAT_SCRATCH and XNACK are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, FLAT_SCRATCH and XNACK are disabled, so VCC has only two additional registers. In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields compute_pgm_rsrc1_*gprs contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
+The next amd_kernel_code_t fields are obvious: is_ptr64 = 1 says we are in 64-bit mode, and kernarg_segment_byte_size = 24 describes the kernarg segment size. The GPR counting is less straightforward, however. The workitem_vgpr_count holds the number of vector registers that each work item uses, and wavefront_sgpr_count holds the number of scalar registers that a wavefront uses. The code above employs v0-v4, so workitem_vgpr_count = 5. But wavefront_sgpr_count = 8 even though the code only shows s0-s5, since the special registers VCC, FLAT_SCRATCH and XNACK are physically stored as part of the wavefront's SGPRs in the highest-numbered SGPRs. In this example, FLAT_SCRATCH and XNACK are disabled, so VCC has only two additional registers. In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields compute_pgm_rsrc1_*gprs contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
 
 ::
 

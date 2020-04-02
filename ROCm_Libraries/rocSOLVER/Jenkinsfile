@@ -26,8 +26,8 @@ rocSOLVERCI:
 {
 
     def rocsolver = new rocProject('rocSOLVER')
-    
-    def nodes = new dockerNodes(['internal && gfx900 && ubuntu16', 'internal && gfx906 && ubuntu16', 'internal && gfx906 && centos7', 
+
+    def nodes = new dockerNodes(['internal && gfx900 && ubuntu16', 'internal && gfx906 && ubuntu16', 'internal && gfx906 && centos7',
     'internal && gfx900 && centos7','internal && gfx900 && ubuntu16 && hip-clang', 'internal && gfx906 && ubuntu16 && hip-clang',
     'internal && gfx900 && sles', 'internal && gfx906 && sles'], rocsolver)
 
@@ -43,7 +43,7 @@ rocSOLVERCI:
         String compiler = platform.jenkinsLabel.contains('hip-clang') ? 'hipcc' : 'hcc'
         String branch = platform.jenkinsLabel.contains('hip-clang') ? 'hip-clang' : 'develop'
 	    String build_command = "${cmake} -DCMAKE_CXX_COMPILER=/opt/rocm/bin/${compiler} -Damd_comgr_DIR=/opt/rocm/lib/cmake/amd_comgr .."
-        
+
         def getRocBLAS = auxiliary.getLibrary('rocBLAS',platform.jenkinsLabel,branch)
         def command = """#!/usr/bin/env bash
                     set -x
@@ -81,7 +81,7 @@ rocSOLVERCI:
         finally
         {
             junit "${project.paths.project_build_prefix}/build/clients/staging/*.xml"
-        }        
+        }
     }
 
     def packageCommand =
@@ -90,7 +90,7 @@ rocSOLVERCI:
 
         String branch = platform.jenkinsLabel.contains('hip-clang') ? 'hip-clang' : 'develop'
         def getRocBLAS = auxiliary.getLibrary('rocBLAS',platform.jenkinsLabel,branch)
-        def packageHelper = platform.makePackage(platform.jenkinsLabel,"${project.paths.project_build_prefix}/build",false,getRocBLAS)  
+        def packageHelper = platform.makePackage(platform.jenkinsLabel,"${project.paths.project_build_prefix}/build",false,getRocBLAS)
 
         platform.runCommand(this, packageHelper[0])
         platform.archiveArtifacts(this, packageHelper[1])

@@ -7,9 +7,9 @@ hipPointerGetAttributes
 ------------------------
 .. doxygenfunction:: hipPointerGetAttributes
 
-hipMalloc 
+hipMalloc
 ------------------------
-.. doxygenfunction:: hipMalloc 
+.. doxygenfunction:: hipMalloc
 
 hipMallocHost
 ------------------------
@@ -19,9 +19,9 @@ hipHostMalloc
 ------------------------
 .. doxygenfunction:: hipHostMalloc
 
-hipHostAlloc 
+hipHostAlloc
 ------------------------
-.. doxygenfunction:: hipHostAlloc 
+.. doxygenfunction:: hipHostAlloc
 
 hipHostGetDevicePointer
 ------------------------
@@ -31,9 +31,9 @@ hipHostGetFlags
 ------------------------
 .. doxygenfunction:: hipHostGetFlags
 
-hipHostRegister 
+hipHostRegister
 ------------------------
-.. doxygenfunction:: hipHostRegister 
+.. doxygenfunction:: hipHostRegister
 
 hipHostUnregister
 ------------------------
@@ -51,9 +51,9 @@ hipFreeHost
 ------------------------
 .. doxygenfunction:: hipFreeHost
 
-hipMemcpy 
+hipMemcpy
 ------------------------
-.. doxygenfunction:: hipMemcpy 
+.. doxygenfunction:: hipMemcpy
 
 hipMemcpyHtoD
 ------------------------
@@ -87,13 +87,13 @@ hipMemcpyToSymbolAsync
 ------------------------
 .. doxygenfunction:: hipMemcpyToSymbolAsync
 
-hipMemcpyFromSymbol 
+hipMemcpyFromSymbol
 ------------------------
-.. doxygenfunction:: hipMemcpyFromSymbol 
+.. doxygenfunction:: hipMemcpyFromSymbol
 
-hipMemcpyFromSymbolAsync 
+hipMemcpyFromSymbolAsync
 ------------------------
-.. doxygenfunction:: hipMemcpyFromSymbolAsync 
+.. doxygenfunction:: hipMemcpyFromSymbolAsync
 
 hipMemcpyAsync
 ------------------------
@@ -103,21 +103,21 @@ hipMemset
 ------------------------
 .. doxygenfunction:: hipMemset
 
-hipMemsetD8 
+hipMemsetD8
 ------------------------
-.. doxygenfunction:: hipMemsetD8 
+.. doxygenfunction:: hipMemsetD8
 
-hipMemsetAsync 
+hipMemsetAsync
 ------------------------
-.. doxygenfunction:: hipMemsetAsync 
+.. doxygenfunction:: hipMemsetAsync
 
-hipMemset2D 
+hipMemset2D
 ------------------------
-.. doxygenfunction:: hipMemset2D 
+.. doxygenfunction:: hipMemset2D
 
-hipMemGetInfo 
+hipMemGetInfo
 ------------------------
-.. doxygenfunction:: hipMemGetInfo 
+.. doxygenfunction:: hipMemGetInfo
 
 hipMemPtrGetInfo
 ------------------------

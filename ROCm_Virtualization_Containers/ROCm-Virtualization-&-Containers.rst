@@ -9,21 +9,21 @@ PCIe Passthrough on KVM
 ================
 The following KVM-based instructions assume a headless host with an input/output memory management unit (IOMMU) to pass peripheral devices such as a GPU to guest virtual machines.  If you know your host supports IOMMU but the below command does not find "svm" or "vxm", you may need to enable IOMMU in your BIOS.
 
-::	
- 
-   cat /proc/cpuinfo | grep -E “svm|vxm”
+::
+
+   cat /proc/cpuinfo | grep -E "svm|vxm"
 
 Ubuntu 16.04
 ****************************
 Assume we use an intel system that support VT-d , with fresh ubuntu 16.04 installed
- 
+
 **a. Install necessary packages and prepare for pass through device**
 
-1. ::	
- 
+1. ::
+
    sudo apt-get install qemu-kvm qemu-system bridge-utils virt-manager ubuntu-vm-builder libvirt-dev
 
-	
+
 2. add following modules into /etc/modules
        | vfio
        | vfio_iommu_type1
@@ -31,15 +31,15 @@ Assume we use an intel system that support VT-d , with fresh ubuntu 16.04 instal
        | kvm
        | kvm_intel
 
-    add intel_iommu=on in /etc/default/grub 
+    add intel_iommu=on in /etc/default/grub
  	| GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on"
-    ::	
- 
+    ::
+
    sudo update-grub
 
 3. Blacklist amdgpu by adding the following line to /etc/modprobe.d/blacklist.conf
-    ::	
- 
+    ::
+
    blacklist amdgpu
 **b. Bind pass through device to vfio-pci**
 
@@ -60,8 +60,8 @@ Assume we use an intel system that support VT-d , with fresh ubuntu 16.04 instal
 
 2. Make it executable by enter the command
 
-::	
- 
+::
+
    chmod 755 vfio-bind
 
 3. Bind the device to vfio by running the command for the three pass through devices
@@ -76,17 +76,17 @@ Assume we use an intel system that support VT-d , with fresh ubuntu 16.04 instal
 
 **c. Pass through device to guest VM**
 
-1. Start VMM by running “virt-manager” as root. Follow the on screen instruction to create one virtual machine(VM), make sure CPU    	copy host CPU configuration, network use bridge mode. 
+1. Start VMM by running "virt-manager" as root. Follow the on screen instruction to create one virtual machine(VM), make sure CPU    	copy host CPU configuration, network use bridge mode.
 2. Add Hardware --> Select PCI Host device, select the appropriate device to pass through. ex:0000:83:00.0
 3. sudo setpci -s 83:00.0 CAP_EXP+28.l=40
 4. sudo reboot
 
-After reboot, start virt-manager and then start the VM, inside the VM , lspci -d 1002: should shows the pass throughed device.   
+After reboot, start virt-manager and then start the VM, inside the VM , lspci -d 1002: should shows the pass throughed device.
 
 Fedora 27 or CentOS 7 (1708)
 ****************************
 From a fresh install of Fedora 27 or CentOS 7 (1708)
- 
+
 **a. Install necessary packages and prepare for pass through device**
 
 1. Identity the vendor and device id(s) for the PCIe device(s) you wish to passthrough, e.g., 1002:6861 and 1002:aaf8 for an AMD Radeon Pro WX 9100 and its associated audio device,
@@ -111,7 +111,7 @@ From a fresh install of Fedora 27 or CentOS 7 (1708)
     echo "options vfio-pci ids=1002:6861,1002:aaf8" | sudo tee -a /etc/modprobe.d/vfio.conf
     echo "options vfio-pci disable_vga=1" | sudo tee -a /etc/modprobe.d/vfio.conf
     sed 's/quiet/quiet rd.driver.pre=vfio-pci video=efifb:off/' /etc/sysconfig/grub
-    
+
 5. Update the kernel boot settings
 
 ::
@@ -140,7 +140,7 @@ Note: To pass a device within a particular IOMMU group, all devices within that 
 	lspci -nns "${d##*/}"
     done;
 
-		
+
 ROCm-Docker
 ===========
 
@@ -152,7 +152,7 @@ This repository contains a framework for building the software layers defined in
 
  * Docker on `Ubuntu <https://docs.docker.com/v2.0/installation/ubuntulinux/>`_ systems or `Fedora systems <https://docs.docker.com/v2.0/installation/fedora/>`_
  * Highly recommended: `Docker-Compose <https://docs.docker.com/compose/install/>`_ to simplify container management
-   
+
 Docker Hub
 **********
 Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is hosted on `Docker Hub <https://hub.docker.com/r/rocm/rocm-terminal/>`_ . After the `ROCm kernel is installed <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/ROCK-Kernel-Driver_readme.html#opencomute-kernel-deriver>`_ , pull the image from Docker Hub and create a new instance of a container.
@@ -161,8 +161,8 @@ Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is ho
 
   sudo docker pull rocm/rocm-terminal
   sudo docker run -it --device=/dev/kfd --device=/dev/dri --security-opt seccomp=unconfined --group-add video rocm/rocm-terminal
-  
-  
+
+
 ROCm-docker set up guide
 *************************
 `Installation instructions <https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/quick-start.md>`_ and asciicasts demos are available to help users quickly get running with rocm-docker. Visit the set up guide to read more.
@@ -265,7 +265,7 @@ The dockerfile that serves as a 'terminal' creates a non-root user called **rocm
 To increase container security:
 
  1.Eliminate the sudo-nopasswd COPY statement in the dockerfile and replace with
- 
+
  2.Your own password with RUN echo 'account:password' | chpasswd
 
 The docker.ce release 18.02 has known defects working with rocm-user account insider docker image. Please upgrade docker package to the `18.04 build <https://download.docker.com/linux/ubuntu/dists/xenial/pool/nightly/amd64/docker-ce_18.04.0~ce~dev~git20180313.171447.0.6e4307b-0~ubuntu_amd64.deb>`_.

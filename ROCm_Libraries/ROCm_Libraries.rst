@@ -1269,7 +1269,7 @@ The root of this repository has a helper bash script install.sh to build and ins
 **Manual build (all supported platforms)**
 
 If you use a distro other than Ubuntu, or would like more control over the build process, the hipblas build has helpful information on how to configure cmake and manually build.
-          
+
 Build
 ########
 
@@ -1437,7 +1437,7 @@ Batched and strided GEMM API
 -------------------------------
 hipBLAS GEMM can process matrices in batches with regular strides. There are several permutations of these API's, the following is an example that takes everything
 
-:: 
+::
 
   hipblasStatus_t
   hipblasSgemmStridedBatched( hipblasHandle_t handle,
@@ -1570,7 +1570,7 @@ Running Statistical Tests
 ::
 
   # Go to rocRAND build directory
-  cd rocRAND; cd build  
+  cd rocRAND; cd build
   # To run "crush" test, which verifies that generated pseudorandom
   # numbers are of high quality:
   # engine -> all, xorwow, mrg32k3a, mtgp32, philox
@@ -1704,7 +1704,7 @@ The following is a simple example code that shows how to use rocFFT to compute a
           // Copy result back to host
           std::vector<float2> y(N);
           hipMemcpy(y.data(), x, Nbytes, hipMemcpyDeviceToHost);
- 
+
           // Print results
           for (size_t i = 0; i < N; i++)
           {
@@ -1810,7 +1810,7 @@ Execution info
 
 The execution api :cpp:func:`rocfft_execute` takes a rocfft_execution_info parameter. This parameter needs
 to be created and setup by the user and passed to the execution api. The execution info handle encapsulates
-information such as execution mode, pointer to any work buffer etc. It can also hold information that are 
+information such as execution mode, pointer to any work buffer etc. It can also hold information that are
 side effect of execution such as event objects. The following functions deal with managing execution info
 object. Note that the *set* functions below need to be called before execution and *get* functions after
 execution.
@@ -2012,7 +2012,7 @@ rocSPARSE with dependencies and client can be built using the following commands
                                     -DBUILD_CLIENTS_BENCHMARKS=ON \
                                     -DBUILD_CLIENTS_SAMPLES=ON \
                                     -DBUILD_VERBOSE=OFF \
-                                    -DBUILD_SHARED_LIBS=ON 
+                                    -DBUILD_SHARED_LIBS=ON
 
   # Compile rocSPARSE library
   make -j$(nproc)
@@ -2028,7 +2028,7 @@ Common build problems
 
 #. **Issue:** HCC RUNTIME ERROR: Failed to find compatible kernel
 
-   **Solution:** Add the following to the cmake command when configuring: -DCMAKE_CXX_FLAGS=”–amdgpu-target=gfx803,gfx900,gfx906,gfx908”
+   **Solution:** Add the following to the cmake command when configuring: -DCMAKE_CXX_FLAGS="-amdgpu-target=gfx803,gfx900,gfx906,gfx908"
 
 #. **Issue:** Could not find a package configuration file provided by "ROCM" with any of the following names:
               ROCMConfig.cmake |br|
@@ -2046,7 +2046,7 @@ You can test the installation by running one of the rocSPARSE examples, after su
 
   # Navigate to clients binary directory
   $ cd rocSPARSE/build/release/clients/staging
- 
+
   # Execute rocSPARSE example
   $ ./example_csrmv 1000
 
@@ -2056,7 +2056,7 @@ Supported Targets
 
 Currently, rocSPARSE is supported under the following operating systems
 
-    
+
     * Ubuntu 16.04
 
     * Ubuntu 18.04
@@ -2093,7 +2093,7 @@ The above is a HIP (and CUDA) device management approach and has nothing to do w
 
 Once users set the device, they create a handle with `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_.
 
-Subsequent rocSPARSE routines take this handle as an input parameter. rocSPARSE ONLY queries (by hipGetDevice()) the user’s device; rocSPARSE does NOT set the device for users. If rocSPARSE does not see a valid device, it returns an error message. It is the users’ responsibility to provide a valid device to rocSPARSE and ensure the device safety.
+Subsequent rocSPARSE routines take this handle as an input parameter. rocSPARSE ONLY queries (by hipGetDevice()) the user's device; rocSPARSE does NOT set the device for users. If rocSPARSE does not see a valid device, it returns an error message. It is the users' responsibility to provide a valid device to rocSPARSE and ensure the device safety.
 
 Users CANNOT switch devices between `rocsparse_create_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-create-handle>`_ and `rocsparse_destroy_handle() <https://rocsparse.readthedocs.io/en/latest/library.html#rocsparse-destroy-handle>`_. If users want to change device, they must destroy the current handle and create another rocSPARSE handle.
 
@@ -2693,7 +2693,7 @@ rocsparse_hybmv()
    :project: rocSPARSE
 
 .. doxygenfunction:: rocsparse_chybmv
-   :project: rocSPARSE  
+   :project: rocSPARSE
 
 .. doxygenfunction:: rocsparse_zhybmv
    :project: rocSPARSE
@@ -3033,31 +3033,31 @@ rocSOLVER
 ***************
 
 .. toctree::
-   :maxdepth: 4 
+   :maxdepth: 4
    :caption: Contents:
 
 
 Introduction
 ##############
 
-An implementation of Lapack routines on top of AMD’s Radeon Open Compute Platform (ROCm) runtime and toolchains. 
-rocSOLVER is implemented in the HIP programming language; it is based on rocBLAS, an optimized BLAS 
-implementation for AMD’s latest discrete GPUs. More information about rocBLAS can be found 
+An implementation of Lapack routines on top of AMD's Radeon Open Compute Platform (ROCm) runtime and toolchains.
+rocSOLVER is implemented in the HIP programming language; it is based on rocBLAS, an optimized BLAS
+implementation for AMD's latest discrete GPUs. More information about rocBLAS can be found
 `here <https://rocblas.readthedocs.io/en/latest/index.html>`_.
 
 Build and install
 ###################
 
-rocSOLVER requires `cmake <https://cmake.org/install/>`_ 
-and `ROCm <https://rocm.github.io/install.html>`_, including 
-`hip <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and 
-`rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_, to be installed. 
+rocSOLVER requires `cmake <https://cmake.org/install/>`_
+and `ROCm <https://rocm.github.io/install.html>`_, including
+`hip <https://github.com/ROCm-Developer-Tools/HIP/blob/master/INSTALL.md>`_ and
+`rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_, to be installed.
 
 Once these requirements are satisfied, the following
 instructions will build and install rocSOLVER:
 
 .. code-block:: bash
-   
+
      mkdir build && cd build
     CXX=/opt/rocm/bin/hcc cmake ..
     make
@@ -3066,56 +3066,56 @@ instructions will build and install rocSOLVER:
 Brief description and functionality
 ######################################
 
-rocSolver Library is in early stages of active development. New features and functionality is being continuosly added. New 
-functionality is documented at each release of the ROCm platform. 
+rocSolver Library is in early stages of active development. New features and functionality is being continuosly added. New
+functionality is documented at each release of the ROCm platform.
 
 The following table summarizes the LAPACK functionality implemented in rocSOLVER's last release.
 
 =============================== ====== ====== ============== ==============
 Lapack Auxiliary Function       single double single complex double complex
 =============================== ====== ====== ============== ==============
-**rocsolver_laswp**             x      x         x              x 
-**rocsolver_larfg**             x      x                        
+**rocsolver_laswp**             x      x         x              x
+**rocsolver_larfg**             x      x
 **rocsolver_larft**             x      x
 **rocsolver_larf**              x      x
-**rocsolver_larfb**             x      x      
-**rocsolver_org2r**             x      x      
-**rocsolver_orgqr**             x      x      
-**rocsolver_orgl2**             x      x      
-**rocsolver_orglq**             x      x      
-**rocsolver_orgbr**             x      x      
-**rocsolver_orm2r**             x      x      
-**rocsolver_ormqr**             x      x      
+**rocsolver_larfb**             x      x
+**rocsolver_org2r**             x      x
+**rocsolver_orgqr**             x      x
+**rocsolver_orgl2**             x      x
+**rocsolver_orglq**             x      x
+**rocsolver_orgbr**             x      x
+**rocsolver_orm2r**             x      x
+**rocsolver_ormqr**             x      x
 =============================== ====== ====== ============== ==============
 
 =============================== ====== ====== ============== ==============
 Lapack Function                 single double single complex double complex
 =============================== ====== ====== ============== ==============
-**rocsolver_potf2**             x      x                        
-rocsolver_potf2_batched         x      x                       
-rocsolver_potf2_strided_batched x      x                       
-**rocsolver_potrf**             x      x                        
-rocsolver_potrf_batched         x      x                       
-rocsolver_potrf_strided_batched x      x                       
+**rocsolver_potf2**             x      x
+rocsolver_potf2_batched         x      x
+rocsolver_potf2_strided_batched x      x
+**rocsolver_potrf**             x      x
+rocsolver_potrf_batched         x      x
+rocsolver_potrf_strided_batched x      x
 **rocsolver_getf2**             x      x          x             x
 rocsolver_getf2_batched         x      x          x             x
 rocsolver_getf2_strided_batched x      x          x             x
-**rocsolver_getrf**             x      x          x             x 
+**rocsolver_getrf**             x      x          x             x
 rocsolver_getrf_batched         x      x          x             x
 rocsolver_getrf_strided_batched x      x          x             x
-**rocsolver_geqr2**             x      x                        
+**rocsolver_geqr2**             x      x
 rocsolver_geqr2_batched         x      x
 rocsolver_geqr2_strided_batched x      x
-**rocsolver_geqrf**             x      x                        
-rocsolver_geqrf_batched         x      x 
+**rocsolver_geqrf**             x      x
+rocsolver_geqrf_batched         x      x
 rocsolver_geqrf_strided_batched x      x
-**rocsolver_gelq2**             x      x                        
+**rocsolver_gelq2**             x      x
 rocsolver_gelq2_batched         x      x
 rocsolver_gelq2_strided_batched x      x
-**rocsolver_gelqf**             x      x                        
-rocsolver_gelqf_batched         x      x 
+**rocsolver_gelqf**             x      x
+rocsolver_gelqf_batched         x      x
 rocsolver_gelqf_strided_batched x      x
-**rocsolver_getrs**             x      x          x             x 
+**rocsolver_getrs**             x      x          x             x
 rocsolver_getrs_batched         x      x          x             x
 rocsolver_getrs_strided_batched x      x          x             x
 =============================== ====== ====== ============== ==============
@@ -3123,38 +3123,38 @@ rocsolver_getrs_strided_batched x      x          x             x
 Benchmarking and Testing
 ##########################
 
-Additionaly, rocSOLVER has a basic/preliminary infrastructure for testing and benchmarking similar to that of rocBLAS. 
+Additionaly, rocSOLVER has a basic/preliminary infrastructure for testing and benchmarking similar to that of rocBLAS.
 
-On a normal installation, clients should be located in the directory **<rocsolverDIR>/build/clients/staging**. 
+On a normal installation, clients should be located in the directory **<rocsolverDIR>/build/clients/staging**.
 
 **rocsolver-test** executes a suite of `Google tests <https://github.com/google/googletest>`_ (*gtest*) that verifies the correct
-functioning of the library; the results computed by rocSOLVER, for random input data, are compared with the results computed by 
+functioning of the library; the results computed by rocSOLVER, for random input data, are compared with the results computed by
 `NETLib LAPACK <http://www.netlib.org/lapack/>`_ on the CPU.
 
 Calling the rocSOLVER gtest client with the --help flag
 
 .. code-block:: bash
-    
+
     ./rocsolver-test --help
 
-returns information on different flags that control the behavior of the gtests.   
+returns information on different flags that control the behavior of the gtests.
 
 **rocsolver-bench** allows to run any rocSOLVER function with random data of the specified dimensions; it compares the computed results, and provides basic
-performance information (as for now, execution times). 
+performance information (as for now, execution times).
 
-Similarly, 
+Similarly,
 
 .. code-block:: bash
-    
+
     ./rocsolver-bench --help
 
-returns information on how to use the rocSOLVER benchmark client.   
- 
+returns information on how to use the rocSOLVER benchmark client.
+
 
 rocSOLVER API
 ###############
 
-This section provides details of the rocSOLVER library API as in release 
+This section provides details of the rocSOLVER library API as in release
 `ROCm 2.10 <https://github.com/ROCmSoftwarePlatform/rocSOLVER/tree/master-rocm-2.10>`_.
 
 
@@ -3162,7 +3162,7 @@ This section provides details of the rocSOLVER library API as in release
 Types
 =====
 
-Most rocSOLVER types are aliases of rocBLAS types. 
+Most rocSOLVER types are aliases of rocBLAS types.
 See rocBLAS types `here <https://rocblas.readthedocs.io/en/latest/api.html#types>`_.
 
 Definitions
@@ -3567,7 +3567,7 @@ rocsolver_<type>getrs_strided_batched()
 Auxiliaries
 =========================
 
-rocSOLVER auxiliary functions are aliases of rocBLAS auxiliary functions. See rocBLAS auxiliary functions 
+rocSOLVER auxiliary functions are aliases of rocBLAS auxiliary functions. See rocBLAS auxiliary functions
 `here <https://rocblas.readthedocs.io/en/latest/api.html#auxiliary>`_.
 
 rocSOLVER handle auxiliaries
@@ -3666,7 +3666,7 @@ The hipSPARSE interface is compatible with rocSPARSE and cuSPARSE-v2 APIs. Porti
 
 CSRMV API
 ###########
- 
+
  ::
 
   hipsparseStatus_t
@@ -3903,7 +3903,7 @@ Common build problems
               ROCBLAS.cmake |br|
               rocblas-config.cmake
 
-   **Solution:** Install `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_ either from source or from 'AMD ROCm repository <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_ 
+   **Solution:** Install `rocBLAS <https://github.com/ROCmSoftwarePlatform/rocBLAS>`_ either from source or from 'AMD ROCm repository <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`_
 
 Simple Test
 ###########
@@ -3918,7 +3918,7 @@ You can test the installation by running a CG solver on a Laplace matrix. After 
 
   ./clients/staging/cg gr_30_30.mtx
 
-For more information regarding rocALUTION library and corresponding API documentation, refer 
+For more information regarding rocALUTION library and corresponding API documentation, refer
 `rocALUTION <https://rocalution.readthedocs.io/en/latest/library.html>`_
 
 
@@ -4891,7 +4891,7 @@ Tensile is a **tool** for creating a benchmark-driven backend library for GEMMs,
 
 Overview for creating a custom TensileLib backend library for your application:
 
-1. Install the `PyYAML and cmake dependency`_ (mandatory), ``git clone and cd Tensile`` 
+1. Install the `PyYAML and cmake dependency`_ (mandatory), ``git clone and cd Tensile``
 2. Create a `benchmark config.yaml`_ file in ``./Tensile/Configs/``
 3. `Run the benchmark`_. After the benchmark is finished. Tensile will dump 4 directories: 1 & 2 is about benchmarking. 3 & 4 is the summarized results from your library (like rocBLAS) viewpoints.
 
@@ -4950,7 +4950,7 @@ Tensile uses an incremental and "programmable" `benchmarking protocol`_.
 Example Benchmark config.yaml as input file to Tensile
 -------------------------------------------------------
 
-:: 
+::
 
   GlobalParameters:
     PrintLevel: 1
@@ -5160,18 +5160,18 @@ Each step of the benchmark can override what problem sizes will be benchmarked. 
 
  1. [1968]
   * Benchmark only size 1968; n = 1.
-  
+
  2. [16, 1920]
   * Benchmark sizes 16 to 1968 using the default step size (=16); n = 123.
- 
+
  3. [16, 32, 1968]
   * Benchmark sizes 16 to 1968 using a step size of 32; n = 61.
- 
+
  4. [64, 32, 16, 1968]
   * Benchmark sizes from 64 to 1968 with a step size of 32. Also, increase the step size by 16 each iteration.
   * This causes fewer sizes to be benchmarked when the sizes are large, and more benchmarks where the sizes are small; this is 	      	typically desired behavior.
   * n = 16 (64, 96, 144, 208, 288, 384, 496, 624, 768, 928, 1104, 1296, 1504, 1728, 1968). The stride at the beginning is 32, but the stride at the end is 256.
- 
+
  5. 0
   * The size of this index is just whatever size index 0 is. For a 3-dimensional ProblemType, this allows benchmarking only a 2- 	      	dimensional or 1-dimensional slice of problem sizes.
 
@@ -5255,12 +5255,12 @@ Compilers
 --------------
 
   * For Tensile_BACKEND = OpenCL1.2 *(untested)*
-      
+
       * Visual Studio 14 (2015). (VS 2012 may also be supported; c++11 should no longer be required by Tensile. Need to verify.)
       * GCC 4.8 and above
 
   * For Tensile_BACKEND = HIP
-      
+
       * Public ROCm
 
 
@@ -5273,7 +5273,7 @@ Tensile can be installed via:
 1. Download repo and don't install; install PyYAML dependency manually and call python scripts manually:
 
 ::
- 
+
   git clone https://github.com/ROCmSoftwarePlatform/Tensile.git
   python Tensile/Tensile/Tensile.py your_custom_config.yaml your_benchmark_path
 
@@ -5329,7 +5329,7 @@ The kernel parameters affect many aspects of performance. Changing a parameter m
 
  .. image:: img1.png
      :align: center
-   
+
 How N-Dimensional Tensor Contractions Are Mapped to Finite-Dimensional GPU Kernels
 --------------------------------------------------------------------------------------
 
@@ -5372,7 +5372,7 @@ The device languages Tensile supports for the gpu kernels is
 * HIP
 * Assembly
 
-	* gfx803 
+	* gfx803
 	* gfx900
 
 Library Logic
@@ -5455,7 +5455,7 @@ After running the `benchmark`_ and generating `library config files`_, you're re
     )
   target_link_libraries( TARGET Tensile )
 
-TODO: Where is the Tensile include directory?	
+TODO: Where is the Tensile include directory?
 
 .. _benchmark: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id39
 .. _library config files: https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#id46
@@ -5668,7 +5668,7 @@ In order to verify the build and capability of ROCm SMI on your system and to se
   $ cmake -DROCM_DIR=<location of ROCM SMI library .so> <ROCm SMI source root>/tests/rocm_smi_test
   $ make
 
-To run the test, execute the program rsmitst that is built from the steps above. 
+To run the test, execute the program rsmitst that is built from the steps above.
 
 Usage Basics
 ##############
@@ -5691,25 +5691,25 @@ A simple "Hello World" type program that displays the device ID of detected devi
   #include <stdint.h>
   #include "rocm_smi/rocm_smi.h"
   int main() {
-  rsmi_status_t ret; 
-  uint32_t num_devices; 
-  uint64_t dev_id; 
- 
-  // We will skip return code checks for this example, but it 
+  rsmi_status_t ret;
+  uint32_t num_devices;
+  uint64_t dev_id;
+
+  // We will skip return code checks for this example, but it
   // is recommended to always check this as some calls may not
   // apply for some devices or ROCm releases
- 
+
   ret = rsmi_init(0);
   ret = rsmi_num_monitor_devices(&num_devices);
- 
+
   for (int i=0; i < num_devices; ++i) {
     ret = rsmi_dev_id_get(i, &dev_id);
     // dev_id holds the device ID of device i, upon a
-    // successful call  
-  }  
+    // successful call
+  }
   ret = rsmi_shut_down();
   return 0;
-  } 
+  }
 
 *****
 RCCL
@@ -5761,7 +5761,7 @@ To build the library :
   $ cd rccl
   $ mkdir build
   $ cd build
-  $ CXX=/opt/rocm/bin/hcc cmake 
+  $ CXX=/opt/rocm/bin/hcc cmake
   $ make -j 8
 
 
@@ -5769,7 +5769,7 @@ To build the library :
 You may substitute a path of your own choosing for CMAKE_INSTALL_PREFIX. Note: ensure rocm-cmake is installed,
 
 ::
-  
+
   apt install rocm-cmake.
 
 
@@ -5867,7 +5867,7 @@ Build And Install
   # before 'cmake' or setting cmake option 'CMAKE_CXX_COMPILER' to path to the HCC compiler.
   #
   [CXX=hcc] cmake ../. # or cmake-gui ../.
- 
+
   # Build
   make -j4
 
@@ -5886,7 +5886,7 @@ Using hipCUB In A Project
 ###########################
 
 Recommended way of including hipCUB into a CMake project is by using its package configuration files.
- 
+
 ::
 
   # On ROCm hipCUB requires rocPRIM
@@ -5997,7 +5997,7 @@ First create a build directory:
 
 ::
 
-  mkdir build; 
+  mkdir build;
   cd build;
 
 
@@ -6119,7 +6119,7 @@ Deprecated Libraries
 hCRNG
 ######
 
-hCRNG has been **deprecated** and has been replaced by `rocRAND <https://github.com/ROCmSoftwarePlatform/rocRAND>`_ 
+hCRNG has been **deprecated** and has been replaced by `rocRAND <https://github.com/ROCmSoftwarePlatform/rocRAND>`_
 
 The hcRNG library is an implementation of uniform random number generators targeting the AMD heterogeneous hardware via HCC compiler runtime. The computational resources of underlying AMD heterogenous compute gets exposed and exploited through the HCC C++ frontend. Refer `here <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_ for more details on HCC compiler.
 
@@ -6145,7 +6145,7 @@ For more information, please refer :ref:`CLFF`
 clBLAS
 ########
 
-This repository houses the code for the OpenCL™ BLAS portion of clMath. The complete set of BLAS level 1, 2 & 3 routines is implemented. Please see Netlib BLAS for the list of supported routines. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and multicore programming. APPML 1.12 is the most current generally available pre-packaged binary version of the library available for download for both Linux and Windows platforms.
+This repository houses the code for the OpenCL(TM) BLAS portion of clMath. The complete set of BLAS level 1, 2 & 3 routines is implemented. Please see Netlib BLAS for the list of supported routines. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and multicore programming. APPML 1.12 is the most current generally available pre-packaged binary version of the library available for download for both Linux and Windows platforms.
 
 The primary goal of clBLAS is to make it easier for developers to utilize the inherent performance and power efficiency benefits of heterogeneous computing. clBLAS interfaces do not hide nor wrap OpenCL interfaces, but rather leaves OpenCL state management to the control of the user to allow for maximum performance and flexibility. The clBLAS library does generate and enqueue optimized OpenCL kernels, relieving the user from the task of writing, optimizing and maintaining kernel code themselves.
 
@@ -6154,18 +6154,18 @@ For more information, please refer :ref:`CLB`
 
 clSPARSE
 #########
- 
-an OpenCL™ library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
+
+an OpenCL(TM) library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
 
 For more information, please refer :ref:`CLS`
 
 
 clRNG
 ########
- 
+
 A library for uniform random number generation in OpenCL.
 
-Streams of random numbers act as virtual random number generators. They can be created on the host computer in unlimited numbers, and then used either on the host or on computing devices by work items to generate random numbers. Each stream also has equally-spaced substreams, which are occasionally useful. The API is currently implemented for four different RNGs, namely the MRG31k3p, MRG32k3a, LFSR113 and Philox-4×32-10 generators.
+Streams of random numbers act as virtual random number generators. They can be created on the host computer in unlimited numbers, and then used either on the host or on computing devices by work items to generate random numbers. Each stream also has equally-spaced substreams, which are occasionally useful. The API is currently implemented for four different RNGs, namely the MRG31k3p, MRG32k3a, LFSR113 and Philox-4x32-10 generators.
 
 For more information, please refer :ref:`CLR`
 

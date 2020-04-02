@@ -7,9 +7,9 @@ hipDeviceCanAccessPeer
 ------------------------
 .. doxygenfunction:: hipDeviceCanAccessPeer
 
-hipDeviceEnablePeerAccess 
+hipDeviceEnablePeerAccess
 ---------------------------
-.. doxygenfunction:: hipDeviceEnablePeerAccess 
+.. doxygenfunction:: hipDeviceEnablePeerAccess
 
 hipDeviceDisablePeerAccess
 ----------------------------
@@ -23,8 +23,8 @@ hipMemcpyPeer
 ------------------------
 .. doxygenfunction:: hipMemcpyPeer
 
-hipMemcpyPeerAsync 
+hipMemcpyPeerAsync
 ------------------------
-.. doxygenfunction:: hipMemcpyPeerAsync 
+.. doxygenfunction:: hipMemcpyPeerAsync
 
 
