@@ -51,7 +51,7 @@ What\'s New in This Release
 ===========================
 
 **Multi-Version Installation**
-################################
+###############################
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
 
@@ -94,7 +94,7 @@ A fresh installation or an upgrade of the single-version installation will remov
 
 .. image:: /Current_Release_Notes/singleinstance.png
 
-**Multi-version Installation**
+**Multi Version Installation**
 
 * To install a multi-instance of the ROCm package, access the versioned packages and components. 
 
