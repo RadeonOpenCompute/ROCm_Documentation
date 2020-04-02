@@ -656,7 +656,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
          
  -  `ROCM Clang-OCL Kernel Compiler`_
  -  `Asynchronous Task and Memory Interface`_
- -  `ROCm Debug Agent`_
+ -  `ROCr Debug Agent`_
  -  `ROCm Code Object Manager`_
  -  `ROC Profiler`_
  -  `ROC Tracer`_
@@ -724,7 +724,7 @@ ROCm Development ToolChain
 
 .. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.3.0
 
-.. _ROCm LLVM OCL: http://github.com/RadeonOpenCompute/llvm/tree/rocm-ocl-3.3.0
+.. _ROCm LLVM OCL: https://github.com/RadeonOpenCompute/llvm-project/tree/rocm-ocl-3.3.0
 
 .. _ROCm Device Libraries OCL: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-ocl-3.3.0
 
