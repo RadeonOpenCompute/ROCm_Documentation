@@ -51,7 +51,7 @@ What\'s New in This Release
 ===========================
 
 **Multi Version Installation**
-###############################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
 
@@ -60,7 +60,7 @@ Previously, users could install only a single version of the ROCm toolkit.
 Now, users have the option to install multiple versions simultaneously and toggle to the desired version of the ROCm toolkit. From the v3.3 release, multiple versions of ROCm packages can be installed in the */opt/rocm-<version>* folder.
  
 **Prerequisites**
-~~~~~~~~~~~~~~~~~~
+###############################
 
 Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.3 ROCm toolkit installation. The ROCm v3.3 package requires a clean installation.
 
@@ -74,7 +74,7 @@ Ensure the existing installations of ROCm, including */opt/rocm*, are completely
 
 
 Before You Begin
-~~~~~~~~~~~~~~~~~~~~
+#################
 
 Review the following important notes:
 
@@ -124,7 +124,7 @@ For example,
 
 
 **GPU Process Information**
-############################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A new functionality to display process information for GPUs is available in this release. For example,  you can view the process details to determine if the GPU(s) must be reset. 
 
@@ -141,13 +141,13 @@ https://github.com/RadeonOpenCompute/rocm_smi_lib/blob/master/docs/ROCm_SMI_Manu
 
 
 **Support for 3D Pooling Layers**
-###################################
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 AMD ROCm is enhanced to include support for 3D pooling layers. The implementation of 3D pooling layers now allows users to run 3D convolutional networks, such as ResNext3D, on AMD Radeon Instinct GPUs. 
 
 
 **ONNX Enhancements**
-##########################
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open Neural Network eXchange (ONNX) is a widely-used neural net exchange format. The AMD model compiler & optimizer support the pre-trained models in ONNX, NNEF, & Caffe formats. Currently, ONNX versions 1.3 and below are supported. 
 
