@@ -5,8 +5,8 @@
 #include "rocauxiliary_orm2r.hpp"
 
 template <typename T>
-rocblas_status rocsolver_orm2r_impl(rocsolver_handle handle, const rocsolver_side side, const rocsolver_operation trans,
-                                   const rocsolver_int m, const rocsolver_int n,
+rocblas_status rocsolver_orm2r_impl(rocsolver_handle handle, const rocsolver_side side, const rocsolver_operation trans, 
+                                   const rocsolver_int m, const rocsolver_int n, 
                                    const rocsolver_int k, T* A, const rocsolver_int lda, T* ipiv, T *C, const rocsolver_int ldc)
 {
     if(!handle)
@@ -35,7 +35,7 @@ rocblas_status rocsolver_orm2r_impl(rocsolver_handle handle, const rocsolver_sid
                                       strideA,
                                       ipiv,
                                       strideP,
-                                      C,0,
+                                      C,0,  
                                       ldc,
                                       strideC,
                                       batch_count);

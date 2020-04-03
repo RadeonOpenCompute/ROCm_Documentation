@@ -41,13 +41,13 @@ rocblas_status rocsolver_getrf_template(rocblas_handle handle, const rocblas_int
                                         const rocblas_int n, U A, const rocblas_int shiftA, const rocblas_int lda, const rocblas_int strideA,
                                         rocblas_int *ipiv, const rocblas_int shiftP, const rocblas_int strideP, rocblas_int *info, const rocblas_int batch_count) {
     // quick return
-    if (m == 0 || n == 0 || batch_count == 0)
+    if (m == 0 || n == 0 || batch_count == 0) 
         return rocblas_status_success;
 
     // if the matrix is small, use the unblocked (BLAS-levelII) variant of the algorithm
-    if (m < GETRF_GETF2_SWITCHSIZE || n < GETRF_GETF2_SWITCHSIZE)
+    if (m < GETRF_GETF2_SWITCHSIZE || n < GETRF_GETF2_SWITCHSIZE) 
         return rocsolver_getf2_template<T>(handle, m, n, A, shiftA, lda, strideA, ipiv, shiftP, strideP, info, batch_count);
-
+  
     #ifdef batched
         // **** THIS SYNCHRONIZATION WILL BE REQUIRED UNTIL
         //      BATCH-BLAS FUNCTIONALITY IS ENABLED. ****
@@ -92,14 +92,14 @@ rocblas_status rocsolver_getrf_template(rocblas_handle handle, const rocblas_int
     //      BE MADE TO THE CORRESPONDING TEMPLATE_FUNCTIONS ****
 
     for (int j = 0; j < dim; j += GETRF_GETF2_SWITCHSIZE) {
-        // Factor diagonal and subdiagonal blocks
+        // Factor diagonal and subdiagonal blocks 
         jb = min(dim - j, GETRF_GETF2_SWITCHSIZE);  //number of columns in the block
         hipLaunchKernelGGL(reset_info,gridReset,threads,0,stream,iinfo,batch_count,0);
         rocsolver_getf2_template<T>(handle, m - j, jb, A, shiftA + idx2D(j, j, lda), lda, strideA, ipiv, shiftP + j, strideP, iinfo, batch_count);
-
+        
         // adjust pivot indices and check singularity
         sizePivot = min(m - j, jb);     //number of pivots in the block
-        blocksPivot = (sizePivot - 1) / GETF2_BLOCKSIZE + 1;
+        blocksPivot = (sizePivot - 1) / GETF2_BLOCKSIZE + 1; 
         gridPivot = dim3(blocksPivot, batch_count, 1);
         hipLaunchKernelGGL(getrf_check_singularity, gridPivot, threads, 0, stream, sizePivot, j, ipiv, shiftP + j, strideP, iinfo, info);
 
@@ -131,7 +131,7 @@ rocblas_status rocsolver_getrf_template(rocblas_handle handle, const rocblas_int
                                  (M + idx2D(j + jb, j + jb, lda)), lda);
                 }
             }
-        }
+        } 
     }
 
     hipFree(pivotGPU);

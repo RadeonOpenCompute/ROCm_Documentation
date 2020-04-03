@@ -1,4 +1,4 @@
-
+﻿
 .. _ROCm-Tools:
 
 =====================
@@ -24,16 +24,16 @@ GCN Assembler and Disassembler
 
 The Art of AMDGCN Assembly: How to Bend the Machine to Your Will
 *****************************************************************
-The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won't always employ 100% of the GPU's capabilities. Some reasons are the following:
+The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
 
  * The program may be written in a high level language that does not expose all of the features available on the hardware.
- * The compiler is unable to produce optimal ISA code, either because the compiler needs to 'play it safe' while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
+ * The compiler is unable to produce optimal ISA code, either because the compiler needs to ‘play it safe’ while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
 
-Consider a program that uses one of GCN's new features (source code is available on `GitHub <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_). Recent hardware architecture updates--DPP and DS Permute instructions--enable efficient data sharing between wavefront lanes. To become more familiar with the instruction set, review the `GCN ISA Reference Guide <https://github.com/olvaffe/gpu-docs/blob/master/amd-open-gpu-docs/AMD_GCN3_Instruction_Set_Architecture.pdf>`_. Note: the assembler is currently experimental; some of syntax we describe may change.
+Consider a program that uses one of GCN’s new features (source code is available on `GitHub <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_). Recent hardware architecture updates—DPP and DS Permute instructions—enable efficient data sharing between wavefront lanes. To become more familiar with the instruction set, review the `GCN ISA Reference Guide <https://github.com/olvaffe/gpu-docs/blob/master/amd-open-gpu-docs/AMD_GCN3_Instruction_Set_Architecture.pdf>`_. Note: the assembler is currently experimental; some of syntax we describe may change.
 
 DS Permute Instructions
 **************************
-Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don't write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says "put my lane data in lane i," and ds_bpermute_b32 says "read data from lane i." The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
+Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says “put my lane data in lane i,” and ds_bpermute_b32 says “read data from lane i.” The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
 
 .. code:: cpp
 
@@ -45,7 +45,7 @@ Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to mov
 
 Passing Parameters to a Kernel
 *******************************
-Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables--except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
+Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
 
 .. code:: cpp
 
@@ -88,9 +88,9 @@ The host program should also allocate memory for the in, index and out buffers. 
   out = AllocateBuffer(size);
 
   // Fill Kernarg memory
-  Kernarg(in); // Add base pointer to "in" buffer
-  Kernarg(index); // Append base pointer to "index" buffer
-  Kernarg(out); // Append base pointer to "out" buffer
+  Kernarg(in); // Add base pointer to “in” buffer
+  Kernarg(index); // Append base pointer to “index” buffer
+  Kernarg(out); // Append base pointer to “out” buffer
 
 Initial Wavefront and Register State To launch a kernel in real hardware, the run time needs information about the kernel, such as
 
@@ -144,7 +144,7 @@ Initial Wavefront and Register State To launch a kernel in real hardware, the ru
    flat_store_dword  v[3:4], v1
    s_endpgm
 
-Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel.
+Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. 
 
 
 .. image:: initial_state-768x387.png
@@ -152,7 +152,7 @@ Currently, a programmer must manually set all non-default values to provide the 
 
 The GPR Counting
 ******************
-The next amd_kernel_code_t fields are obvious: is_ptr64 = 1 says we are in 64-bit mode, and kernarg_segment_byte_size = 24 describes the kernarg segment size. The GPR counting is less straightforward, however. The workitem_vgpr_count holds the number of vector registers that each work item uses, and wavefront_sgpr_count holds the number of scalar registers that a wavefront uses. The code above employs v0-v4, so workitem_vgpr_count = 5. But wavefront_sgpr_count = 8 even though the code only shows s0-s5, since the special registers VCC, FLAT_SCRATCH and XNACK are physically stored as part of the wavefront's SGPRs in the highest-numbered SGPRs. In this example, FLAT_SCRATCH and XNACK are disabled, so VCC has only two additional registers. In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields compute_pgm_rsrc1_*gprs contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
+The next amd_kernel_code_t fields are obvious: is_ptr64 = 1 says we are in 64-bit mode, and kernarg_segment_byte_size = 24 describes the kernarg segment size. The GPR counting is less straightforward, however. The workitem_vgpr_count holds the number of vector registers that each work item uses, and wavefront_sgpr_count holds the number of scalar registers that a wavefront uses. The code above employs v0–v4, so workitem_vgpr_count = 5. But wavefront_sgpr_count = 8 even though the code only shows s0–s5, since the special registers VCC, FLAT_SCRATCH and XNACK are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, FLAT_SCRATCH and XNACK are disabled, so VCC has only two additional registers. In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields compute_pgm_rsrc1_*gprs contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
 
 ::
 
@@ -388,7 +388,7 @@ rocprof
 2. Profiling Modes
 ******************
 
-'rocprof' can be used for GPU profiling using HW counters and
+‘rocprof’ can be used for GPU profiling using HW counters and
 application tracing
 
 2.1. GPU profiling
@@ -396,9 +396,9 @@ application tracing
 
 GPU profiling is controlled with input file which defines a list of
 metrics/counters and a profiling scope. An input file is provided using
-option '-i '. Output CSV file with a line per submitted kernel is
+option ‘-i ’. Output CSV file with a line per submitted kernel is
 generated. Each line has kernel name, kernel parameters and counter
-values. By option '--stats' the kernel execution stats can be generated
+values. By option ‘—stats’ the kernel execution stats can be generated
 in CSV format. Currently profiling has limitation of serializing
 submitted kernels. An example of input file:
 
@@ -414,17 +414,17 @@ submitted kernels. An example of input file:
       gpu: 0 1 2 3
       kernel: simple Pass1 simpleConvolutionPass2
 
-An example of profiling command line for 'MatrixTranspose' application
+An example of profiling command line for ‘MatrixTranspose’ application
 
 ::
 
    $ rocprof -i input.txt MatrixTranspose
-   RPL: on '191018_011134' from '/..../rocprofiler_pkg' in '/..../MatrixTranspose'
+   RPL: on '191018_011134' from '/…./rocprofiler_pkg' in '/…./MatrixTranspose'
    RPL: profiling '"./MatrixTranspose"'
    RPL: input file 'input.txt'
    RPL: output dir '/tmp/rpl_data_191018_011134_9695'
    RPL: result dir '/tmp/rpl_data_191018_011134_9695/input0_results_191018_011134'
-   ROCProfiler: rc-file '/..../rpl_rc.xml'
+   ROCProfiler: rc-file '/…./rpl_rc.xml'
    ROCProfiler: input from "/tmp/rpl_data_191018_011134_9695/input0.xml"
      gpu_index =
      kernel =
@@ -436,7 +436,7 @@ An example of profiling command line for 'MatrixTranspose' application
    PASSED!
 
    ROCProfiler: 1 contexts collected, output directory /tmp/rpl_data_191018_011134_9695/input0_results_191018_011134
-   RPL: '/..../MatrixTranspose/input.csv' is generated
+   RPL: '/…./MatrixTranspose/input.csv' is generated
 
 **2.1.1. Counters and metrics**
 
@@ -456,8 +456,8 @@ Metrics XML File Example:
 ::
 
    <gfx8>
-       <metric name=L1_CYCLES_COUNTER block=L1 event=0 descr="L1 cache cycles"></metric>
-       <metric name=L1_MISS_COUNTER block=L1 event=33 descr="L1 cache misses"></metric>
+       <metric name=L1_CYCLES_COUNTER block=L1 event=0 descr=”L1 cache cycles”></metric>
+       <metric name=L1_MISS_COUNTER block=L1 event=33 descr=”L1 cache misses”></metric>
        . . .
    </gfx8>
 
@@ -469,14 +469,14 @@ Metrics XML File Example:
      <metric
        name=L1_MISS_RATIO
        expr=L1_CYCLES_COUNT/L1_MISS_COUNTER
-       descry="L1 miss rate metric"
+       descry=”L1 miss rate metric”
      ></metric>
    </global>
 
 **2.1.1.1. Metrics query**
 
-Available counters and metrics can be queried by options '--list-basic'
-for counters and '--list-derived' for derived metrics. The output for
+Available counters and metrics can be queried by options ‘—list-basic’
+for counters and ‘—list-derived’ for derived metrics. The output for
 counters indicates number of block instances and number of block counter
 registers. The output for derived metrics prints the metrics
 expressions. Examples:
@@ -484,8 +484,8 @@ expressions. Examples:
 ::
 
    $ rocprof --list-basic
-   RPL: on '191018_014450' from '/opt/rocm/rocprofiler' in '/..../MatrixTranspose'
-   ROCProfiler: rc-file '/..../rpl_rc.xml'
+   RPL: on '191018_014450' from '/opt/rocm/rocprofiler' in '/…./MatrixTranspose'
+   ROCProfiler: rc-file '/…./rpl_rc.xml'
    Basic HW counters:
      gpu-agent0 : GRBM_COUNT : Tie High - Count Number of Clocks
          block GRBM has 2 counters
@@ -541,12 +541,12 @@ metric groups:
 ::
 
    $ rocprof -i input.txt ./MatrixTranspose
-   RPL: on '191018_032645' from '/opt/rocm/rocprofiler' in '/..../MatrixTranspose'
+   RPL: on '191018_032645' from '/opt/rocm/rocprofiler' in '/…./MatrixTranspose'
    RPL: profiling './MatrixTranspose'
    RPL: input file 'input.txt'
    RPL: output dir '/tmp/rpl_data_191018_032645_12106'
    RPL: result dir '/tmp/rpl_data_191018_032645_12106/input0_results_191018_032645'
-   ROCProfiler: rc-file '/..../rpl_rc.xml'
+   ROCProfiler: rc-file '/…./rpl_rc.xml'
    ROCProfiler: input from "/tmp/rpl_data_191018_032645_12106/input0.xml"
      gpu_index =
      kernel =
@@ -570,35 +570,35 @@ ________________________________
  - Collecting with multiple runs
 
 To collect several metric groups a full application replay is used by
-defining several 'pmc:' lines in the input file, see 2.1.
+defining several ‘pmc:’ lines in the input file, see 2.1.
 
 
 2.2. Application tracing
 ************************
 
 Supported application tracing includes runtime API and GPU activity
-tracing' Supported runtimes are: ROCr (HSA API) and HIP Supported GPU
+tracing’ Supported runtimes are: ROCr (HSA API) and HIP Supported GPU
 activity: kernel execution, async memory copy, barrier packets. The
 trace is generated in JSON format compatible with Chrome tracing. The
 trace consists of several sections with timelines for API trace per
 thread and GPU activity. The timelines events show event name and
-parameters. Supported options: '--hsa-trace', '--hip-trace', '--sys-trace',
-where 'sys trace' is for HIP and HSA combined trace.
+parameters. Supported options: ‘—hsa-trace’, ‘—hip-trace’, ‘—sys-trace’,
+where ‘sys trace’ is for HIP and HSA combined trace.
 
 **2.2.1. HIP runtime trace**
 
-The trace is generated by option '--hip-trace' and includes HIP API
+The trace is generated by option ‘—hip-trace’ and includes HIP API
 timelines and GPU activity at the runtime level.
 
 **2.2.2. ROCr runtime trace**
 
-The trace is generated by option '--hsa-trace' and includes ROCr API
+The trace is generated by option ‘—hsa-trace’ and includes ROCr API
 timelines and GPU activity at AQL queue level. Also, can provide
 counters per kernel.
 
 **2.2.3. KFD driver trace**
 
-The trace is generated by option '--kfd-trace' and includes KFD Thunk API
+The trace is generated by option ‘—kfd-trace’ and includes KFD Thunk API
 timelines.
 
 It is planned to include memory allocations/migration activity tracing.
@@ -606,7 +606,7 @@ It is planned to include memory allocations/migration activity tracing.
 **2.2.4. Code annotation**
 
 Support for application code annotation. Start/stop API is supported to
-programmatically control the profiling. A 'roctx' library provides
+programmatically control the profiling. A ‘roctx’ library provides
 annotation API. Annotation is visualized in JSON trace as a separate
 "Markers and Ranges" timeline section.
 
@@ -638,7 +638,7 @@ annotation API. Annotation is visualized in JSON trace as a separate
 
 **2.3. Multiple GPUs profiling**
 
-The profiler supports multiple GPU's profiling and provide GPI id for
+The profiler supports multiple GPU’s profiling and provide GPI id for
 counters and kernels data in CSV output file. Also, GPU id is indicating
 for respective GPU activity timeline in JSON trace.
 
@@ -707,7 +707,7 @@ Profiler errors are logged to global logs:
 4. 3rd party visualization tools
 ********************************
 
-'rocprof' is producing JSON trace compatible with Chrome Tracing, which
+‘rocprof’ is producing JSON trace compatible with Chrome Tracing, which
 is an internal trace visualization tool in Google Chrome.
 
 4.1. Chrome tracing
@@ -719,7 +719,7 @@ Good review can be found by the link:
 5. Command line options
 ***********************
 
-The command line options can be printed with option '-h':
+The command line options can be printed with option ‘-h’:
 
 ::
 
@@ -845,34 +845,34 @@ Counters:
 
 ::
 
-   o   GRBM_COUNT : Tie High - Count Number of Clocks
-   o   GRBM_GUI_ACTIVE : The GUI is Active
-   o   SQ_WAVES : Count number of waves sent to SQs. (per-simd, emulated, global)
-   o   SQ_INSTS_VALU : Number of VALU instructions issued. (per-simd, emulated)
-   o   SQ_INSTS_VMEM_WR : Number of VMEM write instructions issued (including FLAT). (per-simd, emulated)
-   o   SQ_INSTS_VMEM_RD : Number of VMEM read instructions issued (including FLAT). (per-simd, emulated)
-   o   SQ_INSTS_SALU : Number of SALU instructions issued. (per-simd, emulated)
-   o   SQ_INSTS_SMEM : Number of SMEM instructions issued. (per-simd, emulated)
-   o   SQ_INSTS_FLAT : Number of FLAT instructions issued. (per-simd, emulated)
-   o   SQ_INSTS_FLAT_LDS_ONLY : Number of FLAT instructions issued that read/wrote only from/to LDS (only works if EARLY_TA_DONE is enabled). (per-simd, emulated)
-   o   SQ_INSTS_LDS : Number of LDS instructions issued (including FLAT). (per-simd, emulated)
-   o   SQ_INSTS_GDS : Number of GDS instructions issued. (per-simd, emulated)
-   o   SQ_WAIT_INST_LDS : Number of wave-cycles spent waiting for LDS instruction issue. In units of 4 cycles. (per-simd, nondeterministic)
-   o   SQ_ACTIVE_INST_VALU : regspec 71? Number of cycles the SQ instruction arbiter is working on a VALU instruction. (per-simd, nondeterministic)
-   o   SQ_INST_CYCLES_SALU : Number of cycles needed to execute non-memory read scalar operations. (per-simd, emulated)
-   o   SQ_THREAD_CYCLES_VALU : Number of thread-cycles used to execute VALU operations (similar to INST_CYCLES_VALU but multiplied by # of active threads). (per-simd)
-   o   SQ_LDS_BANK_CONFLICT : Number of cycles LDS is stalled by bank conflicts. (emulated)
-   o   TA_TA_BUSY[0-15] : TA block is busy. Perf_Windowing not supported for this counter.
-   o   TA_FLAT_READ_WAVEFRONTS[0-15] : Number of flat opcode reads processed by the TA.
-   o   TA_FLAT_WRITE_WAVEFRONTS[0-15] : Number of flat opcode writes processed by the TA.
-   o   TCC_HIT[0-15] : Number of cache hits.
-   o   TCC_MISS[0-15] : Number of cache misses. UC reads count as misses.
-   o   TCC_EA_WRREQ[0-15] : Number of transactions (either 32-byte or 64-byte) going over the TC_EA_wrreq interface. Atomics may travel over the same interface and are generally classified as write requests. This does not include probe commands.
-   o   TCC_EA_WRREQ_64B[0-15] : Number of 64-byte transactions going (64-byte write or CMPSWAP) over the TC_EA_wrreq interface.
-   o   TCC_EA_WRREQ_STALL[0-15] : Number of cycles a write request was stalled.
-   o   TCC_EA_RDREQ[0-15] : Number of TCC/EA read requests (either 32-byte or 64-byte)
-   o   TCC_EA_RDREQ_32B[0-15] : Number of 32-byte TCC/EA read requests
-   o   TCP_TCP_TA_DATA_STALL_CYCLES[0-15] : TCP stalls TA data interface. Now Windowed.
+   •   GRBM_COUNT : Tie High - Count Number of Clocks
+   •   GRBM_GUI_ACTIVE : The GUI is Active
+   •   SQ_WAVES : Count number of waves sent to SQs. (per-simd, emulated, global)
+   •   SQ_INSTS_VALU : Number of VALU instructions issued. (per-simd, emulated)
+   •   SQ_INSTS_VMEM_WR : Number of VMEM write instructions issued (including FLAT). (per-simd, emulated)
+   •   SQ_INSTS_VMEM_RD : Number of VMEM read instructions issued (including FLAT). (per-simd, emulated)
+   •   SQ_INSTS_SALU : Number of SALU instructions issued. (per-simd, emulated)
+   •   SQ_INSTS_SMEM : Number of SMEM instructions issued. (per-simd, emulated)
+   •   SQ_INSTS_FLAT : Number of FLAT instructions issued. (per-simd, emulated)
+   •   SQ_INSTS_FLAT_LDS_ONLY : Number of FLAT instructions issued that read/wrote only from/to LDS (only works if EARLY_TA_DONE is enabled). (per-simd, emulated)
+   •   SQ_INSTS_LDS : Number of LDS instructions issued (including FLAT). (per-simd, emulated)
+   •   SQ_INSTS_GDS : Number of GDS instructions issued. (per-simd, emulated)
+   •   SQ_WAIT_INST_LDS : Number of wave-cycles spent waiting for LDS instruction issue. In units of 4 cycles. (per-simd, nondeterministic)
+   •   SQ_ACTIVE_INST_VALU : regspec 71? Number of cycles the SQ instruction arbiter is working on a VALU instruction. (per-simd, nondeterministic)
+   •   SQ_INST_CYCLES_SALU : Number of cycles needed to execute non-memory read scalar operations. (per-simd, emulated)
+   •   SQ_THREAD_CYCLES_VALU : Number of thread-cycles used to execute VALU operations (similar to INST_CYCLES_VALU but multiplied by # of active threads). (per-simd)
+   •   SQ_LDS_BANK_CONFLICT : Number of cycles LDS is stalled by bank conflicts. (emulated)
+   •   TA_TA_BUSY[0-15] : TA block is busy. Perf_Windowing not supported for this counter.
+   •   TA_FLAT_READ_WAVEFRONTS[0-15] : Number of flat opcode reads processed by the TA.
+   •   TA_FLAT_WRITE_WAVEFRONTS[0-15] : Number of flat opcode writes processed by the TA.
+   •   TCC_HIT[0-15] : Number of cache hits.
+   •   TCC_MISS[0-15] : Number of cache misses. UC reads count as misses.
+   •   TCC_EA_WRREQ[0-15] : Number of transactions (either 32-byte or 64-byte) going over the TC_EA_wrreq interface. Atomics may travel over the same interface and are generally classified as write requests. This does not include probe commands.
+   •   TCC_EA_WRREQ_64B[0-15] : Number of 64-byte transactions going (64-byte write or CMPSWAP) over the TC_EA_wrreq interface.
+   •   TCC_EA_WRREQ_STALL[0-15] : Number of cycles a write request was stalled.
+   •   TCC_EA_RDREQ[0-15] : Number of TCC/EA read requests (either 32-byte or 64-byte)
+   •   TCC_EA_RDREQ_32B[0-15] : Number of 32-byte TCC/EA read requests
+   •   TCP_TCP_TA_DATA_STALL_CYCLES[0-15] : TCP stalls TA data interface. Now Windowed.
 
 The following derived metrics have been defined and the profiler metrics
 XML specification can be found at:
@@ -882,44 +882,44 @@ Metrics:
 
 ::
 
-   o   TA_BUSY_avr : TA block is busy. Average over TA instances.
-   o   TA_BUSY_max : TA block is busy. Max over TA instances.
-   o   TA_BUSY_min : TA block is busy. Min over TA instances.
-   o   TA_FLAT_READ_WAVEFRONTS_sum : Number of flat opcode reads processed by the TA. Sum over TA instances.
-   o   TA_FLAT_WRITE_WAVEFRONTS_sum : Number of flat opcode writes processed by the TA. Sum over TA instances.
-   o   TCC_HIT_sum : Number of cache hits. Sum over TCC instances.
-   o   TCC_MISS_sum : Number of cache misses. Sum over TCC instances.
-   o   TCC_EA_RDREQ_32B_sum : Number of 32-byte TCC/EA read requests. Sum over TCC instances.
-   o   TCC_EA_RDREQ_sum : Number of TCC/EA read requests (either 32-byte or 64-byte). Sum over TCC instances.
-   o   TCC_EA_WRREQ_sum : Number of transactions (either 32-byte or 64-byte) going over the TC_EA_wrreq interface. Sum over TCC instances.
-   o   TCC_EA_WRREQ_64B_sum : Number of 64-byte transactions going (64-byte write or CMPSWAP) over the TC_EA_wrreq interface. Sum over TCC instances.
-   o   TCC_WRREQ_STALL_max : Number of cycles a write request was stalled. Max over TCC instances.
-   o   TCC_MC_WRREQ_sum : Number of 32-byte effective writes. Sum over TCC instaces.
-   o   FETCH_SIZE : The total kilobytes fetched from the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   o   WRITE_SIZE : The total kilobytes written to the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   o   GPUBusy : The percentage of time GPU was busy.
-   o   Wavefronts : Total wavefronts.
-   o   VALUInsts : The average number of vector ALU instructions executed per work-item (affected by flow control).
-   o   SALUInsts : The average number of scalar ALU instructions executed per work-item (affected by flow control).
-   o   VFetchInsts : The average number of vector fetch instructions from the video memory executed per work-item (affected by flow control). Excludes FLAT instructions that fetch from video memory.
-   o   SFetchInsts : The average number of scalar fetch instructions from the video memory executed per work-item (affected by flow control).
-   o   VWriteInsts : The average number of vector write instructions to the video memory executed per work-item (affected by flow control). Excludes FLAT instructions that write to video memory.
-   o   FlatVMemInsts : The average number of FLAT instructions that read from or write to the video memory executed per work item (affected by flow control). Includes FLAT instructions that read from or write to scratch.
-   o   LDSInsts : The average number of LDS read or LDS write instructions executed per work item (affected by flow control).  Excludes FLAT instructions that read from or write to LDS.
-   o   FlatLDSInsts : The average number of FLAT instructions that read or write to LDS executed per work item (affected by flow control).
-   o   GDSInsts : The average number of GDS read or GDS write instructions executed per work item (affected by flow control).
-   o   VALUUtilization : The percentage of active vector ALU threads in a wave. A lower number can mean either more thread divergence in a wave or that the work-group size is not a multiple of 64. Value range: 0% (bad), 100% (ideal - no thread divergence).
-   o   VALUBusy : The percentage of GPUTime vector ALU instructions are processed. Value range: 0% (bad) to 100% (optimal).
-   o   SALUBusy : The percentage of GPUTime scalar ALU instructions are processed. Value range: 0% (bad) to 100% (optimal).
-   o   Mem32Bwrites :
-   o   FetchSize : The total kilobytes fetched from the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   o   WriteSize : The total kilobytes written to the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   o   L2CacheHit : The percentage of fetch, write, atomic, and other instructions that hit the data in L2 cache. Value range: 0% (no hit) to 100% (optimal).
-   o   MemUnitBusy : The percentage of GPUTime the memory unit is active. The result includes the stall time (MemUnitStalled). This is measured with all extra fetches and writes and any cache or memory effects taken into account. Value range: 0% to 100% (fetch-bound).
-   o   MemUnitStalled : The percentage of GPUTime the memory unit is stalled. Try reducing the number or size of fetches and writes if possible. Value range: 0% (optimal) to 100% (bad).
-   o   WriteUnitStalled : The percentage of GPUTime the Write unit is stalled. Value range: 0% to 100% (bad).
-   o   ALUStalledByLDS : The percentage of GPUTime ALU units are stalled by the LDS input queue being full or the output queue being not ready. If there are LDS bank conflicts, reduce them. Otherwise, try reducing the number of LDS accesses if possible. Value range: 0% (optimal) to 100% (bad).
-   o   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value range: 0% (optimal) to 100% (bad).
+   •   TA_BUSY_avr : TA block is busy. Average over TA instances.
+   •   TA_BUSY_max : TA block is busy. Max over TA instances.
+   •   TA_BUSY_min : TA block is busy. Min over TA instances.
+   •   TA_FLAT_READ_WAVEFRONTS_sum : Number of flat opcode reads processed by the TA. Sum over TA instances.
+   •   TA_FLAT_WRITE_WAVEFRONTS_sum : Number of flat opcode writes processed by the TA. Sum over TA instances.
+   •   TCC_HIT_sum : Number of cache hits. Sum over TCC instances.
+   •   TCC_MISS_sum : Number of cache misses. Sum over TCC instances.
+   •   TCC_EA_RDREQ_32B_sum : Number of 32-byte TCC/EA read requests. Sum over TCC instances.
+   •   TCC_EA_RDREQ_sum : Number of TCC/EA read requests (either 32-byte or 64-byte). Sum over TCC instances.
+   •   TCC_EA_WRREQ_sum : Number of transactions (either 32-byte or 64-byte) going over the TC_EA_wrreq interface. Sum over TCC instances.
+   •   TCC_EA_WRREQ_64B_sum : Number of 64-byte transactions going (64-byte write or CMPSWAP) over the TC_EA_wrreq interface. Sum over TCC instances.
+   •   TCC_WRREQ_STALL_max : Number of cycles a write request was stalled. Max over TCC instances.
+   •   TCC_MC_WRREQ_sum : Number of 32-byte effective writes. Sum over TCC instaces.
+   •   FETCH_SIZE : The total kilobytes fetched from the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
+   •   WRITE_SIZE : The total kilobytes written to the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
+   •   GPUBusy : The percentage of time GPU was busy.
+   •   Wavefronts : Total wavefronts.
+   •   VALUInsts : The average number of vector ALU instructions executed per work-item (affected by flow control).
+   •   SALUInsts : The average number of scalar ALU instructions executed per work-item (affected by flow control).
+   •   VFetchInsts : The average number of vector fetch instructions from the video memory executed per work-item (affected by flow control). Excludes FLAT instructions that fetch from video memory.
+   •   SFetchInsts : The average number of scalar fetch instructions from the video memory executed per work-item (affected by flow control).
+   •   VWriteInsts : The average number of vector write instructions to the video memory executed per work-item (affected by flow control). Excludes FLAT instructions that write to video memory.
+   •   FlatVMemInsts : The average number of FLAT instructions that read from or write to the video memory executed per work item (affected by flow control). Includes FLAT instructions that read from or write to scratch.
+   •   LDSInsts : The average number of LDS read or LDS write instructions executed per work item (affected by flow control).  Excludes FLAT instructions that read from or write to LDS.
+   •   FlatLDSInsts : The average number of FLAT instructions that read or write to LDS executed per work item (affected by flow control).
+   •   GDSInsts : The average number of GDS read or GDS write instructions executed per work item (affected by flow control).
+   •   VALUUtilization : The percentage of active vector ALU threads in a wave. A lower number can mean either more thread divergence in a wave or that the work-group size is not a multiple of 64. Value range: 0% (bad), 100% (ideal - no thread divergence).
+   •   VALUBusy : The percentage of GPUTime vector ALU instructions are processed. Value range: 0% (bad) to 100% (optimal).
+   •   SALUBusy : The percentage of GPUTime scalar ALU instructions are processed. Value range: 0% (bad) to 100% (optimal).
+   •   Mem32Bwrites :
+   •   FetchSize : The total kilobytes fetched from the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
+   •   WriteSize : The total kilobytes written to the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
+   •   L2CacheHit : The percentage of fetch, write, atomic, and other instructions that hit the data in L2 cache. Value range: 0% (no hit) to 100% (optimal).
+   •   MemUnitBusy : The percentage of GPUTime the memory unit is active. The result includes the stall time (MemUnitStalled). This is measured with all extra fetches and writes and any cache or memory effects taken into account. Value range: 0% to 100% (fetch-bound).
+   •   MemUnitStalled : The percentage of GPUTime the memory unit is stalled. Try reducing the number or size of fetches and writes if possible. Value range: 0% (optimal) to 100% (bad).
+   •   WriteUnitStalled : The percentage of GPUTime the Write unit is stalled. Value range: 0% to 100% (bad).
+   •   ALUStalledByLDS : The percentage of GPUTime ALU units are stalled by the LDS input queue being full or the output queue being not ready. If there are LDS bank conflicts, reduce them. Otherwise, try reducing the number of LDS accesses if possible. Value range: 0% (optimal) to 100% (bad).
+   •   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value range: 0% (optimal) to 100% (bad).
 
 
 ROC Profiler
@@ -1034,7 +1034,7 @@ GitHub: `https://github.com/ROCm-Developer-Tools/roctracer <https://github.com/R
 To clone ROC Tracer from GitHub:
 
 .. code:: sh
-
+  
   git clone -b amd-master https://github.com/ROCm-Developer-Tools/roctracer
 
   The library source tree:
@@ -1050,7 +1050,7 @@ To clone ROC Tracer from GitHub:
 **Build and run test**
 
 .. code:: sh
-
+  
   - Python is required
     The required modules: CppHeaderParser, argparse.
     To install:
@@ -1068,7 +1068,7 @@ To clone ROC Tracer from GitHub:
   - To build and run test
    make mytest
    run.sh
-
+  
   - To install
    make install
    or
@@ -1108,7 +1108,7 @@ AOMP will install to /usr/lib/aomp. The AOMP environment variable will automatic
 On Ubuntu 18.04 LTS (bionic beaver), run these commands:
 
 ::
-
+  
   wget https://github.com/ROCm-Developer-Tools/aomp/releases/download/rel_0.7-5/aomp_Ubuntu1804_0.7-5_amd64.deb
   sudo dpkg -i aomp_Ubuntu1804_0.7-5_amd64.deb
 
@@ -1149,8 +1149,8 @@ If you build AOMP with support for nvptx GPUs, you must first install CUDA 10. N
 **Download Instructions for CUDA (Ubuntu 16.04)**
 
     Go to https://developer.nvidia.com/cuda-10.0-download-archive
-    For Ubuntu 16.04, select Linux(R), x86_64, Ubuntu, 16.04, deb(local) and then click Download. Note you can change these options for your specific distribution type.
-    Navigate to the debian in your Linux(R) directory and run the following commands:
+    For Ubuntu 16.04, select Linux®, x86_64, Ubuntu, 16.04, deb(local) and then click Download. Note you can change these options for your specific distribution type.
+    Navigate to the debian in your Linux® directory and run the following commands:
 
 ::
 
@@ -1211,8 +1211,8 @@ If you build AOMP with support for nvptx GPUs, you must first install CUDA 10.
 Download Instructions for CUDA (SLES15)
 
     Go to https://developer.nvidia.com/cuda-10.0-download-archive
-    For SLES-15, select Linux(R), x86_64, SLES, 15.0, rpm(local) and then click Download.
-    Navigate to the rpm in your Linux(R) directory and run the following commands:
+    For SLES-15, select Linux®, x86_64, SLES, 15.0, rpm(local) and then click Download.
+    Navigate to the rpm in your Linux® directory and run the following commands:
 
 ::
 
@@ -1321,8 +1321,8 @@ To build AOMP with support for nvptx GPUs, you must first install CUDA 10. We re
 **Download Instructions for CUDA (CentOS/RHEL 7)**
 
     * Go to https://developer.nvidia.com/cuda-10.0-download-archive
-    * For SLES-15, select Linux(R), x86_64, RHEL or CentOS, 7, rpm(local) and then click Download.
-    * Navigate to the rpm in your Linux(R) directory and run the following commands:
+    * For SLES-15, select Linux®, x86_64, RHEL or CentOS, 7, rpm(local) and then click Download.
+    * Navigate to the rpm in your Linux® directory and run the following commands:
 
 ::
 
@@ -1369,7 +1369,7 @@ To install the rpm package without root access into your home directory, you can
 
 ::
 
-   mkdir /tmp/temproot ; cd /tmp/temproot
+   mkdir /tmp/temproot ; cd /tmp/temproot 
    wget https://github.com/ROCm-Developer-Tools/aomp/releases/download/rel_0.7-5/aomp_SLES15_SP1-0.7-5.x86_64.rpm
    rpm2cpio aomp_SLES15_SP1-0.7-5.x86_64.rpm | cpio -idmv
    mv /tmp/temproot/usr/lib $HOME
@@ -1722,29 +1722,29 @@ AOMP Limitations
 See the `release notes <https://github.com/ROCm-Developer-Tools/aomp/releases>`_ in github. Here are some limitations.
 
  - Dwarf debugging is turned off for GPUs. -g will turn on host level debugging only.
- - Some simd constructs fail to vectorize on both host and GPUs.
+ - Some simd constructs fail to vectorize on both host and GPUs.  
 
 ROCmValidationSuite
 =====================
 
-The ROCm Validation Suite (RVS) is a system administrator's and cluster manager's tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
+The ROCm Validation Suite (RVS) is a system administrator’s and cluster manager's tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
 
-The RVS is a collection of tests, benchmarks and qualification tools each targeting a specific sub-system of the ROCm platform. All of the tools are implemented in software and share a common command line interface. Each set of tests are implemented in a "module" which is a library encapsulating the functionality specific to the tool. The CLI can specify the directory containing modules to use when searching for libraries to load. Each module may have a set of options that it defines and a configuration file that supports its execution.
+The RVS is a collection of tests, benchmarks and qualification tools each targeting a specific sub-system of the ROCm platform. All of the tools are implemented in software and share a common command line interface. Each set of tests are implemented in a “module” which is a library encapsulating the functionality specific to the tool. The CLI can specify the directory containing modules to use when searching for libraries to load. Each module may have a set of options that it defines and a configuration file that supports its execution.
 
 ROCmValidationSuite Modules
 ******************************
 
-**GPU Properties - GPUP**
+**GPU Properties – GPUP**
 
-The GPU Properties module queries the configuration of a target device and returns the device's static characteristics. These static values can be used to debug issues such as device support, performance and firmware problems.
+The GPU Properties module queries the configuration of a target device and returns the device’s static characteristics. These static values can be used to debug issues such as device support, performance and firmware problems.
 
-**GPU Monitor - GM module**
+**GPU Monitor – GM module**
 
 The GPU monitor tool is capable of running on one, some or all of the GPU(s) installed and will report various information at regular intervals. The module can be configured to halt another RVS modules execution if one of the quantities exceeds a specified boundary value.
 
-**PCI Express State Monitor - PESM module?**
+**PCI Express State Monitor – PESM module?**
 
-The PCIe State Monitor tool is used to actively monitor the PCIe interconnect between the host platform and the GPU. The module will register a "listener" on a target GPU's PCIe interconnect, and log a message whenever it detects a state change. The PESM will be able to detect the following state changes:
+The PCIe State Monitor tool is used to actively monitor the PCIe interconnect between the host platform and the GPU. The module will register a “listener” on a target GPU’s PCIe interconnect, and log a message whenever it detects a state change. The PESM will be able to detect the following state changes:
 
     * PCIe link speed changes
     * GPU power state changes
@@ -1754,12 +1754,12 @@ The PCIe State Monitor tool is used to actively monitor the PCIe interconnect be
 The ROCm Configuration Qualification Tool ensures the platform is capable of running ROCm applications and is configured correctly. It checks the installed versions of the ROCm components and the platform configuration of the system. This includes checking that dependencies, corresponding to the associated operating system and runtime environment, are installed correctly. Other qualification steps include checking:
 
     * The existence of the /dev/kfd device
-    * The /dev/kfd device's permissions
+    * The /dev/kfd device’s permissions
     * The existence of all required users and groups that support ROCm
     * That the user mode components are compatible with the drivers, both the KFD and the amdgpu driver.
     * The configuration of the runtime linker/loader qualifying that all ROCm libraries are in the correct search path.
 
-**PCI Express Qualification Tool - PEQT module**
+**PCI Express Qualification Tool – PEQT module**
 
 The PCIe Qualification Tool consists is used to qualify the PCIe bus on which the GPU is connected. The qualification test will be capable of determining the following characteristics of the PCIe bus interconnect to a GPU:
 
@@ -1768,21 +1768,21 @@ The PCIe Qualification Tool consists is used to qualify the PCIe bus on which th
     * PCIe link speed
     * PCIe link width
 
-**SBIOS Mapping Qualification Tool - SMQT module**
+**SBIOS Mapping Qualification Tool – SMQT module**
 
-The GPU SBIOS mapping qualification tool is designed to verify that a platform's SBIOS has satisfied the BAR mapping requirements for VDI and Radeon Instinct products for ROCm support.
+The GPU SBIOS mapping qualification tool is designed to verify that a platform’s SBIOS has satisfied the BAR mapping requirements for VDI and Radeon Instinct products for ROCm support.
 
-Refer to the "ROCm Use of Advanced PCIe Features and Overview of How BAR Memory is Used In ROCm Enabled System" web page for more information about how BAR memory is initialized by VDI and Radeon products.
+Refer to the “ROCm Use of Advanced PCIe Features and Overview of How BAR Memory is Used In ROCm Enabled System” web page for more information about how BAR memory is initialized by VDI and Radeon products.
 
-**P2P Benchmark and Qualification Tool - PBQT module**
+**P2P Benchmark and Qualification Tool – PBQT module**
 
 The P2P Benchmark and Qualification Tool is designed to provide the list of all GPUs that support P2P and characterize the P2P links between peers. In addition to testing for P2P compatibility, this test will perform a peer-to-peer throughput test between all P2P pairs for performance evaluation. The P2P Benchmark and Qualification Tool will allow users to pick a collection of two or more GPUs on which to run. The user will also be able to select whether or not they want to run the throughput test on each of the pairs.
 
-Please see the web page "ROCm, a New Era in Open GPU Computing" to find out more about the P2P solutions available in a ROCm environment.
+Please see the web page “ROCm, a New Era in Open GPU Computing” to find out more about the P2P solutions available in a ROCm environment.
 
-**PCI Express Bandwidth Benchmark - PEBB module**
+**PCI Express Bandwidth Benchmark – PEBB module**
 
-The PCIe Bandwidth Benchmark attempts to saturate the PCIe bus with DMA transfers between system memory and a target GPU card's memory. The maximum bandwidth obtained is reported to help debug low bandwidth issues. The benchmark should be capable of targeting one, some or all of the GPUs installed in a platform, reporting individual benchmark statistics for each.
+The PCIe Bandwidth Benchmark attempts to saturate the PCIe bus with DMA transfers between system memory and a target GPU card’s memory. The maximum bandwidth obtained is reported to help debug low bandwidth issues. The benchmark should be capable of targeting one, some or all of the GPUs installed in a platform, reporting individual benchmark statistics for each.
 
 **GPU Stress Test - GST module**
 
@@ -1809,16 +1809,16 @@ CentOS :
 
 ::
 
-    sudo yum install -y cmake3 doxygen pciutils-devel rpm rpm-build git gcc-c++
+    sudo yum install -y cmake3 doxygen pciutils-devel rpm rpm-build git gcc-c++ 
 
 RHEL :
 
 ::
 
-  sudo yum install -y cmake3 doxygen rpm rpm-build git gcc-c++
-
+  sudo yum install -y cmake3 doxygen rpm rpm-build git gcc-c++ 
+    
   wget http://mirror.centos.org/centos/7/os/x86_64/Packages/pciutils-devel-3.5.1-3.el7.x86_64.rpm
-
+    
   sudo rpm -ivh pciutils-devel-3.5.1-3.el7.x86_64.rpm
 
 SLES :
@@ -1826,10 +1826,10 @@ SLES :
 ::
 
   sudo SUSEConnect -p sle-module-desktop-applications/15.1/x86_64
-
+   
   sudo SUSEConnect --product sle-module-development-tools/15.1/x86_64
-
-  sudo zypper  install -y cmake doxygen pciutils-devel libpci3 rpm git rpm-build gcc-c++
+   
+  sudo zypper  install -y cmake doxygen pciutils-devel libpci3 rpm git rpm-build gcc-c++ 
 
 Install ROCm stack, rocblas and rocm_smi64
 *********************************************
@@ -1866,7 +1866,7 @@ CentOS & RHEL : sudo rpm -e rocm_smi64 && sudo yum install rocm_smi64
 SUSE : sudo rpm -e rocm_smi64 && sudo zypper install rocm_smi64
 
 Building from Source
-**********************
+********************** 
 
 This section explains how to get and compile current development stream of RVS.
 
@@ -1889,7 +1889,7 @@ If OS is Ubuntu and SLES, use cmake
 ::
 
   cmake ./ -B./build
-
+ 
   make -C ./build
 
 
@@ -1903,11 +1903,11 @@ If OS is CentOS and RHEL, use cmake3
 
 
 Build package:
-
+ 
 ::
-
+ 
   cd ./build
-
+ 
   make package
 
 Note:_ based on your OS, only DEB or RPM package will be built. You may ignore an error for the unrelated configuration
@@ -2223,7 +2223,7 @@ MIVisionX
   :alt: MIVisionX
   :target: https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/
 
-MIVisionX toolkit is a set of comprehensive computer vision and machine intelligence libraries, utilities, and applications bundled into a single toolkit. AMD MIVisionX delivers highly optimized open source implementation of the `Khronos OpenVX(TM) <https://www.khronos.org/openvx/>`_ and OpenVX(TM) Extensions along with Convolution Neural Net Model Compiler & Optimizer supporting `ONNX <https://onnx.ai/>`_, and `Khronos NNEF(TM) <https://www.khronos.org/nnef>`_ exchange formats. The toolkit allows for rapid prototyping and deployment of optimized workloads on a wide range of computer hardware, including small embedded x86 CPUs, APUs, discrete GPUs, and heterogeneous servers.
+MIVisionX toolkit is a set of comprehensive computer vision and machine intelligence libraries, utilities, and applications bundled into a single toolkit. AMD MIVisionX delivers highly optimized open source implementation of the `Khronos OpenVX™ <https://www.khronos.org/openvx/>`_ and OpenVX™ Extensions along with Convolution Neural Net Model Compiler & Optimizer supporting `ONNX <https://onnx.ai/>`_, and `Khronos NNEF™ <https://www.khronos.org/nnef>`_ exchange formats. The toolkit allows for rapid prototyping and deployment of optimized workloads on a wide range of computer hardware, including small embedded x86 CPUs, APUs, discrete GPUs, and heterogeneous servers.
 
 * `AMD OpenVX <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx>`_
 * `AMD OpenVX Extensions <https://gpuopen-professionalcompute-libraries.github.io/MIVisionX/#amd-openvx-extensions>`_
@@ -2366,7 +2366,7 @@ Using live camera
 usage:
 
 ::
-
+ 
   runvx -frames:live canny-LIVE.gdf
 
 **OpenCV_orb-LIVE.gdf**
@@ -2432,10 +2432,10 @@ Prerequisites
 
 Pre-requisites setup script - MIVisionX-setup.py
 ************************************************
-
+ 
 For the convenience of the developer, we here provide the setup script which will install all the dependencies required by this project.
 
-**MIVisionX-setup.py**- This scipts builds all the prerequisites required by MIVisionX. The setup script creates a deps folder and installs all the prerequisites, this script only needs to be executed once. If -d option for directory is not given the script will install deps folder in '~/' directory by default, else in the user specified folder.
+**MIVisionX-setup.py**- This scipts builds all the prerequisites required by MIVisionX. The setup script creates a deps folder and installs all the prerequisites, this script only needs to be executed once. If -d option for directory is not given the script will install deps folder in ‘~/’ directory by default, else in the user specified folder.
 
 **Prerequisites for running the scripts**
 
@@ -2530,7 +2530,7 @@ Build & Install MIVisionX
                             --installer [Package management tool - optional (default:apt-get) [options: Ubuntu:apt-get;CentOS:yum]]
                             --miopen    [MIOpen Version - optional (default:2.1.0)]
                             --miopengemm[MIOpenGEMM Version - optional (default:1.1.5)]
-                            --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]
+                            --ffmpeg    [FFMPEG Installation - optional (default:no) [options:Install ffmpeg - yes]]    
                             --rpp       [RPP Installation - optional (default:yes) [options:yes/no]]
 
 
@@ -2558,7 +2558,7 @@ Build & Install MIVisionX
    * git clone, build and install other ROCm projects (using cmake and % make install) in the below order for vx_nn.
        * `rocm-cmake <https://github.com/RadeonOpenCompute/rocm-cmake>`_
        * `MIOpenGEMM <https://github.com/ROCmSoftwarePlatform/MIOpenGEMM>`_
-       * `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>`_ - make sure to use -DMIOPEN_BACKEND=OpenCL option with cmake
+       * `MIOpen <https://github.com/ROCmSoftwarePlatform/MIOpen>`_ – make sure to use -DMIOPEN_BACKEND=OpenCL option with cmake
    * install `protobuf <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`__
    * install `OpenCV <https://github.com/opencv/opencv/releases/tag/3.3.0>`__
    * install `FFMPEG n4.0.4 <https://github.com/FFmpeg/FFmpeg/releases/tag/n4.0.4>`_ - Optional
@@ -2583,18 +2583,18 @@ Verify the Installation
     * Apps, Samples, Documents, Model Compiler and Toolkit are placed into /opt/rocm/mivisionx
 
     * Run samples to verify the installation
-
+        
         * **Canny Edge Detection**
-
+ 
 .. image:: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/master/samples/images/canny_image.PNG?raw=true
   :align: center
   :width: 600
-
+    
 ::
 
   export PATH=$PATH:/opt/rocm/mivisionx/bin
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
-  runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf
+  runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
 
 Note: More samples are available `here <https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/blob/1.3.0/samples#samples>`_
 
@@ -2666,13 +2666,13 @@ MIVisionX provides developers with docker images for Ubuntu 16.04, Ubuntu 18.04,
 
 
 
-* Optional: Map localhost directory on the docker image
+* Optional: Map localhost directory on the docker image 
       * option to map the localhost directory with trained caffe models to be accessed on the docker image.
       * usage: -v {LOCAL_HOST_DIRECTORY_PATH}:{DOCKER_DIRECTORY_PATH}
-
-
+ 
+       
 ::
-
+     
      sudo docker run -it -v /home/:/root/hostDrive/ --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video --network host mivisionx/ubuntu-16.04
 
 
@@ -2680,24 +2680,24 @@ MIVisionX provides developers with docker images for Ubuntu 16.04, Ubuntu 18.04,
 **Note: Display option with docker**
 
     * Using host display
-
+     
 ::
-
+ 
      xhost +local:root
-     sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video
-     --network host --env DISPLAY=unix$DISPLAY --privileged --volume $XAUTH:/root/.Xauthority
+     sudo docker run -it --device=/dev/kfd --device=/dev/dri --cap-add=SYS_RAWIO --device=/dev/mem --group-add video 
+     --network host --env DISPLAY=unix$DISPLAY --privileged --volume $XAUTH:/root/.Xauthority 
      --volume /tmp/.X11-unix/:/tmp/.X11-unix mivisionx/ubuntu-16.04:latest
 
 
 
 * Test display with MIVisionX sample
 
-
+    
 ::
 
     export PATH=$PATH:/opt/rocm/mivisionx/bin
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/mivisionx/lib
-    runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf
+    runvx /opt/rocm/mivisionx/samples/gdf/canny.gdf 
 
 Release Notes
 *************
@@ -2705,7 +2705,7 @@ Release Notes
 **Known issues**
 
    * Package (.deb & .rpm) install requires OpenCV v3.4.0 to execute AMD OpenCV extensions
-
+   
 
 **Tested configurations**
 

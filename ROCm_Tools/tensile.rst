@@ -63,7 +63,7 @@ Benchmark Config
 
 Example Benchmark config.yaml
 
-::
+:: 
 
   GlobalParameters:
     PrintLevel: 1
@@ -259,18 +259,18 @@ Each step of the benchmark can override what problem sizes will be benchmarked. 
 
  1.[1968]
   * Benchmark only size 1968; n = 1.
-
+  
  2.[16, 1920]
   * Benchmark sizes 16 to 1968 using the default step size (=16); n = 123.
-
+ 
  3.[16, 32, 1968]
   * Benchmark sizes 16 to 1968 using a step size of 32; n = 61.
-
+ 
  4.[64, 32, 16, 1968]
   * Benchmark sizes from 64 to 1968 with a step size of 32. Also, increase the step size by 16 each iteration.
   * This causes fewer sizes to be benchmarked when the sizes are large, and more benchmarks where the sizes are small; this is 	      	typically desired behavior.
   * n = 16 (64, 96, 144, 208, 288, 384, 496, 624, 768, 928, 1104, 1296, 1504, 1728, 1968). The stride at the beginning is 32, but     	the stride at the end is 256.
-
+ 
  5.[0]
   * The size of this index is just whatever size index 0 is. For a 3-dimensional ProblemType, this allows benchmarking only a 2- 	      	dimensional or 1-dimensional slice of problem sizes.
 
@@ -372,11 +372,11 @@ Tensile can be installed via:
 
 ::
 
-   git clone https://github.com/RadeonOpenCompute/Tensile.git
+   git clone https://github.com/RadeonOpenCompute/Tensile.git 
    python Tensile/Tensile/Tensile.py config.yaml benchmark_path
 
 
-.. _KernelParameters:
+.. _KernelParameters: 
 
 Kernel Parameters
 ###################
@@ -411,7 +411,7 @@ The kernel parameters affect many aspects of performance. Changing a parameter m
 
  .. image:: img1.png
      :align: center
-
+   
 How N-Dimensional Tensor Contractions Are Mapped to Finite-Dimensional GPU Kernels
 ************************************************************************************
 For a traditional GEMM, the 2-dimensional output, C[i,j], is mapped to launching a 2-dimensional grid of work groups, each of which has a 2-dimensional grid of work items; one dimension belongs to i and one dimension belongs to j. The 1-dimensional summation is represented by a single loop within the kernel body.
@@ -448,7 +448,7 @@ The device languages Tensile supports for the gpu kernels is
 * OpenCL 1.2
 * HIP
 * Assembly
-   * gfx803
+   * gfx803 
    * gfx900
 
   .. _LibraryLogic:

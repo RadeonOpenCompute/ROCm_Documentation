@@ -7,12 +7,12 @@ AMD ROCm QuickStart Installation Guide v3.3.0
 -  `Deploying ROCm`_
 
    -  `Ubuntu`_
-
+   
    -  `Centos RHEL v7.7`_
-
+   
    -  `SLES 15 Service Pack 1`_
-
-
+   
+   
 -  `ROCm Installation Known Issues and Workarounds`_
 
 
@@ -50,7 +50,7 @@ To install from a Debian Repository:
 
     sudo apt install libnuma-dev
 
-    sudo reboot
+    sudo reboot 
 
 2. Add the ROCm apt repository.
 
@@ -84,7 +84,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
      groups
-
+     
 
 5. To add your user to the video group, use the following command for the sudo password:
 
@@ -115,7 +115,7 @@ Note: To run the ROCm programs more efficiently, add the ROCm binaries in your P
 
 ::
 
-	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' |
+	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
 	sudo tee -a /etc/profile.d/rocm.sh
 
 
@@ -151,9 +151,9 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 ::
 
-  sudo apt update
-  sudo apt install rocm-dev
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"'
+  sudo apt update	
+  sudo apt install rocm-dev	
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
   sudo tee /etc/udev/rules.d/70-kfd.rules
 
 
@@ -177,8 +177,8 @@ Note: The following steps do not apply to the CentOS installation.
 2. Enable the following repositories:
 
 ::
-
-    sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
+   
+    sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms 
     sudo subscription-manager repos --enable rhel-7-server-optional-rpms
     sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 
@@ -221,13 +221,13 @@ To install ROCm on your system, follow the instructions below:
 
 ::
 
-    [ROCm]
+    [ROCm] 
     name=ROCm
-    baseurl=http://repo.radeon.com/rocm/yum/rpm
+    baseurl=http://repo.radeon.com/rocm/yum/rpm 
     enabled=1
     gpgcheck=0
 
-Note: The URL of the repository must point to the location of the repositories' repodata database.
+Note: The URL of the repository must point to the location of the repositories’ repodata database.
 
 3. Install ROCm components using the following command:
 
@@ -325,7 +325,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 ::
 
   sudo yum install rocm-dev
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"'
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
   sudo tee /etc/udev/rules.d/70-kfd.rules
 
 **Note**: You can use this command instead of installing rocm-dkms.
@@ -336,7 +336,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 SLES 15 Service Pack 1
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1.
+The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
 
 **Installation**
 
@@ -347,13 +347,13 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 	sudo SUSEConnect --product PackageHub/15.1/x86_64
 	sudo zypper install dkms
-
+	
 2. Add the ROCm repo.
-
+ 
 ::
 
-	sudo zypper clean -all
-	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm
+	sudo zypper clean –all
+	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
 	sudo zypper ref
 	zypper install rocm-dkms
 	sudo zypper install rocm-dkms
@@ -372,7 +372,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
 
-6. Set permissions.
+6. Set permissions. 
 
 To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
 
@@ -381,11 +381,11 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 	groups
 
 7. To add your user to the video group, use the following command for the sudo password:
-
+	
 ::
 
 	sudo usermod -a -G video $LOGNAME
-
+	
 8. By default, add any future users to the video group. Run the following command to add users to the video group:
 
 ::
@@ -428,9 +428,9 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 ::
 
   sudo yum install rock-dkms rocm-opencl-devel
+  
 
-
-ROCm Installation Known Issues and Workarounds
+ROCm Installation Known Issues and Workarounds 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Closed source components
@@ -438,7 +438,7 @@ Closed source components
 
 The ROCm platform relies on some closed source components to provide functionalities like HSA image support. These components are only available through the ROCm repositories, and they may be deprecated or become open source components in the future. These components are made available in the following packages:
 
-o hsa-ext-rocr-dev
+• hsa-ext-rocr-dev
 
 
 Getting the ROCm Source Code
@@ -449,7 +449,7 @@ AMD ROCm is built from open source software. It is, therefore, possible to modif
 Installing the Repo
 ^^^^^^^^^^^^^^^^^^^^^
 
-The repo tool from Google(R) allows you to manage multiple git repositories simultaneously. Run the following commands to install the repo:
+The repo tool from Google® allows you to manage multiple git repositories simultaneously. Run the following commands to install the repo:
 
 ::
 
@@ -515,37 +515,37 @@ ROCm Support Software
      -   ROCm cmake: ``rocm-cmake``
      -   rocminfo: ``rocminfo``
      -   ROCm Bandwidth Test: ``rocm_bandwidth_test``
-
-
+     
+    
 ROCm Development ToolChain
 ===========================
 
      -   HCC compiler: ``hcc``
-
+     
      -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``
-
+     
      -   ROCm Device Libraries: ``rocm-device-libs``
-
+     
      -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
-
+     
      -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
-
+     
      -   Asynchronous Task and Memory Interface (ATMI): ``atmi``
-
+     
      -   ROCm Debug Agent: ``rocm_debug_agent``
-
+     
      -   ROCm Code Object Manager: ``comgr``
-
+     
      -   ROC Profiler: ``rocprofiler-dev``
-
+     
      -   ROC Tracer: ``roctracer-dev``
-
+     
      -   Radeon Compute Profiler: ``rocm-profiler``
-
+     
 
 ROCm Libraries
 ==============
-
+ 
      -  rocALUTION: ``rocalution``
      -  rocBLAS: ``rocblas``
      -  hipBLAS: ``hipblas``
@@ -564,9 +564,9 @@ ROCm Libraries
 
 To make it easier to install ROCm, the AMD binary repositories provide a number of meta-packages that will automatically install multiple other packages. For example, ``rocm-dkms`` is the primary meta-package that is
 used to install most of the base technology needed for ROCm to operate.
-It will install the ``rock-dkms`` kernel driver, and another meta-package
+It will install the ``rock-dkms`` kernel driver, and another meta-package 
  (``rocm-dev``) which installs most of the user-land ROCm core components, support software, and development tools.
-
+ 
 
 The *rocm-utils* meta-package will install useful utilities that, while not required for ROCm to operate, may still be beneficial to have. Finally, the *rocm-libs* meta-package will install some (but not all) of the libraries that are part of ROCm.
 
@@ -653,7 +653,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
  -  `ROCm OpenCL Runtime`_
  -  `ROCm LLVM OCL`_
  -  `ROCm Device Libraries OCL`_
-
+         
  -  `ROCM Clang-OCL Kernel Compiler`_
  -  `Asynchronous Task and Memory Interface`_
  -  `ROCr Debug Agent`_
@@ -716,7 +716,7 @@ ROCm Development ToolChain
 ============================
 
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-3.3.0
+.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-3.3.0 
 
 .. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.3.0
 
@@ -783,7 +783,7 @@ ROCm Libraries
 
 .. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.7
 
-.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/d1e945dabce0078d44c78de67b00232b856e18bc
+.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/d1e945dabce0078d44c78de67b00232b856e18bc 
 
 
 
@@ -806,16 +806,16 @@ New features and enhancements in ROCm v3.1
 
 **Change in ROCm Installation Directory Structure**
 
-A fresh installation of the ROCm toolkit installs the packages in the /opt/rocm-<version> folder.
+A fresh installation of the ROCm toolkit installs the packages in the /opt/rocm-<version> folder. 
 Previously, ROCm toolkit packages were installed in the /opt/rocm folder.
 
 **Reliability, Accessibility, and Serviceability Support for Vega 7nm**
 
-The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is now available.
+The Reliability, Accessibility, and Serviceability (RAS) support for Vega7nm is now available. 
 
 **SLURM Support for AMD GPU**
 
-SLURM (Simple Linux Utility for Resource Management) is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters.
+SLURM (Simple Linux Utility for Resource Management) is an open source, fault-tolerant, and highly scalable cluster management and job scheduling system for large and small Linux clusters. 
 
 
 New features and enhancements in ROCm v3.0
@@ -836,11 +836,11 @@ The Fast Fourier Transform (FFT) is an efficient algorithm for computing the Dis
 
 Other improvements:
 
-o More 2D test coverage sizes.
+• More 2D test coverage sizes.
 
-o Fix buffer allocation error for large 1D transforms.
+• Fix buffer allocation error for large 1D transforms.
 
-o C++ compatibility improvements.
+• C++ compatibility improvements.
 
 MemCopy Enhancement for rocProf
 In the v3.0 release, the rocProf tool is enhanced with an additional capability to dump asynchronous GPU memcopy information into a .csv file. You can use the '-hsa-trace' option to create the results_mcopy.csv file. Future enhancements will include column labels.
@@ -856,7 +856,7 @@ In the AMD ROCm release v2.10, support is extended to the General Matrix Multipl
 
 Support for SLES 15 SP1
 
-In the AMD ROCm v2.10 release, support is added for SUSE Linux(R) Enterprise Server (SLES) 15 SP1. SLES is a modular operating system for both multimodal and traditional IT.
+In the AMD ROCm v2.10 release, support is added for SUSE Linux® Enterprise Server (SLES) 15 SP1. SLES is a modular operating system for both multimodal and traditional IT.
 
 Code Marker Support for rocProfiler and rocTracer Libraries
 
@@ -882,7 +882,7 @@ ROCm 2.9 adds support for Singularity container version 2.5.2.
 
 Initial release of rocTX
 
-ROCm 2.9 introduces rocTX, which provides a C API for code markup for performance profiling. This initial release of rocTX supports annotation of code ranges and ASCII markers.
+ROCm 2.9 introduces rocTX, which provides a C API for code markup for performance profiling. This initial release of rocTX supports annotation of code ranges and ASCII markers. 
 
 * Added support for Ubuntu 18.04.3
 * Ubuntu 18.04.3 is now supported in ROCm 2.9.
@@ -986,9 +986,9 @@ Bloat16 software support in rocBLAS/Tensile
 
 Added mixed precision bfloat16/IEEE f32 to gemm_ex. The input and output matrices are bfloat16. All arithmetic is in IEEE f32.
 
-AMD Infinity Fabric(TM) Link enablement
+AMD Infinity Fabric™ Link enablement
 
-The ability to connect four Radeon Instinct MI60 or Radeon Instinct MI50 boards in two hives or two Radeon Instinct MI60 or Radeon Instinct MI50 boards in four hives via AMD Infinity Fabric(TM) Link GPU interconnect technology has been added.
+The ability to connect four Radeon Instinct MI60 or Radeon Instinct MI50 boards in two hives or two Radeon Instinct MI60 or Radeon Instinct MI50 boards in four hives via AMD Infinity Fabric™ Link GPU interconnect technology has been added.
 
 ROCm-smi features and bug fixes
 
@@ -1008,7 +1008,7 @@ Improvements to *name_get functions
 
 RCCL2 Enablement
 
-RCCL2 supports collectives intranode communication using PCIe, Infinity Fabric(TM), and pinned host memory, as well as internode communication using Ethernet (TCP/IP sockets) and Infiniband/RoCE (Infiniband Verbs). Note: For Infiniband/RoCE, RDMA is not currently supported.
+RCCL2 supports collectives intranode communication using PCIe, Infinity Fabric™, and pinned host memory, as well as internode communication using Ethernet (TCP/IP sockets) and Infiniband/RoCE (Infiniband Verbs). Note: For Infiniband/RoCE, RDMA is not currently supported.
 
 rocFFT enhancements
 
@@ -1055,9 +1055,9 @@ Support overlapping kernel execution in same HIP stream
 
 HIP API has been enhanced to allow independent kernels to run in parallel on the same stream.
 
-AMD Infinity Fabric(TM) Link enablement
+AMD Infinity Fabric™ Link enablement
 
-The ability to connect four Radeon Instinct MI60 or Radeon Instinct MI50 boards in one hive via AMD Infinity Fabric(TM) Link GPU interconnect technology has been added.
+The ability to connect four Radeon Instinct MI60 or Radeon Instinct MI50 boards in one hive via AMD Infinity Fabric™ Link GPU interconnect technology has been added.
 
 New features and enhancements in ROCm 2.4
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1066,9 +1066,9 @@ TensorFlow 2.0 support
 
 ROCm 2.4 includes the enhanced compilation toolchain and a set of bug fixes to support TensorFlow 2.0 features natively
 
-AMD Infinity Fabric(TM) Link enablement
+AMD Infinity Fabric™ Link enablement
 
-ROCm 2.4 adds support to connect two Radeon Instinct MI60 or Radeon Instinct MI50 boards via AMD Infinity Fabric(TM) Link GPU interconnect technology.
+ROCm 2.4 adds support to connect two Radeon Instinct MI60 or Radeon Instinct MI50 boards via AMD Infinity Fabric™ Link GPU interconnect technology.
 
 New features and enhancements in ROCm 2.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1134,7 +1134,7 @@ Added support for multi-GPU training
 New features and enhancements in ROCm 2.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-RocTracer v1.0 preview release - 'rocprof' HSA runtime tracing and statistics support -
+RocTracer v1.0 preview release – 'rocprof' HSA runtime tracing and statistics support -
 Supports HSA API tracing and HSA asynchronous GPU activity including kernels execution and memory copy
 
 Improvements to ROCM-SMI tool -
@@ -1181,9 +1181,9 @@ Creates a stream with the specified priority. It creates a stream on which enque
 
 OpenCL 2.0 support
 
-ROCm 2.0 introduces full support for kernels written in the OpenCL 2.0 C language on certain devices and systems.  Applications can detect this support by calling the "clGetDeviceInfo" query function with "parame_name" argument set to "CL_DEVICE_OPENCL_C_VERSION".
+ROCm 2.0 introduces full support for kernels written in the OpenCL 2.0 C language on certain devices and systems.  Applications can detect this support by calling the “clGetDeviceInfo” query function with “parame_name” argument set to “CL_DEVICE_OPENCL_C_VERSION”.  
 
-In order to make use of OpenCL 2.0 C language features, the application must include the option "-cl-std=CL2.0" in options passed to the runtime API calls responsible for compiling or building device programs.  The complete specification for the OpenCL 2.0 C language can be obtained using the following link: https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf
+In order to make use of OpenCL 2.0 C language features, the application must include the option “-cl-std=CL2.0” in options passed to the runtime API calls responsible for compiling or building device programs.  The complete specification for the OpenCL 2.0 C language can be obtained using the following link: https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf
 
 Improved Virtual Addressing (48 bit VA) management for Vega 10 and later GPUs
 
@@ -1232,7 +1232,7 @@ Added DPM support to Vega 7nm
 
 Dynamic Power Management feature is enabled on Vega 7nm.
 
-Fix for 'ROCm profiling' that used to fail with a "Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1" error
+Fix for 'ROCm profiling' that used to fail with a “Version mismatch between HSA runtime and libhsa-runtime-tools64.so.1” error
 
 New features and enhancements in ROCm 1.9.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1293,7 +1293,7 @@ IPC
 To try ROCm with an upstream kernel, install ROCm as normal, but do not install the rock-dkms package. Also add a udev rule to control /dev/kfd permissions:
 
     echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
-
+    
 New features as of ROCm 1.8.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1353,4 +1353,4 @@ Binary Package support for Fedora 24 is not currently available
 Dropping binary package support for Ubuntu 14.04, Fedora 23
 
 IPC support
-
+                 

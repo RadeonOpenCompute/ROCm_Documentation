@@ -7,9 +7,9 @@ hipProfilerStart
 ----------------
 .. doxygenfunction:: hipProfilerStart
 
-hipProfilerStop
+hipProfilerStop 
 ----------------
-.. doxygenfunction::hipProfilerStop
+.. doxygenfunction::hipProfilerStop 
 
 
 

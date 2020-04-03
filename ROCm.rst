@@ -33,7 +33,7 @@ This guide provides documentation on the ROCm programming model and programming 
 * listings of supported mathematical functions
 * C++ features supported in host and device code
 * technical specifications of various devices
-* introduction to the low-level driver API
+* introduction to the low-level driver API 
 
 
 | -  `ROCm Languages <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Programming-Guides.html#rocm-languages>`_
@@ -69,11 +69,11 @@ Performance and optimization for various device types such as GCN devices
 
 `GCN ISA Manuals <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-isa-manuals>`_
 
-* `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_  - For information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture)
+* `GCN 1.1 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-1-1>`_  - For information on ISA Manual for Hawaii (Sea Islands Series Instruction Set Architecture) 
 
 * `GCN 2.0 <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#gcn-2-0>`_  - For information on ISA Manual for Fiji and Polaris (AMD Accelerated Parallel Processing technology)
 
-* `Vega <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#vega>`_  - Provides "Vega" Instruction Set Architecture, Program Organization, Mode register and more details.
+* `Vega <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#vega>`_  - Provides “Vega” Instruction Set Architecture, Program Organization, Mode register and more details. 	
 
 * `Inline GCN ISA Assembly Guide <http://rocm-documentation.readthedocs.io/en/latest/GCN_ISA_Manuals/GCN-ISA-Manuals.html#inline-gcn-isa-assembly-guide>`_ - Covers various concepts of AMDGCN Assembly, DS Permute Instructions, Parameters to a Kernel, GPR Counting.
 
@@ -81,7 +81,7 @@ Performance and optimization for various device types such as GCN devices
 
 `ROCm API References <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocm-api-references>`_
 
-*  `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_
+*  `ROCr System Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#rocr-system-runtime-api>`_ 
 
 * `HCC Language Runtime API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#hcc-language-runtime-api>`_
 
@@ -93,7 +93,7 @@ Performance and optimization for various device types such as GCN devices
 
 * `Math Library API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#math-library-api-s>`_ - Includes HIP MAth API with hcRNG, clBLAS, clSPARSE APIs
 
-* `Deep Learning API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_ - Includes MIOpen API and MIOpenGEMM APIs
+* `Deep Learning API <http://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/ROCm-API-References.html#deep-learning-api-s>`_ - Includes MIOpen API and MIOpenGEMM APIs	
 
 
 
@@ -104,7 +104,7 @@ Performance and optimization for various device types such as GCN devices
 
 * `GCN Assembler and Disassembler <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-and-disassembler>`_
 
-* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_  - AMDGPU ISA Assembler
+* `GCN Assembler Tools <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gcn-assembler-tools>`_  - AMDGPU ISA Assembler 
 
 * `ROCm-GDB <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocm-gdb>`_ - ROCm-GDB tool includes installtion, configuration, and working of Debugger and APIs
 
@@ -112,20 +112,20 @@ Performance and optimization for various device types such as GCN devices
 
 * `ROCm-Tracer <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#roc-tracer>`_ - ROCm Tracer - provides a generic independent from specific runtime profiler to trace API and asynchronous activity. Includes details on library source tree, steps to build and run the test
 
-* `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_
+* `CodeXL <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#codexl>`_ 
 
 * `GPUperfAPI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#gpuperfapi>`_ - GPU Performance API, cloning, system requiments, and source code directory layout
 
 
 
-`AOMP <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#aomp-v-0-7-5>`_
+`AOMP <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#aomp-v-0-7-5>`_ 
 
 Provides details on AOMP, a scripted build of LLVM and supporting software. Supports OpenMP target offload on AMD GPUs. Since AOMP is a clang/llvm compiler, it also supports GPU offloading with HIP, CUDA, and OpenCL.
 
 
-`ROCmValidationSuite <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocmvalidationsuite>`_
+`ROCmValidationSuite <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#rocmvalidationsuite>`_ 
 
-Provides details on ROCm Validation Suite (RVS), a system administrator's and cluster manager's tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
+Provides details on ROCm Validation Suite (RVS), a system administrator’s and cluster manager’s tool for detecting and troubleshooting common problems affecting AMD GPU(s) running in a high-performance computing environment, enabled using the ROCm software stack on a compatible platform.
 
 |
 
@@ -135,7 +135,7 @@ Provides details on ROCm Validation Suite (RVS), a system administrator's and cl
 | This section provides details on rocFFT,it is a AMD's software library compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
 
 | `rocBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/rocblas.html#rocblas>`_
-| This section provides details on rocBLAS, it is a library for BLAS on ROCm.rocBLAS is implemented in the HIP programming language and optimized for AMD's latest discrete GPUs.
+| This section provides details on rocBLAS, it is a library for BLAS on ROCm.rocBLAS is implemented in the HIP programming language and optimized for AMD’s latest discrete GPUs.
 
 | `hipBLAS <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/hipBLAS.html#hip8las>`_
 | This section provides details on hipBLAS, it is a BLAS marshalling library, with multiple supported backends. hipBLAS exports an interface that does not require the client to change. Currently,it supports :ref:`rocblas` and cuBLAS as backends.
@@ -153,7 +153,7 @@ Provides details on ROCm Validation Suite (RVS), a system administrator's and cl
 | This section provides details on clBLAS. It makes easier for developers to utilize the inherent performance and power efficiency benefits of heterogeneous computing.
 
 | `clSPARSE <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/clSPARSE.html#clsparse1>`_
-| This section provides details on clSPARSE, it is an OpenCL library which implements Sparse linear algebra routines.
+| This section provides details on clSPARSE, it is an OpenCL library which implements Sparse linear algebra routines. 
 
 | `clRNG <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/clRNG.html#cl1rng>`_
 | This section provides details on clRNG,This is a library  for uniform random number generation in OpenCL.
@@ -171,10 +171,10 @@ Provides details on ROCm Validation Suite (RVS), a system administrator's and cl
 | This section provides details on rocSPARSE.It is a library that contains basic linear algebra subroutines for sparse matrices and vectors written in HiP for GPU devices. It is designed to be used from C and C++ code.
 
 | `rocThrust <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocthrust>`_
-| This section provides details on rocThrust. It is a parallel algorithmn library.
+| This section provides details on rocThrust. It is a parallel algorithmn library.  
 
-| `hipCUB <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipcub>`_ This section provides details on   hipCUB.
-| It is a thin wrapper library on top of rocPRIM or CUB. It enables developers to port the project using CUB library to the HIP layer and to
+| `hipCUB <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipcub>`_ This section provides details on   hipCUB. 
+| It is a thin wrapper library on top of rocPRIM or CUB. It enables developers to port the project using CUB library to the HIP layer and to 
 | run them on AMD hardware.
 
 | `ROCm SMI Library <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocm-smi-library>`_ This section provides details on ROCm SMI library. The ROCm System Management Interface Library, or ROCm SMI library is part of the Radeon Open Compute ROCm software stack. It is a C library for linux that provides a user space interface for applications to monitor and control GPU aplications.
@@ -182,7 +182,7 @@ Provides details on ROCm Validation Suite (RVS), a system administrator's and cl
 | `RCCL <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rccl>`_ This section provides details on ROCm Communications Collectives Library. It is a stand alone library of standard collective communication routines for GPUS, implememting all-reduce, all gather, reduce, broadcast, and reduce scatter.
 
 | `AMD MivisionX <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#amd-migraphx>`_
-This section provides information on AMD's graph optimization engine.
+This section provides information on AMD’s graph optimization engine.
 
 
 `ROCm Compiler SDK <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-compiler-sdk>`_
@@ -192,7 +192,7 @@ This section provides information on AMD's graph optimization engine.
 
 | `ROCm Code Object Format <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#rocm-code-object-format>`_
 | This section describes about application binary interface (ABI) provided by the AMD, implementation of the HSA runtime. It also provides details on Kernel, AMD Queue and Signals.
-
+ 
 | `ROCm Device Library <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Compiler-SDK.html#roc-device-library>`_
 | Documentation on instruction related to ROCm Device Library overview,Building and Testing related information with respect to Device Library is provided.
 
@@ -225,7 +225,7 @@ This section provides information on AMD's graph optimization engine.
 | ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU memory. Complete indoemation related to ROCmRDMA is Documented here.
 
 | `UCX <http://rocm-documentation.readthedocs.io/en/latest/Remote_Device_Programming/Remote-Device-Programming.html#ucx>`_
-| This section gives information related to UCX, How to install, Running UCX and much more
+| This section gives information related to UCX, How to install, Running UCX and much more 
 
 | `MPI <http://rocm-documentation.readthedocs.io/en/latest/Remote_Device_Programming/Remote-Device-Programming.html#mpi>`_
 | This section gives information related to MPI.

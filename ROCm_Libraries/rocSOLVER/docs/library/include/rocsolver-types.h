@@ -11,8 +11,8 @@
 
 #include <rocblas.h>
 
-/*! \brief Used to specify int32 or int64.
-    \details rocsolver_int is a rocblas_int
+/*! \brief Used to specify int32 or int64. 
+    \details rocsolver_int is a rocblas_int 
  ******************************************************************/
 typedef rocblas_int rocsolver_int;
 
@@ -20,12 +20,12 @@ typedef rocblas_float_complex rocsolver_float_complex;
 typedef rocblas_double_complex rocsolver_double_complex;
 typedef rocblas_half rocsolver_half;
 
-/*! \brief A structure holding the rocsolver library context.
-    \details
+/*! \brief A structure holding the rocsolver library context. 
+    \details 
     It must be initialized using rocsolver_create_handle()
-    and the returned handle must be passed to all subsequent library
+    and the returned handle must be passed to all subsequent library 
     function calls. It should be destroyed at the end using rocsolver_destroy_handle().\n
-    rocsolver_handle is a rocblas_handle.
+    rocsolver_handle is a rocblas_handle. 
  *************************************************************************/
 typedef rocblas_handle rocsolver_handle;
 
@@ -56,16 +56,16 @@ typedef rocblas_status rocsolver_status;
 
 typedef rocblas_layer_mode rocsolver_layer_mode;
 
-/*! \brief Used to specify the order in which multiple elementary matrices are applied together
- ********************************************************************************/
+/*! \brief Used to specify the order in which multiple elementary matrices are applied together 
+ ********************************************************************************/ 
 typedef enum rocsolver_direct_
 {
     rocsolver_forward_direction = 171, /**< Elementary matrices applied from the right. */
     rocsolver_backward_direction = 172, /**< Elementary matrices applied from the left. */
 } rocsolver_direct;
 
-/*! \brief Used to specify how householder vectors are stored in a matrix of vectors
- ********************************************************************************/
+/*! \brief Used to specify how householder vectors are stored in a matrix of vectors 
+ ********************************************************************************/ 
 typedef enum rocsolver_storev_
 {
     rocsolver_column_wise = 181, /**< Householder vectors are stored in the columns of a matrix. */

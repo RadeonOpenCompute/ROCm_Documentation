@@ -45,7 +45,7 @@ We use the following algorithm to install the memory hooks:
 
  7. Sometimes it's enough to have hooks for mmap/... to get those events when they are called from malloc/... as well. So first we do 	  some memory allocations and check if we are able to get all events this way.
 
- 8. If we can't, install legacy malloc hooks (__malloc_hook).
+ 8. If we can't, install legacy malloc hooks (__malloc_hook). 
     We have our own implementation of heap manager in libucm - ptmalloc3. After we replace the original heap manager, we keep track 	of which pointers were allocated by our library, so we would know ignore all others (since they were allocated by the previous  	heap manager). Also, we can't restore the previous state, so libucm.so is marked as 'nodelete'.
 
  9. If the former didn't work, modify the relocation tables to point to our implementation of malloc (and friends).

@@ -42,7 +42,7 @@ __global__ void set_taubeta(T *tau, const rocblas_int strideP, T *norms, U alpha
 
 
 template <typename T, typename U>
-rocblas_status rocsolver_larfg_template(rocblas_handle handle, const rocblas_int n, U alpha, const rocblas_int shifta,
+rocblas_status rocsolver_larfg_template(rocblas_handle handle, const rocblas_int n, U alpha, const rocblas_int shifta, 
                                         U x, const rocblas_int shiftx, const rocblas_int incx, const rocblas_int stridex,
                                         T *tau, const rocblas_int strideP, const rocblas_int batch_count)
 {
@@ -54,11 +54,11 @@ rocblas_status rocsolver_larfg_template(rocblas_handle handle, const rocblas_int
     hipStream_t stream;
     rocblas_get_stream(handle, &stream);
     dim3 gridReset(1, batch_count, 1);
-    dim3 threads(1, 1, 1);
+    dim3 threads(1, 1, 1); 
     if (n == 1) {
         hipLaunchKernelGGL(reset_batch_info,gridReset,threads,0,stream,tau,strideP,1,0);
-        return rocblas_status_success;
-    }
+        return rocblas_status_success;    
+    } 
 
     T *xp;
 
@@ -73,12 +73,12 @@ rocblas_status rocsolver_larfg_template(rocblas_handle handle, const rocblas_int
 
     //memory in GPU (workspace)
     T *norms;
-    hipMalloc(&norms, sizeof(T)*batch_count);
+    hipMalloc(&norms, sizeof(T)*batch_count);    
 
     // **** BATCH IS EXECUTED IN A FOR-LOOP UNTIL BATCH-BLAS
     //      FUNCITONALITY IS ENABLED. ALSO ROCBLAS CALLS SHOULD
     //      BE MADE TO THE CORRESPONDING TEMPLATE_FUNCTIONS ****
-
+    
     //compute norm of x
     for (int b=0;b<batch_count;++b) {
         xp = load_ptr_batch<T>(xx,shiftx,b,stridex);
@@ -87,9 +87,9 @@ rocblas_status rocsolver_larfg_template(rocblas_handle handle, const rocblas_int
 
     //set value of tau and beta and scalling factor for vector x
     //alpha <- beta
-    //norms <- scalling
+    //norms <- scalling   
     hipLaunchKernelGGL(set_taubeta<T>,dim3(batch_count),dim3(1),0,stream,tau,strideP,norms,alpha,shifta,stridex);
-
+     
     //compute vector v=x*norms
     for (int b=0;b<batch_count;++b) {
         xp = load_ptr_batch<T>(xx,shiftx,b,stridex);

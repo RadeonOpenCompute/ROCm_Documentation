@@ -72,7 +72,7 @@ class AIChebyshev : public Preconditioner<OperatorType, VectorType, ValueType>
   * \brief Factorized Approximate Inverse Preconditioner
   * \details
   * The Factorized Sparse Approximate Inverse preconditioner computes a direct
-  * approximation of \f$M^{-1}\f$ by minimizing the Frobenius norm \f$||I - GL||_{F}\f$,
+  * approximation of \f$M^{-1}\f$ by minimizing the Frobenius norm \f$||I − GL||_{F}\f$,
   * where \f$L\f$ denotes the exact lower triangular part of \f$A\f$ and \f$G:=M^{-1}\f$.
   * The FSAI preconditioner is initialized by \f$q\f$, based on the sparsity pattern of
   * \f$|A^{q}|\f$. However, it is also possible to supply external sparsity patterns in form
@@ -134,7 +134,7 @@ class FSAI : public Preconditioner<OperatorType, VectorType, ValueType>
   * The SParse Approximate Inverse algorithm is an explicitly computed preconditioner for
   * general sparse linear systems. In its current implementation, only the sparsity
   * pattern of the system matrix is supported. The SPAI computation is based on the
-  * minimization of the Frobenius norm \f$||AM - I||_{F}\f$.
+  * minimization of the Frobenius norm \f$||AM − I||_{F}\f$.
   * \cite grote
   *
   * \tparam OperatorType - can be LocalMatrix

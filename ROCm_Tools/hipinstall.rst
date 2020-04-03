@@ -18,7 +18,7 @@ AMD-hcc
 
  * Default paths and environment variables:
 
-     * By default HIP looks for hcc in /opt/rocm/hcc (can be overridden by setting HCC_HOME environment variable)
+     * By default HIP looks for hcc in /opt/rocm/hcc (can be overridden by setting HCC_HOME environment variable) 
      * By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by setting HSA_PATH environment variable)
      * By default HIP is installed into /opt/rocm/hip (can be overridden by setting HIP_PATH environment variable).
      * Optionally, consider adding /opt/rocm/bin to your PATH to make it easier to use the tools.
@@ -28,7 +28,7 @@ NVIDIA-nvcc
  * Configure the additional package server as described `here <https://gpuopen.com/getting-started-with-boltzmann-components-platforms-installation/>`_.
  * Install the "hip_nvcc" package. This will install CUDA SDK and the HIP porting layer.
 
-::
+:: 
 
   apt-get install hip_nvcc
 
@@ -60,13 +60,13 @@ HIP source code is available and the project can be built from source on the HCC
   cd HIP
   mkdir build
   cd build
-  cmake ..
+  cmake .. 
   make
   make install
 
 * Default paths:
    * By default cmake looks for hcc in /opt/rocm/hcc (can be overridden by setting -DHCC_HOME=/path/to/hcc in the cmake step).*
-   * By default cmake looks for HSA in /opt/rocm/hsa (can be overridden by setting -DHSA_PATH=/path/to/hsa in the cmake step).*
+   * By default cmake looks for HSA in /opt/rocm/hsa (can be overridden by setting -DHSA_PATH=/path/to/hsa in the cmake step).* 
    * By default cmake installs HIP to /opt/rocm/hip (can be overridden by setting -DCMAKE_INSTALL_PREFIX=/where/to/install/hip in the 	   cmake step).*
 
 Here's a richer command-line that overrides the default paths:

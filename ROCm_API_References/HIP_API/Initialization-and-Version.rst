@@ -12,21 +12,21 @@ hipDeviceGet
 ----------------
 .. doxygenfunction:: hipDeviceGet
 
-hipDeviceComputeCapability
+hipDeviceComputeCapability 
 -----------------------------
-.. doxygenfunction:: hipDeviceComputeCapability
+.. doxygenfunction:: hipDeviceComputeCapability 
 
-hipDeviceGetName
+hipDeviceGetName 
 ----------------
-.. doxygenfunction:: hipDeviceGetName
+.. doxygenfunction:: hipDeviceGetName 
 
-hipDeviceGetPCIBusId
+hipDeviceGetPCIBusId 
 ---------------------
-.. doxygenfunction:: hipDeviceGetPCIBusId
+.. doxygenfunction:: hipDeviceGetPCIBusId 
 
-hipDeviceGetByPCIBusId
+hipDeviceGetByPCIBusId 
 -----------------------
-.. doxygenfunction:: hipDeviceGetByPCIBusId
+.. doxygenfunction:: hipDeviceGetByPCIBusId 
 
 hipDeviceTotalMem
 ---------------------
@@ -44,9 +44,9 @@ hipModuleLoad
 ----------------
 .. doxygenfunction:: hipModuleLoad
 
-hipModuleUnload
+hipModuleUnload 
 ----------------
-.. doxygenfunction:: hipModuleUnload
+.. doxygenfunction:: hipModuleUnload 
 
 hipModuleGetFunction
 ---------------------
@@ -64,8 +64,8 @@ hipModuleLoadDataEx
 --------------------
 .. doxygenfunction:: hipModuleLoadDataEx
 
-hipModuleLaunchKernel
+hipModuleLaunchKernel 
 ----------------------
-.. doxygenfunction:: hipModuleLaunchKernel
+.. doxygenfunction:: hipModuleLaunchKernel 
 
 

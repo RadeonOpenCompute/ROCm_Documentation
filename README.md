@@ -1,5 +1,5 @@
 
- ## ROCm Documentation
-
- Repository for ROCm documentation rendered by ReadtheDocs
+ ## ROCm Documentation 
+ 
+ Repository for ROCm documentation rendered by ReadtheDocs 
 

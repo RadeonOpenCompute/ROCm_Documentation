@@ -1550,7 +1550,7 @@ namespace amd {
       }
     }
 
-    GElfStringTable* GElfImage::addStringTable(const std::string& name)
+    GElfStringTable* GElfImage::addStringTable(const std::string& name) 
     {
       GElfStringTable* stab = new GElfStringTable(this);
       sections.push_back(std::unique_ptr<GElfStringTable>(stab));

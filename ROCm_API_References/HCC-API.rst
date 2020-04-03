@@ -46,7 +46,7 @@ For example:
 
 ::
 
-   `` hcchcc-config -cxxflags -ldflagsfoo.cpp -o foo ``
+   `` hcchcc-config –cxxflags –ldflagsfoo.cpp -o foo ``
 
 HCC built-in macros
 ********************

@@ -24,10 +24,10 @@ common definition
 Initialization and Shut Down
 -----------------------------
 
-.. doxygenfunction:: hsa_init()
+.. doxygenfunction:: hsa_init()	
    :project: rocr
 
-.. doxygenfunction:: hsa_shut_down()
+.. doxygenfunction:: hsa_shut_down()	
    :project: rocr
 
 System and Agent Information
@@ -70,12 +70,12 @@ System and Agent Information
 .. doxygenfunction:: hsa_agent_get_info()
    :project: rocr
 
-.. doxygenfunction:: hsa_agent_iterate_caches()
+.. doxygenfunction:: hsa_agent_iterate_caches() 
    :project: rocr
-
+ 
 .. doxygenfunction:: hsa_agent_major_extension_supported()
    :project: rocr
-
+ 
 .. doxygenfunction:: hsa_cache_get_info()
    :project: rocr
 

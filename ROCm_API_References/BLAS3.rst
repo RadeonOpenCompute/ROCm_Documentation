@@ -44,7 +44,7 @@ TRSM - Solving triangular systems of equations
 
 
 SYRK - Symmetric rank-k update of a matrix
---------------------------------------------
+-------------------------------------------- 
 .. doxygenfunction:: clblasCsyrk()
 
 
@@ -58,7 +58,7 @@ SYRK - Symmetric rank-k update of a matrix
 
 
 SYR2K - Symmetric rank-2k update to a matrix
---------------------------------------------
+-------------------------------------------- 
 .. doxygenfunction:: clblasSsyr2k()
 
 .. doxygenfunction:: clblasZsyr2k()
@@ -66,7 +66,7 @@ SYR2K - Symmetric rank-2k update to a matrix
 
 
 SYMM - Symmetric matrix-matrix multiply
---------------------------------------------
+-------------------------------------------- 
 .. doxygenfunction:: clblasCsymm()
 
 .. doxygenfunction:: clblasDsymm()
@@ -80,7 +80,7 @@ SYMM - Symmetric matrix-matrix multiply
 
 
 HEMM - Hermitian matrix-matrix multiplication
---------------------------------------------
+-------------------------------------------- 
 .. doxygenfunction:: clblasChemm()
 
 
@@ -89,7 +89,7 @@ HEMM - Hermitian matrix-matrix multiplication
 
 
 HERK - Hermitian rank-k update to a matrix
---------------------------------------------
+-------------------------------------------- 
 .. doxygenfunction:: clblasCherk()
 
 
@@ -100,7 +100,7 @@ HERK - Hermitian rank-k update to a matrix
 
 
 HER2K - Hermitian rank-2k update to a matrix
---------------------------------------------
+-------------------------------------------- 
 .. doxygenfunction:: clblasCher2k()
 
 

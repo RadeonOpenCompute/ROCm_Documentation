@@ -32,7 +32,7 @@ The project is based on LLVM+CLANG. For more information, please visit :ref:`HCC
 
 HIP: Heterogeneous-Computing Interface for Portability
 #########################################################
-What is Heterogeneous-Computing Interface for Portability (HIP)? It's a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the
+What is Heterogeneous-Computing Interface for Portability (HIP)? It’s a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the
 host/kernel boundary.
 
 The Hipify tool automates much of the conversion work by performing a source-to-source transformation from Cuda to HIP. HIP code can run on AMD hardware (through the HCC compiler) or Nvidia hardware (through the NVCC compiler) with no performance loss compared with the original Cuda code.
@@ -43,9 +43,9 @@ When to Use HIP
 ****************
 Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and Nvidia. HIP provides a C++ development language and access to the best development tools on both platforms.
 
-OpenCL(TM): Open Compute Language
+OpenCL™: Open Compute Language
 ################################
-What is OpenCL ?  It's a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
+What is OpenCL ?  It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
 and Nvidia GPUs support version 1.2 of the specification, as do x86 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C run-time API and C99-based kernel language.
 
 When to Use OpenCL
@@ -55,7 +55,7 @@ Windows, Linux and Mac OS, as well as a wide variety of hardware platforms (desc
 
 Anaconda Python With Numba
 ###########################
-What is Anaconda ?  It's a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
+What is Anaconda ?  It’s a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
 ROCm-enabled discrete GPUs via Numba. It gives superpowers to the people who are changing the world.
 
 Numba
@@ -67,11 +67,11 @@ performance similar to that of C, C++ and Fortran---without having to switch lan
 Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically
 (through the included Pycc tool). It supports Python compilation to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NumPy.
 
-  * `Anaconda(R) with Numba acceleration <http://numba.pydata.org/numba-doc/latest/index.html>`_
+  * `Anaconda® with Numba acceleration <http://numba.pydata.org/numba-doc/latest/index.html>`_
 
 When to Use Anaconda
 *********************
-Use Anaconda when you're handling large-scale data-analytics,
+Use Anaconda when you’re handling large-scale data-analytics,
 scientific and engineering problems that require you to manipulate
 large data arrays.
 
@@ -193,7 +193,7 @@ HC Programming Guide
 
 **What is the Heterogeneous Compute (HC) API ?**
 
-It's a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We'll be following these developments closely, and you'll see HC move quickly to include standard C++ capabilities.
+It’s a C++ dialect with extensions to launch kernels and manage accelerator memory. It closely tracks the evolution of C++ and will incorporate parallelism and concurrency features as the C++ standard does. For example, HC includes early support for the C++17 Parallel STL. At the recent ISO C++ meetings in Kona and Jacksonville, the committee was excited about enabling the language to express all forms of parallelism, including multicore CPU, SIMD and GPU. We’ll be following these developments closely, and you’ll see HC move quickly to include standard C++ capabilities.
 
 The Heterogeneous Compute Compiler (HCC) provides two important benefits:
 
@@ -209,7 +209,7 @@ Ease of development
 Full control over the machine
 
 
-    * Access AMD scratchpad memories ("LDS")
+    * Access AMD scratchpad memories (“LDS”)
     * Fully control data movement, prefetch and discard
     * Fully control asynchronous kernel launch and completion
     * Get device-side dependency resolution for kernel and data commands (without host involvement)
@@ -360,7 +360,7 @@ HIP provides a C++ syntax that is suitable for compiling most code that commonly
    * Math functions resembling those in the "math.h" header included with standard C++ compilers
    * Built-in functions for accessing specific GPU hardware capabilities
 
-This section describes the built-in variables and functions accessible from the HIP kernel. It's intended for readers who are familiar with Cuda kernel syntax and want to understand how HIP is different.
+This section describes the built-in variables and functions accessible from the HIP kernel. It’s intended for readers who are familiar with Cuda kernel syntax and want to understand how HIP is different.
 
   * :ref:`HIP-GUIDE`
 
@@ -408,7 +408,7 @@ hipLaunchKernelGGL(vector_square,   /* compute kernel*/
                 dim3(blocks), dim3(threadsPerBlock), 0/*dynamic shared*/, 0/*stream*/,     /* launch config*/
                 C_d, A_d, N);  /* arguments to the compute kernel */
 
-hipMemcpy(C_h, C_d, Nbytes, hipMemcpyDeviceToHost);
+hipMemcpy(C_h, C_d, Nbytes, hipMemcpyDeviceToHost); 
 
 The HIP kernel language defines builtins for determining grid and block coordinates, math functions, short vectors, atomics, and timer functions. It also specifies additional defines and keywords for function types, address spaces, and optimization controls. (See the  :ref:`Kernel_language` for a full description). Here's an example of defining a simple 'vector_square' kernel.
 
@@ -485,6 +485,6 @@ OpenCL Best Practices
 * :ref:`Optimization-Opencl`
 
 
+   
 
-
-
+   

@@ -39,7 +39,7 @@ constexpr char rocblas_scal_name<rocblas_double_complex>[] = "rocblas_zscal";
 /*! \brief BLAS Level 1 API
 
     \details
-    scal  scal the vector x[i] with scalar alpha, for  i = 1 , ... , n
+    scal  scal the vector x[i] with scalar alpha, for  i = 1 , … , n
 
         x := alpha * x ,
 

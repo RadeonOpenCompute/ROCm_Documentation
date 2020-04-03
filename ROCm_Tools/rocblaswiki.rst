@@ -1,7 +1,7 @@
 .. _rocblaswiki:
 
 ========================
-rocblas build wiki
+rocblas build wiki 
 ========================
 
 Home
@@ -12,7 +12,7 @@ Building rocBLAS
  1. For instructions to build rocblas library and clients, see Build rocBLAS libraries and verification code.
  2. For an example using rocBLAS see Example C code calling rocBLAS function.
  3. For instructions on how to run/use the client code, see Build rocBLAS libraries, verification-code, tests and benchmarks.
-
+    
 Functionality
 ***************
 rocBLAS exports the following BLAS-like functions at this time.
@@ -36,12 +36,12 @@ Rules for obtaining the rocBLAS API from Legacy BLAS
  * Where Legacy BLAS functions have return values, the return value is instead added as the last function argument. It is returned by 	reference on either the host or the device. The rocBLAS functions will check to see it the value is on the device. If this is true, 	it is used, else the value is returned on the host. This applies to the following functions: xDOT, xDOTU, xNRM2, xASUM, IxAMAX,     	IxAMIN.
 
  7. The return value of all functions is rocblas_status, defined in rocblas_types.h. It is used to check for errors.
-
+    
 Additional notes
 ******************
  * The rocBLAS library is LP64, so rocblas_int arguments are 32 bit and rocblas_long arguments are 64 bit.
 
- * rocBLAS uses column-major storage for 2D arrays, and 1 based indexing for the functions xMAX and xMIN. This is the same as Legacy 	BLAS and cuBLAS. If you need row-major and 0 based indexing (used in C language arrays) download the `CBLAS <http://www.netlib.org/blas/#_cblas>`_ file cblas.tgz. Look at 	 the CBLAS functions that provide a thin interface to Legacy BLAS. They convert from 	row-major, 0 based, to column-major, 1 based.
+ * rocBLAS uses column-major storage for 2D arrays, and 1 based indexing for the functions xMAX and xMIN. This is the same as Legacy 	BLAS and cuBLAS. If you need row-major and 0 based indexing (used in C language arrays) download the `CBLAS <http://www.netlib.org/blas/#_cblas>`_ file cblas.tgz. Look at 	 the CBLAS functions that provide a thin interface to Legacy BLAS. They convert from 	row-major, 0 based, to column-major, 1 based. 
    This is done by swapping the order of function arguments. It is not necessary to transpose matrices.
 
  * The auxiliary functions rocblas_set_pointer and rocblas_get_pointer are used to set and get the value of the state variable 	     	rocblas_pointer_mode. This variable is not used, it is added for compatibility with cuBLAS. rocBLAS will check if your scalar     	argument passed by reference is on the device. If this is true it will pass by reference on the device, else it passes by         	reference on the host.
@@ -93,7 +93,7 @@ rocblas-test 	        runs Google Tests to test the library
 rocblas-bench 	        executable to benchmark or test individual functions
 example-sscal 	        example C code calling rocblas_sscal function
 ================        ===========
-
+	
 Common uses of install.sh to build (dependencies + library + client) are in the table below.
 
 ===================     ============
@@ -159,7 +159,7 @@ Build (library dependencies + client dependencies + library + client) using Indi
 The unit tests and benchmarking applications in the client introduce the following dependencies:
 
 #. `boost <https://www.boost.org/>`_
-#. `fortran <https://gcc.gnu.org/wiki/GFortran>`_
+#. `fortran <https://gcc.gnu.org/wiki/GFortran>`_ 
 #. `lapack <https://github.com/Reference-LAPACK/lapack-release>`_
          * lapack itself brings a dependency on a fortran compiler
 #.  `googletest <https://github.com/google/googletest>`_
@@ -290,7 +290,7 @@ Example
           hx[i] = rand() % 10 + 1;  //generate a integer number between [1, 10]
           }
 
-          // save a copy in hz
+          // save a copy in hz 
           hz = hx;
 
           hipMemcpy(dx, hx.data(), sizeof(float) * N, hipMemcpyHostToDevice);
@@ -370,7 +370,7 @@ Run the executable with the command
 	$(CPP) -c -o $@ $< $(CFLAGS)
 
   $(EXE) : $(OBJ)
-	$(LD) $(OBJ) $(LDFLAGS) -o $@
+	$(LD) $(OBJ) $(LDFLAGS) -o $@ 
 
   clean:
 	rm -f $(EXE) $(OBJ)
@@ -646,7 +646,7 @@ Train Tensile for rocBLAS
 Below are 10 steps that can be used to build Tensile and rocBLAS for the sizes specified in rocblas_sgemm_asm_miopen.yaml
 
 ::
-
+  
    git clone -b develop https://github.com/ROCmSoftwarePlatform/Tensile.git
    cd Tensile
    mkdir build

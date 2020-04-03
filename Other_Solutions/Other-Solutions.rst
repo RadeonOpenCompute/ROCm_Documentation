@@ -5,7 +5,7 @@
 System Level Debug
 =====================
 
-ROCm Language & System Level Debug, Flags and Environment Variables
+ROCm Language & System Level Debug, Flags and Environment Variables 
 #####################################################################
 
 | Kernel options to avoid Ethernet port getting renamed every time you change graphics cards
@@ -15,32 +15,32 @@ ROCr Error Code
 ******************
 
 * 2  Invalid Dimension
-* 4 Invalid Group Memory
-* 8 Invalid (or Null) Code
+* 4 Invalid Group Memory 
+* 8 Invalid (or Null) Code 
 * 32 Invalid Format </li>
-* 64 Group is too large
-* 128 Out of VGPR's
-* 0x80000000  Debug Trap
+* 64 Group is too large 
+* 128 Out of VGPR’s 
+* 0x80000000  Debug Trap 
 
-Command to dump firmware version and get Linux Kernel version
+Command to dump firmware version and get Linux Kernel version 
 *****************************************************************
 
-* sudo cat /sys/kernel/debug/dri/1/amdgpu_firmware_info
-* uname -a
+* sudo cat /sys/kernel/debug/dri/1/amdgpu_firmware_info 
+* uname -a  
 
-Debug Flags
+Debug Flags 
 ***************
 
 Debug messages when developing/debugging base ROCm dirver. You could enable the printing from libhsakmt.so by setting an environment variable, HSAKMT_DEBUG_LEVEL. Available debug levels are 3~7. The higher level you set, the more messages will print.
 
 * export HSAKMT_DEBUG_LEVEL=3 : only pr_err() will print.
 * export HSAKMT_DEBUG_LEVEL=4 : pr_err() and pr_warn() will print.
-* export HSAKMT_DEBUG_LEVEL=5 : We currently don't implement "notice". Setting to 5 is same as setting to 4.
+* export HSAKMT_DEBUG_LEVEL=5 : We currently don’t implement “notice”. Setting to 5 is same as setting to 4.
 * export HSAKMT_DEBUG_LEVEL=6 : pr_err(), pr_warn(), and pr_info will print.
 * export HSAKMT_DEBUG_LEVEL=7 : Everything including pr_debug will print.
 
 
-ROCr level env variable for debug
+ROCr level env variable for debug 
 ************************************
 
 * HSA_ENABLE_SDMA=0
@@ -51,9 +51,9 @@ ROCr level env variable for debug
 Turn Off Page Retry on GFX9/Vega devices
 **********************
 
-  * sudo -s
+  * sudo –s
   * echo 1 > /sys/module/amdkfd/parameters/noretry
-
+  
 
 
 HCC Debug Enviroment Varibles
@@ -165,7 +165,7 @@ PCIe-Debug
 
 Refer here for :ref:`PCIe-Debug`
 
-**There's some more information here on how to debug and profile HIP applications**
+**There’s some more information here on how to debug and profile HIP applications**
 
 * `HIP-Debugging <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/HIP_Debugging.html#hip-debugging>`_
 * `HIP-Profiling <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#hip-profiling>`_

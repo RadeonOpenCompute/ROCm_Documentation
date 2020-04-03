@@ -1,7 +1,7 @@
 
 .. _HIP-thrust:
 
-hipThrust
+hipThrust 
 ##########
 
 HIP back-end for Thrust
@@ -27,7 +27,7 @@ AMD ROCm Installation
  $ sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
  $ sudo apt-get update
  $ sudo apt install rocm-dkms
-
+ 
 Thrust Build Steps:
 ::
  $ git clone https://github.com/ROCmSoftwarePlatform/Thrust.git
@@ -46,13 +46,13 @@ Steps to follow:
  $ cd examples
  $ ./cu_to_cpp.sh
  $ ./script_compile_testing_hcc.sh
-
+ 
 
 To execute applications:
 ::
   $ cd Thrust/
   $ ./script_run_hcc.sh foldername (eg:examples/testing/performance)
-
+ 
 
 
 Sample applications
@@ -69,7 +69,7 @@ transform_iterator:
  sequence : 0 1 2 3 4 5 6 7 8 9
  clamped sequence : 1 1 2 3 4 5 5 5 5 5
  negated sequence : -1 -1 -2 -3 -4 -5 -5 -5 -5 -5
- negated values : -2 -5 -7 -1 -6 0 -3 -8
+ negated values : -2 -5 -7 -1 -6 0 -3 -8 
 
 sort:
 ::
@@ -106,38 +106,38 @@ expand:
 ::
  $ ./expand.out
  Expanding values according to counts
- counts 3 5 2 0 1 3 4 2 4
- values 1 2 3 4 5 6 7 8 9
- output 1 1 1 2 2 2 2 2 3 3 5 6 6 6 7 7 7 7 8 8 9 9 9 9
-
+ counts 3 5 2 0 1 3 4 2 4 
+ values 1 2 3 4 5 6 7 8 9 
+ output 1 1 1 2 2 2 2 2 3 3 5 6 6 6 7 7 7 7 8 8 9 9 9 9 
+ 
 
 Unit Test
 ************
 
-| The test suite consists of unit tests.
+| The test suite consists of unit tests. 
 | Run the following commands to perform unit testing of different components of Thrust.
 
 .. note:: Set HIP_PLATFORM to either NVCC or HCC depending on the platform being used
 ::
-
+  
   $ cd Thrust/testing
   $ ./cu_to_cpp.sh
   $ ./script_compile_testing_hcc.sh
 
-To execute unit tests:
+To execute unit tests: 
 ::
   $ cd Thrust/
   $ ./script_run_hcc.sh testing/
 
 Sample output of transform and Max element test cases
 ::
-
- ./transform.out
+  
+ ./transform.out 
  Running 34 unit tests.
  ..................................
  Totals: 0 failures, 0 known failures, 0 errors, and 34 passes.
  Time: 0.366667 minutes
-
+ 
  ./max_element.out
  Running 7 unit tests.
  ..................................
@@ -152,20 +152,20 @@ Run the following commands to exercise Performance tests in Thrust
 .. note:: Set HIP_PLATFORM to either NVCC or HCC depending on the platform being used
 
 ::
-
+   
   $ cd Thrust/performance
   $ ./script_compile_performance.sh
 
-To execute performance tests:
-::
+To execute performance tests: 
+:: 
   $ cd Thrust/
   $ ./script_run_hcc.sh performance/
-
+  
 
 ::
-
+  
   ./adjacent_difference.cpp.out
-
+   
   <?xml version="1.0"?>
   <testsuite name="adjacent_difference">
   <platform>
@@ -195,7 +195,7 @@ To execute performance tests:
   <status result="Success" message=""/>
   </test>
   </testsuite>
-
+  
 
 
 

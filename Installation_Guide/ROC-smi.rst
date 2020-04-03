@@ -26,16 +26,16 @@ For convenience purposes, following is a quick excerpt:
                  [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]] [--setfan LEVEL]
                  [--setperflevel LEVEL] [--setoverdrive %] [--setprofile # # # # #] [--resetprofile]
                  [--load FILE | --save FILE] [--autorespond RESPONSE]
-
+   
  AMD ROCm System Management Interface
-
+  
   optional arguments:
    -h, --help                  show this help message and exit
    --load FILE                 Load Clock, Fan, Performance and Profile settings from FILE
    --save FILE                 Save Clock, Fan, Performance and Profile settings to FILE
-
-   -d DEVICE, --device DEVICE  Execute command on specified device
-
+   
+   -d DEVICE, --device DEVICE  Execute command on specified device 
+  
    -i, --showid                Show GPU ID
    -t, --showtemp              Show current temperature
    -c, --showclocks            Show current clock frequencies
@@ -46,8 +46,8 @@ For convenience purposes, following is a quick excerpt:
    -o, --showoverdrive         Show current OverDrive level
    -l, --showprofile           Show Compute Profile attributes
    -s, --showclkfrq            Show supported GPU and Memory Clock
-   -a, --showallinfo           Show all SMI-supported values values
-
+   -a, --showallinfo           Show all SMI-supported values values 
+   
    -r, --resetclocks           Reset clocks to default (auto)
    --setsclk LEVEL [LEVEL ...] Set GPU Clock Frequency Level Mask (manual)
    --setmclk LEVEL [LEVEL ...] Set GPU Memory Clock Frequency Mask (manual)
@@ -55,8 +55,8 @@ For convenience purposes, following is a quick excerpt:
    --setperflevel LEVEL        Set PowerPlay Performance Level
    --setoverdrive %            Set GPU OverDrive level (manual|high)
    --setprofile # # # # #      Specify Compute Profile attributes (auto)
-   --resetprofile              Reset Compute Profile
-
+   --resetprofile              Reset Compute Profile 
+   
    --autorespond RESPONSE      Response to automatically provide for all prompts (NOT RECOMMENDED)
 
 
@@ -69,13 +69,13 @@ Detailed Option Descriptions
      The clock levels will change dynamically based on GPU load based on the default
      Compute and Graphics profiles. The thresholds and delays for a custom mask cannot
      be controlled through the SMI tool
-
+   
      This flag automatically sets the Performance Level to "manual" as the mask is not
      applied when the Performance level is set to auto
 
 
 --setfan LEVEL: This sets the fan speed to a value ranging from 0 to 255 (not from 0-100%).
-::
+:: 
  NOTE: While the hardware is usually capable of overriding this value when required, it is
        recommended to not set the fan level lower than the default value for extended periods
        of time
@@ -87,18 +87,18 @@ Detailed Option Descriptions
 ::
  NOTES:
      This option can be used in conjunction with the --setsclk mask
-
+    
      Operating the GPU outside of specifications can cause irreparable damage to your hardware
      Please observe the warning displayed when using this option
-
+   
      This flag automatically sets the sclk to the highest level, as only the highest level is
      increased by the OverDrive value
-
+    
 --setprofile # # # # #: The Compute Profile accepts 5 parameters, which are (in order): Minimum SCLK - Minimum GPU clock speed in MHz Minimum MCLK - Minimum GPU Memory clock speed in MHz Activity threshold - Workload required before clock levels change (%) Hysteresis Up - Delay before clock level is increased in milliseconds Hysteresis Down - Delay before clock level is decresed in milliseconds
 ::
  NOTES:
      When a compute queue is detected, these values will be automatically applied to the system
-
+   
      Compute Power Profiles are only applied when the Performance Level is set to "auto"
      so using this flag will automatically set the performance level to "auto"
 
@@ -115,7 +115,7 @@ Any new functionality added to the SMI should have a corresponding test added to
 
 GitHub
 ********
-For more information please refer `Github link <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_.
+For more information please refer `Github link <https://github.com/RadeonOpenCompute/ROC-smi/tree/roc-1.7.x>`_. 
 
 Disclaimer
 *************

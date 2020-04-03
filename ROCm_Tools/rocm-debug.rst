@@ -21,10 +21,10 @@ Build Steps
 ************
 
 1.Install ROCm using the instruction `here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#installation-guide-ubuntu>`_
-
+    
 2.Clone the Debug SDK repository
 
-::
+:: 
     git clone https://github.com/RadeonOpenCompute/ROCm-GPUDebugSDK.git
 
 3. Build the AMD HSA Debug Agent Library and the Matrix multiplication examples by calling make in the src/HSADebugAgent and the samples/MatrixMultiplication directories respectively
@@ -32,16 +32,16 @@ Build Steps
 ::
     cd src/HSADebugAgent
     make
-
+  
 * Note that matrixMul_kernel.hsail is included for reference only. This sample will load the pre-built hsa binary (matrixMul_kernel.brig) to run the kernel.
-
-
+   
+   
 ::
-
+  
    cd samples/MatrixMultiplication
-
+  
 ::
-
+ 
     make
 
 4. Build the Debug Facilities library by calling make in the src/HwDbgFacilities directory

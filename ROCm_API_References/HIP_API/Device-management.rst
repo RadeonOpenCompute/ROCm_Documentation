@@ -1,20 +1,20 @@
 .. _Device-management:
 
-
+   
 Device management
 ==================
 
 Device management types and functions.
 
-hipDeviceSynchronize
+hipDeviceSynchronize	
 -----------------------
 
-.. doxygenfunction:: hipDeviceSynchronize
+.. doxygenfunction:: hipDeviceSynchronize	
 
-hipDeviceReset
+hipDeviceReset 
 ---------------
 
-.. doxygenfunction:: hipDeviceReset
+.. doxygenfunction:: hipDeviceReset 
 
 hipSetDevice
 -------------
@@ -24,7 +24,7 @@ hipSetDevice
 hipGetDevice
 ----------------
 
-.. doxygenfunction:: hipGetDevice
+.. doxygenfunction:: hipGetDevice	
 
 hipGetDeviceCount
 -----------------
@@ -53,14 +53,14 @@ hipDeviceGetLimit
 ------------------
 .. doxygenfunction:: hipDeviceGetLimit
 
-hipFuncSetCacheConfig
+hipFuncSetCacheConfig 
 ----------------------
-.. doxygenfunction:: hipFuncSetCacheConfig
+.. doxygenfunction:: hipFuncSetCacheConfig 
 
 
-hipDeviceGetSharedMemConfig
+hipDeviceGetSharedMemConfig 
 ---------------------------
-.. doxygenfunction:: hipDeviceGetSharedMemConfig
+.. doxygenfunction:: hipDeviceGetSharedMemConfig 
 
 hipDeviceSetSharedMemConfig
 ----------------------------
@@ -72,9 +72,9 @@ hipSetDeviceFlags
 .. doxygenfunction:: hipSetDeviceFlags
 
 
-hipChooseDevice
+hipChooseDevice 
 ----------------
-.. doxygenfunction:: hipChooseDevice
+.. doxygenfunction:: hipChooseDevice 
 
 
 

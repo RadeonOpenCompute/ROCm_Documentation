@@ -21,14 +21,14 @@ SYMV - Symmetric matrix-Vector multiplication
 
 
 HEMV - Hermitian matrix-vector multiplication
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasChemv()
 
 .. doxygenfunction:: clblasZhemv()
 
 
 TRMV - Triangular matrix vector multiply
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasCtrmv()
 
 .. doxygenfunction:: clblasDtrmv()
@@ -39,7 +39,7 @@ TRMV - Triangular matrix vector multiply
 
 
 TRSV - Triangular matrix vector Solve
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasCtrsv()
 
 .. doxygenfunction:: clblasDtrsv()
@@ -49,7 +49,7 @@ TRSV - Triangular matrix vector Solve
 .. doxygenfunction:: clblasZtrsv()
 
 GER - General matrix rank 1 operation
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasDger()
 
 .. doxygenfunction:: clblasSger()
@@ -110,7 +110,7 @@ TPMV - Triangular packed matrix-vector multiply
 
 
 TPSV - Triangular packed matrix vector solve
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasCtpsv()
 
 .. doxygenfunction:: clblasStpsv()
@@ -143,9 +143,9 @@ SPR - Symmetric packed matrix rank 1 update
 .. doxygenfunction:: clblasSspr()
 
 
-
+ 
 HPR - Hermitian packed matrix rank 1 update
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasChpr()
 
 .. doxygenfunction:: clblasZhpr()
@@ -153,7 +153,7 @@ HPR - Hermitian packed matrix rank 1 update
 
 
 SPR2 - Symmetric packed matrix rank 2 update
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasDspr2()
 
 
@@ -167,7 +167,7 @@ HPR2 - Hermitian packed matrix rank 2 update
 .. doxygenfunction:: clblasZhpr2()
 
 
-
+ 
 GBMV - General banded matrix-vector multiplication
 ---------------------------------------------------
 .. doxygenfunction:: clblasCgbmv()
@@ -210,7 +210,7 @@ HBMV - Hermitian banded matrix-vector multiplication
 
 
 TBSV - Solving triangular banded matrix
----------------------------------------------
+--------------------------------------------- 
 .. doxygenfunction:: clblasCtbsv()
 
 

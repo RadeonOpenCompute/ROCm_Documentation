@@ -15,29 +15,29 @@ hipCtxPopCurrent
 ----------------
 .. doxygenfunction:: hipCtxPopCurrent
 
-hipCtxPushCurrent
+hipCtxPushCurrent 
 ------------------
-.. doxygenfunction:: hipCtxPushCurrent
+.. doxygenfunction:: hipCtxPushCurrent  
 
-hipCtxSetCurrent
+hipCtxSetCurrent 
 ----------------
-.. doxygenfunction:: hipCtxSetCurrent
+.. doxygenfunction:: hipCtxSetCurrent 
 
-hipCtxGetCurrent
+hipCtxGetCurrent 
 ----------------
-.. doxygenfunction:: hipCtxGetCurrent
+.. doxygenfunction:: hipCtxGetCurrent 
 
-hipCtxGetDevice
+hipCtxGetDevice 
 ----------------
-.. doxygenfunction:: hipCtxGetDevice
+.. doxygenfunction:: hipCtxGetDevice 
 
-hipCtxGetApiVersion
+hipCtxGetApiVersion 
 --------------------
-.. doxygenfunction:: hipCtxGetApiVersion
+.. doxygenfunction:: hipCtxGetApiVersion  
 
-hipCtxGetCacheConfig
+hipCtxGetCacheConfig 
 ----------------------
-.. doxygenfunction:: hipCtxGetCacheConfig
+.. doxygenfunction:: hipCtxGetCacheConfig 
 
 hipCtxSetSharedMemConfig
 --------------------------
@@ -47,25 +47,25 @@ hipCtxGetSharedMemConfig
 --------------------------
 .. doxygenfunction:: hipCtxGetSharedMemConfig
 
-hipCtxSynchronize
+hipCtxSynchronize 
 ------------------
-.. doxygenfunction:: hipCtxSynchronize
+.. doxygenfunction:: hipCtxSynchronize 
 
-hipCtxGetFlags
+hipCtxGetFlags 
 ----------------
-.. doxygenfunction:: hipCtxGetFlags
+.. doxygenfunction:: hipCtxGetFlags 
 
-hipCtxEnablePeerAccess
+hipCtxEnablePeerAccess 
 ------------------------
-.. doxygenfunction:: hipCtxEnablePeerAccess
+.. doxygenfunction:: hipCtxEnablePeerAccess 
 
-hipCtxDisablePeerAccess
+hipCtxDisablePeerAccess  
 ------------------------
-.. doxygenfunction:: hipCtxDisablePeerAccess
+.. doxygenfunction:: hipCtxDisablePeerAccess 
 
-hipDevicePrimaryCtxGetState
+hipDevicePrimaryCtxGetState 
 -----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxGetState
+.. doxygenfunction:: hipDevicePrimaryCtxGetState 
 
 hipDevicePrimaryCtxRelease
 ----------------------------
@@ -77,11 +77,11 @@ hipDevicePrimaryCtxRetain
 
 hipDevicePrimaryCtxReset
 ---------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxReset
+.. doxygenfunction:: hipDevicePrimaryCtxReset 
 
-hipDevicePrimaryCtxSetFlags
+hipDevicePrimaryCtxSetFlags 
 ----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxSetFlags
+.. doxygenfunction:: hipDevicePrimaryCtxSetFlags 
 
 
 

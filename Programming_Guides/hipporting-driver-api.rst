@@ -11,7 +11,7 @@ CUDA provides a separate CUDA Driver and Runtime APIs. The two APIs have signifi
 * Both APIs support events, streams, memory management, memory copy, and error handling.
 * Both APIs deliver similar performance.
 * Driver APIs calls begin with the prefix **cu** while Runtime APIs begin with the prefix cuda. For example, the Driver API API contains 'cuEventCreate' while the Runtime API contains 'cudaEventCreate', with similar functionality.
-* The Driver API defines a different but largely overlapping error code space than the Runtime API, and uses a different coding convention. For example, Driver API defines ``CUDA_ERROR_INVALID_VALUE`` while the Runtime API defines ``cudaErrorInvalidValue``
+* The Driver API defines a different but largely overlapping error code space than the Runtime API, and uses a different coding convention. For example, Driver API defines ``CUDA_ERROR_INVALID_VALUE`` while the Runtime API defines ``cudaErrorInvalidValue`` 
 
 The Driver API offers two additional pieces of functionality not provided by the Runtime API: cuModule and cuCtx APIs.
 
@@ -142,78 +142,78 @@ The ``hipModule_t`` interface does not support ``cuModuleLoadDataEx`` function, 
 For example (CUDA)::
 
  CUmodule module;
- void *imagePtr = ...;  // Somehow populate data pointer with code object
-
+ void *imagePtr = ...;  // Somehow populate data pointer with code object 
+ 
  const int numOptions = 1;
  CUJit_option options[numOptions];
- void * optionValues[numOptions];
-
+ void * optionValues[numOptions]; 
+ 
  options[0] = CU_JIT_MAX_REGISTERS;
  unsigned maxRegs = 15;
- optionValues[0] = (void*)(&maxRegs);
-
- cuModuleLoadDataEx(module, imagePtr, numOptions, options, optionValues);
-
+ optionValues[0] = (void*)(&maxRegs); 
+ 
+ cuModuleLoadDataEx(module, imagePtr, numOptions, options, optionValues); 
+ 
  CUfunction k;
  cuModuleGetFunction(&k, module, "myKernel");
+ 
 
-
-HIP::
+HIP:: 
 
  hipModule_t module;
- void *imagePtr = ...;  // Somehow populate data pointer with code object
-
+ void *imagePtr = ...;  // Somehow populate data pointer with code object 
+ 
  const int numOptions = 1;
  hipJitOption options[numOptions];
- void * optionValues[numOptions];
-
+ void * optionValues[numOptions]; 
+ 
  options[0] = hipJitOptionMaxRegisters;
  unsigned maxRegs = 15;
- optionValues[0] = (void*)(&maxRegs);
-
+ optionValues[0] = (void*)(&maxRegs); 
+ 
  // hipModuleLoadData(module, imagePtr) will be called on HCC path, JIT options will not be used, and
  // cupModuleLoadDataEx(module, imagePtr, numOptions, options, optionValues) will be called on NVCC path
  hipModuleLoadDataEx(module, imagePtr, numOptions, options, optionValues);
-
+ 
  hipFunction_t k;
  hipModuleGetFunction(&k, module, "myKernel");
+ 
 
-
-The below sample shows how to use hipModuleGetFunction.
+The below sample shows how to use hipModuleGetFunction. 
 ::
-
+  
  #include<hip_runtime.h>
  #include<hip_runtime_api.h>
  #include<iostream>
  #include<fstream>
  #include<vector>
-
+ 
  #define LEN 64
- #define SIZE LEN<<2
-
+ #define SIZE LEN<<2 
+ 
  #ifdef __HIP_PLATFORM_HCC__
  #define fileName "vcpy_isa.co"
  #endif
-
+ 
  #ifdef __HIP_PLATFORM_NVCC__
  #define fileName "vcpy_isa.ptx"
- #endif
-
+ #endif 
+ 
  #define kernel_name "hello_world"
-
+ 
  int main(){
      float *A, *B;
      hipDeviceptr_t Ad, Bd;
      A = new float[LEN];
      B = new float[LEN];
-
+ 
      for(uint32_t i=0;i<LEN;i++){
          A[i] = i*1.0f;
          B[i] = 0.0f;
          std::cout<<A[i] << " "<<B[i]<<std::endl;
      }
-
-
+ 
+ 
  #ifdef __HIP_PLATFORM_NVCC__
            hipInit(0);
            hipDevice_t device;
@@ -221,43 +221,43 @@ The below sample shows how to use hipModuleGetFunction.
            hipDeviceGet(&device, 0);
            hipCtxCreate(&context, 0, device);
  #endif
-
+ 
      hipMalloc((void**)&Ad, SIZE);
      hipMalloc((void**)&Bd, SIZE);
-
+ 
      hipMemcpyHtoD(Ad, A, SIZE);
      hipMemcpyHtoD(Bd, B, SIZE);
      hipModule_t Module;
      hipFunction_t Function;
      hipModuleLoad(&Module, fileName);
      hipModuleGetFunction(&Function, Module, kernel_name);
-
+ 
      std::vector<void*>argBuffer(2);
      memcpy(&argBuffer[0], &Ad, sizeof(void*));
      memcpy(&argBuffer[1], &Bd, sizeof(void*));
-
+ 
      size_t size = argBuffer.size()*sizeof(void*);
-
+ 
      void *config[] = {
        HIP_LAUNCH_PARAM_BUFFER_POINTER, &argBuffer[0],
        HIP_LAUNCH_PARAM_BUFFER_SIZE, &size,
        HIP_LAUNCH_PARAM_END
      };
-
+ 
      hipModuleLaunchKernel(Function, 1, 1, 1, LEN, 1, 1, 0, 0, NULL, (void**)&config);
-
+ 
      hipMemcpyDtoH(B, Bd, SIZE);
      for(uint32_t i=0;i<LEN;i++){
          std::cout<<A[i]<<" - "<<B[i]<<std::endl;
      }
-
+  
  #ifdef __HIP_PLATFORM_NVCC__
            hipCtxDetach(context);
  #endif
-
+ 
      return 0;
  }
-
+ 
 
 HIP Module and Texture Driver API
 ++++++++++++++++++++++++++++++++++
@@ -284,7 +284,7 @@ HIP supports texture driver APIs however texture reference should be declared in
 
   texture<float, 2, hipReadModeElementType> tex;
 
-  void myFunc ()
+  void myFunc () 
    {
     // ...
 

@@ -32,16 +32,16 @@ __global__ void set_zero_row(const rocblas_int m, const rocblas_int kk, U A,
 
     if (i < m && j < kk) {
         T *Ap = load_ptr_batch<T>(A,shiftA,b,strideA);
-
+        
         Ap[i + j*lda] = 0.0;
     }
 }
 
 
 template <typename T, typename U>
-rocblas_status rocsolver_orglq_template(rocsolver_handle handle, const rocsolver_int m,
-                                   const rocsolver_int n, const rocsolver_int k, U A, const rocblas_int shiftA,
-                                   const rocsolver_int lda, const rocsolver_int strideA, T* ipiv,
+rocblas_status rocsolver_orglq_template(rocsolver_handle handle, const rocsolver_int m, 
+                                   const rocsolver_int n, const rocsolver_int k, U A, const rocblas_int shiftA, 
+                                   const rocsolver_int lda, const rocsolver_int strideA, T* ipiv, 
                                    const rocsolver_int strideP, const rocsolver_int batch_count)
 {
     // quick return
@@ -50,9 +50,9 @@ rocblas_status rocsolver_orglq_template(rocsolver_handle handle, const rocsolver
 
     hipStream_t stream;
     rocblas_get_stream(handle, &stream);
-
+    
     // if the matrix is small, use the unblocked variant of the algorithm
-    if (k <= GEQRF_GEQR2_SWITCHSIZE)
+    if (k <= GEQRF_GEQR2_SWITCHSIZE) 
         return rocsolver_orgl2_template<T>(handle, m, n, k, A, shiftA, lda, strideA, ipiv, strideP, batch_count);
 
     //memory in GPU (workspace)
@@ -64,34 +64,34 @@ rocblas_status rocsolver_orglq_template(rocsolver_handle handle, const rocsolver
     // start of first blocked block
     rocblas_int jb = GEQRF_GEQR2_BLOCKSIZE;
     rocblas_int j = ((k - GEQRF_GEQR2_SWITCHSIZE - 1) / jb) * jb;
-
+    
     // start of the unblocked block
-    rocblas_int kk = min(k, j + jb);
+    rocblas_int kk = min(k, j + jb); 
 
     rocblas_int blocksy, blocksx;
-
-    // compute the unblockled part and set to zero the
+    
+    // compute the unblockled part and set to zero the 
     // corresponding left submatrix
     if (kk < m) {
         blocksx = (m - kk - 1)/32 + 1;
         blocksy = (kk - 1)/32 + 1;
         hipLaunchKernelGGL(set_zero_row<T>,dim3(blocksx,blocksy,batch_count),dim3(32,32),0,stream,
                            m,kk,A,shiftA,lda,strideA);
-
-        rocsolver_orgl2_template<T>(handle, m - kk, n - kk, k - kk,
-                                    A, shiftA + idx2D(kk, kk, lda), lda,
+        
+        rocsolver_orgl2_template<T>(handle, m - kk, n - kk, k - kk, 
+                                    A, shiftA + idx2D(kk, kk, lda), lda, 
                                     strideA, (ipiv + kk), strideP, batch_count);
     }
 
     // compute the blocked part
     while (j >= 0) {
-
+        
         // first update the already computed part
         // applying the current block reflector using larft + larfb
         if (j + jb < m) {
-            rocsolver_larft_template<T>(handle, rocsolver_forward_direction,
-                                        rocsolver_row_wise, n-j, jb,
-                                        A, shiftA + idx2D(j,j,lda), lda, strideA,
+            rocsolver_larft_template<T>(handle, rocsolver_forward_direction, 
+                                        rocsolver_row_wise, n-j, jb, 
+                                        A, shiftA + idx2D(j,j,lda), lda, strideA, 
                                         (ipiv + j), strideP,
                                         work, ldw, strideW, batch_count);
 
@@ -110,13 +110,13 @@ rocblas_status rocsolver_orglq_template(rocsolver_handle handle, const rocsolver
             hipLaunchKernelGGL(set_zero_row<T>,dim3(blocksx,blocksy,batch_count),dim3(32,32),0,stream,
                                j+jb,j,A,shiftA,lda,strideA);
         }
-        rocsolver_orgl2_template<T>(handle, jb, n - j, jb,
-                                    A, shiftA + idx2D(j, j, lda), lda,
+        rocsolver_orgl2_template<T>(handle, jb, n - j, jb, 
+                                    A, shiftA + idx2D(j, j, lda), lda, 
                                     strideA, (ipiv + j), strideP, batch_count);
 
         j -= jb;
     }
-
+ 
     hipFree(work);
 
     return rocblas_status_success;

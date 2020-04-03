@@ -20,10 +20,10 @@
 #include "../auxiliary/rocauxiliary_larft.hpp"
 
 template <typename T, typename U>
-rocblas_status rocsolver_ormqr_template(rocsolver_handle handle, const rocsolver_side side, const rocsolver_operation trans,
-                                   const rocsolver_int m, const rocsolver_int n,
-                                   const rocsolver_int k, U A, const rocsolver_int shiftA, const rocsolver_int lda,
-                                   const rocsolver_int strideA, T* ipiv,
+rocblas_status rocsolver_ormqr_template(rocsolver_handle handle, const rocsolver_side side, const rocsolver_operation trans, 
+                                   const rocsolver_int m, const rocsolver_int n, 
+                                   const rocsolver_int k, U A, const rocsolver_int shiftA, const rocsolver_int lda, 
+                                   const rocsolver_int strideA, T* ipiv, 
                                    const rocsolver_int strideP, U C, const rocsolver_int shiftC, const rocsolver_int ldc,
                                    const rocsolver_int strideC, const rocsolver_int batch_count)
 {
@@ -35,14 +35,14 @@ rocblas_status rocsolver_ormqr_template(rocsolver_handle handle, const rocsolver
     rocblas_get_stream(handle, &stream);
 
     // if the matrix is small, use the unblocked variant of the algorithm
-    if (k <= ORMQR_ORM2R_BLOCKSIZE)
+    if (k <= ORMQR_ORM2R_BLOCKSIZE) 
         return rocsolver_orm2r_template<T>(handle, side, trans, m, n, k, A, shiftA, lda, strideA, ipiv, strideP, C, shiftC, ldc, strideC, batch_count);
 
     //memory in GPU (workspace)
     T* work;
     rocblas_int ldw = ORMQR_ORM2R_BLOCKSIZE;
     rocblas_int strideW = ldw *ldw;
-    hipMalloc(&work, sizeof(T)*strideW*batch_count);
+    hipMalloc(&work, sizeof(T)*strideW*batch_count);    
 
     // determine limits and indices
     bool left = (side == rocblas_side_left);
@@ -100,7 +100,7 @@ rocblas_status rocsolver_ormqr_template(rocsolver_handle handle, const rocsolver
                                  C, shiftC + idx2D(ic,jc,ldc),ldc,strideC,
                                  batch_count);
     }
-
+ 
     return rocblas_status_success;
 }
 

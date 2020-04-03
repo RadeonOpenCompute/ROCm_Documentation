@@ -61,7 +61,7 @@ LICENSE
 #########
 
 The following lists the different licenses that apply to the different components in this repository:
-
+ 
 | The Linux kernel images are covered by the modified GPL license in COPYING
 | The firmware image is covered by the license in LICENSE.ucode
 

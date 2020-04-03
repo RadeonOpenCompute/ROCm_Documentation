@@ -19,21 +19,21 @@ hipDeviceGetStreamPriorityRange
 --------------------------------
 .. doxygenfunction:: hipDeviceGetStreamPriorityRange
 
-hipStreamDestroy
+hipStreamDestroy 
 ----------------
-.. doxygenfunction:: hipStreamDestroy
+.. doxygenfunction:: hipStreamDestroy 
 
-hipStreamQuery
+hipStreamQuery 
 ----------------
-.. doxygenfunction:: hipStreamQuery
+.. doxygenfunction:: hipStreamQuery 
 
 hipStreamSynchronize
 ---------------------
 .. doxygenfunction:: hipStreamSynchronize
 
-hipStreamWaitEvent
+hipStreamWaitEvent 
 -------------------
-.. doxygenfunction:: hipStreamWaitEvent
+.. doxygenfunction:: hipStreamWaitEvent 
 
 hipStreamGetFlags
 ----------------
@@ -43,6 +43,6 @@ hipStreamGetPriority
 ---------------------
 .. doxygenfunction:: hipStreamGetPriority
 
-hipStreamAddCallback
+hipStreamAddCallback 
 ---------------------
-.. doxygenfunction:: hipStreamAddCallback
+.. doxygenfunction:: hipStreamAddCallback 
