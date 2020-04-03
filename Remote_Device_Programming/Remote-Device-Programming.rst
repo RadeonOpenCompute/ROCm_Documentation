@@ -10,12 +10,12 @@ ROCmRDMA
 **Peer-to-Peer bridge driver for PeerDirect - Deprecated Repo**
 
 This is now included as part of the ROCK `Kernel Driver <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver>`_
-ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU  memory. It allows direct path for data exchange (peer-to-peer) using the standard features of PCI Express.
+ROCmRDMA is the solution designed to allow third-party kernel drivers to utilize DMA access to the GPU  memory. It allows direct path for data exchange (peer-to-peer) using the standard features of PCI Express. 
 
 Currently ROCmRDMA provides the following benefits:
 
  * Direct access to ROCm memory for 3rd party PCIe devices
- * Support for PeerDirect(c) interface to offloads the CPU when dealing
+ * Support for PeerDirect(c) interface to offloads the CPU when dealing 
    with ROCm memory for RDMA network stacks;
 
 Restrictions and limitations
@@ -31,11 +31,11 @@ ROCmRDMA interface specification
 The implementation of ROCmRDMA interface could be found in `[amd_rdma.h] <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/blob/roc-2.1.x/include/drm/amd_rdma.h>`_ file.
 
 Data structures
-***************
+*************** 
 
-::
-
-
+:: 
+   
+  
    /**
     * Structure describing information needed to P2P access from another device
     * to specific location of GPU memory
@@ -44,17 +44,17 @@ Data structures
   	   uint64_t	   va;		   /**< Specify user virt. address
 					     * which this page table described
 					     */
-
+	 
 	   uint64_t	   size;	   /**< Specify total size of
 					     * allocation
 					     */
-
+	  
 	  struct pid	   *pid;	   /**< Specify process pid to which
 					     * virtual address belongs
 					     */
-
+	 
 	  struct sg_table *pages;	   /**< Specify DMA/Bus addresses */
-
+	
 	   void		*priv;		   /**< Pointer set by AMD kernel
 					      * driver
 					      */
@@ -66,7 +66,7 @@ Data structures
    * Structure providing function pointers to support rdma/p2p requirements.
    * to specific location of GPU memory
    */
-
+   
    struct amd_rdma_interface {
   	  int (*get_pages)(uint64_t address, uint64_t length, struct pid *pid,
 				  struct amd_p2p_info  **amd_p2p_data,
@@ -77,13 +77,13 @@ Data structures
 	  int (*get_page_size)(uint64_t address, uint64_t length, struct pid *pid,
 				  unsigned long *page_size);
   };
-
+ 
 The function to query ROCmRDMA interface
 ****************************************
 
 ::
 
-
+  
    /**
     * amdkfd_query_rdma_interface - Return interface (function pointers table) for
     *				 rdma interface
@@ -93,28 +93,28 @@ The function to query ROCmRDMA interface
     *    \return 0 if operation was successful.
     */
    int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma);
-
+   
 
 The function to query ROCmRDMA interface
 ****************************************
 
 ::
 
-
+   
    /**
     * amdkfd_query_rdma_interface - Return interface (function pointers table) for rdma interface
     * \param interace     - OUT: Pointer to interface
     * \return 0 if operation was successful.
     */
     int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma);
-
+   
 
 ROCmRDMA interface functions description
 *****************************************
 
-::
+:: 
 
-
+   
    /**
     * This function makes the pages underlying a range of GPU virtual memory
     * accessible for DMA operations from another PCIe device
@@ -153,7 +153,7 @@ ROCmRDMA interface functions description
     int put_pages(struct amd_p2p_info **p_p2p_data)
 
 ::
-
+   
   /**
     * Check if given address belongs to GPU address space.
     * \param   address - Address to check
@@ -174,8 +174,8 @@ ROCmRDMA interface functions description
    :param   pid       - Process id structure. Could be NULL if current one.
    :param   page_size - On return: Page size
    :rtype:return  0 if operation was successful
-
-
+     
+    
 
 UCX
 ====
@@ -217,7 +217,7 @@ MPI
 Example of the command line (for InfiniBand RC + shared memory):
 
 ::
-
+  
   $ mpirun -np 2 -mca pml ucx -x UCX_NET_DEVICES=mlx5_0:1 -x UCX_TLS=rc,sm ./app
 
 
@@ -238,7 +238,7 @@ Example of the command line (for InfiniBand RC + shared memory):
  2. The table of MPI and OpenSHMEM distributions that are tested with the HEAD of UCX master
 
 ================ ===========
-MPI/OpenSHMEM     project
+MPI/OpenSHMEM     project	
 OpenMPI/OSHMEM     2.1.0
 MPICH		   Latest
 ================ ===========
@@ -257,22 +257,22 @@ IPC API
 **New datatypes**
 
 ::
-
+ 
  hsa_amd_ipc_memory_handle_t
-
+ 
  /** IPC memory handle to by passed from one process to another */
  typedef struct  hsa_amd_ipc_memory_handle_s {
        uint64_t handle;
  } hsa_amd_ipc_memory_handle_t;
-
+  
  hsa_amd_ipc_signal_handle_t
-
+  
  /** IPC signal  handle to by passed from one process to another */
  typedef struct  hsa_amd_ipc_signal_handle_s {
       uint64_t handle;
  } hsa_amd_ipc_signal_handle_t;
 
-
+  
 **Memory sharing API**
 
 Allows sharing of HSA allocated memory between different processes.
@@ -285,9 +285,9 @@ Allows sharing of HSA allocated memory between different processes.
 | hsa_amd_ipc_get_memory_handle(void *ptr, hsa_amd_ipc_memory_handle_t *ipc_handle);
 | where:
 |     IN:    ptr - Pointer to memory previously allocated via hsa_amd_memory_pool_allocate() call
-|     OUT:   ipc_handle - Unique IPC handle to be used in IPC.
-|                         Application must pass this handle to another process.
-|
+|     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
+|                         Application must pass this handle to another process.      
+| 
 | hsa_amd_ipc_close_memory_handle
 | Close IPC memory handle previously received via "hsa_amd_ipc_get_memory_handle()" call .
 
@@ -297,7 +297,7 @@ Allows sharing of HSA allocated memory between different processes.
 | where:
 |    IN: ipc_handle - IPC Handle to close
 |
-|
+| 
 | hsa_amd_ipc_open_memory_handle
 | Open / import an IPC memory handle exported from another process and return address to be used in the current process.
 
@@ -322,9 +322,9 @@ Allows sharing of HSA allocated memory between different processes.
 | hsa_amd_ipc_get_signal_handle(hsa_signal_t signal, hsa_amd_ipc_signal_handle_t *ipc_handle);
 | where:
 |     IN:    signal     - Signal handle created as the result of hsa_signal_create() call.
-|     OUT:   ipc_handle - Unique IPC handle to be used in IPC.
-|                         Application must pass this handle to another process.
-|
+|     OUT:   ipc_handle - Unique IPC handle to be used in IPC. 
+|                         Application must pass this handle to another process.      
+| 
 | hsa_amd_ipc_close_signal_handle
 | Close IPC signal handle previously received via "hsa_amd_ipc_get_signal_handle()" call .
 
@@ -353,26 +353,26 @@ Client should call hsa_signal_destroy() when access to this resource is not need
 Allows query information about memory resource based on address. It is partially overlapped with the following requirement Memory info interface so it may be possible to merge those two interfaces.
 ::
  typedef enum hsa_amd_address_info_s {
-
+     
      /* Return uint32_t  / boolean if address was allocated via  HSA stack */
      HSA_AMD_ADDRESS_HSA_ALLOCATED = 0x1,
-
+ 
      /** Return agent where such memory was allocated */
      HSA_AMD_ADDRESS_AGENT = 0x2,
-
+ 
      /** Return pool from which this address was allocated  */
      HSA_AMD_ADDRESS_POOL = 0x3,
-
+ 
      /** Return size of allocation   */
      HSA_AMD_ADDRESS_ALLOC_SIZE = 0x4
-
+ 
   } hsa_amd_address_info_t;
 
 
 **hsa_status_t HSA_API**
 
 | hsa_amd_get_address_info(void *ptr,  hsa_amd_address_info_t attribute,   void* value);
-| where:
+| where: 
 |      ptr         - Address information about which to query
 |      attribute   - Attribute to query
 

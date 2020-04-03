@@ -1,5 +1,5 @@
 
-lspci helpfull options to help you debug ROCm install issue
+lspci helpfull options to help you debug ROCm install issue 
 **************************************************************
 
 **To find if the Linux Kerenl is seeing your GPU and to get the the slot number of the device part number you want to look at**
@@ -12,7 +12,7 @@ lspci helpfull options to help you debug ROCm install issue
   43:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
   63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860
 ```
-**Show Device Slot**
+**Show Device Slot** 
 
 lspci -s _slot number_
 
@@ -31,7 +31,7 @@ Example
 ::
 
   ~$ sudo lspci -vs 63:00.0
-  [sudo] password for rocm:
+  [sudo] password for rocm: 
   63:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Device 6860 (prog-if 00 [VGA controller])
   	 Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0c35
 	 Flags: bus master, fast devsel, latency 0, IRQ 412
@@ -57,7 +57,7 @@ Example
 	 Kernel modules: amdgpu
 
 
-**Display Vendor and Device Codes and numbers**
+**Display Vendor and Device Codes and numbers** 
 
 lspci -nvmms _slot number_
 
@@ -69,11 +69,11 @@ lspci -nvmms _slot number_
    Vendor:	1002
    Device:	6860
    SVendor:	1002
-   SDevice:	0c35
+   SDevice:	0c35 
 
-
-**To show kernel module running on device**
-
+  
+**To show kernel module running on device** 
+ 
  lspci -ks _slot number_
 
 ::
@@ -84,11 +84,11 @@ lspci -nvmms _slot number_
 	Kernel driver in use: amdgpu
 	Kernel modules: amdgpu
 
-**When you need more information on the device**
+**When you need more information on the device** 
 
 sudo lspci -vvvs _slot number_
 
-Example
+Example 
 
 ::
 
@@ -153,9 +153,9 @@ Example
 	Kernel driver in use: amdgpu
 	Kernel modules: amdgpu
 
-
+  
 **To print PCIe root tree**
-
+ 
 ::
 
    ~$ lspci -tv

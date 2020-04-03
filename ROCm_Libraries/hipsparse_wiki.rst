@@ -272,7 +272,7 @@ Exported sparse BLAS functions
 hipSPARSE includes the following auxiliary functions
 
  +------------------------------+
- |  Function name               |
+ |  Function name               |   
  +==============================+
  |  hipsparseCreate             |
  +------------------------------+
@@ -322,86 +322,86 @@ hipSPARSE includes the following auxiliary functions
  +------------------------------+
  |  hipsparseCreateCsrilu02Info |
  +------------------------------+
-
-
-
+ 
+ 
+ 
 
 hipSPARSE includes the following Level 1, 2 and conversion functions
 #######################################################################
-
+ 
 **Level 1**
 
-================  ==========   =========  ================  =================  ======
+================  ==========   =========  ================  =================  ====== 
 Function 	   single 	double 	   single complex    double complex 	half
 ================  ==========   =========  ================  =================  ======
-hipsparseXaxpyi       x	           x
-hipsparseXdoti 	      x	           x
-hipsparseXgthr        x	           x
-hipsparseXgthrz       x	           x
-hipsparseXroti        x            x
-hipsparseXsctr 	      x	           x
+hipsparseXaxpyi       x	           x 	         			
+hipsparseXdoti 	      x	           x 			
+hipsparseXgthr        x	           x 			
+hipsparseXgthrz       x	           x 	 			
+hipsparseXroti        x            x 			
+hipsparseXsctr 	      x	           x 			
 ================  ==========   =========  ================  =================  ======
 
 **Level 2**
 
-================================  ==========   =========  ================  =================  ======
+================================  ==========   =========  ================  =================  ====== 
 Function 	                    single 	double 	   single complex    double complex 	half
 ================================  ==========   =========  ================  =================  ======
-hipsparseXcsrmv 	               x 	   x
-hipsparseXcsrsv2_bufferSize 	       x 	   x
-hipsparseXcsrsv2_bufferSizeExt 	       x 	   x
-hipsparseXcsrsv2_analysis 	       x 	   x
-hipsparseXcsrsv2_solve 	               x 	   x
-hipsparseXhybmv 	               x 	   x
+hipsparseXcsrmv 	               x 	   x 			
+hipsparseXcsrsv2_bufferSize 	       x 	   x 			
+hipsparseXcsrsv2_bufferSizeExt 	       x 	   x 			
+hipsparseXcsrsv2_analysis 	       x 	   x 			
+hipsparseXcsrsv2_solve 	               x 	   x 			
+hipsparseXhybmv 	               x 	   x 			
 ================================  ==========   =========  ================  =================  ======
 
 
 **Level 3**
 
-================================  ==========   =========  ================  =================  ======
+================================  ==========   =========  ================  =================  ====== 
 Function 	                    single 	double 	   single complex    double complex 	half
 ================================  ==========   =========  ================  =================  ======
-hipsparseXcsrmm 	              x 	  x
-hipsparseXcsrmm2 	              x 	  x
+hipsparseXcsrmm 	              x 	  x 			
+hipsparseXcsrmm2 	              x 	  x 			
 ================================  ==========   =========  ================  =================  ======
 
 **Extra**
 
-================================  ==========   =========  ================  =================  ======
+================================  ==========   =========  ================  =================  ====== 
 Function 	                    single 	double 	   single complex    double complex 	halfy
 ================================  ==========   =========  ================  =================  ======
-hipsparseXcsrgemmNnz
-hipsparseXcsrgemm	              x 	  x
-hipsparseXcsrgemm2_bufferSizeExt
+hipsparseXcsrgemmNnz	 	              
+hipsparseXcsrgemm	              x 	  x 			
+hipsparseXcsrgemm2_bufferSizeExt	
 hipsparseXcsrgemm2Nnz
 hipsparseXcsrgemm2
 ================================  ==========   =========  ================  =================  ======
 **Preconditioners**
 
-=================================  ==========   =========  ================  =================  ======
+=================================  ==========   =========  ================  =================  ====== 
 Function 	                    single 	 double     single complex     double complex 	 half
 =================================  ==========   =========  ================  =================  ======
-hipsparseXcsrilu02_bufferSize 	       x 	    x
-hipsparseXcsrilu02_bufferSizeExt       x 	    x
-hipsparseXcsrilu02_analysis 	       x 	    x
-hipsparseXcsrilu02 		       x 	    x
+hipsparseXcsrilu02_bufferSize 	       x 	    x 			
+hipsparseXcsrilu02_bufferSizeExt       x 	    x 			
+hipsparseXcsrilu02_analysis 	       x 	    x 		
+hipsparseXcsrilu02 		       x 	    x 	
 =================================  ==========   =========  ================  =================  ======
 
 **Conversion**
 
-====================================  ==========   =========  ================  =================  ======
+====================================  ==========   =========  ================  =================  ====== 
 Function 	                        single 	     double    single complex    double complex     half
 ====================================  ==========   =========  ================  =================  ======
-hipsparseXcsr2coo
-hipsparseXcsr2csc 	                  x 	       x
-hipsparseXcsr2hyb 	                  x 	       x
-hipsparseXcoo2csr
-hipsparseCreateIdentityPermutation
-hipsparseXcsrsort_bufferSizeExt
-hipsparseXcsrsort
-hipsparseXcoosort_bufferSizeExt
-hipsparseXcoosortByRow
-hipsparseXcoosortByColumn
+hipsparseXcsr2coo 					
+hipsparseXcsr2csc 	                  x 	       x 			
+hipsparseXcsr2hyb 	                  x 	       x 			
+hipsparseXcoo2csr 					
+hipsparseCreateIdentityPermutation 					
+hipsparseXcsrsort_bufferSizeExt 					
+hipsparseXcsrsort 					
+hipsparseXcoosort_bufferSizeExt 					
+hipsparseXcoosortByRow 					
+hipsparseXcoosortByColumn 					
 ====================================  ==========   =========  ================  =================  ======
 
 Additional notes

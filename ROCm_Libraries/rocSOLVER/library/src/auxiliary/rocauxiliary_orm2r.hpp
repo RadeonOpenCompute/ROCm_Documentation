@@ -18,10 +18,10 @@
 #include "../auxiliary/rocauxiliary_larf.hpp"
 
 template <typename T, typename U>
-rocblas_status rocsolver_orm2r_template(rocsolver_handle handle, const rocsolver_side side, const rocsolver_operation trans,
-                                   const rocsolver_int m, const rocsolver_int n,
-                                   const rocsolver_int k, U A, const rocsolver_int shiftA, const rocsolver_int lda,
-                                   const rocsolver_int strideA, T* ipiv,
+rocblas_status rocsolver_orm2r_template(rocsolver_handle handle, const rocsolver_side side, const rocsolver_operation trans, 
+                                   const rocsolver_int m, const rocsolver_int n, 
+                                   const rocsolver_int k, U A, const rocsolver_int shiftA, const rocsolver_int lda, 
+                                   const rocsolver_int strideA, T* ipiv, 
                                    const rocsolver_int strideP, U C, const rocsolver_int shiftC, const rocsolver_int ldc,
                                    const rocsolver_int strideC, const rocsolver_int batch_count)
 {
@@ -72,14 +72,14 @@ rocblas_status rocsolver_orm2r_template(rocsolver_handle handle, const rocsolver
             ncol = n - i;
             jc = i;
         }
-
-        // insert one in A(i,i) tobuild/apply the householder matrix
+    
+        // insert one in A(i,i) tobuild/apply the householder matrix 
         hipLaunchKernelGGL(set_one_diag,dim3(batch_count,1,1),dim3(1,1,1),0,stream,diag,A,shiftA+idx2D(i,i,lda),strideA);
 
-        // Apply current Householder reflector
+        // Apply current Householder reflector 
         rocsolver_larf_template(handle,side,                        //side
                                 nrow,                               //number of rows of matrix to modify
-                                ncol,                               //number of columns of matrix to modify
+                                ncol,                               //number of columns of matrix to modify    
                                 A, shiftA + idx2D(i,i,lda),         //householder vector x
                                 1, strideA,                         //inc of x
                                 (ipiv + i), strideP,                //householder scalar (alpha)
@@ -90,7 +90,7 @@ rocblas_status rocsolver_orm2r_template(rocsolver_handle handle, const rocsolver
         // restore original value of A(i,i)
         hipLaunchKernelGGL(restore_diag,dim3(batch_count,1,1),dim3(1,1,1),0,stream,diag,A,shiftA+idx2D(i,i,lda),strideA);
     }
-
+ 
     return rocblas_status_success;
 }
 

@@ -36,16 +36,16 @@ __forceinline__ __device__ __host__ T* load_ptr_batch(T *const p[], rocblas_int 
 }
 
 template<typename T>
-__forceinline__ __global__ void get_array(T** out, T* in, rocblas_int stride, rocblas_int batch)
+__forceinline__ __global__ void get_array(T** out, T* in, rocblas_int stride, rocblas_int batch) 
 {
     int b = hipBlockIdx_x * hipBlockDim_x + hipThreadIdx_x;
-
+    
     if (b < batch)
         out[b] = in + b*stride;
 }
 
 template <typename T, typename U>
-__forceinline__ __global__ void setdiag(const rocblas_int j, U A,
+__forceinline__ __global__ void setdiag(const rocblas_int j, U A, 
                         const rocblas_int shiftA, const rocblas_int lda, const rocblas_int strideA,
                         T *ipiv, const rocblas_int strideP)
 {
@@ -54,7 +54,7 @@ __forceinline__ __global__ void setdiag(const rocblas_int j, U A,
     T *tau = ipiv + b*strideP;
 
     T t = -tau[j];
-    tau[j] = t;
+    tau[j] = t; 
     Ap[j + j*lda] = 1.0 + t;
 }
 

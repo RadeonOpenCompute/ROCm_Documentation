@@ -31,7 +31,7 @@ file: hcfft_1D_R2C.cpp
 ::
 
   #!c++
-
+  
   #include <iostream>
   #include <cstdlib>
   #include "hcfft.h"
@@ -73,9 +73,9 @@ file: hcfft_1D_R2C.cpp
     free(input);
     free(output);
     hc::am_free(idata);
-    hc::am_free(odata);
+    hc::am_free(odata); 
   }
-
+ 
 * Compiling the example code:
 
 Assuming the library and compiler installation is followed as in installation.
@@ -94,7 +94,7 @@ The following are the steps to use the library
 
 ROCM 1.5 Installation
 ***********************
-To Know more about ROCM refer
+To Know more about ROCM refer 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
 
 **a. Installing Debian ROCM repositories**
@@ -130,8 +130,8 @@ and Reboot the system
 
 Once Reboot, to verify that the ROCm stack completed successfully you can execute HSA vector_copy sample application:
 
-   * cd /opt/rocm/hsa/sample
-   * make
+   * cd /opt/rocm/hsa/sample        
+   * make       
    * ./vector_copy
 
 Library Installation
@@ -178,7 +178,7 @@ The following are the sub-routines that are implemented
 
 KeyFeature
 ############
-
+ 
  * Support 1D, 2D and 3D Fast Fourier Transforms
  * Supports R2C, C2R, C2C, D2Z, Z2D and Z2Z Transforms
  * Support Out-Of-Place data storage
@@ -195,7 +195,7 @@ This section lists the known set of hardware and software requirements to build 
 Hardware
 *********
 
- * CPU: mainstream brand, Better if with >=4 Cores Intel Haswell based CPU
+ * CPU: mainstream brand, Better if with >=4 Cores Intel Haswell based CPU 
  * System Memory >= 4GB (Better if >10GB for NN application over multiple GPUs)
  * Hard Drive > 200GB (Better if SSD or NVMe driver for NN application over multiple GPUs)
  * Minimum GPU Memory (Global) > 2GB
@@ -250,9 +250,9 @@ Driver versions
 
 GPU Cards
 ***********
- * Radeon R9 Nano
+ * Radeon R9 Nano 
  * Radeon R9 FuryX
- * Radeon R9 Fury
+ * Radeon R9 Fury 
  * Kaveri and Carizo APU
 
 Server System

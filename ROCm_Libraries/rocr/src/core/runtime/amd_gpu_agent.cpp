@@ -696,12 +696,12 @@ hsa_status_t GpuAgent::EnableDmaProfiling(bool enable) {
 }
 
 hsa_status_t GpuAgent::GetInfo(hsa_agent_info_t attribute, void* value) const {
-
+  
   // agent, and vendor name size limit
   const size_t attribute_u = static_cast<size_t>(attribute);
-
+  
   switch (attribute_u) {
-
+    
     // Build agent name by concatenating the Major, Minor and Stepping Ids
     // of devices compute capability with a prefix of "gfx"
     case HSA_AGENT_INFO_NAME: {
@@ -873,7 +873,7 @@ hsa_status_t GpuAgent::GetInfo(hsa_agent_info_t attribute, void* value) const {
     case HSA_AMD_AGENT_INFO_MEMORY_MAX_FREQUENCY:
       *((uint32_t*)value) = memory_max_frequency_;
       break;
-
+    
     // The code copies HsaNodeProperties.MarketingName a Unicode string
     // which is encoded in UTF-16 as a 7-bit ASCII string
     case HSA_AMD_AGENT_INFO_PRODUCT_NAME: {

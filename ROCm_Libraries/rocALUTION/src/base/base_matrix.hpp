@@ -394,7 +394,7 @@ class BaseMatrix
                                 BaseMatrix<ValueType>* prolong,
                                 BaseMatrix<ValueType>* restrict) const;
 
-    /// Ruge Stuben coarsening
+    /// Ruge Stüben coarsening
     virtual bool RugeStueben(ValueType eps,
                              BaseMatrix<ValueType>* prolong,
                              BaseMatrix<ValueType>* restrict) const;

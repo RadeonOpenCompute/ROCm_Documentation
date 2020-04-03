@@ -7,7 +7,7 @@ HIP Porting Guide
 ~~~~~~~~~~~~~~~~~
 
 In addition to providing a portable C++ programming environment for GPUs, HIP is designed to ease the porting of existing CUDA code into the HIP environment. This section describes the available tools and provides practical suggestions on how to port CUDA code and work through common issues.
-
+         
 
 Porting a New Cuda Project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,8 +24,8 @@ Scanning existing CUDA code to scope the porting effort
 
 The hipexamine.sh tool will scan a source directory to determine which files contain CUDA code and how much of that code can be automatically hipified,
 
-::
-
+:: 
+  
   > cd examples/rodinia_3.0/cuda/kmeans
   > $HIP_DIR/bin/hipexamine.sh .
   info: hipify ./kmeans.h =====>
@@ -47,10 +47,10 @@ hipexamine scans each code file (cpp, c, h, hpp, etc) found in the specified dir
 
    * Files with no CUDA code (ie kmeans.h) print one line summary just listing the source file name.
    * Files with CUDA code print a summary of what was found - for example the kmeans_cuda_kernel.cu file:
-     ::
-
+     :: 
+    
       info: hipify ./kmeans_cuda_kernel.cu =====>
-      info: converted 40 CUDA->HIP refs( dev:0 mem:0 kern:0 builtin:37 math:0 stream:0 event:0
+      info: converted 40 CUDA->HIP refs( dev:0 mem:0 kern:0 builtin:37 math:0 stream:0 event:0 
 
    * Interesting information in kmeans_cuda_kernel.cu :
        * How many CUDA calls were converted to HIP (40)
@@ -60,7 +60,7 @@ hipexamine scans each code file (cpp, c, h, hpp, etc) found in the specified dir
 
    * hipexamine also presents a summary at the end of the process for the statistics collected across all files. This has similar format to the 	    	per-file reporting, and also includes a list of all kernels which have been called. An example from above:
 
-::
+:: 
 
   info: TOTAL-converted 89 CUDA->HIP refs( dev:3 mem:32 kern:2 builtin:37 math:0 stream:0 event:0 err:0 def:0 tex:15 other:0 ) warn:0 LOC:3607
   kernels (1 total) :   kmeansPoint(1)
@@ -68,7 +68,7 @@ hipexamine scans each code file (cpp, c, h, hpp, etc) found in the specified dir
 Converting a project "in-place"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
+:: 
 
    > hipify --inplace
 
@@ -82,7 +82,7 @@ This is useful for testing improvements to the hipify toolset.
 The `hipconvertinplace.sh <https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipconvertinplace.sh>`_ script will perform inplace conversion for all code files in the specified directory. This can be quite handy when dealing with an existing CUDA code base since the script preserves the existing directory structure and filenames - so includes work. After converting in-place, you can review the code to add additional parameters to directory names.
 
 ::
-
+  
   > hipconvertinplace.sh MY_SRC_DIR
 
 Distinguishing Compiler Modes
@@ -103,27 +103,27 @@ Identifying the Compiler: hcc, hip-clang or nvcc
 
 Often, it useful to know whether the underlying compiler is hcc or nvcc. This knowledge can guard platform-specific code (features that only work on the nvcc or hcc path but not both) or aid in platform-specific performance tuning.
 
-::
+:: 
 
   #ifdef __HCC__
-  // Compiled with hcc
-
+  // Compiled with hcc 
+ 
 ::
 
   #ifdef __HIP__
-  // Compiled with hip-clang
+  // Compiled with hip-clang 
 
 ::
 
   #ifdef __NVCC__
-  // Compiled with nvcc
+  // Compiled with nvcc  
   //  Could be compiling with Cuda language extensions enabled (for example, a ".cu file)
   //  Could be in pass-through mode to an underlying host compile OR (for example, a .cpp file)
-
-::
+ 
+:: 
 
   #ifdef __CUDACC__
-  // Compiled with nvcc (Cuda language extensions enabled)
+  // Compiled with nvcc (Cuda language extensions enabled) 
 
 hcc and hip-clang directly generates the host code (using the Clang x86 target) and passes the code to another host compiler. Thus, they have no equivalent of the __CUDA_ACC define.
 
@@ -136,9 +136,9 @@ Identifying Current Compilation Pass: Host or Device
 Both nvcc and hcc make two passes over the code: one for host code and one for device code. __HIP_DEVICE_COMPILE__ is set to a nonzero value when the compiler (hcc or nvcc) is compiling code for a device inside a __global__ kernel or for a device function. __HIP_DEVICE_COMPILE__ can replace #ifdef checks on the __CUDA_ARCH__ define.
 
 ::
-
-  // #ifdef __CUDA_ARCH__
-
+ 
+  // #ifdef __CUDA_ARCH__  
+  
   #if __HIP_DEVICE_COMPILE__
 
 Unlike __CUDA_ARCH__, the __HIP_DEVICE_COMPILE__ value is 1 or undefined, and it doesn't represent the feature capability of the target device.
@@ -149,48 +149,48 @@ Compiler Defines: Summary
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  |    Define                 |        hcc                    |   nvcc  		               |	Other (GCC, ICC, Clang, etc.) |
  +===========================+===============================+=================================+======================================+
- |HIP-related defines:                                                    						              |
+ |HIP-related defines:                                                    						              | 	
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  | __HIP_PLATFORM_HCC___     | Defined                       | Undefined                       | | Defined if targeting hcc platform; |
- |			     |                               |                                 | | undefined otherwise                |
+ |			     |                               |                                 | | undefined otherwise                | 
  |                           |                               |                                 |                                      |
- +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
+ +---------------------------+-------------------------------+---------------------------------+--------------------------------------+		  
  | __HIP_PLATFORM_NVCC___    | Undefined                     | defined                         | | Defined if targeting NVcc platform;|
- |			     |                               |                                 | | undefined otherwise                |
+ |			     |                               |                                 | | undefined otherwise                | 
  |                           |                               |                                 |				      |
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
- |			     | | 1 if compiling for device;  | | 1 if compiling for device;    | 				      |
- |__HIP_DEVICE_COMPILE__     | | undefined if compiling      | | undefined if compiling        | Undefined			      |
- |			     | | for host		     | | for host		       |				      |
+ |			     | | 1 if compiling for device;  | | 1 if compiling for device;    | 				      | 
+ |__HIP_DEVICE_COMPILE__     | | undefined if compiling      | | undefined if compiling        | Undefined			      | 	
+ |			     | | for host		     | | for host		       |				      |	
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  | __HIPCC__ 	             | Defined 	                     |  Defined 	               | Undefined		              |
- +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
+ +---------------------------+-------------------------------+---------------------------------+--------------------------------------+ 
  |			     | | 0 or 1 depending on feature | | 0 or 1 depending on feature   |  				      |
  | __HIP_ARCH_*  	     | | support (see below)	     | | support (see below)	       | 0				      |
  |			     |                               | 	                               |			              |
- +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
- | nvcc-related defines: 													      |
- +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
+ +---------------------------+-------------------------------+---------------------------------+--------------------------------------+ 
+ | nvcc-related defines: 													      | 
+ +---------------------------+-------------------------------+---------------------------------+--------------------------------------+ 
  | __CUDACC__		     | Undefined 	             | | Defined if source code is     |				      |
  | 			     | 				     | | compiled by nvcc;  	       | Undefined		              |
  |                           |                               | | undefined otherwise 	       |				      |
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  | __NVCC__ 	             | Undefined 	             |  Defined 	               | Undefined 			      |
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
- |			     |				     | | Unsigned representing compute |    				      |
- | __CUDA_ARCH__	     | Undefined 		     | | capability (e.g., "130")if in | Undefined			      |
+ |			     |				     | | Unsigned representing compute |    				      |	
+ | __CUDA_ARCH__	     | Undefined 		     | | capability (e.g., "130")if in | Undefined			      |	
  |			     |				     | | device code; 0 if in host code| 	 			      |
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  | hcc-related defines: 													      |
- +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
+ +---------------------------+-------------------------------+---------------------------------+--------------------------------------+	 
  | __HCC__ 		     | 	Defined 	             |  Undefined 	               | Undefined		              |
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  |			     | | Nonzero if in device code;  |				       |				      |
- | __HCC_ACCELERATOR__	     | | otherwise undefined	     | Undefined		       | Undefined	                      |
- |			     |	 		             |		 		       |	       		              |
+ | __HCC_ACCELERATOR__	     | | otherwise undefined	     | Undefined		       | Undefined	                      |	  	
+ |			     |	 		             |		 		       |	       		              |		 
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
  |                           |  Defined                      | Undefined                       | | Defined if using Clang;            |
- | __clang__                 |                               |                                 | | otherwise undefined                |
+ | __clang__                 |                               |                                 | | otherwise undefined                | 
  +---------------------------+-------------------------------+---------------------------------+--------------------------------------+
 
 Identifying Architecture Features
@@ -201,8 +201,8 @@ HIP_ARCH Defines
 Some Cuda code tests __CUDA_ARCH__ for a specific value to determine whether the machine supports a certain architectural feature. For instance,
 
 ::
-
-  #if (__CUDA_ARCH__ >= 130)
+  
+  #if (__CUDA_ARCH__ >= 130) 
   // doubles are supported
 
 
@@ -212,7 +212,7 @@ This type of code requires special attention, since hcc/AMD and nvcc/Cuda device
 The __HIP_ARCH_* defines can replace comparisons of __CUDA_ARCH__ values:
 
 ::
-
+  
   //#if (__CUDA_ARCH__ >= 130)   // non-portable
   if __HIP_ARCH_HAS_DOUBLES__ {  // portable HIP feature query
    // doubles are supported
@@ -241,32 +241,32 @@ The table below shows the full set of architectural properties that HIP supports
  |Define (use only in device code) 	    |  Device Property (run-time query) |	Comment					     |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | 32-bit atomics: 			    |											     |
- +------------------------------------------+-----------------------------------+----------------------------------------------------+
+ +------------------------------------------+-----------------------------------+----------------------------------------------------+		
  | __HIP_ARCH_HAS_GLOBAL_INT32_ATOMICS__    |   hasGlobalInt32Atomics 	        | 32-bit integer atomics for global memory           |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_GLOBAL_FLOAT_ATOMIC_EXCH__|   hasGlobalFloatAtomicExch 	| 32-bit float atomic exchange for global memory     |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | __HIP_ARCH_HAS_SHARED_INT32_ATOMICS__    |   hasSharedInt32Atomics 	        | 32-bit integer atomics for shared memory           |
+ | __HIP_ARCH_HAS_SHARED_INT32_ATOMICS__    |   hasSharedInt32Atomics 	        | 32-bit integer atomics for shared memory           | 
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_SHARED_FLOAT_ATOMIC_EXCH__|   hasSharedFloatAtomicExch 	| 32-bit float atomic exchange for shared memory     |
- +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | __HIP_ARCH_HAS_FLOAT_ATOMIC_ADD__ 	    |   hasFloatAtomicAdd 	        |32-bit float atomic add in global and shared memory |
+ +------------------------------------------+-----------------------------------+----------------------------------------------------+ 
+ | __HIP_ARCH_HAS_FLOAT_ATOMIC_ADD__ 	    |   hasFloatAtomicAdd 	        |32-bit float atomic add in global and shared memory | 
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | 64-bit atomics: 														     |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | __HIP_ARCH_HAS_GLOBAL_INT64_ATOMICS__    |	hasGlobalInt64Atomics 	        | 64-bit integer atomics for global memory           |
+ | __HIP_ARCH_HAS_GLOBAL_INT64_ATOMICS__    |	hasGlobalInt64Atomics 	        | 64-bit integer atomics for global memory           |	
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_SHARED_INT64_ATOMICS__    |	hasSharedInt64Atomics           | 64-bit integer atomics for shared memory           |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | Doubles: 										                                             |
+ | Doubles: 										                                             | 		
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | __HIP_ARCH_HAS_DOUBLES__ 	            |   hasDoubles 	                |  Double-precision floating point		     |
+ | __HIP_ARCH_HAS_DOUBLES__ 	            |   hasDoubles 	                |  Double-precision floating point		     |	
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | Warp cross-lane operations: 													     |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_WARP_VOTE__ 	            |   hasWarpVote 	                | Warp vote instructions (any, all)		     |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | __HIP_ARCH_HAS_WARP_BALLOT__ 	    |   hasWarpBallot                   | Warp ballot instructions			     |
+ | __HIP_ARCH_HAS_WARP_BALLOT__ 	    |   hasWarpBallot                   | Warp ballot instructions			     |	  
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_WARP_SHUFFLE__ 	    |   hasWarpShuffle 	                | Warp shuffle operations (shfl_*)                   |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
@@ -277,15 +277,15 @@ The table below shows the full set of architectural properties that HIP supports
  | __HIP_ARCH_HAS_THREAD_FENCE_SYSTEM__     |  	hasThreadFenceSystem 	        | threadfence_system				     |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_SYNC_THREAD_EXT__         |	hasSyncThreadsExt 	        | syncthreads_count, syncthreads_and, syncthreads_or |
- +------------------------------------------+-----------------------------------+----------------------------------------------------+
+ +------------------------------------------+-----------------------------------+----------------------------------------------------+		
  | Miscellaneous: 		 											             |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_SURFACE_FUNCS__ 	    | hasSurfaceFuncs 	                |                                                    |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
  | __HIP_ARCH_HAS_3DGRID__                  |  has3dGrid 	                | Grids and groups are 3D                            |
  +------------------------------------------+-----------------------------------+----------------------------------------------------+
- | __HIP_ARCH_HAS_DYNAMIC_PARALLEL__ 	    | hasDynamicParallelism             |  						     |
- +------------------------------------------+-----------------------------------+----------------------------------------------------+
+ | __HIP_ARCH_HAS_DYNAMIC_PARALLEL__ 	    | hasDynamicParallelism             |  						     | 		
+ +------------------------------------------+-----------------------------------+----------------------------------------------------+ 
 
 
 Finding HIP
@@ -315,11 +315,11 @@ While this can be a convenient single-line kernel launch syntax, the macro imple
 Avoid nesting macro parameters inside parenthesis - here's an alternative that will work:
 
 ::
-
+ 
   #define MY_LAUNCH(command, doTrace) \
   {\
      if (doTrace) printf ("TRACE: %s\n", #command); \
-     command;\
+     command;\ 
   }
 
   MY_LAUNCH (hipLaunchKernelGGL(vAdd, dim3(1024), dim3(1), 0, 0, Ad), true, "firstCall");
@@ -328,12 +328,12 @@ Compiler Options
 ~~~~~~~~~~~~~~~~
 hipcc is a portable compiler driver that will call nvcc or hcc (depending on the target system) and attach all required include and library options. It passes options through to the target compiler. Tools that call hipcc must ensure the compiler options are appropriate for the target compiler. The hipconfig script may helpful in making infrastructure that identifies the target platform and sets options appropriately. It returns either "nvcc" or "hcc." The following sample shows the script in a makefile:
 
-::
+:: 
 
   HIP_PLATFORM=$(shell hipconfig --compiler)
 
   ifeq (${HIP_PLATFORM}, nvcc)
-	  HIPCC_FLAGS = -gencode=arch=compute_20,code=sm_20
+	  HIPCC_FLAGS = -gencode=arch=compute_20,code=sm_20 
   endif
   ifeq (${HIP_PLATFORM}, hcc)
   	HIPCC_FLAGS = -Wno-deprecated-register
@@ -387,7 +387,7 @@ You can compile hip_runtime_api.h using a standard C or C++ compiler (e.g., gcc 
 
 ::
 
-  > hipconfig --cxx_config
+  > hipconfig --cxx_config 
   -D__HIP_PLATFORM_HCC__ -I/home/user1/hip/include
 
 You can capture the hipconfig output and passed it to the standard compiler; below is a sample makefile syntax:
@@ -470,7 +470,7 @@ Device Code:
       }
       std::cout<<"Passed"<<std::endl;
   }
-
+ 
 
 threadfence_system
 ~~~~~~~~~~~~~~~~~~~
@@ -503,7 +503,7 @@ On an hcc/AMD platform, set the HIP_TRACE_API environment variable to see a text
 
 **Environment Variables**
 
-On hcc/AMD platforms, set the HIP_PRINT_ENV environment variable to 1 and run an application that calls a HIP API to see all HIP-supported
+On hcc/AMD platforms, set the HIP_PRINT_ENV environment variable to 1 and run an application that calls a HIP API to see all HIP-supported 
 environment variables and their current values:
 
   * HIP_PRINT_ENV = 1: print HIP environment variables
@@ -520,7 +520,7 @@ To see the detailed commands that hipcc issues, set the environment variable HIP
 
 ::
 
-   export HIPCC_VERBOSE=1
+   export HIPCC_VERBOSE=1 
    make
    ...
    hipcc-cmd: /opt/hcc/bin/hcc  -hc -I/opt/hcc/include -stdlib=libc++ -I../../../../hc/include -I../../../../include/hcc_detail/cuda -		    	I../../../../	include -x c++ -I../../common -O3 -c backprop_cuda.cu
@@ -533,9 +533,9 @@ If you pass a ``.cu`` file, hcc will attempt to compile it as a Cuda language fi
 
 HIP Environment Variables
 **************************
-On the HCC path, HIP provides a number of environment variables that control the behavior of HIP. Some of these are useful for application development (for example HIP_VISIBLE_DEVICES, HIP_LAUNCH_BLOCKING), some are useful for performance tuning or experimentation (for example ``HIP_STAGING*`` ), and some are useful for debugging (HIP_DB). You can see the environment variables supported by HIP as well as their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application.
+On the HCC path, HIP provides a number of environment variables that control the behavior of HIP. Some of these are useful for application development (for example HIP_VISIBLE_DEVICES, HIP_LAUNCH_BLOCKING), some are useful for performance tuning or experimentation (for example ``HIP_STAGING*`` ), and some are useful for debugging (HIP_DB). You can see the environment variables supported by HIP as well as their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application. 
 For example::
-
+  
   $ HIP_PRINT_ENV=1 ./myhipapp
   HIP_PRINT_ENV                  =  1 : Print HIP environment variables.
   HIP_LAUNCH_BLOCKING            =  0 : Make HIP APIs 'host-synchronous', so they block until any kernel launches or data copy commands complete.   	Alias: CUDA_LAUNCH_BLOCKING.
@@ -552,39 +552,39 @@ See the utils/vim or utils/gedit directories to add handy highlighting to hip fi
 **Library Equivalents**
 
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-|CUDA Library 	        |  ROCm Library	        |       Comment         	                                                      |
+|CUDA Library 	        |  ROCm Library	        |       Comment         	                                                      |     
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-|cuBLAS 	        | rocBLAS               |     Basic Linear Algebra Subroutines                                                |
-|			|		        |		  		                                                      |
+|cuBLAS 	        | rocBLAS               |     Basic Linear Algebra Subroutines                                                |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-|cuFFT 	                | rocFFT                |     Fast Fourier Transfer Library                                                   |
-|			|		        |		  		                                                      |
+|cuFFT 	                | rocFFT                |     Fast Fourier Transfer Library                                                   |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-|cuSPARSE 	        | rocSPARSE             |     Sparse BLAS  + SPMV                                                             |
-|			|		        |		  		                                                      |
+|cuSPARSE 	        | rocSPARSE             |     Sparse BLAS  + SPMV                                                             |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-|cuSolver 	        | rocSolver             |     Lapack Library                                                                  |
-|			|		        |		  		                                                      |
+|cuSolver 	        | rocSolver             |     Lapack Library                                                                  |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-|AMG-X                  | rocALUTION            | Sparse iterative solvers and preconditioners with Geometric and Algebraic MultiGrid |
-|			|		        |		  		                                                      |
+|AMG-X                  | rocALUTION            | Sparse iterative solvers and preconditioners with Geometric and Algebraic MultiGrid |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
 | Thrust                |    hipThrust          | C++ parallel algorithms library                                                     |
-|			|		        |		  		                                                      |
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-| CUB                   |    rocPRIM            | Low Level Optimized Parallel Primitives                                             |
-|			|		        |		  		                                                      |
+| CUB                   |    rocPRIM            | Low Level Optimized Parallel Primitives                                             |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
 | cuDNN                 |    MIOpen             | Deep learning Solver Library                                                        |
-|			|		        |		  		                                                      |
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
 | cuRAND                |    rocRAND            | Random Number Generator Library                                                     |
-|			|		        |		  		                                                      |
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-| EIGEN                 |    EIGEN - HIP port   | C++ template library for linear algebra: matrices, vectors, numerical solvers,      |
-|			|		        |		  		                                                      |
+| EIGEN                 |    EIGEN – HIP port   | C++ template library for linear algebra: matrices, vectors, numerical solvers,      |  
+|			|		        |		  		                                                      |  
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
-| NCCL                  |    RCCL               | Communications Primitives Library based on the MPI equivalents                      |
+| NCCL                  |    RCCL               | Communications Primitives Library based on the MPI equivalents                      | 
 |			|		        |		  		                                                      |
 +-----------------------+-----------------------+-------------------------------------------------------------------------------------+
 

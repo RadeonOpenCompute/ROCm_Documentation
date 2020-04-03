@@ -1,7 +1,7 @@
 .. _rocBLAS:
 
 ============
-rocBLAS
+rocBLAS 
 ============
 
 .. doxygenclass:: rocblas_handle
@@ -13,6 +13,6 @@ rocBLAS
    :members:
 
 
-.. doxygenfunction::
+.. doxygenfunction::  
    :project: rocBLAS
    :members:

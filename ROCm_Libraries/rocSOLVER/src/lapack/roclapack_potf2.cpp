@@ -5,14 +5,14 @@
 #include "roclapack_potf2.hpp"
 
 template <typename T, typename U>
-rocblas_status rocsolver_potf2_impl(rocblas_handle handle, const rocblas_fill uplo,
-                                    const rocblas_int n, U A, const rocblas_int lda, rocblas_int* info)
-{
+rocblas_status rocsolver_potf2_impl(rocblas_handle handle, const rocblas_fill uplo,    
+                                    const rocblas_int n, U A, const rocblas_int lda, rocblas_int* info) 
+{ 
     if(!handle)
         return rocblas_status_invalid_handle;
-
-    //logging is missing ???
-
+    
+    //logging is missing ???    
+    
     if (!A || !info)
         return rocblas_status_invalid_pointer;
     if (n < 0 || lda < n)

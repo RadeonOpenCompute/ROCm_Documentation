@@ -31,7 +31,7 @@ Sample output:
 
 ::
 
-  # Transport: rc
+  # Transport: rc 
   #
   #   mlx5_0:1
   #      speed:         6502.32 MB/sec
@@ -48,8 +48,8 @@ Sample output:
   #           atomic_add: 32, 64 bit
   #          atomic_fadd: 32, 64 bit
   #          atomic_swap: 32, 64 bit
-  #           atomic_cswap: 32, 64 bit
-  #        error handling: none
+  #           atomic_cswap: 32, 64 bit 
+  #        error handling: none 
   #
   #   mlx4_0:1
   #      speed:         6502.32 MB/sec
@@ -83,7 +83,7 @@ Sample output:
   #            am header: <= 127
   #           atomic_add: 64 bit
   #          atomic_fadd: 64 bit
-  #          atomic_swap: 64 bit
+  #          atomic_swap: 64 bit 
   #         atomic_cswap: 64 bit
-  #       error handling: none
+  #       error handling: none 
   #

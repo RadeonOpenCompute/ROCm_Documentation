@@ -41,7 +41,7 @@ Then install all other dependencies in order to build HCC from source:
 ::
 
   sudo apt-get install cmake git libelf-dev libc++abi-dev libc++-dev libdwarf-dev re2c libncurses5-dev patch wget file xz-utils       	libc6- dev-i386 python build-essential
-
+  
 **CMake**
 
 If you are using Ubuntu 14.04, you would also need to upgrade to a newer version (>=3.0) of CMake as the version distributed by the distro is old for building clang/llvm.
@@ -75,7 +75,7 @@ Install other development tools:
 ::
 
   sudo dnf groupinstall "Development Tools"
-
+  
 **libc++ & libc++abi**
 
 HCC has a dependency on libc++ and libc++abi; however, Fedora/RHEL/CentOS don't provide a working binary package so you will to build them from source by following the instructions `here <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_
@@ -122,7 +122,7 @@ It is recommended to install the release_36 release of libc++ and libc++abi and 
   sudo make install
   cd ../libcxxabi
   sudo make install
-
+  
 Add the libc++ and libc++abi installation path to the library search paths
 (i.e. export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib )
 
@@ -149,7 +149,7 @@ Fetch the source code
 ::
 
   repo sync
-
+  
 **Build Instructions**
 
 ::
@@ -182,7 +182,7 @@ You could also run the HCC's sanity test
 ::
 
   make test
-
+  
 **Install the Compiler**
 
 ::

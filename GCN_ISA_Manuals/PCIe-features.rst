@@ -17,15 +17,15 @@ The new PCIe AtomicOps operate as completers for CAS(Compare and Swap), FetchADD
 
 Currently ROCm use this capability as following:
 
-* Update HSA queue's read_dispatch_id: 64bit atomic add used by the command processor on the GPU agent to update the packet ID it processed.
-* Update HSA queue's write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
-* Update HSA Signals - 64bit atomic ops are used for CPU & GPU synchronization.
+* Update HSA queue’s read_dispatch_id: 64bit atomic add used by the command processor on the GPU agent to update the packet ID it processed.
+* Update HSA queue’s write_dispatch_id: 64bit atomic add used by the CPU and GPU agent to support multi-writer queue insertions.
+* Update HSA Signals – 64bit atomic ops are used for CPU & GPU synchronization.
 
 The PCIe 3.0 AtomicOp feature allows atomic transactions to be requested by, routed through and completed by PCIe components. Routing and completion does not require software support. Component support for each is detectable via the DEVCAP2 register. Upstream bridges need to have AtomicOp routing enabled or the Atomic Operations will fall even though PCIe endpoint and PCIe I/O Devices has the capability to Atomics Operations.
 
 To do AtomicOp routing capability between two or more Root Ports, each associated Root Port must indicate that capability via the AtomicOp Routing Supported bit in the Device Capabilities 2 register.
 
-If your system has a PCIe Express Switch it needs to support AtomicsOp routing. Again AtomicOp requests are permitted only if a component's DEVCTL2.ATOMICOP_REQUESTER_ENABLE field is set. These requests can only be serviced if the upstream components support AtomicOp completion and/or routing to a component which does. AtomicOp Routing Support=1 Routing is supported, AtomicOp Routing Support=0 routing is not supported.
+If your system has a PCIe Express Switch it needs to support AtomicsOp routing. Again AtomicOp requests are permitted only if a component’s DEVCTL2.ATOMICOP_REQUESTER_ENABLE field is set. These requests can only be serviced if the upstream components support AtomicOp completion and/or routing to a component which does. AtomicOp Routing Support=1 Routing is supported, AtomicOp Routing Support=0 routing is not supported.
 
 Atomic Operation is a Non-Posted transaction supporting 32- and 64-bit address formats, there must be a response for Completion containing the result of the operation. Errors associated with the operation (uncorrectable error accessing the target location or carrying out the Atomic operation) are signaled to the requester by setting the Completion Status field in the completion descriptor, they are set to to Completer Abort (CA) or Unsupported Request (UR).
 
@@ -51,12 +51,12 @@ Future bus technology with richer I/O Atomics Operation Support
 
 * `GenZ <http://genzconsortium.org/faq/gen-z-technology/#33>`_
 
-New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU's with PCIe Generation 3.0 support.
+New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
 
 * `Mellanox Bluefield SOC <http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_
 * `Cavium Thunder X2 <http://www.cavium.com/ThunderX2_ARM_Processors.html>`_
 
-In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:
+In ROCm, we also take advantage of PCIe ID based ordering technology for P2P when the GPU originates two writes to two different targets:  
 
 1. write to another GPU memory
 2. then write to system memory to indicate transfer complete
@@ -86,36 +86,36 @@ For GFX9 and Vega10 which have Physical Address up 44 bit and 48 bit Virtual add
 * BAR4 register: Optional, not a boot device.
 * BAR5 register: 32bit, non-prefetchable, MMIO. Must be placed < 4GB.
 
-Here is how our BAR works on GFX 8 GPU's with 40 bit Physical Address Limit
+Here is how our BAR works on GFX 8 GPU’s with 40 bit Physical Address Limit
 ::
 
   11:00.0 Display controller: Advanced Micro Devices, Inc. [AMD/ATI] Fiji [Radeon R9 FURY / NANO Series] (rev c1)
-
+  
   Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0b35
-
+    
   Flags: bus master, fast devsel, latency 0, IRQ 119
-
+    
   Memory at bf40000000 (64-bit, prefetchable) [size=256M]
-
+   
   Memory at bf50000000 (64-bit, prefetchable) [size=2M]
-
+   
   I/O ports at 3000 [size=256]
-
+   
   Memory at c7400000 (32-bit, non-prefetchable) [size=256K]
-
+   
   Expansion ROM at c7440000 [disabled] [size=128K]
 
 Legend:
 
-**1** : GPU Frame Buffer BAR - In this example it happens to be 256M, but typically this will be size of the GPU memory (typically 4GB+). This BAR has to be placed < 2^40 to allow peer-to-peer access from other GFX8 AMD GPUs. For GFX9 (Vega GPU) the BAR has to be placed < 2^44 to allow peer-to-peer access from other GFX9 AMD GPUs.
+**1** : GPU Frame Buffer BAR – In this example it happens to be 256M, but typically this will be size of the GPU memory (typically 4GB+). This BAR has to be placed < 2^40 to allow peer-to-peer access from other GFX8 AMD GPUs. For GFX9 (Vega GPU) the BAR has to be placed < 2^44 to allow peer-to-peer access from other GFX9 AMD GPUs.
 
-**2** : Doorbell BAR - The size of the BAR is typically will be < 10MB (currently fixed at 2MB) for this generation GPUs. This BAR has to be placed < 2^40 to allow peer-to-peer access from other current generation AMD GPUs.
+**2** : Doorbell BAR – The size of the BAR is typically will be < 10MB (currently fixed at 2MB) for this generation GPUs. This BAR has to be placed < 2^40 to allow peer-to-peer access from other current generation AMD GPUs.
 
 **3** : IO BAR - This is for legacy VGA and boot device support, but since this the GPUs in this project are not VGA devices (headless), this is not a concern even if the SBIOS does not setup.
 
-**4** : MMIO BAR - This is required for the AMD Driver SW to access the configuration registers. Since the reminder of the BAR available is only 1 DWORD (32bit), this is placed < 4GB. This is fixed at 256KB.
+**4** : MMIO BAR – This is required for the AMD Driver SW to access the configuration registers. Since the reminder of the BAR available is only 1 DWORD (32bit), this is placed < 4GB. This is fixed at 256KB.
 
-**5** : Expansion ROM - This is required for the AMD Driver SW to access the GPU's video-bios. This is currently fixed at 128KB.
+**5** : Expansion ROM – This is required for the AMD Driver SW to access the GPU’s video-bios. This is currently fixed at 128KB.
 
 ===============================================================
 Excepts form Overview of Changes to PCI Express 3.0
@@ -126,20 +126,20 @@ By Mike Jackson, Senior Staff Architect, MindShare, Inc.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-Atomic Operations - Goal:
+Atomic Operations – Goal:
 -------------------------
 Support SMP-type operations across a PCIe network to allow for things like offloading tasks between CPU cores and accelerators like a GPU. The spec says this enables advanced synchronization mechanisms that are particularly useful with multiple producers or consumers that need to be synchronized in a non-blocking fashion. Three new atomic non-posted requests were added, plus the corresponding completion (the address must be naturally aligned with the operand size or the TLP is malformed):
 
-* Fetch and Add - uses one operand as the "add" value. Reads the target location, adds the operand, and then writes the result back to the original location.
-* Unconditional Swap - uses one operand as the "swap" value. Reads the target location and then writes the swap value to it.
-* Compare and Swap - uses 2 operands: first data is compare value, second is swap value. Reads the target location, checks it against the compare value and, if equal, writes the swap value to the target location.
-* AtomicOpCompletion - new completion to give the result so far atomic request and indicate that the atomicity of the transaction has been maintained.
+* Fetch and Add – uses one operand as the “add” value. Reads the target location, adds the operand, and then writes the result back to the original location.
+* Unconditional Swap – uses one operand as the “swap” value. Reads the target location and then writes the swap value to it.
+* Compare and Swap – uses 2 operands: first data is compare value, second is swap value. Reads the target location, checks it against the compare value and, if equal, writes the swap value to the target location.
+* AtomicOpCompletion – new completion to give the result so far atomic request and indicate that the atomicity of the transaction has been maintained.
 
-Since AtomicOps are not locked they don't have the performance downsides of the PCI locked protocol. Compared to locked cycles, they provide "lower latency, higher scalability, advanced synchronization algorithms, and dramatically lower impact on other PCIe traffic." The lock mechanism can still be used across a bridge to PCI or PCI-X to achieve the desired operation.
+Since AtomicOps are not locked they don’t have the performance downsides of the PCI locked protocol. Compared to locked cycles, they provide “lower latency, higher scalability, advanced synchronization algorithms, and dramatically lower impact on other PCIe traffic.” The lock mechanism can still be used across a bridge to PCI or PCI-X to achieve the desired operation.
 
 AtomicOps can go from device to device, device to host, or host to device. Each completer indicates whether it supports this capability and guarantees atomic access if it does. The ability to route AtomicOps is also indicated in the registers for a given port.
 
-ID-based Ordering - Goal:
+ID-based Ordering – Goal:
 -------------------------
 Improve performance by avoiding stalls caused by ordering rules. For example, posted writes are never normally allowed to pass each other in a queue, but if they are requested by different functions, we can have some confidence that the requests are not dependent on each other. The previously reserved Attribute bit [2] is now combined with the RO bit to indicate ID ordering with or without relaxed ordering.
 

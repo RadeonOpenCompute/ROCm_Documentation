@@ -12,7 +12,7 @@ On the low level, we can consider 2 types of operations: bcopy (including short)
 
 ::
 
-  ucs_status_t uct_XXX_bcopy(uct_ep_h ep, ..., uint32_t flags);
+  ucs_status_t uct_XXX_bcopy(uct_ep_h ep, ..., uint32_t flags); 
   ucs_status_t ucx_XXX_zcopy(uct_ep_h ep, ..., uint32_t flags, uct_req_t *req);
 
   typedef struct uct_req {
@@ -29,8 +29,8 @@ These functions will behave as follows:
 
 Implementation notes:
 
- * The transport might limit the amount of sends to single endpoint without considering other endpoints, to enforce fairness. In that 	 case, if the limit is reached, the send will return UCS_ERR_WOULD_BLOCK.
-
+ * The transport might limit the amount of sends to single endpoint without considering other endpoints, to enforce fairness. In that 	 case, if the limit is reached, the send will return UCS_ERR_WOULD_BLOCK. 
+  
 Protocol layer - Nonblocking MPI
 **********************************
 

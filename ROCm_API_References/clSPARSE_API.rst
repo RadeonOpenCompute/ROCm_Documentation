@@ -17,11 +17,11 @@ Routines to initialize a clsparse object
 
 .. doxygenfunction:: cldenseInitMatrix()
 
-.. doxygenfunction:: clsparseInitCooMatrix()
+.. doxygenfunction:: clsparseInitCooMatrix() 
 
-.. doxygenfunction:: clsparseInitCsrMatrix()
+.. doxygenfunction:: clsparseInitCsrMatrix() 
 
-.. doxygenfunction:: clsparseInitScalar()
+.. doxygenfunction:: clsparseInitScalar() 
 
 .. doxygenfunction:: clsparseInitScalar()
 

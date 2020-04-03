@@ -17,8 +17,8 @@ Tutorial
 
   * :ref:`rocncloc` ROCm With Harmony: Combining OpenCL Kernels, HCC and HSA in a Single Program. This tutorial 	      	   	demonstrates how to compile OpenCL kernels using the CL offline compiler (CLOC) and integrate them with HCC C++ compiled ROCm    	   applications.
 
-  * `The AMD GCN Architecture - A Crash Course, by Layla Mah <https://www.slideshare.net/DevCentralAMD/gs4106-the-amd-gcn-architecture-a-crash-course-by-layla-mah>`_
+  * `The AMD GCN Architecture - A Crash Course, by Layla Mah <https://www.slideshare.net/DevCentralAMD/gs4106-the-amd-gcn-architecture-a-crash-course-by-layla-mah>`_ 
 
-  * `AMD GCN Architecture White paper <https://www.amd.com/Documents/GCN_Architecture_whitepaper.pdf>`_
+  * `AMD GCN Architecture White paper <https://www.amd.com/Documents/GCN_Architecture_whitepaper.pdf>`_ 
 
-  * :ref:`ROCm-MultiGPU`
+  * :ref:`ROCm-MultiGPU`	

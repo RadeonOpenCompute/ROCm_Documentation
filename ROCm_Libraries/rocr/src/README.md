@@ -40,7 +40,7 @@ hsakmt.h header file must be available. The latest version of these files
 can be obtained from the ROCT-Thunk-Interface repository, available here:
 
 https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface
-
+ 
 Specify the directory containing libhsakmt.so.1 and hsakmt.h using the cmake variables, HSAKMT_LIB_PATH and HSAKMT_INC_PATH.  These can be specified either on the command line
 or via standard cmake configuration tools such as ccmake or cmake-gui.
 
@@ -52,7 +52,7 @@ For example, from the top level ROCR repository execute:
           -DHSAKMT_LIB_PATH:STRING=<path to directory holding libhsakmt.so.1> \
           ..
     make
-
+    
 alternately using ccmake:
 
     mkdir build

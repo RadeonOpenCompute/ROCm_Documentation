@@ -3,12 +3,12 @@
 =========
 clRNG
 =========
-
+ 
 For Github repository `clRNG <https://github.com/clMathLibraries/clRNG>`_
 
 A library for uniform random number generation in OpenCL.
 
-Streams of random numbers act as virtual random number generators. They can be created on the host computer in unlimited numbers, and then used either on the host or on computing devices by work items to generate random numbers. Each stream also has equally-spaced substreams, which are occasionally useful. The API is currently implemented for four different RNGs, namely the MRG31k3p, MRG32k3a, LFSR113 and Philox-4x32-10 generators.
+Streams of random numbers act as virtual random number generators. They can be created on the host computer in unlimited numbers, and then used either on the host or on computing devices by work items to generate random numbers. Each stream also has equally-spaced substreams, which are occasionally useful. The API is currently implemented for four different RNGs, namely the MRG31k3p, MRG32k3a, LFSR113 and Philox-4×32-10 generators.
 
 Documentation
 ***************
@@ -31,7 +31,7 @@ Building
 **********
  1. Install the runtime dependency:
       * An OpenCL SDK, such as APP SDK.
-
+ 
  2. Install the build dependencies:
 
      * The CMake cross-platform build system. Visual Studio users can use CMake Tools for Visual Studio.
@@ -64,7 +64,7 @@ On a 64-bit Linux platform, steps 3 through 9 from above, executed in a Bash-com
   export CLRNG_ROOT=$PWD/package
   export LD_LIBRARY_PATH=$CLRNG_ROOT/lib64:$LD_LIBRARY_PATH
   $CLRNG_ROOT/bin/CTest
-
+  
 Examples
 ***********
 Examples can be found in src/client. The compiled client program examples can be found under the bin subdirectory of the installation package ($CLRNG_ROOT/bin under Linux). Note that the examples expect an OpenCL GPU device to be available.

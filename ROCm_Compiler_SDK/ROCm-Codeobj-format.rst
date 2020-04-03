@@ -113,27 +113,27 @@ The number of enabled registers must match value in compute_pgm_rsrc2.user_sgpr 
 The following table defines SGPR registers that can be enabled and their order.
 
 ============ ============== ======================================= ==================================================================
-SGPR Order    Number
+SGPR Order    Number 
 	      of Registers 		Name 					Description
 ============ ============== ======================================= ==================================================================
 First 		  4 	       Private Segment Buffer 		     V# that can be used, together with Scratch Wave Offset as an
-			      (enable_sgpr_private_segment_buffer)   offset, to access the Private/Spill/Arg segments using a segment 							     		     address. CP uses the value from
-								     amd_queue_t.scratch_resource_descriptor.
+			      (enable_sgpr_private_segment_buffer)   offset, to access the Private/Spill/Arg segments using a segment 							     		     address. CP uses the value from  
+								     amd_queue_t.scratch_resource_descriptor.	
 
 then 		  2 		Dispatch Ptr			     64 bit address of AQL dispatch packet for kernel actually
-				(enable_sgpr_dispatch_ptr) 	     executing.
+				(enable_sgpr_dispatch_ptr) 	     executing. 									    
 
 then 		  2 		Queue Ptr 			     64 bit address of amd_queue_t object for AQL queue on which the
 				(enable_sgpr_queue_ptr) 	     dispatch packet was queued.
-
+ 									    
 then 		  2 		Kernarg Segment Ptr 		     64 bit address of Kernarg segment. This is directly copied 				(enable_sgpr_kernarg_segment_ptr)    from the kernarg_address in the kernel dispatch packet. Having 									     CP load it once avoids loading it at the beginning of 									     every  wavefront.
 
 then 		  2 		Dispatch Id 			     64 bit Dispatch ID of the dispatch packet being executed.
-				(enable_sgpr_dispatch_id)
+				(enable_sgpr_dispatch_id) 	     
 
 then 		  2 		Flat Scratch Init		     Value used for FLAT_SCRATCH register initialization. Refer to
 				(enable_sgpr_flat_scratch_init)       Flat scratch for more information.
-
+ 									     
 then 		 1 		Private Segment Size 		     The 32 bit byte size of a single work-items scratch memory
 				(enable_sgpr_private_segment_size)   allocation. This is the value from the kernel dispatch packet 									     Private Segment Byte Size rounded up by CP to a multiple of 									     WORD. Having CP load it once avoids loading it at the beginning 									     of every wavefront. Not used for GFX7/GFX8 since it is the same 									     value as the second SGPR of Flat Scratch Init.
 
@@ -144,15 +144,15 @@ then 		 1 		Grid Work-Group Count Y 		32 bit count of the number of work-groups 
 then 		 1 		Grid Work-Group Count Z 		32 bit count of the number of work-groups in the Z dimension
 				(enable_sgpr_grid_workgroup_count_Z 	for the grid being executed. Computed from the fields in the
 				&& less than 16 previous SGPRs) 	kernel dispatch packet as ((grid_size.z + workgroup_size.z - 										1) / workgroupSize.z). Only initialized if <16 previous SGPRs 										initialized.
-
+ 										 										
 then 		 1 		Work-Group Id X 			32 bit work group id in X dimension of grid for wavefront.
 				(enable_sgpr_workgroup_id_X) 		Always present.
 
-
+		
 then 		 1 		Work-Group Id Y 			32 bit work group id in Y dimension of grid for wavefront.
-				(enable_sgpr_workgroup_id_Y)
+				(enable_sgpr_workgroup_id_Y) 	
 
-then 		 1 		Work-Group Id Z
+then 		 1 		Work-Group Id Z 
 				(enable_sgpr_workgroup_id_Z) 		32 bit work group id in Z dimension of grid for wavefront. If 										present then Work-group Id Y will also be present.
 
 then 		 1 		Work-Group Info 			{first_wave, 14b0000, ordered_append_term[10:0],
@@ -160,7 +160,7 @@ then 		 1 		Work-Group Info 			{first_wave, 14b0000, ordered_append_term[10:0],
 
 then 		 1 	     |  Private Segment Wave Byte Offset 	32 bit byte offset from base of scratch base of queue the  			     	     |  (enable_sgpr_private_segment_wave	executing  kernel dispatch. Must be used as an offset with 				     |  _byte_offset)			      Private/Spill/Arg  segment address when using Scratch Segment
 				    				      Buffer. It must be added to Flat Scratch Offset if setting up 									      FLAT SCRATCH for flat addressing.
-
+		            		 
 ============ ============== ======================================= ==================================================================
 
 VGPR register numbers used for enabled registers are dense starting at VGPR0: the first enabled register is VGPR0, the next enabled register is VGPR1 etc.; disabled registers do not have a VGPR number.
@@ -423,7 +423,7 @@ Memory Fence 	scacq 			agent+ 		memfence; s_waitcnt 0; buffer_wbinvl1_vol
 Memory Fence 	screl 			agent+ 		s_waitcnt 0; memfence
 Memory Fence 	scar 			agent + 	memfence; s_waitcnt 0; buffer_wbinvl1_vol
 ============== ==================== ================= ========================================================
-
+	
 .. _Instruction-set-architecture:
 
 Instruction set architecture
@@ -450,7 +450,7 @@ AMD 	  AMDGPU 	  8 	  0 	   1 	   GFX8, XNACK enabled 	           A10-8700 serie
 
 AMD 	  AMDGPU 	  8 	  0 	   2       GFX8, SPI register limitation  FirePro S7150, S7100, W7100; Radeon R285, R9 380,
 						   XNACK disabled,		    R9 385; Mobile FirePro M7170
-						   PCIe Gen3 atomics
+						   PCIe Gen3 atomics 	
 
 AMD 	  AMDGPU 	  8 	 0 	   3 	   GFX8, XNACK disabled,	  Radeon R9 Nano, R9 Fury, R9 FuryX, Pro Duo, RX 460,
 						    PCIe Gen3 atomics 		  RX 470, RX 480; FirePro S9300x2
@@ -458,7 +458,7 @@ AMD 	  AMDGPU 	  8 	 0 	   3 	   GFX8, XNACK disabled,	  Radeon R9 Nano, R9 Fury
 AMD 	  AMDGPU 	  8 	 0 	   4 	   GFX8, -XNACK Legacy, 	   Radeon R9 Nano, R9 Fury, R9 FuryX, Pro Duo,
 										    RX 460, RX 470, RX 480; FirePro S9300x2
 
-AMD 	  AMDGPU 	  9 	 0 	   0 	   GFX9, -XNACK
+AMD 	  AMDGPU 	  9 	 0 	   0 	   GFX9, -XNACK 	
 
 AMD 	  AMDGPU 	  9 	 0 	   1 	   GFX9, +XNACK
 ======= ============== ======= ======= ========== ============================== =====================================================
@@ -467,7 +467,7 @@ AMD 	  AMDGPU 	  9 	 0 	   1 	   GFX9, +XNACK
 
 AMD Kernel Code
 ###################
-AMD Kernel Code object is used by AMD GPU CP to set up the hardware to execute a kernel dispatch and consists of the meta data needed to initiate the execution of a kernel, including the entry point address of the machine code that implements
+AMD Kernel Code object is used by AMD GPU CP to set up the hardware to execute a kernel dispatch and consists of the meta data needed to initiate the execution of a kernel, including the entry point address of the machine code that implements 
 
 
 
@@ -693,7 +693,7 @@ AMD_FLOAT_ROUND_MODE_ZERO 		3 		Round Toward 0
 ====================================== ========= =====================================================================
 
 .. _Denorm-Mode:
-
+   
 Denorm Mode amd_float_denorm_mode_t
 ######################################
 
@@ -973,7 +973,7 @@ References
        * `AMD_Southern_Islands_Instruction_Set_Architecture <http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/07/AMD_Southern_Islands_Instruction_Set_Architecture1.pdf>`_
    * `ROCR Runtime sources <https://github.com/RadeonOpenCompute/ROCR-Runtime>`_
        * `amd_hsa_kernel_code.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_kernel_code.h>`_
-       * `amd_hsa_queue.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_queue.h>`_
+       * `amd_hsa_queue.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_queue.h>`_ 
        * `amd_hsa_signal.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_signal.h>`_
        * `amd_hsa_common.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_common.h>`_
    * `PCI Express Atomic Operations <https://pcisig.com/specifications/pciexpress/specifications/ECN_Atomic_Ops_080417.pdf>`_

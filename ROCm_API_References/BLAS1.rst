@@ -7,7 +7,7 @@ BLAS1 functions
 SWAP - Swap elements from 2 vectors
 ------------------------------------
 .. doxygenfunction:: clblasCswap()
-
+ 
 .. doxygenfunction:: clblasDswap()
 
 .. doxygenfunction:: clblasSswap()
@@ -30,7 +30,7 @@ SSCAL - Scales a complex vector by a real constant
 .. doxygenfunction:: clblasCsscal()
 
 .. doxygenfunction:: clblasZdscal()
-
+ 
 
 COPY - Copies elements from vector X to vector Y
 --------------------------------------------------
@@ -51,7 +51,7 @@ AXPY - Scale X and add to Y
 .. doxygenfunction:: clblasSaxpy()
 
 .. doxygenfunction:: clblasZaxpy()
-
+ 
 
 
 DOT - Dot product of two vectors
@@ -73,8 +73,8 @@ ROTG - Constructs givens plane rotation
 .. doxygenfunction:: clblasCrotg()
 
 .. doxygenfunction:: clblasDrotg()
-
-.. doxygenfunction:: clblasSrotg()
+ 
+.. doxygenfunction:: clblasSrotg() 
 
 .. doxygenfunction:: clblasZrotg()
 
@@ -105,14 +105,14 @@ ROTM - Apply modified givens rotation for points in the plane
 
 
 NRM2 - Euclidean norm of a vector
-------------------------------------
+------------------------------------ 
 .. doxygenfunction:: clblasDnrm2()
 
 .. doxygenfunction:: clblasDznrm2()
 
 .. doxygenfunction:: clblasScnrm2()
 
-.. doxygenfunction:: clblasSnrm2()
+.. doxygenfunction:: clblasSnrm2() 
 
 iAMAX - Index of max absolute value
 ------------------------------------
@@ -126,7 +126,7 @@ iAMAX - Index of max absolute value
 
 
 ASUM - Sum of absolute values
-------------------------------------
+------------------------------------ 
 .. doxygenfunction:: clblasDasum()
 
 .. doxygenfunction:: clblasDzasum()

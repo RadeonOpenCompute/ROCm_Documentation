@@ -7,7 +7,7 @@ OCML User Guide
 ################
 What Is OCML
 **************
-OCML is an LLVM-IR bitcode library designed to relieve language compiler and runtime implementers of the burden of implementing efficient and accurate mathematical functions. It is essentially a "libm" in intermediate representation with a fixed, simple API that can be linked in to supply the implementations of most standard low-level mathematical functions provided by the language.
+OCML is an LLVM-IR bitcode library designed to relieve language compiler and runtime implementers of the burden of implementing efficient and accurate mathematical functions. It is essentially a “libm” in intermediate representation with a fixed, simple API that can be linked in to supply the implementations of most standard low-level mathematical functions provided by the language.
 
 Using OCML
 ***********
@@ -16,11 +16,11 @@ Standard Usage
 OCML is expected to be used in a standard LLVM compilation flow as follows:
 
   * Compile source modules to LLVM-IR bitcode (clang)
-  * Link program bitcode, "wrapper" bitcode, OCML bitcode, and OCML control functions (llvm-link)
+  * Link program bitcode, “wrapper” bitcode, OCML bitcode, and OCML control functions (llvm-link)
   * Generic optimizations (opt)
   * Code generation (llc)
 
-Here, "wrapper" bitcode denotes a thin library responsible for mapping mangled built-in function calls as produced by clang to the OCML API. An example in C might look like
+Here, “wrapper” bitcode denotes a thin library responsible for mapping mangled built-in function calls as produced by clang to the OCML API. An example in C might look like
 
 ::
 
@@ -71,9 +71,9 @@ OCML functions follow a simple naming convention:
 
 where {function} is generally the familiar libm name of the function, and {type suffix} indicates the type of the floating point arguments or results, and is one of
 
-    f16 - 16 bit floating point (half precision)
-    f32 - 32 bit floating point (single precision)
-    f64 - 64 bit floating point (double precision)
+    f16 – 16 bit floating point (half precision)
+    f32 – 32 bit floating point (single precision)
+    f64 – 64 bit floating point (double precision)
 
 For example, __ocml_sqrt_f32 is the name of the OCML single precision square root function.
 
@@ -82,7 +82,7 @@ OCML does not currently support higher than double precision due to the lack of 
 Supported functions
 ********************
 
-The following table contains a list of {function} currently supported by OCML, a brief description of each, and the maximum relative error in ULPs for each floating point type. A "c" in the last 3 columns indicates that the function is required to be correctly rounded.
+The following table contains a list of {function} currently supported by OCML, a brief description of each, and the maximum relative error in ULPs for each floating point type. A “c” in the last 3 columns indicates that the function is required to be correctly rounded.
 
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | {function} | Description                                                               | f32 max err | f64 max err | f16 max err |
@@ -91,7 +91,7 @@ The following table contains a list of {function} currently supported by OCML, a
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | acosh      | arc hyperbolic cosine                                                     | 4           | 4           | 2           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
-| acospi     | arc cosine / ?                                                            | 5           | 5           | 2           |
+| acospi     | arc cosine / π                                                            | 5           | 5           | 2           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | add_{rm}   | add with specific rounding mode                                           | c           | c           | c           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
@@ -189,9 +189,9 @@ The following table contains a list of {function} currently supported by OCML, a
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | len4       | four argument hypot                                                       | 2           | 2           | 2           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
-| lgamma     | log ? function                                                            | 6(>0)       | 4(>0)       | 3(>0)       |
+| lgamma     | log Γ function                                                            | 6(>0)       | 4(>0)       | 3(>0)       |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
-| lgamma_r   | log ? function with sign                                                  | 6(>0)       | 4(>0)       | 3(>0)       |
+| lgamma_r   | log Γ function with sign                                                  | 6(>0)       | 4(>0)       | 3(>0)       |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | log10      | log base 10                                                               | 3           | 3           | 2           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
@@ -279,7 +279,7 @@ The following table contains a list of {function} currently supported by OCML, a
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | tanpi      | tangent of argument times pi                                              | 6           | 6           | 2           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
-| tgamma     | true ? function                                                           | 16          | 16          | 4           |
+| tgamma     | true Γ function                                                           | 16          | 16          | 4           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
 | trunc      | round to integer, towards zero                                            | c           | c           | c           |
 +------------+---------------------------------------------------------------------------+-------------+-------------+-------------+
@@ -290,8 +290,8 @@ The following table contains a list of {function} currently supported by OCML, a
 
 For the functions supporting specific roundings, the rounding mode {rm} can be one of
 
-  * rte - round towards nearest even
-  * rtp - round towards positive infinity
-  * rtn - round towards negative infinity
-  * rtz - round towards zero
+  * rte – round towards nearest even
+  * rtp – round towards positive infinity
+  * rtn – round towards negative infinity
+  * rtz – round towards zero
 

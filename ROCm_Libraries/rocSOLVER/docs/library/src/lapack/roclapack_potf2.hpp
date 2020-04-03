@@ -18,9 +18,9 @@
 #include "common_device.hpp"
 #include "ideal_sizes.hpp"
 
-template <typename T, typename U>
-__global__ void sqrtDiagOnward(U A, const rocblas_int shiftA, const rocblas_int strideA, const size_t loc,
-                               const rocblas_int j, T *res, rocblas_int *info)
+template <typename T, typename U> 
+__global__ void sqrtDiagOnward(U A, const rocblas_int shiftA, const rocblas_int strideA, const size_t loc, 
+                               const rocblas_int j, T *res, rocblas_int *info) 
 {
     int id = hipBlockIdx_x;
 
@@ -45,10 +45,10 @@ rocblas_status rocsolver_potf2_template(rocblas_handle handle,
                                         const rocblas_fill uplo, const rocblas_int n, U A,
                                         const rocblas_int shiftA,
                                         const rocblas_int lda, const rocblas_int strideA,
-                                        rocblas_int *info, const rocblas_int batch_count)
+                                        rocblas_int *info, const rocblas_int batch_count) 
 {
     // quick return
-    if (n == 0 || batch_count == 0)
+    if (n == 0 || batch_count == 0) 
         return rocblas_status_success;
 
     #ifdef batched
@@ -70,7 +70,7 @@ rocblas_status rocsolver_potf2_template(rocblas_handle handle,
     hipMemcpy(d_minone, &h_minone, sizeof(T), hipMemcpyHostToDevice);
 
     //diagonal info in device (device memory workspace to avoid synchronization with CPU)
-    T *pivotGPU;
+    T *pivotGPU; 
     hipMalloc(&pivotGPU, sizeof(T)*batch_count);
 
     hipStream_t stream;
@@ -95,7 +95,7 @@ rocblas_status rocsolver_potf2_template(rocblas_handle handle,
                 rocblas_dot<T>(handle, j, (M + idx2D(0, j, lda)), 1,
                                 (M + idx2D(0, j, lda)), 1, (pivotGPU + b));
             }
-            hipLaunchKernelGGL(sqrtDiagOnward<T>, dim3(batch_count), dim3(1), 0, stream,
+            hipLaunchKernelGGL(sqrtDiagOnward<T>, dim3(batch_count), dim3(1), 0, stream, 
                                A, shiftA, strideA, idx2D(j, j, lda), j, pivotGPU, info);
 
             // Compute elements J+1:N of row J
@@ -103,9 +103,9 @@ rocblas_status rocsolver_potf2_template(rocblas_handle handle,
                 for (int b=0;b<batch_count;++b) {
                     M = load_ptr_batch<T>(AA,shiftA,b,strideA);
                     rocblas_gemv<T>(handle, rocblas_operation_transpose, j, n - j - 1,
-                                    d_minone, (M + idx2D(0, j + 1, lda)), lda,
+                                    d_minone, (M + idx2D(0, j + 1, lda)), lda, 
                                     (M + idx2D(0, j, lda)), 1, d_one, (M + idx2D(j, j + 1, lda)), lda);
-                }
+                }    
                 for (int b=0;b<batch_count;++b) {
                     M = load_ptr_batch<T>(AA,shiftA,b,strideA);
                     rocblas_scal<T>(handle, n - j - 1, (pivotGPU + b),
@@ -122,7 +122,7 @@ rocblas_status rocsolver_potf2_template(rocblas_handle handle,
                 rocblas_dot<T>(handle, j, (M + idx2D(j, 0, lda)), lda,
                                 (M + idx2D(j, 0, lda)), lda, (pivotGPU + b));
             }
-            hipLaunchKernelGGL(sqrtDiagOnward<T>, dim3(batch_count), dim3(1), 0, stream,
+            hipLaunchKernelGGL(sqrtDiagOnward<T>, dim3(batch_count), dim3(1), 0, stream, 
                                A, shiftA, strideA, idx2D(j, j, lda), j, pivotGPU, info);
 
             // Compute elements J+1:N of row J
@@ -130,7 +130,7 @@ rocblas_status rocsolver_potf2_template(rocblas_handle handle,
                 for (int b=0;b<batch_count;++b) {
                     M = load_ptr_batch<T>(AA,shiftA,b,strideA);
                     rocblas_gemv<T>(handle, rocblas_operation_none, n - j - 1, j,
-                                    d_minone, (M + idx2D(j + 1, 0, lda)), lda,
+                                    d_minone, (M + idx2D(j + 1, 0, lda)), lda, 
                                     (M + idx2D(j, 0, lda)), lda, d_one, (M + idx2D(j + 1, j, lda)), 1);
                 }
                 for (int b=0;b<batch_count;++b) {

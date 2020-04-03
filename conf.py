@@ -25,7 +25,7 @@ import os
 # https://github.com/rtfd/readthedocs.org/issues/388
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
-  from subprocess import call
+  from subprocess import call 
   call('./run_doxygen.sh;', shell=True)
 
 # -- General configuration ------------------------------------------------
@@ -61,7 +61,7 @@ breathe_default_project = "ReadTheDocs-Breathe"
 
 #Added from mj
 # Configuration for mathjax extension
-#
+# 
 # Set path for mathjax js to a https URL as sometimes the Breathe docs are displayed under https
 # and we can't load an http mathjax file from an https view of the docs. So we change to a https
 # mathjax file which we can load from http or https. We break the url over two lines.
@@ -160,7 +160,7 @@ html_theme = 'sphinx_rtd_theme'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo =
+#html_logo = 
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -272,7 +272,7 @@ latex_documents = [
 
 
 
-
+ 
 # -- Options for manual page output ---------------------------------------
 
 # One entry per manual page. List of tuples

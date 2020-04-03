@@ -41,7 +41,7 @@ constexpr char rocblas_swap_name<rocblas_double_complex>[] = "rocblas_zswap";
 /*! \brief BLAS Level 1 API
 
     \details
-    swap  interchange vector x[i] and y[i], for  i = 1 , ... , n
+    swap  interchange vector x[i] and y[i], for  i = 1 , … , n
 
         y := x; x := y
 

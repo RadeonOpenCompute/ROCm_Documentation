@@ -54,7 +54,7 @@ Batched and strided GEMM API
 *****************************
 hipBLAS GEMM can process matrices in batches with regular strides. There are several permutations of these API's, the following is an example that takes everything
 
-::
+:: 
 
   hipblasStatus_t
   hipblasSgemmStridedBatched( hipblasHandle_t handle,

@@ -374,7 +374,7 @@ hsa_status_t Runtime::CopyMemory(void* dst, const void* src, size_t size) {
 
   /*
   GPU-GPU - functional support, not a performance path.
-
+  
   This goes through system memory because we have to support copying between non-peer GPUs
   and we can't use P2P pointers even if the GPUs are peers.  Because hsa_amd_agents_allow_access
   requires the caller to specify all allowed agents we can't assume that a peer mapped pointer

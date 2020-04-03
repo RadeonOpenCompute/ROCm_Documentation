@@ -8,14 +8,14 @@
 template <typename T, typename U>
 rocblas_status rocsolver_getf2_batched_impl(rocblas_handle handle, const rocblas_int m,
                                         const rocblas_int n, U A, const rocblas_int lda,
-                                        rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count)
-{
+                                        rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count) 
+{ 
 
     if(!handle)
         return rocblas_status_invalid_handle;
-
-    //logging is missing ???
-
+    
+    //logging is missing ???    
+    
     if (!A || !ipiv || !info)
         return rocblas_status_invalid_pointer;
     if (m < 0 || n < 0 || lda < m || batch_count < 0)
@@ -40,25 +40,25 @@ rocblas_status rocsolver_getf2_batched_impl(rocblas_handle handle, const rocblas
 extern "C" {
 
 ROCSOLVER_EXPORT rocblas_status rocsolver_sgetf2_batched(rocblas_handle handle, const rocblas_int m, const rocblas_int n, float *const A[],
-                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count)
+                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count) 
 {
     return rocsolver_getf2_batched_impl<float>(handle, m, n, A, lda, ipiv, strideP, info, batch_count);
 }
 
 ROCSOLVER_EXPORT rocblas_status rocsolver_dgetf2_batched(rocblas_handle handle, const rocblas_int m, const rocblas_int n, double *const A[],
-                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count)
+                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count) 
 {
     return rocsolver_getf2_batched_impl<double>(handle, m, n, A, lda, ipiv, strideP, info, batch_count);
 }
 
 ROCSOLVER_EXPORT rocblas_status rocsolver_cgetf2_batched(rocblas_handle handle, const rocblas_int m, const rocblas_int n, rocblas_float_complex *const A[],
-                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count)
+                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count) 
 {
     return rocsolver_getf2_batched_impl<rocblas_float_complex>(handle, m, n, A, lda, ipiv, strideP, info, batch_count);
 }
 
 ROCSOLVER_EXPORT rocblas_status rocsolver_zgetf2_batched(rocblas_handle handle, const rocblas_int m, const rocblas_int n, rocblas_double_complex *const A[],
-                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count)
+                 const rocblas_int lda, rocblas_int* ipiv, const rocblas_int strideP, rocblas_int* info, const rocblas_int batch_count) 
 {
     return rocsolver_getf2_batched_impl<rocblas_double_complex>(handle, m, n, A, lda, ipiv, strideP, info, batch_count);
 }
