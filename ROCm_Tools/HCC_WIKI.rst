@@ -1,12 +1,12 @@
 .. _HCCwiki:
- 
+
 HCC WIKI
 =========
 
 HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute
 **************************************************************************
 
-HCC supports heterogeneous offload to AMD APUs and discrete GPUs via HSA enabled runtimes and drivers. It is an ISO compliant C++ 11/14 compiler. It is based on Clang, the LLVM Compiler Infrastructure and the “libc++” C++ standard library.
+HCC supports heterogeneous offload to AMD APUs and discrete GPUs via HSA enabled runtimes and drivers. It is an ISO compliant C++ 11/14 compiler. It is based on Clang, the LLVM Compiler Infrastructure and the "libc++" C++ standard library.
 
 Accelerator Modes Supported
 *****************************
@@ -14,7 +14,7 @@ Accelerator Modes Supported
 `HC (Heterogeneous Compute) C++ API <https://scchan.github.io/hcc>`_
 ++++++++++++++++++++++++++++++++++++++++++
 
-Inspired by C++ AMP and C++17, this is the default C++ compute API for the HCC compiler. HC has some important differences from C++ AMP including removing the “restrict” keyword, supporting additional data types in kernels, providing more control over synchronization and data movement, and providing pointer-based memory allocation. It is designed to expose cutting edge compute capabilities on Boltzmann and HSA devices to developers while offering the productivity and usability of C++.
+Inspired by C++ AMP and C++17, this is the default C++ compute API for the HCC compiler. HC has some important differences from C++ AMP including removing the "restrict" keyword, supporting additional data types in kernels, providing more control over synchronization and data movement, and providing pointer-based memory allocation. It is designed to expose cutting edge compute capabilities on Boltzmann and HSA devices to developers while offering the productivity and usability of C++.
 
 `HIP <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip-programming-guide.html>`_
 +++++++++++
@@ -73,9 +73,9 @@ Currently, HCC support for openSUSE is experimental and the compiler has to be b
 
 Building HCC from Source
 ########################
-First, install the build dependencies: 
+First, install the build dependencies:
 ::
-  
+
   # Ubuntu 16.04 & 18.04
   sudo apt-get install coreutils git cmake make g++  g++-multilib gcc-multilib python \
 findutils libelf1 libpci3 file debianutils libunwind-dev pkg-config \
@@ -99,7 +99,7 @@ hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev rocm-utils
 
   # openSUSE Leap 42.3
   sudo zypper install coreutils git cmake make gcc-c++ python python-xml findutils elfutils pciutils-devel file rpm-build libunwind-devel pkg-config libpth-devel
-   
+
   # install libc++ from OSB
   sudo zypper addrepo \
   -f http://download.opensuse.org/repositories/devel:/tools:/compiler/openSUSE_Leap_42.3/ devel_tools_compiler
@@ -107,17 +107,17 @@ hsa-rocr-dev hsa-ext-rocr-dev hsakmt-roct-dev rocm-utils
   sudo zypper install libc++-devel
 
 
-Clone the HCC source tree: 
+Clone the HCC source tree:
 ::
   # automatically fetches all submodules
   git clone --recursive -b clang_tot_upgrade https://github.com/RadeonOpenCompute/hcc.git
 
-Create a build directory and run cmake to configure the build: 
+Create a build directory and run cmake to configure the build:
 ::
   mkdir build; cd build
   cmake ../hcc
 
-Compile HCC: 
+Compile HCC:
 ::
   make -j [number of threads]
 
@@ -125,8 +125,8 @@ Install HCC:
 ::
   sudo make install
 
-Run the unit tests: 
-:: 
+Run the unit tests:
+::
   make test
 
 Create an installer package (DEB or RPM file)
@@ -147,7 +147,7 @@ To compile and link in a single step:
 To build with separate compile and link steps:
 ::
  # Assume HCC is installed and added to PATH
- # Notice the the hcc-config command is between two backticks 
+ # Notice the the hcc-config command is between two backticks
  hcc -hc saxpy.cpp -c -o saxpy.cpp.o
  hcc -hc saxpy.cpp.o -o saxpy
 
@@ -158,7 +158,7 @@ By default, HCC would auto-detect all the GPUs available to run on and set the c
 
 ============ ================== ==============================================================
 GCN Version   GPU/APU Family       Examples of Radeon GPU
-       
+
 ============ ================== ==============================================================
 
 gfx803        GFX8               R9 Fury, R9 Fury X, R9 Nano, FirePro S9300 x2, Radeon RX 480,
@@ -166,7 +166,7 @@ gfx803        GFX8               R9 Fury, R9 Fury X, R9 Nano, FirePro S9300 x2, 
 
 gfx900        GFX9                 Vega10
 
-============ ================== ============================================================== 
+============ ================== ==============================================================
 
 Required AMDGPU Attributes
 

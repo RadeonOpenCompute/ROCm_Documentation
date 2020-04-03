@@ -26,7 +26,7 @@ AMD is hosting both debian and rpm repositories for the ROCm 2.4 packages. The p
 
 Complete installation steps of ROCm can be found `Here <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_
 
-or 
+or
 
 For Debian based systems, like Ubuntu, configure the Debian ROCm repository as follows:
 
@@ -52,7 +52,7 @@ Next, update the apt-get repository list and install/update the rocm package:
 
 Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
 
-:: 
+::
   sudo vi /etc/default/grub
   sudo update-grub
 

@@ -44,7 +44,7 @@ Like the CUDA Driver API, the Module API provides additional control over how co
 
 ============    =================================       ==================    =================      ===========
 Format  	APIs    	                          NVCC                 	HCC 	             HIP-CLANG
-============    =================================       ==================    =================      ===========              
+============    =================================       ==================    =================      ===========
 Code Object 	hipModuleLoad, hipModuleLoadData 	.cubin or PTX text    .hsaco 	              .hsaco
 Fat Binary 	hipModuleLoadFatBin 	                .fatbin 	      Under Development       .hip_fatbin
 ============    =================================       ==================    =================       ===========
@@ -115,10 +115,10 @@ CUDA applications may want to mix CUDA driver code with HIP code (see example be
 ==============  =============== ===================
 HIP Type 	CU Driver Type 	CUDA Runtime Type
 ==============  =============== ===================
-hipModule_t 	CUmodule 	
-hipFunction_t 	CUfunction 	
-hipCtx_t 	CUcontext 	
-hipDevice_t 	CUdevice 	
+hipModule_t 	CUmodule
+hipFunction_t 	CUfunction
+hipCtx_t 	CUcontext
+hipDevice_t 	CUdevice
 hipStream_t 	CUstream 	cudaStream_t
 hipEvent_t 	CUevent 	cudaEvent_t
 hipArray 	CUarray 	cudaArray
@@ -227,7 +227,7 @@ The below sample shows how to use hipModuleGetFunction.
       std::vector<void*>argBuffer(2);
       memcpy(&argBuffer[0], &Ad, sizeof(void*));
       memcpy(&argBuffer[1], &Bd, sizeof(void*));
- 
+
       size_t size = argBuffer.size()*sizeof(void*);
 
       void *config[] = {
@@ -274,7 +274,7 @@ HIP supports texture driver APIs however texture reference should be declared in
 
   texture<float, 2, hipReadModeElementType> tex;
 
-  void myFunc () 
+  void myFunc ()
   {
       // ...
 

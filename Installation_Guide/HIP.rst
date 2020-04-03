@@ -60,16 +60,16 @@ Programmers familiar with CUDA will also be able to quickly learn and start codi
 ::
  hipMalloc(&A_d, Nbytes));
  hipMalloc(&C_d, Nbytes));
- 
+
  hipMemcpy(A_d, A_h, Nbytes, hipMemcpyHostToDevice);
- 
+
  const unsigned blocks = 512;
  const unsigned threadsPerBlock = 256;
  hipLaunchKernelGGL(vector_square,   /* compute kernel*/
                  dim3(blocks), dim3(threadsPerBlock), 0/*dynamic shared*/, 0/*stream*/,     /* launch config*/
-                 C_d, A_d, N);  /* arguments to the compute kernel */ 
- 
- hipMemcpy(C_h, C_d, Nbytes, hipMemcpyDeviceToHost); 
+                 C_d, A_d, N);  /* arguments to the compute kernel */
+
+ hipMemcpy(C_h, C_d, Nbytes, hipMemcpyDeviceToHost);
 
 
 The HIP kernel language defines builtins for determining grid and block coordinates, math functions, short vectors, atomics, and timer functions. It also specifies additional defines and keywords for function types, address spaces, and optimization controls. (See the HIP Kernel Language for a full description). Here's an example of defining a simple 'vector_square' kernel.
@@ -80,7 +80,7 @@ The HIP kernel language defines builtins for determining grid and block coordina
  {
      size_t offset = (hipBlockIdx_x * hipBlockDim_x + hipThreadIdx_x);
      size_t stride = hipBlockDim_x * hipGridDim_x ;
-  
+
     for (size_t i=offset; i<N; i+=stride) {
         C_d[i] = A_d[i] * A_d[i];
     }
@@ -105,7 +105,7 @@ Examples and Getting Started:
 
 * A sample and `blog <http://gpuopen.com/hip-to-be-squared-an-introductory-hip-tutorial>`_ that uses hipify to convert a simple app from CUDA to HIP:
 ::
- 
+
  cd samples/01_Intro/square
  # follow README / blog steps to hipify the application.
 

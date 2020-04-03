@@ -1,12 +1,12 @@
 .. toctree::
-   :maxdepth: 4 
+   :maxdepth: 4
    :caption: Contents:
 
 *************
 rocSOLVER API - (Documentation in progress....)
 *************
 
-This section provides details of the rocSOLVER library API as of Release 
+This section provides details of the rocSOLVER library API as of Release
 `ROCm 2.10 <https://github.com/ROCmSoftwarePlatform/rocSOLVER/tree/master-rocm-2.10>`_.
 
 
@@ -14,7 +14,7 @@ This section provides details of the rocSOLVER library API as of Release
 Types
 =====
 
-Most rocSOLVER types are aliases of rocBLAS types. 
+Most rocSOLVER types are aliases of rocBLAS types.
 See rocBLAS types `here <https://rocblas.readthedocs.io/en/latest/api.html#types>`_.
 
 Definitions
@@ -312,7 +312,7 @@ rocsolver_<type>getrs_strided_batched()
 Auxiliaries
 =========================
 
-rocSOLVER auxiliary functions are aliases of rocBLAS auxiliary functions. See rocBLAS auxiliary functions 
+rocSOLVER auxiliary functions are aliases of rocBLAS auxiliary functions. See rocBLAS auxiliary functions
 `here <https://rocblas.readthedocs.io/en/latest/api.html#auxiliary>`_.
 
 rocSOLVER handle auxiliaries

@@ -849,7 +849,7 @@ CUDA Driver API functions supported by HIP
 +----------------------+-----+
 |   cuGetErrorString   |     |
 +----------------------+-----+
-	
+
 3. Initialization
 -------------------
 
@@ -1480,7 +1480,7 @@ CUDA Driver API functions supported by HIP
 +------------------------------------+--------------------------------------------------------+
 |   cuGraphicsD3D9RegisterResource   |                                                        |
 +------------------------------------+--------------------------------------------------------+
-	
+
 27.1. Direct3D 9 Interoperability [DEPRECATED]
 ------------------------------------------------
 

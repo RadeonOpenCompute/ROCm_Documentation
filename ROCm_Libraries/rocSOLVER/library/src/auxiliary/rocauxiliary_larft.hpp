@@ -17,8 +17,8 @@
 #include "common_device.hpp"
 
 template <typename T, typename U>
-__global__ void set_triangular(const rocsolver_int k, U V, const rocsolver_int shiftV, const rocsolver_int ldv, const rocsolver_int strideV, 
-                         T* tau, const rocsolver_int strideT, 
+__global__ void set_triangular(const rocsolver_int k, U V, const rocsolver_int shiftV, const rocsolver_int ldv, const rocsolver_int strideV,
+                         T* tau, const rocsolver_int strideT,
                          T* F, const rocsolver_int ldf, const rocsolver_int strideF, const rocsolver_storev storev)
 {
     const auto blocksize = hipBlockDim_x;
@@ -51,20 +51,20 @@ __global__ void set_tau(const rocsolver_int k, T* tau, const rocsolver_int strid
     const auto blocksize = hipBlockDim_x;
     const auto b = hipBlockIdx_x;
     const auto i = hipBlockIdx_y * blocksize + hipThreadIdx_x;
-   
+
     if (i < k) {
         T *tp;
         tp = tau + b*strideT;
         tp[i] = -tp[i];
     }
 }
-         
+
 
 template <typename T, typename U>
-rocblas_status rocsolver_larft_template(rocsolver_handle handle, const rocsolver_direct direct, 
+rocblas_status rocsolver_larft_template(rocsolver_handle handle, const rocsolver_direct direct,
                                    const rocsolver_storev storev, const rocsolver_int n,
-                                   const rocsolver_int k, U V, const rocblas_int shiftV, const rocsolver_int ldv, 
-                                   const rocsolver_int strideV, T* tau, const rocsolver_int strideT, T* F, 
+                                   const rocsolver_int k, U V, const rocblas_int shiftV, const rocsolver_int ldv,
+                                   const rocsolver_int strideV, T* tau, const rocsolver_int strideT, T* F,
                                    const rocsolver_int ldf, const rocsolver_int strideF, const rocsolver_int batch_count)
 {
     // quick return
@@ -84,7 +84,7 @@ rocblas_status rocsolver_larft_template(rocsolver_handle handle, const rocsolver
     hipMemcpy(oneInt, &one, sizeof(T), hipMemcpyHostToDevice);
     hipMalloc(&zeroInt, sizeof(T));
     hipMemcpy(zeroInt, &zero, sizeof(T), hipMemcpyHostToDevice);
-    
+
     #ifdef batched
         // **** THIS SYNCHRONIZATION WILL BE REQUIRED UNTIL
         //      BATCH-BLAS FUNCTIONALITY IS ENABLED. ****
@@ -98,26 +98,26 @@ rocblas_status rocsolver_larft_template(rocsolver_handle handle, const rocsolver
     if (direct == rocsolver_backward_direction)
         return rocblas_status_not_implemented;
 
-    //Fix diagonal of T, make zero the non used triangular part, 
+    //Fix diagonal of T, make zero the non used triangular part,
     //setup tau (changing signs) and account for the non-stored 1's on the householder vectors
     rocblas_int blocks = (k - 1)/32 + 1;
     hipLaunchKernelGGL(set_triangular,dim3(blocks,blocks,batch_count),dim3(32,32),0,stream,
                         k,V,shiftV,ldv,strideV,tau,strideT,F,ldf,strideF,storev);
     hipLaunchKernelGGL(set_tau,dim3(batch_count,blocks),dim3(32,1),0,stream,k,tau,strideT);
 
-    // **** FOR NOW, IT DOES NOT LOOK FOR TRAILING ZEROS 
+    // **** FOR NOW, IT DOES NOT LOOK FOR TRAILING ZEROS
     //      AS THIS WOULD REQUIRE SYNCHRONIZATION WITH GPU.
     //      IT WILL WORK ON THE ENTIRE MATRIX/VECTOR REGARDLESS OF
     //      ZERO ENTRIES ****
- 
+
     // **** BATCH IS EXECUTED IN A FOR-LOOP UNTIL BATCH-BLAS
     //      FUNCITONALITY IS ENABLED. ALSO ROCBLAS CALLS SHOULD
     //      BE MADE TO THE CORRESPONDING TEMPLATE_FUNCTIONS ****
-    
-    rocblas_operation trans;  
 
-    
-    for (int i = 1; i < k; ++i) { 
+    rocblas_operation trans;
+
+
+    for (int i = 1; i < k; ++i) {
         //compute the matrix vector product, using the householder vectors
         for (int b=0;b<batch_count;++b) {
             tp = tau + b*strideT;
@@ -137,13 +137,13 @@ rocblas_status rocsolver_larft_template(rocsolver_handle handle, const rocsolver
         //multiply by the previous triangular factor
         //THIS SHOULD BE DONE USING TRMV ONCE THIS
         //FUNCTIONALITY IS AVAILABLE IN ROCBLAS
-        trans = rocblas_operation_none; 
+        trans = rocblas_operation_none;
         for (int b=0;b<batch_count;++b) {
             Vp = load_ptr_batch<T>(VV,shiftV,b,strideV);
             Fp = F + b*strideF;
-            rocblas_gemv(handle, trans, i, i, oneInt, Fp, ldf, 
+            rocblas_gemv(handle, trans, i, i, oneInt, Fp, ldf,
                         (Fp + idx2D(0,i,ldf)), 1, zeroInt, (Fp + idx2D(0,i,ldf)), 1);
-        } 
+        }
     }
 
     //restore tau
@@ -151,7 +151,7 @@ rocblas_status rocsolver_larft_template(rocsolver_handle handle, const rocsolver
 
     hipFree(oneInt);
     hipFree(zeroInt);
-    
+
     return rocblas_status_success;
 }
 

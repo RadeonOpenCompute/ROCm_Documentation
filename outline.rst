@@ -1,6 +1,6 @@
 .. _ROCm_Release_Notes:
 
-  
+
 1.0 Current Release Notes
 ==========================
 
@@ -17,7 +17,7 @@
 2.3 Installation Guide Fedora
 -----------------------------
 
- 
+
 .. _ROCm_Developer_Guides:
 
 3.0 Programing Guides
@@ -43,7 +43,7 @@
 3.1.3 Performance Guidelines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.1.4 Language Extensions 
+3.1.4 Language Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 3.1.5 Mathematical Functions
@@ -54,7 +54,7 @@
 
 3.1.6 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
+
 3.2 HC Best Practices
 ----------------------
 
@@ -102,7 +102,7 @@
 
 3.2.115 HCC compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
+
 3.3 HIP Programing Guide
 -------------------------
 
@@ -122,7 +122,7 @@
 3.3.3 Performance Guidelines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.3.4 Language Extensions 
+3.3.4 Language Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 3.3.5 Mathematical Functions
@@ -131,9 +131,9 @@
 3.3.6 Textures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.3.7 Environment Variables 
+3.3.7 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
+
 3.4 HIP Best Practices
 ----------------------
 
@@ -181,7 +181,7 @@
 
 3.4.15 HCC compiler switches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
+
 3.5 OpenCL Programing Guide
 ----------------------------
 
@@ -201,7 +201,7 @@
 3.5.3 Performance Guidelines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.5.4 Language Extensions 
+3.5.4 Language Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 3.5.5 Mathematical Functions
@@ -267,16 +267,16 @@
 
 .. _GCN_ISA_Manuals:
 
-5.0 GCN ISA Manuals 
+5.0 GCN ISA Manuals
 ====================
 
 5.1 GCN 1.1 Hawaii
 ----------------
 
-5.2 GCN 2.0 Fiji and Polaris  
+5.2 GCN 2.0 Fiji and Polaris
 ---------------
 
-5.2 GCN - Vega  
+5.2 GCN - Vega
 ---------------
 
 5.4 Inline GCN ISA Assembly Guide
@@ -300,7 +300,7 @@
 6.5 HIP Math API
 ----------------------------
 
-6.6 Math Libarary API's 
+6.6 Math Libarary API's
 ----------------------------
 
 6.6.1 rocBLAS
@@ -327,7 +327,7 @@
 6.6.8 clRAND
 ~~~~~~~~~~~~~~~~~~
 
-6.7 Deep Learning API's 
+6.7 Deep Learning API's
 ------------------------
 
 6.7.1 MIOpen
@@ -408,7 +408,7 @@
   vi.     Architected Queuing Language Packets
   vii.    Memory
   viii.   Code Object Loading
-  ix.     Common definitions  
+  ix.     Common definitions
 
 8.4.4 Best Practices Mapping Programing Language to ROCr runtime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -426,13 +426,13 @@
 9.2 Programing ROCm-SMI
 --------------------------
 
-9.3 SYSFS Interface 
+9.3 SYSFS Interface
 -----------------------
 
 
 .. _ROCm_Virtualization_Guide:
 
-10 ROCm Virtualization & Containers  
+10 ROCm Virtualization & Containers
 ==========================================
 
 10.1 KVM Passthrough
@@ -444,13 +444,13 @@
 
 .. _ROCm_Remote_Device_Programing:
 
-11 Remote Device Programing 
+11 Remote Device Programing
 ===========================
 
 11.1 ROCnRDMA
 ---------
 
-11.2 UCX 
+11.2 UCX
 ---------
 
 11.3 MPI

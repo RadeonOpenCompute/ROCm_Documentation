@@ -2,7 +2,7 @@
 
 tutorial
 ==========
- 
+
 How do I debug my GPU application?
 ************************************
 You can start your program in rocm-gdb just like you would any application under gdb
@@ -190,7 +190,7 @@ Switching the focus to another work-item and printing $s0 allows us to view data
 ::
 
    (ROCm-gdb) rocm thread wg:0,0,0 wi:1,0,0
-   [ROCm-gdb]: Switching to work-group (0,0,0) and work-item (1,0,0)  
+   [ROCm-gdb]: Switching to work-group (0,0,0) and work-item (1,0,0)
    (ROCm-gdb) print rocm:$s0
     $3 = 1
 
@@ -299,7 +299,7 @@ The info rocm work-groups command will show the active work-groups for the activ
 
 The info rocm wg 0 command will show the information of work-group 0 for the active dispatch
 
-:: 
+::
 
   Information for Work-group 0
   Index     Wave ID {SE,SH,CU,SIMD,Wave}            Work-item ID        Abs Work-item ID        PC            Source line
@@ -337,11 +337,11 @@ ROCm-gdb helps developers to view information about kernels that have been launc
   (ROCm-gdb) set rocm trace mytrace.csv
   (ROCm-gdb) set rocm trace on
 
-You can now execute and debug the application within ROCm-gdb. Anytime during the application’s execution you can view my_trace.csv to see the kernels have been dispatched. A sample trace for an application that dispatches a vector add kernel followed by a matrix multiplication kernel in a loop is shown below.
-		   		&__OpenCL_matrixMul_kernel 	
-====== =========== =========== ============================= ======= ======= ================ =========== ========== ====================== 
-index 	queue_id    packet_id 	  kernel_name 	              header  setup   workgroup_size   reserved0  grid_size   private_segment_size 
-====== =========== =========== ============================= ======= ======= ================ =========== ========== ====================== 
+You can now execute and debug the application within ROCm-gdb. Anytime during the application's execution you can view my_trace.csv to see the kernels have been dispatched. A sample trace for an application that dispatches a vector add kernel followed by a matrix multiplication kernel in a loop is shown below.
+		   		&__OpenCL_matrixMul_kernel
+====== =========== =========== ============================= ======= ======= ================ =========== ========== ======================
+index 	queue_id    packet_id 	  kernel_name 	              header  setup   workgroup_size   reserved0  grid_size   private_segment_size
+====== =========== =========== ============================= ======= ======= ================ =========== ========== ======================
 	group_segment_size 	kernel_object 	kernarg_address 	reserved2 	completion_signal
 0 	380095252 	0 	&__Gdt_vectoradd_kernel 	5122 	1 	{64 1 1} 	0 	{64 1 1} 	0 	0 	140737353981952 	0x713000 	0 	7513216
 1 	380095252 	1 	&__OpenCL_matrixMul_kernel 	5122 	2 	{16 16 1} 	0 	{128 80 1} 	0 	0 	140737353983488 	0x6ca000 	0 	7910848

@@ -51,10 +51,10 @@ __global__ void laswp_kernel(const rocblas_int n, U AA, const rocblas_int shiftA
 template <typename T, typename U>
 rocblas_status rocsolver_laswp_template(rocblas_handle handle, const rocblas_int n, U A, const rocblas_int shiftA,
                               const rocblas_int lda, const rocblas_int strideA, const rocblas_int k1, const rocblas_int k2,
-                              const rocblas_int *ipiv, const rocblas_int shiftP, const rocblas_int strideP, rocblas_int incx, 
+                              const rocblas_int *ipiv, const rocblas_int shiftP, const rocblas_int strideP, rocblas_int incx,
                               const rocblas_int batch_count) {
     // quick return
-    if (n == 0 || !batch_count) 
+    if (n == 0 || !batch_count)
         return rocblas_status_success;
 
     rocblas_int start, end, inc;
@@ -63,7 +63,7 @@ rocblas_status rocsolver_laswp_template(rocblas_handle handle, const rocblas_int
         end = k1 - 1;
         inc = -1;
         incx = -incx;
-    } 
+    }
     else {
         start = k1;
         end = k2 + 1;

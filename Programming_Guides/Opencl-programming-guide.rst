@@ -11,13 +11,13 @@ OpenCL Programming Guide
 	* :ref:`Synchronization`
 	* :ref:`Memory-Arch`
 	* :ref:`Example`
-   
-   * :ref:`AMD_Implementation` 
+
+   * :ref:`AMD_Implementation`
 	* :ref:`AMD-ROCm-Implementation`
-	* :ref:`Hardware-Overview-GCNDevices` 
+	* :ref:`Hardware-Overview-GCNDevices`
 	* :ref:`Communication-Host-GPU`
 	* :ref:`Wavefront-Scheduling`
-   
+
    * :ref:`Build_Run_Opencl`
 	* :ref:`Compilin-Host-Program`
 	* :ref:`Compiling-device-programs`
@@ -28,36 +28,36 @@ OpenCL Programming Guide
 	* :ref:`Running-Program`
 	* :ref:`note-on-thread-safety`
 	* :ref:`Toolchain-considerations`
-   
+
    * :ref:`Profiling_OpenCL`
 	* :ref:`AMD-CodeXL-GPU`
-   
-   * :ref:`OpenCL_static` 
+
+   * :ref:`OpenCL_static`
 	* :ref:`Overview`
-	* :ref:`OpenCL-C-Runtime` 
+	* :ref:`OpenCL-C-Runtime`
 	* :ref:`C-Programming-Language`
 	* :ref:`Examples`
-   
-   * :ref:`OpenCL_2.0` 
+
+   * :ref:`OpenCL_2.0`
 	* :ref:`Introduction`
 	* :ref:`Shared-virtual-Memory`
 	* :ref:`Generi`
-	* :ref:`Device-side-enqueue`	
+	* :ref:`Device-side-enqueue`
 	* :ref:`Atomics`
 	* :ref:`Pipes`
 	* :ref:`Program-scope-global-Variables`
 	* :ref:`Image-Enhancements`
 	* :ref:`Non-uniform-work-group-size`
 	* :ref:`Portability-considerations`
-   
+
    * :ref:`OpenCL_Extentions`
    * :ref:`ICD`
    * :ref:`BIF`
    * :ref:`pre_GCN_Devices`
    * :ref:`OpenCL_OpenGL`
    * :ref:`Functions_OpenCL`
-  
-   
+
+
  .. _OpenCL Architecture:
 OpenCL Architecture and AMD Accelerated Parallel Processing Technology
 =======================================================================
@@ -66,13 +66,13 @@ OpenCL Architecture and AMD Accelerated Parallel Processing Technology
 
 Terminology
 ############
-**compute kernel :** 
+**compute kernel :**
 
 To define a compute kernel, it is first necessary to define a kernel. A kernel is a small unit of execution that performs a clearly defined function and that can be executed in parallel. Such a kernel can be executed on each element of an input stream (called an NDRange), or simply at each point in an arbitrary index space. A kernel is analogous and, on some devices identical, to what graphics programmers call a shader program. This kernel is not to be confused with an OS kernel, which controls hardware. The most basic form of an NDRange is simply mapped over input data and produces one output item for each input tuple. Subsequent extensions of the basic model provide random-access functionality, variable output counts, and reduction/accumulation operations. Kernels are specified using the kernel keyword.
 
 A compute kernel is a specific type of kernel that is not part of the traditional graphics pipeline. The compute kernel type can be used for graphics, but its strength lies in using it for non-graphics fields such as physics, AI, modeling, HPC, and various other computationally intensive applications.
 
-In a compute kernel, the work-item spawn order is sequential. This means that on a chip with N work-items per wavefront, the first N work- items go to wavefront 1, the second N work-items go to wavefront 2, etc. Thus, the work-item IDs for wavefront K are in the range (K•N) to ((K+1)•N)-1.
+In a compute kernel, the work-item spawn order is sequential. This means that on a chip with N work-items per wavefront, the first N work- items go to wavefront 1, the second N work-items go to wavefront 2, etc. Thus, the work-item IDs for wavefront K are in the range (KoN) to ((K+1)oN)-1.
 
 **wavefronts and work-groups :**
 
@@ -84,7 +84,7 @@ Work-groups are composed of wavefronts. Best performance is attained when the gr
 
 **local data store(LDS) :**
 
-The LDS is a high-speed, low-latency memory private to each compute unit. It is a full gather/scatter model: a work-group can write anywhere in its allocated space. This model is unchanged for the AMD Radeon™ HD 7XXX series. The constraints of the current LDS model are:
+The LDS is a high-speed, low-latency memory private to each compute unit. It is a full gather/scatter model: a work-group can write anywhere in its allocated space. This model is unchanged for the AMD Radeon(TM) HD 7XXX series. The constraints of the current LDS model are:
 
  * The LDS size is allocated per work-group. Each work-group specifies how much of the LDS it requires. The hardware scheduler uses  	this information to determine which work groups can share a compute unit.
  * Data can only be shared within work-items in a work-group.
@@ -114,14 +114,14 @@ executing kernels for specific devices.
 
 .. image:: images/img1.png
     :align: center
-    
+
 
 
 The devices are capable of running data- and task-parallel work. A kernel can be executed as a function of multi-dimensional domains of indices. Each element is called a work-item; the total number of indices is defined as the global work-size. The global work-size can be divided into sub-domains, called work-groups, and individual work-items within a group can communicate through global or locally shared memory. Work-items are synchronized through barrier or fence operations. Figure 1.1 is a representation of the host/device architecture with a single platform, consisting of a GPU and a CPU.
 
-An OpenCL application is built by first querying the runtime to determine which platforms are present. There can be any number of different OpenCL implementations installed on a single system. The desired OpenCL platform can be selected by matching the platform vendor string to the desired vendor name, such as “Advanced Micro Devices, Inc.” The next step is to create a context. As shown in Figure 1.1, an OpenCL context has associated with it a number of compute devices (for example, CPU or GPU devices),. Within a context, OpenCL guarantees a relaxed consistency between these devices. This means that memory objects, such as buffers or images, are allocated per context; but changes made by one device are only guaranteed to be visible by another device at well-defined synchronization points. For this, OpenCL provides events, with the ability to synchronize on a given event to enforce the correct order of execution.
+An OpenCL application is built by first querying the runtime to determine which platforms are present. There can be any number of different OpenCL implementations installed on a single system. The desired OpenCL platform can be selected by matching the platform vendor string to the desired vendor name, such as "Advanced Micro Devices, Inc." The next step is to create a context. As shown in Figure 1.1, an OpenCL context has associated with it a number of compute devices (for example, CPU or GPU devices),. Within a context, OpenCL guarantees a relaxed consistency between these devices. This means that memory objects, such as buffers or images, are allocated per context; but changes made by one device are only guaranteed to be visible by another device at well-defined synchronization points. For this, OpenCL provides events, with the ability to synchronize on a given event to enforce the correct order of execution.
 
-Many operations are performed with respect to a given context; there also are many operations that are specific to a device. For example, program compilation and kernel execution are done on a per-device basis. Performing work with a device, such as executing kernels or moving data to and from the device’s local memory, is done using a corresponding command queue. A command queue is associated with a single device and a given context; all work for a specific device is done through this interface. Note that while a single command queue can be associated with only a single device, there is no limit to the number of command queues that can point to the same device. For example, it is possible to have one command queue for executing kernels and a command queue for managing data transfers between the host and the device.
+Many operations are performed with respect to a given context; there also are many operations that are specific to a device. For example, program compilation and kernel execution are done on a per-device basis. Performing work with a device, such as executing kernels or moving data to and from the device's local memory, is done using a corresponding command queue. A command queue is associated with a single device and a given context; all work for a specific device is done through this interface. Note that while a single command queue can be associated with only a single device, there is no limit to the number of command queues that can point to the same device. For example, it is possible to have one command queue for executing kernels and a command queue for managing data transfers between the host and the device.
 
 Most OpenCL programs follow the same pattern. Given a specific platform, select a device or devices to create a context, allocate memory, create device-specific command queues, and perform data transfers and computations. Generally, the platform is the gateway to accessing specific devices, given these devices and a corresponding context, the application is independent of the platform. Given a context, the application can:
 
@@ -147,14 +147,14 @@ There are two types of synchronization between commands in a command- queue:
  * command-queue barrier - enforces ordering within a single queue. Any resulting changes to memory are available to the following   	commands in the queue.
  * events - enforces ordering between, or within, queues. Enqueued commands in OpenCL return an event identifying the command as well 	 as the memory object updated by it. This ensures that following commands waiting on that event see the updated memory objects     	before they execute.
 
-OpenCL 2.0 provides additional synchronization options. For an overview, see “Atomics and synchronization.”.
+OpenCL 2.0 provides additional synchronization options. For an overview, see "Atomics and synchronization.".
 
 .. _Memory-Arch:
 
 Memory Architecture and Access
 ###################################
 
-OpenCL has four memory domains: private, local, global, and constant; the AMD Compute Technology system also recognizes host (CPU) and PCI Express®  (PCIe® ) memory.
+OpenCL has four memory domains: private, local, global, and constant; the AMD Compute Technology system also recognizes host (CPU) and PCI Express(R)  (PCIe(R) ) memory.
 
 ============= ====================================================================================================================
  Memory Type   Description
@@ -167,11 +167,11 @@ global	       Accessible to all work-items executing in a context, as well as to
 
 constant       Read-only region for host-allocated and -initialized objects that are not changed during kernel execution.
 
-host (CPU)     Host-accessible region for an application’s data structures and program data.
+host (CPU)     Host-accessible region for an application's data structures and program data.
 
 PCIe	       Part of host (CPU) memory accessible from, and modifiable by, the host program and the GPU compute device. Modifying 		       this memory requires synchronization between the GPU compute device and the CPU.
 ============= ====================================================================================================================
- 
+
 				**Table: illustrates the interrelationship of the memories.**
 
 .. image:: images/img2.png
@@ -222,7 +222,7 @@ Dataflow in Memory Hierarchy
 .. image:: images/img5.png
     :align: center
 
-To load data into LDS from global memory, it is read from global memory and placed into the work-item’s registers; then, a store is performed to LDS. Similarly, to store data into global memory, data is read from LDS and placed into the work- item’s registers, then placed into global memory. To make effective use of the LDS, an algorithm must perform many operations on what is transferred between global memory and LDS. It also is possible to load data from a memory buffer directly into LDS, bypassing VGPRs.
+To load data into LDS from global memory, it is read from global memory and placed into the work-item's registers; then, a store is performed to LDS. Similarly, to store data into global memory, data is read from LDS and placed into the work- item's registers, then placed into global memory. To make effective use of the LDS, an algorithm must perform many operations on what is transferred between global memory and LDS. It also is possible to load data from a memory buffer directly into LDS, bypassing VGPRs.
 
 LDS atomics are performed in the LDS hardware. (Thus, although ALUs are not directly used for these operations, latency is incurred by the LDS executing this function.) If the algorithm does not require write-to-read reuse (the data is read only), it usually is better to use the image dataflow (see right side of Figure 1.5) because of the cache hierarchy.
 
@@ -256,7 +256,7 @@ Image reads are done by addressing the desired location in the input memory usin
 Image reads are cached through the texture system (corresponding to the L2 and
 L1 caches).
 
-.. _Example:  
+.. _Example:
 
 Example Programs
 ###################
@@ -282,7 +282,7 @@ This sample shows a minimalist OpenCL C program that sets a given buffer to some
 7. The data is mapped to the host for examination. Calling clEnqueueMapBuffer ensures the visibility of the buffer on the host, which in this case probably includes a physical transfer. Alternatively, we could use ``clEnqueueWriteBuffer()``, which requires a pre-allocated host-side buffer.
 
 
-**Example Code 1** 
+**Example Code 1**
 
 ::
 
@@ -381,22 +381,22 @@ Example: SAXPY Function
 This section provides an introductory sample for beginner-level OpenCL
 programmers using C++ bindings.
 
-The sample implements the SAXPY function (Y = aX + Y, where X and Y are vectors, and a is a scalar). The full code is reproduced at the end of this section. It uses C++ bindings for OpenCL. These bindings are available in the CL/cl.hpp file in the AMD Compute SDK; they also are downloadable from the Khronos website: http://www.khronos.org/registry/cl 
+The sample implements the SAXPY function (Y = aX + Y, where X and Y are vectors, and a is a scalar). The full code is reproduced at the end of this section. It uses C++ bindings for OpenCL. These bindings are available in the CL/cl.hpp file in the AMD Compute SDK; they also are downloadable from the Khronos website: http://www.khronos.org/registry/cl
 
 The following steps guide you through this example.
 
 1. Enable error checking through the exception handling mechanism in the C++
    bindings by using the following define.
    ::
-   
+
    #define  CL ENABLE_EXCEPTIONS
 
    This removes the need to error check after each OpenCL call. If there is an error, the C++ bindings code throw an exception that is caught at the end of the try block, where we can clean up the host memory allocations. In this example, the C++ object representing OpenCL resources (cl::Context, cl::CommandQueue, etc.) are declared as automatic variables, so they do not need to be released. If an OpenCL call returns an error, the error code is defined in the CL/cl.h file.
 
 2. The kernel is very simple: each work-item, i, does the SAXPY calculation for its corresponding elements ``Y[i] = aX[i] + Y[i]``. Both X and Y vectors are stored in global memory; X is read-only, Y is read-write.
 
-   :: 
-    
+   ::
+
     kernel void saxpy(const __global float * X,
                             __global float * Y,
                       const float a)
@@ -414,31 +414,31 @@ The following steps guide you through this example.
 4. Create an OpenCL context on that platform.
 
    ::
-    
+
     cl_context_properties cps[3] = { CL_CONTEXT_PLATFORM, (cl_context_properties)(*iter)(), 0 };
     context = cl::Context(CL_DEVICE_TYPE_GPU, cps);
 
 5. Get OpenCL devices from the context.
    ::
-   
+
     devices = context.getInfo<CL_CONTEXT_DEVICES>();
 
 6. Create an OpenCL command queue.
 
    ::
-    
+
     queue = cl::CommandQueue(context, devices[0]);
 
 7. Create two buffers, corresponding to the X and Y vectors. Ensure the host- side buffers, pX and pY, are allocated and initialized. 	 The CL_MEM_COPY_HOST_PTR flag instructs the runtime to copy over the contents of the host pointer pX in order to initialize the   	buffer bufX. The bufX buffer uses the CL_MEM_READ_ONLY flag, while bufY requires the CL_MEM_READ_WRITE flag.
 
    ::
-    
+
     bufX = cl::Buffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, sizeof(cl_float) * length, pX);
 
 8. Create a program object from the kernel source string, build the program for our devices, and create a kernel object corresponding to the SAXPY kernel. (At this point, it is possible to create multiple kernel objects if there are more than one.)
 
    ::
-   
+
     cl::Program::Sources sources(1, std::make_pair(kernelStr.c_str(), kernelStr.length()));
     program = cl::Program(context, sources);
     program.build(devices);
@@ -448,17 +448,17 @@ The following steps guide you through this example.
 
    Set each argument individually in separate kernel.setArg() calls. The arguments, do not need to be set again for subsequent kernelenqueue calls. Reset only those arguments that are to pass a new value to the kernel. Then, enqueue the kernel to the command queue with the appropriate global and local work sizes.
    ::
-    
+
     kernel.setArg(0,bufX); kernel.setArg(1,bufY); kernel.setArg(2,a);
     queue.enqueueNDRangeKernel(kernel, cl::NDRange(), cl::NDRange(length), cl::NDRange(64));
 
 10. Read back the results from bufY to the host pointer pY. We will make this a blocking call (using the CL_TRUE argument) since we 	do not want to proceed before the kernel has finished execution and we have our results back.
     ::
-      
+
       queue.enqueueReadBuffer(bufY, CL_TRUE, 0, length * sizeof(cl_float), pY);
 
 11. Clean up the host resources (pX and pY). OpenCL resources is cleaned up by the C++ bindings support code.
-    
+
     The catch(cl::Error err) block handles exceptions thrown by the C++ bindings code. If there is an OpenCL call error, it prints  	out the name of the call and the error code (codes are defined in CL/cl.h). If there is a kernel compilation error, the error   	code is CL_BUILD_PROGRAM_FAILURE, in which case it is necessary to print out the build log.
 
 **Example Code 2**
@@ -490,7 +490,7 @@ The following steps guide you through this example.
       cout << arrayData[i] << " ";
     cout << endl;
   }
- 
+
   /////////////////////////////////////////////////////////////////
   // Globals
   /////////////////////////////////////////////////////////////////
@@ -520,7 +520,7 @@ The following steps guide you through this example.
       "   uint gid = get_global_id(0);\n"
       "   y[gid] = a* x[gid] + y[gid];\n"
       "}\n";
- 
+
   /////////////////////////////////////////////////////////////////
   // Allocate and initialize memory on the host
   /////////////////////////////////////////////////////////////////
@@ -583,7 +583,7 @@ The following steps guide you through this example.
           break;
         }
       }
- 
+
       /////////////////////////////////////////////////////////////////
       // Create an OpenCL context
       /////////////////////////////////////////////////////////////////
@@ -678,7 +678,7 @@ The code is written so that it performs very well on either CPU or GPU. The numb
 
 The sample includes a number of programming techniques useful for simple tests. Only minimal error checking and resource tear-down is used.
 
-Runtime Code –
+Runtime Code -
 
 1. The source memory buffer is allocated, and initialized with a random pattern.
    Also, the actual min() value for this data set is serially computed, in order to later verify the parallel result.
@@ -694,8 +694,8 @@ Runtime Code –
 5. After the kernels are built, the code prints errors that occurred during kernel compilation and linking.
 
 6. The main loop is set up so that the measured timing reflects the actual kernel performance. If a sufficiently large NLOOPS is     chosen, effects from kernel launch time and delayed buffer copies to the device by the CL runtime are minimized. Note that while  	only a single clFinish() is executed at the end of the timing run, the two kernels are always linked using an event to ensure     	serial execution.
-   
-   The bandwidth is expressed as “number of input bytes processed.” For high- end graphics cards, the bandwidth of this algorithm is   	about an order of magnitude higher than that of the CPU, due to the parallelized memory subsystem of the graphics card.
+
+   The bandwidth is expressed as "number of input bytes processed." For high- end graphics cards, the bandwidth of this algorithm is   	about an order of magnitude higher than that of the CPU, due to the parallelized memory subsystem of the graphics card.
 
 7. The results then are checked against the comparison value. This also establishes that the result is the same on both CPU and GPU, 	which can serve as the first verification test for newly written kernel code.
 
@@ -703,7 +703,7 @@ Runtime Code –
 
 9. You can use the Timer.cpp and Timer.h files from the TransferOverlap sample, which is in the SDK samples.
 
-Kernel Code –
+Kernel Code -
 
 10. The code uses four-component vectors (uint4) so the compiler can identify concurrent execution paths as often as possible. On the GPU, this can be used to further optimize memory accesses and distribution across ALUs. On the CPU, it can be used to enable SSE  like execution.
 
@@ -755,7 +755,7 @@ Kernel Code –
   "  uint idx   = (dev == 0) ? get_global_id(0) * count                             \n"
   "                          :  get_global_id(0);                                   \n"
   "  uint stride = (dev == 0) ? 1 : get_global_size(0);                             \n"
-  "  uint pmin  = (uint) -1;                                                        \n" 	
+  "  uint pmin  = (uint) -1;                                                        \n"
   "  // 11. First, compute private min, for this work-item.                         \n"
   "  for( int n=0; n < count; n++, idx += stride )                                  \n"
   "  {                                                                              \n"
@@ -779,7 +779,7 @@ Kernel Code –
   "  {                                                                              \n"
   "    dbg[0] = get_num_groups(0);                                                  \n"
   "    dbg[1] = get_global_size(0);                                                 \n"
-  "    dbg[2] = count;                                                              \n" 
+  "    dbg[2] = count;                                                              \n"
   "    dbg[3] = stride;                                                             \n"
   "  }                                                                              \n"
   "}                                                                                \n"
@@ -790,7 +790,7 @@ Kernel Code –
   "{                                                                                \n"
   "  (void) atom_min( gmin, gmin[get_global_id(0)] );                               \n"
   "};                                                                               \n";
-  
+
   int main(int argc, char ** argv)
   {
     cl_platform_id	platform;
@@ -819,7 +819,7 @@ Kernel Code –
 
     // Get a platform.
     clGetPlatformIDs( 1, &platform, NULL );
-    
+
     // 3. Iterate over devices.
     for(dev=0; dev < NDEVS; dev++)
     {
@@ -1038,8 +1038,8 @@ The AMD ROCm software stack provides end-users and developers with a complete, f
 The software includes the following components:
 
   * OpenCL compiler and runtime
-  * Debugging and Performance Profiling Tools – AMD CodeXL.
-  * Performance Libraries – clMath and other OpenCL accelerated libraries for optimized NDRange-specific algorithms.
+  * Debugging and Performance Profiling Tools - AMD CodeXL.
+  * Performance Libraries - clMath and other OpenCL accelerated libraries for optimized NDRange-specific algorithms.
 
 The latest generations of AMD GPUs use unified shader architectures capable of running different kernel types interleaved on the same hardware.Programmable GPU compute devices execute various user-developed programs,known to graphics programmers as shaders and to compute programmers as kernels. These GPU compute devices can execute non-graphics functions using a data-parallel programming model that maps executions onto compute units. Each compute unit contains one (pre-GCN devices) or more (GCN devices) vector (SIMD) units. In this programming model, known as AMD Accelerated Parallel Processing Technology, arrays of input data elements stored in memory are accessed by a number of compute units.
 
@@ -1065,11 +1065,11 @@ OpenCL maps the total number of work-items to be launched onto an n- dimensional
 Work-Item Processing
 *****************************
 
-All processing elements within a vector unit execute the same instruction in each cycle. For a typical instruction, 16 processing elements execute one instruction for 64 work items over 4 cycles. The block of work-items that are executed together is called a wavefront. For example, on the AMD Radeon™ HD 290X
+All processing elements within a vector unit execute the same instruction in each cycle. For a typical instruction, 16 processing elements execute one instruction for 64 work items over 4 cycles. The block of work-items that are executed together is called a wavefront. For example, on the AMD Radeon(TM) HD 290X
 
 compute device, the 16 processing elements within each vector unit execute the same instruction for four cycles, which effectively appears as a 64-wide compute unit in execution width.
 
-The size of wavefronts can differ on different GPU compute devices. For example, some of the low-end and older GPUs, such as the AMD Radeon™ HD 54XX series graphics cards, have a wavefront size of 32 work-items. Higher-end and newer AMD GPUs have a wavefront size of 64 work-items.
+The size of wavefronts can differ on different GPU compute devices. For example, some of the low-end and older GPUs, such as the AMD Radeon(TM) HD 54XX series graphics cards, have a wavefront size of 32 work-items. Higher-end and newer AMD GPUs have a wavefront size of 64 work-items.
 
 Compute units operate independently of each other, so it is possible for different compute units to execute different instructions. It is also possible for different vector units within a compute unit to execute different instructions.
 
@@ -1123,8 +1123,8 @@ executes on an ALU, as shown in Figure 2.4).
 
 In GCN devices, each CU includes one Scalar Unit and four Vector (SIMD) units, each of which contains an array of 16 processing elements (PEs). Each PE contains one ALU. Each SIMD unit simultaneously executes a single operation across 16 work items, but each can be working on a separate wavefront.
 
-For example, for the AMD Radeon™ HD 79XX devices each of the 32 CUs has one Scalar Unit and four Vector Units. Figure 2.5 shows only two compute engines/command processors of the array that comprises the compute device of
-the AMD Radeon™ HD 79XX family.
+For example, for the AMD Radeon(TM) HD 79XX devices each of the 32 CUs has one Scalar Unit and four Vector Units. Figure 2.5 shows only two compute engines/command processors of the array that comprises the compute device of
+the AMD Radeon(TM) HD 79XX family.
 
 
 .. image:: images/2.5.png
@@ -1138,7 +1138,7 @@ The Asynchronous Compute Engines (ACEs) manage the CUs; a graphics command proce
 
 Key differences between pre-GCN and GCN devices
 ***********************************************
-In pre-GCN devices (for a hardware overview, see Appendix D, “Hardware overview of pre-GCN devices.”), each compute unit consists of a single vector unit, each containing up to 16 processing elements. Each processing element, which contains 4 or 5 ALUs, could execute bundles of 4 or 5 independent instructions co-issued in a VLIW (Very Long Instruction Word) format. All the processing elements within a vector unit execute a single wavefront (a group of
+In pre-GCN devices (for a hardware overview, see Appendix D, "Hardware overview of pre-GCN devices."), each compute unit consists of a single vector unit, each containing up to 16 processing elements. Each processing element, which contains 4 or 5 ALUs, could execute bundles of 4 or 5 independent instructions co-issued in a VLIW (Very Long Instruction Word) format. All the processing elements within a vector unit execute a single wavefront (a group of
 64 work items). If operations within a wavefront contain dependencies, they cannot be scheduled in the same clock cycle, leaving some ALUs un-utilized. In such cases, some processing elements (and hence, vector units) remain under- utilized.
 
 In GCN devices, the CUs are arranged in four vector unit arrays consisting of 16 processing elements each. Each of these arrays executes a single instruction across each lane for each block of 16 work-items. That instruction is repeated over four cycles to make the 64-element vector called a wavefront.
@@ -1161,13 +1161,13 @@ Each ACE contains up to eight hardware queues and, together with the graphics co
 
 Devices in the Southern Islands families typically have two ACEs. The ACE engines on the Southern Islands families are single-threaded, which means that they contain two hardware queues.
 
-Devices in the Sea Islands and Volcanic Islands families contain between four and eight ACEs, and are multi-threaded (thereby supporting more hardware queues) so they offer more performance. For example, the AMD Radeon™ R9
+Devices in the Sea Islands and Volcanic Islands families contain between four and eight ACEs, and are multi-threaded (thereby supporting more hardware queues) so they offer more performance. For example, the AMD Radeon(TM) R9
 290X devices, in the VI family contain 8 ACEs and 44 CUs.
 
 
 A note on hardware queues
 **************************
-A hardware queue can be thought of as a GPU entry point. The GPU can process kernels from several compute queues concurrently. All hardware queues ultimately share the same compute cores. The use of multiple hardware queues is beneficial when launching small kernels that do not fully saturate the GPU. For example, the AMD Radeon™ HD 290X compute device can execute up to
+A hardware queue can be thought of as a GPU entry point. The GPU can process kernels from several compute queues concurrently. All hardware queues ultimately share the same compute cores. The use of multiple hardware queues is beneficial when launching small kernels that do not fully saturate the GPU. For example, the AMD Radeon(TM) HD 290X compute device can execute up to
 112,640 threads concurrently. The GPU can execute two kernels each spawning
 56320 threads (assuming fully occupancy) twice as fast if launched concurrently through two hardware queues than serially through a single hardware queue.
 
@@ -1232,7 +1232,7 @@ Wavefront Scheduling
 #####################
 GPU compute devices are very efficient at parallelizing large numbers of work- items in a manner transparent to the application. Each GPU compute device uses the large number of wavefronts to hide memory access latencies by having the resource scheduler switch the active wavefront in a given compute unit whenever the current wavefront is waiting for a memory access to complete. Hiding memory access latencies requires that each work-item contain a large number of ALU operations per memory load/store.
 
-Figure 2.6 shows the timing of a simplified execution of wavefronts in a single compute unit. At time 0, the wavefronts are queued and waiting for execution. In this example, only four wavefronts (T0…T3) are scheduled for the compute unit. The hardware limit for the number of active wavefront is dependent on the resource usage (such as the number of active registers used) of the program being executed. An optimally programmed GPU compute device typically has many of active wavefronts.
+Figure 2.6 shows the timing of a simplified execution of wavefronts in a single compute unit. At time 0, the wavefronts are queued and waiting for execution. In this example, only four wavefronts (T0...T3) are scheduled for the compute unit. The hardware limit for the number of active wavefront is dependent on the resource usage (such as the number of active registers used) of the program being executed. An optimally programmed GPU compute device typically has many of active wavefronts.
 
 
 .. image:: images/2.6.png
@@ -1242,7 +1242,7 @@ At runtime, wavefront T0 executes until cycle 20; at this time, a stall occurs d
 
 If the data wavefront T0 is waiting for has returned from memory, T0 continues execution. In the example in Figure 2.6, the data is ready, so T0 continues. Since there were enough wavefronts and processing element operations to cover the long memory latencies, the compute unit does not idle. This method of memory latency hiding helps the GPU compute device achieve maximum performance.
 
-If none of T0 – T3 are runnable, the compute unit waits (stalls) until one of T0 – T3 is ready to execute. In the example shown in Figure 2.7, T0 is the first to continue execution.
+If none of T0 - T3 are runnable, the compute unit waits (stalls) until one of T0 - T3 is ready to execute. In the example shown in Figure 2.7, T0 is the first to continue execution.
 
 
 .. image:: images/2.7.png
@@ -1260,7 +1260,7 @@ An OpenCL application consists of a host program (C/C++) and an optional kernel 
 
 Compiling the Host Program
 ###########################
-In order to compile the host program, users must install the OpenCL Compiler and language runtime on the ROCm, On Ubuntu is rocm-opencl-dev which provides all the necessary OpenCL runtime headers and libraries required by the host compiler. If wish to support application build with the historical  APPS SDK sets an environmental variable named AMDAPPSDKROOT to the path of the directory in which the ROCm OpenCL is installed. It should be /opt/rocm/opencl.  The runtime headers and libraries are placed in the install directory under the “include” and “lib” sub-folders, respectively. 
+In order to compile the host program, users must install the OpenCL Compiler and language runtime on the ROCm, On Ubuntu is rocm-opencl-dev which provides all the necessary OpenCL runtime headers and libraries required by the host compiler. If wish to support application build with the historical  APPS SDK sets an environmental variable named AMDAPPSDKROOT to the path of the directory in which the ROCm OpenCL is installed. It should be /opt/rocm/opencl.  The runtime headers and libraries are placed in the install directory under the "include" and "lib" sub-folders, respectively.
 
 While building the host program, these headers and libraries must be included in the project by choosing the appropriate options for the targeted operating system, IDE, and compiler.
 
@@ -1273,13 +1273,13 @@ To compile OpenCL applications on Linux, gcc or the Intel C compiler must be ins
 
 1. Compile all the C++ files (Template.cpp), and get the object files.
   64-bit object files on 64-bit system::
-     
+
      g++ -o Template.o -c Template.cpp -I$ROCMOPENCL/include
 
 2. Link all the object files generated in the previous step to the OpenCL library and create an executable.
 
    For linking to a 64-bit library::
-   
+
      g++ -o Template Template.o -lOpenCL -L$ROCMOPENCL/lib/x86_64
 
 
@@ -1326,7 +1326,7 @@ Note: Most of the examples in this chapter are shown using runtime C APIs. In or
 
 **Example creation of program objects from an external file :**
 
-:: 
+::
 
    std::ifstream f("my_kernel.cl");
    std::stringstream st;
@@ -1366,40 +1366,40 @@ Suppose a program object has been created as follows:
 
 Next, the program object can be built for all the devices in the context or for a list of selected devices.
 
-* To build the program for all the devices, “NULL” must be passed against the target device list argument, as shown below:     	
+* To build the program for all the devices, "NULL" must be passed against the target device list argument, as shown below:
 
-:: 
-    
+::
+
   clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
 
 * To build for any particular GPU device or a list of devices :
-  
-:: 
-    
-  int nDevices = 0; 
+
+::
+
+  int nDevices = 0;
   clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 0, NULL, &nDevices);
   cl_device_id * devices = malloc(nDevices * sizeof(cl_device_id));
   clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, nDevices * sizeof(cl_device_id), devices, NULL);
 
 * To build for the nth GPU device in a list of devices:
 
-:: 
-    
+::
+
   clBuildProgram(program, 1, &devices[n], NULL, NULL, NULL);
 
 * To build for the first n number of GPU devices
 
-:: 
+::
     clBuildProgram(program, n, devices, NULL, NULL, NULL);
 
 
 **Build Options:**
 
-A list of options can be passed during program build to control each stage of the building process. The full list includes various categories of options, such as preprocessor, compiler, optimization, linker, and debugger. Some of them are standard (specified by Khronos); others are vendor-specific. For details about the standard options, see the clBuildProgram API’s description in the OpenCL specification.
+A list of options can be passed during program build to control each stage of the building process. The full list includes various categories of options, such as preprocessor, compiler, optimization, linker, and debugger. Some of them are standard (specified by Khronos); others are vendor-specific. For details about the standard options, see the clBuildProgram API's description in the OpenCL specification.
 
-For information about the frequently used standard build options, see  “Supported Standard OpenCL Compiler Options”.
+For information about the frequently used standard build options, see  "Supported Standard OpenCL Compiler Options".
 
-For information about AMD-developed supplemental options and environment variables, see  “AMD-Developed Supplemental Compiler Options”.
+For information about AMD-developed supplemental options and environment variables, see  "AMD-Developed Supplemental Compiler Options".
 
 **Special note for building OpenCL 2.0 programs:**
 
@@ -1415,7 +1415,7 @@ OpenCL provides a way to check and query the compilation/linking errors that occ
 
 **Example:**
 
-:: 
+::
 
   cl_int err = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
   if (err != CL_SUCCESS)
@@ -1440,8 +1440,8 @@ The user must compile each program object separately. This step may be a little 
 **Example (derived from the OpenCL specification):**
 
 Consider the following program source:
- 
-:: 
+
+::
 
   #include <foo.h>
   #include <mydir/myinc.h>
@@ -1453,7 +1453,7 @@ Consider the following program source:
 
 This kernel includes two headers, foo.h and mydir/myinc.h. So first create the program objects corresponding to each header as follows:
 
-:: 
+::
 
   cl_program foo_pg = clCreateProgramWithSource(context, 1, &foo_header_src, NULL, &err);
 
@@ -1466,10 +1466,10 @@ Suppose the program source described above is given by program_A and is loaded v
 
 Now, these headers can be passed as embedded headers along with the program object
 
-:: 
+::
 
-   cl_program input_headers[2] = { foo_pg, myinc_pg }; 
-   char * input_header_names[2] = { “foo.h”, “mydir/myinc.h” };
+   cl_program input_headers[2] = { foo_pg, myinc_pg };
+   char * input_header_names[2] = { "foo.h", "mydir/myinc.h" };
 
    clCompileProgram(program_A, 0, NULL, // num_devices & device_list
       NULL, // compile_options
@@ -1508,8 +1508,8 @@ Supported Standard OpenCL Compiler Options
 ###########################################
 The frequently-used build options are:
 
- * -I dir — Add the directory dir to the list of directories to be searched for header files. When parsing #include directives, the 	OpenCL compiler resolves relative paths using the current working directory of the application.
- * -D name — Predefine name as a macro, with definition = 1. For -D name=definition, the contents of definition are tokenized and processed as if they appeared during the translation phase three  in a #define directive. In particular, the definition is truncated by embedded newline characters.
+ * -I dir -- Add the directory dir to the list of directories to be searched for header files. When parsing #include directives, the 	OpenCL compiler resolves relative paths using the current working directory of the application.
+ * -D name -- Predefine name as a macro, with definition = 1. For -D name=definition, the contents of definition are tokenized and processed as if they appeared during the translation phase three  in a #define directive. In particular, the definition is truncated by embedded newline characters.
    -D options are processed in the order they are given in the options argument to ``clBuildProgram``.
 
 For additional build options, see the :ref:OpenCL specification.
@@ -1521,16 +1521,16 @@ AMD-Developed Supplemental Compiler Options
 
 The following supported options are not part of the OpenCL specification:
 
- * -g — This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or
-   cygwin/minGW under Windows. For more details, see Chapter 4, “Debugging and Profiling OpenCL.” This option does not affect the    	default optimization of the OpenCL code.
- * -O0 — Specifies to the compiler not to optimize. This is equivalent to the OpenCL standard option -cl-opt-disable.
- * -f[no-]bin-source — Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, “OpenCL BinaryImage Format (BIF) v2.0.” by default, this option does NOT generate the source.
- * -f[no-]bin-llvmir — Does [not] generate LLVM IR in the .llvmir section.
-   For more information, see Appendix C, “OpenCL Binary Image Format (BIF) v2.0.” By default, this option GENERATES the LLVM IR.
- * -f[no-]bin-amdil — Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, “OpenCL Binary Image  	Format (BIF) v2.0.” By default, this option does NOT generate the AMD IL.
- * -f[no-]bin-exe — Does [not] generate the executable (ISA) in the .text section. For more information, see Appendix C, “OpenCL    	Binary Image Format (BIF) v2.0.” By default, this option GENERATES the ISA.
- * -f[no-]bin-hsail — Does [not] generate HSAIL/BRIG in the binary. By default, this option does NOT generate HSA IL/BRIG in the    	binary.
- * -save-temps[=<prefix>] — This option dumps intermediate temporary files, such as IL and ISA code, for each OpenCL kernel. If      	<prefix> is not given, temporary files are saved in the default temporary directory (the current directory for Linux, C:\Users    	\<user>\AppData\Local for Windows). If <prefix> is given, those temporary files are saved with the given
+ * -g -- This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or
+   cygwin/minGW under Windows. For more details, see Chapter 4, "Debugging and Profiling OpenCL." This option does not affect the    	default optimization of the OpenCL code.
+ * -O0 -- Specifies to the compiler not to optimize. This is equivalent to the OpenCL standard option -cl-opt-disable.
+ * -f[no-]bin-source -- Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, "OpenCL BinaryImage Format (BIF) v2.0." by default, this option does NOT generate the source.
+ * -f[no-]bin-llvmir -- Does [not] generate LLVM IR in the .llvmir section.
+   For more information, see Appendix C, "OpenCL Binary Image Format (BIF) v2.0." By default, this option GENERATES the LLVM IR.
+ * -f[no-]bin-amdil -- Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, "OpenCL Binary Image  	Format (BIF) v2.0." By default, this option does NOT generate the AMD IL.
+ * -f[no-]bin-exe -- Does [not] generate the executable (ISA) in the .text section. For more information, see Appendix C, "OpenCL    	Binary Image Format (BIF) v2.0." By default, this option GENERATES the ISA.
+ * -f[no-]bin-hsail -- Does [not] generate HSAIL/BRIG in the binary. By default, this option does NOT generate HSA IL/BRIG in the    	binary.
+ * -save-temps[=<prefix>] -- This option dumps intermediate temporary files, such as IL and ISA code, for each OpenCL kernel. If      	<prefix> is not given, temporary files are saved in the default temporary directory (the current directory for Linux, C:\Users    	\<user>\AppData\Local for Windows). If <prefix> is given, those temporary files are saved with the given
    <prefix>. If <prefix> is an absolute path prefix, such as
    C:\your\work\dir\mydumpprefix, those temporaries are saved under C:\your\work\dir, with mydumpprefix as prefix to all temporary   	names. For example,
 
@@ -1540,13 +1540,13 @@ The following supported options are not part of the OpenCL specification:
   | _temp_nn_xxx_yyy.il,  _temp_nn_xxx_yyy.isa
 
   |
-  
+
   | -save-temps=aaa
   | under the default directory
   | aaa_nn_xxx_yyy.il,  aaa_nn_xxx_yyy.isa
 
   |
- 
+
   | -save-temps=C:\you\dir\bbb
   | under C:\you\dir
   | bbb_nn_xxx_yyy.il,  bbb_nn_xxx_yyy.isa
@@ -1556,8 +1556,8 @@ where xxx and yyy are the device name and kernel name for this build, respective
 
 To avoid source changes, there are two environment variables that can be used to change CL options during the runtime.
 
-* AMD_OCL_BUILD_OPTIONS — Overrides the CL options specified in clBuildProgram().
-* AMD_OCL_BUILD_OPTIONS_APPEND — Appends options to those specified in clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS -- Overrides the CL options specified in clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS_APPEND -- Appends options to those specified in clBuildProgram().
 
 .. _Creating-device-specific-binaries:
 
@@ -1567,7 +1567,7 @@ To generate pre-built device-specific binaries from the OpenCL C source or from 
 
 1. Create the program object from OpenCL C source using clCreateProgramWithSource().
 
-2.   Build (i.e. compile and link) the program object (for details, see the “Generating program executable” section).
+2.   Build (i.e. compile and link) the program object (for details, see the "Generating program executable" section).
 
 3.   Read the device-specific binaries from the program object using clGetProgramInfo() as shown below:
 
@@ -1576,20 +1576,20 @@ To generate pre-built device-specific binaries from the OpenCL C source or from 
    //Get the number of devices attached with program object
    cl_uint nDevices = 0;
    clGetProgramInfo(program, CL_PROGRAM_NUM_DEVICES, sizeof(cl_uint), &nDevices, NULL);
- 
+
    //Get the Id of all the attached devices
    cl_device_id *devices = new cl_device_id[nDevices]; clGetProgramInfo(program, CL_PROGRAM_DEVICES, sizeof(cl_device_id) * nDevices, devices, NULL);
-   
+
    // Get the sizes of all the binary objects
    size_t *pgBinarySizes = new size_t[nDevices]; lGetProgramInfo(program, CL_PROGRAM_BINARY_SIZES, sizeof(size_t) * nDevices, pgBinarySizes, NULL);
-  
+
    // Allocate storage for each binary objects
    unsigned char **pgBinaries = new unsigned char*[nDevices];
    for (cl_uint i = 0; i < nDevices; i++)
    {
      pgBinaries[i] = new unsigned char[pgBinarySizes[i]];
    }
-  
+
    // Get all the binary objects
    clGetProgramInfo(program, CL_PROGRAM_BINARIES, sizeof(unsigned char*) * nDevices, pgBinaries, NULL);
 
@@ -1604,25 +1604,25 @@ The runtime system assigns the work in the command queues to the underlying devi
 ============================= ======================================================
 OpenCL API Function       	Description
 ============================= ======================================================
-clCreateCommandQueueWith       Create a command queue for a specific device 
+clCreateCommandQueueWith       Create a command queue for a specific device
 Properties (in OpenCL 2.0)     (CPU,GPU.)
-clCreateCommandQueue() 
-(in OpenCL 1.x; deprecated 
-in OpenCL 2.0) 
+clCreateCommandQueue()
+(in OpenCL 1.x; deprecated
+in OpenCL 2.0)
 
-clCreateKernel()	       Creates a kernel object from the program object. 
+clCreateKernel()	       Creates a kernel object from the program object.
 
 clCreateBuffer()	       Creates a buffer object for use via OpenCL kernels.
 
-clSetKernelArg()	       Set the kernel arguments, and enqueue the kernel in a 
+clSetKernelArg()	       Set the kernel arguments, and enqueue the kernel in a
 clEnqueueNDRangeKernel()       command queue.
 
-clEnqueueReadBuffer(), 	       Enqueue a command in a command queue to read from a 
-clEnqueueWriteBuffer()	       buffer object to host memory, or write to the buffer 
+clEnqueueReadBuffer(), 	       Enqueue a command in a command queue to read from a
+clEnqueueWriteBuffer()	       buffer object to host memory, or write to the buffer
 			       object from host memory
 
 clEnqueueWaitForEvents()	Wait for the specified events to complete.
-============================= ====================================================== 
+============================= ======================================================
 
 
 The commands can be broadly classified into three categories.
@@ -1644,7 +1644,7 @@ Running the Program
 
 Creating Kernel Objects
 ***********************
-After a program is created and built, the next step is to run the kernel code on the devices. Running the kernel code requires the creation of one or more kernel objects for each kernel function (declared as “   kernel” or “kernel”). Kernel objects are run-time objects that bind the specific kernel function with the argument values to be used while executing it.
+After a program is created and built, the next step is to run the kernel code on the devices. Running the kernel code requires the creation of one or more kernel objects for each kernel function (declared as "   kernel" or "kernel"). Kernel objects are run-time objects that bind the specific kernel function with the argument values to be used while executing it.
 
 The clCreateKernel API creates a kernel object from a program object by using the name of the kernel function passed with program object. The arguments to kernel objects are set by the following APIs:
 
@@ -1657,10 +1657,10 @@ SVM pointers as the argument value.
 
 A sample kernel definition is shown below.
 ::
-  
+
   kernel void sample_kernel( global const uchar *normalPtr, global uchar *svmPtr)
-  {  
-    …
+  {
+    ...
   }
 
 To create a kernel object for the above kernel, you must pass the program object corresponding to the kernel to the clCreateKernel function. Assuming that the program object containing the above kernel function has been created and built as program, a kernel object for the above kernel would be created as follows:
@@ -1700,7 +1700,7 @@ A command queue (host or device) is created by using the clCreateCommandQueueWit
 
 **Example: To create a default device-side out-of-order command queue with a specific size**
 ::
-  
+
    cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_ON_DEVICE | CL_QUEUE_ON_DEVICE_DEFAULT, CL_QUEUE_SIZE, maxQueueSize, 0 };
 
    cl_command_queue commandQueue = clCreateCommandQueueWithProperties(context, deviceId, props, &status);
@@ -1709,7 +1709,7 @@ Running a Kernel (from the host)
 *********************************
 After a command queue has been created, the queue can be used to en-queue the commands to the associated device. The clEnqueueNDRangeKernel API en-queues a command to execute a kernel to a device. During the kernel en- queue, one must specify the total number of kernel instances or work-items to be executed by the device and the size of each work-group or block. This information is set by the work_dim, global_work_size, local_work_size and global_work_offset arguments. Like any other command en-queuing API, the clEnqueueNDRangeKernel returns an event object that conveys information about the en-queued kernel and can be used to synchronization other commands dependent on this kernel. In this API, a list of events that need to complete before this particular command can be executed can be specified.
 
-For example, suppose a kernel object and command queue, named “kernel” and “commandQueue” respectively, have already been created. Suppose you want to launch the kernel over a 2-D dimensional space having total work-items
+For example, suppose a kernel object and command queue, named "kernel" and "commandQueue" respectively, have already been created. Suppose you want to launch the kernel over a 2-D dimensional space having total work-items
 {1024x1024} and each block/group size {16x16}. To do this, the kernel can be en-queued into the command queue as follows:
 
  | cl_uint workDim = 2;
@@ -1740,7 +1740,7 @@ For GPU processing, the OpenCL compiler generates an intermediate representation
 
 Profiling OpenCL
 ==============================
-This chapter discusses how to profile OpenCL programs running on AMD GPU and CPU compute devices. The preferred method is to debug with AMD CodeXL, as described in  “AMD CodeXL GPU Debugger.” The second method, described in  “Debugging CPU Kernels with GDB,” is to use experimental features provided by ROCm (GNU project debugger, GDB) to debug kernels on x86 CPUs running Linux.
+This chapter discusses how to profile OpenCL programs running on AMD GPU and CPU compute devices. The preferred method is to debug with AMD CodeXL, as described in  "AMD CodeXL GPU Debugger." The second method, described in  "Debugging CPU Kernels with GDB," is to use experimental features provided by ROCm (GNU project debugger, GDB) to debug kernels on x86 CPUs running Linux.
 
 .. _AMD-CodeXL-GPU:
 
@@ -1749,7 +1749,7 @@ Downloading and installing CodeXL and Radeon Compute Profiler
 Download the latest version of CodeXL from the CodeXL home page:
 http://developer.amd.com/tools-and-sdks/opencl-zone/codexl/
 
-Radeon Compute Profiler is a performance analysis tool that gathers data from the API run-time and GPU for OpenCL™ and ROCm/HSA applications
+Radeon Compute Profiler is a performance analysis tool that gathers data from the API run-time and GPU for OpenCL(TM) and ROCm/HSA applications
 
 RCP is installed when you you use rocm-dev upon instal of the driver.  You can access the source code at https://github.com/GPUOpen-Tools/RCP
 
@@ -1759,20 +1759,20 @@ Either install the tar archive, or install the .deb package.
 
 **Tar archive:**
 
-1. Download the AMD_CodeXL_Linux*.tar.gz 64-bit Linux tar package at https://github.com/GPUOpen-Tools/CodeXL/releases 
+1. Download the AMD_CodeXL_Linux*.tar.gz 64-bit Linux tar package at https://github.com/GPUOpen-Tools/CodeXL/releases
 
 2. Run:
-   $ tar –xvzf CodeXL_Linux*.tar.gz
+   $ tar -xvzf CodeXL_Linux*.tar.gz
 
 **Debian package :**
 
 1. Download the ``amdcodexl-*.deb 64-bit Linux Debian package.``
 
 2. Run: ``$ sudo dpkg -i amdcodexl_x.x.x-1_amd64.deb ``
-   
+
 3. Run: ``$ sudo apt-get -f install``
 
-Or build the project from source code https://github.com/GPUOpen-Tools/CodeXL 
+Or build the project from source code https://github.com/GPUOpen-Tools/CodeXL
 
 Using CodeXL for profiling
 ###########################
@@ -1784,7 +1784,7 @@ Two modes in CodeXL are particularly useful for profiling:
 
 GPU Profile Mode
 *****************
-The GPU Profile Mode helps developers analyze and profile OpenCL™ host and device code. Developers can profile the entire application or only the kernels by using one of the following modes:
+The GPU Profile Mode helps developers analyze and profile OpenCL(TM) host and device code. Developers can profile the entire application or only the kernels by using one of the following modes:
 
  * Entire application profile: Collect application trace mode
  * Kernel profile: Collect GPU performance counter mode
@@ -1803,13 +1803,13 @@ While running your application in the GPU Profile mode, CodeXL collects valuable
 
  * **Timeline visualization:** Visualize host and device execution in a timeline chart
 
-   View number of OpenCL™ contexts and command queues created and the relationships between these items
+   View number of OpenCL(TM) contexts and command queues created and the relationships between these items
 
-   View data transfer operations and kernel executions on the device 
+   View data transfer operations and kernel executions on the device
 
    Determine proper synchronization and load balancing
- 
-   
+
+
   .. image:: images/4.3.png
       :align: center
 
@@ -1818,30 +1818,30 @@ While running your application in the GPU Profile mode, CodeXL collects valuable
     Includes a helpful list of best practices
 
     Includes recommendations to improve program performance
- 
+
  *  **Summary pages:** Find top bottlenecks
 
     I/O bound
 
     Compute bound
-  
- 
+
+
  .. image:: images/4.4.png
     :align: center
 
- * **Kernel occupancy:** Estimate OpenCL™ kernel occupancy for AMD APUs and GPUs
+ * **Kernel occupancy:** Estimate OpenCL(TM) kernel occupancy for AMD APUs and GPUs
 
   Visual indication of the limiting kernel resources for number of wavefronts in flight
 
   View the maximum number of wavefronts in flight limited by
 
-  –Work group size
+  -Work group size
 
-  –Number of allocated scalar or vector registers
+  -Number of allocated scalar or vector registers
 
-  –Amount of allocated LDS
+  -Amount of allocated LDS
 
-  –View the maximum resource limit for the GPU device
+  -View the maximum resource limit for the GPU device
 
 
  .. image:: images/4.5.png
@@ -1859,9 +1859,9 @@ The Analyze Mode provides a nice way to begin writing your kernel and to compile
 
 The Analyze Mode allows a user to do the following:
 
-* **Edit your OpenCL™ kernel inside CodeXL editor**
+* **Edit your OpenCL(TM) kernel inside CodeXL editor**
    Create a new file
-   Drag and drop an existing OpenCL™ kernel file
+   Drag and drop an existing OpenCL(TM) kernel file
 * **Highlight keywords**
    The CodeXL editor highlights keywords for easier editing
 
@@ -1874,9 +1874,9 @@ The Analyze Mode allows a user to do the following:
 
 *  Choose your target device
    The Analyze Mode enables to compile to any supported device target, without the need to install the device
-*  Fix OpenCL™ compiler errors and warnings in which the kernel file is the only input
+*  Fix OpenCL(TM) compiler errors and warnings in which the kernel file is the only input
    View OpenCL compilation errors and fix immediately.
-*  Edit OpenCL™ Compiler options with an easy options tab
+*  Edit OpenCL(TM) Compiler options with an easy options tab
    CodeXL summarizes all the OpenCL options so that it is easy to use them.
 
 
@@ -1916,15 +1916,15 @@ The following list contains the major static C++ features supported by this exte
 
  * Kernel and function overloading.
  * Inheritance:
-    | – Strict inheritance.
-    | – Friend classes.
-    | – Multiple inheritance.
+    | - Strict inheritance.
+    | - Friend classes.
+    | - Multiple inheritance.
  * Templates:
-    | –Kernel templates.
-    | –Member templates.
-    | –Template default argument.
-    | –Limited class templates (the virtual. keyword is not exposed).
-    | –Partial template specialization
+    | -Kernel templates.
+    | -Member templates.
+    | -Template default argument.
+    | -Limited class templates (the virtual. keyword is not exposed).
+    | -Partial template specialization
  * Namespaces.
  * References.
  * this operator.
@@ -1946,7 +1946,7 @@ Static C++ features not supported by this extension are:
 * The language specified in this extension can be easily expanded to support these features.
 
 Relations with ISO/IEC C++
-*************************** 
+***************************
 
 This extension focuses on documenting the differences between the OpenCL Static C++ kernel language and the ISO/IEC Programming languages C++ specification. Where possible, this extension leaves technical definitions to the ISO/IEC specification.
 
@@ -1983,7 +1983,7 @@ To compile a program that contains static C++ kernels and functions, the applica
 
 where language is defined as one of the following:
 
- * clc – the source language is considered to be OpenCL C, as defined in the
+ * clc - the source language is considered to be OpenCL C, as defined in the
    The OpenCL Programming Language version 1.21.
  * clc++ - the source language is considered to be OpenCL C++, as defined in the following sections of the this document.
 
@@ -2036,7 +2036,7 @@ As per of the static C++ language specification, a number of restrictions limit 
 
 Also, the rules for well-formed programs as defined by Section 13 of the static C++ language specification are lifted to apply to both kernel and function declarations.
 
-The overloading resolution is per Section 13.1 of the static C++ language specification, but extended to account for vector types. The algorithm for “best viable function”, Section 13.3.3 of the static C++ language specification, is extended for vector types by inducing a partial-ordering as a function of the partial-ordering of its elements. Following the existing rules for vector types in the OpenCL 1.2 specification, explicit conversion between vectors is not allowed. (This reduces the number of possible overloaded functions with respect to vectors, but this is not expected to be a particular burden to developers because explicit conversion can always be applied at the point of function evocation.)
+The overloading resolution is per Section 13.1 of the static C++ language specification, but extended to account for vector types. The algorithm for "best viable function", Section 13.3.3 of the static C++ language specification, is extended for vector types by inducing a partial-ordering as a function of the partial-ordering of its elements. Following the existing rules for vector types in the OpenCL 1.2 specification, explicit conversion between vectors is not allowed. (This reduces the number of possible overloaded functions with respect to vectors, but this is not expected to be a particular burden to developers because explicit conversion can always be applied at the point of function evocation.)
 
 For overloaded kernels, the following syntax is used as part of the kernel name:
 
@@ -2103,7 +2103,7 @@ Examples
 
 Passing a Class from the Host to the Device and Back
 ******************************************************
-The class definition must be the same on the host code and the device code, besides the members’ type in the case of vectors. If the class includes vector data types, the definition must conform to the table that appears on Section 6.1.2
+The class definition must be the same on the host code and the device code, besides the members' type in the case of vectors. If the class includes vector data types, the definition must conform to the table that appears on Section 6.1.2
 
 
 of the OpenCL Programming Specification 1.2, Corresponding API type for
@@ -2136,10 +2136,10 @@ OpenCL Language types.
   int x;
   }
 
-  MyFunc () 
+  MyFunc ()
   {
     tempClass = new(Test);
-    ... // Some OpenCL startup code – create context, queue, etc.
+    ... // Some OpenCL startup code - create context, queue, etc.
     cl_mem classObj = clCreateBuffer(context, CL_MEM_USE_HOST_PTR, sizeof(Test), &tempClass, event);
     clEnqueueMapBuffer(...,classObj,...);
     tempClass.setX(10);
@@ -2147,17 +2147,17 @@ OpenCL Language types.
     clEnqueueNDRange(..., fooKernel, ...);
     clEnqueueMapBuffer(...,classObj,...); //class is passed back to the Host
   }
- 
+
 
 Kernel Overloading
 *******************
 This example shows how to define and use mangled_name for kernel overloading, and how to choose the right kernel from the host code. Assume the following kernels are defined:
 
-:: 
+::
 
   __attribute__((mangled_name(testAddFloat4))) kernel void
   testAdd(global float4 * src1, global float4 * src2, global float4 * dst)
-  { 
+  {
     int tid = get_global_id(0);
     dst[tid] = src1[tid] + src2[tid];
   }
@@ -2215,7 +2215,7 @@ OpenCL 2.0 and 2.1 features are provided with the ROCm 2.4 OpenCL Language Runti
 
 For guidelines on how to migrate from OpenCL 1.2 to OpenCL 2.1 and for information about querying for image- and device-specific extensions, see Portability considerations.
 
-For a list of the new and deprecated functions,  “New and deprecated functions in OpenCL 2.0.”
+For a list of the new and deprecated functions,  "New and deprecated functions in OpenCL 2.0."
 
 .. _Shared-virtual-Memory:
 
@@ -2234,7 +2234,7 @@ Support for SVM does not imply or require that the host and the OpenCL devices i
 
 A caveat, however, concerns situations in which the host and the OpenCL devices access the same region of memory at the same time. It would be highly inefficient for the host and the OpenCL devices to have a consistent view of the memory for each load/store from any device/host. In general, the memory model of the language or architecture implementation determines how or when a memory location written by one thread or agent is visible to another. The memory model also determines to what extent the programmer can control the scope of such accesses.
 
-OpenCL 2.0 adopts the memory model defined in C++11 with some extensions. The memory orders taken from C++11 are: "relaxed", "acquire", "release", “acquire-release”, and "sequential consistent".
+OpenCL 2.0 adopts the memory model defined in C++11 with some extensions. The memory orders taken from C++11 are: "relaxed", "acquire", "release", "acquire-release", and "sequential consistent".
 
 OpenCL 2.0 introduces a new (C++11-based) set of atomic operations with specific memory-model based semantics. Atomic operations are indivisible: a thread or agent cannot see partial results. The atomic operations supported are:
 
@@ -2255,7 +2255,7 @@ OpenCL 2.0 introduces the concept of "memory scope", which limits the extent to 
 OpenCL 2.0 further differentiates between coarse-grained SVM buffer sharing and fine-grained SVM (buffer and system) sharing mechanisms. These mechanisms define the granularity at which the SVM buffers are shared.
 
 Updates to coarse-grained or fine-grained SVM are visible to other devices at synchronization points:
- 
+
  * For coarse-grained SVM, the synchronization points are: the mapping or un- mapping of the SVM memory and kernel launch or completion. This means that any updates are visible only at the end of the kernel or at the point of un-mapping the region of     	memory.
    Coarse-grained buffer memory has a fixed virtual address for all the devices it is allocated on. In the AMD implementation, the   	physical memory is allocated on Device Memory.
 
@@ -2292,7 +2292,7 @@ Some applications do not require fine-grained atomics to ensure that the SVM is 
 
 For example, while searching in parallel on a binary search tree , coarse-grain buffers are usually sufficient. In general, coarse-grain buffers provide faster access compared to fine grain buffers as the memory is not required to be consistent across devices.
 
-:: 
+::
 
   for (i = 0; i < keys_per_wi; i++) {
   key = search_keys[init_id + i]; tmp_node = root;
@@ -2316,10 +2316,10 @@ The host creates two buffers, svmTreeBuf and svmSearchBuf, to hold the given tre
 The next task is to create the tree and populate the svmTreeBuf using ``clSVMEnqueueMap`` and ``clSVMEnqueueUnmap``. The host-code method, cpuCreateBinaryTree, illustrates this mechanism; note the calls to these map/unmap APIs.
 
 The host then creates the keys to be searched in svmSearchBuf, as the cpuInitSearchKeys method illustrates. Next, it enqueues the kernel to search the binary tree for the given keys in the svmSearchBuf, and it sets the parameters to the kernel using clSetKernelArgSVMPointer:
-:: 
+::
 
  int status = clSetKernelArgSVMPointer(sample_kernel, 0, (void *)(svmTreeBuf));
- 
+
  status = clSetKernelArgSVMPointer(sample_kernel, 1, (void *)(svmSearchBuf));
 
 Note that the routine passes both svmTreeBuf and svmSearchBuf to the kernel as parameters. The following node structure demonstrates how to create the tree on the host using pointers to the left and right children:
@@ -2363,7 +2363,7 @@ Updates to the tree occur on the host (CPU) or on the GPU, but not on both simul
 
 Because the tree is created on the host, and because OpenCL 1.2 disallows SVM, implementing these steps is difficult in OpenCL 1.2. In OpenCL 1.2, you must store the tree as arrays, copy the arrays to the GPU memory (specifying the appropriate offsets), and then copy the arrays back to the host.
 
-The “data” is the tree created by the host as a coarse-grain buffer and is passed to the kernel as an input pointer.
+The "data" is the tree created by the host as a coarse-grain buffer and is passed to the kernel as an input pointer.
 
 .. image:: images/6.1.png
     :align: center
@@ -2392,15 +2392,15 @@ Generic example
 ****************
 
 In OpenCL 1.2, the developer needed to write three functions for a pointer p that can reference the local, private, or global address space::
-  
-  void fooL (local int *p) { … } 
-  void fooP (private int *p) { … }
-  void fooG (global int *p) { … }
- 
+
+  void fooL (local int *p) { ... }
+  void fooP (private int *p) { ... }
+  void fooG (global int *p) { ... }
+
 
 
 In OpenCL 2.0, the developer needs to write only one function::
- 
+
  void foo (int *p)
 
 As foo is a generic function, the compiler will accept calls to it with pointers to any address space except the constant address space.
@@ -2421,7 +2421,7 @@ OpenCL sample, addMul2d is a generic function that uses generic address spaces f
 ::
 
   float4 addMul2D (uchar4 *src, float *filter, int2 filterDim, int width)
-  {	
+  {
     int i, j;
     float4 sum = (float4)(0);
     for(i = 0; i < (filterDim.y); i++)
@@ -2450,7 +2450,7 @@ OpenCL 2.0 allows kernels to enqueue other kernels. It provides a new construct,
 
 kernels. In addition, OpenCL 2.0 deprecates the run-time API call ``clCreateCommandQueue``, in favor of a new call, ``clCreateCommandQueueWithProperties``, that can create device-side command queues.
 
-Because it eliminates the overhead of returning kernel-launch control to the host, device-side enqueue can in many cases improve application performance. Some platforms (such as AMD’s) provide a standard way of enqueuing work to the hardware, which can further improve the performance. Device-side enqueue has been observed to reduce by the overhead of enqueuing by more than 3x in some cases.
+Because it eliminates the overhead of returning kernel-launch control to the host, device-side enqueue can in many cases improve application performance. Some platforms (such as AMD's) provide a standard way of enqueuing work to the hardware, which can further improve the performance. Device-side enqueue has been observed to reduce by the overhead of enqueuing by more than 3x in some cases.
 
 Applications that are inherently recursive or that require additional processing can derive particular benefit. A classic example of the latter case is a tree search that discovers new nodes when traversing from the root to the leaves.
 
@@ -2458,19 +2458,19 @@ Device enqueue is also useful in determining when all the workgroups of the pare
 
 Workgroup/subgroup-level functions
 ***********************************
-OpenCL 2.0 introduces new built-in functions that operate at the workgroup or subgroup level. (A workgroup comprises one or more subgroups; the vendor handles the exact subgroup implementation.) For example, on AMD platforms, a subgroup maps to a “wavefront”. (For details, see the AMD OpenCL User Guide.)
+OpenCL 2.0 introduces new built-in functions that operate at the workgroup or subgroup level. (A workgroup comprises one or more subgroups; the vendor handles the exact subgroup implementation.) For example, on AMD platforms, a subgroup maps to a "wavefront". (For details, see the AMD OpenCL User Guide.)
 
 Basically, a wavefront is an execution unit on the GPU. The OpenCL specification requires that all work items in a workgroup/subgroup executing the kernel handle these new functions; otherwise, their results may be undefined.
 
 OpenCL 2.0 defines the following new built-in functions. Note that it also defines similar functions for subgroups under the cl_khr_subgroups extensions in CL_DEVICE_EXTENSIONS.
 
-1. work_group_all and work_group_any: These functions test a given predicate on all work items in the workgroup. The “all” version effectively performs an AND operation on all predicates and returns the result to all work items; similarly, the “any” operation performs an OR operation. Thus, using the “all” function returns true if the predicate is true for all work items; “any” returns true if it is true for at least one work item.
+1. work_group_all and work_group_any: These functions test a given predicate on all work items in the workgroup. The "all" version effectively performs an AND operation on all predicates and returns the result to all work items; similarly, the "any" operation performs an OR operation. Thus, using the "all" function returns true if the predicate is true for all work items; "any" returns true if it is true for at least one work item.
 
 2. work_group_broadcast: This function broadcasts a local value from each work item to all the others in the workgroup.
 
 3. work_group_reduce: Given an operation, work_group_reduce performs the reduction operation on all work items and returns the result. The operation can be min, max or add. For example, when called for an array using the add operation, the function returns the sum of the array elements.
 
-4. work_group_inclusive/exclusive_scan: The “scan” operation is a prefix operation, which performs a reduction up to the work-item ID. If it includes the current ID, the function applies an inclusive scan; otherwise, if it covers everything up to but not including the current work item, it applies an exclusive scan. Again, the operation can be min, max or add.
+4. work_group_inclusive/exclusive_scan: The "scan" operation is a prefix operation, which performs a reduction up to the work-item ID. If it includes the current ID, the function applies an inclusive scan; otherwise, if it covers everything up to but not including the current work item, it applies an exclusive scan. Again, the operation can be min, max or add.
 
 OpenCL 2.0 introduces a Khronos sub-group extension. Sub-groups are a logical abstraction of the hardware SIMD execution model akin to wavefronts, warps, or vectors and permit programming closer to the hardware in a vendor-independent manner.  This extension includes a set of cross-sub-group built-in functions that
 match the set of the cross-work-group built-in functions specified above.
@@ -2547,7 +2547,7 @@ The kernel is rewritten in OpenCL 2.0 to enqueue itself. (For full details, see 
 
 Finally, the kernel launches itself again using device enqueue, but with new bounds:
 
-:: 
+::
 
   void (^binarySearch_device_enqueue_wrapper_blk)(void) =
    ^{binarySearch_device_enqueue_multiKeys_child(outputArray,
@@ -2561,12 +2561,12 @@ Finally, the kernel launches itself again using device enqueue, but with new bou
   int err_ret = enqueue_kernel(defQ,CLK_ENQUEUE_FLAGS_WAIT_KERNEL,ndrange1,binarySe arch_device_enqueue_wrapper_blk);
 
 It also checks for missing keys; absent any such keys, the search stops by forgoing further enqueues::
- 
- /**** Search continues only if at least one key is found in previous search ****/ 
+
+ /**** Search continues only if at least one key is found in previous search ****/
  int Flag = atomic_load_explicit(&,memory_order_seq_cst);
  if(Flag == 0)
-   return; 
- 
+   return;
+
 
 The advantage is that when the input array is large, the OpenCL 2.0 version divides the input array into 1024-sized chunks. The chunk in which the given key falls is found and another kernel is enqueued which further divides it into 1024- sized chunks, and so on. In OpenCL 1.2, as the whole array is taken as the NDRange, a huge number of work groups require processing.
 
@@ -2604,9 +2604,9 @@ Atomic Loads/Stores
 This sample illustrates atomic loads/stores with the use of memory orders.
 
 The first step is to create this memory on the host::
-  
+
   buffer = (int * ) clSVMAlloc(context, CL_MEM_SVM_FINE_GRAIN_BUFFER, (N+1)*sizeof(int), 4);
-  
+
   atomicBuffer = (int * ) clSVMAlloc(context, CL_MEM_SVM_FINE_GRAIN_BUFFER | CL_MEM_SVM_ATOMICS, (N+1)*sizeof(int), 4);
 
 
@@ -2633,7 +2633,7 @@ The kernel next stores (100+i), where i is the ID of the work-item into atomicBu
 After the atomic operation, the updates on fine-grain variables (such as buffer) will also be available at the host. The CPU checks for the following to ensure that the results are OK:
 
 ::
- 
+
   for (i=0;i<N;i++)
     while(std::atomic_load_explicit ((std::atomic<int>*)&atomicBuffer[i], std::memory_order_acquire) != (100+i));
     /* check the results now */
@@ -2728,12 +2728,12 @@ Pipe.
 The memory allocated in the above function can be passed to kernels as read- only or write-only pipes. The pipe objects can only be passed as kernel arguments or kernel functions and cannot be declared inside a kernel or as program-scoped objects.
 
 Also, a set of built-in functions have been added to operate on the pipes. The important ones are:
- 
+
 read_pipe (pipe p, gentype * ptr: for reading packet from pipe p into ptr.
- 
+
 write_pipe (pipe p, gentype * ptr: for writing packet pointed to by ptr to pipe p.
 
-To ensure you have enough space in the pipe structure for reading and writing (before you actually do it), you can use built-in functions to “reserve” enough space. For example, you could reserve room by calling reserve_read_pipe or reserve_write_pipe. These functions return a reservation ID, which can be used when the actual operations are performed. Similarly, the standard has built-in functions for workgroup level reservations, such as work_group_reserve_read_pipe and work_group_reserve_write_pipe and for the workgroup order (in the program). These workgroup built-in functions operate at the workgroup level. Ordering across workgroups is undefined. Calls to commit_read_pipe and commit_write_pipe, as the names suggest, commit the actual operations (read/write).
+To ensure you have enough space in the pipe structure for reading and writing (before you actually do it), you can use built-in functions to "reserve" enough space. For example, you could reserve room by calling reserve_read_pipe or reserve_write_pipe. These functions return a reservation ID, which can be used when the actual operations are performed. Similarly, the standard has built-in functions for workgroup level reservations, such as work_group_reserve_read_pipe and work_group_reserve_write_pipe and for the workgroup order (in the program). These workgroup built-in functions operate at the workgroup level. Ordering across workgroups is undefined. Calls to commit_read_pipe and commit_write_pipe, as the names suggest, commit the actual operations (read/write).
 
 Usage
 ******
@@ -2748,8 +2748,8 @@ The host creates the pipe, which both kernels will use, as follows:
   &status);
 
 This code makes a pipe that the program kernels can access (read/write). The host creates two kernels, producer_kernel and consumer_kernel. The producer kernel first reserves enough space for the write pipe::
- 
- //reserve space in pipe for writing random numbers. 
+
+ //reserve space in pipe for writing random numbers.
  reserve_id_t rid = work_group_reserve_write_pipe(rng_pipe, szgr);
 
 Next, the kernel writes and commits to the pipe by invoking the following functions:
@@ -2760,14 +2760,14 @@ Next, the kernel writes and commits to the pipe by invoking the following functi
   //reserve pipe for reading
   reserve_id_t rid = work_group_reserve_read_pipe(rng_pipe, szgr);
   if(is_valid_reserve_id(rid)) {
-  //read random number from the pipe. read_pipe(rng_pipe,rid,lid, &rn); work_group_commit_read_pipe(rng_pipe, rid); 
+  //read random number from the pipe. read_pipe(rng_pipe,rid,lid, &rn); work_group_commit_read_pipe(rng_pipe, rid);
   }
 
 The consumer_kernel then uses this set of random number and constructs the histogram. The CPU creates the same histogram and verifies whether the histogram created by the kernel is correct. Here, lid is the local id of the work item, obtained by get_local_id(0).
 
 The example code demonstrates how you can use a pipe as a convenient data structure that allows two kernels to communicate.
 
-In OpenCL 1.2, this kind of communication typically involves the host – although kernels can communicate without returning control to the host. Pipes, however, ease programming by reducing the amount of code that some applications require.
+In OpenCL 1.2, this kind of communication typically involves the host - although kernels can communicate without returning control to the host. Pipes, however, ease programming by reducing the amount of code that some applications require.
 
 .. _Program-scope-global-Variables:
 
@@ -2815,7 +2815,7 @@ Creating sRGB image objects is similar to creating an image object of existing s
 
 ::
 
-  cl_image_format imageFormat; 
+  cl_image_format imageFormat;
   imageFormat.image_channel_data_type = CL_UNORM_INT8;
   imageFormat.image_channel_order = CL_sRGBA
   cl_mem imageObj = clCreateImage(
@@ -2836,7 +2836,7 @@ The following is a kernel sample that illustrates how to read an sRGB image obje
 
 ::
 
-  // Read sRGBA image object (input) and convert it to linear RGB 
+  // Read sRGBA image object (input) and convert it to linear RGB
   values(results)
   kernel void sample_kernel( read_only image2d_t input, sampler_t imageSampler,	  global float *xOffsets,  global float *yOffsets,
   global float4 *results	)	// input: sRGBA image object
@@ -2939,7 +2939,7 @@ The name of extension is standardized and must contain the following elements wi
 
  * cl_khr_<extension_name> - for extensions approved by Khronos Group. For example: ``cl_khr_fp64``
  * cl_ext_<extension_name> - for extensions provided collectively by multiple vendors. For example: ``cl_ext_device_fission``
- * cl_<vendor_name>_<extension_name> – for extension provided by a specific vendor. For example: ``cl_amd_media_ops``
+ * cl_<vendor_name>_<extension_name> - for extension provided by a specific vendor. For example: ``cl_amd_media_ops``
 
 The OpenCL Specification states that all API functions of the extension must have names in the form of cl<FunctionName>KHR, cl<FunctionName>EXT, or cl<FunctionName><VendorName>. All enumerated values must be in the form of CL_<enum_name>_KHR, CL_<enum_name>_EXT, or CL_<enum_name>_<VendorName>.
 
@@ -2967,17 +2967,17 @@ There are special directives for the OpenCL compiler to enable or disable availa
  #pragma OPENCL EXTENSION all: <behavior>
 
 
-The <extension_name> is described in Section A.1, “Extension Name
-Convention.”. The second form allows to address all extensions at once. The <behavior> token can be either:
+The <extension_name> is described in Section A.1, "Extension Name
+Convention.". The second form allows to address all extensions at once. The <behavior> token can be either:
 
-* **enable** - the extension is enabled if it is supported, or the error is reported if the specified extension is not supported or token “all” is used.
+* **enable** - the extension is enabled if it is supported, or the error is reported if the specified extension is not supported or token "all" is used.
 * **disable** - the OpenCL implementation/compiler behaves as if the specified extension does not exist.
 * **all** - only core functionality of OpenCL is used and supported, all extensions are ignored. If the specified extension is not supported then a warning is issued by the compiler.
 
 The order of directives in #pragma OPENCL EXTENSION is important: a later directive with the same extension name overrides any previous one.
 
 The initial state of the compiler is set to ignore all extensions as if it was explicitly set with the following directive::
- 
+
  #pragma OPENCL EXTENSION all : disable
 
 This means that the extensions must be explicitly enabled to be used in kernel programs.
@@ -2998,7 +2998,7 @@ Use the following function to get an extension function pointer.
 
 This returns the address of the extension function specified by the FunctionName string. The returned value must be appropriately cast to a function pointer type, specified in the extension spec and header file.
 
-A return value of NULL means that the specified function does not exist in the CL implementation. A non-NULL return value does not guarantee that the extension function actually exists – queries described in sec. 2 or 3 must be done to ensure the extension is supported.
+A return value of NULL means that the specified function does not exist in the CL implementation. A non-NULL return value does not guarantee that the extension function actually exists - queries described in sec. 2 or 3 must be done to ensure the extension is supported.
 
 The ``clGetExtensionFunctionAddress()`` function cannot be used to get core API function addresses.
 
@@ -3007,16 +3007,16 @@ List of Supported Extensions that are Khronos-Approved
 For a complete list of the supported extensions, see the OpenCL 1.2 and
 OpenCL 2.0 specification documents. The typical extensions in OpenCL 1.2 are:
 
-* cl_khr_global_int32_base_atomics – basic atomic operations on 32-bit integers in global memory.
-* cl_khr_global_int32_extended_atomics – extended atomic operations on 32-bit integers in global memory.
-* cl_khr_local_int32_base_atomics – basic atomic operations on 32-bit integers in local memory.
-* cl_khr_local_int32_extended_atomics – extended atomic operations on 32-bit integers in local memory.
-* cl_khr_int64_base_atomics – basic atomic operations on 64-bit integers in both global and local memory.
-* cl_khr_int64_extended_atomics – extended atomic operations on 64-bit integers in both global and local memory.
-* cl_khr_3d_image_writes – supports kernel writes to 3D images.
-* cl_khr_byte_addressable_store – this eliminates the restriction of not allowing writes to a pointer (or array elements) of types    	less than 32-bit wide in kernel program.
-* cl_khr_gl_sharing – allows association of OpenGL context or share group with CL context for interoperability.
-* cl_khr_icd – the OpenCL Installable Client Driver (ICD) that lets developers select from multiple OpenCL runtimes which may be      	installed on a system.
+* cl_khr_global_int32_base_atomics - basic atomic operations on 32-bit integers in global memory.
+* cl_khr_global_int32_extended_atomics - extended atomic operations on 32-bit integers in global memory.
+* cl_khr_local_int32_base_atomics - basic atomic operations on 32-bit integers in local memory.
+* cl_khr_local_int32_extended_atomics - extended atomic operations on 32-bit integers in local memory.
+* cl_khr_int64_base_atomics - basic atomic operations on 64-bit integers in both global and local memory.
+* cl_khr_int64_extended_atomics - extended atomic operations on 64-bit integers in both global and local memory.
+* cl_khr_3d_image_writes - supports kernel writes to 3D images.
+* cl_khr_byte_addressable_store - this eliminates the restriction of not allowing writes to a pointer (or array elements) of types    	less than 32-bit wide in kernel program.
+* cl_khr_gl_sharing - allows association of OpenGL context or share group with CL context for interoperability.
+* cl_khr_icd - the OpenCL Installable Client Driver (ICD) that lets developers select from multiple OpenCL runtimes which may be      	installed on a system.
 * cl_khr_d3d10_sharing - allows association of D3D10 context or share group with CL context for interoperability.
 * cl_dx9_media_sharing
 * Cl_khr_fp16
@@ -3048,7 +3048,7 @@ The typical extensions in OpenCL 2.0 are:
 
 cl_ext Extensions
 **********************
-* cl_ext_device_fission - Support for device fission in OpenCL™. For more information about this extension, see: http://www.khronos.org/registry/cl/extensions/ext/cl_ext_device_fission.txt
+* cl_ext_device_fission - Support for device fission in OpenCL(TM). For more information about this extension, see: http://www.khronos.org/registry/cl/extensions/ext/cl_ext_device_fission.txt
 * cl_ext_atomic_counters_32 - Support for 32-bit atomic counters. For more information about this extension, see: https://www.khronos.org/registry/cl/extensions/ext/cl_ext_atomic_counters_32.txt
 
 
@@ -3060,7 +3060,7 @@ This section describes the AMD vendor-specific extensions.
 
 cl_amd_fp64
 ***************
-Before using double data types, double-precision floating point operators, and/or double-precision floating point routines in OpenCL™ C kernels, include the
+Before using double data types, double-precision floating point operators, and/or double-precision floating point routines in OpenCL(TM) C kernels, include the
 #pragma OPENCL EXTENSION cl_amd_fp64 : enable directive. See Table A.1 for a list of supported routines.
 
 cl_amd_vec3
@@ -3109,23 +3109,23 @@ cl_amd_compile_options
 ***********************
 This extension adds the following options, which are not part of the OpenCL specification.
 
-* -g — This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or cygwin/minGW under Windows. For more details, see Chapter 4, “Debugging and Profiling OpenCL.” This option does not affect the default optimization of the OpenCL code.
-* -O0 — Specifies to the compiler not to optimize. This is equivalent to the
+* -g -- This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or cygwin/minGW under Windows. For more details, see Chapter 4, "Debugging and Profiling OpenCL." This option does not affect the default optimization of the OpenCL code.
+* -O0 -- Specifies to the compiler not to optimize. This is equivalent to the
   OpenCL standard option -cl-opt-disable.
-* -f[no-]bin-source — Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, “OpenCL Binary Image Format (BIF) v2.0.” By default, the source is NOT generated.
-* -f[no-]bin-llvmir — Does [not] generate LLVM IR in the .llvmir section.
-  For more information, see Appendix C, “OpenCL Binary Image Format (BIF)
-  v2.0.” By default, LLVM IR IS generated.
-* -f[no-]bin-amdil — Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, “OpenCL Binary Image Format (BIF) v2.0.” By Default, AMD IL is NOT generated.
-* -f[no-]bin-exe — Does [not] generate the executable (ISA) in .text section.
-  For more information, see Appendix C, “OpenCL Binary Image Format (BIF)
-  v2.0.” By default, the executable IS generated.
+* -f[no-]bin-source -- Does [not] generate OpenCL source in the .source section. For more information, see Appendix C, "OpenCL Binary Image Format (BIF) v2.0." By default, the source is NOT generated.
+* -f[no-]bin-llvmir -- Does [not] generate LLVM IR in the .llvmir section.
+  For more information, see Appendix C, "OpenCL Binary Image Format (BIF)
+  v2.0." By default, LLVM IR IS generated.
+* -f[no-]bin-amdil -- Does [not] generate AMD IL in the .amdil section. For more information, see Appendix C, "OpenCL Binary Image Format (BIF) v2.0." By Default, AMD IL is NOT generated.
+* -f[no-]bin-exe -- Does [not] generate the executable (ISA) in .text section.
+  For more information, see Appendix C, "OpenCL Binary Image Format (BIF)
+  v2.0." By default, the executable IS generated.
 * -f[no-]bin-hsail Does [not] generate HSAIL/BRIG in the binary. By default, HSA IL/BRIG is NOT generated.
 
 To avoid source changes,  there are two environment variables that can be used to change CL options during the runtime.
 
-* AMD_OCL_BUILD_OPTIONS — Overrides the CL options specified in clBuildProgram().
-* AMD_OCL_BUILD_OPTIONS_APPEND — Appends options to the options specified in clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS -- Overrides the CL options specified in clBuildProgram().
+* AMD_OCL_BUILD_OPTIONS_APPEND -- Appends options to the options specified in clBuildProgram().
 
 cl_amd_offline_devices
 ***********************
@@ -3137,7 +3137,7 @@ This extension provides the ability to register event callbacks for states other
 
 cl_amd_popcnt
 **************
-This extension introduces a “population count” function called popcnt. This extension was taken into core OpenCL 1.2, and the function was renamed popcount. The core 1.2 popcount function (documented in section 6.12.3 of the OpenCL Specification) is identical to the AMD extension popcnt function.
+This extension introduces a "population count" function called popcnt. This extension was taken into core OpenCL 1.2, and the function was renamed popcount. The core 1.2 popcount function (documented in section 6.12.3 of the OpenCL Specification) is identical to the AMD extension popcnt function.
 
 cl_amd_media_ops
 ******************
@@ -3148,14 +3148,14 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | uint amd_pack(float4 src)
  | Return value
  | ((((uint)src[0]) & 0xFF) << 0) + ((((uint)src[1]) & 0xFF) << 8) + ((((uint)src[2]) & 0xFF) << 16) + ((((uint)src[3]) & 0xFF) << 24)
- 
+
  |
  | Built-in function: amd_unpack0
  | floatn  amd_unpack0 (uintn src)
  | Return value for each vector component
  | (float)(src[i] & 0xFF)
  |
- 
+
  | Built-in function: amd_unpack1
  | floatn  amd_unpack1 (uintn src)
  | Return value for each vector component
@@ -3170,7 +3170,7 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | floatn amd_unpack3(uintn src)
  | Return value for each vector component
  | (float)((src[i] >> 24) & 0xFF)
- 
+
  |
  | Built-in function: amd_bitalign
  | uintn amd_bitalign (uintn src0, uintn src1, uintn src2)
@@ -3185,8 +3185,8 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | Built-in function: amd_lerp
  | uintn amd_lerp (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
- | (((((src0[i] >> 0) & 0xFF) + ((src1[i] >> 0) & 0xFF) + ((src2[i] >> 0) & 1)) >> 1) << 0) + (((((src0[i] >> 8) & 0xFF) + ((src1[i]  	
- | >> 8) & 0xFF) + ((src2[i] >> 8) & 1)) >> 1) << 8) + (((((src0[i] >> 16) & 0xFF) + ((src1[i] >> 16) & 0xFF) + ((src2[i] >> 16) &   	
+ | (((((src0[i] >> 0) & 0xFF) + ((src1[i] >> 0) & 0xFF) + ((src2[i] >> 0) & 1)) >> 1) << 0) + (((((src0[i] >> 8) & 0xFF) + ((src1[i]
+ | >> 8) & 0xFF) + ((src2[i] >> 8) & 1)) >> 1) << 8) + (((((src0[i] >> 16) & 0xFF) + ((src1[i] >> 16) & 0xFF) + ((src2[i] >> 16) &
  |1)) >> 1) << 16) + (((((src0[i] >> 24) & 0xFF) + ((src1[i] >> 24) & 0xFF) + ((src2[i] >> 24) & 1)) >> 1) << 24) ;
  |
  | Built-in function: amd_sad
@@ -3207,7 +3207,7 @@ This extension adds the following built-in functions to the OpenCL language. Not
  | abs(((src0[i] >> 16) & 0xFF) - ((src1[i] >> 16) & 0xFF)) +
  | abs(((src0[i] >> 24) & 0xFF) - ((src1[i] >> 24) & 0xFF));
  |
- 
+
  | Built-in function: amd_sadhi
  | uintn amd_sadhi (uintn src0, uintn src1, uintn src2)
  | Return value for each vector component
@@ -3220,21 +3220,21 @@ For more information, see: http://www.khronos.org/registry/cl/extensions/amd/cl_
 
 cl_amd_printf
 ****************
-The OpenCL™ Specification 1.1 and 1.2 support the optional AMD extension cl_amd_printf, which provides printf capabilities to OpenCL C programs. To use this extension, an application first must include::
- 
+The OpenCL(TM) Specification 1.1 and 1.2 support the optional AMD extension cl_amd_printf, which provides printf capabilities to OpenCL C programs. To use this extension, an application first must include::
+
  #pragma OPENCL EXTENSION cl_amd_printf : enable.
 
 Built-in function::
- 
- printf( constant char * restrict format, …);
+
+ printf( constant char * restrict format, ...);
 
 This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:
 
-–is null-terminated and composed of zero and more directives,
+-is null-terminated and composed of zero and more directives,
 
-–ordinary characters (i.e. not %), which are copied directly to the output stream unchanged, and
+-ordinary characters (i.e. not %), which are copied directly to the output stream unchanged, and
 
-–conversion specifications, each of which can result in fetching zero or more arguments, converting them, and then writing the final result to the output stream.
+-conversion specifications, each of which can result in fetching zero or more arguments, converting them, and then writing the final result to the output stream.
 
 The format string must be resolvable at compile time; thus, it cannot be dynamically created by the executing program. (Note that the use of variadic arguments in the built-in printf does not imply its use in other built- ins; more importantly, it is not valid to use printf in user-defined functions or kernels.)
 
@@ -3243,55 +3243,55 @@ The OpenCL C printf closely matches the definition found as part of the C99 stan
 * A 32-bit floating point argument is not converted to a 64-bit double, unless the extension cl_khr_fp64 is supported and enabled, as defined in section 9.3 of the OpenCL Specification 1.1. This includes the double variants if cl_khr_fp64 is supported and defined in the corresponding compilation unit.
 * 64-bit integer types can be printed using %ld / %lx / %lu .
 * %lld / %llx / %llu are not supported and reserved for 128-bit integer types (long long).
-* All OpenCL vector types (section 6.1.2 of the OpenCL Specification 1.1) can be explicitly passed and printed using the modifier vn, where n can be 2, 3, 4, 8, or 16. This modifier appears before the original conversion specifier for the vector’s component type (for example, to print a float4 %v4f). Since vn is a conversion specifier, it is valid to apply optional flags, such as field width and precision, just as it is when printing the component types. 	Since a vector is an aggregate type, the comma separator is used between the components: 0:1, … , n-2:n-1.
+* All OpenCL vector types (section 6.1.2 of the OpenCL Specification 1.1) can be explicitly passed and printed using the modifier vn, where n can be 2, 3, 4, 8, or 16. This modifier appears before the original conversion specifier for the vector's component type (for example, to print a float4 %v4f). Since vn is a conversion specifier, it is valid to apply optional flags, such as field width and precision, just as it is when printing the component types. 	Since a vector is an aggregate type, the comma separator is used between the components: 0:1, ... , n-2:n-1.
 
 
 cl_amd_predefined_macros
 *************************
-The following macros are predefined when compiling OpenCL™ C kernels. These macros are defined automatically based on the device for which the code is being compiled.
+The following macros are predefined when compiling OpenCL(TM) C kernels. These macros are defined automatically based on the device for which the code is being compiled.
 
 GPU devices:
 
-  | __Barts__ 	
-  | __Bheem__ 	
-  | __Bonaire__ 	
-  | __Caicos__ 	
-  | __Capeverde__ 	
-  | __Carrizo__ 	
-  | __Cayman__ 	
-  | __Cedar__ 	
-  | __Cypress__ 	
+  | __Barts__
+  | __Bheem__
+  | __Bonaire__
+  | __Caicos__
+  | __Capeverde__
+  | __Carrizo__
+  | __Cayman__
+  | __Cedar__
+  | __Cypress__
   | __Devastator__
-  | __Hainan__ 	
-  | __Iceland__ 	
-  | __Juniper__ 	
-  | __Kalindi__ 	
-  | __Kauai__ 	
-  | __Lombok__ 	
-  | __Loveland__ 	
-  | __Mullins__ 	
-  | __Oland__ 	
-  | __Pitcairn__ 	
-  | __RV710__ 	
-  | __RV730__ 	
-  | __RV740__ 	
-  | __RV770__ 	
-  | __RV790__ 	
-  | __Redwood__ 	
-  | __Scrapper__ 	
-  | __Spectre__ 	
-  | __Spooky__ 	
-  | __Tahiti__ 	
-  | __Tonga__ 	
-  | __Turks__ 	
+  | __Hainan__
+  | __Iceland__
+  | __Juniper__
+  | __Kalindi__
+  | __Kauai__
+  | __Lombok__
+  | __Loveland__
+  | __Mullins__
+  | __Oland__
+  | __Pitcairn__
+  | __RV710__
+  | __RV730__
+  | __RV740__
+  | __RV770__
+  | __RV790__
+  | __Redwood__
+  | __Scrapper__
+  | __Spectre__
+  | __Spooky__
+  | __Tahiti__
+  | __Tonga__
+  | __Turks__
   | __WinterPark__
-  | __GPU__ 	
+  | __GPU__
 
 CPU devices:
 
-  | __CPU__ 	
-  | __X86__ 	
-  | __X86_64__ 	
+  | __CPU__
+  | __X86__
+  | __X86_64__
 
 Note that     GPU  or     CPU  are predefined whenever a GPU or CPU device is the compilation target.
 
@@ -3300,11 +3300,11 @@ An example kernel is provided below.
 ::
 
   #pragma OPENCL EXTENSION cl_amd_printf : enable const char* getDeviceName() {
-  #ifdef   Cayman 	
+  #ifdef   Cayman
   return "Cayman";
-  #elif   Barts 	
+  #elif   Barts
   return "Barts";
-  #elif   Cypress 	
+  #elif   Cypress
   return "Cypress";
   #elif defined(  Juniper  )
   return "Juniper";
@@ -3334,12 +3334,12 @@ An example kernel is provided below.
   return "UnknownDevice";
   kernel void test_pf(global int* a)
   {
-  printf("Device Name: %s\n", getDeviceName()); 
+  printf("Device Name: %s\n", getDeviceName());
   }
 
 cl_amd_bus_addressable_memory
 ******************************
-This extension defines an API for peer-to-peer transfers between AMD GPUs and other PCIe device, such as third-party SDI I/O devices. Peer-to-peer transfers have extremely low latencies by not having to use the host’s main memory or the CPU (see Figure A.1). This extension allows sharing a memory allocated by the graphics driver to be used by other devices on the PCIe bus (peer-to-peer transfers) by exposing a write-only bus address. It also allows memory allocated on other PCIe devices (non-AMD GPU) to be directly accessed by AMD GPUs. One possible use of this is for a video capture device to directly write into the GPU memory using its DMA.This extension is supported only on AMD FirePro™ professional graphics cards.
+This extension defines an API for peer-to-peer transfers between AMD GPUs and other PCIe device, such as third-party SDI I/O devices. Peer-to-peer transfers have extremely low latencies by not having to use the host's main memory or the CPU (see Figure A.1). This extension allows sharing a memory allocated by the graphics driver to be used by other devices on the PCIe bus (peer-to-peer transfers) by exposing a write-only bus address. It also allows memory allocated on other PCIe devices (non-AMD GPU) to be directly accessed by AMD GPUs. One possible use of this is for a video capture device to directly write into the GPU memory using its DMA.This extension is supported only on AMD FirePro(TM) professional graphics cards.
 
 
 .. image:: images/a.1.png
@@ -3367,11 +3367,11 @@ Extensions			   Brazos     Llano      Trinity    Cape Verde3    Turks4      Caym
  cl_khr_byte_addressable_store       Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
  cl_ext_device_fission   	   onlyCPU   only CPU    onlyCPU      No              No          No           No         No
  cl_amd_device_attribute_query       Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
- cl_khr_fp64  			   onlyCPU   only CPU    onlyCPU      Yes 	     Yes 	 Yes 	       No        Yes 
+ cl_khr_fp64  			   onlyCPU   only CPU    onlyCPU      Yes 	     Yes 	 Yes 	       No        Yes
  cl_amd_fp64  			   onlyCPU   only CPU    onlyCPU      Yes 	     Yes 	 Yes 	       No	 Yes
  cl_amd_vec3 			    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
  cl_khr_d3d10_sharing 		    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
- cl_amd_media_ops 		    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes	
+ cl_amd_media_ops 		    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
  cl_amd_printf 			    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
  cl_amd_popcnt 			    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
  cl_khr_3d_image_writes 	    Yes       Yes         Yes        Yes            Yes         Yes          Yes        Yes
@@ -3380,13 +3380,13 @@ Extensions			   Brazos     Llano      Trinity    Cape Verde3    Turks4      Caym
 **Table A.1 Extension Support for AMD GPU Devices 1**
 
 
-1.  AMD Radeon™ HD 79XX series.
-2.  AMD Radeon™ HD 78XX series.
-3.  AMD Radeon™ HD 77XX series.
-4.  AMD Radeon™ HD 75XX series and AMD Radeon™ HD 76XX series.
-5.  AMD Radeon™ HD 69XX series.
-6.  AMD Radeon™ HD 68XX series.
-7.  ATI Radeon™ HD 59XX series and 58XX series, AMD FirePro™ V88XX series and V87XX series.
+1.  AMD Radeon(TM) HD 79XX series.
+2.  AMD Radeon(TM) HD 78XX series.
+3.  AMD Radeon(TM) HD 77XX series.
+4.  AMD Radeon(TM) HD 75XX series and AMD Radeon(TM) HD 76XX series.
+5.  AMD Radeon(TM) HD 69XX series.
+6.  AMD Radeon(TM) HD 68XX series.
+7.  ATI Radeon(TM) HD 59XX series and 58XX series, AMD FirePro(TM) V88XX series and V87XX series.
 
 Note that an atomic counter is a device-level counter that can be added / decremented by different work-items, where the atomicity of the operation is guaranteed. The access to the counter is done only through add/dec built-in functions; thus, no two work-items have the same value returned in the case that a given kernel only increments or decrements the counter. (Also see http://www.khronos.org/registry/cl/extensions/ext/cl_ext_atomic_counters_32.txt.)
 
@@ -3435,13 +3435,13 @@ Note that an atomic counter is a device-level counter that can be added / decrem
 +---------------------------------+------------+-----------+----------+-----------------------------+
 | cl_amd_offline_devices          | Yes        |Yes        | Yes      |           No                |
 +---------------------------------+------------+-----------+----------+-----------------------------+
-	
+
 **Table A.2 Extension Support for Older AMD GPUs and CPUs**
 
 
-1.  ATI Radeon™ HD 5700 series, AMD Mobility Radeon™ HD 5800 series, AMD FirePro™ V5800 series, AMD Mobility FirePro™ M7820.
-2.  ATI Radeon™ HD 5600 Series, ATI Radeon™ HD 5600 Series, ATI Radeon™ HD 5500 Series, AMD Mobility Radeon™ HD 5700 Series, AMD Mobility Radeon™ HD 5600 Series, AMD FirePro™ V4800 Series, AMD FirePro™ V3800 Series, AMD Mobility FirePro™ M5800
-3.  ATI Radeon™ HD 5400 Series, AMD Mobility Radeon™ HD 5400 Series
+1.  ATI Radeon(TM) HD 5700 series, AMD Mobility Radeon(TM) HD 5800 series, AMD FirePro(TM) V5800 series, AMD Mobility FirePro(TM) M7820.
+2.  ATI Radeon(TM) HD 5600 Series, ATI Radeon(TM) HD 5600 Series, ATI Radeon(TM) HD 5500 Series, AMD Mobility Radeon(TM) HD 5700 Series, AMD Mobility Radeon(TM) HD 5600 Series, AMD FirePro(TM) V4800 Series, AMD FirePro(TM) V3800 Series, AMD Mobility FirePro(TM) M5800
+3.  ATI Radeon(TM) HD 5400 Series, AMD Mobility Radeon(TM) HD 5400 Series
 4.  Available on all devices that have double-precision, including all Southern Island devices.
 5.  Environment variable CPU_IMAGE_SUPPORT must be set.
 
@@ -3468,7 +3468,7 @@ Using ICD
 Sample code that is part of the SDK contains examples showing how to query the platform API and call the functions that require a valid platform parameter.
 
 This is a pre-ICD code snippet. ::
- 
+
  context = clCreateContextFromType(0,
                                    dType,
                                    NULL,
@@ -3479,12 +3479,12 @@ This is a pre-ICD code snippet. ::
 The ICD-compliant version of this code follows.
 
 ::
-  
+
   /*
    * Have a look at the available platforms and pick either
    * the AMD one if available or a reasonable default.
   */
-  
+
   cl_uint numPlatforms;
   cl_platform_id platform = NULL;
   status = clGetPlatformIDs(0, NULL, &numPlatforms);
@@ -3523,27 +3523,27 @@ The ICD-compliant version of this code follows.
   get whatever the
   * implementation thinks we should be using.
   */
-  
+
   cl_context_properties cps[3] =
   {
     CL_CONTEXT_PLATFORM, (cl_context_properties)platform, 0
   };
   /* Use NULL for backward compatibility */
   cl_context_properties* cprops = (NULL == platform) ? NULL : cps;
-   
+
   context = clCreateContextFromType(cprops, dType, NULL, NULL, &status);
 
 
 Another example of a pre-ICD code snippet follows.
 ::
-  
+
   status = clGetDeviceIDs(NULL, CL_DEVICE_TYPE_DEFAULT, 0, NULL, &numDevices);
-  
+
 
 The ICD-compliant version of the code snippet is::
-  
+
  status= clGetDeviceiDs(platform, CL_DEVICE_TYPE_DEFAULT, 0, NULL, &nurnDevices);
- 
+
 
 .. Note:::: It is recommended that the host code look at the platform vendor string when searching for the desired OpenCL platform, instead of using the platform name string. The platform name string might change, whereas the platform vendor string remains constant for a particular vendor's implementation.
 .. _BIF:
@@ -3565,7 +3565,7 @@ The BIF can have other special sections for debugging, etc. It also contains sev
   * .rodata for storing the OpenCL runtime control data.
   * other ELF special sections required for forming an ELF (for example: ``.strtab, .symtab, .shstrtab`` ).
 
-By default, OpenCL generates a binary that has LLVM IR, and the executable for the GPU (,.llvmir, .amdil, and .text sections), as well as LLVM IR and the executable for the CPU (.llvmir and .text sections). The BIF binary always contains a .comment section, which is a readable C string. The default behavior can be changed with the BIF options described in Section C.2, “BIF Options,” page C-3.
+By default, OpenCL generates a binary that has LLVM IR, and the executable for the GPU (,.llvmir, .amdil, and .text sections), as well as LLVM IR and the executable for the CPU (.llvmir and .text sections). The BIF binary always contains a .comment section, which is a readable C string. The default behavior can be changed with the BIF options described in Section C.2, "BIF Options," page C-3.
 
 The LLVM IR enables recompilation from LLVM IR to the target. When a binary is used to run on a device for which the original program was not generated and the original device is feature-compatible with the current device, OpenCL recompiles the LLVM IR to generate a new code for the device. Note that the LLVM IR is only universal within devices that are feature-compatible in the same device type, not across different device types. This means that the LLVM IR for the CPU is not compatible with the LLVM IR for the GPU. The LLVM IR for a GPU works only for GPU devices that have equivalent feature sets.
 
@@ -3646,11 +3646,11 @@ BIF Options
 *************
 OpenCL provides the following options to control what is contained in the binary.
 
--f[no-]bin-source — [not] generate OpenCL source in .source section.
+-f[no-]bin-source -- [not] generate OpenCL source in .source section.
 
--f[no-]bin-llvmir — [not] generate LLVM IR in .llvmir section.
+-f[no-]bin-llvmir -- [not] generate LLVM IR in .llvmir section.
 
--f[no-]bin-exe — [not] generate the executable (ISA) in .text section. The option syntax follows the GCC option syntax.
+-f[no-]bin-exe -- [not] generate the executable (ISA) in .text section. The option syntax follows the GCC option syntax.
 By default, OpenCL generates the .llvmir section, .amdil section, and .text
 section. The following are examples for using these options: Example 1: Generate executable for execution:
 
@@ -3700,7 +3700,7 @@ A processing element is arranged as a five-way or four-way (depending on the
 GPU type) very long instruction word (VLIW) processor (see bottom of
 Figure D.2). Up to five scalar operations (or four, depending on the GPU type) can be co-issued in a VLIW instruction, each of which are executed on one of the corresponding five ALUs. ALUs can execute single-precision floating point or integer operations. One of the five ALUs also can perform transcendental operations (sine, cosine, logarithm, etc.). Double-precision floating point operations are processed (where supported) by connecting two or four of the ALUs (excluding the transcendental core) to perform a single double-precision operation. The processing element also contains one branch execution unit to handle branch instructions.
 
-Different GPU compute devices have different numbers of processing elements. For example, the ATI Radeon™ HD 5870 GPU has 20 compute units, each with
+Different GPU compute devices have different numbers of processing elements. For example, the ATI Radeon(TM) HD 5870 GPU has 20 compute units, each with
 16 processing elements, and each processing elements contains five ALUs; this
 yields 1600 physical ALUs.
 
@@ -4004,7 +4004,7 @@ The following code segment shows how to create an OpenCL-OpenGL interoperability
   glXDestroyContext(glXGetCurrentDisplay(), gGlCtx);
   continue;
   }
-  else 
+  else
   {
   //Interoperable device found std::cout<<"Interoperable device found "<<std::endl; break;
   }
@@ -4025,8 +4025,8 @@ Additional GL Formats Supported
 The following is a list of GL formats beyond the minimum set listed in The OpenCL Extension Specification, v 1.2 that AMD supports.
 
 ==================================== ============================
-AMD-Supported GL Formats 		GL internal format	
-==================================== ============================		
+AMD-Supported GL Formats 		GL internal format
+==================================== ============================
 GL_ALPHA8				 CL_A,CL_UNORM8
 GL_R8, CL_R,				 CL_UNORM_INT8
 GL_R8UI CL_R,				 CL_UNSIGNED_INT8
@@ -4068,11 +4068,11 @@ List of Functions
 
 Work Item Functions
 *********************
-============================== =========================================================================== 
+============================== ===========================================================================
  get_enqueued_local_size 			local sizes in uniform part of NDRange
   get_global_linear_id 				unique 1D index for each work item in the NDRange
   get_local_linear_id 				unique 1D index for each work item in the work group
-============================== =========================================================================== 
+============================== ===========================================================================
 
 Integer functions
 *******************
@@ -4084,12 +4084,12 @@ Synchronization Functions
 
 Address space qualifier functions
 ***********************************
-============================== =========================================================================== 
+============================== ===========================================================================
   to_global 					convert generic pointer to global pointer
   to_local 					convert genericpointer to local pointer
   to_private 					convert generic pointer to private pointer
   get_fence 					get fence appropriate to address space
-============================== =========================================================================== 
+============================== ===========================================================================
 
 
 Atomic functions
@@ -4117,14 +4117,14 @@ Atomic functions
 
 Image Read and Write Functions
 *********************************
- 
+
  | read_imagef 		:			Read from 2D depth [array] image
  | write_imagef 	:			Write to 2D depth [array] image
 
 Work group functions
 *********************
 
-=============================================== =========================================================================== 
+=============================================== ===========================================================================
  work_group_all 				Test all members of work group (and reduction)
  work_group_any 				Test any member of work group (or reduction)
  work_group_broadcast 				Brodcast value to every member of work group
@@ -4137,7 +4137,7 @@ Work group functions
  work_group_scan_inclusive_add Sum inclusive  	scan across work group
  work_group_scan_inclusive_max Max inclusive  	scan across work group
  work_group_scan_inclusive_min Min inclusive  	scan across work group
-=============================================== =========================================================================== 
+=============================================== ===========================================================================
 
 Pipe functions
 ***************
@@ -4204,7 +4204,7 @@ New Types
 =============================================  ===============================================================
   cl_device_svm_capabilities 			Returned by clGetDeviceInfo(...CL_DEVICE_SVM_CAPABILITIES...)
   cl_queue_properties 				See clCreateCommandQueueWithProperties
-  cl_svm_mem_flags 				See clSVMAlloc 
+  cl_svm_mem_flags 				See clSVMAlloc
   cl_pipe_properties 				See clCreatePipe
   cl_pipe_info 					See clGetPipeInfo
   cl_sampler_properties 			See clCreateSamplerWithProperties

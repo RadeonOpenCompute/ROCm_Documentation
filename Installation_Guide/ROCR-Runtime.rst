@@ -13,7 +13,7 @@ Initial target platform requirements
  * CPU: Intel Haswell or newer, Core i5, Core i7, Xeon E3 v4 & v5; Xeon E5 v3
  * GPU: Fiji ASIC (AMD R9 Nano, R9 Fury and R9 Fury X)
  * GPU: Polaris ASIC (AMD RX480)
- 
+
 Source code
 **************
 The HSA core runtime source code for the ROCR runtime is located in the src subdirectory. Please consult the associated README.md file for contents and build instructions.

@@ -13,7 +13,7 @@ Features of the library:
 
  * uct_perf_test_run() is the function which runs the test. (currently only UCT API is supported)
  * No need to do any resource allocation - just pass the testing parameters to the API
- * Requires running the function on 2 threads/processes/nodes - by passing RTE callbacks which are used to bootstrap the connections. 
+ * Requires running the function on 2 threads/processes/nodes - by passing RTE callbacks which are used to bootstrap the connections.
  * Two testing modes - ping-pong and unidirectional stream (TBD bi-directional stream)
  * Configurabe message size, and data layout (short/bcopy/zcopy)
  * Supports: warmup cycles, unlimited iterations.
@@ -73,7 +73,7 @@ Features of ucx_perftest:
                         Every line of the file is a test to run. The first word is the
                         test name, and the rest are command-line arguments for the test.
       -h             Show this help message.
- 
+
     Server options:
        -l             Accept clients in an infinite loop
 
@@ -109,4 +109,4 @@ When using mpi as the launcher to run ucx_perftest, please make sure that your u
   | # iterations | typical | average | overall |  average |  overall |   average |   overall |
   +--------------+---------+---------+---------+----------+----------+-----------+-----------+
         586527     0.845     0.852     0.852       4.47       4.47      586527      586527
-       1000000     0.844     0.848     0.851       4.50       4.48      589339   
+       1000000     0.844     0.848     0.851       4.50       4.48      589339

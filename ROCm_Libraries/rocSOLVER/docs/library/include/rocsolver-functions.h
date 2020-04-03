@@ -42,7 +42,7 @@ extern "C" {
     n               rocsolver_int. n >= 0.\n
                     The number of columns of the matrix A.
     @param[inout]
-    A               pointer to type. Array on the GPU of dimension lda*n. \n 
+    A               pointer to type. Array on the GPU of dimension lda*n. \n
                     On entry, the matrix of column dimension n to which the row
                     interchanges will be applied. On exit, the permuted matrix.
     @param[in]
@@ -59,7 +59,7 @@ extern "C" {
     @param[in]
     ipiv            pointer to rocsolver_int. Array on the GPU of dimension at least k1 + (k2 - k1) * abs(incx).\n
                     The vector of pivot indices.  Only the elements in positions
-                    k1 through (k1 + (k2 - k1) * abs(incx)) of IPIV are accessed. 
+                    k1 through (k1 + (k2 - k1) * abs(incx)) of IPIV are accessed.
                     Elements of ipiv are considered 1-based.
     @param[in]
     incx            rocsolver_int. incx != 0.\n
@@ -67,92 +67,92 @@ extern "C" {
                     is negative, the pivots are applied in reverse order.
     *************************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_slaswp(rocsolver_handle handle, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_slaswp(rocsolver_handle handle,
                                                    const rocsolver_int n,
-                                                   float *A, 
-                                                   const rocsolver_int lda, 
-                                                   const rocsolver_int k1, 
-                                                   const rocsolver_int k2, 
-                                                   const rocsolver_int *ipiv, 
+                                                   float *A,
+                                                   const rocsolver_int lda,
+                                                   const rocsolver_int k1,
+                                                   const rocsolver_int k2,
+                                                   const rocsolver_int *ipiv,
                                                    const rocsolver_int incx);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dlaswp(rocsolver_handle handle, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dlaswp(rocsolver_handle handle,
                                                    const rocsolver_int n,
-                                                   double *A, 
-                                                   const rocsolver_int lda, 
-                                                   const rocsolver_int k1, 
-                                                   const rocsolver_int k2, 
-                                                   const rocsolver_int *ipiv, 
+                                                   double *A,
+                                                   const rocsolver_int lda,
+                                                   const rocsolver_int k1,
+                                                   const rocsolver_int k2,
+                                                   const rocsolver_int *ipiv,
                                                    const rocsolver_int incx);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_claswp(rocsolver_handle handle, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_claswp(rocsolver_handle handle,
                                                    const rocsolver_int n,
-                                                   rocblas_float_complex *A, 
-                                                   const rocsolver_int lda, 
-                                                   const rocsolver_int k1, 
-                                                   const rocsolver_int k2, 
-                                                   const rocsolver_int *ipiv, 
+                                                   rocblas_float_complex *A,
+                                                   const rocsolver_int lda,
+                                                   const rocsolver_int k1,
+                                                   const rocsolver_int k2,
+                                                   const rocsolver_int *ipiv,
                                                    const rocsolver_int incx);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_zlaswp(rocsolver_handle handle, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_zlaswp(rocsolver_handle handle,
                                                    const rocsolver_int n,
-                                                   rocblas_double_complex *A, 
-                                                   const rocsolver_int lda, 
-                                                   const rocsolver_int k1, 
-                                                   const rocsolver_int k2, 
-                                                   const rocsolver_int *ipiv, 
+                                                   rocblas_double_complex *A,
+                                                   const rocsolver_int lda,
+                                                   const rocsolver_int k1,
+                                                   const rocsolver_int k2,
+                                                   const rocsolver_int *ipiv,
                                                    const rocsolver_int incx);
 
-/*! \brief LARFG generates an orthogonal Householder reflector H of order n. 
+/*! \brief LARFG generates an orthogonal Householder reflector H of order n.
 
     \details
     Householder reflector H is such that
- 
+
         H * [alpha] = [beta]
             [  x  ]   [  0 ]
 
-    where x is an n-1 vector and alpha and beta are scalars. Matrix H can be 
+    where x is an n-1 vector and alpha and beta are scalars. Matrix H can be
     generated as
-    
+
         H = I - tau * [1] * [1 v']
                       [v]
 
-    with v an n-1 vector and tau a scalar. 
+    with v an n-1 vector and tau a scalar.
 
     @param[in]
     handle          rocsolver_handle
     @param[in]
     n               rocsolver_int. n >= 0.\n
-                    The order (size) of reflector H. 
+                    The order (size) of reflector H.
     @param[inout]
     alpha           pointer to type. A scalar on the GPU.\n
-                    On input the scalar alpha, 
+                    On input the scalar alpha,
                     on output it is overwritten with beta.
-    @param[inout]      
+    @param[inout]
     x               pointer to type. Array on the GPU of size at least n-1.\n
-                    On input it is the vector x, 
+                    On input it is the vector x,
                     on output it is overwritten with vector v.
     @param[in]
     incx            rocsolver_int. incx > 0.\n
-                    The increment between consecutive elements of x. 
+                    The increment between consecutive elements of x.
     @param[out]
     tau             pointer to type. A scalar on the GPU.\n
                     The scalar tau.
 
     *************************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_slarfg(rocsolver_handle handle, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_slarfg(rocsolver_handle handle,
+                                                 const rocsolver_int n,
                                                  float *alpha,
-                                                 float *x, 
-                                                 const rocsolver_int incx, 
+                                                 float *x,
+                                                 const rocsolver_int incx,
                                                  float *tau);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfg(rocsolver_handle handle, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfg(rocsolver_handle handle,
+                                                 const rocsolver_int n,
                                                  double *alpha,
-                                                 double *x, 
-                                                 const rocsolver_int incx, 
+                                                 double *x,
+                                                 const rocsolver_int incx,
                                                  double *tau);
 
 
@@ -164,9 +164,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfg(rocsolver_handle handle,
         H = H(1) * H(2) * ... * H(k)  (forward direction), or
         H = H(k) * ... * H(2) * H(1)  (backward direction)
 
-    depending on the value of direct.  
+    depending on the value of direct.
 
-    The triangular matrix T is upper triangular in forward direction and lower triangular in backward direction. 
+    The triangular matrix T is upper triangular in forward direction and lower triangular in backward direction.
     If storev is column-wise, then
 
         H = I - V * T * V'
@@ -175,7 +175,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfg(rocsolver_handle handle,
 
         H = I - V' * T * V
 
-    where the i-th row of matrix V contains the Householder vector associated to H(i). 
+    where the i-th row of matrix V contains the Householder vector associated to H(i).
 
     @param[in]
     handle              rocsolver_handle.
@@ -188,10 +188,10 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfg(rocsolver_handle handle,
     @param[in]
     n                   rocsolver_int. n >= 0.\n
                         The order (size) of the block reflector.
-    @param[in]          
+    @param[in]
     k                   rocsovler_int. k >= 1.\n
                         The number of Householder matrices.
-    @param[in]          
+    @param[in]
     V                   pointer to type. Array on the GPU of size ldv*k if column-wise, or ldv*n if row-wise.\n
                         The matrix of Householder vectors.
     @param[in]
@@ -203,44 +203,44 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfg(rocsolver_handle handle,
     @param[out]
     T                   pointer to type. Array on the GPU of dimension ldt*k.\n
                         The triangular factor. T is upper triangular is forward operation, otherwise it is lower triangular.
-                        The rest of the array is not used. 
-    @param[in]  
+                        The rest of the array is not used.
+    @param[in]
     ldt                 rocsolver_int. ldt >= k.\n
                         The leading dimension of T.
 
-    **************************************************************************/ 
+    **************************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_slarft(rocsolver_handle handle,
-                                                 const rocsolver_direct direct, 
+                                                 const rocsolver_direct direct,
                                                  const rocsolver_storev storev,
-                                                 const rocsolver_int n, 
+                                                 const rocsolver_int n,
                                                  const rocsolver_int k,
                                                  float *V,
                                                  const rocsolver_int ldv,
                                                  float *tau,
-                                                 float *T, 
-                                                 const rocsolver_int ldt); 
+                                                 float *T,
+                                                 const rocsolver_int ldt);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarft(rocsolver_handle handle,
                                                  const rocsolver_direct direct,
-                                                 const rocsolver_storev storev, 
-                                                 const rocsolver_int n, 
+                                                 const rocsolver_storev storev,
+                                                 const rocsolver_int n,
                                                  const rocsolver_int k,
                                                  double *V,
                                                  const rocsolver_int ldv,
                                                  double *tau,
-                                                 double *T, 
-                                                 const rocsolver_int ldt); 
+                                                 double *T,
+                                                 const rocsolver_int ldt);
 
 
 /*! \brief LARF applies a Householder reflector H to a general matrix A.
 
     \details
     The Householder reflector H, of order m (or n), is to be applied to a m-by-n matrix A
-    from the left (or the right). H is given by 
+    from the left (or the right). H is given by
 
         H = I - alpha * x * x'
-    
+
     where alpha is a scalar and x a Householder vector. H is never actually computed.
 
     @param[in]
@@ -254,16 +254,16 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarft(rocsolver_handle handle,
                     Number of rows of A.
     @param[in]
     n               rocsolver_int. n >= 0.\n
-                    Number of columns of A. 
+                    Number of columns of A.
     @param[in]
-    x               pointer to type. Array on the GPU of  
+    x               pointer to type. Array on the GPU of
                     size at least (1 + (m-1)*abs(incx)) if left side, or
                     at least (1 + (n-1)*abs(incx)) if right side.\n
                     The Householder vector x.
     @param[in]
     incx            rocsolver_int. incx != 0.\n
-                    Increment between to consecutive elements of x. 
-                    If incx < 0, the elements of x are used in reverse order. 
+                    Increment between to consecutive elements of x.
+                    If incx < 0, the elements of x are used in reverse order.
     @param[in]
     alpha           pointer to type. A scalar on the GPU.\n
                     If alpha = 0, then H = I (A will remain the same, x is never used)
@@ -273,35 +273,35 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarft(rocsolver_handle handle,
                     H*A (or A*H).
     @param[in]
     lda             rocsolver_int. lda >= m.\n
-                    Leading dimension of A. 
-                        
+                    Leading dimension of A.
+
     *************************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_slarf(rocsolver_handle handle, 
-                                                const rocsolver_side side, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_slarf(rocsolver_handle handle,
+                                                const rocsolver_side side,
                                                 const rocsolver_int m,
-                                                const rocsolver_int n, 
-                                                float* x, 
-                                                const rocsolver_int incx, 
+                                                const rocsolver_int n,
+                                                float* x,
+                                                const rocsolver_int incx,
                                                 const float* alpha,
-                                                float* A, 
+                                                float* A,
                                                 const rocsolver_int lda);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarf(rocsolver_handle handle, 
-                                                const rocsolver_side side, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarf(rocsolver_handle handle,
+                                                const rocsolver_side side,
                                                 const rocsolver_int m,
-                                                const rocsolver_int n, 
-                                                double* x, 
-                                                const rocsolver_int incx, 
+                                                const rocsolver_int n,
+                                                double* x,
+                                                const rocsolver_int incx,
                                                 const double* alpha,
-                                                double* A, 
+                                                double* A,
                                                 const rocsolver_int lda);
 
 
 /*! \brief LARFB applies a block reflector H to a general m-by-n matrix A.
 
     \details
-    The block reflector H is applied in one of the following forms, depending on 
+    The block reflector H is applied in one of the following forms, depending on
     the values of side and trans:
 
         H  * A  (No transpose from the left)
@@ -322,7 +322,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarf(rocsolver_handle handle,
 
         H = I - V' * T * V
 
-    where the i-th row of matrix V contains the Householder vector associated to H(i), if storev is row-wise. 
+    where the i-th row of matrix V contains the Householder vector associated to H(i), if storev is row-wise.
     T is the associated triangular factor as computed by LARFT.
 
     @param[in]
@@ -345,11 +345,11 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarf(rocsolver_handle handle,
     @param[in]
     n                   rocsolver_int. n >= 0.\n
                         Number of columns of matrix A.
-    @param[in]          
+    @param[in]
     k                   rocsovler_int. k >= 1.\n
                         The number of Householder matrices.
-    @param[in]          
-    V                   pointer to type. Array on the GPU of size ldv*k if column-wise, ldv*n if row-wise and applying from the right, 
+    @param[in]
+    V                   pointer to type. Array on the GPU of size ldv*k if column-wise, ldv*n if row-wise and applying from the right,
                         or ldv*m if row-wise and applying from the left.\n
                         The matrix of Householder vectors.
     @param[in]
@@ -359,16 +359,16 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarf(rocsolver_handle handle,
     @param[in]
     T                   pointer to type. Array on the GPU of dimension ldt*k.\n
                         The triangular factor of the block reflector.
-    @param[in]  
+    @param[in]
     ldt                 rocsolver_int. ldt >= k.\n
                         The leading dimension of T.
     @param[inout]
     A                   pointer to type. Array on the GPU of size lda*n.\n
                         On input, the matrix A. On output it is overwritten with
-                        H*A, A*H, H'*A, or A*H'.  
+                        H*A, A*H, H'*A, or A*H'.
     @param[in]
     lda                 rocsolver_int. lda >= m.\n
-                        Leading dimension of A. 
+                        Leading dimension of A.
 
     ****************************************************************************/
 
@@ -376,31 +376,31 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_slarfb(rocsolver_handle handle,
                                                  const rocsolver_side side,
                                                  const rocsolver_operation trans,
                                                  const rocsolver_direct direct,
-                                                 const rocsolver_storev storev, 
+                                                 const rocsolver_storev storev,
                                                  const rocsolver_int m,
-                                                 const rocsolver_int n, 
+                                                 const rocsolver_int n,
                                                  const rocsolver_int k,
                                                  float *V,
                                                  const rocsolver_int ldv,
-                                                 float *T, 
+                                                 float *T,
                                                  const rocsolver_int ldt,
                                                  float *A,
-                                                 const rocsolver_int lda); 
+                                                 const rocsolver_int lda);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfb(rocsolver_handle handle,
                                                  const rocsolver_side side,
                                                  const rocsolver_operation trans,
-                                                 const rocsolver_direct direct, 
-                                                 const rocsolver_storev storev, 
+                                                 const rocsolver_direct direct,
+                                                 const rocsolver_storev storev,
                                                  const rocsolver_int m,
-                                                 const rocsolver_int n, 
+                                                 const rocsolver_int n,
                                                  const rocsolver_int k,
                                                  double *V,
                                                  const rocsolver_int ldv,
-                                                 double *T, 
+                                                 double *T,
                                                  const rocsolver_int ldt,
                                                  double *A,
-                                                 const rocsolver_int lda); 
+                                                 const rocsolver_int lda);
 
 /*! \brief ORG2R generates a m-by-n Matrix Q with orthonormal columns.
 
@@ -409,17 +409,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfb(rocsolver_handle handle,
 
     The matrix Q is defined as the first n columns of the product of k Householder
     reflectors of order m
-    
+
         Q = H(1) * H(2) * ... * H(k)
 
-    Householder matrices H(i) are never stored, they are computed from its corresponding 
+    Householder matrices H(i) are never stored, they are computed from its corresponding
     Householder vector v(i) and scalar ipiv_i as returned by GEQRF.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     m           rocsolver_int. m >= 0.\n
-                The number of rows of the matrix Q. 
+                The number of rows of the matrix Q.
     @param[in]
     n           rocsolver_int. 0 <= n <= m.\n
                 The number of colums of the matrix Q.
@@ -433,7 +433,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfb(rocsolver_handle handle,
                 On exit, the computed matrix Q.
     @param[in]
     lda         rocsolver_int. lda >= m.\n
-                Specifies the leading dimension of A. 
+                Specifies the leading dimension of A.
     @param[in]
     ipiv        pointer to type. Array on the GPU of dimension at least k.\n
                 The scalar factors of the Householder matrices H(i) as returned by GEQRF.
@@ -442,16 +442,16 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dlarfb(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sorg2r(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dorg2r(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv);
@@ -463,17 +463,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorg2r(rocsolver_handle handle,
 
     The matrix Q is defined as the first n columns of the product of k Householder
     reflectors of order m
-    
+
         Q = H(1) * H(2) * ... * H(k)
 
-    Householder matrices H(i) are never stored, they are computed from its corresponding 
+    Householder matrices H(i) are never stored, they are computed from its corresponding
     Householder vector v(i) and scalar ipiv_i as returned by GEQRF.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     m           rocsolver_int. m >= 0.\n
-                The number of rows of the matrix Q. 
+                The number of rows of the matrix Q.
     @param[in]
     n           rocsolver_int. 0 <= n <= m.\n
                 The number of colums of the matrix Q.
@@ -487,7 +487,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorg2r(rocsolver_handle handle,
                 On exit, the computed matrix Q.
     @param[in]
     lda         rocsolver_int. lda >= m.\n
-                Specifies the leading dimension of A. 
+                Specifies the leading dimension of A.
     @param[in]
     ipiv        pointer to type. Array on the GPU of dimension at least k.\n
                 The scalar factors of the Householder matrices H(i) as returned by GEQRF.
@@ -496,16 +496,16 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorg2r(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sorgqr(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgqr(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv);
@@ -517,17 +517,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgqr(rocsolver_handle handle,
 
     The matrix Q is defined as the first m rows of the product of k Householder
     reflectors of order n
-    
+
         Q = H(k) * H(k-1) * ... * H(1)
 
-    Householder matrices H(i) are never stored, they are computed from its corresponding 
+    Householder matrices H(i) are never stored, they are computed from its corresponding
     Householder vector v(i) and scalar ipiv_i as returned by GELQF.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     m           rocsolver_int. 0 <= m <= n.\n
-                The number of rows of the matrix Q. 
+                The number of rows of the matrix Q.
     @param[in]
     n           rocsolver_int. n >= 0.\n
                 The number of colums of the matrix Q.
@@ -541,7 +541,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgqr(rocsolver_handle handle,
                 On exit, the computed matrix Q.
     @param[in]
     lda         rocsolver_int. lda >= m.\n
-                Specifies the leading dimension of A. 
+                Specifies the leading dimension of A.
     @param[in]
     ipiv        pointer to type. Array on the GPU of dimension at least k.\n
                 The scalar factors of the Householder matrices H(i) as returned by GELQF.
@@ -550,16 +550,16 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgqr(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sorgl2(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgl2(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv);
@@ -572,17 +572,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgl2(rocsolver_handle handle,
 
     The matrix Q is defined as the first m rows of the product of k Householder
     reflectors of order n
-    
+
         Q = H(k) * H(k-1) * ... * H(1)
 
-    Householder matrices H(i) are never stored, they are computed from its corresponding 
+    Householder matrices H(i) are never stored, they are computed from its corresponding
     Householder vector v(i) and scalar ipiv_i as returned by GELQF.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     m           rocsolver_int. 0 <= m <= n.\n
-                The number of rows of the matrix Q. 
+                The number of rows of the matrix Q.
     @param[in]
     n           rocsolver_int. n >= 0.\n
                 The number of colums of the matrix Q.
@@ -596,7 +596,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgl2(rocsolver_handle handle,
                 On exit, the computed matrix Q.
     @param[in]
     lda         rocsolver_int. lda >= m.\n
-                Specifies the leading dimension of A. 
+                Specifies the leading dimension of A.
     @param[in]
     ipiv        pointer to type. Array on the GPU of dimension at least k.\n
                 The scalar factors of the Householder matrices H(i) as returned by GELQF.
@@ -605,16 +605,16 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgl2(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sorglq(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dorglq(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv);
@@ -622,9 +622,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorglq(rocsolver_handle handle,
 /*! \brief ORGBR generates a m-by-n Matrix Q with orthonormal rows or columns.
 
     \details
-    If storev is column-wise, then the matrix Q has orthonormal columns. If m >= k, Q is defined as the first 
+    If storev is column-wise, then the matrix Q has orthonormal columns. If m >= k, Q is defined as the first
     n columns of the product of k Householder reflectors of order m
-    
+
         Q = H(1) * H(2) * ... * H(k)
 
     If m < k, Q is defined as the product of Householder reflectors of order m
@@ -635,12 +635,12 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorglq(rocsolver_handle handle,
     first m rows of the product of k Householder reflectors of order n
 
         Q = H(k) * H(k-1) * ... * H(1)
-    
+
     If n <= k, Q is defined as the product of Householder reflectors of order n
 
         Q = H(n-1) * H(n-2) * ... * H(1)
 
-    The Householder matrices H(i) are never stored, they are computed from its corresponding 
+    The Householder matrices H(i) are never stored, they are computed from its corresponding
     Householder vector v(i) and scalar ipiv_i as returned by GEBRD.
 
     @param[in]
@@ -650,12 +650,12 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorglq(rocsolver_handle handle,
                 Specifies whether to work column-wise or row-wise.
     @param[in]
     m           rocsolver_int. m >= 0.\n
-                The number of rows of the matrix Q. 
+                The number of rows of the matrix Q.
                 If row-wise, then min(n,k) <= m <= n.
     @param[in]
     n           rocsolver_int. n >= 0.\n
-                The number of colums of the matrix Q. 
-                If column-wise, then min(m,k) <= n <= m. 
+                The number of colums of the matrix Q.
+                If column-wise, then min(m,k) <= n <= m.
     @param[in]
     k           rocsolver_int. k >= 0.\n
                 The number of columns (if storev is colum-wise) or rows (if row-wise) of the
@@ -667,7 +667,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorglq(rocsolver_handle handle,
                 On exit, the computed matrix Q.
     @param[in]
     lda         rocsolver_int. lda >= m.\n
-                Specifies the leading dimension of A. 
+                Specifies the leading dimension of A.
     @param[in]
     ipiv        pointer to type. Array on the GPU of dimension min(m,k) if column-wise, or min(n,k) if row-wise.\n
                 The scalar factors of the Householder matrices H(i) as returned by GEBRD.
@@ -677,8 +677,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorglq(rocsolver_handle handle,
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sorgbr(rocsolver_handle handle,
                                                    const rocsolver_storev storev,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv);
@@ -686,8 +686,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sorgbr(rocsolver_handle handle,
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgbr(rocsolver_handle handle,
                                                    const rocsolver_storev storev,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv);
@@ -696,8 +696,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgbr(rocsolver_handle handle,
 
     \details
     (This is the unblocked version of the algorithm).
-    
-    The matrix Q is applied in one of the following forms, depending on 
+
+    The matrix Q is applied in one of the following forms, depending on
     the values of side and trans:
 
         Q  * C  (No transpose from the left)
@@ -709,7 +709,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgbr(rocsolver_handle handle,
 
         Q = H(1) * H(2) * ... * H(k)
 
-    or order m if applying from the left, or n if applying from the right. Q is never stored, it is 
+    or order m if applying from the left, or n if applying from the right. Q is never stored, it is
     calculated from the Householder vectors and scalars returned by the QR factorization GEQRF.
 
     @param[in]
@@ -726,10 +726,10 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgbr(rocsolver_handle handle,
     @param[in]
     n                   rocsolver_int. n >= 0.\n
                         Number of columns of matrix C.
-    @param[in]          
+    @param[in]
     k                   rocsovler_int. k >= 0; k <= m if side is left, k <= n if side is right.\n
                         The number of Householder reflectors that form Q.
-    @param[in]          
+    @param[in]
     A                   pointer to type. Array on the GPU of size lda*k.\n
                         The i-th column has the Householder vector v(i) associated with H(i) as returned by GEQRF
                         in the first k columns of its argument A.
@@ -742,19 +742,19 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorgbr(rocsolver_handle handle,
     @param[inout]
     C                   pointer to type. Array on the GPU of size ldc*n.\n
                         On input, the matrix C. On output it is overwritten with
-                        Q*C, C*Q, Q'*C, or C*Q'.  
+                        Q*C, C*Q, Q'*C, or C*Q'.
     @param[in]
     lda                 rocsolver_int. ldc >= m.\n
-                        Leading dimension of C. 
-     
+                        Leading dimension of C.
+
     ****************************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sorm2r(rocsolver_handle handle,
                                                    const rocsolver_side side,
                                                    const rocsolver_operation trans,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv,
@@ -765,8 +765,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorm2r(rocsolver_handle handle,
                                                    const rocsolver_side side,
                                                    const rocsolver_operation trans,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv,
@@ -777,8 +777,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorm2r(rocsolver_handle handle,
 
     \details
     (This is the blocked version of the algorithm).
-    
-    The matrix Q is applied in one of the following forms, depending on 
+
+    The matrix Q is applied in one of the following forms, depending on
     the values of side and trans:
 
         Q  * C  (No transpose from the left)
@@ -790,7 +790,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorm2r(rocsolver_handle handle,
 
         Q = H(1) * H(2) * ... * H(k)
 
-    or order m if applying from the left, or n if applying from the right. Q is never stored, it is 
+    or order m if applying from the left, or n if applying from the right. Q is never stored, it is
     calculated from the Householder vectors and scalars returned by the QR factorization GEQRF.
 
     @param[in]
@@ -807,10 +807,10 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorm2r(rocsolver_handle handle,
     @param[in]
     n                   rocsolver_int. n >= 0.\n
                         Number of columns of matrix C.
-    @param[in]          
+    @param[in]
     k                   rocsovler_int. k >= 0; k <= m if side is left, k <= n if side is right.\n
                         The number of Householder reflectors that form Q.
-    @param[in]          
+    @param[in]
     A                   pointer to type. Array on the GPU of size lda*k.\n
                         The i-th column has the Householder vector v(i) associated with H(i) as returned by GEQRF
                         in the first k columns of its argument A.
@@ -823,19 +823,19 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dorm2r(rocsolver_handle handle,
     @param[inout]
     C                   pointer to type. Array on the GPU of size ldc*n.\n
                         On input, the matrix C. On output it is overwritten with
-                        Q*C, C*Q, Q'*C, or C*Q'.  
+                        Q*C, C*Q, Q'*C, or C*Q'.
     @param[in]
     lda                 rocsolver_int. ldc >= m.\n
-                        Leading dimension of C. 
-     
+                        Leading dimension of C.
+
     ****************************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sormqr(rocsolver_handle handle,
                                                    const rocsolver_side side,
                                                    const rocsolver_operation trans,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    float *ipiv,
@@ -846,8 +846,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dormqr(rocsolver_handle handle,
                                                    const rocsolver_side side,
                                                    const rocsolver_operation trans,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
-                                                   const rocsolver_int k, 
+                                                   const rocsolver_int n,
+                                                   const rocsolver_int k,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    double *ipiv,
@@ -880,10 +880,10 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dormqr(rocsolver_handle handle,
     handle    rocsolver_handle.
     @param[in]
     m         rocsolver_int. m >= 0.\n
-              The number of rows of the matrix A. 
+              The number of rows of the matrix A.
     @param[in]
     n         rocsolver_int. n >= 0.\n
-              The number of colums of the matrix A. 
+              The number of colums of the matrix A.
     @param[inout]
     A         pointer to type. Array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrix A to be factored.
@@ -891,7 +891,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dormqr(rocsolver_handle handle,
               The unit diagonal elements of L are not stored.
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of A. 
+              Specifies the leading dimension of A.
     @param[out]
     ipiv      pointer to rocsolver_int. Array on the GPU of dimension min(m,n).\n
               The vector of pivot indices. Elements of ipiv are 1-based indices.
@@ -900,14 +900,14 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dormqr(rocsolver_handle handle,
               Matrix P of the factorization can be derived from ipiv.
     @param[out]
     info      pointer to a rocsolver_int on the GPU.\n
-              If info = 0, succesful exit. 
+              If info = 0, succesful exit.
               If info = i > 0, U is singular. U(i,i) is the first zero pivot.
-            
+
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetf2(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -915,7 +915,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetf2(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetf2(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -923,7 +923,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetf2(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetf2(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_float_complex *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -931,7 +931,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetf2(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_double_complex *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -968,8 +968,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2(rocsolver_handle handle,
     lda       rocsolver_int. lda >= m.\n
               Specifies the leading dimension of matrices A_i.
     @param[out]
-    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n 
-              Contains the vectors of pivot indices ipiv_i (corresponding to A_i). 
+    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n
+              Contains the vectors of pivot indices ipiv_i (corresponding to A_i).
               Dimension of ipiv_i is min(m,n).
               Elements of ipiv_i are 1-based indices.
               For each instance A_i in the batch and for 1 <= j <= min(m,n), the row j of the
@@ -981,17 +981,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2(rocsolver_handle handle,
               There is no restriction for the value of strideP. Normal use case is strideP >= min(m,n).
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful exit for factorization of A_i. 
+              If info_i = 0, succesful exit for factorization of A_i.
               If info_i = j > 0, U_i is singular. U_i(j,j) is the first zero pivot.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
-            
+                Number of matrices in the batch.
+
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetf2_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    float *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1001,7 +1001,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetf2_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetf2_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    double *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1011,7 +1011,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetf2_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetf2_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_float_complex *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1021,7 +1021,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetf2_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_double_complex *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1034,7 +1034,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_batched(rocsolver_handle hand
 
     \details
     (This is the right-looking Level 2 BLAS version of the algorithm).
-    
+
     The factorization of matrix A_i in the batch has the form
 
         A_i = P_i * L_i * U_i
@@ -1064,8 +1064,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_batched(rocsolver_handle hand
               Stride from the start of one matrix A_i and the next one A_(i+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n
     @param[out]
-    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n 
-              Contains the vectors of pivots indices ipiv_i (corresponding to A_i). 
+    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n
+              Contains the vectors of pivots indices ipiv_i (corresponding to A_i).
               Dimension of ipiv_i is min(m,n).
               Elements of ipiv_i are 1-based indices.
               For each instance A_i in the batch and for 1 <= j <= min(m,n), the row j of the
@@ -1077,17 +1077,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_batched(rocsolver_handle hand
               There is no restriction for the value of strideP. Normal use case is strideP >= min(m,n).
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful exit for factorization of A_i. 
+              If info_i = 0, succesful exit for factorization of A_i.
               If info_i = j > 0, U_i is singular. U_i(j,j) is the first zero pivot.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
-            
+                Number of matrices in the batch.
+
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetf2_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1098,7 +1098,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetf2_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetf2_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1109,7 +1109,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetf2_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetf2_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_float_complex *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1120,7 +1120,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetf2_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_double_complex *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1147,10 +1147,10 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_strided_batched(rocsolver_han
     handle    rocsolver_handle.
     @param[in]
     m         rocsolver_int. m >= 0.\n
-              The number of rows of the matrix A. 
+              The number of rows of the matrix A.
     @param[in]
     n         rocsolver_int. n >= 0.\n
-              The number of colums of the matrix A. 
+              The number of colums of the matrix A.
     @param[inout]
     A         pointer to type. Array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrix A to be factored.
@@ -1158,7 +1158,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_strided_batched(rocsolver_han
               The unit diagonal elements of L are not stored.
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of A. 
+              Specifies the leading dimension of A.
     @param[out]
     ipiv      pointer to rocsolver_int. Array on the GPU of dimension min(m,n).\n
               The vector of pivot indices. Elements of ipiv are 1-based indices.
@@ -1167,14 +1167,14 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetf2_strided_batched(rocsolver_han
               Matrix P of the factorization can be derived from ipiv.
     @param[out]
     info      pointer to a rocsolver_int on the GPU.\n
-              If info = 0, succesful exit. 
+              If info = 0, succesful exit.
               If info = i > 0, U is singular. U(i,i) is the first zero pivot.
-            
+
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetrf(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1182,7 +1182,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetrf(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrf(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1190,7 +1190,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrf(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrf(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_float_complex *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1198,7 +1198,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrf(rocsolver_handle handle,
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_double_complex *A,
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1235,8 +1235,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf(rocsolver_handle handle,
     lda       rocsolver_int. lda >= m.\n
               Specifies the leading dimension of matrices A_i.
     @param[out]
-    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n 
-              Contains the vectors of pivot indices ipiv_i (corresponding to A_i). 
+    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n
+              Contains the vectors of pivot indices ipiv_i (corresponding to A_i).
               Dimension of ipiv_i is min(m,n).
               Elements of ipiv_i are 1-based indices.
               For each instance A_i in the batch and for 1 <= j <= min(m,n), the row j of the
@@ -1248,17 +1248,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf(rocsolver_handle handle,
               There is no restriction for the value of strideP. Normal use case is strideP >= min(m,n).
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful exit for factorization of A_i. 
+              If info_i = 0, succesful exit for factorization of A_i.
               If info_i = j > 0, U_i is singular. U_i(j,j) is the first zero pivot.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
-            
+                Number of matrices in the batch.
+
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetrf_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    float *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1268,7 +1268,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetrf_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrf_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    double *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1278,7 +1278,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrf_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrf_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_float_complex *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1288,7 +1288,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrf_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_double_complex *const A[],
                                                    const rocsolver_int lda,
                                                    rocsolver_int *ipiv,
@@ -1301,7 +1301,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_batched(rocsolver_handle hand
 
     \details
     (This is the right-looking Level 3 BLAS version of the algorithm).
-    
+
     The factorization of matrix A_i in the batch has the form
 
         A_i = P_i * L_i * U_i
@@ -1331,8 +1331,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_batched(rocsolver_handle hand
               Stride from the start of one matrix A_i and the next one A_(i+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n
     @param[out]
-    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n 
-              Contains the vectors of pivots indices ipiv_i (corresponding to A_i). 
+    ipiv      pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n
+              Contains the vectors of pivots indices ipiv_i (corresponding to A_i).
               Dimension of ipiv_i is min(m,n).
               Elements of ipiv_i are 1-based indices.
               For each instance A_i in the batch and for 1 <= j <= min(m,n), the row j of the
@@ -1344,17 +1344,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_batched(rocsolver_handle hand
               There is no restriction for the value of strideP. Normal use case is strideP >= min(m,n).
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful exit for factorization of A_i. 
+              If info_i = 0, succesful exit for factorization of A_i.
               If info_i = j > 0, U_i is singular. U_i(j,j) is the first zero pivot.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
-            
+                Number of matrices in the batch.
+
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetrf_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    float *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1365,7 +1365,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_sgetrf_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrf_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    double *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1376,7 +1376,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrf_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrf_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_float_complex *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1387,7 +1387,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrf_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_strided_batched(rocsolver_handle handle,
                                                    const rocsolver_int m,
-                                                   const rocsolver_int n, 
+                                                   const rocsolver_int n,
                                                    rocblas_double_complex *A,
                                                    const rocsolver_int lda,
                                                    const rocsolver_int strideA,
@@ -1406,7 +1406,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_strided_batched(rocsolver_han
         A =  Q * [ R ]
                  [ 0 ]
 
-    where R is upper triangular (upper trapezoidal if m < n), and Q is 
+    where R is upper triangular (upper trapezoidal if m < n), and Q is
     a m-by-m orthogonal matrix represented as the product of Householder matrices
 
         Q = H(1) * H(2) * ... * H(k), with k = min(m,n)
@@ -1414,8 +1414,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_strided_batched(rocsolver_han
     Each Householder matrix H(i), for i = 1,2,...,k, is given by
 
         H(i) = I - ipiv[i-1] * v(i) * v(i)'
-    
-    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1. 
+
+    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1428,30 +1428,30 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrf_strided_batched(rocsolver_han
     @param[inout]
     A         pointer to type. Array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrix to be factored.
-              On exit, the elements on and above the diagonal contain the 
+              On exit, the elements on and above the diagonal contain the
               factor R; the elements below the diagonal are the m - i elements
               of vector v(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of A. 
+              Specifies the leading dimension of A.
     @param[out]
     ipiv      pointer to type. Array on the GPU of dimension min(m,n).\n
               The scalar factors of the Householder matrices H(i).
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqr2(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqr2(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  float *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  float *ipiv);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  double *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  double *ipiv);
 
 /*! \brief GEQR2_BATCHED computes the QR factorization of a batch of general m-by-n matrices.
@@ -1464,7 +1464,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2(rocsolver_handle handle,
         A_j =  Q_j * [ R_j ]
                      [  0  ]
 
-    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is 
+    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is
     a m-by-m orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(1) * H_j(2) * ... * H_j(k), with k = min(m,n)
@@ -1473,7 +1473,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2(rocsolver_handle handle,
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i) * v_j(i)'
 
-    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1486,19 +1486,19 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2(rocsolver_handle handle,
     @param[inout]
     A         Array of pointers to type. Each pointer points to an array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and above the diagonal contain the 
+              On exit, the elements on and above the diagonal contain the
               factor R_j. The elements below the diagonal are the m - i elements
               of vector v_j(i) for i=1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -1507,22 +1507,22 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2(rocsolver_handle handle,
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqr2_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqr2_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          float *const A[],
-                                                         const rocsolver_int lda, 
-                                                         float *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         float *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          double *const A[],
-                                                         const rocsolver_int lda, 
-                                                         double *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         double *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
 /*! \brief GEQR2_STRIDED_BATCHED computes the QR factorization of a batch of general m-by-n matrices.
@@ -1533,9 +1533,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_batched(rocsolver_handle hand
     The factorization of matrix A_j in the batch has the form
 
         A_j =  Q_j * [ R_j ]
-                     [  0  ] 
+                     [  0  ]
 
-    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is 
+    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is
     a m-by-m orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(1) * H_j(2) * ... * H_j(k), with k = min(m,n)
@@ -1544,7 +1544,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_batched(rocsolver_handle hand
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i) * v_j(i)'
 
-    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1557,23 +1557,23 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_batched(rocsolver_handle hand
     @param[inout]
     A         pointer to type. Array on the GPU (the size depends on the value of strideA).\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and above the diagonal contain the 
+              On exit, the elements on and above the diagonal contain the
               factor R_j. The elements below the diagonal are the m - i elements
               of vector v_j(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[in]
-    strideA   rocsolver_int.\n   
-              Stride from the start of one matrix A_j and the next one A_(j+1). 
+    strideA   rocsolver_int.\n
+              Stride from the start of one matrix A_j and the next one A_(j+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -1582,24 +1582,24 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_batched(rocsolver_handle hand
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqr2_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqr2_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  float *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 float *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 float *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  double *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 double *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 double *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
 /*! \brief GELQ2 computes a LQ factorization of a general m-by-n matrix A.
@@ -1610,8 +1610,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_strided_batched(rocsolver_han
     The factorization has the form
 
         A = [ L 0 ] * Q
- 
-    where L is lower triangular (lower trapezoidal if m > n), and Q is 
+
+    where L is lower triangular (lower trapezoidal if m > n), and Q is
     a n-by-n orthogonal matrix represented as the product of Householder matrices
 
         Q = H(k) * H(k-1) * ... * H(1), with k = min(m,n)
@@ -1619,8 +1619,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_strided_batched(rocsolver_han
     Each Householder matrix H(i), for i = 1,2,...,k, is given by
 
         H(i) = I - ipiv[i-1] * v(i)' * v(i)
-    
-    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1. 
+
+    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1633,30 +1633,30 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqr2_strided_batched(rocsolver_han
     @param[inout]
     A         pointer to type. Array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrix to be factored.
-              On exit, the elements on and delow the diagonal contain the 
+              On exit, the elements on and delow the diagonal contain the
               factor L; the elements above the diagonal are the n - i elements
               of vector v(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of A. 
+              Specifies the leading dimension of A.
     @param[out]
     ipiv      pointer to type. Array on the GPU of dimension min(m,n).\n
               The scalar factors of the Householder matrices H(i).
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelq2(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelq2(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  float *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  float *ipiv);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  double *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  double *ipiv);
 
 /*! \brief GELQ2_BATCHED computes the LQ factorization of a batch of general m-by-n matrices.
@@ -1666,9 +1666,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2(rocsolver_handle handle,
 
     The factorization of matrix A_j in the batch has the form
 
-        A_j = [ L_j 0 ] * Q_j 
+        A_j = [ L_j 0 ] * Q_j
 
-    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is 
+    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is
     a n-by-n orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(k) * H_j(k-1) * ... * H_j(1), with k = min(m,n)
@@ -1677,7 +1677,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2(rocsolver_handle handle,
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i)' * v_j(i)
 
-    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1690,19 +1690,19 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2(rocsolver_handle handle,
     @param[inout]
     A         Array of pointers to type. Each pointer points to an array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and below the diagonal contain the 
+              On exit, the elements on and below the diagonal contain the
               factor L_j. The elements above the diagonal are the n - i elements
               of vector v_j(i) for i=1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -1711,22 +1711,22 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2(rocsolver_handle handle,
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelq2_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelq2_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          float *const A[],
-                                                         const rocsolver_int lda, 
-                                                         float *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         float *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          double *const A[],
-                                                         const rocsolver_int lda, 
-                                                         double *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         double *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
 /*! \brief GELQ2_STRIDED_BATCHED computes the LQ factorization of a batch of general m-by-n matrices.
@@ -1736,9 +1736,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_batched(rocsolver_handle hand
 
     The factorization of matrix A_j in the batch has the form
 
-        A_j = [ L_j 0 ] * Q_j 
+        A_j = [ L_j 0 ] * Q_j
 
-    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is 
+    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is
     a n-by-n orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(k) * H_j(k-1) * ... * H_j(1), with k = min(m,n)
@@ -1747,7 +1747,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_batched(rocsolver_handle hand
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i)' * v_j(i)
 
-    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1760,23 +1760,23 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_batched(rocsolver_handle hand
     @param[inout]
     A         pointer to type. Array on the GPU (the size depends on the value of strideA).\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and below the diagonal contain the 
+              On exit, the elements on and below the diagonal contain the
               factor L_j. The elements above the diagonal are the n - i elements
               of vector v_j(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[in]
-    strideA   rocsolver_int.\n   
-              Stride from the start of one matrix A_j and the next one A_(j+1). 
+    strideA   rocsolver_int.\n
+              Stride from the start of one matrix A_j and the next one A_(j+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -1785,24 +1785,24 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_batched(rocsolver_handle hand
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelq2_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelq2_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  float *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 float *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 float *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  double *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 double *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 double *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
 
@@ -1815,8 +1815,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_strided_batched(rocsolver_han
 
         A =  Q * [ R ]
                  [ 0 ]
- 
-    where R is upper triangular (upper trapezoidal if m < n), and Q is 
+
+    where R is upper triangular (upper trapezoidal if m < n), and Q is
     a m-by-m orthogonal matrix represented as the product of Householder matrices
 
         Q = H(1) * H(2) * ... * H(k), with k = min(m,n)
@@ -1824,8 +1824,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_strided_batched(rocsolver_han
     Each Householder matrix H(i), for i = 1,2,...,k, is given by
 
         H(i) = I - ipiv[i-1] * v(i) * v(i)'
-    
-    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1. 
+
+    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1838,30 +1838,30 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelq2_strided_batched(rocsolver_han
     @param[inout]
     A         pointer to type. Array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrix to be factored.
-              On exit, the elements on and above the diagonal contain the 
+              On exit, the elements on and above the diagonal contain the
               factor R; the elements below the diagonal are the m - i elements
               of vector v(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of A. 
+              Specifies the leading dimension of A.
     @param[out]
     ipiv      pointer to type. Array on the GPU of dimension min(m,n).\n
               The scalar factors of the Householder matrices H(i).
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqrf(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqrf(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  float *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  float *ipiv);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  double *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  double *ipiv);
 
 /*! \brief GEQRF_BATCHED computes the QR factorization of a batch of general m-by-n matrices.
@@ -1872,9 +1872,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf(rocsolver_handle handle,
     The factorization of matrix A_j in the batch has the form
 
         A_j =  Q_j * [ R_j ]
-                     [  0  ] 
+                     [  0  ]
 
-    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is 
+    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is
     a m-by-m orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(1) * H_j(2) * ... * H_j(k), with k = min(m,n)
@@ -1883,7 +1883,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf(rocsolver_handle handle,
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i) * v_j(i)'
 
-    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1896,19 +1896,19 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf(rocsolver_handle handle,
     @param[inout]
     A         Array of pointers to type. Each pointer points to an array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and above the diagonal contain the 
+              On exit, the elements on and above the diagonal contain the
               factor R_j. The elements below the diagonal are the m - i elements
               of vector v_j(i) for i=1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -1917,22 +1917,22 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf(rocsolver_handle handle,
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqrf_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqrf_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          float *const A[],
-                                                         const rocsolver_int lda, 
-                                                         float *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         float *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          double *const A[],
-                                                         const rocsolver_int lda, 
-                                                         double *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         double *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
 /*! \brief GEQRF_STRIDED_BATCHED computes the QR factorization of a batch of general m-by-n matrices.
@@ -1943,9 +1943,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_batched(rocsolver_handle hand
     The factorization of matrix A_j in the batch has the form
 
         A_j =  Q_j * [ R_j ]
-                     [  0  ] 
+                     [  0  ]
 
-    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is 
+    where R_j is upper triangular (upper trapezoidal if m < n), and Q_j is
     a m-by-m orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(1) * H_j(2) * ... * H_j(k), with k = min(m,n)
@@ -1954,7 +1954,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_batched(rocsolver_handle hand
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i) * v_j(i)'
 
-    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -1967,23 +1967,23 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_batched(rocsolver_handle hand
     @param[inout]
     A         pointer to type. Array on the GPU (the size depends on the value of strideA).\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and above the diagonal contain the 
+              On exit, the elements on and above the diagonal contain the
               factor R_j. The elements below the diagonal are the m - i elements
               of vector v_j(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[in]
-    strideA   rocsolver_int.\n   
-              Stride from the start of one matrix A_j and the next one A_(j+1). 
+    strideA   rocsolver_int.\n
+              Stride from the start of one matrix A_j and the next one A_(j+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -1992,24 +1992,24 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_batched(rocsolver_handle hand
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqrf_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgeqrf_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  float *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 float *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 float *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  double *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 double *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 double *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
 /*! \brief GELQF computes a LQ factorization of a general m-by-n matrix A.
@@ -2020,8 +2020,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_strided_batched(rocsolver_han
     The factorization has the form
 
         A = [ L 0 ] * Q
- 
-    where L is lower triangular (lower trapezoidal if m > n), and Q is 
+
+    where L is lower triangular (lower trapezoidal if m > n), and Q is
     a n-by-n orthogonal matrix represented as the product of Householder matrices
 
         Q = H(k) * H(k-1) * ... * H(1), with k = min(m,n)
@@ -2029,8 +2029,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_strided_batched(rocsolver_han
     Each Householder matrix H(i), for i = 1,2,...,k, is given by
 
         H(i) = I - ipiv[i-1] * v(i)' * v(i)
-    
-    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1. 
+
+    where the first i-1 elements of the Householder vector v(i) are zero, and v(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -2043,30 +2043,30 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgeqrf_strided_batched(rocsolver_han
     @param[inout]
     A         pointer to type. Array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrix to be factored.
-              On exit, the elements on and delow the diagonal contain the 
+              On exit, the elements on and delow the diagonal contain the
               factor L; the elements above the diagonal are the n - i elements
               of vector v(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of A. 
+              Specifies the leading dimension of A.
     @param[out]
     ipiv      pointer to type. Array on the GPU of dimension min(m,n).\n
               The scalar factors of the Householder matrices H(i).
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelqf(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelqf(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  float *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  float *ipiv);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf(rocsolver_handle handle, 
-                                                 const rocsolver_int m, 
-                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf(rocsolver_handle handle,
+                                                 const rocsolver_int m,
+                                                 const rocsolver_int n,
                                                  double *A,
-                                                 const rocsolver_int lda, 
+                                                 const rocsolver_int lda,
                                                  double *ipiv);
 
 /*! \brief GELQF_BATCHED computes the LQ factorization of a batch of general m-by-n matrices.
@@ -2076,9 +2076,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf(rocsolver_handle handle,
 
     The factorization of matrix A_j in the batch has the form
 
-        A_j = [ L_j 0 ] * Q_j 
+        A_j = [ L_j 0 ] * Q_j
 
-    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is 
+    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is
     a n-by-n orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(k) * H_j(k-1) * ... * H_j(1), with k = min(m,n)
@@ -2087,7 +2087,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf(rocsolver_handle handle,
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i)' * v_j(i)
 
-    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -2100,19 +2100,19 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf(rocsolver_handle handle,
     @param[inout]
     A         Array of pointers to type. Each pointer points to an array on the GPU of dimension lda*n.\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and below the diagonal contain the 
+              On exit, the elements on and below the diagonal contain the
               factor L_j. The elements above the diagonal are the n - i elements
               of vector v_j(i) for i=1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -2121,22 +2121,22 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf(rocsolver_handle handle,
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelqf_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelqf_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          float *const A[],
-                                                         const rocsolver_int lda, 
-                                                         float *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         float *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_batched(rocsolver_handle handle, 
-                                                         const rocsolver_int m, 
-                                                         const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_batched(rocsolver_handle handle,
+                                                         const rocsolver_int m,
+                                                         const rocsolver_int n,
                                                          double *const A[],
-                                                         const rocsolver_int lda, 
-                                                         double *ipiv, 
-                                                         const rocsolver_int strideP, 
+                                                         const rocsolver_int lda,
+                                                         double *ipiv,
+                                                         const rocsolver_int strideP,
                                                          const rocsolver_int batch_count);
 
 /*! \brief GELQF_STRIDED_BATCHED computes the LQ factorization of a batch of general m-by-n matrices.
@@ -2146,9 +2146,9 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_batched(rocsolver_handle hand
 
     The factorization of matrix A_j in the batch has the form
 
-        A_j = [ L_j 0 ] * Q_j 
+        A_j = [ L_j 0 ] * Q_j
 
-    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is 
+    where L_j is lower triangular (lower trapezoidal if m > n), and Q_j is
     a n-by-n orthogonal matrix represented as the product of Householder matrices
 
         Q_j = H_j(k) * H_j(k-1) * ... * H_j(1), with k = min(m,n)
@@ -2157,7 +2157,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_batched(rocsolver_handle hand
 
         H_j(i) = I - ipiv_j[i-1] * v_j(i)' * v_j(i)
 
-    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1. 
+    where the first i-1 elements of vector Householder vector v_j(i) are zero, and v_j(i)[i] = 1.
 
     @param[in]
     handle    rocsolver_handle.
@@ -2170,23 +2170,23 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_batched(rocsolver_handle hand
     @param[inout]
     A         pointer to type. Array on the GPU (the size depends on the value of strideA).\n
               On entry, the m-by-n matrices A_j to be factored.
-              On exit, the elements on and below the diagonal contain the 
+              On exit, the elements on and below the diagonal contain the
               factor L_j. The elements above the diagonal are the n - i elements
               of vector v_j(i) for i = 1,2,...,min(m,n).
     @param[in]
     lda       rocsolver_int. lda >= m.\n
-              Specifies the leading dimension of matrices A_j. 
+              Specifies the leading dimension of matrices A_j.
     @param[in]
-    strideA   rocsolver_int.\n   
-              Stride from the start of one matrix A_j and the next one A_(j+1). 
+    strideA   rocsolver_int.\n
+              Stride from the start of one matrix A_j and the next one A_(j+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[out]
     ipiv      pointer to type. Array on the GPU (the size depends on the value of strideP).\n
-              Contains the vectors ipiv_j of scalar factors of the 
+              Contains the vectors ipiv_j of scalar factors of the
               Householder matrices H_j(i).
     @param[in]
     strideP   rocsolver_int.\n
-              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1). 
+              Stride from the start of one vector ipiv_j to the next one ipiv_(j+1).
               There is no restriction for the value
               of strideP. Normal use is strideP >= min(m,n).
     @param[in]
@@ -2195,46 +2195,46 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_batched(rocsolver_handle hand
 
     ********************************************************************/
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelqf_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_sgelqf_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  float *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 float *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 float *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
-ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_strided_batched(rocsolver_handle handle, 
-                                                                 const rocsolver_int m, 
-                                                                 const rocsolver_int n, 
+ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_strided_batched(rocsolver_handle handle,
+                                                                 const rocsolver_int m,
+                                                                 const rocsolver_int n,
                                                                  double *A,
-                                                                 const rocsolver_int lda, 
-                                                                 const rocsolver_int strideA, 
-                                                                 double *ipiv, 
-                                                                 const rocsolver_int strideP, 
+                                                                 const rocsolver_int lda,
+                                                                 const rocsolver_int strideA,
+                                                                 double *ipiv,
+                                                                 const rocsolver_int strideP,
                                                                  const rocsolver_int batch_count);
 
 
 /*! \brief GETRS solves a system of n linear equations on n variables using the LU factorization computed by GETRF.
 
     \details
-    It solves one of the following systems: 
+    It solves one of the following systems:
 
-        A  * X = B (no transpose),  
-        A' * X = B (transpose),  or  
+        A  * X = B (no transpose),
+        A' * X = B (transpose),  or
         A* * X = B (conjugate transpose)
 
-    depending on the value of trans. 
+    depending on the value of trans.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     trans       rocsolver_operation.\n
-                Specifies the form of the system of equations. 
+                Specifies the form of the system of equations.
     @param[in]
     n           rocsolver_int. n >= 0.\n
-                The order of the system, i.e. the number of columns and rows of A.  
+                The order of the system, i.e. the number of columns and rows of A.
     @param[in]
     nrhs        rocsolver_int. nrhs >= 0.\n
                 The number of right hand sides, i.e., the number of columns
@@ -2244,7 +2244,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgelqf_strided_batched(rocsolver_han
                 The factors L and U of the factorization A = P*L*U returned by GETRF.
     @param[in]
     lda         rocsolver_int. lda >= n.\n
-                The leading dimension of A.  
+                The leading dimension of A.
     @param[in]
     ipiv        pointer to rocsolver_int. Array on the GPU of dimension n.\n
                 The pivot indices returned by GETRF.
@@ -2278,26 +2278,26 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs(
     const rocsolver_int nrhs, rocblas_double_complex *A, const rocsolver_int lda,
     const rocsolver_int *ipiv, rocblas_double_complex *B, const rocsolver_int ldb);
 
-/*! \brief GETRS_BATCHED solves a batch of systems of n linear equations on n variables 
+/*! \brief GETRS_BATCHED solves a batch of systems of n linear equations on n variables
      using the LU factorization computed by GETRF_BATCHED.
 
     \details
-    For each instance j in the batch, it solves one of the following systems: 
+    For each instance j in the batch, it solves one of the following systems:
 
-        A_j  * X_j = B_j (no transpose),  
-        A_j' * X_j = B_j (transpose),  or  
+        A_j  * X_j = B_j (no transpose),
+        A_j' * X_j = B_j (transpose),  or
         A_j* * X_j = B_j (conjugate transpose)
 
-    depending on the value of trans. 
+    depending on the value of trans.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     trans       rocsolver_operation.\n
-                Specifies the form of the system of equations of each instance in the batch. 
+                Specifies the form of the system of equations of each instance in the batch.
     @param[in]
     n           rocsolver_int. n >= 0.\n
-                The order of the system, i.e. the number of columns and rows of all A_j matrices.  
+                The order of the system, i.e. the number of columns and rows of all A_j matrices.
     @param[in]
     nrhs        rocsolver_int. nrhs >= 0.\n
                 The number of right hand sides, i.e., the number of columns
@@ -2312,7 +2312,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs(
     ipiv        pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n
                 Contains the vectors ipiv_j of pivot indices returned by GETRF_BATCHED.
     @param[in,out]
-    B           Array of pointers to type. Each pointer points to an array on the GPU of dimension ldb*nrhs.\n 
+    B           Array of pointers to type. Each pointer points to an array on the GPU of dimension ldb*nrhs.\n
                 On entry, the right hand side matrices B_j.
                 On exit, the solution matrix X_j of each system in the batch.
     @param[in]
@@ -2320,7 +2320,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs(
                 The leading dimension of matrices B_j.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of instances (systems) in the batch. 
+                Number of instances (systems) in the batch.
 
    ********************************************************************/
 
@@ -2337,35 +2337,35 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrs_batched(
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrs_batched(
                  rocblas_handle handle, const rocblas_operation trans, const rocblas_int n,
                  const rocblas_int nrhs, rocblas_float_complex *const A[], const rocblas_int lda,
-                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_float_complex *const B[], 
+                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_float_complex *const B[],
                  const rocblas_int ldb, const rocblas_int batch_count);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs_batched(
                  rocblas_handle handle, const rocblas_operation trans, const rocblas_int n,
                  const rocblas_int nrhs, rocblas_double_complex *const A[], const rocblas_int lda,
-                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_double_complex *const B[], 
+                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_double_complex *const B[],
                  const rocblas_int ldb, const rocblas_int batch_count);
 
-/*! \brief GETRS_STRIDED_BATCHED solves a batch of systems of n linear equations on n variables 
+/*! \brief GETRS_STRIDED_BATCHED solves a batch of systems of n linear equations on n variables
      using the LU factorization computed by GETRF_STRIDED_BATCHED.
 
     \details
-    For each instance j in the batch, it solves one of the following systems: 
+    For each instance j in the batch, it solves one of the following systems:
 
-        A_j  * X_j = B_j (no transpose),  
-        A_j' * X_j = B_j (transpose),  or  
+        A_j  * X_j = B_j (no transpose),
+        A_j' * X_j = B_j (transpose),  or
         A_j* * X_j = B_j (conjugate transpose)
 
-    depending on the value of trans. 
+    depending on the value of trans.
 
     @param[in]
     handle      rocsolver_handle.
     @param[in]
     trans       rocsolver_operation.\n
-                Specifies the form of the system of equations of each instance in the batch. 
+                Specifies the form of the system of equations of each instance in the batch.
     @param[in]
     n           rocsolver_int. n >= 0.\n
-                The order of the system, i.e. the number of columns and rows of all A_j matrices.  
+                The order of the system, i.e. the number of columns and rows of all A_j matrices.
     @param[in]
     nrhs        rocsolver_int. nrhs >= 0.\n
                 The number of right hand sides, i.e., the number of columns
@@ -2378,7 +2378,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs_batched(
                 The leading dimension of matrices A_j.
     @param[in]
     strideA     rocsolver_int.\n
-                Stride from the start of one matrix A_j and the next one A_(j+1). 
+                Stride from the start of one matrix A_j and the next one A_(j+1).
                 There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[in]
     ipiv        pointer to rocsolver_int. Array on the GPU (the size depends on the value of strideP).\n
@@ -2392,11 +2392,11 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs_batched(
                 The leading dimension of matrices B_j.
     @param[in]
     strideB     rocsolver_int.\n
-                Stride from the start of one matrix B_j and the next one B_(j+1). 
+                Stride from the start of one matrix B_j and the next one B_(j+1).
                 There is no restriction for the value of strideB. Normal use case is strideB >= ldb*nrhs.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of instances (systems) in the batch. 
+                Number of instances (systems) in the batch.
 
    ********************************************************************/
 
@@ -2413,13 +2413,13 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dgetrs_strided_batched(
 ROCSOLVER_EXPORT rocsolver_status rocsolver_cgetrs_strided_batched(
                  rocblas_handle handle, const rocblas_operation trans, const rocblas_int n,
                  const rocblas_int nrhs, rocblas_float_complex *A, const rocblas_int lda, const rocblas_int strideA,
-                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_float_complex *B, const rocblas_int ldb, 
+                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_float_complex *B, const rocblas_int ldb,
                  const rocblas_int strideB, const rocblas_int batch_count);
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs_strided_batched(
                  rocblas_handle handle, const rocblas_operation trans, const rocblas_int n,
                  const rocblas_int nrhs, rocblas_double_complex *A, const rocblas_int lda, const rocblas_int strideA,
-                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_double_complex *B, const rocblas_int ldb, 
+                 const rocblas_int *ipiv, const rocblas_int strideP, rocblas_double_complex *B, const rocblas_int ldb,
                  const rocblas_int strideB, const rocblas_int batch_count);
 
 
@@ -2427,7 +2427,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs_strided_batched(
     positive definite matrix A.
 
     \details
-    (This is the unblocked version of the algorithm). 
+    (This is the unblocked version of the algorithm).
 
     The factorization has the form:
 
@@ -2453,8 +2453,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_zgetrs_strided_batched(
               specifies the leading dimension of A.
     @param[out]
     info      pointer to a rocsolver_int on the GPU.\n
-              If info = 0, succesful factorization of matrix A. 
-              If info = i > 0, the leading minor of order i of A is not positive definite. 
+              If info = 0, succesful factorization of matrix A.
+              If info = i > 0, the leading minor of order i of A is not positive definite.
               The factorization stopped at this point.
 
     ********************************************************************/
@@ -2472,11 +2472,11 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2(rocsolver_handle handle,
                                                    rocblas_int* info);
 
 
-/*! \brief POTF2_BATCHED computes the Cholesky factorization of a 
+/*! \brief POTF2_BATCHED computes the Cholesky factorization of a
     batch of real symmetric positive definite matrices.
 
     \details
-    (This is the unblocked version of the algorithm). 
+    (This is the unblocked version of the algorithm).
 
     The factorization of matrix A_i in the batch has the form:
 
@@ -2496,24 +2496,24 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2(rocsolver_handle handle,
               The dimension of matrix A_i.
     @param[inout]
     A         array of pointers to type. Each pointer points to an array on the GPU of dimension lda*n.\n
-              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors. 
+              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors.
     @param[in]
     lda       rocsolver_int. lda >= n.\n
               specifies the leading dimension of A_i.
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful factorization of matrix A_i. 
-              If info_i = j > 0, the leading minor of order j of A_i is not positive definite. 
+              If info_i = 0, succesful factorization of matrix A_i.
+              If info_i = j > 0, the leading minor of order j of A_i is not positive definite.
               The i-th factorization stopped at this point.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
+                Number of matrices in the batch.
 
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_spotf2_batched(rocsolver_handle handle,
                                                            const rocsolver_fill uplo,
-                                                           const rocsolver_int n, 
+                                                           const rocsolver_int n,
                                                            float *const A[],
                                                            const rocsolver_int lda,
                                                            rocblas_int* info,
@@ -2521,17 +2521,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_spotf2_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2_batched(rocsolver_handle handle,
                                                            const rocsolver_fill uplo,
-                                                           const rocsolver_int n, 
+                                                           const rocsolver_int n,
                                                            double *const A[],
                                                            const rocsolver_int lda,
                                                            rocblas_int* info,
                                                            const rocsolver_int batch_count);
 
-/*! \brief POTF2_STRIDED_BATCHED computes the Cholesky factorization of a 
+/*! \brief POTF2_STRIDED_BATCHED computes the Cholesky factorization of a
     batch of real symmetric positive definite matrices.
 
     \details
-    (This is the unblocked version of the algorithm). 
+    (This is the unblocked version of the algorithm).
 
     The factorization of matrix A_i in the batch has the form:
 
@@ -2551,28 +2551,28 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2_batched(rocsolver_handle hand
               The dimension of matrix A_i.
     @param[inout]
     A         pointer to type. Array on the GPU (the size depends on the value of strideA).\n
-              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors. 
+              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors.
     @param[in]
     lda       rocsolver_int. lda >= n.\n
               specifies the leading dimension of A_i.
     @param[in]
     strideA   rocsolver_int.\n
-              Stride from the start of one matrix A_i and the next one A_(i+1). 
+              Stride from the start of one matrix A_i and the next one A_(i+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful factorization of matrix A_i. 
-              If info_i = j > 0, the leading minor of order j of A_i is not positive definite. 
+              If info_i = 0, succesful factorization of matrix A_i.
+              If info_i = j > 0, the leading minor of order j of A_i is not positive definite.
               The i-th factorization stopped at this point.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
+                Number of matrices in the batch.
 
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_spotf2_strided_batched(rocsolver_handle handle,
                                                                    const rocsolver_fill uplo,
-                                                                   const rocsolver_int n, 
+                                                                   const rocsolver_int n,
                                                                    float *A,
                                                                    const rocsolver_int lda,
                                                                    const rocsolver_int strideA,
@@ -2581,7 +2581,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_spotf2_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2_strided_batched(rocsolver_handle handle,
                                                                    const rocsolver_fill uplo,
-                                                                   const rocsolver_int n, 
+                                                                   const rocsolver_int n,
                                                                    double *A,
                                                                    const rocsolver_int lda,
                                                                    const rocsolver_int strideA,
@@ -2592,7 +2592,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2_strided_batched(rocsolver_han
     positive definite matrix A.
 
     \details
-    (This is the blocked version of the algorithm). 
+    (This is the blocked version of the algorithm).
 
     The factorization has the form:
 
@@ -2618,8 +2618,8 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotf2_strided_batched(rocsolver_han
               specifies the leading dimension of A.
     @param[out]
     info      pointer to a rocsolver_int on the GPU.\n
-              If info = 0, succesful factorization of matrix A. 
-              If info = i > 0, the leading minor of order i of A is not positive definite. 
+              If info = 0, succesful factorization of matrix A.
+              If info = i > 0, the leading minor of order i of A is not positive definite.
               The factorization stopped at this point.
 
     ********************************************************************/
@@ -2637,11 +2637,11 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotrf(rocsolver_handle handle,
                                                    rocblas_int* info);
 
 
-/*! \brief POTRF_BATCHED computes the Cholesky factorization of a 
+/*! \brief POTRF_BATCHED computes the Cholesky factorization of a
     batch of real symmetric positive definite matrices.
 
     \details
-    (This is the blocked version of the algorithm). 
+    (This is the blocked version of the algorithm).
 
     The factorization of matrix A_i in the batch has the form:
 
@@ -2661,24 +2661,24 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotrf(rocsolver_handle handle,
               The dimension of matrix A_i.
     @param[inout]
     A         array of pointers to type. Each pointer points to an array on the GPU of dimension lda*n.\n
-              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors. 
+              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors.
     @param[in]
     lda       rocsolver_int. lda >= n.\n
               specifies the leading dimension of A_i.
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful factorization of matrix A_i. 
-              If info_i = j > 0, the leading minor of order j of A_i is not positive definite. 
+              If info_i = 0, succesful factorization of matrix A_i.
+              If info_i = j > 0, the leading minor of order j of A_i is not positive definite.
               The i-th factorization stopped at this point.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
+                Number of matrices in the batch.
 
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_spotrf_batched(rocsolver_handle handle,
                                                            const rocsolver_fill uplo,
-                                                           const rocsolver_int n, 
+                                                           const rocsolver_int n,
                                                            float *const A[],
                                                            const rocsolver_int lda,
                                                            rocblas_int* info,
@@ -2686,17 +2686,17 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_spotrf_batched(rocsolver_handle hand
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotrf_batched(rocsolver_handle handle,
                                                            const rocsolver_fill uplo,
-                                                           const rocsolver_int n, 
+                                                           const rocsolver_int n,
                                                            double *const A[],
                                                            const rocsolver_int lda,
                                                            rocblas_int* info,
                                                            const rocsolver_int batch_count);
 
-/*! \brief POTRF_STRIDED_BATCHED computes the Cholesky factorization of a 
+/*! \brief POTRF_STRIDED_BATCHED computes the Cholesky factorization of a
     batch of real symmetric positive definite matrices.
 
     \details
-    (This is the blocked version of the algorithm). 
+    (This is the blocked version of the algorithm).
 
     The factorization of matrix A_i in the batch has the form:
 
@@ -2716,28 +2716,28 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotrf_batched(rocsolver_handle hand
               The dimension of matrix A_i.
     @param[inout]
     A         pointer to type. Array on the GPU (the size depends on the value of strideA).\n
-              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors. 
+              On entry, the matrices A_i to be factored. On exit, the upper or lower triangular factors.
     @param[in]
     lda       rocsolver_int. lda >= n.\n
               specifies the leading dimension of A_i.
     @param[in]
     strideA   rocsolver_int.\n
-              Stride from the start of one matrix A_i and the next one A_(i+1). 
+              Stride from the start of one matrix A_i and the next one A_(i+1).
               There is no restriction for the value of strideA. Normal use case is strideA >= lda*n.
     @param[out]
     info      pointer to rocsolver_int. Array of batch_count integers on the GPU.\n
-              If info_i = 0, succesful factorization of matrix A_i. 
-              If info_i = j > 0, the leading minor of order j of A_i is not positive definite. 
+              If info_i = 0, succesful factorization of matrix A_i.
+              If info_i = j > 0, the leading minor of order j of A_i is not positive definite.
               The i-th factorization stopped at this point.
     @param[in]
     batch_count rocsolver_int. batch_count >= 0.\n
-                Number of matrices in the batch. 
+                Number of matrices in the batch.
 
     ********************************************************************/
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_spotrf_strided_batched(rocsolver_handle handle,
                                                                    const rocsolver_fill uplo,
-                                                                   const rocsolver_int n, 
+                                                                   const rocsolver_int n,
                                                                    float *A,
                                                                    const rocsolver_int lda,
                                                                    const rocsolver_int strideA,
@@ -2746,7 +2746,7 @@ ROCSOLVER_EXPORT rocsolver_status rocsolver_spotrf_strided_batched(rocsolver_han
 
 ROCSOLVER_EXPORT rocsolver_status rocsolver_dpotrf_strided_batched(rocsolver_handle handle,
                                                                    const rocsolver_fill uplo,
-                                                                   const rocsolver_int n, 
+                                                                   const rocsolver_int n,
                                                                    double *A,
                                                                    const rocsolver_int lda,
                                                                    const rocsolver_int strideA,

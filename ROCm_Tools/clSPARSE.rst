@@ -5,10 +5,10 @@
 ===========
 clSPARSE
 ===========
- 
+
 For Github repository `clSPARSE <https://github.com/clMathLibraries/clSPARSE>`_
 
-an OpenCL™ library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
+an OpenCL(TM) library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
 
 What's new in clSPARSE v0.10.1
 ******************************
@@ -30,7 +30,7 @@ clSPARSE features
  * Dense to CSR conversions (& converse)
  * COO to CSR conversions (& converse)
  * Functions to read matrix market files in COO or CSR format
-True in spirit with the other clMath libraries, clSPARSE exports a “C” interface to allow projects to build wrappers around clSPARSE in any language they need. A great deal of thought and effort went into designing the API’s to make them less ‘cluttered’ compared to the older clMath libraries. OpenCL state is not explicitly passed through the API, which enables the library to be forward compatible when users are ready to switch from OpenCL 1.2 to OpenCL 2.0 3
+True in spirit with the other clMath libraries, clSPARSE exports a "C" interface to allow projects to build wrappers around clSPARSE in any language they need. A great deal of thought and effort went into designing the API's to make them less 'cluttered' compared to the older clMath libraries. OpenCL state is not explicitly passed through the API, which enables the library to be forward compatible when users are ready to switch from OpenCL 1.2 to OpenCL 2.0 3
 
 Google Groups
 ***************
@@ -67,7 +67,7 @@ clSPARSE is licensed under the `Apache License <http://www.apache.org/licenses/L
 
 Compiling for Windows
 ***********************
- * Windows® 7/8
+ * Windows(R) 7/8
  * Visual Studio 2013 and above
  * CMake 2.8.12 (download from `Kitware <http://www.cmake.org/download/>`_)
  * Solution (.sln) or

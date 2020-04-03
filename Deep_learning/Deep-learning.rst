@@ -13,17 +13,17 @@ ROCm Tensorflow v1.14 Release
 We are excited to announce the release of ROCm enabled TensorFlow v1.14 for AMD GPUs.
 In this release we have the following features enabled on top of upstream TF1.14 enhancements:
     * We integrated ROCm RCCL library for mGPU communication, details in `RCCL github repo <https://github.com/ROCmSoftwarePlatform/rccl>`_
-    * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
+    * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.
 
 ROCm Tensorflow v2.0.0-beta1 Release
 *****************************
 In addition to Tensorflow v1.14 release, we also enabled Tensorflow v2.0.0-beta1 for AMD GPUs. The TF-ROCm 2.0.0-beta1 release supports Tensorflow V2 API.
-Both whl packages and docker containers are available below. 
+Both whl packages and docker containers are available below.
 
 Tensorflow Installation
 ***********************
 
-First, you’ll need to install the open-source ROCm 3.0 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
+First, you'll need to install the open-source ROCm 3.0 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 
 Then, install these other relevant ROCm packages:
@@ -50,10 +50,10 @@ MIOpen
 
 ROCm MIOpen v2.0.1 Release
 *************************
-Announcing our new Foundation for Deep Learning acceleration MIOpen 2.0 which introduces support for Convolution Neural Network (CNN) acceleration — built to run on top of the ROCm software stack!
+Announcing our new Foundation for Deep Learning acceleration MIOpen 2.0 which introduces support for Convolution Neural Network (CNN) acceleration -- built to run on top of the ROCm software stack!
 
 This release includes the following:
-   
+
    * This release contains bug fixes and performance improvements.
    * Additionally, the convolution algorithm Implicit GEMM is now enabled by default
    * Known issues:
@@ -81,7 +81,7 @@ The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc
 
 The ROCm 3.0 has prebuilt packages for MIOpen
 ***********************************************
-Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
+Install the ROCm MIOpen implementation (assuming you already have the 'rocm' and 'rocm-opencl-dev" package installed):
 
 MIOpen can be installed on Ubuntu using
 
@@ -210,7 +210,7 @@ Option 2: Install using PyTorch upstream docker file
 3. Build PyTorch docker image:
 
 ::
-  
+
   cd pytorch/docker/caffe2/jenkins
   ./build.sh py2-clang7-rocmdeb-ubuntu16.04
 
@@ -292,7 +292,7 @@ Note: This will mount your host home directory on /data in the container.
 5. Clone pytorch master (on to the host):
 
 ::
-  
+
   cd ~
   git clone https://github.com/pytorch/pytorch.git or git clone https://github.com/ROCmSoftwarePlatform/pytorch.git
   cd pytorch
@@ -315,7 +315,7 @@ export HCC_AMDGPU_TARGET=gfx906
 then
 ::
 
-  USE_ROCM=1 MAX_JOBS=4 python setup.py install --user 
+  USE_ROCM=1 MAX_JOBS=4 python setup.py install --user
 
 UseMAX_JOBS=n to limit peak memory usage. If building fails try falling back to fewer jobs. 4 jobs assume available main memory of 16 GB or larger.
 
@@ -497,11 +497,11 @@ Tutorials
 **hipCaffe**
 
 * :ref:`caffe`
-  
+
 **MXNet**
-  
+
 * :ref:`mxnet`
- 
+
 
 
 

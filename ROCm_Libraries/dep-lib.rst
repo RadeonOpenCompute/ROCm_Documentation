@@ -4,7 +4,7 @@
 hcRNG
 **********
 
-hCRNG has been deprecated and has been replaced by `rocRAND <https://github.com/ROCmSoftwarePlatform/rocRAND>`_ 
+hCRNG has been deprecated and has been replaced by `rocRAND <https://github.com/ROCmSoftwarePlatform/rocRAND>`_
 #################################################################################################################
 
 Introduction
@@ -30,7 +30,7 @@ file: Randomarray.cpp
 ::
 
   #!c++
-  
+
   //This example is a simple random array generation and it compares host output with device output
   //Random number generator Mrg31k3p
   #include <stdio.h>
@@ -43,7 +43,7 @@ file: Randomarray.cpp
   #include <hc.hpp>
   #include <hc_am.hpp>
   using namespace hc;
- 
+
   int main()
   {
         hcrngStatus status = HCRNG_SUCCESS;
@@ -53,7 +53,7 @@ file: Randomarray.cpp
         size_t streamCount = 10;
         //Number of random numbers to be generated
         //numberCount must be a multiple of streamCount
-        size_t numberCount = 100; 
+        size_t numberCount = 100;
         //Enumerate the list of accelerators
         std::vector<hc::accelerator>acc = hc::accelerator::get_all();
         accelerator_view accl_view = (acc[1].create_view());
@@ -61,21 +61,21 @@ file: Randomarray.cpp
         float *Random1 = (float*) malloc(sizeof(float) * numberCount);
         float *Random2 = (float*) malloc(sizeof(float) * numberCount);
         float *outBufferDevice = hc::am_alloc(sizeof(float) * numberCount, acc[1], 0);
- 
+
         //Create streams
         hcrngMrg31k3pStream *streams = hcrngMrg31k3pCreateStreams(NULL, streamCount, &streamBufferSize, NULL);
         hcrngMrg31k3pStream *streams_buffer = hc::am_alloc(sizeof(hcrngMrg31k3pStream) * streamCount, acc[1], 0);
         accl_view.copy(streams, streams_buffer, streamCount* sizeof(hcrngMrg31k3pStream));
- 
-        //Invoke random number generators in device (here strean_length and streams_per_thread arguments are default) 
+
+        //Invoke random number generators in device (here strean_length and streams_per_thread arguments are default)
         status = hcrngMrg31k3pDeviceRandomU01Array_single(accl_view, streamCount, streams_buffer, numberCount, outBufferDevice);
- 
+
         if(status) std::cout << "TEST FAILED" << std::endl;
         accl_view.copy(outBufferDevice, Random1, numberCount * sizeof(float));
- 
+
         //Invoke random number generators in host
         for (size_t i = 0; i < numberCount; i++)
-          Random2[i] = hcrngMrg31k3pRandomU01(&streams[i % streamCount]);   
+          Random2[i] = hcrngMrg31k3pRandomU01(&streams[i % streamCount]);
         // Compare host and device outputs
         for(int i =0; i < numberCount; i++) {
             if (Random1[i] != Random2[i]) {
@@ -87,7 +87,7 @@ file: Randomarray.cpp
                 continue;
         }
         if(!ispassed) std::cout << "TEST FAILED" << std::endl;
- 
+
         //Free host resources
         free(Random1);
         free(Random2);
@@ -95,8 +95,8 @@ file: Randomarray.cpp
         hc::am_free(outBufferDevice);
         hc::am_free(streams_buffer);
         return 0;
-  }  
- 
+  }
+
 
 * Compiling the example code:
 
@@ -141,8 +141,8 @@ and **Reboot the system**
 
 Once Reboot, to verify that the ROCm stack completed successfully you can execute HSA vector_copy sample application:
 ::
-  cd /opt/rocm/hsa/sample        
-  make       
+  cd /opt/rocm/hsa/sample
+  make
   ./vector_copy
 
 **Library Installation**
@@ -150,14 +150,14 @@ Once Reboot, to verify that the ROCm stack completed successfully you can execut
 **a. Install using Prebuilt debian**
 
 ::
-  
+
   wget https://github.com/ROCmSoftwarePlatform/hcRNG/blob/master/pre-builds/hcrng-master-184472e-Linux.deb
   sudo dpkg -i hcrng-master-184472e-Linux.deb
 
 **b. Build debian from source**
 
 ::
-  
+
   git clone https://github.com/ROCmSoftwarePlatform/hcRNG.git && cd hcRNG
   chmod +x build.sh && ./build.sh
 
@@ -286,7 +286,7 @@ AMD is hosting both debian and rpm repositories for the ROCm 2.7 packages. The p
 
 Complete installation steps of ROCm can be found `Here <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html>`_
 
-or 
+or
 
 For Debian based systems, like Ubuntu, configure the Debian ROCm repository as follows:
 
@@ -519,7 +519,7 @@ Build dependencies
 
 To develop the clFFT library code on a Windows operating system, ensure to install the following packages on your system:
 
- * Windows® 7/8.1
+ * Windows(R) 7/8.1
 
  * Visual Studio 2012 or later
 
@@ -548,7 +548,7 @@ To test the developed clFFT library code, ensure to install the following packag
  * Googletest v1.6
 
  * Latest FFTW
- 
+
  * Latest Boost
 
 Performance infrastructure
@@ -565,7 +565,7 @@ clBLAS
 
 For Github repository `clBLAS <https://github.com/clMathLibraries/clBLAS>`_
 
-This repository houses the code for the OpenCL™ BLAS portion of clMath. The complete set of BLAS level 1, 2 & 3 routines is implemented. Please see Netlib BLAS for the list of supported routines. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and multicore programming. APPML 1.12 is the most current generally available pre-packaged binary version of the library available for download for both Linux and Windows platforms.
+This repository houses the code for the OpenCL(TM) BLAS portion of clMath. The complete set of BLAS level 1, 2 & 3 routines is implemented. Please see Netlib BLAS for the list of supported routines. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and multicore programming. APPML 1.12 is the most current generally available pre-packaged binary version of the library available for download for both Linux and Windows platforms.
 
 The primary goal of clBLAS is to make it easier for developers to utilize the inherent performance and power efficiency benefits of heterogeneous computing. clBLAS interfaces do not hide nor wrap OpenCL interfaces, but rather leaves OpenCL state management to the control of the user to allow for maximum performance and flexibility. The clBLAS library does generate and enqueue optimized OpenCL kernels, relieving the user from the task of writing, optimizing and maintaining kernel code themselves.
 
@@ -716,7 +716,7 @@ Build dependencies
 ##########################################
 **Library for Windows**
 
- * Windows® 7/8
+ * Windows(R) 7/8
  * Visual Studio 2010 SP1, 2012
  * An OpenCL SDK, such as APP SDK 2.8
  * Latest CMake
@@ -749,10 +749,10 @@ Python
 **************
 clSPARSE
 **************
- 
+
 For Github repository `clSPARSE <https://github.com/clMathLibraries/clSPARSE>`_
 
-an OpenCL™ library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
+an OpenCL(TM) library implementing Sparse linear algebra routines. This project is a result of a collaboration between `AMD Inc. <http://www.amd.com/en>`_ and `Vratis Ltd. <http://www.vratis.com/>`_.
 
 What's new in clSPARSE v0.10.1
 ###################################
@@ -779,7 +779,7 @@ clSPARSE features
  * Dense to CSR conversions (& converse)
  * COO to CSR conversions (& converse)
  * Functions to read matrix market files in COO or CSR format
-True in spirit with the other clMath libraries, clSPARSE exports a “C” interface to allow projects to build wrappers around clSPARSE in any language they need. A great deal of thought and effort went into designing the API’s to make them less ‘cluttered’ compared to the older clMath libraries. OpenCL state is not explicitly passed through the API, which enables the library to be forward compatible when users are ready to switch from OpenCL 1.2 to OpenCL 2.0 3
+True in spirit with the other clMath libraries, clSPARSE exports a "C" interface to allow projects to build wrappers around clSPARSE in any language they need. A great deal of thought and effort went into designing the API's to make them less 'cluttered' compared to the older clMath libraries. OpenCL state is not explicitly passed through the API, which enables the library to be forward compatible when users are ready to switch from OpenCL 1.2 to OpenCL 2.0 3
 
 API semantic versioning
 ##############################
@@ -808,7 +808,7 @@ clSPARSE is licensed under the `Apache License <http://www.apache.org/licenses/L
 
 **Compiling for Windows**
 
- * Windows® 7/8
+ * Windows(R) 7/8
  * Visual Studio 2013 and above
  * CMake 2.8.12 (download from `Kitware <http://www.cmake.org/download/>`_)
  * Solution (.sln) or
@@ -850,12 +850,12 @@ clSPARSE is licensed under the `Apache License <http://www.apache.org/licenses/L
 ****************
 clRNG
 ****************
- 
+
 For Github repository `clRNG <https://github.com/clMathLibraries/clRNG>`_
 
 A library for uniform random number generation in OpenCL.
 
-Streams of random numbers act as virtual random number generators. They can be created on the host computer in unlimited numbers, and then used either on the host or on computing devices by work items to generate random numbers. Each stream also has equally-spaced substreams, which are occasionally useful. The API is currently implemented for four different RNGs, namely the MRG31k3p, MRG32k3a, LFSR113 and Philox-4×32-10 generators.
+Streams of random numbers act as virtual random number generators. They can be created on the host computer in unlimited numbers, and then used either on the host or on computing devices by work items to generate random numbers. Each stream also has equally-spaced substreams, which are occasionally useful. The API is currently implemented for four different RNGs, namely the MRG31k3p, MRG32k3a, LFSR113 and Philox-4x32-10 generators.
 
 
 What's New
@@ -873,7 +873,7 @@ Building
 ##############
  1. Install the runtime dependency:
       * An OpenCL SDK, such as APP SDK.
- 
+
  2. Install the build dependencies:
 
      * The CMake cross-platform build system. Visual Studio users can use CMake Tools for Visual Studio.
@@ -906,7 +906,7 @@ On a 64-bit Linux platform, steps 3 through 9 from above, executed in a Bash-com
   export CLRNG_ROOT=$PWD/package
   export LD_LIBRARY_PATH=$CLRNG_ROOT/lib64:$LD_LIBRARY_PATH
   $CLRNG_ROOT/bin/CTest
-  
+
 **Examples**
 
 Examples can be found in src/client. The compiled client program examples can be found under the bin subdirectory of the installation package ($CLRNG_ROOT/bin under Linux). Note that the examples expect an OpenCL GPU device to be available.
@@ -1047,7 +1047,7 @@ The following are the steps to use the library
 
 **ROCM 2.7 Installation**
 
-To Know more about ROCM refer 
+To Know more about ROCM refer
 https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
 
 **a. Installing Debian ROCM repositories**
@@ -1083,8 +1083,8 @@ and Reboot the system
 
 Once Reboot, to verify that the ROCm stack completed successfully you can execute HSA vector_copy sample application:
 
-   * cd /opt/rocm/hsa/sample        
-   * make       
+   * cd /opt/rocm/hsa/sample
+   * make
    * ./vector_copy
 
 **Library Installation**
@@ -1129,7 +1129,7 @@ The following are the sub-routines that are implemented
 
 KeyFeature
 #############
- 
+
  * Support 1D, 2D and 3D Fast Fourier Transforms
  * Supports R2C, C2R, C2C, D2Z, Z2D and Z2Z Transforms
  * Support Out-Of-Place data storage
@@ -1145,7 +1145,7 @@ This section lists the known set of hardware and software requirements to build 
 **Hardware**
 
 
- * CPU: mainstream brand, Better if with >=4 Cores Intel Haswell based CPU 
+ * CPU: mainstream brand, Better if with >=4 Cores Intel Haswell based CPU
  * System Memory >= 4GB (Better if >10GB for NN application over multiple GPUs)
  * Hard Drive > 200GB (Better if SSD or NVMe driver for NN application over multiple GPUs)
  * Minimum GPU Memory (Global) > 2GB
@@ -1197,7 +1197,7 @@ file: hcfft_1D_R2C.cpp
 ::
 
   #!c++
-  
+
   #include <iostream>
   #include <cstdlib>
   #include "hcfft.h"
@@ -1239,9 +1239,9 @@ file: hcfft_1D_R2C.cpp
     free(input);
     free(output);
     hc::am_free(idata);
-    hc::am_free(odata); 
+    hc::am_free(odata);
   }
- 
+
 * Compiling the example code:
 
 Assuming the library and compiler installation is followed as in installation.
@@ -1264,9 +1264,9 @@ This sections enumerates the list of tested combinations of Hardware and system 
 
 **GPU Cards**
 
- * Radeon R9 Nano 
+ * Radeon R9 Nano
  * Radeon R9 FuryX
- * Radeon R9 Fury 
+ * Radeon R9 Fury
  * Kaveri and Carizo APU
 
 **Server System**

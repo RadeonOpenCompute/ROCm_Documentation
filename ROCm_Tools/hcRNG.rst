@@ -21,7 +21,7 @@ file: Randomarray.cpp
 
 ::
 
- 
+
   //This example is a simple random array generation and it compares host output with device output
   //Random number generator Mrg31k3p
   #include <stdio.h>
@@ -34,7 +34,7 @@ file: Randomarray.cpp
   #include <hc.hpp>
   #include <hc_am.hpp>
   using namespace hc;
- 
+
   int main()
   {
         hcrngStatus status = HCRNG_SUCCESS;
@@ -44,7 +44,7 @@ file: Randomarray.cpp
         size_t streamCount = 10;
         //Number of random numbers to be generated
         //numberCount must be a multiple of streamCount
-        size_t numberCount = 100; 
+        size_t numberCount = 100;
         //Enumerate the list of accelerators
         std::vector<hc::accelerator>acc = hc::accelerator::get_all();
         accelerator_view accl_view = (acc[1].create_view());
@@ -52,21 +52,21 @@ file: Randomarray.cpp
         float *Random1 = (float*) malloc(sizeof(float) * numberCount);
         float *Random2 = (float*) malloc(sizeof(float) * numberCount);
         float *outBufferDevice = hc::am_alloc(sizeof(float) * numberCount, acc[1], 0);
- 
+
         //Create streams
         hcrngMrg31k3pStream *streams = hcrngMrg31k3pCreateStreams(NULL, streamCount, &streamBufferSize, NULL);
         hcrngMrg31k3pStream *streams_buffer = hc::am_alloc(sizeof(hcrngMrg31k3pStream) * streamCount, acc[1], 0);
         accl_view.copy(streams, streams_buffer, streamCount* sizeof(hcrngMrg31k3pStream));
- 
-        //Invoke random number generators in device (here strean_length and streams_per_thread arguments are default) 
+
+        //Invoke random number generators in device (here strean_length and streams_per_thread arguments are default)
         status = hcrngMrg31k3pDeviceRandomU01Array_single(accl_view, streamCount, streams_buffer, numberCount, outBufferDevice);
- 
+
         if(status) std::cout << "TEST FAILED" << std::endl;
         accl_view.copy(outBufferDevice, Random1, numberCount * sizeof(float));
- 
+
         //Invoke random number generators in host
         for (size_t i = 0; i < numberCount; i++)
-          Random2[i] = hcrngMrg31k3pRandomU01(&streams[i % streamCount]);   
+          Random2[i] = hcrngMrg31k3pRandomU01(&streams[i % streamCount]);
         // Compare host and device outputs
         for(int i =0; i < numberCount; i++) {
             if (Random1[i] != Random2[i]) {
@@ -78,7 +78,7 @@ file: Randomarray.cpp
                 continue;
         }
         if(!ispassed) std::cout << "TEST FAILED" << std::endl;
- 
+
         //Free host resources
         free(Random1);
         free(Random2);
@@ -86,8 +86,8 @@ file: Randomarray.cpp
         hc::am_free(outBufferDevice);
         hc::am_free(streams_buffer);
         return 0;
-  }  
- 
+  }
+
 
 * Compiling the example code:
 
@@ -132,8 +132,8 @@ and **Reboot the system**
 
 Once Reboot, to verify that the ROCm stack completed successfully you can execute HSA vector_copy sample application:
 ::
-  cd /opt/rocm/hsa/sample        
-  make       
+  cd /opt/rocm/hsa/sample
+  make
   ./vector_copy
 
 Library Installation
@@ -141,14 +141,14 @@ Library Installation
 **a. Install using Prebuilt debian**
 
 ::
-  
+
   wget https://github.com/ROCmSoftwarePlatform/hcRNG/blob/master/pre-builds/hcrng-master-184472e-Linux.deb
   sudo dpkg -i hcrng-master-184472e-Linux.deb
 
 **b. Build debian from source**
 
 ::
-  
+
   git clone https://github.com/ROCmSoftwarePlatform/hcRNG.git && cd hcRNG
   chmod +x build.sh && ./build.sh
 

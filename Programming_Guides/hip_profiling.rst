@@ -1,5 +1,5 @@
 
-.. _hip_profiling: 
+.. _hip_profiling:
 
 ###################
 Profiling HIP Code
@@ -25,12 +25,12 @@ Profiling information can viewed in the CodeXL visualization tool or printed dir
     	* :ref:`How to enable profiling at HIP build time`
 
 * :ref:`Tracing and Debug`
-  
+
   * :ref:`Tracing HIP APIs`
-    	* :ref:`Color`    	
-    	
-    	
-    	
+    	* :ref:`Color`
+
+
+
 .. _CodeXL Profiling:
 
 CodeXL Profiling
@@ -57,7 +57,7 @@ Using rocm-profiler performance counter collection
 
 rocm-profiler can record performance counter information to provide greater insight inside a kernel, such as the memory bandwidth, ALU busy percentage, and cache statistics. Collecting the common set of useful counters requires passing the counter configuration files for two passes:
 ::
- 
+
  $ /opt/rocm/bin/rocm-profiler -C -O --counterfile /opt/rocm/profiler/counterfiles/counters_HSA_Fiji_pass1 --counterfile /opt/rocm/profiler/counterfiles/counters_HSA_Fiji_pass2  <applicationName> <applicationArguments>
 
 .. _Using CodeXL to view profiling results:
@@ -109,7 +109,7 @@ HIP can generate markers at function beginning and end which are displayed on th
  # Use profile to generate timeline view:
  export HIP_PROFILE_API=1
  $ /opt/rocm/bin/rocm-profiler -A -T <applicationName> <applicationArguments>
- 
+
  Or
  $ /opt/rocm/bin/rocm-profiler -e HIP_PROFILE_API=1 -A -T <applicationName> <applicationArguments>
 
@@ -130,32 +130,32 @@ Markers can be used to define application-specific events that will be recorded 
 Markers have a specific begin and end time, and can be nested. Nested calls are displayed hierarchically in the CodeXL GUI, with each level of the hierarchy occupying a different row.
 
 The HIP APis are defined in "hip_profile.h"::
- 
- #include <hip/hip_profile.h> 
- 
+
+ #include <hip/hip_profile.h>
+
  HIP_BEGIN_MARKER(const char *markerName, const char *groupName);
- HIP_END_MARKER(); 
- 
+ HIP_END_MARKER();
+
  HIP_BEGIN_MARKER("Setup", "MyAppGroup");
  // ...
  // application code for setup
  // ...
  HIP_END_MARKER();
- 
+
 For C++ codes, HIP also provides a scoped marker which records the start time when constructed and the end time when the scoped marker is destructed at the end of the scope. This provides a convenient, single-line mechanism to record an event that neatly corresponds to a region of code.
 ::
 
- void FunctionFoo(...) 
+ void FunctionFoo(...)
  {
-   HIP_SCOPED_MARKER("FunctionFoo", "MyAppGroup"); // Marker starts recording here. 
- 
+   HIP_SCOPED_MARKER("FunctionFoo", "MyAppGroup"); // Marker starts recording here.
+
    // ...
    // Function implementation
-   // ... 
- 
+   // ...
+
    // Marker destroyed here and records end time stamp.
  };
- 
+
 The HIP marker API is only supported on ROCm platform. The marker macros are defined on CUDA platforms and will compile, but are silently ignored at runtime.
 
 This `HIP sample <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#profiling-hip-apis>`_ shows the profiler marker API used in a small application.
@@ -177,21 +177,21 @@ Demangling C++ Kernel Names
 
 HIP includes the ``hipdemangleatp`` tool which can post-process an ATP file to "demangle" C++ names. Mangled kernel names encode the C++ arguments and other information, and are guaranteed to be unique even for cases such as operator overloading. However, the mangled names can be quite verbose. For example:
 ::
-  
+
  ZZ39gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4RN2hc16accelerator_viewEPKflS3_lPfliiiiiiffEN3_EC__719__cxxamp_trampolineElililiiiiiiS3_iS3_S4_ff
 
 **hipdemangleatp** will convert this into the more readable::
- 
+
  gemm_NoTransA_MICRO_NBK_M_N_K_TS16XMTS4
 
 The hipdemangleatp tool operates on the ATP file "in-place" and thus replaces the input file with the demangled version.
 ::
- 
+
  $ hipdemangleatp myfile.atp
 
 The kernel name is also shown in some of the summary htlm files (Top10 kernels). These can be regenerated from the demangled ATP file by re-running rocm-profiler:
 ::
- 
+
  $ rocm-profiler -T --atpfile myfile.atp
 
 A future version of CodeXL may directly integrate demangle functionality.
@@ -230,7 +230,7 @@ Reducing timeline trace output file size
 If the application is already recording the HIP APIs, the HSA APIs are somewhat redundant and the ATP file size can be substantially reduced by not recording these APIs. HIP includes a text file that lists all of the HSA APIs and can assist in this filtering:
 ::
 
- $ rocm-profiler -F hip/bin/hsa-api-filter-cxl.txt 
+ $ rocm-profiler -F hip/bin/hsa-api-filter-cxl.txt
 
 This file can be copied and edited to provide more selective HSA event recording.
 
@@ -246,8 +246,8 @@ Recent pre-built packages of HIP are always built with profiling support enabled
       $ mkdir build && cd build
       $ cmake .. -DCOMPILE_HIP_ATP_MARKER
       $ make install
-      
- 
+
+
  2. Install ROCm-Profiler Installing HIP from the `rocm <http://gpuopen.com/getting-started-with-boltzmann-components-platforms-installation/>`_ pre-built packages, installs the ROCm-Profiler as well. Alternatively, you can build ROCm-Profiler using the instructions here.
 
  3. Recompile the target application
@@ -277,7 +277,7 @@ The HIP runtime can print the HIP function strings to stderr using HIP_TRACE_API
 
 Heres a specific example showing the output of the square program running on HIP::
 
- $ HIP_TRACE_API=1  ./square.hip.out 
+ $ HIP_TRACE_API=1  ./square.hip.out
    hip-api tid:1:HIP initialized short_tid#1 (maps to full_tid: 0x7f6183b097c0)
  <<hip-api tid:1.1 hipGetDeviceProperties (0x7ffddb673e08, 0)
    hip-api tid:1.1 hipGetDeviceProperties         ret= 0 (hipSuccess)>>
@@ -300,7 +300,7 @@ Heres a specific example showing the output of the square program running on HIP
  PASSED!
 
 HIP_TRACE_API supports multiple levels of debug information:
- 
+
  * 0x1 = print all HIP APIs. This is the most verbose setting; the flags below allow selecting a subset.
  * 0x2 = print HIP APIs which initiate GPU kernel commands. Includes hipLaunchKernelGGL, hipLaunchModuleKernel
  * 0x4 = print HIP APIs which initiate GPU memory commands. Includes hipMemcpy*, hipMemset*.

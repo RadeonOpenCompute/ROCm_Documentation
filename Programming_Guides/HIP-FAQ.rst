@@ -45,7 +45,7 @@ See the `API Support Table <https://github.com/ROCm-Developer-Tools/HIP/blob/mas
     * PTX assembly (CUDA 4.0). HCC supports inline GCN assembly.
     * Several kernel features are under development. See the :ref:`Kernel Language` for more information. These include:
         *  printf
-        
+
 
 **Is HIP a drop-in replacement for CUDA?**
 
@@ -79,7 +79,7 @@ However, we can provide a rough summary of the features included in each CUDA SD
 
 **What libraries does HIP support?**
 
-HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse, as well as MIOpen for machine intelligence applications. These offer pointer-based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HIP applications. 
+HIP includes growing support for the 4 key math libraries using hcBlas, hcFft, hcrng and hcsparse, as well as MIOpen for machine intelligence applications. These offer pointer-based memory interfaces (as opposed to opaque buffers) and can be easily interfaced with other HIP applications.
 The hip interfaces support both ROCm and CUDA paths, with familliar library interfaces.
 
    * `hipblas <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#hipblas>`_, which utilizes `rocBlas <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Libraries/ROCm_Libraries.html#rocblas>`_.
@@ -93,7 +93,7 @@ Additionally, some of the cublas routines are automatically converted to hipblas
 
 Both AMD and Nvidia support OpenCL 1.2 on their devices, so developers can write portable code. HIP offers several benefits over OpenCL:
 
-   * Developers can code in C++ as well as mix host and device C++ code in their source files. HIP C++ code can use templates, 	  	lambdas, classes and so on. 
+   * Developers can code in C++ as well as mix host and device C++ code in their source files. HIP C++ code can use templates, 	  	lambdas, classes and so on.
    * The HIP API is less verbose than OpenCL and is familiar to CUDA developers.
    * Because both CUDA and HIP are C++ languages, porting from CUDA to HIP is significantly easier than porting from CUDA to OpenCL.
    * HIP uses the best available development tools on each platform: on Nvidia GPUs, HIP code compiles using NVCC and can employ the 	  nSight profiler and debugger (unlike OpenCL on Nvidia GPUs).

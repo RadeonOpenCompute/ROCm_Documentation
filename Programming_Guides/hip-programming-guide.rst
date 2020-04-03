@@ -56,7 +56,7 @@ hipEventSynchronize
 
 Developers can control the release scope for hipEvents:
 
-* By default, the GPU performs a device-scope acquire and release operation with each recorded event.  This will make host and device memory visible to other commands executing on the same device. 
+* By default, the GPU performs a device-scope acquire and release operation with each recorded event.  This will make host and device memory visible to other commands executing on the same device.
 
 A stronger system-level fence can be specified when the event is created with hipEventCreateWithFlags:
 
@@ -103,4 +103,4 @@ By default staging buffers are used for unpinned memory transfers. Environment v
    * HIP_H2D_MEM_TRANSFER_THRESHOLD_STAGING_OR_PININPLACE - Threshold in bytes for H2D copy. For sizes smaller than threshold staging buffers logic would be used else PinInPlace logic.
    * HIP_H2D_MEM_TRANSFER_THRESHOLD_DIRECT_OR_STAGING - Threshold in bytes for H2D copy. For sizes smaller than threshold direct copy logic would be used else staging buffers logic.
    * HIP_D2H_MEM_TRANSFER_THRESHOLD - Threshold in bytes for D2H copy. For sizes smaller than threshold staging buffer logic would be used else PinInPlace logic.
-  
+

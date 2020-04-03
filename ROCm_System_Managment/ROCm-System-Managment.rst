@@ -58,8 +58,8 @@ usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [--alldevices] [--showhw] [-a] [-i
 =================================== ===================================================================================
   -h, --help                  		show this help message and exit
   --gpureset                            Reset specified GPU (One GPU must be specified)
-  --load FILE                 		Load Clock, Fan, Performance and Profile settings 
-  --save FILE                 		Save Clock, Fan, Performance and Profile settings 
+  --load FILE                 		Load Clock, Fan, Performance and Profile settings
+  --save FILE                 		Save Clock, Fan, Performance and Profile settings
 =================================== ===================================================================================
 
 
@@ -186,8 +186,8 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
 
 .. NOTES::
     This option can be used in conjunction with the --setsclk/--setmclk mask
- 
-    Operating the GPU outside of specifications can cause irreparable damage to your hardware 
+
+    Operating the GPU outside of specifications can cause irreparable damage to your hardware
     Please observe the warning displayed when using this option
 
     This flag automatically sets the clock to the highest level, as only the highest level is increased by the OverDrive value
@@ -231,16 +231,16 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
 **Clock Type Descriptions**
 
 
-DCEFCLK - DCE (Display) FCLK - Data fabric (VG20 and later) - Data flow from XGMI, Memory, PCIe SCLK - GFXCLK (Graphics core) 
+DCEFCLK - DCE (Display) FCLK - Data fabric (VG20 and later) - Data flow from XGMI, Memory, PCIe SCLK - GFXCLK (Graphics core)
 
 
 .. Note::
 
     SOCCLK split from SCLK as of Vega10. Pre-Vega10 they were both controlled by SCLK
 
-MCLK - GPU Memory (VRAM) PCLK - PCIe bus 
+MCLK - GPU Memory (VRAM) PCLK - PCIe bus
 
-.. Note:: 
+.. Note::
 
     This gives 2 speeds, PCIe Gen1 x1 and the highest available based on the hardware
 
@@ -346,12 +346,12 @@ All entries (except name) are optional, and should only be created in a given dr
 
 
 *********************
- Global attributes 
+ Global attributes
 *********************
 
 ================ ============================================================================================
 name		  | The chip name.This should be a short, lowercase string, not containing whitespace,
-		  | dashes, or the wildcard character '*'.This attribute represents the chip name. 
+		  | dashes, or the wildcard character '*'.This attribute represents the chip name.
 		  | It is the only mandatory attribute.I2C devices get this attribute created automatically.
 		  | RO
 
@@ -363,28 +363,28 @@ update_interval	  | The interval at which the chip will update readings.
 ================ ============================================================================================
 
 ************
- Voltages 
+ Voltages
 ************
 
 ====================== ===============================================================================================
 in[0-*]_min	        |  Voltage min value.
 		        |  Unit: millivolt
 		        |  RW
-		
+
 in[0-*]_lcrit	        |  Voltage critical min value.
 		        |  Unit: millivolt
 		        |  RW
 		        |  If voltage drops to or below this limit, the system may take drastic action such as power
 		        |  down or reset. At the very least, it should report a fault.
- 
+
 in[0-*]_max	        | Voltage max value.
 		        | Unit: millivolt
 		        | RW
-		
+
 in[0-*]_crit	        | Voltage critical max value.
 		        | Unit: millivolt
 			| RW
-			| If voltage reaches or exceeds this limit, the system may take drastic action such as power 
+			| If voltage reaches or exceeds this limit, the system may take drastic action such as power
 			| down or reset. At the very least, it should report a fault.
 
 in[0-*]_input		| Voltage input value.
@@ -392,8 +392,8 @@ in[0-*]_input		| Voltage input value.
 			| RO
 			| Voltage measured on the chip pin.Actual voltage depends on the scaling resistors on the
 			| motherboard, as recommended in the chip datasheet.This varies by chip and by motherboard.
-			| Because of this variation, values are generally NOT scaled by the chip driver, and must be 
-			| done by the application.However, some drivers (notably lm87 and via686a) do scale, because 
+			| Because of this variation, values are generally NOT scaled by the chip driver, and must be
+			| done by the application.However, some drivers (notably lm87 and via686a) do scale, because
 			| of internal resistors built into a chip.These drivers will output the actual voltage. Rule of
 			| thumb: drivers should report the voltage values at the "pins" of the chip.
 
@@ -432,10 +432,10 @@ cpu[0-*]_vid		| CPU core reference voltage.
 			| RO
 			| Not always correct.
 
-vrm			| Voltage Regulator Module version number. 
+vrm			| Voltage Regulator Module version number.
 			| RW (but changing it should no more be necessary)
 			| Originally the VRM standard version multiplied by 10, but now an arbitrary number, as not
-			| all standards have a version number.Affects the way the driver calculates the CPU core 
+			| all standards have a version number.Affects the way the driver calculates the CPU core
 			| reference voltage from the vid pins.
 ====================== ===============================================================================================
 
@@ -443,7 +443,7 @@ Also see the Alarms section for status flags associated with voltages.
 
 
 ********
- Fans 
+ Fans
 ********
 
 =============== =============================================================================================
@@ -470,9 +470,9 @@ fan[1-*]_div	 | Fan divisor.
 fan[1-*]_pulses	 | Number of tachometer pulses per fan revolution.
 		 | Integer value, typically between 1 and 4.
 		 | RW
-		 | This value is a characteristic of the fan connected to the device's input, 
- 		 | so it has to be set in accordance with the fan model.Should only be created 
-		 | if the chip has a register to configure the number of pulses. In the absence 
+		 | This value is a characteristic of the fan connected to the device's input,
+ 		 | so it has to be set in accordance with the fan model.Should only be created
+		 | if the chip has a register to configure the number of pulses. In the absence
 		 | of such a register (and thus attribute) the value assumed by all devices is 2 pulses
 		 | per fan revolution.
 
@@ -484,7 +484,7 @@ fan[1-*]_target  | Desired fan speed
 
 fan[1-*]_label	 | Suggested fan channel label.
 		 | Text string
-		 | Should only be created if the driver has hints about what this fan channel is being 
+		 | Should only be created if the driver has hints about what this fan channel is being
 		 | used for, and user-space doesn't.In all other cases, the label is provided by user-space.
 		 | RO
 
@@ -499,13 +499,13 @@ Also see the Alarms section for status flags associated with fans.
 
 
 *******
- PWM 
+ PWM
 *******
-		
+
 +--------------------------------------+-----------------------------------------------------------------------------------------+
 | pwm[1-*]	 		       | | Pulse width modulation fan control.							 |
 |				       | | Integer value in the range 0 to 255							 |
-|				       | | RW											 | 
+|				       | | RW											 |
 |			               | | 255 is max or 100%.									 |
 +--------------------------------------+-----------------------------------------------------------------------------------------+
 | pwm[1-*]_enable  	   	       | | Fan speed control method:								 |
@@ -542,7 +542,7 @@ value (fastest fan speed) wins.
 
 
 ****************
- Temperatures 
+ Temperatures
 ****************
 
 ========================= ==========================================================================================
@@ -589,7 +589,7 @@ temp[1-*]_crit_hyst 	  | Temperature hysteresis value for critical limit.
 			  | Must be reported as an absolute temperature, NOT a delta from the critical value.
 			  | RW
 
-temp[1-*]_emergency       | Temperature emergency max value, for chips supporting more than two upper 
+temp[1-*]_emergency       | Temperature emergency max value, for chips supporting more than two upper
 			  | temperature limits. Must be equal or greater than corresponding temp_crit values.
 			  | Unit: millidegree Celsius
 			  | RW
@@ -613,8 +613,8 @@ temp[1-*]_offset          | Temperature offset which is added to the temperature
 			  | Read/Write value.
 
 temp[1-*]_label		  | Suggested temperature channel label.
-			  | Text string Should only be created if the driver has hints about what this temperature 
-			  | channel is being used for, and user-space doesn't. In all other cases, the label is 
+			  | Text string Should only be created if the driver has hints about what this temperature
+			  | channel is being used for, and user-space doesn't. In all other cases, the label is
 			  | provided by user-space.
 			  | RO
 
@@ -645,7 +645,7 @@ Also see the Alarms section for status flags associated with temperatures.
 
 
 ************
- Currents 
+ Currents
 ************
 
 ======================= ========================================================
@@ -697,7 +697,7 @@ curr[1-*]_enable         | Enable or disable the sensors
 Also see the Alarms section for status flags associated with currents.
 
 *********
- Power 
+ Power
 *********
 
 ================================ ===============================================================================
@@ -705,7 +705,7 @@ power[1-*]_average		 | Average power use
 				 | Unit: microWatt
 				 | RO
 
-power[1-*]_average_interval	 | Power use averaging interval.  A poll notification is sent to this 
+power[1-*]_average_interval	 | Power use averaging interval.  A poll notification is sent to this
  				 | file if the hardware changes the averaging interval.
 				 | Unit: milliseconds
 				 | RW
@@ -756,8 +756,8 @@ power[1-*]_accuracy		 | Accuracy of the power meter.
 				 | Unit: Percent
 				 | RO
 
-power[1-*]_cap			 | If power use rises above this limit, the system should take action to 
-				 | reduce power use.A poll notification is sent to this file if the cap is 
+power[1-*]_cap			 | If power use rises above this limit, the system should take action to
+				 | reduce power use.A poll notification is sent to this file if the cap is
 				 | changed by the hardware.The *_cap files only appear if the cap is known
 				 | to be enforced by hardware.
 				 | Unit: microWatt
@@ -796,7 +796,7 @@ power[1-*]_enable                | Enable or disable the sensors.
 Also see the Alarms section for status flags associated with power readings.
 
 **********
- Energy 
+ Energy
 **********
 
 ==================== ========================
@@ -812,7 +812,7 @@ energy[1-*]_enable   | Enable or disable the sensors
 ==================== ========================
 
 ************
- Humidity 
+ Humidity
 ************
 
 ==================== ===========================================
@@ -828,7 +828,7 @@ humidity[1-*]_enable | Enable or disable the sensors
 ==================== ===========================================
 
 **********
- Alarms 
+ Alarms
 **********
 
 Each channel or limit may have an associated alarm file, containing a
@@ -839,13 +839,13 @@ limit-related alarms, not both. The driver should just reflect the hardware
 implementation.
 
 +---------------------+------------------+
-| | in[0-*]_alarm     | | Channel alarm  | 
+| | in[0-*]_alarm     | | Channel alarm  |
 | | curr[1-*]_alarm   | | 0: no alarm    |
 | | power[1-*]_alarm  | | 1: alarm       |
 | | fan[1-*]_alarm    | | RO 	         |
-| | temp[1-*]_alarm   | 		 |	
+| | temp[1-*]_alarm   | 		 |
 +---------------------+------------------+
-		
+
 OR
 
 +----------------------------+---------------+
@@ -868,7 +868,7 @@ OR
 | | temp[1-*]_crit_alarm     |               |
 | | temp[1-*]_emergency_alarm|               |
 +----------------------------+---------------+
-		
+
 Each input channel may have an associated fault file. This can be used
 to notify open diodes, unconnected fans etc. where the hardware
 supports it. When this boolean has value 1, the measurement for that
@@ -878,23 +878,23 @@ channel should not be trusted.
 | | fan[1-*]_fault  | | Input fault condition |
 | | temp[1-*]_fault | | 0: no fault occurred  |
 |		    | | 1: fault condition    |
-|		    | | RO		      |	
+|		    | | RO		      |
 +-------------------+-------------------------+
-		
+
 Some chips also offer the possibility to get beeped when an alarm occurs:
 
 +-----------------+----------------------+
 | beep_enable     | | Master beep enable |
-|	          | | 0: no beeps        |	
-|	          | | 1: beeps	         |	
-|	          | | RW		 |	
+|	          | | 0: no beeps        |
+|	          | | 1: beeps	         |
+|	          | | RW		 |
 +-----------------+----------------------+
-| | in[0-*]_beep  | | Channel beep	 |	
+| | in[0-*]_beep  | | Channel beep	 |
 | | curr[1-*]_beep| | 0: disable	 |
 | | fan[1-*]_beep | | 1: enable 	 |
 | | temp[1-*]_beep| | RW 		 |
-+-----------------+----------------------+		
-		
++-----------------+----------------------+
+
 In theory, a chip could provide per-limit beep masking, but no such chip
 was seen so far.
 
@@ -926,7 +926,7 @@ beep_mask      | Bitmask for beep.
 
 
 ***********************
- Intrusion detection 
+ Intrusion detection
 ***********************
 
 ======================= ===========================================================
@@ -959,8 +959,8 @@ samples			| Sets number of average samples for all types of measurements.
                         | RW
 
 in_samples              | Sets number of average samples for specific type of measurements.
-power_samples           | Note that on some devices it won't be possible to set all of 
-curr_samples            | them to different values so changing one might also change 
+power_samples           | Note that on some devices it won't be possible to set all of
+curr_samples            | them to different values so changing one might also change
 curr_samples            | some others.
                         | RW
 
@@ -1021,10 +1021,10 @@ Example2, fan divider setting, valid values 2, 4 and 8:
 	/* write v to register */
 
 *********
-Performance 
+Performance
 *********
 
-The pcie_bw sysfs file will report the usage of the PCIe bus over the last second, as a string with 3 integers: "bytes-received bytes-sent mps" . As there is no efficient way to calculate the size of each packet transmitted to and from the GPU in real time, the maximum payload size (mps), or the largest size of a PCIe packet, is included. The estimated bandwidth can then be calculated using by "bytes-received*mps + bytes-sent*mps" sed and multiplied by the number of packets received and sent.  
+The pcie_bw sysfs file will report the usage of the PCIe bus over the last second, as a string with 3 integers: "bytes-received bytes-sent mps" . As there is no efficient way to calculate the size of each packet transmitted to and from the GPU in real time, the maximum payload size (mps), or the largest size of a PCIe packet, is included. The estimated bandwidth can then be calculated using by "bytes-received*mps + bytes-sent*mps" sed and multiplied by the number of packets received and sent.
 
 KFD Topology
 ==============
@@ -1032,7 +1032,7 @@ KFD Topology
 
 Application software needs to understand the properties of the underlying hardware to leverage the performance capabilities of the platform for feature utilization and task scheduling. The sysfs topology exposes this information in a loosely hierarchal order. The information is populated by the KFD driver is gathered from ACPI (CRAT) and AMDGPU base driver.
 
-| The sysfs topology is arranged hierarchically as following. The root directory of the topology is 
+| The sysfs topology is arranged hierarchically as following. The root directory of the topology is
 | **/sys/devices/virtual/kfd/kfd/topology/nodes/**
 
 Based on the platform inside this directory there will be sub-directories corresponding to each HSA Agent. A system with N HSA Agents will have N directories as shown below.
@@ -1053,12 +1053,12 @@ This is available in the root directory of the HSA agent. This provides informat
 
 Memory
 ********
-The memory bank information attached to this agent is populated in “mem_banks” subdirectory.
+The memory bank information attached to this agent is populated in "mem_banks" subdirectory.
 /sys/devices/virtual/kfd/kfd/topology/nodes/N/mem_banks
 
 Cache
 ********
-The caches available for this agent is populated in “cache” subdirectory
+The caches available for this agent is populated in "cache" subdirectory
 /sys/devices/virtual/kfd/kfd/topology/nodes/N/cache
 
 IO-LINKS
@@ -1069,7 +1069,7 @@ How to use topology information
 *********************************
 The information provided in sysfs should not be directly used by application software. Application software should always use Thunk library API (libhsakmt) to access topology information. Please refer to Thunk API for more information.
 
-The data are associated with a node ID, forming a per-node element list which references the elements contained at relative offsets within that list. A node associates with a kernel agent or agent. Node ID’s should be 0-based, with the “0” ID representing the primary elements of the system (e.g., “boot cores”, memory) if applicable. The enumeration order and—if applicable—values of the ID should match other information reported through mechanisms outside of the scope of the requirements;
+The data are associated with a node ID, forming a per-node element list which references the elements contained at relative offsets within that list. A node associates with a kernel agent or agent. Node ID's should be 0-based, with the "0" ID representing the primary elements of the system (e.g., "boot cores", memory) if applicable. The enumeration order and--if applicable--values of the ID should match other information reported through mechanisms outside of the scope of the requirements;
 
 For example, the data and enumeration order contained in the ACPI SRAT table on some systems should match the memory order and properties reported through HSA. Further detail is out of the scope of the System Architecture and outlined in the Runtime API specification.
 
@@ -1079,7 +1079,7 @@ Each of these nodes is interconnected with other nodes in more advanced systems 
 
 .. image:: More_advanced_topology.png
 
-Where applicable, the node grouping of physical memory follows NUMA principles to leverage memory locality in software when multiple physical memory blocks are available in the system and agents have a different “access cost” (e.g., bandwidth/latency) to that memory.
+Where applicable, the node grouping of physical memory follows NUMA principles to leverage memory locality in software when multiple physical memory blocks are available in the system and agents have a different "access cost" (e.g., bandwidth/latency) to that memory.
 
 **KFD Topology structure for AMDGPU :**
 
@@ -1110,7 +1110,7 @@ This can used by cooperating applications to effectively allocate GPU/GCDs among
 Device cgroup
 ***************
 
-At a system administration level, the GPU/GCD isolation is possible using the device control group (cgroup). For all the AMD GPUs in a compute node, the ROCk-Kernel-Driver exposes a single compute device file /dev/kfd and a separate (Direct Rendering Infrastructure) render device files /dev/dri/renderDN for each device. To participate in the Linux kernel’s cgroup infrastructure, the ROCk driver relies on the render device files.
+At a system administration level, the GPU/GCD isolation is possible using the device control group (cgroup). For all the AMD GPUs in a compute node, the ROCk-Kernel-Driver exposes a single compute device file /dev/kfd and a separate (Direct Rendering Infrastructure) render device files /dev/dri/renderDN for each device. To participate in the Linux kernel's cgroup infrastructure, the ROCk driver relies on the render device files.
 
 For example, consider a compute node with the two AMD GPUs. The ROCk-Kernel-Driver exposes the following device files:
 
@@ -1122,9 +1122,9 @@ crw-rw---- 1 root video 226, 129 Apr 22 10:31 /dev/dri/renderD129
 
 A ROCm application running on this compute node can use both GPUs only if it has access to all the above-listed device files. The administrator can restrict the devices an application can access by using device cgroup. The device cgroup subsystem allows or denies access to devices by applications in a cgroup. If a cgroup has whitelisted only /dev/kfd and /dev/dri/renderD129, then applications in that cgroup will have access only to that single GPU.
 
-Refer to the Linux kernel's cgroup documentation for information on how to create a cgroup and whitelist devices. 
+Refer to the Linux kernel's cgroup documentation for information on how to create a cgroup and whitelist devices.
 
-For cgroup-v1, refer https://www.kernel.org/doc/Documentation/cgroup-v1/devices.txt 
+For cgroup-v1, refer https://www.kernel.org/doc/Documentation/cgroup-v1/devices.txt
 
 For cgroup-v2, refer https://www.kernel.org/doc/Documentation/cgroup-v2.txt
 

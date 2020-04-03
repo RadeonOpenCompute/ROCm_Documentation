@@ -193,7 +193,7 @@ hsa_signal_value_t InterruptSignal::WaitRelaxed(
       value = atomic::Load(&signal_.value, std::memory_order_relaxed);
       return hsa_signal_value_t(value);
     }
-    
+
     if (wait_hint == HSA_WAIT_STATE_ACTIVE) {
       continue;
     }

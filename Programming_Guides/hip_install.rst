@@ -96,7 +96,7 @@ By default, HIP uses HCC to compile programs. To use HIP-Clang, add -DHIP_COMPIL
   cd HIP
   mkdir build
   cd build
-  cmake .. 
+  cmake ..
   make
   make install
 
@@ -111,7 +111,7 @@ Here's a richer command-line that overrides the default paths:
 
   cd HIP
   mkdir build
-  cd build  
+  cd build
   cmake -DHSA_PATH=/path/to/hsa -DHCC_HOME=/path/to/hcc -DCMAKE_INSTALL_PREFIX=/where/to/install/hip -DCMAKE_BUILD_TYPE=Release ..
   make
   make install

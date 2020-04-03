@@ -4308,7 +4308,7 @@ bool HostMatrixCSR<ValueType>::RugeStueben(ValueType eps,
     set_to_zero_host(this->nrow_ + 1, S_row_offset);
     set_to_zero_host(this->nnz_, S_val);
 
-// Determine strong influences in matrix (Ruge Stüben approach)
+// Determine strong influences in matrix (Ruge Stuben approach)
 #ifdef _OPENMP
 #pragma omp parallel for schedule(dynamic, 1024)
 #endif

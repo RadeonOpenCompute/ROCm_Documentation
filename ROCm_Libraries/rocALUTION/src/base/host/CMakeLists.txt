@@ -31,7 +31,7 @@ set(HOST_SOURCES
   base/host/host_matrix_hyb.cpp
   base/host/host_matrix_dense.cpp
   base/host/host_vector.cpp
-  base/host/host_conversion.cpp  
+  base/host/host_conversion.cpp
   base/host/host_affinity.cpp
   base/host/host_io.cpp
   base/host/host_stencil_laplace2d.cpp

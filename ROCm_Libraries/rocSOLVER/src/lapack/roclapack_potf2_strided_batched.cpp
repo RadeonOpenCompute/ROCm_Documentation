@@ -5,15 +5,15 @@
 #include "roclapack_potf2.hpp"
 
 template <typename T, typename U>
-rocblas_status rocsolver_potf2_strided_batched_impl(rocblas_handle handle, const rocblas_fill uplo,    
-                                            const rocblas_int n, U A, const rocblas_int lda, const rocblas_int strideA, 
-                                            rocblas_int* info, const rocblas_int batch_count) 
-{ 
+rocblas_status rocsolver_potf2_strided_batched_impl(rocblas_handle handle, const rocblas_fill uplo,
+                                            const rocblas_int n, U A, const rocblas_int lda, const rocblas_int strideA,
+                                            rocblas_int* info, const rocblas_int batch_count)
+{
     if(!handle)
         return rocblas_status_invalid_handle;
-    
-    //logging is missing ???    
-    
+
+    //logging is missing ???
+
     if (!A || !info)
         return rocblas_status_invalid_pointer;
     if (n < 0 || lda < n || batch_count < 0)

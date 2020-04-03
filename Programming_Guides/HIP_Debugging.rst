@@ -12,7 +12,7 @@ Table of Contents
 * :ref:`Chicken bits`
 * :ref:`Debugging HIP Applications`
 * :ref:`General Debugging Tips`
- 
+
   * :ref:`Print env var state`
 
 
@@ -32,12 +32,12 @@ This flag is primarily targeted to assist HIP development team in the developmen
 HIP_DB format is flags separated by '+' sign, or a hex code for the bitmask. Generally the + format is preferred.
 
 For example::
- 
+
  $ HIP_DB=api+copy+mem  my-application
  $ HIP_DB=0xF  my-application
 
 .. _Using ltrace:
-  
+
 Using ltrace
 -------------
 
@@ -45,11 +45,11 @@ ltrace is a standard linux tool which provides a message to stderr on every dyna
 
 ltrace can be easily combined with the HIP_DB switches to visualize the runtime behavior of the entire ROCm software stack. Here's a sample command-line and output::
 
- 
+
  $ HIP_DB=api ltrace -C -e 'hsa*'   <applicationName> <applicationArguments>
- 
+
  ...
- 
+
  <<hip-api tid:1.17 hipMemcpy (0x7f7776d3e010, 0x503d1d000, 4194304, hipMemcpyDeviceToHost)
  libmcwamp_hsa.so->hsa_signal_store_relaxed(0x1804000, 0, 0, 0x400000) = 0
  libmcwamp_hsa.so->hsa_signal_store_relaxed(0x1816000, 0, 0x7f777f85f2a0, 0x400000) = 0
@@ -64,9 +64,9 @@ ltrace can be easily combined with the HIP_DB switches to visualize the runtime 
  libhsa-runtime64.so.1->hsaKmtUnmapMemoryToGPU(0x7f7776d3e010, 0x7f7776d3e010, 0x12c3c600000000, 0x1804000) = 0
  libhsa-runtime64.so.1->hsaKmtDeregisterMemory(0x7f7776d3e010, 0x7f7776d3e010, 0x7f777f60f9e8, 0x1220580) = 0
  <... hsa_amd_memory_unlock resumed> )            = 0
- hip-api tid:1.17 hipMemcpy                     
+ hip-api tid:1.17 hipMemcpy
  ret= 0 (hipSuccess)>>
- 
+
 
 Some key information from the trace above.
 
@@ -108,15 +108,15 @@ Debugging HIP Applications
 
 * The variable "tls_tidInfo" contains the API sequence number (_apiSeqNum)- a monotonically increasing count of the HIP APIs called from this thread. This can be useful for setting conditional breakpoints. Also, each new HIP thread is mapped to monotonically increasing shortTid ID. Both of these fields are displayed in the HIP debug info.
 
-  :: 
+  ::
 
    (gdb) p tls_tidInfo
    $32 = {_shortTid = 1, _apiSeqNum = 803}
- 
+
 
 * HCC tracks all of the application memory allocations, including those from HIP and HC's "am_alloc". If the HCC runtime is built with debug information (HCC_RUNTIME_DEBUG=ON when building HCC), then calling the function 'hc::am_memtracker_print()' will show all memory allocations. An optional argument specifies a void * targetPointer - the print routine will mark the allocation which contains the specified pointer with "-->" in the printed output. This example shows a sample GDB session where we print the memory allocated by this process and mark a specified address by using the gdb "call" function.. The gdb syntax also supports using the variable name (in this case 'dst'):
   ::
-   
+
    (gdb) p dst
    $33 = (void *) 0x5ec7e9000
    (gdb) call hc::am_memtracker_print(dst)
@@ -125,16 +125,16 @@ Debugging HIP Applications
    ...
    -->0x5ec7e9000-0x5f7e28fff::  allocSeqNum:488 hostPointer:(nil) devicePointer:0x5ec7e9000 sizeBytes:191102976 isInDeviceMem:1 isAmManaged:1 appId:0 appAllocFlags:0 appPtr:(nil)
 
-  To debug an explicit address, cast the address to (void*) 
+  To debug an explicit address, cast the address to (void*)
   ::
-   
+
    (gdb) call hc::am_memtracker_print((void*)0x508c7f000)
 
 * Debugging GPUVM fault. For example:
 
  Memory access fault by GPU node-1 on address 0x5924000. Reason: Page not present or supervisor privilege.
 ::
- 
+
  Program received signal SIGABRT, Aborted.
  [Switching to Thread 0x7fffdffb5700 (LWP 14893)]
  0x00007ffff2057c37 in __GI_raise (sig=sig@entry=6) at ../nptl/sysdeps/unix/sysv/linux/raise.c:56
@@ -163,9 +163,9 @@ Debugging HIP Applications
  #3  0x00007fffe080415f in HSADispatch::dispatchKernelAsync(Kalmar::HSAQueue*, void const*, int, bool) () from /opt/rocm/hcc/lib/libmcwamp_hsa.so
  #4  0x00007fffe080238e in Kalmar::HSAQueue::dispatch_hsa_kernel(hsa_kernel_dispatch_packet_s const*, void const*, unsigned long, hc::completion_future*) () from /opt/rocm/hcc/lib/libmcwamp_hsa.so
  #5  0x00007ffff7bb7559 in hipModuleLaunchKernel () from /opt/rocm/hip/lib/libhip_hcc.so
- #6  0x00007ffff2e6cd2c in mlopen::HIPOCKernel::run (this=0x7fffffffb5a8, args=0x7fffffffb2a8, size=80) at /root/MIOpen/src/hipoc/hipoc_kernel.cpp:15  
+ #6  0x00007ffff2e6cd2c in mlopen::HIPOCKernel::run (this=0x7fffffffb5a8, args=0x7fffffffb2a8, size=80) at /root/MIOpen/src/hipoc/hipoc_kernel.cpp:15
  ...
- 
+
 
 .. _General Debugging Tips:
 
