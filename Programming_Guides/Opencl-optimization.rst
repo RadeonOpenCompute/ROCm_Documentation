@@ -1543,7 +1543,7 @@ In the second block of code, the ``?:`` operator executes in the vector units, s
  a[idx] = d[idx];
  }
 
-This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what â€˜d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
+This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what aEUR~d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
 
 *If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced. On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups. This gives the runtime more flexibility in scheduling work-groups to idle CPU cores. Experimentation might be needed to reach optimal work-group size.
 *Since the AMD OpenCL runtime supports only in-order queuing, using clFinish() on a queue and queuing a blocking command gives the same result. The latter saves the overhead of another API command.
@@ -2230,7 +2230,7 @@ The following are sample kernels with different coalescing patterns.
  {
  int gid = get_global_id(0);
  if((gid & 0x1) == 0) {
- gid = (gid & (Ëœ63)) +62 - get_local_id(0);
+ gid = (gid & (Eoe63)) +62 - get_local_id(0);
  }
  output[gid] = input[gid];
  return;
@@ -3242,7 +3242,7 @@ In the second block of code, the ``?:`` operator executes in an ALU clause, so n
    } 
 
 
-   This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what â€˜d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
+   This is inefficient because the GPU compiler must know the base pointer that every load comes from and in this situation, the compiler cannot determine what aEUR~d' points to. So, both B and C are assigned to the same GPU resource, removing the ability to do certain optimizations.
  
  * If the algorithm allows changing the work-group size, it is possible to get better performance by using larger work-groups (more work-items in each work-group) because the workgroup creation overhead is reduced. On the other hand, the OpenCL CPU runtime uses a task-stealing algorithm at the work-group level, so when the kernel execution time differs because it contains conditions and/or loops of varying number of iterations, it might be better to increase the number of work-groups. This gives the runtime more flexibility in scheduling work-groups to idle CPU cores. Experimentation might be needed to reach optimal work-group size.
  * Since the AMD OpenCL runtime supports only in-order queuing, using ``clFinish`` () on a queue and queuing a blocking command gives the same result. The latter saves the overhead of another API command.

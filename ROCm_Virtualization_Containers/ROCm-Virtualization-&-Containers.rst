@@ -11,7 +11,7 @@ The following KVM-based instructions assume a headless host with an input/output
 
 ::	
  
-   cat /proc/cpuinfo | grep -E “svm|vxm”
+   cat /proc/cpuinfo | grep -E "svm|vxm"
 
 Ubuntu 16.04
 ****************************

@@ -80,7 +80,7 @@ __global__ functions are often referred to as kernels, and calling one is termed
       hipLaunchKernelGGL(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n)
 
 
-The hipLaunchKernelGGL macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernelGGL, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernelGGL parameters. The :ref:`dim3` constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See dim3. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. 
+The hipLaunchKernelGGL macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernelGGL, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernelGGL parameters. The :ref:`dim3` constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See dim3. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that's currently executing. 
 
  .. _Kernel:
 

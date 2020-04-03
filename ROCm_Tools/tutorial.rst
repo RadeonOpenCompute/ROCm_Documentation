@@ -337,7 +337,7 @@ ROCm-gdb helps developers to view information about kernels that have been launc
   (ROCm-gdb) set rocm trace mytrace.csv
   (ROCm-gdb) set rocm trace on
 
-You can now execute and debug the application within ROCm-gdb. Anytime during the application’s execution you can view my_trace.csv to see the kernels have been dispatched. A sample trace for an application that dispatches a vector add kernel followed by a matrix multiplication kernel in a loop is shown below.
+You can now execute and debug the application within ROCm-gdb. Anytime during the application's execution you can view my_trace.csv to see the kernels have been dispatched. A sample trace for an application that dispatches a vector add kernel followed by a matrix multiplication kernel in a loop is shown below.
 		   		&__OpenCL_matrixMul_kernel 	
 ====== =========== =========== ============================= ======= ======= ================ =========== ========== ====================== 
 index 	queue_id    packet_id 	  kernel_name 	              header  setup   workgroup_size   reserved0  grid_size   private_segment_size 
