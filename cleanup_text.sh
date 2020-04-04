@@ -14,10 +14,11 @@ trailing_after=0
 main()
 {
     parse_args "$@"
-    cleanup
+    check_git
+    cleanup_text
 }
 
-cleanup()
+cleanup_text()
 {
     # iconv command to translate UTF8 to ASCII
     iconv="/usr/bin/iconv -s -f utf-8 -t ascii//TRANSLIT"
@@ -61,6 +62,18 @@ cleanup()
     { set +x; } 2>/dev/null
     git status
     echo " All of the selected files in the repository have been cleaned up."
+}
+
+check_git()
+{
+    if ! git diff-index --quiet HEAD -- ; then
+	cat >&2 <<EOF
+ 
+You have uncommitted changes. Please commit them or stash them away with git
+stash.
+EOF
+	exit 1
+    fi
 }
 
 # Parse the command-line arguments
