@@ -450,7 +450,8 @@ Since many packages will be installed, it is recommended to use an `AUR helper`_
 like `yay`_.
 
 It is also recommended to use the `arch4edu`_ binary repository as it will
-greatly speed up your installation time. Visit `here`_ to add and use `arch4edu`.
+greatly speed up your installation time.
+For directions see `Add arch4edu to your Archlinux`_.
 
 To install ROCm, use the following command:
 
@@ -488,7 +489,7 @@ To uninstall, use the following command:
 
 .. _arch4edu: https://wiki.archlinux.org/index.php/Unofficial_user_repositories#arch4edu
 
-.. _here: https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux
+.. _Add arch4edu to your Archlinux: https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux
 
 
 Performing an OpenCL-only Installation of ROCm
