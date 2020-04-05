@@ -10,6 +10,7 @@ AMD ROCm QuickStart Installation Guide v3.1.0
    -  `Ubuntu`_
    -  `Centos RHEL v7.7`_
    -  `SLES 15 Service Pack 1`_
+   -  `Arch Linux`_
 
 -  `ROCm Installation Known Issues and Workarounds`_
    
@@ -430,6 +431,65 @@ To uninstall, use the following command:
 
 Note: Ensure all other installed packages/components are removed.
 Note: Ensure all the content in the /opt/rocm directory is completely removed.
+
+.. _Arch Linux:
+
+Arch Linux
+^^^^^^^^^^^^
+
+The Arch Linux packages for ROCm are available on the `AUR`_ and are currently
+being maintained at `rocm-arch`_ by the Arch Linux community.
+
+Note: Support for ROCm on Arch Linux is currently experimental.
+That being said please submit any issues you encounter at the rocm-arch
+`issue tracker`_.
+
+**Installation**
+
+Since many packages will be installed, it is recommended to use an `AUR helper`_
+like `yay`_.
+
+It is also recommended to use the `arch4edu`_ binary repository as it will
+greatly speed up your installation time. Visit `here`_ to add and use `arch4edu`.
+
+To install ROCm, use the following command:
+
+::
+
+    yay -S rocm-dkms
+
+You can also install specific ROCm packages like so:
+
+::
+
+    yay -S hcc
+
+For additional installation configuration, such as adding a user to the `video`
+group refer to the installation instructions of the above operating systems.
+
+**Uninstallation**
+
+To uninstall, use the following command:
+
+::
+
+    yay -R rocm-dkms
+
+
+.. _AUR: https://wiki.archlinux.org/index.php/Arch_User_Repository
+
+.. _rocm-arch: https://github.com/rocm-arch
+
+.. _issue tracker: https://github.com/rocm-arch/rocm-arch/issues
+
+.. _AUR helper: https://wiki.archlinux.org/index.php/AUR_helpers
+
+.. _yay: https://aur.archlinux.org/packages/yay/
+
+.. _arch4edu: https://wiki.archlinux.org/index.php/Unofficial_user_repositories#arch4edu
+
+.. _here: https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux
+
 
 Performing an OpenCL-only Installation of ROCm
 ''''''''''''''''''''''''''''''''''''''''''''''''
