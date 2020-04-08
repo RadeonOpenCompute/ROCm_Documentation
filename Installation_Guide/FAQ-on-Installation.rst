@@ -89,7 +89,7 @@ This problem can occur on Fedora installation if several previous kernels are cu
 This is not an issue with the YUM repository; it is caused by the size of the /boot filesystem and the size of the kernels already installed on it. This issue can be fixed by uninstalling previous versions of the rocm Linux kernel:
 ::
  sudo dnf remove rocm
- rpm -qa | grep kfd | xargs sudo rpm –e
+ rpm -qa | grep kfd | xargs sudo rpm -e
  sudo dnf install rocm
  
 Installing from an archived repository
@@ -104,7 +104,7 @@ Here is an Example:
 
   cd /temp && wget http://repo.radeon.com/rocm/archive/apt_1.6.3.tar.bz2
   tar -xvf apt_1.6.3.tar.bz2
-  sudo echo “deb [amd64] file://temp/apt_1.6.3 xenial main” > /etc/apt/sources.lists.d/rocm.local.list
+  sudo echo "deb [amd64] file://temp/apt_1.6.3 xenial main" > /etc/apt/sources.lists.d/rocm.local.list
   sudo apt-get update && sudo apt-get install rocm
 
 Users should make sure that no other list files contain another rocm repo configuration.
@@ -119,7 +119,7 @@ Add a /etc/yum.d/rocm.local.repo file with the following contents: ::
   enabled=1
   gpgcheck=0
   cd /temp && wget http://repo.radeon.com/rocm/archive/yum_1.6.3.tar.bz2
-  tar –xvf yum_1.6.3.tar.bz2
+  tar -xvf yum_1.6.3.tar.bz2
 
 Then execute: ::
 

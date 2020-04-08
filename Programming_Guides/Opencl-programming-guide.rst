@@ -1469,7 +1469,7 @@ Now, these headers can be passed as embedded headers along with the program obje
 :: 
 
    cl_program input_headers[2] = { foo_pg, myinc_pg }; 
-   char * input_header_names[2] = { “foo.h”, “mydir/myinc.h” };
+   char * input_header_names[2] = { "foo.h", "mydir/myinc.h" };
 
    clCompileProgram(program_A, 0, NULL, // num_devices & device_list
       NULL, // compile_options
@@ -1660,7 +1660,7 @@ A sample kernel definition is shown below.
   
   kernel void sample_kernel( global const uchar *normalPtr, global uchar *svmPtr)
   {  
-    …
+    ...
   }
 
 To create a kernel object for the above kernel, you must pass the program object corresponding to the kernel to the clCreateKernel function. Assuming that the program object containing the above kernel function has been created and built as program, a kernel object for the above kernel would be created as follows:
@@ -2139,7 +2139,7 @@ OpenCL Language types.
   MyFunc () 
   {
     tempClass = new(Test);
-    ... // Some OpenCL startup code – create context, queue, etc.
+    ... // Some OpenCL startup code - create context, queue, etc.
     cl_mem classObj = clCreateBuffer(context, CL_MEM_USE_HOST_PTR, sizeof(Test), &tempClass, event);
     clEnqueueMapBuffer(...,classObj,...);
     tempClass.setX(10);
@@ -2393,9 +2393,9 @@ Generic example
 
 In OpenCL 1.2, the developer needed to write three functions for a pointer p that can reference the local, private, or global address space::
   
-  void fooL (local int *p) { … } 
-  void fooP (private int *p) { … }
-  void fooG (global int *p) { … }
+  void fooL (local int *p) { ... } 
+  void fooP (private int *p) { ... }
+  void fooG (global int *p) { ... }
  
 
 
@@ -2967,7 +2967,7 @@ There are special directives for the OpenCL compiler to enable or disable availa
  #pragma OPENCL EXTENSION all: <behavior>
 
 
-The <extension_name> is described in Section A.1, “Extension Name
+The <extension_name> is described in Section A.1, "Extension Name
 Convention.”. The second form allows to address all extensions at once. The <behavior> token can be either:
 
 * **enable** - the extension is enabled if it is supported, or the error is reported if the specified extension is not supported or token “all” is used.
