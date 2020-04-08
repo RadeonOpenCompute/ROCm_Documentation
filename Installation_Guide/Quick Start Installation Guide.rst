@@ -236,7 +236,7 @@ To install ROCm on your system, follow the instructions below:
     enabled=1
     gpgcheck=0
 
-Note: The URL of the repository must point to the location of the repositories' repodata database.
+Note: The URL of the repository must point to the location of the repositories’ repodata database.
 
 3. Install ROCm components using the following command:
 
@@ -363,7 +363,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
  
 ::
 
-	sudo zypper clean -all
+	sudo zypper clean –all
 	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
 	sudo zypper ref
 	zypper install rocm-dkms

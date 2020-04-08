@@ -2265,7 +2265,7 @@ DS
  ds_min_rtn_f64 v[8:9], v2, v[4:5]
  
 
-For full list of supported instructions, refer to "LDS/GDS instructions" in ISA Manual.
+For full list of supported instructions, refer to “LDS/GDS instructions” in ISA Manual.
 
 .. _FLAT:
 
@@ -2280,7 +2280,7 @@ FLAT
  flat_atomic_fmax_x2 v[1:2], v[3:4], v[5:6] glc
  
 
-For full list of supported instructions, refer to "FLAT instructions" in ISA Manual.
+For full list of supported instructions, refer to “FLAT instructions” in ISA Manual.
 
 
 .. _MUBUF:
@@ -2295,7 +2295,7 @@ MUBUF
  buffer_wbinvl1
  buffer_atomic_inc v1, v2, s[8:11], s4 idxen offset:4 slc
 
-For full list of supported instructions, refer to "MUBUF Instructions" in ISA Manual.
+For full list of supported instructions, refer to “MUBUF Instructions” in ISA Manual.
 
 .. _SMRD/SMEM:
 
@@ -2309,7 +2309,7 @@ SMRD/SMEM
  s_dcache_inv_vol
  s_memtime s[4:5]
 
-For full list of supported instructions, refer to "Scalar Memory Operations" in ISA Manual.
+For full list of supported instructions, refer to “Scalar Memory Operations” in ISA Manual.
 
 .. _SOP1:
 
@@ -2325,7 +2325,7 @@ SOP1
  s_swappc_b64 s[2:3], s[4:5]
  s_cbranch_join s[4:5]
 
-For full list of supported instructions, refer to "SOP1 Instructions" in ISA Manual.
+For full list of supported instructions, refer to “SOP1 Instructions” in ISA Manual.
 
 .. _SOP2:
 
@@ -2343,7 +2343,7 @@ SOP2
  s_bfe_i64 s[2:3], s[4:5], s6
  s_cbranch_g_fork s[4:5], s[6:7]
  
-For full list of supported instructions, refer to "SOP2 Instructions" in ISA Manual.
+For full list of supported instructions, refer to “SOP2 Instructions” in ISA Manual.
 
 .. _SOPC:
 
@@ -2356,7 +2356,7 @@ SOPC
  s_bitcmp0_b64 s[2:3], s4
  s_setvskip s3, s5
  
-For full list of supported instructions, refer to "SOPC Instructions" in ISA Manual.
+For full list of supported instructions, refer to “SOPC Instructions” in ISA Manual.
 
 .. _SOPP:
 
@@ -2376,7 +2376,7 @@ SOPP
  s_sendmsg sendmsg(MSG_INTERRUPT)
  s_trap 1
  
-For full list of supported instructions, refer to "SOPP Instructions" in ISA Manual.
+For full list of supported instructions, refer to “SOPP Instructions” in ISA Manual.
 
 Unless otherwise mentioned, little verification is performed on the operands of SOPP Instructions, so it is up to the programmer to be familiar with the range or acceptable values.
 
@@ -2434,7 +2434,7 @@ VOP_SDWA examples
  v_fract_f32 v0, |v0| dst_sel:DWORD dst_unused:UNUSED_PAD src0_sel:WORD_1
  v_cmpx_le_u32 vcc, v1, v2 src0_sel:BYTE_2 src1_sel:WORD_0
  
-For full list of supported instructions, refer to "Vector ALU instructions".
+For full list of supported instructions, refer to “Vector ALU instructions”.
 
 
 .. _Code Object V2 Predefined Symbols (-mattr=-code-object-v3):
