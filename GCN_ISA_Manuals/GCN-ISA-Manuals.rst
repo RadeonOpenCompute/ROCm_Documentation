@@ -90,9 +90,9 @@ The host program should also allocate memory for the in, index and out buffers. 
   out = AllocateBuffer(size);
 
   // Fill Kernarg memory
-  Kernarg(in); // Add base pointer to "in" buffer
-  Kernarg(index); // Append base pointer to "index" buffer
-  Kernarg(out); // Append base pointer to "out" buffer
+  Kernarg(in); // Add base pointer to “in” buffer
+  Kernarg(index); // Append base pointer to “index” buffer
+  Kernarg(out); // Append base pointer to “out” buffer
 
 Initial Wavefront and Register State To launch a kernel in real hardware, the run time needs information about the kernel, such as
 
