@@ -19,10 +19,6 @@ The AMD ROCm Programming-Language Run-Time
 The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP.
 
 
-Going to 11: Amping Up the Programming-Language Run-Time Foundation 
-####################################################################
-The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
-
 .. image:: ROCm_Stack.png
     :align: center
     
