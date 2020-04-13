@@ -167,9 +167,9 @@ The following Code Object Manager (Comgr) functions are deprecated.
 * `amd_comgr_action_info_set_options` 
 * `amd_comgr_action_info_get_options` 
 
-These functions were originally deprecated in version 1.3 of the Comgr library as they no longer support options with embedded spaces. 
+These functions were originally deprecated in version 1.3 of the Comgr library as they no longer supported options with embedded spaces. 
 
-The deprecated functions are now replaced with the array-oriented options API, which includes 
+The deprecated functions are now replaced with the array-oriented options API, which include
 
 *	`amd_comgr_action_info_set_option_list`
 *	`amd_comgr_action_info_get_option_list_count`
