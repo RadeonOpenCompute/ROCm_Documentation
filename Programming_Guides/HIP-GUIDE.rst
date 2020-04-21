@@ -1248,7 +1248,8 @@ The assert function is under development.
 
 Printf
 ********
-The printf function is under development.
+HIP supports the use of *printf* in the device code. The parameters and return value for the device-side *printf* follow the POSIX.1 standard, with the exception that the "%n" specifier is not supported.  No host side runtime calls by the application are needed to cause the output to appear. There is no limit on the number of device-side calls to *printf* or the amount of data that is printed.
+
 
 Device-Side Dynamic Global Memory Allocation
 *********************************************
