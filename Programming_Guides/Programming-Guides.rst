@@ -2,9 +2,9 @@
 
 .. _Programming-Guides:
 
-=================
-Programming Guide
-=================
+===================
+Programming Guides
+===================
 
 ROCm Languages
 ================
