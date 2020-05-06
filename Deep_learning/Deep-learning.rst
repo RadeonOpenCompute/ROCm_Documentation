@@ -8,22 +8,23 @@ Deep Learning on ROCm
 TensorFlow
 ***********
 
-ROCm Tensorflow v1.15 Release
-*****************************
+AMD ROCm Tensorflow v1.15 Release
+**********************************
 We are excited to announce the release of ROCm enabled TensorFlow v1.15 for AMD GPUs.
+
 In this release we have the following features enabled on top of upstream TF1.15 enhancements:
     * We integrated ROCm RCCL library for mGPU communication, details in `RCCL github repo <https://github.com/ROCmSoftwarePlatform/rccl>`_
     * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
 
-ROCm Tensorflow v2.2.0-beta1 Release
-*****************************
+AMD ROCm Tensorflow v2.2.0-beta1 Release
+*****************************************
 In addition to Tensorflow v1.15 release, we also enabled Tensorflow v2.2.0-beta1 for AMD GPUs. The TF-ROCm 2.2.0-beta1 release supports Tensorflow V2 API.
 Both whl packages and docker containers are available below. 
 
 Tensorflow Installation
 ***********************
 
-First, you’ll need to install the open-source ROCm 3.3 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
+First, you’ll need to install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 
 Then, install these other relevant ROCm packages:
@@ -36,7 +37,8 @@ And finally, install TensorFlow itself (via the Python Package Index):
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
    pip3 install --user tensorflow-rocm
-Now that Tensorflow v2.0 is installed!
+
+Tensorflow v2.2.0 is installed.
 
 Tensorflow More Resources
 *************************
@@ -467,41 +469,7 @@ After cloning the pytorch repository, you can build your own Caffe2 ROCm docker 
 This should complete with a message "Successfully built <image_id>" which can then be used to install Caffe2 as in Option 2 above.
 
 
-*******************************************
-Deep Learning Framework support for ROCm
-*******************************************
 
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Framework  | Status      | MIOpen Enabled | Upstreamed     | Current Repository                                  |
-+============+=============+================+================+=====================================================+
-| Caffe      | Public      | Yes            |                | https://github.com/ROCmSoftwarePlatform/hipCaffe    |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Tensorflow | Development | Yes            | CLA inProgress | Notes: Working on NCCL and XLA enablement, Running  |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Caffe2     | Upstreaming | Yes            | CLA inProgress |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Torch      | HIP         | Upstreaming    | Development    | https://github.com/ROCmSoftwarePlatform/cutorch_hip |
-|            |             |                | inProgress     |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| PyTorch    | Development | Development    |                |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| MxNet      | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/mxnet       |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| CNTK       | Development | Development    |                |                                                     |
-|            |             |                |                |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-
-*************
-Tutorials
-*************
-**hipCaffe**
-
-* :ref:`caffe`
-  
-**MXNet**
-  
-* :ref:`mxnet`
- 
 
 
 
