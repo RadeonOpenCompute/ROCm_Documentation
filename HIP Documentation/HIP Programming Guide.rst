@@ -1,11 +1,13 @@
-
+=========================
 HIP Programing Guide
+=========================
 
 What is this repository for?
 
 HIP allows developers to convert CUDA code to portable C++. The same source code can be compiled to run on NVIDIA or AMD GPUs. 
 
-Key features include:
+Key features 
+==============
 
 HIP is very thin and has little or no performance impact over coding directly in CUDA or hcc “HC” mode.
 
