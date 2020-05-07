@@ -1,16 +1,13 @@
 .. _ROCm-System-Management:
 
-=======================
-ROCm System Management
-=======================
-
-ROCm-SMI
-=================
+============================================
+AMD ROCm System Management Interface (SMI)
+=============================================
 
 **ROCm System Management Interface**
 
-
-This repository includes the rocm-smi tool. This tool exposes functionality for clock and temperature management of your ROCm enabled system.
+This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of your 
+ROCm-enabled system.
 
 **Installation**
 
