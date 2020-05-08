@@ -299,7 +299,7 @@ AMD, the AMD Arrow logo, and combinations thereof are trademarks of Advanced Mic
 
 Copyright (c) 2014-2017 Advanced Micro Devices, Inc. All rights reserved.
 
-Programing ROCm-SMI
+Programming ROCm-SMI
 *********************
 
 
