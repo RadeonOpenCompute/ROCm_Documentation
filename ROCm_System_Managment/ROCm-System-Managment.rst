@@ -1,9 +1,9 @@
-.. _ROCm-System-Management-Interface:
+.. _ROCm-System-Management:
 
 
-=================================
-ROCm System Management Interface 
-==================================
+=========================
+ROCm System Management 
+=========================
 
 **ROCm System Management Interface**
 
