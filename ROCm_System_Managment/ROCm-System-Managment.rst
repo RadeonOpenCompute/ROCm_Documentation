@@ -1,9 +1,9 @@
 .. _ROCm-System-Management:
 
 
-======================================
+=================================
 AMD ROCm System Management Interface 
-=======================================
+==================================
 
 **ROCm System Management Interface**
 
