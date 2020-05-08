@@ -1,4 +1,4 @@
-.. _ROCm-System-Management:
+.. _ROCm-System-Management-Interface:
 
 
 =================================
