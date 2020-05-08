@@ -1,5 +1,6 @@
 .. _ROCm-System-Management:
 
+
 ============================================
 AMD ROCm System Management Interface (SMI)
 =============================================
