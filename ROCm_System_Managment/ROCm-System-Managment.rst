@@ -2,7 +2,7 @@
 
 
 =================================
-AMD ROCm System Management Interface 
+ROCm System Management Interface 
 ==================================
 
 **ROCm System Management Interface**
