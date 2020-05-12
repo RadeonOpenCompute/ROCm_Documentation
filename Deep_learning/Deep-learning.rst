@@ -16,9 +16,9 @@ In this release we have the following features enabled on top of upstream TF1.15
     * We integrated ROCm RCCL library for mGPU communication, details in `RCCL github repo <https://github.com/ROCmSoftwarePlatform/rccl>`_
     * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
 
-AMD ROCm Tensorflow v2.2.0-beta1 Release
+AMD ROCm Tensorflow v2.2.0 Release
 *****************************************
-In addition to Tensorflow v1.15 release, we also enabled Tensorflow v2.2.0-beta1 for AMD GPUs. The TF-ROCm 2.2.0-beta1 release supports Tensorflow V2 API.
+In addition to Tensorflow v1.15 release, we also enabled Tensorflow v2.2.0 for AMD GPUs. The TF-ROCm 2.2.0 release supports Tensorflow V2 API.
 Both whl packages and docker containers are available below. 
 
 Tensorflow Installation
@@ -467,32 +467,3 @@ After cloning the pytorch repository, you can build your own Caffe2 ROCm docker 
   ./build.sh py2-clang7-rocmdeb-ubuntu16.04
 
 This should complete with a message "Successfully built <image_id>" which can then be used to install Caffe2 as in Option 2 above.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
