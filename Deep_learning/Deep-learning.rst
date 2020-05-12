@@ -1,7 +1,7 @@
 .. _Deep-learning:
 
 ==========================
-Deep Learning on AMD ROCm
+Deep Learning on ROCm
 ===========================
 
 ***********
