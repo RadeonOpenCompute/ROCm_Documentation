@@ -823,6 +823,8 @@ SLURM (Simple Linux Utility for Resource Management) is an open source, fault-to
 New features and enhancements in ROCm v3.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.0.0
+
 * Support for CentOS RHEL v7.7
 * Support is extended for CentOS/RHEL v7.7 in the ROCm v3.0 release. For more information about the CentOS/RHEL v7.7 release, see:
 
