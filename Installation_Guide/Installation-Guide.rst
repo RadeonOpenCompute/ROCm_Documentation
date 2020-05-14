@@ -804,7 +804,7 @@ This release was not productized.
 New features and enhancements in ROCm v3.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'Release Notes for v3.1 <https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.1.0>'_
+'Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.1.0
 
 **Change in ROCm Installation Directory Structure**
 
