@@ -3,48 +3,38 @@
 |
 
 =============================================================
-AMD Radeon Open Compute platforM (ROCm) Release Notes v3.3.0
+AMD Radeon Open Compute platforM (ROCm) Release Notes v3.5
 =============================================================
-April 1st, 2020
+May 27th, 2020
 
-What Is ROCm?
-==============
+Supported Operating Systems and Documentation Updates
+=======================================================
 
-ROCm is designed to be a universal platform for gpu-accelerated computing. This modular design allows hardware vendors to build drivers that support the ROCm framework. ROCm is also designed to integrate multiple programming languages and makes it easy to add support for other languages. 
+This document describes the features, fixed issues, and information about downloading and installing the AMD ROCm software.
 
-Note: You can also clone the source code for individual ROCm components from the GitHub repositories.
-
-ROCm Components
-~~~~~~~~~~~~~~~~
-
-The following components for the ROCm platform are released and available for the v3.3
-release:
-
-• Drivers
-
-• Tools
-
-• Libraries
-
-• Source Code
-
-You can access the latest supported version of drivers, tools, libraries, and source code for the ROCm platform at the following location:
-https://github.com/RadeonOpenCompute/ROCm
+It also covers known issues and deprecated features in the AMD ROCm v3.5 release.
 
 
 Supported Operating Systems
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ROCm v3.3.x platform is designed to support the following operating systems:
+The following components for the ROCm platform are new and available for the v3.5 release:
+
+* Support for RHEL v8.1 
+* Support for CentOS v8.1 
+
+The ROCm v3.5.x platform is designed to support the following operating systems:
+
+* Ubuntu 16.04.6(Kernel 4.15) and 18.04.4(Kernel 5.3)
+* CentOS 7.7 (Kernel 3.10-1062) and RHEL 7.8(Kernel 3.10.0-1127)(Using devtoolset-7 runtime support)
+* CentOS 7.6 + FBK 5.2
+* SLES 15 SP1
+* CentOS and RHEL 8.1(Kernel 4.18.0-147)
+
+NOTE: Framework support (TensorFlow, pyTorch & Caffe2) for v8.1 is not available.
 
 
-* Ubuntu 16.04.6(Kernel 4.15) and 18.04.4 (Kernel 5.3)
 
-* CentOS v7.7 (Using devtoolset-7 runtime support)
-
-* RHEL v7.7 (Using devtoolset-7 runtime support)
-
-* SLES 15 SP1 
 
 
 What\'s New in This Release
