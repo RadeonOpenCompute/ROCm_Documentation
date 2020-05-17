@@ -258,7 +258,7 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
   echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
   echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
-Note: The current release supports CentOS/RHEL v7.6. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
+Note: The current release supports CentOS/RHEL v7.7. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
 
 8. Restart the system.
 
@@ -804,6 +804,8 @@ This release was not productized.
 New features and enhancements in ROCm v3.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+'Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.1.0
+
 **Change in ROCm Installation Directory Structure**
 
 A fresh installation of the ROCm toolkit installs the packages in the /opt/rocm-<version> folder. 
@@ -820,6 +822,8 @@ SLURM (Simple Linux Utility for Resource Management) is an open source, fault-to
 
 New features and enhancements in ROCm v3.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.0.0
 
 * Support for CentOS RHEL v7.7
 * Support is extended for CentOS/RHEL v7.7 in the ROCm v3.0 release. For more information about the CentOS/RHEL v7.7 release, see:

@@ -1,16 +1,14 @@
 .. _ROCm-System-Management:
 
-=======================
-ROCm System Management
-=======================
 
-ROCm-SMI
-=================
+=========================
+ROCm System Management 
+=========================
 
 **ROCm System Management Interface**
 
-
-This repository includes the rocm-smi tool. This tool exposes functionality for clock and temperature management of your ROCm enabled system.
+This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of your 
+ROCm-enabled system.
 
 **Installation**
 
@@ -302,7 +300,7 @@ AMD, the AMD Arrow logo, and combinations thereof are trademarks of Advanced Mic
 
 Copyright (c) 2014-2017 Advanced Micro Devices, Inc. All rights reserved.
 
-Programing ROCm-SMI
+Programming ROCm-SMI
 *********************
 
 
