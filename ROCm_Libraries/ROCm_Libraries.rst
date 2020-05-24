@@ -1,7 +1,7 @@
 .. _ROCm_Libraries:
 
 =====================
-ROCm Libraries
+AMD ROCm Libraries
 =====================
 
 ******************
