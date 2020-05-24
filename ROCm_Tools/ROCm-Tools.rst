@@ -663,9 +663,9 @@ Build environment:
 
   export ROCPROFILER_TRACE=1
 
-===============
-AMD rocTracer
-================
+====================
+AMD ROCm ROCTracer
+====================
 
 ROCtracer library, Runtimes Generic Callback/Activity APIs.
 The goal of the implementation is to provide a generic independent from
