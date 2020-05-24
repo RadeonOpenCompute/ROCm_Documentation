@@ -1,8 +1,8 @@
 .. _Deep-learning:
 
-==================
-Deep Learning 
-==================
+=======================
+AMD ROCm Deep Learning 
+========================
 
 ***********
 TensorFlow
