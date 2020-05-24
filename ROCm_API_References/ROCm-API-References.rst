@@ -1,12 +1,12 @@
 
 .. _ROCm-API-References:
 
-=========================
-ROCm API References 
-==========================
+=====================
+ROCm API References
+=====================
 
-Updated Links to API Reference Documentation
-================================================
+Links to API Reference Documentation
+=======================================
 
 rocSOLVER Library API
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -33,7 +33,7 @@ HIP Math API
 * :ref:`HIP-MATH`
 
 
-Math Library API's
+Math Library API
 ====================
 * `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
 
@@ -42,7 +42,7 @@ Math Library API's
 *  :ref:`clSPARSE_api`
 
 
-Deep Learning APIs
+Deep Learning API
 ====================
 
 * `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
