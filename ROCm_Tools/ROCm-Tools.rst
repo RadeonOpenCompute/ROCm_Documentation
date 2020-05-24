@@ -667,7 +667,7 @@ Build environment:
 AMD ROCTracer
 ================
 
-ROC-tracer library, Runtimes Generic Callback/Activity APIs.
+ROCtracer library, Runtimes Generic Callback/Activity APIs.
 The goal of the implementation is to provide a generic independent from
 specific runtime profiler to trace API and asyncronous activity.
 
