@@ -5,6 +5,19 @@
 ROCm Tools
 =====================
 
+ROCm-GDB
+=========
+
+The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for Linux based on the GNU Debugger (GDB). It enables heterogeneous debugging on the AMD ROCm platform of an x86-based host architecture along with AMD GPU architectures and supported by the AMD Debugger API Library (ROCdbgapi). 
+
+The AMD Debugger API Library (ROCdbgapi) is included with the AMD ROCm release. The ROCgdb and ROCdbgapi packages are part of the rocm-dev meta-package that is installed as part of the rocm-dkms package.
+
+The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on source line debugging. Note, symbolic variable debugging capabilities are not currently supported.
+
+For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
+
+
+
 HCC: Heterogeneous Compute Compiler
 =====================================
 
@@ -2196,17 +2209,6 @@ To disable logging use:
 .. code:: sh
 
    unset ROCM_DEBUG_ENABLE_AGENTLOG
-
-ROCm-GDB
-=========
-
-**This ROCm Debugger is a Deprecated project.**
-
-As of 2018, this is a deprecated software project. The ROCm software team is working on a new GDB-based debugger that works with the ROCr Debug Agent to support debugging GPU kernels.
-
-The ROCm-GDB repository includes the source code for ROCm-GDB. ROCm-GDB is a modified version of GDB 7.11 revised to work with the ROCr Debug Agent to support debugging GPU kernels on Radeon Open Compute platforms (ROCm).
-
-For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
 
 
 ROCm Binary Utilities
