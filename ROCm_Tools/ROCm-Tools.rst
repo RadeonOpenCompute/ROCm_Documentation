@@ -14,9 +14,9 @@ The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on s
 For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
 
 
-================
-AMD ROCProfiler
-================
+=====================
+AMD ROCm ROCProfiler
+=====================
 
 1. Overview
 ***********
