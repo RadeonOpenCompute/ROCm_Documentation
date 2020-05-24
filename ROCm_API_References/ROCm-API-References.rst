@@ -2,16 +2,19 @@
 .. _ROCm-API-References:
 
 =========================
-Links to API Reference 
+ROCm API References 
 ==========================
 
+Updated Links to API Reference Documentation
+================================================
+
 rocSOLVER Library API
-========================
+~~~~~~~~~~~~~~~~~~~~~~
 
 *  :ref:`API`
 
 ROCr System Runtime API
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  :ref:`ROCr-API`
 
