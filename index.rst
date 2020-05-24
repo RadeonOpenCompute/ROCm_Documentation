@@ -86,6 +86,15 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
 .. toctree::
    :maxdepth: 6
    :hidden:
+   :caption: ROCm-Tools
+      
+   ROCm_Tools/ROCm-Tools
+ 
+  
+  
+.. toctree::
+   :maxdepth: 6
+   :hidden:
    :caption: Additional Documentation 
    
    Remote_Device_Programming/Remote-Device-Programming
