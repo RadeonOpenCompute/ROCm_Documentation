@@ -2,7 +2,7 @@
 .. _ROCm-Tools:
 
 =====================
-ROCm-GDB
+AMD ROCm Debugger
 =====================
 
 The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for Linux based on the GNU Debugger (GDB). It enables heterogeneous debugging on the AMD ROCm platform of an x86-based host architecture along with AMD GPU architectures and supported by the AMD Debugger API Library (ROCdbgapi). 
@@ -663,8 +663,8 @@ Build environment:
 
   export ROCPROFILER_TRACE=1
 
-
-ROC Tracer
+============
+ROCTracer
 ============
 
 ROC-tracer library, Runtimes Generic Callback/Activity APIs.
@@ -2212,9 +2212,9 @@ ROCm Binary Utilities
 ======================
 Documentation need to be updated.
 
-
+==========
 MIVisionX
-=========
+==========
 
 .. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/MIVisionX.png
   :align: center
