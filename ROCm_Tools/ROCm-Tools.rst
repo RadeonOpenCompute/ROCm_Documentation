@@ -14,9 +14,9 @@ The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on s
 For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
 
 
-=============
-rocProfiler
-=============
+================
+AMD ROCProfiler
+================
 
 1. Overview
 ***********
@@ -663,9 +663,9 @@ Build environment:
 
   export ROCPROFILER_TRACE=1
 
-============
-ROCTracer
-============
+===============
+AMD ROCTracer
+================
 
 ROC-tracer library, Runtimes Generic Callback/Activity APIs.
 The goal of the implementation is to provide a generic independent from
