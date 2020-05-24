@@ -5,24 +5,6 @@
 ROCm API References
 =====================
 
-Links to API Reference Documentation
-=======================================
-
-rocSOLVER Library API
-~~~~~~~~~~~~~~~~~~~~~~
-
-*  :ref:`API`
-
-ROCr System Runtime API
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-*  :ref:`ROCr-API`
-
-HCC Language Runtime API
-========================
-
-* :ref:`HCC-API`
-
 HIP Language Runtime API
 ========================
 * :ref:`HIP-API`
@@ -33,6 +15,11 @@ HIP Math API
 * :ref:`HIP-MATH`
 
 
+ROCr System Runtime API
+========================
+
+*  :ref:`ROCr-API`
+
 Math Library API
 ====================
 * `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
@@ -42,15 +29,10 @@ Math Library API
 *  :ref:`clSPARSE_api`
 
 
-Deep Learning API
-====================
+HCC Language Runtime API
+========================
 
-* `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
-
-* `MIOpenGEMM API <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/>`_
-
-
-
+* :ref:`HCC-API`
 
 
 
