@@ -469,7 +469,12 @@ After cloning the pytorch repository, you can build your own Caffe2 ROCm docker 
 This should complete with a message "Successfully built <image_id>" which can then be used to install Caffe2 as in Option 2 above.
 
 
+Deep Learning API
+====================
 
+* `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
+
+* `MIOpenGEMM API <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/>`_
 
 
 
