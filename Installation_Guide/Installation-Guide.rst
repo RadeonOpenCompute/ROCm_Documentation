@@ -1,7 +1,7 @@
 .. image:: /Installation_Guide/amdblack.jpg
 |
 ==============================================
-AMD ROCm QuickStart Installation Guide v3.3.0
+AMD ROCm Installation Guide v3.3.0
 ==============================================
 
 -  `Deploying ROCm`_
@@ -12,7 +12,7 @@ AMD ROCm QuickStart Installation Guide v3.3.0
    
    -  `SLES 15 Service Pack 1`_
    
-- `Mutli\-Version Installation`_
+- `MutliVersion Installation`_
 
 -  `ROCm Installation Known Issues and Workarounds`_
 
@@ -431,7 +431,8 @@ Some users may want to install a subset of the full ROCm installation. If you ar
   sudo yum install rock-dkms rocm-opencl-devel
   
   
-  **Multi\-Version Installation**
+ 
+ **MultiVersion Installation**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
