@@ -12,7 +12,7 @@ AMD ROCm Installation Guide v3.3.0
    
    -  `SLES 15 Service Pack 1`_
    
-- `MutliVersion Installation`_
+-  `MultiVersion Installation`_
 
 -  `ROCm Installation Known Issues and Workarounds`_
 
