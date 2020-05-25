@@ -12,7 +12,7 @@ AMD ROCm Installation Guide v3.3.0
    
    -  `SLES 15 Service Pack 1`_
    
--  `MultiVersion Installation`_
+-  `Multi Version Installation`_
 
 -  `ROCm Installation Known Issues and Workarounds`_
 
@@ -433,7 +433,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
   |
  
 
- **MultiVersion Installation**
+ **Multi Version Installation**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
