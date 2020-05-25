@@ -507,7 +507,7 @@ For example,
   
 
 ROCm Installation Known Issues and Workarounds 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Closed source components
 ''''''''''''''''''''''''''
@@ -536,7 +536,7 @@ The repo tool from Google® allows you to manage multiple git repositories simul
 Note: You can choose a different folder to install the repo into if you desire. ~/bin/ is used as an example.
 
 Downloading the ROCm Source Code
-''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following example shows how to use the repo binary to download the ROCm source code. If you choose a directory other than ~/bin/ to install the repo, you must use that chosen directory in the code as shown below:
 
@@ -551,7 +551,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 Note: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
 
 Building the ROCm Source Code
-'''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Each ROCm component repository contains directions for building that component. You can access the desired component for instructions to build the repository.
 
