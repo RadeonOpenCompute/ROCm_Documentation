@@ -26,6 +26,8 @@ You can refer to the following chapters in the AMD ROCgdb User Guide for more sp
 
 * Configuration-Specific Information > Architectures > AMD GPU: Provides specific information about debugging heterogeneous programs on AMD ROCm with supported AMD GPU chips. This section also lists the implementation status and known issues of the current version.
 
+To access AMD ROCm Debugger User Guide, see **(add link)**
+
 For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
 
 
@@ -34,7 +36,7 @@ AMD ROCm Debugger API Library
 
 The amd-dbgapi library implements an AMD GPU debugger application programming interface (API). It provides the support necessary for a client of the library to control the execution and inspect the state of supported commercially available AMD GPU devices.
 
-To access the APIs, see (add link)
+To access the APIs, see **(add link)** 
 
 
 =====================
