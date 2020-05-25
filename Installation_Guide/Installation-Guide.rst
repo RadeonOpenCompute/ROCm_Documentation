@@ -80,30 +80,32 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
      sudo apt install rocm-dkms
 
-4. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
+4. Set permissions. To access the GPU, you must be a user in the ``video`` group (and also the ``render`` group in newer releases). Ensure your user account is a member of the necessary groups prior to using ROCm. To identify the groups you are a member of, use the following command:
 
 ::
 
      groups
      
 
-5. To add your user to the video group, use the following command for the sudo password:
+5. To add your user to the ``video`` and ``render`` groups, use the following command with the sudo password:
 
 ::
 
-     sudo usermod -a -G video $LOGNAME
+     sudo usermod -a -G video,render $LOGNAME
 
-6. By default, add any future users to the video group. Run the following command to add users to the video group:
+6. Run the following command to add new users to these groups by default:
 
 ::
 
      echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
 
-     echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+     echo 'EXTRA_GROUPS="video render"' | sudo tee -a /etc/adduser.conf
 
 7. Restart the system.
 
-8. Test the basic ROCm installation.
+8. Test the basic ROCm installation::
+
+     /opt/rocm/bin/rocm-smi
 
 9. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
@@ -112,7 +114,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      /opt/rocm/bin/rocminfo
      /opt/rocm/opencl/bin/x86_64/clinfo
 
-Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
+Note: To run the ROCm programs more conveniently, add the ROCm binaries in your PATH.
 
 ::
 
@@ -142,6 +144,9 @@ Instead, install the following development subset of packages:
   sudo apt update
   sudo apt install rocm-dev
 
+In recent distributions, you may need to explicitly install ``libtinfo5``::
+
+  sudo apt install libtinfo5
 
 Note: To execute ROCm enabled applications, you must install the full ROCm driver stack on your system.
 
@@ -245,7 +250,7 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
 
     groups
 
-6. To add your user to the video group, use the following command for the sudo password:
+6. To add your user to the video group, use the following command with the sudo password:
 
 ::
 
@@ -381,8 +386,8 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 
 	groups
 
-7. To add your user to the video group, use the following command for the sudo password:
-	
+7. To add your user to the video group, use the following command with the sudo password:
+
 ::
 
 	sudo usermod -a -G video $LOGNAME
@@ -430,10 +435,8 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
   sudo yum install rock-dkms rocm-opencl-devel
   
-  |
- 
 
- **MultiVersion Installation**
+Multi-Version Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
