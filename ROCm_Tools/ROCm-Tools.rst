@@ -1,6 +1,12 @@
 ﻿
 .. _ROCm-Tools:
 
+===============================
+AMD ROCm Debugger API Library
+===============================
+
+The amd-dbgapi library implements an AMD GPU debugger application programming interface (API). It provides the support necessary for a client of the library to control the execution and inspect the state of supported commercially available AMD GPU devices.
+
 =====================
 AMD ROCm Debugger
 =====================
@@ -28,11 +34,6 @@ You can refer to the following chapters in the AMD ROCgdb User Guide for more sp
 
 For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
 
-
-AMD ROCm Debugger API Library
-******************************
-
-The amd-dbgapi library implements an AMD GPU debugger application programming interface (API). It provides the support necessary for a client of the library to control the execution and inspect the state of supported commercially available AMD GPU devices.
 
 
 =====================
