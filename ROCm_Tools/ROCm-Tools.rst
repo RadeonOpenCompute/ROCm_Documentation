@@ -17,9 +17,6 @@ The AMD Debugger API Library (ROCdbgapi) is included with the AMD ROCm release. 
 
 The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on source line debugging. Note, symbolic variable debugging capabilities are not currently supported.
 
-ROCgdb User Guide
-*******************
-
 You can use the standard GDB commands for both CPU and GPU code debugging. For more information about ROCgdb, refer to the *ROCgdb User Guide*, which is installed at:
 
 * ``/opt/rocm/share/info/gdb.info`` as a texinfo file
