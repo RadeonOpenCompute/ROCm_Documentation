@@ -501,6 +501,8 @@ For example,
 **IMPORTANT**: A single instance ROCm package cannot co-exist with the multi-instance package. 
 
 **NOTE**: The multi-instance installation applies only to ROCm v3.3 and above. This package requires a fresh installation after the complete removal of existing ROCm packages. The multi-version installation is not backward compatible. 
+
+**Note**: If you install the multi-instance version of AMD ROCm and create a sym-link to */opt/rocm*, you must run ‘Idconfig’ to ensure the software stack functions correctly with the sym-link. 
   
 
 ROCm Installation Known Issues and Workarounds 
