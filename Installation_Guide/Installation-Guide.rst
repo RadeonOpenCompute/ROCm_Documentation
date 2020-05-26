@@ -426,15 +426,17 @@ Performing an OpenCL-only Installation of ROCm
 Some users may want to install a subset of the full ROCm installation. If you are trying to install on a system with a limited amount of storage space, or which will only run a small collection of known applications, you may want to install only the packages that are required to run OpenCL applications. To do that, you can run the following installation command instead of the command to install rocm-dkms.
 
 ::
-
   sudo yum install rock-dkms rocm-opencl-devel
   
-  |
+  
  
+
+
+Users can install and access multiple versions of the ROCm toolkit simultaneously.
+
 
  Multi Version Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
 
 Previously, users could install only a single version of the ROCm toolkit. 
