@@ -21,11 +21,16 @@ You can follow the standard build procedure of building of LLVM compiler by targ
       
 ::
 
-mkdir llvm-project/build
-cd llvm-project/build
-cmake -DLLVM_ENABLE_PROJECTS='clang;lld' -DLLVM_TARGETS_TO_BUILD='X86;AMDGPU' ../llvm
-make -j<n>
-sudo make install
+     mkdir llvm-project/build
+
+     cd llvm-project/build
+
+     cmake -DLLVM_ENABLE_PROJECTS='clang;lld' -DLLVM_TARGETS_TO_BUILD='X86;AMDGPU' ../llvm
+
+     make -j<n>
+
+     sudo make install
+
 
 **NOTE**: By default, the HIP-Clang compiler is installed in the directory *`/opt/rocm/llvm/`*
 
