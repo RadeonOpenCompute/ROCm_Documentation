@@ -366,12 +366,16 @@ This section describes the built-in variables and functions accessible from the 
 
   * :ref:`HIP-GUIDE`
 
+Transition from HCC to HIP FAQ
+################################
+
+ * :ref:`HIP-FAQ`
+
 
 HIP Best Practices
 ###################
 
  * :ref:`HIP-IN`
- * :ref:`HIP-FAQ`
  * :ref:`Kernel_language`
  * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
  * :ref:`HIP-porting-guide`
