@@ -429,14 +429,8 @@ Some users may want to install a subset of the full ROCm installation. If you ar
   
   sudo yum install rock-dkms rocm-opencl-devel
   
-  
- 
 
-
-
-
-
- AMD ROCm MultiVersion Installation
+AMD ROCm MultiVersion Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
