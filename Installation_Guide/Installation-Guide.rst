@@ -432,7 +432,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
   |
  
 
- **Multi Version Installation**
+ Multi Version Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
