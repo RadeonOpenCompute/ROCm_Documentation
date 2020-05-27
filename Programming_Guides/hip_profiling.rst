@@ -8,6 +8,11 @@ Profiling HIP Code
 This section describes the profiling and debugging capabilities that HIP provides.
 Profiling information can viewed in the CodeXL visualization tool or printed directly to stderr as the application runs. This document starts with some of the general capabilities of CodeXL and then describes some of the additional HIP marker and debug features.
 
+**Note**: CodeXL is no longer supported in AMD ROCm. We strongly recommend you use *rocprof* for profiling HIP applications. For more information about *rocprof*, refer 
+
+https://rocmdocs.amd.com/en/latest/ROCm_Tools/ROCm-Tools.html#rocprof
+
+
 * :ref:`CodeXL Profiling`
 
   * :ref:`Collecting and Viewing Traces`

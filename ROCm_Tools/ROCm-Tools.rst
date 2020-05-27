@@ -1,371 +1,41 @@
 ﻿
 .. _ROCm-Tools:
 
+===============================
+AMD ROCm Debugger API Library
+===============================
+
+The amd-dbgapi library implements an AMD GPU debugger application programming interface (API). It provides the support necessary for a client of the library to control the execution and inspect the state of supported commercially available AMD GPU devices.
+
 =====================
-ROCm Tools
+AMD ROCm Debugger
 =====================
 
-HCC: Heterogeneous Compute Compiler
-=====================================
+The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for Linux based on the GNU Debugger (GDB). It enables heterogeneous debugging on the AMD ROCm platform of an x86-based host architecture along with AMD GPU architectures and supported by the AMD Debugger API Library (ROCdbgapi). 
 
-**HCC : An open source C++ compiler for heterogeneous devices**
+The AMD Debugger API Library (ROCdbgapi) is included with the AMD ROCm release. The ROCgdb and ROCdbgapi packages are part of the rocm-dev meta-package that is installed as part of the rocm-dkms package.
 
-This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as HC, C++ 17 ParallelSTL and transforms it into the AMD GCN ISA.
+The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on source line debugging. Note, symbolic variable debugging capabilities are not currently supported.
 
-Deprecation Notice
-*******************
+You can use the standard GDB commands for both CPU and GPU code debugging. For more information about ROCgdb, refer to the *ROCgdb User Guide*, which is installed at:
 
-AMD is deprecating HCC to put more focus on HIP development and on other languages supporting heterogeneous compute. We will no longer develop any new feature in HCC and we will stop maintaining HCC after its final release, which is planned for June 2019. If your application was developed with the hc C++ API, we would encourage you to transition it to other languages supported by AMD, such as HIP or OpenCL. HIP and hc language share the same compiler technology, so many hc kernel language features (including inline assembly) are also available through the HIP compilation path.
+* ``/opt/rocm/share/info/gdb.info`` as a texinfo file
 
-The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
+* ``/opt/rocm/share/doc/gdb/gdb.pdf`` as a PDF file
 
-GCN Assembler and Disassembler
-==============================
+You can refer to the following chapters in the AMD ROCgdb User Guide for more specific information about debugging heterogeneous programs on AMD ROCm:
 
-The Art of AMDGCN Assembly: How to Bend the Machine to Your Will
-*****************************************************************
-The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
+* *Debugging Heterogeneous Programs*: Provides general information about debugging heterogeneous programs. It presents features and commands that are not currently implemented but provisionally planned for future versions.
 
- * The program may be written in a high level language that does not expose all of the features available on the hardware.
- * The compiler is unable to produce optimal ISA code, either because the compiler needs to ‘play it safe’ while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
+* *Configuration-Specific Information > Architectures > AMD GPU*: Provides specific information about debugging heterogeneous programs on AMD ROCm with supported AMD GPU chips. This section also lists the implementation status and known issues of the current version.
 
-Consider a program that uses one of GCN’s new features (source code is available on `GitHub <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_). Recent hardware architecture updates—DPP and DS Permute instructions—enable efficient data sharing between wavefront lanes. To become more familiar with the instruction set, review the `GCN ISA Reference Guide <https://github.com/olvaffe/gpu-docs/blob/master/amd-open-gpu-docs/AMD_GCN3_Instruction_Set_Architecture.pdf>`_. Note: the assembler is currently experimental; some of syntax we describe may change.
+For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
 
-DS Permute Instructions
-**************************
-Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says “put my lane data in lane i,” and ds_bpermute_b32 says “read data from lane i.” The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
 
-.. code:: cpp
 
-  __kernel void hello_world(__global const uint * in, __global const uint * index, __global uint * out)
-  {
-      size_t i = get_global_id(0);
-      out[i] = in[ index[i] ];
-  }
-
-Passing Parameters to a Kernel
-*******************************
-Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
-
-.. code:: cpp
-
-  /*
-  * This is the host-side representation of the kernel arguments that the simplePermute kernel expects.
-  */
-  struct simplePermute_args_t {
-	uint32_t * in;
-	uint32_t * index;
-	uint32_t * out;
-  };
-  /*
-   * Allocate the kernel-argument buffer from the correct region.
-  */
-  hsa_status_t status;
-  simplePermute_args_t * args = NULL;
-  status = hsa_memory_allocate(kernarg_region, sizeof(simplePermute_args_t), (void**)(&args));
-  assert(HSA_STATUS_SUCCESS == status);
-  aql->kernarg_address = args;
-  /*
-  * Write the args directly to the kernargs buffer;
-  * the code assumes that memory is already allocated for the
-  * buffers that in_ptr, index_ptr and out_ptr point to
-  */
-  args->in = in_ptr;
-  args->index = index_ptr;
-  args->out = out_ptr;
-
-The host program should also allocate memory for the in, index and out buffers. In the GitHub repository, all the run-time-related  stuff is hidden in the Dispatch and Buffer classes, so the sample code looks much cleaner:
-
-.. code:: cpp
-
-  // Create Kernarg segment
-  if (!AllocateKernarg(3 * sizeof(void*))) { return false; }
-
-  // Create buffers
-  Buffer *in, *index, *out;
-  in = AllocateBuffer(size);
-  index = AllocateBuffer(size);
-  out = AllocateBuffer(size);
-
-  // Fill Kernarg memory
-  Kernarg(in); // Add base pointer to “in” buffer
-  Kernarg(index); // Append base pointer to “index” buffer
-  Kernarg(out); // Append base pointer to “out” buffer
-
-Initial Wavefront and Register State To launch a kernel in real hardware, the run time needs information about the kernel, such as
-
-   * The LDS size
-   * The number of GPRs
-   * Which registers need initialization before the kernel starts
-
-  All this data resides in the amd_kernel_code_t structure. A full description of the structure is available in the `AMDGPU-ABI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Codeobj-format.html?highlight=finalizer>`_       	specification. This is what it looks like in source code:
-
-::
-
-   .hsa_code_object_version 2,0
-   .hsa_code_object_isa 8, 0, 3, "AMD", "AMDGPU"
-
-   .text
-   .p2align 8
-   .amdgpu_hsa_kernel hello_world
-
-   hello_world:
-
-   .amd_kernel_code_t
-   enable_sgpr_kernarg_segment_ptr = 1
-   is_ptr64 = 1
-   compute_pgm_rsrc1_vgprs = 1
-   compute_pgm_rsrc1_sgprs = 0
-   compute_pgm_rsrc2_user_sgpr = 2
-   kernarg_segment_byte_size = 24
-   wavefront_sgpr_count = 8
-   workitem_vgpr_count = 5
-   .end_amd_kernel_code_t
-
-   s_load_dwordx2  s[4:5], s[0:1], 0x10
-   s_load_dwordx4  s[0:3], s[0:1], 0x00
-   v_lshlrev_b32  v0, 2, v0
-   s_waitcnt     lgkmcnt(0)
-   v_add_u32     v1, vcc, s2, v0
-   v_mov_b32     v2, s3
-   v_addc_u32    v2, vcc, v2, 0, vcc
-   v_add_u32     v3, vcc, s0, v0
-   v_mov_b32     v4, s1
-   v_addc_u32    v4, vcc, v4, 0, vcc
-   flat_load_dword  v1, v[1:2]
-   flat_load_dword  v2, v[3:4]
-   s_waitcnt     vmcnt(0) & lgkmcnt(0)
-   v_lshlrev_b32  v1, 2, v1
-   ds_bpermute_b32  v1, v1, v2
-   v_add_u32     v3, vcc, s4, v0
-   v_mov_b32     v2, s5
-   v_addc_u32    v4, vcc, v2, 0, vcc
-   s_waitcnt     lgkmcnt(0)
-   flat_store_dword  v[3:4], v1
-   s_endpgm
-
-Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. 
-
-
-.. image:: initial_state-768x387.png
-
-
-The GPR Counting
-******************
-The next amd_kernel_code_t fields are obvious: is_ptr64 = 1 says we are in 64-bit mode, and kernarg_segment_byte_size = 24 describes the kernarg segment size. The GPR counting is less straightforward, however. The workitem_vgpr_count holds the number of vector registers that each work item uses, and wavefront_sgpr_count holds the number of scalar registers that a wavefront uses. The code above employs v0–v4, so workitem_vgpr_count = 5. But wavefront_sgpr_count = 8 even though the code only shows s0–s5, since the special registers VCC, FLAT_SCRATCH and XNACK are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, FLAT_SCRATCH and XNACK are disabled, so VCC has only two additional registers. In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields compute_pgm_rsrc1_*gprs contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
-
-::
-
-  compute_pgm_rsrc1_vgprs = (workitem_vgpr_count-1)/4
-
-  compute_pgm_rsrc1_sgprs = (wavefront_sgpr_count-1)/8
-
-Now consider the corresponding assembly:
-
-::
-
-  // initial state:
-  //   s[0:1] - kernarg base address
-  //   v0 - workitem id
-
-  s_load_dwordx2  s[4:5], s[0:1], 0x10  // load out_ptr into s[4:5] from kernarg
-  s_load_dwordx4  s[0:3], s[0:1], 0x00  // load in_ptr into s[0:1] and index_ptr into s[2:3] from kernarg
-  v_lshlrev_b32  v0, 2, v0              // v0 *= 4;
-  s_waitcnt     lgkmcnt(0)              // wait for memory reads to finish
-
-  // compute address of corresponding element of index buffer
-  // i.e. v[1:2] = &index[workitem_id]
-  v_add_u32     v1, vcc, s2, v0
-  v_mov_b32     v2, s3
-  v_addc_u32    v2, vcc, v2, 0, vcc
-
-  // compute address of corresponding element of in buffer
-  // i.e. v[3:4] = &in[workitem_id]
-  v_add_u32     v3, vcc, s0, v0
-  v_mov_b32     v4, s1
-  v_addc_u32    v4, vcc, v4, 0, vcc
-
-  flat_load_dword  v1, v[1:2] // load index[workitem_id] into v1
-  flat_load_dword  v2, v[3:4] // load in[workitem_id] into v2
-  s_waitcnt     vmcnt(0) & lgkmcnt(0) // wait for memory reads to finish
-
-  // v1 *= 4; ds_bpermute_b32 uses byte offset and registers are dwords
-  v_lshlrev_b32  v1, 2, v1
-
-  // perform permutation
-  // temp[thread_id] = v2
-  // v1 = temp[v1]
-  // effectively we got v1 = in[index[thread_id]]
-  ds_bpermute_b32  v1, v1, v2
-
-  // compute address of corresponding element of out buffer
-  // i.e. v[3:4] = &out[workitem_id]
-  v_add_u32     v3, vcc, s4, v0
-  v_mov_b32     v2, s5
-  v_addc_u32    v4, vcc, v2, 0, vcc
-
-  s_waitcnt     lgkmcnt(0) // wait for permutation to finish
-
-  // store final value in out buffer, i.e. out[workitem_id] = v1
-  flat_store_dword  v[3:4], v1
-
-  s_endpgm
-
-Compiling GCN ASM Kernel Into Hsaco
-**************************************
-The next step is to produce a Hsaco from the ASM source. LLVM has added support for the AMDGCN assembler, so you can use Clang to do all the necessary magic:
-
-.. code:: sh
-
-  clang -x assembler -target amdgcn--amdhsa -mcpu=fiji -c -o test.o asm_source.s
-
-  clang -target amdgcn--amdhsa test.o -o test.co
-
-The first command assembles an object file from the assembly source, and the second one links everything (you could have multiple source files) into a Hsaco. Now, you can load and run kernels from that Hsaco in a program. The `GitHub examples <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_ use Cmake to automatically compile ASM sources. In a future post we will cover DPP, another GCN cross-lane feature that allows vector instructions to grab operands from a neighboring lane.
-
-
-
-GCN Assembler Tools
-====================
-
-Overview
-********
-This repository contains the following useful items related to AMDGPU ISA assembler:
-
-   * amdphdrs: utility to convert ELF produced by llvm-mc into AMD Code Object (v1)
-   * examples/asm-kernel: example of AMDGPU kernel code
-   * examples/gfx8/ds_bpermute: transfer data between lanes in a wavefront with ds_bpermute_b32
-   * examples/gfx8/dpp_reduce: calculate prefix sum in a wavefront with DPP instructions
-   * examples/gfx8/s_memrealtime: use s_memrealtime instruction to create a delay
-   * examples/gfx8/s_memrealtime_inline: inline assembly in OpenCL kernel version of s_memrealtime
-   * examples/api/assemble: use LLVM API to assemble a kernel
-   * examples/api/disassemble: use LLVM API to disassemble a stream of instructions
-   * bin/sp3_to_mc.pl: script to convert some AMD sp3 legacy assembler syntax into LLVM MC
-   * examples/sp3: examples of sp3 convertable code
-
-At the time of this writing (February 2016), LLVM trunk build and latest ROCR runtime is needed.
-
-LLVM trunk (May or later) now uses lld as linker and produces AMD Code Object (v2).
-
-Building
-*********
-Top-level CMakeLists.txt is provided to build everything included. The following CMake variables should be set:
-
-   * HSA_DIR (default /opt/hsa/bin): path to ROCR Runtime
-   * LLVM_DIR: path to LLVM build directory
-
-To build everything, create build directory and run cmake and make:
-
-.. code:: sh
-
-  mkdir build
-  cd build
-  cmake -DLLVM_DIR=/srv/git/llvm.git/build ..
-  make
-
-Examples that require clang will only be built if clang is built as part of llvm.
-
-Use cases
-**********
-**Assembling to code object with llvm-mc from command line**
-
-The following llvm-mc command line produces ELF object asm.o from assembly source asm.s:
-
-.. code:: sh
-
-  llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
-
-**Assembling to raw instruction stream with llvm-mc from command line**
-
-It is possible to extract contents of .text section after assembling to code object:
-
-.. code:: sh
-
-  llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
-  objdump -h asm.o | grep .text | awk '{print "dd if='asm.o' of='asm' bs=1 count=$[0x" $3 "] skip=$[0x" $6 "]"}' | bash
-
-**Disassembling code object from command line**
-
-The following command line may be used to dump contents of code object:
-
-.. code:: sh
-
-  llvm-objdump -disassemble -mcpu=fiji asm.o
-
-This includes text disassembly of .text section.
-
-**Disassembling raw instruction stream from command line**
-
-The following command line may be used to disassemble raw instruction stream (without ELF structure):
-
-.. code:: sh
-
-  hexdump -v -e '/1 "0x%02X "' asm | llvm-mc -arch=amdgcn -mcpu=fiji -disassemble
-
-Here, hexdump is used to display contents of file in hexadecimal (0x.. form) which is then consumed by llvm-mc.
-
-Assembling source into code object using LLVM API
-**************************************************
-Refer to examples/api/assemble.
-
-Disassembling instruction stream using LLVM API
-**************************************************
-Refer to examples/api/disassemble.
-
-**Using amdphdrs**
-
-Note that normally standard lld and Code Object version 2 should be used which is closer to standard ELF format.
-
-amdphdrs (now obsolete) is complimentary utility that can be used to produce AMDGPU Code Object version 1.
-For example, given assembly source in asm.s, the following will assemble it and link using amdphdrs:
-
-.. code:: sh
-
-  llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
-  andphdrs asm.o asm.co
-
-Differences between LLVM AMDGPU Assembler and AMD SP3 assembler
-****************************************************************
-**Macro support**
-
-SP3 supports proprietary set of macros/tools. sp3_to_mc.pl script attempts to translate them into GAS syntax understood by llvm-mc.
-flat_atomic_cmpswap instruction has 32-bit destination
-
-LLVM AMDGPU:
-
-::
-
-  flat_atomic_cmpswap v7, v[9:10], v[7:8]
-
-SP3:
-
-::
-
-  flat_atomic_cmpswap v[7:8], v[9:10], v[7:8]
-
-Atomic instructions that return value should have glc flag explicitly
-
-LLVM AMDGPU:
-
-::
-
-  flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3] glc
-
-SP3:
-
-::
-
-  flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3]
-
-References
-***********
-   *  `LLVM Use Guide for AMDGPU Back-End <http://llvm.org/docs/AMDGPUUsage.html>`_
-   *  AMD ISA Documents
-       *  `AMD GCN3 Instruction Set Architecture (2016) <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
-       *  `AMD_Southern_Islands_Instruction_Set_Architecture <https://developer.amd.com/wordpress/media/2012/12/AMD_Southern_Islands_Instruction_Set_Architecture.pdf>`_
-
-rocprof
-=======
+=====================
+AMD ROCm ROCProfiler
+=====================
 
 1. Overview
 ***********
@@ -922,8 +592,8 @@ Metrics:
    •   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value range: 0% (optimal) to 100% (bad).
 
 
-ROC Profiler
-============
+ROC Profiler Library
+=====================
 
 ROC profiler library. Profiling with perf-counters and derived metrics. Library supports GFX8/GFX9.
 
@@ -1012,11 +682,11 @@ Build environment:
 
   export ROCPROFILER_TRACE=1
 
+====================
+AMD ROCm ROCTracer
+====================
 
-ROC Tracer
-============
-
-ROC-tracer library, Runtimes Generic Callback/Activity APIs.
+ROCtracer library, Runtimes Generic Callback/Activity APIs.
 The goal of the implementation is to provide a generic independent from
 specific runtime profiler to trace API and asyncronous activity.
 
@@ -2197,25 +1867,373 @@ To disable logging use:
 
    unset ROCM_DEBUG_ENABLE_AGENTLOG
 
-ROCm-GDB
-=========
-
-**This ROCm Debugger is a Deprecated project.**
-
-As of 2018, this is a deprecated software project. The ROCm software team is working on a new GDB-based debugger that works with the ROCr Debug Agent to support debugging GPU kernels.
-
-The ROCm-GDB repository includes the source code for ROCm-GDB. ROCm-GDB is a modified version of GDB 7.11 revised to work with the ROCr Debug Agent to support debugging GPU kernels on Radeon Open Compute platforms (ROCm).
-
-For more information refer `here <https://github.com/rocmarchive/ROCm-GDB>`_
 
 
+HCC: Heterogeneous Compute Compiler
+=====================================
+
+**HCC : An open source C++ compiler for heterogeneous devices**
+
+This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as HC, C++ 17 ParallelSTL and transforms it into the AMD GCN ISA.
+
+Deprecation Notice
+*******************
+
+AMD is deprecating HCC to put more focus on HIP development and on other languages supporting heterogeneous compute. We will no longer develop any new feature in HCC and we will stop maintaining HCC after its final release, which is planned for June 2019. If your application was developed with the hc C++ API, we would encourage you to transition it to other languages supported by AMD, such as HIP or OpenCL. HIP and hc language share the same compiler technology, so many hc kernel language features (including inline assembly) are also available through the HIP compilation path.
+
+The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
+
+GCN Assembler and Disassembler
+==============================
+
+The Art of AMDGCN Assembly: How to Bend the Machine to Your Will
+*****************************************************************
+The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a previous blog we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
+
+ * The program may be written in a high level language that does not expose all of the features available on the hardware.
+ * The compiler is unable to produce optimal ISA code, either because the compiler needs to ‘play it safe’ while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
+
+Consider a program that uses one of GCN’s new features (source code is available on `GitHub <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_). Recent hardware architecture updates—DPP and DS Permute instructions—enable efficient data sharing between wavefront lanes. To become more familiar with the instruction set, review the `GCN ISA Reference Guide <https://github.com/olvaffe/gpu-docs/blob/master/amd-open-gpu-docs/AMD_GCN3_Instruction_Set_Architecture.pdf>`_. Note: the assembler is currently experimental; some of syntax we describe may change.
+
+DS Permute Instructions
+**************************
+Two new instructions, ds_permute_b32 and ds_bpermute_b32, allow VGPR data to move between lanes on the basis of an index from another VGPR. These instructions use LDS hardware to route data between the 64 lanes, but they don’t write to LDS memory. The difference between them is what to index: the source-lane ID or the destination-lane ID. In other words, ds_permute_b32 says “put my lane data in lane i,” and ds_bpermute_b32 says “read data from lane i.” The GCN ISA Reference Guide provides a more formal description. The test kernel is simple: read the initial data and indices from memory into GPRs, do the permutation in the GPRs and write the data back to memory. An analogous OpenCL kernel would have this form:
+
+.. code:: cpp
+
+  __kernel void hello_world(__global const uint * in, __global const uint * index, __global uint * out)
+  {
+      size_t i = get_global_id(0);
+      out[i] = in[ index[i] ];
+  }
+
+Passing Parameters to a Kernel
+*******************************
+Formal HSA arguments are passed to a kernel using a special read-only memory segment called kernarg. Before a wavefront starts, the base address of the kernarg segment is written to an SGPR pair. The memory layout of variables in kernarg must employ the same order as the list of kernel formal arguments, starting at offset 0, with no padding between variables—except to honor the requirements of natural alignment and any align qualifier. The example host program must create the kernarg segment and fill it with the buffer base addresses. The HSA host code might look like the following:
+
+.. code:: cpp
+
+  /*
+  * This is the host-side representation of the kernel arguments that the simplePermute kernel expects.
+  */
+  struct simplePermute_args_t {
+	uint32_t * in;
+	uint32_t * index;
+	uint32_t * out;
+  };
+  /*
+   * Allocate the kernel-argument buffer from the correct region.
+  */
+  hsa_status_t status;
+  simplePermute_args_t * args = NULL;
+  status = hsa_memory_allocate(kernarg_region, sizeof(simplePermute_args_t), (void**)(&args));
+  assert(HSA_STATUS_SUCCESS == status);
+  aql->kernarg_address = args;
+  /*
+  * Write the args directly to the kernargs buffer;
+  * the code assumes that memory is already allocated for the
+  * buffers that in_ptr, index_ptr and out_ptr point to
+  */
+  args->in = in_ptr;
+  args->index = index_ptr;
+  args->out = out_ptr;
+
+The host program should also allocate memory for the in, index and out buffers. In the GitHub repository, all the run-time-related  stuff is hidden in the Dispatch and Buffer classes, so the sample code looks much cleaner:
+
+.. code:: cpp
+
+  // Create Kernarg segment
+  if (!AllocateKernarg(3 * sizeof(void*))) { return false; }
+
+  // Create buffers
+  Buffer *in, *index, *out;
+  in = AllocateBuffer(size);
+  index = AllocateBuffer(size);
+  out = AllocateBuffer(size);
+
+  // Fill Kernarg memory
+  Kernarg(in); // Add base pointer to “in” buffer
+  Kernarg(index); // Append base pointer to “index” buffer
+  Kernarg(out); // Append base pointer to “out” buffer
+
+Initial Wavefront and Register State To launch a kernel in real hardware, the run time needs information about the kernel, such as
+
+   * The LDS size
+   * The number of GPRs
+   * Which registers need initialization before the kernel starts
+
+  All this data resides in the amd_kernel_code_t structure. A full description of the structure is available in the `AMDGPU-ABI <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Compiler_SDK/ROCm-Codeobj-format.html?highlight=finalizer>`_       	specification. This is what it looks like in source code:
+
+::
+
+   .hsa_code_object_version 2,0
+   .hsa_code_object_isa 8, 0, 3, "AMD", "AMDGPU"
+
+   .text
+   .p2align 8
+   .amdgpu_hsa_kernel hello_world
+
+   hello_world:
+
+   .amd_kernel_code_t
+   enable_sgpr_kernarg_segment_ptr = 1
+   is_ptr64 = 1
+   compute_pgm_rsrc1_vgprs = 1
+   compute_pgm_rsrc1_sgprs = 0
+   compute_pgm_rsrc2_user_sgpr = 2
+   kernarg_segment_byte_size = 24
+   wavefront_sgpr_count = 8
+   workitem_vgpr_count = 5
+   .end_amd_kernel_code_t
+
+   s_load_dwordx2  s[4:5], s[0:1], 0x10
+   s_load_dwordx4  s[0:3], s[0:1], 0x00
+   v_lshlrev_b32  v0, 2, v0
+   s_waitcnt     lgkmcnt(0)
+   v_add_u32     v1, vcc, s2, v0
+   v_mov_b32     v2, s3
+   v_addc_u32    v2, vcc, v2, 0, vcc
+   v_add_u32     v3, vcc, s0, v0
+   v_mov_b32     v4, s1
+   v_addc_u32    v4, vcc, v4, 0, vcc
+   flat_load_dword  v1, v[1:2]
+   flat_load_dword  v2, v[3:4]
+   s_waitcnt     vmcnt(0) & lgkmcnt(0)
+   v_lshlrev_b32  v1, 2, v1
+   ds_bpermute_b32  v1, v1, v2
+   v_add_u32     v3, vcc, s4, v0
+   v_mov_b32     v2, s5
+   v_addc_u32    v4, vcc, v2, 0, vcc
+   s_waitcnt     lgkmcnt(0)
+   flat_store_dword  v[3:4], v1
+   s_endpgm
+
+Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. 
+
+
+.. image:: initial_state-768x387.png
+
+
+The GPR Counting
+******************
+The next amd_kernel_code_t fields are obvious: is_ptr64 = 1 says we are in 64-bit mode, and kernarg_segment_byte_size = 24 describes the kernarg segment size. The GPR counting is less straightforward, however. The workitem_vgpr_count holds the number of vector registers that each work item uses, and wavefront_sgpr_count holds the number of scalar registers that a wavefront uses. The code above employs v0–v4, so workitem_vgpr_count = 5. But wavefront_sgpr_count = 8 even though the code only shows s0–s5, since the special registers VCC, FLAT_SCRATCH and XNACK are physically stored as part of the wavefront’s SGPRs in the highest-numbered SGPRs. In this example, FLAT_SCRATCH and XNACK are disabled, so VCC has only two additional registers. In current GCN3 hardware, VGPRs are allocated in groups of 4 registers and SGPRs in groups of 16. Previous generations (GCN1 and GCN2) have a VGPR granularity of 4 registers and an SGPR granularity of 8 registers. The fields compute_pgm_rsrc1_*gprs contain a device-specific number for each register-block type to allocate for a wavefront. As we said previously, future updates may enable automatic counting, but for now you can use following formulas for all three GCN GPU generations:
+
+::
+
+  compute_pgm_rsrc1_vgprs = (workitem_vgpr_count-1)/4
+
+  compute_pgm_rsrc1_sgprs = (wavefront_sgpr_count-1)/8
+
+Now consider the corresponding assembly:
+
+::
+
+  // initial state:
+  //   s[0:1] - kernarg base address
+  //   v0 - workitem id
+
+  s_load_dwordx2  s[4:5], s[0:1], 0x10  // load out_ptr into s[4:5] from kernarg
+  s_load_dwordx4  s[0:3], s[0:1], 0x00  // load in_ptr into s[0:1] and index_ptr into s[2:3] from kernarg
+  v_lshlrev_b32  v0, 2, v0              // v0 *= 4;
+  s_waitcnt     lgkmcnt(0)              // wait for memory reads to finish
+
+  // compute address of corresponding element of index buffer
+  // i.e. v[1:2] = &index[workitem_id]
+  v_add_u32     v1, vcc, s2, v0
+  v_mov_b32     v2, s3
+  v_addc_u32    v2, vcc, v2, 0, vcc
+
+  // compute address of corresponding element of in buffer
+  // i.e. v[3:4] = &in[workitem_id]
+  v_add_u32     v3, vcc, s0, v0
+  v_mov_b32     v4, s1
+  v_addc_u32    v4, vcc, v4, 0, vcc
+
+  flat_load_dword  v1, v[1:2] // load index[workitem_id] into v1
+  flat_load_dword  v2, v[3:4] // load in[workitem_id] into v2
+  s_waitcnt     vmcnt(0) & lgkmcnt(0) // wait for memory reads to finish
+
+  // v1 *= 4; ds_bpermute_b32 uses byte offset and registers are dwords
+  v_lshlrev_b32  v1, 2, v1
+
+  // perform permutation
+  // temp[thread_id] = v2
+  // v1 = temp[v1]
+  // effectively we got v1 = in[index[thread_id]]
+  ds_bpermute_b32  v1, v1, v2
+
+  // compute address of corresponding element of out buffer
+  // i.e. v[3:4] = &out[workitem_id]
+  v_add_u32     v3, vcc, s4, v0
+  v_mov_b32     v2, s5
+  v_addc_u32    v4, vcc, v2, 0, vcc
+
+  s_waitcnt     lgkmcnt(0) // wait for permutation to finish
+
+  // store final value in out buffer, i.e. out[workitem_id] = v1
+  flat_store_dword  v[3:4], v1
+
+  s_endpgm
+
+Compiling GCN ASM Kernel Into Hsaco
+**************************************
+The next step is to produce a Hsaco from the ASM source. LLVM has added support for the AMDGCN assembler, so you can use Clang to do all the necessary magic:
+
+.. code:: sh
+
+  clang -x assembler -target amdgcn--amdhsa -mcpu=fiji -c -o test.o asm_source.s
+
+  clang -target amdgcn--amdhsa test.o -o test.co
+
+The first command assembles an object file from the assembly source, and the second one links everything (you could have multiple source files) into a Hsaco. Now, you can load and run kernels from that Hsaco in a program. The `GitHub examples <https://github.com/RadeonOpenCompute/LLVM-AMDGPU-Assembler-Extra>`_ use Cmake to automatically compile ASM sources. In a future post we will cover DPP, another GCN cross-lane feature that allows vector instructions to grab operands from a neighboring lane.
+
+
+
+GCN Assembler Tools
+====================
+
+Overview
+********
+This repository contains the following useful items related to AMDGPU ISA assembler:
+
+   * amdphdrs: utility to convert ELF produced by llvm-mc into AMD Code Object (v1)
+   * examples/asm-kernel: example of AMDGPU kernel code
+   * examples/gfx8/ds_bpermute: transfer data between lanes in a wavefront with ds_bpermute_b32
+   * examples/gfx8/dpp_reduce: calculate prefix sum in a wavefront with DPP instructions
+   * examples/gfx8/s_memrealtime: use s_memrealtime instruction to create a delay
+   * examples/gfx8/s_memrealtime_inline: inline assembly in OpenCL kernel version of s_memrealtime
+   * examples/api/assemble: use LLVM API to assemble a kernel
+   * examples/api/disassemble: use LLVM API to disassemble a stream of instructions
+   * bin/sp3_to_mc.pl: script to convert some AMD sp3 legacy assembler syntax into LLVM MC
+   * examples/sp3: examples of sp3 convertable code
+
+At the time of this writing (February 2016), LLVM trunk build and latest ROCR runtime is needed.
+
+LLVM trunk (May or later) now uses lld as linker and produces AMD Code Object (v2).
+
+Building
+*********
+Top-level CMakeLists.txt is provided to build everything included. The following CMake variables should be set:
+
+   * HSA_DIR (default /opt/hsa/bin): path to ROCR Runtime
+   * LLVM_DIR: path to LLVM build directory
+
+To build everything, create build directory and run cmake and make:
+
+.. code:: sh
+
+  mkdir build
+  cd build
+  cmake -DLLVM_DIR=/srv/git/llvm.git/build ..
+  make
+
+Examples that require clang will only be built if clang is built as part of llvm.
+
+Use cases
+**********
+**Assembling to code object with llvm-mc from command line**
+
+The following llvm-mc command line produces ELF object asm.o from assembly source asm.s:
+
+.. code:: sh
+
+  llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
+
+**Assembling to raw instruction stream with llvm-mc from command line**
+
+It is possible to extract contents of .text section after assembling to code object:
+
+.. code:: sh
+
+  llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
+  objdump -h asm.o | grep .text | awk '{print "dd if='asm.o' of='asm' bs=1 count=$[0x" $3 "] skip=$[0x" $6 "]"}' | bash
+
+**Disassembling code object from command line**
+
+The following command line may be used to dump contents of code object:
+
+.. code:: sh
+
+  llvm-objdump -disassemble -mcpu=fiji asm.o
+
+This includes text disassembly of .text section.
+
+**Disassembling raw instruction stream from command line**
+
+The following command line may be used to disassemble raw instruction stream (without ELF structure):
+
+.. code:: sh
+
+  hexdump -v -e '/1 "0x%02X "' asm | llvm-mc -arch=amdgcn -mcpu=fiji -disassemble
+
+Here, hexdump is used to display contents of file in hexadecimal (0x.. form) which is then consumed by llvm-mc.
+
+Assembling source into code object using LLVM API
+**************************************************
+Refer to examples/api/assemble.
+
+Disassembling instruction stream using LLVM API
+**************************************************
+Refer to examples/api/disassemble.
+
+**Using amdphdrs**
+
+Note that normally standard lld and Code Object version 2 should be used which is closer to standard ELF format.
+
+amdphdrs (now obsolete) is complimentary utility that can be used to produce AMDGPU Code Object version 1.
+For example, given assembly source in asm.s, the following will assemble it and link using amdphdrs:
+
+.. code:: sh
+
+  llvm-mc -arch=amdgcn -mcpu=fiji -filetype=obj -o asm.o asm.s
+  andphdrs asm.o asm.co
+
+Differences between LLVM AMDGPU Assembler and AMD SP3 assembler
+****************************************************************
+**Macro support**
+
+SP3 supports proprietary set of macros/tools. sp3_to_mc.pl script attempts to translate them into GAS syntax understood by llvm-mc.
+flat_atomic_cmpswap instruction has 32-bit destination
+
+LLVM AMDGPU:
+
+::
+
+  flat_atomic_cmpswap v7, v[9:10], v[7:8]
+
+SP3:
+
+::
+
+  flat_atomic_cmpswap v[7:8], v[9:10], v[7:8]
+
+Atomic instructions that return value should have glc flag explicitly
+
+LLVM AMDGPU:
+
+::
+
+  flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3] glc
+
+SP3:
+
+::
+
+  flat_atomic_swap_x2 v[0:1], v[0:1], v[2:3]
+
+References
+***********
+   *  `LLVM Use Guide for AMDGPU Back-End <http://llvm.org/docs/AMDGPUUsage.html>`_
+   *  AMD ISA Documents
+       *  `AMD GCN3 Instruction Set Architecture (2016) <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
+       *  `AMD_Southern_Islands_Instruction_Set_Architecture <https://developer.amd.com/wordpress/media/2012/12/AMD_Southern_Islands_Instruction_Set_Architecture.pdf>`_
 ROCm Binary Utilities
 ======================
 Documentation need to be updated.
 
-
+==========
 MIVisionX
-=========
+==========
 
 .. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/MIVisionX.png
   :align: center

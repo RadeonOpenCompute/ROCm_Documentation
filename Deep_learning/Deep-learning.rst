@@ -1,29 +1,43 @@
 .. _Deep-learning:
 
-=======================
-Deep Learning on ROCm
-=======================
+=================
+Deep Learning 
+=================
+
+
+******************
+Deep Learning API
+******************
+
+MIOpen
+********
+
+* `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
+
+* `MIOpenGEMM API <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/>`_
+
 
 ***********
 TensorFlow
 ***********
 
-ROCm Tensorflow v1.14 Release
-*****************************
-We are excited to announce the release of ROCm enabled TensorFlow v1.14 for AMD GPUs.
-In this release we have the following features enabled on top of upstream TF1.14 enhancements:
+AMD ROCm Tensorflow v1.15 Release
+**********************************
+We are excited to announce the release of ROCm enabled TensorFlow v1.15 for AMD GPUs.
+
+In this release we have the following features enabled on top of upstream TF1.15 enhancements:
     * We integrated ROCm RCCL library for mGPU communication, details in `RCCL github repo <https://github.com/ROCmSoftwarePlatform/rccl>`_
     * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
 
-ROCm Tensorflow v2.0.0-beta1 Release
-*****************************
-In addition to Tensorflow v1.14 release, we also enabled Tensorflow v2.0.0-beta1 for AMD GPUs. The TF-ROCm 2.0.0-beta1 release supports Tensorflow V2 API.
+AMD ROCm Tensorflow v2.2.0-beta1 Release
+*****************************************
+In addition to Tensorflow v1.15 release, we also enabled Tensorflow v2.2.0-beta1 for AMD GPUs. The TF-ROCm 2.2.0-beta1 release supports Tensorflow V2 API.
 Both whl packages and docker containers are available below. 
 
 Tensorflow Installation
 ***********************
 
-First, you’ll need to install the open-source ROCm 3.0 stack. Details can be found `here <https://github.com/RadeonOpenCompute/ROCm>`_
+First, you’ll need to install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 
 Then, install these other relevant ROCm packages:
@@ -36,7 +50,8 @@ And finally, install TensorFlow itself (via the Python Package Index):
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
    pip3 install --user tensorflow-rocm
-Now that Tensorflow v2.0 is installed!
+
+Tensorflow v2.2.0 is installed.
 
 Tensorflow More Resources
 *************************
@@ -79,7 +94,7 @@ Porting from cuDNN to MIOpen
 The `porting guide <https://github.com/dagamayank/ROCm.github.io/blob/master/doc/miopen_porting_guide.pdf>`_ highlights the key differences between the current cuDNN and MIOpen APIs.
 
 
-The ROCm 3.0 has prebuilt packages for MIOpen
+The ROCm 3.3 has prebuilt packages for MIOpen
 ***********************************************
 Install the ROCm MIOpen implementation (assuming you already have the ‘rocm’ and ‘rocm-opencl-dev” package installed):
 
@@ -116,7 +131,7 @@ Building PyTorch for ROCm
 This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://github.com/RadeonOpenCompute/ROCm#supported-operating-systems---new-operating-systems-available>`_ for supported operating systems and general information on the ROCm software stack.
 
 
-A ROCm install version 3.0 is required currently.
+A ROCm install version 3.3 is required currently.
 
 1. Install or update rocm-dev on the host system:
 
@@ -377,7 +392,7 @@ Caffe2
 
 Building Caffe2 for ROCm
 **************************
-This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-3.0s drivers installed. Please refer to `ROCm install <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#installing-from-amd-rocm-repositories>`_ to install ROCm software stack. If your host system doesn't have docker installed, please refer to `docker install <https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce>`_. It is recommended to add the user to the docker group to run docker as a non-root user, please refer `here <https://docs.docker.com/install/linux/linux-postinstall/>`_.
+This is a quick guide to setup Caffe2 with ROCm support inside docker container and run on AMD GPUs. Caffe2 with ROCm support offers complete functionality on a single GPU achieving great performance on AMD GPUs using both native ROCm libraries and custom hip kernels. This requires your host system to have rocm-3.3s drivers installed. Please refer to `ROCm install <https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md#installing-from-amd-rocm-repositories>`_ to install ROCm software stack. If your host system doesn't have docker installed, please refer to `docker install <https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce>`_. It is recommended to add the user to the docker group to run docker as a non-root user, please refer `here <https://docs.docker.com/install/linux/linux-postinstall/>`_.
 
 This guide provides two options to run Caffe2.
     1. Launch the docker container using a docker image with Caffe2 installed.
@@ -467,41 +482,7 @@ After cloning the pytorch repository, you can build your own Caffe2 ROCm docker 
 This should complete with a message "Successfully built <image_id>" which can then be used to install Caffe2 as in Option 2 above.
 
 
-*******************************************
-Deep Learning Framework support for ROCm
-*******************************************
 
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Framework  | Status      | MIOpen Enabled | Upstreamed     | Current Repository                                  |
-+============+=============+================+================+=====================================================+
-| Caffe      | Public      | Yes            |                | https://github.com/ROCmSoftwarePlatform/hipCaffe    |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Tensorflow | Development | Yes            | CLA inProgress | Notes: Working on NCCL and XLA enablement, Running  |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Caffe2     | Upstreaming | Yes            | CLA inProgress |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| Torch      | HIP         | Upstreaming    | Development    | https://github.com/ROCmSoftwarePlatform/cutorch_hip |
-|            |             |                | inProgress     |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| PyTorch    | Development | Development    |                |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| MxNet      | Development | Development    |                | https://github.com/ROCmSoftwarePlatform/mxnet       |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-| CNTK       | Development | Development    |                |                                                     |
-|            |             |                |                |                                                     |
-+------------+-------------+----------------+----------------+-----------------------------------------------------+
-
-*************
-Tutorials
-*************
-**hipCaffe**
-
-* :ref:`caffe`
-  
-**MXNet**
-  
-* :ref:`mxnet`
- 
 
 
 

@@ -1,7 +1,7 @@
 .. image:: /Installation_Guide/amdblack.jpg
 |
 ==============================================
-AMD ROCm QuickStart Installation Guide v3.3.0
+AMD ROCm Installation Guide v3.3.0
 ==============================================
 
 -  `Deploying ROCm`_
@@ -14,9 +14,9 @@ AMD ROCm QuickStart Installation Guide v3.3.0
 
    -  `Arch Linux`_ (community maintained)
    
-   
--  `ROCm Installation Known Issues and Workarounds`_
+-  `AMD ROCm MultiVersion Installation`_
 
+-  `ROCm Installation Known Issues and Workarounds`_
 
 -  `Getting the ROCm Source Code`_
 
@@ -260,7 +260,7 @@ Note: The URL of the repository must point to the location of the repositories�
   echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
   echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
-Note: The current release supports CentOS/RHEL v7.6. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
+Note: The current release supports CentOS/RHEL v7.7. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
 
 8. Restart the system.
 
@@ -488,12 +488,87 @@ Performing an OpenCL-only Installation of ROCm
 Some users may want to install a subset of the full ROCm installation. If you are trying to install on a system with a limited amount of storage space, or which will only run a small collection of known applications, you may want to install only the packages that are required to run OpenCL applications. To do that, you can run the following installation command instead of the command to install rocm-dkms.
 
 ::
-
+  
   sudo yum install rock-dkms rocm-opencl-devel
 
 
+AMD ROCm MultiVersion Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users can install and access multiple versions of the ROCm toolkit simultaneously.
+
+Previously, users could install only a single version of the ROCm toolkit. 
+
+Now, users have the option to install multiple versions simultaneously and toggle to the desired version of the ROCm toolkit. From the v3.3 release, multiple versions of ROCm packages can be installed in the */opt/rocm-<version>* folder.
+ 
+**Prerequisites**
+###############################
+
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.3 ROCm toolkit installation. The ROCm v3.3 package requires a clean installation.
+
+* To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
+
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+
+**Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
+
+
+Before You Begin
+#################
+
+Review the following important notes:
+
+**Single Version Installation**
+
+To install a single instance of the ROCm package, access the non-versioned packages. You must not install any components from the multi-instance set.
+
+For example, 
+
+* rocm-dkms
+
+* rocm-dev
+
+* hip
+
+A fresh installation or an upgrade of the single-version installation will remove the existing version completely and install the new version in the */opt/rocm-<version>* folder.
+
+.. image:: /Current_Release_Notes/singleinstance.png
+
+**Multi Version Installation**
+
+* To install a multi-instance of the ROCm package, access the versioned packages and components. 
+
+For example,
+
+  * rocm-dkms3.3.0
+
+  * rocm-dev3.3.0
+
+  * hip3.3.0
+
+* The new multi-instance package enables you to install two versions of the ROCm toolkit simultaneously and provides the ability to toggle between the two versioned packages.
+
+* The ROCm-DEV package does not create symlinks
+
+* Users must create symlinks if required
+
+* Multi-version installation with previous ROCm versions is not supported
+
+* Kernel Fusion Driver (KFD) must be compatible with all versions of ROCm installations
+
+.. image:: /Current_Release_Notes/MultiIns.png
+
+**IMPORTANT**: A single instance ROCm package cannot co-exist with the multi-instance package. 
+
+**NOTE**: The multi-instance installation applies only to ROCm v3.3 and above. This package requires a fresh installation after the complete removal of existing ROCm packages. The multi-version installation is not backward compatible. 
+
+**Note**: If you install the multi-instance version of AMD ROCm and create a sym-link to */opt/rocm*, you must run ‘Idconfig’ to ensure the software stack functions correctly with the sym-link. 
+  
+
 ROCm Installation Known Issues and Workarounds 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Closed source components
 ''''''''''''''''''''''''''
@@ -522,7 +597,7 @@ The repo tool from Google® allows you to manage multiple git repositories simul
 Note: You can choose a different folder to install the repo into if you desire. ~/bin/ is used as an example.
 
 Downloading the ROCm Source Code
-''''''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following example shows how to use the repo binary to download the ROCm source code. If you choose a directory other than ~/bin/ to install the repo, you must use that chosen directory in the code as shown below:
 
@@ -530,14 +605,14 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.0.0
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.3.0
   repo sync
 
 
 Note: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
 
 Building the ROCm Source Code
-'''''''''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Each ROCm component repository contains directions for building that component. You can access the desired component for instructions to build the repository.
 
@@ -866,6 +941,8 @@ This release was not productized.
 New features and enhancements in ROCm v3.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+'Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.1.0
+
 **Change in ROCm Installation Directory Structure**
 
 A fresh installation of the ROCm toolkit installs the packages in the /opt/rocm-<version> folder. 
@@ -882,6 +959,8 @@ SLURM (Simple Linux Utility for Resource Management) is an open source, fault-to
 
 New features and enhancements in ROCm v3.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.0.0
 
 * Support for CentOS RHEL v7.7
 * Support is extended for CentOS/RHEL v7.7 in the ROCm v3.0 release. For more information about the CentOS/RHEL v7.7 release, see:
