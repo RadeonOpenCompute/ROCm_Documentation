@@ -1,9 +1,9 @@
 
 .. _ROCm-Virtualization-&-Containers:
 
-=================================
-ROCm Virtualization & Containers
-=================================
+==============================
+Virtualization & Containers
+==============================
 
 PCIe Passthrough on KVM
 ================
