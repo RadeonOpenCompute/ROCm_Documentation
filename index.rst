@@ -68,9 +68,17 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
   
    Programming_Guides/Programming-Guides
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
-   ROCm_System_Managment/ROCm-System-Managment
    ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
    Other_Solutions/Other-Solutions
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: ROCm Systems Management Interface
+      
+   ROCm_System_Managment/ROCm-System-Managment
+   
+   
    
 .. toctree::
    :maxdepth: 6
