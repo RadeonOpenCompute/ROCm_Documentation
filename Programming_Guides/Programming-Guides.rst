@@ -324,7 +324,7 @@ For HSA APUs that supports system wide shared virtual memory, a GPU kernel can d
  int* cpu_memory = (int*) malloc(...); ... parallel_for_each(ext, [=](index i) [[hc]] { cpu_memory[i[0]]++; });
 
 
-HIP Programing Guide
+HIP Programming Guide
 ====================
 
 **What is this repository for?**
@@ -480,7 +480,7 @@ The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP
 
     * **doc:** Documentation - markdown and doxygen info
 
-OpenCL Programing Guide
+OpenCL Programming Guide
 ========================
 
 * :ref:`Opencl-Programming-Guide`
