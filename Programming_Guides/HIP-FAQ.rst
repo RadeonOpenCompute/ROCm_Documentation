@@ -10,6 +10,7 @@ HIP-Clang is a Clang compiler. It is called HIP-clang to emphasize its capabilit
 
 For more information, see https://github.com/RadeonOpenCompute/llvm-project
 
+
 **How to Build HIP-Clang?**
 
 You can follow the standard build procedure of building of LLVM compiler by targeting the AMDGPU back-end. 
@@ -34,17 +35,20 @@ You can follow the standard build procedure of building of LLVM compiler by targ
 
 **NOTE**: By default, the HIP-Clang compiler is installed in the directory *`/opt/rocm/llvm/`*
 
+
 **I have successfully built HIP-Clang. What is next?** 
 
 You should build device-side language runtime libraries called `ROCm-Device-Libs`. To build these libraries, 
 
-* Clone rocm device library source either from RadeonOpenCompute repo:  
-      o RadeonOpenCompute repo:     git clone https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
-* Follow build steps as mentioned in the README text from the above repo
+* Clone the rocm device library source from RadeonOpenCompute repo
+
+      o RadeonOpenCompute repo: git clone https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
+      
+* Follow the build steps as mentioned in the README text 
+
 * Build and install device libraries using the above built HIP-Clang compiler
 
-**NOTE**: By default, the ROCm device libraries are installed in the directory - *`/opt/rocm/lib/`*
-
+**NOTE**: By default, the ROCm-device-libraries are installed in the directory - *`/opt/rocm/lib/`*
 
 
 **What APIs and features does HIP support?**
