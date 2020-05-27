@@ -74,7 +74,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption: ROCm Systems Management Interface
+   :caption: Systems Management Interface
       
    ROCm_System_Managment/ROCm-System-Managment
    
