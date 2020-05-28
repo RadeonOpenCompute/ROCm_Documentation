@@ -59,12 +59,19 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    Release Notes
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
+   
+.. toctree::
+   :maxdepth: 4
+   :hidden:
+   :caption: HIP Documentation
+   
+   HIP Programming_Guides/HIP Programming-Guides
 
 .. toctree::
    :maxdepth: 6
    :hidden:
    :caption:  Developer Documentation
-    
+       
   
    Programming_Guides/Programming-Guides
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
