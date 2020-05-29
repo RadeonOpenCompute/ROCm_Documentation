@@ -64,12 +64,10 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :maxdepth: 6
    :hidden:
    :caption:  Compiler Documentation
-    
-  
+      
    Programming_Guides/Programming-Guides
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
-   
-   
+      
    
 .. toctree::
    :maxdepth: 6
@@ -78,8 +76,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
       
    ROCm_System_Managment/ROCm-System-Managment
    Other_Solutions/Other-Solutions
-   
-   
+      
    
 .. toctree::
    :maxdepth: 6
@@ -87,8 +84,8 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: Library Documentation 
    
    ROCm_Libraries/ROCm_Libraries
-   ROCm_Deep_learning/Deep-learning
    ROCm_API_References/ROCm-API-References
+   ROCm_Deep_learning/Deep-learning
    
   
 .. toctree::
@@ -97,21 +94,15 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: ROCm-Tools
       
    ROCm_Tools/ROCm-Tools
-   
-.. toctree::
-   :maxdepth: 6
-   :hidden:
-   :caption: Hardware Documentation 
-   
-    GCN_ISA_Manuals/GCN-ISA-Manuals
- 
-  
-  
+
+    
+    
 .. toctree::
    :maxdepth: 6
    :hidden:
    :caption: Additional Documentation 
    
+   GCN_ISA_Manuals/GCN-ISA-Manuals
    Remote_Device_Programming/Remote-Device-Programming
    Tutorial/Tutorial
    ROCm_Glossary/ROCm-Glossary
