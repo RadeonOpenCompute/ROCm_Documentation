@@ -2,7 +2,7 @@
 .. _ROCm-API-References:
 
 =====================
-ROCm API References
+Other API References
 =====================
 
 HIP Language Runtime API
