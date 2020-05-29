@@ -1,37 +1,6 @@
 ﻿
 .. _ROCm-Tools:
 
-===============================
-AMD ROCm Debugger API Library
-===============================
-
-The amd-dbgapi library implements an AMD GPU debugger application programming interface (API). It provides the support necessary for a client of the library to control the execution and inspect the state of supported commercially available AMD GPU devices.
-
-=====================
-AMD ROCm Debugger
-=====================
-
-The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for Linux based on the GNU Debugger (GDB). It enables heterogeneous debugging on the AMD ROCm platform of an x86-based host architecture along with AMD GPU architectures and supported by the AMD Debugger API Library (ROCdbgapi). 
-
-The AMD Debugger API Library (ROCdbgapi) is included with the AMD ROCm release. The ROCgdb and ROCdbgapi packages are part of the rocm-dev meta-package that is installed as part of the rocm-dkms package.
-
-The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on source line debugging. Note, symbolic variable debugging capabilities are not currently supported.
-
-You can use the standard GDB commands for both CPU and GPU code debugging. For more information about ROCgdb, refer to the *ROCgdb User Guide*, which is installed at:
-
-* ``/opt/rocm/share/info/gdb.info`` as a texinfo file
-
-* ``/opt/rocm/share/doc/gdb/gdb.pdf`` as a PDF file
-
-You can refer to the following chapters in the AMD ROCgdb User Guide for more specific information about debugging heterogeneous programs on AMD ROCm:
-
-* *Debugging Heterogeneous Programs*: Provides general information about debugging heterogeneous programs. It presents features and commands that are not currently implemented but provisionally planned for future versions.
-
-* *Configuration-Specific Information > Architectures > AMD GPU*: Provides specific information about debugging heterogeneous programs on AMD ROCm with supported AMD GPU chips. This section also lists the implementation status and known issues of the current version.
-
-For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
-
-
 
 =====================
 AMD ROCm ROCProfiler
@@ -2227,9 +2196,39 @@ References
    *  AMD ISA Documents
        *  `AMD GCN3 Instruction Set Architecture (2016) <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
        *  `AMD_Southern_Islands_Instruction_Set_Architecture <https://developer.amd.com/wordpress/media/2012/12/AMD_Southern_Islands_Instruction_Set_Architecture.pdf>`_
-ROCm Binary Utilities
-======================
-Documentation need to be updated.
+       
+
+=====================
+AMD ROCm Debugger
+=====================
+
+The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for Linux based on the GNU Debugger (GDB). It enables heterogeneous debugging on the AMD ROCm platform of an x86-based host architecture along with AMD GPU architectures and supported by the AMD Debugger API Library (ROCdbgapi). 
+
+The AMD Debugger API Library (ROCdbgapi) is included with the AMD ROCm release. The ROCgdb and ROCdbgapi packages are part of the rocm-dev meta-package that is installed as part of the rocm-dkms package.
+
+The current AMD ROCm Debugger (ROCgdb) is an initial prototype that focuses on source line debugging. Note, symbolic variable debugging capabilities are not currently supported.
+
+You can use the standard GDB commands for both CPU and GPU code debugging. For more information about ROCgdb, refer to the *ROCgdb User Guide*, which is installed at:
+
+* ``/opt/rocm/share/info/gdb.info`` as a texinfo file
+
+* ``/opt/rocm/share/doc/gdb/gdb.pdf`` as a PDF file
+
+You can refer to the following chapters in the AMD ROCgdb User Guide for more specific information about debugging heterogeneous programs on AMD ROCm:
+
+* *Debugging Heterogeneous Programs*: Provides general information about debugging heterogeneous programs. It presents features and commands that are not currently implemented but provisionally planned for future versions.
+
+* *Configuration-Specific Information > Architectures > AMD GPU*: Provides specific information about debugging heterogeneous programs on AMD ROCm with supported AMD GPU chips. This section also lists the implementation status and known issues of the current version.
+
+For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
+
+===============================
+AMD ROCm Debugger API Library
+===============================
+
+The amd-dbgapi library implements an AMD GPU debugger application programming interface (API). It provides the support necessary for a client of the library to control the execution and inspect the state of supported commercially available AMD GPU devices.
+
+
 
 ==========
 MIVisionX
