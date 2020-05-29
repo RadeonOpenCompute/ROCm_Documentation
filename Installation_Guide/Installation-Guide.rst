@@ -86,13 +86,13 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      groups
      
 
-5. To add your user to the video group, use the following command for the sudo password:
+5. To add your user to the video group, use the following command with the sudo password:
 
 ::
 
      sudo usermod -a -G video $LOGNAME
 
-6. By default, add any future users to the video group. Run the following command to add users to the video group:
+6. By default, you must add any future users to the video group. To add future users to the video group, run the following command:
 
 ::
 
@@ -102,16 +102,14 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 7. Restart the system.
 
-8. Test the basic ROCm installation.
-
-9. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
+8. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
 ::
 
      /opt/rocm/bin/rocminfo
      /opt/rocm/opencl/bin/x86_64/clinfo
 
-Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
+Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 
 ::
 
@@ -244,7 +242,7 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
 
     groups
 
-6. To add your user to the video group, use the following command for the sudo password:
+6. To add your user to the video group, use the following command with the sudo password:
 
 ::
 
@@ -380,7 +378,7 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 
 	groups
 
-7. To add your user to the video group, use the following command for the sudo password:
+7. To add your user to the video group, use the following command with the sudo password:
 	
 ::
 
