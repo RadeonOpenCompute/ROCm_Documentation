@@ -23,6 +23,7 @@ issues and deprecated features in the ROCm v3.5.0 release.
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
    -  `Upgrading to This Release <#Upgrading-to-This-Release>`__
+   -  `AMD ROCm Compilers <#AMD-ROCm-Compilers>`__
    -  `AMD ROCm Tools <#AMD-ROCm-Tools>`__
    -  `AMD ROCm Math and Communications
       Libraries <#AMD-ROCm-Math-and-Communications-Libraries>`__
