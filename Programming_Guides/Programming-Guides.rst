@@ -232,6 +232,7 @@ Transition from HCC to HIP FAQ
 
  * :ref:`HIP-FAQ`
  * :ref:`HIP-porting-guide`
+ * :ref:`hip-pro`
 
 HIP Best Practices
 ###################
@@ -239,13 +240,13 @@ HIP Best Practices
  * :ref:`HIP-IN`
  * :ref:`Kernel_language`
  * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
-  * :ref:`hip-p`
- * :ref:`hip-pro`
+ * :ref:`hip-p`
  * :ref:`hip_profiling`
  * :ref:`HIP_Debugging`
  * :ref:`HIP-terminology`
  * :ref:`HIP-Term2`
  * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
+
 Supported CUDA APIs:
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
