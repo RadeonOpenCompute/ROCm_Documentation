@@ -6,17 +6,8 @@
 Programming Guides
 ===================
 
-ROCm Languages
-================
-
-ROCm, Lingua Franca,  C++, OpenCL and Python
-#############################################
-The open-source ROCm stack offers multiple programming-language choices. The goal is to give you a range of tools to help solve the
-problem at hand. Here, we describe some of the options and how to choose among them.
-
-
 Deprecation Notice
-*******************
+====================
 
 In this release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
 
@@ -26,12 +17,14 @@ The majority of the codebase for the HIP-Clang compiler has been upstreamed to t
 
 The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
 
+ROCm Languages
+================
 
-Transition from HCC to HIP FAQ
-################################
+ROCm, Lingua Franca,  C++, OpenCL and Python
+#############################################
+The open-source ROCm stack offers multiple programming-language choices. The goal is to give you a range of tools to help solve the
+problem at hand. Here, we describe some of the options and how to choose among them.
 
- * :ref:`HIP-FAQ`
- * :ref:`HIP-porting-guide`
 
 ========================================================
 HIP: Heterogeneous-Computing Interface for Portability
@@ -234,6 +227,11 @@ This section describes the built-in variables and functions accessible from the 
 
   * :ref:`HIP-GUIDE`
 
+Transition from HCC to HIP FAQ
+################################
+
+ * :ref:`HIP-FAQ`
+ * :ref:`HIP-porting-guide`
 
 HIP Best Practices
 ###################
