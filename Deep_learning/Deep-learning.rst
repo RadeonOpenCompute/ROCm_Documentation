@@ -1,5 +1,7 @@
 .. _Deep-learning:
 
+
+
 =================
 Deep Learning 
 =================
@@ -483,9 +485,9 @@ This should complete with a message "Successfully built <image_id>" which can th
 
 
 
-==========
+============
 MIVisionX
-==========
+============
 
 .. image:: https://raw.githubusercontent.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/master/docs/images/MIVisionX.png
   :align: center
