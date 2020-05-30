@@ -2,12 +2,9 @@
 
 .. _Programming-Guides:
 
-===================
-Programming Guides
-===================
-
-Deprecation Notice
-====================
+=======================
+HCC Deprecation Notice
+=======================
 
 In the v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
 
@@ -16,18 +13,20 @@ In the v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler is deprec
 The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
 
 
-ROCm Languages
-================
+========================================================
+HIP: Heterogeneous-Computing Interface for Portability
+========================================================
+
+ROCm Supported Languages
+=========================
 
 ROCm, Lingua Franca,  C++, OpenCL and Python
 #############################################
 The open-source ROCm stack offers multiple programming-language choices. The goal is to give you a range of tools to help solve the
 problem at hand. Here, we describe some of the options and how to choose among them.
 
-
-========================================================
-HIP: Heterogeneous-Computing Interface for Portability
-========================================================
+HIP Programming Guide
+======================
 
 What is Heterogeneous-Computing Interface for Portability (HIP)? It’s a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the
 host/kernel boundary.
