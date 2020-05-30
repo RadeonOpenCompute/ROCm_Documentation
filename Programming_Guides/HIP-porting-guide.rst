@@ -11,12 +11,6 @@ HIP environment. This section describes the available tools and provides
 practical suggestions on how to port CUDA code and work through common
 issues.
 
-Table of Contents
------------------
-
-.. raw:: html
-
-   <!-- toc -->
 
 -  `Porting a New CUDA Project <#porting-a-new-cuda-project>`__
 
