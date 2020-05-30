@@ -1,7 +1,6 @@
 .. _HIP-porting-guide:
 
-HIP Porting Guide
-==================
+
 
 HIP Porting Guide
 =================
