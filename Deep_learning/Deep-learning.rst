@@ -1,7 +1,6 @@
 .. _Deep-learning:
 
 
-
 =================
 Deep Learning 
 =================
