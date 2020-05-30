@@ -227,8 +227,8 @@ This section describes the built-in variables and functions accessible from the 
 
   * :ref:`HIP-GUIDE`
 
-Transition from HCC to HIP FAQ
-################################
+Transitioning from HCC to HIP 
+##############################
 
  * :ref:`HIP-FAQ`
  * :ref:`HIP-porting-guide`
