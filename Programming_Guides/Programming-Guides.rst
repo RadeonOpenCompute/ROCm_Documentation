@@ -183,8 +183,8 @@ Notes
 3. HC allows tile dimensions to be specified at runtime while C++AMP requires that tile dimensions be specified at compile-time.  Thus hc syntax for tile dims is ``t_ext.tile_dim[0]``  while C++AMP is ``t_ext.tile_dim0``.
 4. **From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
-HIP Programming Guide
-====================
+HIP Repository Information
+============================
 
 **What is this repository for?**
 
@@ -226,14 +226,14 @@ This section describes the built-in variables and functions accessible from the 
   * :ref:`HIP-GUIDE`
 
 Transitioning from HCC to HIP 
-##############################
+===============================
 
  * :ref:`HIP-FAQ`
  * :ref:`HIP-porting-guide`
  * :ref:`hip-pro`
 
 HIP Best Practices
-###################
+=====================
 
  * :ref:`HIP-IN`
  * :ref:`Kernel_language`
