@@ -9,19 +9,11 @@ Programming Guides
 ROCm Languages
 ================
 
-
 ROCm, Lingua Franca,  C++, OpenCL and Python
 #############################################
 The open-source ROCm stack offers multiple programming-language choices. The goal is to give you a range of tools to help solve the
 problem at hand. Here, we describe some of the options and how to choose among them.
 
-
-HCC: Heterogeneous Compute Compiler
-####################################
-
-**HCC : An open source C++ compiler for heterogeneous devices**
-
-This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as HC, C++ 17 ParallelSTL and transforms it into the AMD GCN ISA.
 
 Deprecation Notice
 *******************
@@ -33,6 +25,13 @@ In this release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated
 The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
 
 The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
+
+
+Transition from HCC to HIP FAQ
+################################
+
+ * :ref:`HIP-FAQ`
+ * :ref:`HIP-porting-guide`
 
 ========================================================
 HIP: Heterogeneous-Computing Interface for Portability
@@ -235,11 +234,6 @@ This section describes the built-in variables and functions accessible from the 
 
   * :ref:`HIP-GUIDE`
 
-Transition from HCC to HIP FAQ
-################################
-
- * :ref:`HIP-FAQ`
-
 
 HIP Best Practices
 ###################
@@ -247,8 +241,7 @@ HIP Best Practices
  * :ref:`HIP-IN`
  * :ref:`Kernel_language`
  * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
- * :ref:`HIP-porting-guide`
- * :ref:`hip-p`
+  * :ref:`hip-p`
  * :ref:`hip-pro`
  * :ref:`hip_profiling`
  * :ref:`HIP_Debugging`
