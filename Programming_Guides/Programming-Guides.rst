@@ -9,13 +9,12 @@ Programming Guides
 Deprecation Notice
 ====================
 
-In this release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
+In the v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
 
 **NOTE**: The HCC environment variables will be gradually deprecated in subsequent releases.
 
 The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
 
-The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
 
 ROCm Languages
 ================
