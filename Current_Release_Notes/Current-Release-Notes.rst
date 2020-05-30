@@ -7,7 +7,7 @@ AMD Radeon Open Compute platforM (ROCm) Release Notes v3.5
 =============================================================
 June 03, 2020
 
-AMD ROCm Release Notes v3.5.0
+AMD ROCm Release Notes v3.5
 =============================
 
 This page describes the features, fixed issues, and information about
