@@ -168,7 +168,7 @@ of maintenance.
 .. figure:: HIPClang2.png
    :alt: ScreenShot
 
-   ScreenShot
+   
 
 For most HIP applications, the transition from HCC to HIP-Clang is
 transparent and efficient as the HIPCC and HIP cmake files automatically
@@ -195,7 +195,7 @@ The following image summarizes the HIP stack for HIP-Clang.
 .. figure:: HipClang2.1.png
    :alt: ScreenShot
 
-   ScreenShot
+   
 
 OpenCL Runtime
 ~~~~~~~~~~~~~~
@@ -373,7 +373,7 @@ HIP and OpenCL backend. The target operating system is Linux.
 .. figure:: RPP.png
    :alt: ScreenShot
 
-   ScreenShot
+  
 
 For more information about prerequisites and library functions, see
 
