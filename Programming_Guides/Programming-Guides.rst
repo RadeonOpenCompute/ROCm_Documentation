@@ -340,8 +340,9 @@ The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP
 
     * **doc:** Documentation - markdown and doxygen info
 
+==========================
 OpenCL Programming Guide
-========================
+==========================
 
 * :ref:`Opencl-Programming-Guide`
 
@@ -355,9 +356,9 @@ OpenCL Best Practices
 
    
 
-
-HC Programming Guide
-====================
+======================
+HCC Programming Guide
+======================
 
 **What is the Heterogeneous Compute (HC) API ?**
 
