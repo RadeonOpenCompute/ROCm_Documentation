@@ -867,7 +867,25 @@ Features and enhancements introduced in previous versions of ROCm can be found i
 AMD ROCm Version History
 =========================
 
-This file contains archived version history information for the ROCm project
+This file contains archived version history information for the ROCm project.
+
+New features and enhancements in ROCm v3.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.3.0
+
+**Multi-Version Installation**
+Users can install and access multiple versions of the ROCm toolkit simultaneously. Previously, users could install only a single version of the ROCm toolkit.
+
+**GPU Process Information**
+A new functionality to display process information for GPUs is available in this release. For example, you can view the process details to determine if the GPU(s) must be reset.
+
+**Support for 3D Pooling Layers**
+AMD ROCm is enhanced to include support for 3D pooling layers. The implementation of 3D pooling layers now allows users to run 3D convolutional networks, such as ResNext3D, on AMD Radeon Instinct GPUs.
+
+**ONNX Enhancements**
+Open Neural Network eXchange (ONNX) is a widely-used neural net exchange format. The AMD model compiler & optimizer support the pre-trained models in ONNX, NNEF, & Caffe formats. Currently, ONNX versions 1.3 and below are supported.
+
 
 New features and enhancements in ROCm v3.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
