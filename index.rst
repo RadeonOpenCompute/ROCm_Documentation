@@ -59,7 +59,8 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    Release Notes
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
-
+   ROCm_Glossary/ROCm-Glossary
+   
 .. toctree::
    :maxdepth: 6
    :hidden:
@@ -107,7 +108,6 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    GCN_ISA_Manuals/GCN-ISA-Manuals
    Remote_Device_Programming/Remote-Device-Programming
    Tutorial/Tutorial
-   ROCm_Glossary/ROCm-Glossary
 
 
    
