@@ -8,11 +8,10 @@ Deep Learning
 
 
 ******************
-Deep Learning API
+MIOpen API
 ******************
 
-MIOpen
-********
+
 
 * `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
 
