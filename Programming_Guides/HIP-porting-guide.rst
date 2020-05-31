@@ -196,6 +196,7 @@ Library Equivalents
 
 See the table below for library equivalents between CUDA and ROCm.
 
+
 +-----------------------+-----------------------------+----------------+
 | CUDA Library          | ROCm Library                | Comment        |
 +=======================+=============================+================+
@@ -252,6 +253,8 @@ See the table below for library equivalents between CUDA and ROCm.
 |                       |                             | on the MPI     |
 |                       |                             | equivalents    |
 +-----------------------+-----------------------------+----------------+
+
+
 
 Distinguishing Compiler Modes
 -----------------------------
@@ -326,6 +329,7 @@ Compiler Defines: Summary
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The table below provides a summary of compiler defines.
+
 
 +-------------+-------------+-------------+-------------+-------------+
 | Define      | hcc         | HIP-Clang   | nvcc        | Other (GCC, |
@@ -420,6 +424,8 @@ The table below provides a summary of compiler defines.
 |             |             |             |             | otherwise   |
 |             |             |             |             | undefined   |
 +-------------+-------------+-------------+-------------+-------------+
+
+
 
 Identifying Architecture Features
 ---------------------------------
