@@ -193,9 +193,7 @@ in-place, you can review the code to add additional parameters to directory name
 
 Library Equivalents
 ~~~~~~~~~~~~~~~~~~~
-
 See the table below for library equivalents between CUDA and ROCm.
-
 
 +-----------------------+-----------------------------+----------------+
 | CUDA Library          | ROCm Library                | Comment        |
@@ -327,9 +325,7 @@ device.
 
 Compiler Defines: Summary
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-
 The table below provides a summary of compiler defines.
-
 
 +-------------+-------------+-------------+-------------+-------------+
 | Define      | hcc         | HIP-Clang   | nvcc        | Other (GCC, |
