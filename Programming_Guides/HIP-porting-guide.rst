@@ -173,10 +173,11 @@ Converting a project in-place
 
    > hipify-perl --inplace
 
-For each input file FILE, this script will: - If â€œFILE.prehip file does
-not exist, copy the original code to a new file with extensionâ€.prehipâ€œ.
-Then hipify the code file. - Ifâ€FILE.prehip" file exists, hipify
-FILE.prehip and save to FILE.
+For each input file FILE, this script will: 
+
+- If FILE.prehip file does not exist, copy the original code to a new file with extension .prehip. Then, hipify the code file. 
+
+- If "FILE.prehip" file exists, hipify FILE.prehip and save to FILE.
 
 This is useful for testing improvements to the hipify toolset.
 
@@ -192,7 +193,6 @@ in-place, you can review the code to add additional parameters to directory name
 
 Library Equivalents
 ~~~~~~~~~~~~~~~~~~~
-
 +-----------------------+-----------------------------+----------------+
 | CUDA Library          | ROCm Library                | Comment        |
 +=======================+=============================+================+
