@@ -316,12 +316,11 @@ nvcc makes two passes over the code: one for host code and one for device code. 
    #if __HIP_DEVICE_COMPILE__
 
 Unlike ``__CUDA_ARCH__``, the ``__HIP_DEVICE_COMPILE__`` value is 1 or
-undefined, and it doesnâ€™t represent the feature capability of the target
+undefined, and it doesn't represent the feature capability of the target
 device.
 
 Compiler Defines: Summary
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-
 +-------------+-------------+-------------+-------------+-------------+
 | Define      | hcc         | HIP-Clang   | nvcc        | Other (GCC, |
 |             |             |             |             | ICC, Clang, |
@@ -430,7 +429,7 @@ Some CUDA code tests ``__CUDA_ARCH__`` for a specific value to determine whether
    // doubles are supported
 
 This type of code requires special attention, since hcc/AMD and nvcc/CUDA devices have different architectural capabilities. Moreover,
-you cannot determine the presence of a feature using a simple comparison against an architectureâ€™s version number. HIP provides a set of defines and device properties to query whether a specific architectural feature is supported.
+you cannot determine the presence of a feature using a simple comparison against an architecture's version number. HIP provides a set of defines and device properties to query whether a specific architectural feature is supported.
 
 The ``__HIP_ARCH_*`` defines can replace comparisons of
 ``__CUDA_ARCH__`` values:
@@ -448,7 +447,7 @@ only use the **HIP_ARCH** fields in device code.
 Device-Architecture Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Host code should query the architecture feature flags in the device properties that hipGetDeviceProperties returns, rather than testing the major and minor fields directly:
+Host code should query the architecture feature flags in the device properties that hipGetDeviceProperties returns, rather than testing the "major" and "minor" fields directly:
 
 ::
 
@@ -587,8 +586,7 @@ size) followed by a variable number of kernel arguments. This sequence is then e
 
    MY_LAUNCH (hipLaunchKernel(vAdd, dim3(1024), dim3(1), 0, 0, Ad), true, "firstCall");
 
-Avoid nesting macro parameters inside parenthesis - hereâ€™s an
-alternative that will work:
+Avoid nesting macro parameters inside parenthesis - here's an alternative that will work:
 
 ::
 
@@ -639,14 +637,14 @@ host code. Code compiled using this tool can employ only the
 intersection of language features supported by both nvcc and the host
 compiler. In some cases, you must take care to ensure the data types and
 alignment of the host compiler are identical to those of the device
-compiler. Only some host compilers are supportedâ€”for example, recent
+compiler. Only some host compilers are supported for example, recent
 nvcc versions lack Clang host-compiler capability.
 
 hcc generates both device and host code using the same Clang-based
 compiler. The code uses the same API as gcc, which allows code generated
 by different gcc-compatible compilers to be linked together. For
 example, code compiled using hcc can link with code compiled using
-â€œstandardâ€ compilers (such as gcc, ICC and Clang). Take care to ensure
+standard compilers (such as gcc, ICC and Clang). Take care to ensure
 all compilers use the same standard C++ header and library formats.
 
 libc++ and libstdc++
@@ -655,7 +653,7 @@ libc++ and libstdc++
 hipcc links to libstdc++ by default. This provides better compatibility
 between g++ and HIP.
 
-If you pass â€œâ€“stdlib=libc++â€ to hipcc, hipcc will use the libc++
+If you pass “stdlib=libc++" to hipcc, hipcc will use the libc++
 library. Generally, libc++ provides a broader set of C++ features while
 libstdc++ is the standard for more compilers (notably including g++).
 
@@ -686,6 +684,7 @@ functions and enumerations needed to compile a HIP program:
    calling HIP APIs but neither defines nor launches any kernels can
    include hip_runtime_api.h. hip_runtime_api.h uses no custom hc
    language features and can be compiled using a standard C++ compiler.
+   
 -  hip_runtime.h: included in hip_runtime_api.h. It additionally
    provides the types and defines required to create and launch kernels.
    hip_runtime.h does use custom hc language features, but they are
@@ -721,29 +720,29 @@ default headers, and instead all required files must be explicitly
 included. Specifically, files that call HIP run-time APIs or define HIP
 kernels must explicitly include the appropriate HIP headers. If the
 compilation process reports that it cannot find necessary APIs (for
-example, â€œerror: identifier â€˜hipSetDeviceâ€™ is undefinedâ€), ensure that
+example, error: identifier ˜hipSetDevice™ is undefined), ensure that
 the file includes hip_runtime.h (or hip_runtime_api.h, if appropriate).
-The hipify-perl script automatically converts â€œcuda_runtime.hâ€ to
-â€œhip_runtime.h,â€ and it converts â€œcuda_runtime_api.hâ€ to
-â€œhip_runtime_api.hâ€, but it may miss nested headers or macros.
+The hipify-perl script automatically converts cuda_runtime.h to
+hip_runtime.h, and it converts â€œcuda_runtime_api.h to
+hip_runtime_api.h, but it may miss nested headers or macros.
 
 cuda.h
 ^^^^^^
 
 The hcc path provides an empty cuda.h file. Some existing CUDA programs
-include this file but donâ€™t require any of the functions.
+include this file but does not require any of the functions.
 
 Choosing HIP File Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Many existing CUDA projects use the â€œ.cuâ€ and â€œ.cuhâ€ file extensions to
+Many existing CUDA projects use the .cu and .cuh file extensions to
 indicate code that should be run through the nvcc compiler. For quick
 HIP ports, leaving these file extensions unchanged is often easier, as
 it minimizes the work required to change file names in the directory and
 #include statements in the files.
 
 For new projects or ports which can be re-factored, we recommend the use
-of the extension â€œ.hip.cppâ€ for source files, and â€œ.hip.hâ€ or â€œ.hip.hppâ€
+of the extension .hip.cpp for source files, and .hip.h or .hip.hpp
 for header files. This indicates that the code is standard C++ code, but
 also provides a unique indication for make tools to run hipcc when
 appropriate.
