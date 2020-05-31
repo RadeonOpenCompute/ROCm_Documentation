@@ -95,13 +95,19 @@ Runtime/Driver API features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 At a high-level, the following features are not supported: 
+
 - Textures (partial support available) 
+
 - Dynamic parallelism (CUDA 5.0) 
+
 - Managed memory (CUDA 6.5) 
+
 - Graphics interoperability with OpenGL or Direct3D 
 
 CUDA IPC Functions (Under Development) 
+
 - CUDA array, mipmappedArray and pitched memory 
+
 - Queue priority controls
 
 See the `API Support Table <CUDA_Runtime_API_functions_supported_by_HIP.md>`__ for more detailed information.
