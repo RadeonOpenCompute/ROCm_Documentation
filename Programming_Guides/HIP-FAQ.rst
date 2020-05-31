@@ -41,7 +41,7 @@ HIP FAQ
 -  `What is ROCclr? <#what-is-rocclr>`__
 -  `Can a HIP binary run on both AMD and Nvidia
    platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
--  `Whatâ€™s the difference between HIP and
+-  `What is the difference between HIP and
    hc? <#whats-the-difference-between-hip-and-hc>`__
 -  `On HIP-Clang, can I link HIP code with host code compiled with
    another compiler such as gcc, icc, or
@@ -57,7 +57,7 @@ HIP FAQ
    HIP? <#on-hip-clang-can-i-use-hc-functionality-with-hip>`__
 -  `How do I trace HIP application
    flow? <#how-do-i-trace-hip-application-flow>`__
--  `What if HIP generates an error of â€œsymbol multiply defined!â€ only on
+-  `What if HIP generates an error of symbol multiply defined!â€ only on
    AMD
    machine? <#what-if-hip-generates-error-of-symbol-multiply-defined-only-on-amd-machine>`__
 -  `What is maximum limit of Generic kernel launching
@@ -67,19 +67,15 @@ What APIs and features does HIP support?
 ----------------------------------------
 
 HIP provides the following: 
-- Devices 
-(hipSetDevice(), hipGetDeviceProperties())
+- Devices (hipSetDevice(), hipGetDeviceProperties())
 
-- Memory management 
-(hipMalloc(), hipMemcpy(), hipFree())
+- Memory management (hipMalloc(), hipMemcpy(), hipFree())
 
-- Streams
-(hipStreamCreate(),hipStreamSynchronize(), hipStreamWaitEvent())
+- Streams (hipStreamCreate(),hipStreamSynchronize(), hipStreamWaitEvent())
 
 - Events (hipEventRecord(), hipEventElapsedTime())
 
-- Kernel
-launching (hipLaunchKernel is a standard C/C++ function that replaces
+- Kernel launching (hipLaunchKernel is a standard C/C++ function that replaces
 <<< >>>) 
 
 - HIP Module API to control when adn how code is loaded. 
@@ -87,11 +83,9 @@ launching (hipLaunchKernel is a standard C/C++ function that replaces
 - CUDA-style kernel coordinate functions (threadIdx, blockIdx, blockDim,
 gridDim) 
 
-- Cross-lane instructions including shfl, ballot, any, all -
-Most device-side math built-ins 
+- Cross-lane instructions including shfl, ballot, any, all - Most device-side math built-ins. 
 
-- Error reporting (hipGetLastError(),
-hipGetErrorString())
+- Error reporting (hipGetLastError(), hipGetErrorString())
 
 The HIP API documentation describes each API and its limitations, if any, compared with the equivalent CUDA API.
 
