@@ -425,7 +425,26 @@ NOTE: Assertions are currently enabled by default.
 Known Issues
 ============
 
-The following are the known issues in the v3.5.x release.
+The following are the known issues in the v3.5 release.
+
+Failure to Process Breakpoint before Queue Destroy Results in ROCm Debugger Error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When ROCgdb is in non-stop mode with an application that rapidly creates and destroys queues, a breakpoint may be reported that is not processed by the debugger before the queue is deleted. In some cases, this can result in the following error that prevents further debugging:
+
+*[amd-dbgapi]: fatal error: kfd_queue_id 2 should have been reported as a NEW_QUEUE before next_pending_event failed (rc=-2)*
+
+There are no known workarounds at this time.
+
+Failure to Process Breakpoint before Queue Destroy Results in ROCm Debugger API Error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+hen the ROCdbgapi library is used with an application that rapidly creates and destroys queues, a breakpoint may be reported that is not processed by the client before the queue is deleted. In some cases, this can result in a fatal error and the following error log message is produced:
+
+*[amd-dbgapi]: fatal error: kfd_queue_id 2 should have been reported as a NEW_QUEUE before next_pending_event failed (rc=-2)*
+
+There are no known workarounds at this time.
+
 
 Deprecations
 ============
