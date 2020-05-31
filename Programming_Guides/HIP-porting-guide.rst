@@ -236,7 +236,7 @@ See the table below for library equivalents between CUDA and ROCm.
 |                       |                             | Generator      |
 |                       |                             | Library        |
 +-----------------------+-----------------------------+----------------+
-| EIGEN                 | EIGEN â€“ HIP port            | C++ template   |
+| EIGEN                 | EIGEN â€“ HIP port          | C++ template   |
 |                       |                             | library for    |
 |                       |                             | linear         |
 |                       |                             | algebra:       |
@@ -385,8 +385,8 @@ The table below provides a summary of compiler defines.
 |             |             |             | epresenting |             |
 |             |             |             | compute     |             |
 |             |             |             | capability  |             |
-|             |             |             | (e.g.,      |             |
-|             |             |             | â€œ130â€) if   |             |
+|             |             |             | For example,|             |
+|             |             |             | if          |             |
 |             |             |             | in device   |             |
 |             |             |             | code; 0 if  |             |
 |             |             |             | in host     |             |
