@@ -12,6 +12,12 @@ In the v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler is deprec
 
 The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
 
+` Transition to HIP from HCC<https://github.com/RadeonOpenCompute/ROCm_Documentation/blob/master/Programming_Guides/HIP-FAQ.rst>`_
+
+` HIP Porting Guide<https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-porting-guide.html#hip-porting-guide>`_
+
+
+
 
 ========================================================
 HIP: Heterogeneous-Computing Interface for Portability
