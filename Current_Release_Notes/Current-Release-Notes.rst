@@ -92,7 +92,8 @@ AMD ROCDebugger (ROCbdg)
 AMD ROCm Systems Management Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  'System Management Interface Event API Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual.pdf>'_
+-  `System Management Interface Event API Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual.pdf>`__
+
 
 AMD ROCm Deep Learning
 ~~~~~~~~~~~~~~~~~~~~~~
