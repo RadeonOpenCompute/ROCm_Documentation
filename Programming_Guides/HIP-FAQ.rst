@@ -67,6 +67,7 @@ What APIs and features does HIP support?
 ----------------------------------------
 
 HIP provides the following: 
+
 - Devices (hipSetDevice(), hipGetDeviceProperties())
 
 - Memory management (hipMalloc(), hipMemcpy(), hipFree())
@@ -75,13 +76,11 @@ HIP provides the following:
 
 - Events (hipEventRecord(), hipEventElapsedTime())
 
-- Kernel launching (hipLaunchKernel is a standard C/C++ function that replaces
-<<< >>>) 
+- Kernel launching (hipLaunchKernel is a standard C/C++ function that replaces <<< >>>) 
 
 - HIP Module API to control when adn how code is loaded. 
 
-- CUDA-style kernel coordinate functions (threadIdx, blockIdx, blockDim,
-gridDim) 
+- CUDA-style kernel coordinate functions (threadIdx, blockIdx, blockDim, gridDim) 
 
 - Cross-lane instructions including shfl, ballot, any, all - Most device-side math built-ins. 
 
