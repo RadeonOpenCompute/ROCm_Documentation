@@ -86,8 +86,10 @@ HIP-Clang Compile
 AMD ROCDebugger (ROCbdg)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ROCgdb User Guide
--  ROCgdbapi Library
+-  `ROCgdb User Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/gdb.pdf>`__
+
+-  `ROCgdbapi Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf>`__
+
 
 AMD ROCm Systems Management Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
