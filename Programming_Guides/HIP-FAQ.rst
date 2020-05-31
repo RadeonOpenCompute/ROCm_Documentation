@@ -57,9 +57,8 @@ HIP FAQ
    HIP? <#on-hip-clang-can-i-use-hc-functionality-with-hip>`__
 -  `How do I trace HIP application
    flow? <#how-do-i-trace-hip-application-flow>`__
--  `What if HIP generates an error of symbol multiply defined only on
-   AMD
-   machine? <#what-if-hip-generates-error-of-symbol-multiply-defined-only-on-amd-machine>`__
+-  `What if HIP generates an error of symbol multiply defined only on the AMD
+   machine? <#what-if-hip-generates-error-of-symbol-multiply-defined-only-on-the-AMD-machine>`__
 -  `What is maximum limit of Generic kernel launching
    parameter? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>`__
 
