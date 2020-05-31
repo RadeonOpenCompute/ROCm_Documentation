@@ -17,8 +17,7 @@ issues.
    -  `General Tips <#general-tips>`__
    -  `Scanning existing CUDA code to scope the porting
       effort <#scanning-existing-cuda-code-to-scope-the-porting-effort>`__
-   -  `Converting a project
-      â€œin-placeâ€ <#converting-a-project-in-place>`__
+   -  `Converting a project in-place <#converting-a-project-in-place>`__
    -  `CUDA to HIP Math Library Equivalents <#library-equivalents>`__
 
 -  `Distinguishing Compiler Modes <#distinguishing-compiler-modes>`__
@@ -74,13 +73,13 @@ issues.
 
 -  `More Tips <#more-tips>`__
 
-   -  `HIPTRACE Mode <#hiptrace-mode>`__
-   -  `Environment Variables <#environment-variables>`__
-   -  `Debugging hipcc <#debugging-hipcc>`__
-   -  `What Does This Error Mean? <#what-does-this-error-mean>`__
+   -  `HIPTRACE Mode <#HIPTRACE-mode>`__
+   -  `Environment Variables <#Environment-Variables>`__
+   -  `Debugging hipcc <#Debugging-hipcc>`__
+   -  `What Does This Error Mean? <#What-Does-This-Error-Mean>`__
 
       -  `/usr/include/c++/v1/memory:5172:15: error: call to implicitly
-         deleted default constructor of â€™std::__1::bad_weak_ptrâ€™ throw
+         deleted default constructor of std::__1::bad_weak_ptr™ throw
          bad_weak_ptr(); <#usrincludecv1memory517215-error-call-to-implicitly-deleted-default-constructor-of-std__1bad_weak_ptr-throw-bad_weak_ptr>`__
 
    -  `HIP Environment Variables <#hip-environment-variables>`__
@@ -96,21 +95,16 @@ Porting a New CUDA Project
 General Tips
 ~~~~~~~~~~~~
 
--  Starting the port on a CUDA machine is often the easiest approach,
-   since you can incrementally port pieces of the code to HIP while
-   leaving the rest in CUDA. (Recall that on CUDA machines HIP is just a
-   thin layer over CUDA, so the two code types can interoperate on nvcc
-   platforms.) Also, the HIP port can be compared with the original CUDA
-   code for function and performance.
--  Once the CUDA code is ported to HIP and is running on the CUDA
-   machine, compile the HIP code using the HIP compiler on an AMD
+-  Starting the port on a CUDA machine is often the easiest approach, since you can incrementally port pieces of the code to HIP while
+   leaving the rest in CUDA. (Recall that on CUDA machines HIP is just a thin layer over CUDA, so the two code types can interoperate on nvcc platforms.) Also, the HIP port can be compared with the original CUDA code for function and performance.
+   
+-  Once the CUDA code is ported to HIP and is running on the CUDA machine, compile the HIP code using the HIP compiler on an AMD
    machine.
--  HIP ports can replace CUDA versions: HIP can deliver the same
-   performance as a native CUDA implementation, with the benefit of
-   portability to both Nvidia and AMD architectures as well as a path to
-   future C++ standard support. You can handle platform-specific
-   features through conditional compilation or by adding them to the
-   open-source HIP infrastructure.
+   
+-  HIP ports can replace CUDA versions: HIP can deliver the same performance as a native CUDA implementation, with the benefit of
+   portability to both Nvidia and AMD architectures as well as a path to future C++ standard support. You can handle platform-specific
+   features through conditional compilation or by adding them to the open-source HIP infrastructure.
+   
 -  Use
    `bin/hipconvertinplace-perl.sh <https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipconvertinplace-perl.sh>`__
    to hipify all code files in the CUDA source directory.
@@ -118,8 +112,7 @@ General Tips
 Scanning existing CUDA code to scope the porting effort
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The hipexamine-perl.sh tool will scan a source directory to determine
-which files contain CUDA code and how much of that code can be
+The hipexamine-perl.sh tool will scan a source directory to determine which files contain CUDA code and how much of that code can be
 automatically hipified.
 
 ::
@@ -173,8 +166,8 @@ specified directory:
    info: TOTAL-converted 89 CUDA->HIP refs( dev:3 mem:32 kern:2 builtin:37 math:0 stream:0 event:0 err:0 def:0 tex:15 other:0 ) warn:0 LOC:3607
      kernels (1 total) :   kmeansPoint(1)
 
-Converting a project â€œin-placeâ€
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Converting a project in-place
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -189,12 +182,9 @@ This is useful for testing improvements to the hipify toolset.
 
 The
 `hipconvertinplace-perl.sh <https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipconvertinplace-perl.sh>`__
-script will perform inplace conversion for all code files in the
-specified directory. This can be quite handy when dealing with an
-existing CUDA code base since the script preserves the existing
-directory structure and filenames - and includes work. After converting
-in-place, you can review the code to add additional parameters to
-directory names.
+script will perform inplace conversion for all code files in the specified directory. This can be quite handy when dealing with an
+existing CUDA code base since the script preserves the existing directory structure and filenames - and includes work. After converting
+in-place, you can review the code to add additional parameters to directory names.
 
 .. code:: shell
 
@@ -266,35 +256,24 @@ Distinguishing Compiler Modes
 Identifying HIP Target Platform
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-All HIP projects target either AMD or NVIDIA platform. The platform
-affects which headers are included and which libraries are used for
+All HIP projects target either AMD or NVIDIA platform. The platform affects which headers are included and which libraries are used for
 linking.
 
 -  ``HIP_PLATFORM_HCC`` is defined if the HIP platform targets AMD
 
 -  ``HIP_PLATFORM_NVCC`` is defined if the HIP platform targets NVIDIA
 
-On AMD platform, the compiler was hcc, but is deprecated in ROCM v3.5
-release, and HIP-Clang compiler is introduced for compiling HIP
+On AMD platform, the compiler was hcc, but is deprecated in ROCM v3.5 release, and HIP-Clang compiler is introduced for compiling HIP
 programs.
 
-For most HIP applications, the transition from hcc to HIP-Clang is
-transparent. HIPCC and HIP cmake files automatically choose compilation
-options for HIP-Clang and hide the difference between the hcc and
-hip-clang code. However, minor changes may be required as HIP-Clang has
-stricter syntax and semantic checks compared to hcc.
+For most HIP applications, the transition from hcc to HIP-Clang is transparent. HIPCC and HIP cmake files automatically choose compilation options for HIP-Clang and hide the difference between the hcc and hip-clang code. However, minor changes may be required as HIP-Clang has stricter syntax and semantic checks compared to hcc.
 
-Many projects use a mixture of an accelerator compiler (AMD or NVIDIA)
-and a standard compiler (e.g.Â g++). These defines are set for both
-accelerator and standard compilers and thus are often the best option
-when writing code that uses conditional compilation.
+Many projects use a mixture of an accelerator compiler (AMD or NVIDIA) and a standard compiler (e.g.Â g++). These defines are set for both accelerator and standard compilers and thus are often the best option when writing code that uses conditional compilation.
 
 Identifying the Compiler: hcc, hip-clang or nvcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Often, itâ€™s useful to know whether the underlying compiler is hcc,
-HIP-Clang or nvcc. This knowledge can guard platform-specific code or
-aid in platform-specific performance tuning.
+Often, it is useful to know whether the underlying compiler is hcc, HIP-Clang or nvcc. This knowledge can guard platform-specific code or aid in platform-specific performance tuning.
 
 ::
 
@@ -318,16 +297,13 @@ aid in platform-specific performance tuning.
    #ifdef __CUDACC__
    // Compiled with nvcc (CUDA language extensions enabled)
 
-Compiler directly generates the host code (using the Clang x86 target)
-and passes the code to another host compiler. Thus, they have no
+Compiler directly generates the host code (using the Clang x86 target) and passes the code to another host compiler. Thus, they have no
 equivalent of the \__CUDA_ACC define.
 
 Identifying Current Compilation Pass: Host or Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-nvcc makes two passes over the code: one for host code and one for
-device code. HIP-Clang will have multiple passes over the code: one for
-the host code, and one for each architecture on the device code.
+nvcc makes two passes over the code: one for host code and one for device code. HIP-Clang will have multiple passes over the code: one for the host code, and one for each architecture on the device code.
 ``__HIP_DEVICE_COMPILE__`` is set to a nonzero value when the compiler
 (hcc, HIP-Clang or nvcc) is compiling code for a device inside a
 ``__global__`` kernel or for a device function.
@@ -446,21 +422,15 @@ Identifying Architecture Features
 HIP_ARCH Defines
 ~~~~~~~~~~~~~~~~
 
-Some CUDA code tests ``__CUDA_ARCH__`` for a specific value to determine
-whether the machine supports a certain architectural feature. For
-instance,
+Some CUDA code tests ``__CUDA_ARCH__`` for a specific value to determine whether the machine supports a certain architectural feature. For instance,
 
 ::
 
    #if (__CUDA_ARCH__ >= 130)
    // doubles are supported
 
-This type of code requires special attention, since hcc/AMD and
-nvcc/CUDA devices have different architectural capabilities. Moreover,
-you canâ€™t determine the presence of a feature using a simple comparison
-against an architectureâ€™s version number. HIP provides a set of defines
-and device properties to query whether a specific architectural feature
-is supported.
+This type of code requires special attention, since hcc/AMD and nvcc/CUDA devices have different architectural capabilities. Moreover,
+you cannot determine the presence of a feature using a simple comparison against an architectureâ€™s version number. HIP provides a set of defines and device properties to query whether a specific architectural feature is supported.
 
 The ``__HIP_ARCH_*`` defines can replace comparisons of
 ``__CUDA_ARCH__`` values:
@@ -478,9 +448,7 @@ only use the **HIP_ARCH** fields in device code.
 Device-Architecture Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Host code should query the architecture feature flags in the device
-properties that hipGetDeviceProperties returns, rather than testing the
-â€œmajorâ€ and â€œminorâ€ fields directly:
+Host code should query the architecture feature flags in the device properties that hipGetDeviceProperties returns, rather than testing the major and minor fields directly:
 
 ::
 
@@ -493,8 +461,7 @@ properties that hipGetDeviceProperties returns, rather than testing the
 Table of Architecture Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The table below shows the full set of architectural properties that HIP
-supports.
+The table below shows the full set of architectural properties that HIP supports.
 
 +-----------------------+-----------------------------+----------------+
 | Define (use only in   | Device Property (run-time   | Comment        |
@@ -585,8 +552,7 @@ supports.
 Finding HIP
 -----------
 
-Makefiles can use the following syntax to conditionally provide a
-default HIP_PATH if one does not exist:
+Makefiles can use the following syntax to conditionally provide a default HIP_PATH if one does not exist:
 
 ::
 
@@ -597,28 +563,18 @@ Identifying HIP Runtime
 
 HIP can depend on ROCclr, or NVCC as runtime
 
--  AMD platform ``HIP_ROCclr`` is defined on AMD platform that HIP use
-   Radeon Open Compute Common Language Runtime, called ROCclr.
+-  AMD platform ``HIP_ROCclr`` is defined on AMD platform that HIP use Radeon Open Compute Common Language Runtime, called ROCclr.
 
-ROCclr is a virtual device interface that HIP runtimes interact with
-different backends which allows runtimes to work on Linux , as well as
-Windows without much efforts.
+ROCclr is a virtual device interface that HIP runtimes interact with different backends which allows runtimes to work on Linux , as well as Windows without much efforts.
 
--  NVIDIA platform On Nvidia platform, HIP is just a thin layer on top
-   of CUDA. On non-AMD platform, HIP runtime determines if nvcc is
-   available and can be used. If available, HIP_PLATFORM is set to nvcc
-   and underneath CUDA path is used.
+-  NVIDIA platform On Nvidia platform, HIP is just a thin layer on top of CUDA. On non-AMD platform, HIP runtime determines if nvcc is
+   available and can be used. If available, HIP_PLATFORM is set to nvcc and underneath CUDA path is used.
 
 hipLaunchKernel
 ---------------
 
-hipLaunchKernel is a variadic macro which accepts as parameters the
-launch configurations (grid dims, group dims, stream, dynamic shared
-size) followed by a variable number of kernel arguments. This sequence
-is then expanded into the appropriate kernel launch syntax depending on
-the platform. While this can be a convenient single-line kernel launch
-syntax, the macro implementation can cause issues when nested inside
-other macros. For example, consider the following:
+hipLaunchKernel is a variadic macro which accepts as parameters the launch configurations (grid dims, group dims, stream, dynamic shared
+size) followed by a variable number of kernel arguments. This sequence is then expanded into the appropriate kernel launch syntax depending on the platform. While this can be a convenient single-line kernel launch syntax, the macro implementation can cause issues when nested inside other macros. For example, consider the following:
 
 ::
 
@@ -955,7 +911,7 @@ export HIPCC_VERBOSE=1 make â€¦ hipcc-cmd: /opt/hcc/bin/hcc -hc
    their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application.  For example:
 
 $ HIP_PRINT_ENV=1 ./myhipapp HIP_PRINT_ENV = 1 : Print HIP environment
-variables. HIP_LAUNCH_BLOCKING = 0 : Make HIP APIs â€˜host-synchronousâ€™,
+variables. HIP_LAUNCH_BLOCKING = 0 : Make HIP APIs host-synchronous,
 so they block until any kernel launches or data copy commands complete.
 Alias: CUDA_LAUNCH_BLOCKING. HIP_DB = 0 : Print various debug info.
 Bitmask, see hip_hcc.cpp for more information. HIP_TRACE_API = 0 : Trace
