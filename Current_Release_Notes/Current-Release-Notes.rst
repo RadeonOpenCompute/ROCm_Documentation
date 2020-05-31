@@ -237,7 +237,7 @@ Guide, which is installed at:
 
 The AMD ROCm Debugger User Guide is available as a PDF at:
 
--  <<>>
+https://github.com/RadeonOpenCompute/ROCm/blob/master/gdb.pdf
 
 For more information about GNU Debugger (GDB), refer to the GNU Debugger
 (GDB) web site at: http://www.gnu.org/software/gdb
@@ -258,7 +258,7 @@ package. The rocm-gdb package is part of the rocm-dev meta-package,
 which is in the rocm-dkms package. The AMD ROCm Debugger API
 Specification is available as a PDF at:
 
-(Enter Doc link)
+https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
 
 rocProfiler Dispatch Callbacks Start/Stop API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -342,7 +342,7 @@ rsmi_event_notification_\* functions).
 
 For the more details about ROCm SMI API, see
 
-(enter doc link after updating the website)
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual.pdf
 
 API for CPU Affinity
 ~~~~~~~~~~~~~~~~~~~~
