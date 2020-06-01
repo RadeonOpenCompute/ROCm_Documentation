@@ -87,7 +87,7 @@ HIP-Clang Compile
 -  `HIP - Glossary of
    Terms <https://rocmdocs.amd.com/en/latest/ROCm_Glossary/ROCm-Glossary.html>`__
 
-AMD ROCDebugger (ROCbdg)
+AMD ROCDebugger (ROCgdb)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `ROCgdb User Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/gdb.pdf>`__
