@@ -152,8 +152,6 @@ upgrade from v3.3 to v3.5. The following changes apply in this release:
       packages
    -  v3.3 release had the firmware as part of the rock-dkms package
 
-AMD ROCm Compilers
-------------------
 
 Heterogeneous-Compute Interface for Portability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,10 +210,8 @@ The following OpenCL runtime changes are made in this release:
 -  AMD ROCm OpenCL Runtime extends support to OpenCL2.2
 -  The developer branch is changed from master to master-next
 
-AMD ROCm Tools
---------------
 
-AMD ROCm GNU Debugger (ROCgdb)
+AMD ROCm GNU Debugger ROCgdb
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for
@@ -264,8 +260,8 @@ Specification is available as a PDF at:
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
 
-rocProfiler Dispatch Callbacks Start/Stop API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rocProfiler Dispatch Callbacks Start Stop API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this release, a new rocprofiler start/stop API is added to
 enable/disable GPU kernel HSA dispatch callbacks. The callback can be
@@ -283,8 +279,7 @@ For more information on kernel dispatches, see the HSA Platform System
 Architecture Specification guide at
 http://www.hsafoundation.com/standards/.
 
-AMD ROCm Math and Communications Libraries
-------------------------------------------
+
 
 ROCm Communications Collective Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -303,8 +298,6 @@ type detection \* Infiniband adaptive routing support
 
 .. _amd-rocm-deep-learning-1:
 
-AMD ROCm Deep Learning
-----------------------
 
 MIOpen - Optional Kernel Package Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -327,8 +320,6 @@ following command:
 -   is the GPU architecture. Ror example, gfx900, gfx906
 -   is the number of CUs available in the GPU. Ffor example, 56 or 64
 
-AMD ROCm System Management Interface
-------------------------------------
 
 New SMI Event Interface and Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -367,8 +358,6 @@ Non-Uniform Memory Access (NUMA) is a computer memory design used in
 multiprocessing, where the memory access time depends on the memory
 location relative to the processor.
 
-AMD ROCm MIVision
------------------
 
 Radeon Performance Primitives Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
