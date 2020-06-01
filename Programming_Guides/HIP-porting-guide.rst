@@ -31,7 +31,7 @@ issues.
  
 -  `Linking Code With Other Compilers <#linking-code-with-other-compilers>`__
 
- -  `Choosing HIP File Extensions <#choosing-hip-file-extensions>`__
+-  `Choosing HIP File Extensions <#choosing-hip-file-extensions>`__
 
 -  `Workarounds <#workarounds>`__
 
