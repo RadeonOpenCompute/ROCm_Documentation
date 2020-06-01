@@ -457,7 +457,7 @@ hipCUB
 * BlockReduce 
 * BlockScan
 
-Workaround: Use AMD ROCm v3.3 or older versions. 
+**Workaround**: Use AMD ROCm v3.3 or older versions. 
 
 PEBB & PQT Tests Freeze and Remain Incomplete
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
