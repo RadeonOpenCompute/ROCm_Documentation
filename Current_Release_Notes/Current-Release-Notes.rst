@@ -23,14 +23,18 @@ issues and deprecated features in the ROCm v3.5.0 release.
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
    -  `Upgrading to This Release <#Upgrading-to-This-Release>`__
-   -  `AMD ROCm Compilers <#AMD-ROCm-Compilers>`__
-   -  `AMD ROCm Tools <#AMD-ROCm-Tools>`__
-   -  `AMD ROCm Math and Communications
-      Libraries <#AMD-ROCm-Math-and-Communications-Libraries>`__
-   -  `AMD ROCm Deep Learning <#AMD-ROCm-Deep-Learning>`__
-   -  `AMD ROCm System Management
-      Interface <#AMD-ROCm-System-Management-Interface>`__
-   -  `AMD ROCm MIVision <#AMD-ROCm-MIVision>`__
+   -  `Heterogeneous-Compute Interface for Portability <#Heterogeneous-Compute-Interface-for-Portability>`__
+   -  `Radeon Open Compute Common Language Runtime <#Radeon-Open-Compute-Common-Language-Runtime>`__
+   -  `OpenCL Runtime <#OpenCL-Runtime>`__
+   -  `AMD ROCm GNU Debugger-ROCgdb <#AMD-ROCm-GNU-Debugger-ROCgdb>`__
+   -  `AMD ROCm Debugger API Library <#AMD-ROCm-Debugger-API-Library>`_
+   -  `rocProfiler Dispatch Callbacks Start-Stop API <#rocProfiler-Dispatch-Callbacks-Start-Stop-API>`__
+   -  `ROCm Communications Collective Library <#ROCm-Communications-Collective-Library>`__
+   -  `NVIDIA Communications Collective Library Version Compatibility<#NVIDIA-Communications-Collective-Library-Version -Compatibility>`__
+   -  `MIOpen - Optional Kernel Package Installation <#MIOpen-Optional-Kernel-Package-Installation>`__
+   -  `New SMI Event Interface and Library <#New-SMI-Event-Interface-and-Library>`__
+   -  `API for CPU Affinity <#API-for-CPU-Affinity>`__
+   -  `Radeon Performance Primitives Library <#Radeon-Performance-Primitives-Library>`__
 
 -  `Fixed Issues <#Fixed-Issues>`__
 
