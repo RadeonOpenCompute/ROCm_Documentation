@@ -76,13 +76,7 @@ issues.
    -  `HIPTRACE Mode <#HIPTRACE-Mode>`__
    -  `Environment Variables <#Environment-Variables>`__
    -  `Debugging hipcc <#Debugging-hipcc>`__
-   -  `What Does This Error Mean? <#What-Does-This-Error-Mean>`__
-
-      -  `/usr/include/c++/v1/memory:5172:15: error: call to implicitly
-         deleted default constructor of std::__1::bad_weak_ptr™ throw
-         bad_weak_ptr(); <#usrincludecv1memory517215-error-call-to-implicitly-deleted-default-constructor-of-std__1bad_weak_ptr-throw-bad_weak_ptr>`__
-
-   -  `HIP Environment Variables <#hip-environment-variables>`__
+   -  `HIP Environment Variables <#HIP-Environment-Variables>`__
    -  `Editor Highlighting <#editor-highlighting>`__
 
 .. raw:: html
