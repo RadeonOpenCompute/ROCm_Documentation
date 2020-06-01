@@ -211,10 +211,10 @@ The following OpenCL runtime changes are made in this release:
 -  The developer branch is changed from master to master-next
 
 
-AMD ROCm GNU Debugger ROCgdb
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AMD ROCm GNU Debugger - ROCgdb
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for
+The AMD ROCm GNU Debugger (ROCgdb) is the AMD ROCm source-level debugger for
 Linux based on the GNU Debugger (GDB). It enables heterogeneous
 debugging on the AMD ROCm platform of an x86-based host architecture
 along with AMD GPU architectures and supported by the AMD Debugger API
