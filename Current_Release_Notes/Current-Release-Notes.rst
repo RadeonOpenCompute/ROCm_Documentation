@@ -477,6 +477,15 @@ There is no freeze observed with single GPUs.
 There are no known workarounds at this time.
 
 
+Issue with Running AMD ROCm v3.3 User Mode with AMD ROCm v3.5 DKMS Kernel Module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Running AMD ROCm v3.3 in the user mode with the AMD ROCm v3.5 DKMS kernel module will cause the following features to be broken:
+
+* IPC import/export, cross memory copy (used by UCX and MPI)
+* Experimental GDB support
+
+Resolution: Install ROCm v3.5 Thunk when using ROCm 3.5 Kernel Fusion Driver (KFD).
 
 Deprecations
 ==============
