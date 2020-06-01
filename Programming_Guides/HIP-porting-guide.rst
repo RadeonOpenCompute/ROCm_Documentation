@@ -929,7 +929,6 @@ order of secquence
 
 Editor Highlighting
 ~~~~~~~~~~~~~~~~~~~
-
 See the utils/vim or utils/gedit directories to add handy highlighting to hip files.
 
 
