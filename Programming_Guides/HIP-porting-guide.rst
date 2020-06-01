@@ -73,16 +73,10 @@ issues.
 
 -  `More Tips <#more-tips>`__
 
-   -  `HIPTRACE Mode <#HIPTRACE-Mode>`__
-   -  `Environment Variables <#Environment-Variables>`__
-   -  `Debugging hipcc <#Debugging-hipcc>`__
-   -  `HIP Environment Variables <#HIP-Environment-Variables>`__
-   -  `Editor Highlighting <#editor-highlighting>`__
-
+  
 .. raw:: html
 
-   <!-- tocstop -->
-
+  
 Porting a New CUDA Project
 --------------------------
 
