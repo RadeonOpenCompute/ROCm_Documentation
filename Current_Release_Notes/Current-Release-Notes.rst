@@ -438,6 +438,34 @@ When the ROCdbgapi library is used with an application that rapidly creates and 
 
 There are no known workarounds at this time.
 
+rocThrust and hipCUB Unit Test Failures 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following unit test failures have been observed due to known issues in the ROCclr runtime. 
+
+rocThrust
+
+* sort 
+* sort_by_key
+
+hipCUB
+
+* BlockDiscontinuity 
+* BlockExchange 
+* BlockHistogram 
+* BlockRadixSort
+* BlockReduce 
+* BlockScan
+
+Workaround: Use AMD ROCm v3.3 or older versions. 
+
+PEBB & PQT Tests Freeze and Remain Incomplete
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The measuring of the PCIe and GPU <-> GPU bandwidth is not supported in this release.
+
+There are no known workarounds at this time.
+
 
 Deprecations
 ============
