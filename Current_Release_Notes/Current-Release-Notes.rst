@@ -379,7 +379,7 @@ Fixed Issues
 ============
 
 Device printf Support for HIP-Clang
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 HIP now supports the use of printf in the device code. The parameters
 and return value for the device-side printf follow the POSIX.1 standard,
@@ -395,7 +395,7 @@ For more details, refer the HIP Programming Guide at:
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-GUIDE.html#hip-guide
 
 Assertions in HIP Device Code
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Previously, a failing assertion caused early termination of kernels and
 the application to exit with a line number, file, and failing condition
@@ -468,10 +468,10 @@ There are no known workarounds at this time.
 
 
 Deprecations
-============
+==============
 
 Heterogeneous Compute Compiler
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this release, the Heterogeneous Compute Compiler (HCC) compiler is
 deprecated and the HIP-Clang compiler is introduced for compiling
@@ -481,7 +481,7 @@ For more information, see HIP documentation at:
 https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html
 
 Deploying ROCm
---------------
+=================
 
 AMD hosts both Debian and RPM repositories for the ROCm v3.5.x packages.
 
