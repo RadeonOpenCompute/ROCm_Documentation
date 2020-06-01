@@ -73,7 +73,7 @@ issues.
 
 -  `More Tips <#more-tips>`__
 
-   -  `HIPTRACE Mode <#HIPTRACE-mode>`__
+   -  `HIPTRACE Mode <#HIPTRACE-Mode>`__
    -  `Environment Variables <#Environment-Variables>`__
    -  `Debugging hipcc <#Debugging-hipcc>`__
    -  `What Does This Error Mean? <#What-Does-This-Error-Mean>`__
@@ -236,7 +236,7 @@ See the table below for library equivalents between CUDA and ROCm.
 |                       |                             | Generator      |
 |                       |                             | Library        |
 +-----------------------+-----------------------------+----------------+
-| EIGEN                 | EIGEN â€“ HIP port          | C++ template   |
+| EIGEN                 | EIGEN HIP port              | C++ template   |
 |                       |                             | library for    |
 |                       |                             | linear         |
 |                       |                             | algebra:       |
@@ -870,21 +870,22 @@ We recommend the following for functional portability:
    use the \__ldg instruction
 -  Programs that use texture object and reference APIs, work well on HIP
 
-::
+More Tips
+===========
 
+HIPTRACE Mode
+~~~~~~~~~~~~~~~~~~
 
-   ## More Tips
-   ### HIPTRACE Mode
-
-   On an hcc/AMD platform, set the HIP_TRACE_API environment variable to see a textural API trace. Use the following bit mask:
+On an hcc/AMD platform, set the HIP_TRACE_API environment variable to see a textural API trace. Use the following bit mask:
        
    - 0x1 = trace APIs
    - 0x2 = trace synchronization operations
    - 0x4 = trace memory allocation / deallocation
 
-   ### Environment Variables
+Environment Variables
+~~~~~~~~~~~~~~~~~~~~~~~
 
-   On hcc/AMD platforms, set the HIP_PRINT_ENV environment variable to 1 and run an application that calls a HIP API to see all HIP-supported environment variables and their current values:
+On hcc/AMD platforms, set the HIP_PRINT_ENV environment variable to 1 and run an application that calls a HIP API to see all HIP-supported environment variables and their current values:
 
    - HIP_PRINT_ENV = 1: print HIP environment variables
    - HIP_TRACE_API = 1: trace each HIP API call. Print the function name and return code to stderr as the program executes.
@@ -893,10 +894,14 @@ We recommend the following for functional portability:
    - KMDUMPISA = 1 : Will dump the GCN ISA for all kernels into the local directory. (This flag is provided by HCC).
 
 
-   ### Debugging hipcc
-   To see the detailed commands that hipcc issues, set the environment variable HIPCC_VERBOSE to 1. Doing so will print to stderr the hcc (or nvcc) commands that hipcc generates. 
+Debugging hipcc
+~~~~~~~~~~~~~~~~~~~~
 
-export HIPCC_VERBOSE=1 make â€¦ hipcc-cmd: /opt/hcc/bin/hcc -hc
+To see the detailed commands that hipcc issues, set the environment variable HIPCC_VERBOSE to 1. Doing so will print to stderr the hcc (or nvcc) commands that hipcc generates. 
+
+::
+
+export HIPCC_VERBOSE=1 make¦ hipcc-cmd: /opt/hcc/bin/hcc -hc
 -I/opt/hcc/include -stdlib=libc++ -I../../../../hc/include
 -I../../../../include/hcc_detail/cuda -I../../../../include -x c++
 -I../../common -O3 -c backprop_cuda.cu
@@ -904,18 +909,20 @@ export HIPCC_VERBOSE=1 make â€¦ hipcc-cmd: /opt/hcc/bin/hcc -hc
 ::
 
 
-   ### What Does This Error Mean?
+What Does This Error Mean?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   #### /usr/include/c++/v1/memory:5172:15: error: call to implicitly deleted default constructor of 'std::__1::bad_weak_ptr' throw bad_weak_ptr();
+/usr/include/c++/v1/memory:5172:15: error: call to implicitly deleted default constructor of 'std::__1::bad_weak_ptr' throw bad_weak_ptr();
 
-   If you pass a ".cu" file, hcc will attempt to compile it as a CUDA language file. You must tell hcc that it's in fact a C++ file: use the "-x c++" option.
+If you pass a ".cu" file, hcc will attempt to compile it as a CUDA language file. You must tell hcc that it's in fact a C++ file: use the "-x c++" option.
 
 
-   ### HIP Environment Variables
+HIP Environment Variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   On the HCC path, HIP provides a number of environment variables that control the behavior of HIP.  Some of these are useful for application development (for example HIP_VISIBLE_DEVICES, HIP_LAUNCH_BLOCKING),
-   some are useful for performance tuning or experimentation (for example HIP_STAGING*), and some are useful for debugging (HIP_DB).  You can see the environment variables supported by HIP as well as
-   their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application.  For example:
+On the HCC path, HIP provides a number of environment variables that control the behavior of HIP.  Some of these are useful for application development (for example HIP_VISIBLE_DEVICES, HIP_LAUNCH_BLOCKING), some are useful for performance tuning or experimentation (for example HIP_STAGING*), and some are useful for debugging (HIP_DB).  You can see the environment variables supported by HIP as well as their current values and usage with the environment var "HIP_PRINT_ENV" - set this and then run any HIP application.  
+
+For example:
 
 $ HIP_PRINT_ENV=1 ./myhipapp HIP_PRINT_ENV = 1 : Print HIP environment
 variables. HIP_LAUNCH_BLOCKING = 0 : Make HIP APIs host-synchronous,
