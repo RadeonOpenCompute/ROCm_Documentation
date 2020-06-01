@@ -11,65 +11,31 @@ HIP environment. This section describes the available tools and provides
 practical suggestions on how to port CUDA code and work through common
 issues.
 
-
 -  `Porting a New CUDA Project <#porting-a-new-cuda-project>`__
-
-   -  `General Tips <#general-tips>`__
-   -  `Scanning existing CUDA code to scope the porting
-      effort <#scanning-existing-cuda-code-to-scope-the-porting-effort>`__
-   -  `Converting a project in-place <#converting-a-project-in-place>`__
-   -  `CUDA to HIP Math Library Equivalents <#library-equivalents>`__
 
 -  `Distinguishing Compiler Modes <#distinguishing-compiler-modes>`__
 
-   -  `Identifying HIP Target
-      Platform <#identifying-hip-target-platform>`__
-   -  `Identifying the Compiler: hcc, hip-clang, or
-      nvcc <#identifying-the-compiler-hcc-hip-clang-or-nvcc>`__
-   -  `Identifying Current Compilation Pass: Host or
-      Device <#identifying-current-compilation-pass-host-or-device>`__
-   -  `Compiler Defines: Summary <#compiler-defines-summary>`__
-
--  `Identifying Architecture
-   Features <#identifying-architecture-features>`__
-
-   -  `HIP_ARCH Defines <#hip_arch-defines>`__
-   -  `Device-Architecture
-      Properties <#device-architecture-properties>`__
-   -  `Table of Architecture
-      Properties <#table-of-architecture-properties>`__
+-  `Identifying Architecture Features <#identifying-architecture-features>`__
 
 -  `Finding HIP <#finding-hip>`__
+
 -  `Identifying HIP Runtime <#identifying-hip-runtime>`__
+
 -  `hipLaunchKernel <#hiplaunchkernel>`__
+
 -  `Compiler Options <#compiler-options>`__
+
 -  `Linking Issues <#linking-issues>`__
 
-   -  `Linking With hipcc <#linking-with-hipcc>`__
-   -  `-lm Option <#-lm-option>`__
+-  `Linking With hipcc <#linking-with-hipcc>`__
+ 
+-  `Linking Code With Other Compilers <#linking-code-with-other-compilers>`__
 
--  `Linking Code With Other
-   Compilers <#linking-code-with-other-compilers>`__
-
-   -  `libc++ and libstdc++ <#libc-and-libstdc>`__
-   -  `HIP Headers (hip_runtime.h,
-      hip_runtime_api.h) <#hip-headers-hip_runtimeh-hip_runtime_apih>`__
-   -  `Using a Standard C++ Compiler <#using-a-standard-c-compiler>`__
-
-      -  `cuda.h <#cudah>`__
-
-   -  `Choosing HIP File Extensions <#choosing-hip-file-extensions>`__
+ -  `Choosing HIP File Extensions <#choosing-hip-file-extensions>`__
 
 -  `Workarounds <#workarounds>`__
 
-   -  `warpSize <#warpsize>`__
-   -  `Kernel launch with group size >
-      256 <#kernel-launch-with-group-size--256>`__
-
--  `memcpyToSymbol <#memcpytosymbol>`__
--  `threadfence_system <#threadfence_system>`__
-
-   -  `Textures and Cache Control <#textures-and-cache-control>`__
+- `Textures and Cache Control <#textures-and-cache-control>`__
 
 -  `More Tips <#more-tips>`__
 
