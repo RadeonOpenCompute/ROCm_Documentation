@@ -137,7 +137,7 @@ What's New in This Release
 ==========================
 
 Upgrading to This Release
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You must perform a fresh and a clean AMD ROCm install to successfully
 upgrade from v3.3 to v3.5. The following changes apply in this release:
