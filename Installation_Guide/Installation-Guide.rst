@@ -8,7 +8,7 @@ AMD ROCm Installation Guide v3.3.0
 
    -  `Ubuntu`_
    
-   -  `Centos RHEL v7.7`_
+   -  `Centos RHEL v7.7 and v8.1`_
    
    -  `SLES 15 Service Pack 1`_
    
@@ -157,14 +157,16 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 .. _CentOS RHEL:
 
-CentOS RHEL v7.7
-^^^^^^^^^^^^^^
+CentOS RHEL v7.7 and v8.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7.
+This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7 and v8.1 and RHEL v7.8 and v8.1.
+
+Note: Devtoolset is not required for CentOS/RHEL v8.1.
 
 
-Preparing RHEL v7 (7.7) for Installation
-'''''''''''''''''''''''''''''''''''''''''''
+Preparing RHEL for Installation
+'''''''''''''''''''''''''''''''''''
 
 RHEL is a subscription-based operating system. You must enable the external repositories to install on the devtoolset-7 environment and the dkms support files.
 
@@ -196,10 +198,10 @@ To setup the Devtoolset-7 environment, follow the instructions on this page: htt
 
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
 
-Installing CentOS/RHEL (v7.7) for DKMS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installing CentOS (v7.7)/RHEL (v7.8) for DKMS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use the dkms tool to install the kernel drivers on CentOS/RHEL v7.7:
+Use the dkms tool to install the kernel drivers on CentOS/RHEL:
 
 ::
 
@@ -256,7 +258,7 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
   echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
   echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
-Note: The current release supports CentOS/RHEL v7.7. Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
+Note:  Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
 
 8. Restart the system.
 
@@ -293,7 +295,7 @@ To compile applications or samples, run the following command to use gcc-7.2 pro
   scl enable devtoolset-7 bash
 
 
-Uninstalling ROCm from CentOS/RHEL v7.7
+Uninstalling ROCm from CentOS/RHEL 
 ''''''''''''''''''''''''''''''''''''''''
 
 To uninstall the ROCm packages, run the following command:
