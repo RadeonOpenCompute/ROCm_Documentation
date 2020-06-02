@@ -156,10 +156,11 @@ upgrade from v3.3 to v3.5. The following changes apply in this release:
    
 
 
-SQLite3 for ROCProfiler
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rocProf Command Line Tool Python Requirement
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SQLite3 is a required module for ROCProfiler in the v3.5 release. You can install the SQLite3 Python module separately and ensure the environment variable is set to *ROCP_PYTHON_VERSION* to confirm the Python version, which includes the SQLite3 module.
+SQLite3 is a required Python module for the rocprof command-line tool.  You can install the SQLite3 Python module using the pip utility and set env var ROCP_PYTHON_VERSION to the Python version, which includes the SQLite3 module.
+
 
 
 Heterogeneous-Compute Interface for Portability
