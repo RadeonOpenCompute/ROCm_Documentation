@@ -464,13 +464,6 @@ hipCUB
 
 **Workaround**: Use AMD ROCm v3.3 or older versions. 
 
-PEBB & PQT Tests Freeze and Remain Incomplete
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The measuring of the PCIe and GPU <-> GPU bandwidth is not supported in this release.
-
-There are no known workarounds at this time.
-
 
 Multiple GPU Configuration Freezes with Imagenet Training and tf_cnn_benchmark on TensorFlow 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
