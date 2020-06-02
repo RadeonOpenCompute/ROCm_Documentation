@@ -3,7 +3,7 @@
 |
 
 =============================================================
-AMD Radeon Open Compute platforM (ROCm) Release Notes v3.3.0
+AMD Radeon Open Compute platforM (ROCm) Release Notes v3.5.0
 =============================================================
 June, 2020
 
@@ -35,8 +35,8 @@ operating systems:
 Documentation Updates
 ---------------------
 
-HIP-Clang Compile
-~~~~~~~~~~~~~~~~~
+HIP-Clang Compiler
+~~~~~~~~~~~~~~~~~~
 
 -  `HIP FAQ - Transition from HCC to
    HIP-Clang <https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq>`__
@@ -95,7 +95,7 @@ What's New in This Release
 ==========================
 
 Upgrading to This Release
-###########################
+---------------------------
 
 You must perform a fresh and a clean AMD ROCm install to successfully
 upgrade from v3.3 to v3.5. The following changes apply in this release:
@@ -113,14 +113,14 @@ upgrade from v3.3 to v3.5. The following changes apply in this release:
 
 
 rocProf Command Line Tool Python Requirement
-##############################################
+----------------------------------------------
 
 SQLite3 is a required Python module for the rocprof command-line tool.  You can install the SQLite3 Python module using the pip utility and set env var ROCP_PYTHON_VERSION to the Python version, which includes the SQLite3 module.
 
 
 
 Heterogeneous-Compute Interface for Portability
-###################################################
+--------------------------------------------------
 
 In this release, the Heterogeneous Compute Compiler (HCC) compiler is
 deprecated and the HIP-Clang compiler is introduced for compiling
@@ -150,12 +150,12 @@ HIP-Clang has a stricter syntax and semantic checks compared to HCC.
 NOTE: Native HCC language features are no longer supported.
 
 Radeon Open Compute Common Language Runtime
-############################################
+----------------------------------------------
 
 In this release,  the HIP runtime API is implemented on top of Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr.
 
 OpenCL Runtime
-###############
+---------------------
 
 The following OpenCL runtime changes are made in this release:
 
@@ -164,7 +164,7 @@ The following OpenCL runtime changes are made in this release:
 
 
 AMD ROCm GNU Debugger - ROCgdb
-################################
+---------------------------------
 
 The AMD ROCm GNU Debugger (ROCgdb) is the AMD ROCm source-level debugger for
 Linux based on the GNU Debugger (GDB). It enables heterogeneous
@@ -195,7 +195,7 @@ For more information about GNU Debugger (GDB), refer to the GNU Debugger
 (GDB) web site at: http://www.gnu.org/software/gdb
 
 AMD ROCm Debugger API Library
-###############################
+------------------------------
 
 The AMD ROCm Debugger API Library (ROCdbgapi) implements an AMD GPU
 debugger application programming interface (API) that provides the
@@ -213,7 +213,7 @@ Specification is available as a PDF at:
 https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
 
 rocProfiler Dispatch Callbacks Start Stop API
-##############################################
+-----------------------------------------------
 
 In this release, a new rocprofiler start/stop API is added to
 enable/disable GPU kernel HSA dispatch callbacks. The callback can be
@@ -234,7 +234,7 @@ http://www.hsafoundation.com/standards/.
 
 
 ROCm Communications Collective Library
-#######################################
+------------------------------------------
 
 The ROCm Communications Collective Library (RCCL) consists of the
 following enhancements: 
@@ -254,7 +254,7 @@ AMD RCCL is now compatible with NVIDIA Communications Collective Library
 
 
 MIOpen - Optional Kernel Package Installation
-##############################################
+------------------------------------------------
 
 MIOpen provides an optional pre-compiled kernel package to reduce
 startup latency.
@@ -276,7 +276,7 @@ following command:
 
 
 New SMI Event Interface and Library
-#####################################
+------------------------------------
 
 An SMI event interface is added to the kernel and ROCm SMI lib for
 system administrators to get notified when specific events occur. On the
@@ -294,7 +294,7 @@ For the more details about ROCm SMI API, see
 https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual.pdf
 
 API for CPU Affinity
-#####################
+---------------------
 
 A new API is introduced for aiding applications to select the
 appropriate memory node for a given accelerator(GPU).
@@ -314,7 +314,7 @@ location relative to the processor.
 
 
 Radeon Performance Primitives Library
-#######################################
+---------------------------------------
 
 The new Radeon Performance Primitives (RPP) library is a comprehensive
 high-performance computer vision library for AMD (CPU and GPU) with the
@@ -333,7 +333,7 @@ Fixed Issues
 ============
 
 Device printf Support for HIP-Clang
-#####################################
+-------------------------------------
 
 HIP now supports the use of printf in the device code. The parameters
 and return value for the device-side printf follow the POSIX.1 standard,
@@ -349,7 +349,7 @@ For more details, refer the HIP Programming Guide at:
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-GUIDE.html#hip-guide
 
 Assertions in HIP Device Code
-##############################
+-------------------------------
 
 Previously, a failing assertion caused early termination of kernels and
 the application to exit with a line number, file, and failing condition
@@ -375,7 +375,7 @@ Known Issues
 The following are the known issues in the v3.5 release.
 
 HIPify-Clang Installation Failure on CentOS/RHEL 
-#################################################
+--------------------------------------------------
 
 HIPify-Clang fails to install on CentOS/RHEL with the following error:
 
@@ -394,7 +394,7 @@ sudo rpm -ivh --force hipify-clang-11.0.0.x86_64.rpm
 
 
 Failure to Process Breakpoint before Queue Destroy Results in ROCm Debugger Error
-####################################################################################
+------------------------------------------------------------------------------------
 
 When ROCgdb is in non-stop mode with an application that rapidly creates and destroys queues, a breakpoint may be reported that is not processed by the debugger before the queue is deleted. In some cases, this can result in the following error that prevents further debugging:
 
@@ -403,7 +403,7 @@ When ROCgdb is in non-stop mode with an application that rapidly creates and des
 There are no known workarounds at this time.
 
 Failure to Process Breakpoint before Queue Destroy Results in ROCm Debugger API Error
-#######################################################################################
+----------------------------------------------------------------------------------------
 
 When the ROCdbgapi library is used with an application that rapidly creates and destroys queues, a breakpoint may be reported that is not processed by the client before the queue is deleted. In some cases, this can result in a fatal error and the following error log message is produced:
 
@@ -412,7 +412,7 @@ When the ROCdbgapi library is used with an application that rapidly creates and 
 There are no known workarounds at this time.
 
 rocThrust and hipCUB Unit Test Failures 
-###########################################
+------------------------------------------
 
 The following unit test failures have been observed due to known issues in the ROCclr runtime. 
 
@@ -434,7 +434,7 @@ There are no known workarounds in the current release.
 
 
 Multiple GPU Configuration Freezes with Imagenet Training and tf_cnn_benchmark on TensorFlow 
-#############################################################################################
+----------------------------------------------------------------------------------------------
 
 A random freeze has been observed with Imagenet training and tf_cnn_benchmark on TensorFlow when multiple GPU configurations are involved. 
 
@@ -444,7 +444,7 @@ There are no known workarounds at this time.
 
 
 Issue with Running AMD ROCm v3.3 User Mode with AMD ROCm v3.5 DKMS Kernel Module
-####################################################################################
+------------------------------------------------------------------------------------
 
 Running AMD ROCm v3.3 in the user mode with the AMD ROCm v3.5 DKMS kernel module will cause the following features to be broken:
 
@@ -458,7 +458,7 @@ Deprecations
 ==============
 
 Heterogeneous Compute Compiler
-################################
+--------------------------------
 
 In this release, the Heterogeneous Compute Compiler (HCC) compiler is
 deprecated and the HIP-Clang compiler is introduced for compiling
