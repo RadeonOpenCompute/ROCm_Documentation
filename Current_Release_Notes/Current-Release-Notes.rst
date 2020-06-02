@@ -74,8 +74,7 @@ operating systems:
 -  SLES 15 SP1
 -  CentOS and RHEL 8.1(Kernel 4.18.0-147)
 
-**NOTE**: Framework support (TensorFlow, pyTorch & Caffe2) for v8.1 is
-not available.
+
 
 Documentation Updates
 ---------------------
