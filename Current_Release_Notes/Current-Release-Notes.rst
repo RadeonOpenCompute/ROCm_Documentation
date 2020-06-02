@@ -12,8 +12,6 @@ AMD ROCm Release Notes v3.5.0
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues and deprecated features in the ROCm v3.5.0 release.
 
-` Download AMD ROCm v3.5 Release Notes PDF<https://github.com/RadeonOpenCompute/ROCm>`__
-
 
 Supported Operating Systems and Documentation Updates
 =====================================================
