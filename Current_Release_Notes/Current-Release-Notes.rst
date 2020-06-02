@@ -288,16 +288,18 @@ ROCm Communications Collective Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ROCm Communications Collective Library (RCCL) consists of the
-following enhancements: \* Re-enable target 0x803 \* Build time
-improvements for the HIP-Clang compiler
+following enhancements: 
+* Re-enable target 0x803 
+* Build time improvements for the HIP-Clang compiler
 
-NVIDIA Communications Collective Library Version Compatibility
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**NVIDIA Communications Collective Library Version Compatibility**
 
 AMD RCCL is now compatible with NVIDIA Communications Collective Library
-(NCCL) v2.6.4 and provides the following features: \* Network interface
-improvements with API v3 \* Network topology detection \* Improved CPU
-type detection \* Infiniband adaptive routing support
+(NCCL) v2.6.4 and provides the following features: 
+* Network interface improvements with API v3 
+* Network topology detection 
+* Improved CPU type detection 
+* Infiniband adaptive routing support
 
 .. _amd-rocm-deep-learning-1:
 
