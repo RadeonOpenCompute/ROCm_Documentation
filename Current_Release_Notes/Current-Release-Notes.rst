@@ -153,6 +153,13 @@ upgrade from v3.3 to v3.5. The following changes apply in this release:
    -  v3.5 release has two separate rock-dkms and rock-dkms-firmware
       packages
    -  v3.3 release had the firmware as part of the rock-dkms package
+   
+
+
+SQLite3 for ROCProfiler
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SQLite3 is a required module for ROCProfiler in the v3.5 release. You can install the SQLite3 Python module separately and ensure the environment variable is set to *ROCP_PYTHON_VERSION* to confirm the Python version, which includes the SQLite3 module.
 
 
 Heterogeneous-Compute Interface for Portability
