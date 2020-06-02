@@ -232,6 +232,8 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
 
 3. Install ROCm components using the following command:
 
+**Note**: This step is applicable only for CentOS/RHEL v8.1 and is not required for v7.8.
+
 ::
 
     sudo yum install rocm-dkms
