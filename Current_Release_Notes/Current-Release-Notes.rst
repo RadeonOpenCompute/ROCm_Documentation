@@ -430,7 +430,7 @@ hipCUB
 * BlockReduce 
 * BlockScan
 
-**Workaround**: Use AMD ROCm v3.3 or older versions. 
+There are no known workarounds in the current release.
 
 
 Multiple GPU Configuration Freezes with Imagenet Training and tf_cnn_benchmark on TensorFlow 
