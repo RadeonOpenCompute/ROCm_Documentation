@@ -157,7 +157,7 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 .. _CentOS RHEL:
 
-CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1
+CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1.
@@ -192,7 +192,7 @@ For more details, see https://dl.fedoraproject.org/pub/epel/epel-release-latest-
 
 4. Install and set up Devtoolset-7.
    
-Note: Devtoolset is not required for CentOS/RHEL v8.1.
+**Note**: Devtoolset is not required for CentOS/RHEL v8.x
 
 To setup the Devtoolset-7 environment, follow the instructions on this page: https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 
@@ -544,7 +544,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.3.0
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.5.0
   repo sync
 
 
@@ -1404,17 +1404,17 @@ DKMS driver installation
 
 Debian packages are provided for DKMS on Ubuntu
 
-RPM packages are provided for CentOS/RHEL 7.x and 8.x support
+RPM packages are provided for CentOS/RHEL 7.4 and 7.5
 
 See the ROCT-Thunk-Interface and ROCK-Kernel-Driver for additional documentation on driver setup
 
 New distribution support
 
-Binary package support for Ubuntu 16.04.6 and 18.04.4
+Binary package support for Ubuntu 16.04 and 18.04
 
-Binary package support for CentOS 7.7 and 8.1
+Binary package support for CentOS 7.4 and 7.5
 
-Binary package support for RHEL 7.8 and 8.1
+Binary package support for RHEL 7.4 and 7.5
 
 Improved OpenMPI via UCX support
 
