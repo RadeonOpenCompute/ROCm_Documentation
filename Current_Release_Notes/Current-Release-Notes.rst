@@ -322,7 +322,7 @@ following command:
 
 *apt-get install miopen-kernels--*
 
--   is the GPU architecture. Ror example, gfx900, gfx906
+-   is the GPU architecture. For example, gfx900, gfx906
 -   is the number of CUs available in the GPU. Ffor example, 56 or 64
 
 
