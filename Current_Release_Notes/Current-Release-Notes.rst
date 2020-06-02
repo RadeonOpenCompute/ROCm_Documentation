@@ -491,6 +491,13 @@ Running AMD ROCm v3.3 in the user mode with the AMD ROCm v3.5 DKMS kernel module
 **Resolution**: Install ROCm v3.5 Thunk (*Hsakmt*) when using ROCm 3.5 Kernel Fusion Driver (KFD). 
 
 
+SQLite3 Library Not Found in ROCProfiler
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCProfiler tool appears to be broken when the SQLite3 library is not found.
+
+**Resolution**: Install the SQLite3 Python module separately and ensure the environment variable is set to ROCP_PYTHON_VERSION to confirm the Python version, which includes the SQLite3 module.
+
 Deprecations
 ==============
 
