@@ -8,7 +8,7 @@ AMD ROCm Installation Guide v3.3.0
 
    -  `Ubuntu`_
    
-   -  `Centos RHEL v7.7 and v8.1`_
+   -  `CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1`_
    
    -  `SLES 15 Service Pack 1`_
    
@@ -157,13 +157,10 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 .. _CentOS RHEL:
 
-CentOS RHEL v7.7 and v8.1
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7 and v8.1 and RHEL v7.8 and v8.1.
-
-Note: Devtoolset is not required for CentOS/RHEL v8.1.
-
+This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1.
 
 Preparing RHEL for Installation
 '''''''''''''''''''''''''''''''''''
@@ -174,7 +171,7 @@ Note: The following steps do not apply to the CentOS installation.
 
 1. The subscription for RHEL must be enabled and attached to a pool ID. See the Obtaining an RHEL image and license page for instructions on registering your system with the RHEL subscription server and attaching to a pool id.
 
-2. Enable the following repositories:
+2. Enable the following repositories for RHEL v7.x:
 
 ::
    
@@ -183,22 +180,25 @@ Note: The following steps do not apply to the CentOS installation.
     sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 
 
-3. Enable additional repositories by downloading and installing the epel-release-latest-7 repository RPM:
+3. Enable additional repositories by downloading and installing the epel-release-latest-7/epel-release-latest-8 repository RPM:
 
 ::
 
    sudo rpm -ivh <repo>
 
 
-For more details, see https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+For more details, see https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm for RHEL v7.x
+                  see https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm for RHEL v8.x
 
 4. Install and set up Devtoolset-7.
+   
+Note: Devtoolset is not required for CentOS/RHEL v8.1.
 
 To setup the Devtoolset-7 environment, follow the instructions on this page: https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
 
-Installing CentOS (v7.7)/RHEL (v7.8) for DKMS
+Installing CentOS v7.7/v8.1 for DKMS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the dkms tool to install the kernel drivers on CentOS/RHEL:
@@ -218,7 +218,8 @@ To install ROCm on your system, follow the instructions below:
 1. Delete the previous versions of ROCm before installing the latest version.
 
 2. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
-
+    CentOS/RHEL 7.x : baseurl=http://repo.radeon.com/rocm/yum/rpm 
+    CentOS/RHEL 8.x : baseurl=http://repo.radeon.com/rocm/centos8/rpm
 ::
 
     [ROCm] 
@@ -1403,17 +1404,17 @@ DKMS driver installation
 
 Debian packages are provided for DKMS on Ubuntu
 
-RPM packages are provided for CentOS/RHEL 7.4 and 7.5 support
+RPM packages are provided for CentOS/RHEL 7.x and 8.x support
 
 See the ROCT-Thunk-Interface and ROCK-Kernel-Driver for additional documentation on driver setup
 
 New distribution support
 
-Binary package support for Ubuntu 16.04 and 18.04
+Binary package support for Ubuntu 16.04.6 and 18.04.4
 
-Binary package support for CentOS 7.4 and 7.5
+Binary package support for CentOS 7.7 and 8.1
 
-Binary package support for RHEL 7.4 and 7.5
+Binary package support for RHEL 7.8 and 8.1
 
 Improved OpenMPI via UCX support
 
