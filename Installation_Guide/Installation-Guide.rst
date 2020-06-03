@@ -719,16 +719,16 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 **ROCm Core Components**
 
-   -  `ROCk Kernel Driver`_
-   -  `ROCr Runtime`_
-   -  `ROCt Thunk Interface`_
+ -  `ROCk Kernel Driver`_
+ -  `ROCr Runtime`_
+ -  `ROCt Thunk Interface`_
 
 **ROCm Support Software**
 
-   -  `ROCm SMI`_
-   -  `ROCm cmake`_
-   -  `rocminfo`_
-   -  `ROCm Bandwidth Test`_
+ -  `ROCm SMI`_
+ -  `ROCm cmake`_
+ -  `rocminfo`_
+ -  `ROCm Bandwidth Test`_
 
 **ROCm Compilers**
 
