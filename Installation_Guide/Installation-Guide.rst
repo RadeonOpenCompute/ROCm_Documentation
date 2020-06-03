@@ -732,19 +732,18 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 **ROCm Compilers**
 
-  -  `HCC compiler`_
-  -  `HIP`_
-   -  `ROCM Clang-OCL Kernel Compiler`_
+ -  `HCC compiler`_
+ -  `HIP`_
+ -  `ROCM Clang-OCL Kernel Compiler`_
   
-   Example Applications:
+ Example Applications:
 
-  -  `HCC Examples`_
-  -  `HIP Examples`_
+ -  `HCC Examples`_
+ -  `HIP Examples`_
   
-  **ROCm Device Libraries and Tools**
+**ROCm Device Libraries and Tools**
   
-  -  `ROCm Device Libraries`_
-
+ -  `ROCm Device Libraries`_
  -  `ROCm OpenCL Runtime`_
  -  `ROCm LLVM OCL`_
  -  `ROCm Device Libraries OCL`_
