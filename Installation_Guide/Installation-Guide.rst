@@ -598,9 +598,9 @@ ROCm Support Software
 ROCm Compilers
 ================
 
-     -   HCC compiler: ``hcc``
+     -   HCC compiler: ``hcc``   (in deprecation)
      
-     -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples`` (in deprecation)
+     -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples`` 
      
      -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
      
@@ -730,17 +730,24 @@ The latest supported version of the drivers, tools, libraries and source code fo
    -  `rocminfo`_
    -  `ROCm Bandwidth Test`_
 
-**ROCm Development ToolChain**
+**ROCm Compilers**
 
   -  `HCC compiler`_
   -  `HIP`_
+   -  `ROCM Clang-OCL Kernel Compiler`_
+  
+   Example Applications:
+
+  -  `HCC Examples`_
+  -  `HIP Examples`_
+  
+  **ROCm Device Libraries and Tools**
+  
   -  `ROCm Device Libraries`_
 
  -  `ROCm OpenCL Runtime`_
  -  `ROCm LLVM OCL`_
  -  `ROCm Device Libraries OCL`_
-         
- -  `ROCM Clang-OCL Kernel Compiler`_
  -  `Asynchronous Task and Memory Interface`_
  -  `ROCr Debug Agent`_
  -  `ROCm Code Object Manager`_
@@ -750,10 +757,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
  -  `Radeon Compute Profiler`_
  -  `ROCm Validation Suite`_
 
- Example Applications:
 
-  -  `HCC Examples`_
-  -  `HIP Examples`_
 
 **ROCm Libraries**
 
