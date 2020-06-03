@@ -157,7 +157,7 @@ You can install the ROCm user-level software without installing the AMD's custom
 
 .. _CentOS RHEL:
 
-CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1
+CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1.
