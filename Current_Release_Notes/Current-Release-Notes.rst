@@ -386,9 +386,9 @@ HIPify-Clang fails to install on CentOS/RHEL with the following error:
 
 ::
 
-sudo rpm -ivh --force hipify-clang-11.0.0.x86_64.rpm
+      sudo rpm -ivh --force hipify-clang-11.0.0.x86_64.rpm
 
-::
+
 
 
 Failure to Process Breakpoint before Queue Destroy Results in ROCm Debugger Error
