@@ -798,13 +798,24 @@ ROCm Support Software
 .. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.5.0
 
 
-ROCm Development ToolChain
-============================
+ROCm Compilers
+================
 
 
 .. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-3.5.0 
 
 .. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.5.0
+
+
+.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
+
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.5.0
+
+
+
+ROCm Device Libraries and Tools
+==================================
+
 
 .. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.5.0
 
@@ -832,9 +843,7 @@ ROCm Development ToolChain
 
 .. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/rocm-3.5.0
 
-.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
 
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.5.0
 
 
 
