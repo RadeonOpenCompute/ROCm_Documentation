@@ -581,71 +581,63 @@ The packages for each of the major ROCm components are:
 ROCm Core Components
 =====================
 
-     -   ROCk Kernel Driver: ``rock-dkms``
-     -   ROCr Runtime: ``hsa-rocr-dev``, ``hsa-ext-rocr-dev``
-     -   ROCt Thunk Interface: ``hsakmt-roct``, ``hsakmt-roct-dev``
+ -   ROCk Kernel Driver: ``rock-dkms``
+ -   ROCr Runtime: ``hsa-rocr-dev``, ``hsa-ext-rocr-dev``
+ -   ROCt Thunk Interface: ``hsakmt-roct``, ``hsakmt-roct-dev``
 
 
 ROCm Support Software
 ======================
 
-     -   ROCm SMI: ``rocm-smi``
-     -   ROCm cmake: ``rocm-cmake``
-     -   rocminfo: ``rocminfo``
-     -   ROCm Bandwidth Test: ``rocm_bandwidth_test``
+ -   ROCm SMI: ``rocm-smi``
+ -   ROCm cmake: ``rocm-cmake``
+ -   rocminfo: ``rocminfo``
+ -   ROCm Bandwidth Test: ``rocm_bandwidth_test``
      
     
 ROCm Compilers
 ================
 
-     -   HCC compiler: ``hcc``   (in deprecation)
-     
-     -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples`` 
-     
-     -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
+ -   HCC compiler: ``hcc``   (in deprecation)     
+ -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``      
+ -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
      
 
 ROCm Device Libraries
 ===========================
      
-     -   ROCm Device Libraries: ``rocm-device-libs``
-     
-     -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
+ -   ROCm Device Libraries: ``rocm-device-libs``     
+ -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
      
      
  ROCm Development ToolChain
 ===========================
      
-     -   Asynchronous Task and Memory Interface (ATMI): ``atmi``
-     
-     -   ROCm Debug Agent: ``rocm_debug_agent``
-     
-     -   ROCm Code Object Manager: ``comgr``
-     
-     -   ROC Profiler: ``rocprofiler-dev``
-     
-     -   ROC Tracer: ``roctracer-dev``
-     
-     -   Radeon Compute Profiler: ``rocm-profiler``
+ -   Asynchronous Task and Memory Interface (ATMI): ``atmi``     
+ -   ROCm Debug Agent: ``rocm_debug_agent``     
+ -   ROCm Code Object Manager: ``comgr``     
+ -   ROC Profiler: ``rocprofiler-dev``     
+ -   ROC Tracer: ``roctracer-dev``     
+ -   Radeon Compute Profiler: ``rocm-profiler``
      
 
 ROCm Libraries
 ==============
  
-     -  rocALUTION: ``rocalution``
-     -  rocBLAS: ``rocblas``
-     -  hipBLAS: ``hipblas``
-     -  hipCUB: ``hipCUB``
-     -  rocFFT: ``rocfft``
-     -  rocRAND: ``rocrand``
-     -  rocSPARSE: ``rocsparse``
-     -  hipSPARSE: ``hipsparse``
-     -  ROCm SMI Lib: ``rocm-smi-lib64``
-     -  rocThrust: ``rocThrust``
-     -  MIOpen: ``MIOpen-HIP`` (for the HIP version), ``MIOpen-OpenCL`` (for the OpenCL version)
-     -  MIOpenGEMM: ``miopengemm``
-     -  MIVisionX: ``mivisionx``
-     -  RCCL: ``rccl``
+ -  rocALUTION: ``rocalution``
+ -  rocBLAS: ``rocblas``
+ -  hipBLAS: ``hipblas``
+ -  hipCUB: ``hipCUB``
+ -  rocFFT: ``rocfft``
+ -  rocRAND: ``rocrand``
+ -  rocSPARSE: ``rocsparse``
+ -  hipSPARSE: ``hipsparse``
+ -  ROCm SMI Lib: ``rocm-smi-lib64``
+ -  rocThrust: ``rocThrust``
+ -  MIOpen: ``MIOpen-HIP`` (for the HIP version), ``MIOpen-OpenCL`` (for the OpenCL version)
+ -  MIOpenGEMM: ``miopengemm``
+ -  MIVisionX: ``mivisionx``
+ -  RCCL: ``rccl``
 
 
 To make it easier to install ROCm, the AMD binary repositories provide a number of meta-packages that will automatically install multiple other packages. For example, ``rocm-dkms`` is the primary meta-package that is
