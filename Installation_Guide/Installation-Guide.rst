@@ -595,18 +595,26 @@ ROCm Support Software
      -   ROCm Bandwidth Test: ``rocm_bandwidth_test``
      
     
-ROCm Development ToolChain
-===========================
+ROCm Compilers
+================
 
      -   HCC compiler: ``hcc``
      
-     -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``
+     -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples`` (in deprecation)
+     
+     -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
+     
+
+ROCm Device Libraries
+===========================
      
      -   ROCm Device Libraries: ``rocm-device-libs``
      
      -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
      
-     -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
+     
+ ROCm Development ToolChain
+===========================
      
      -   Asynchronous Task and Memory Interface (ATMI): ``atmi``
      
