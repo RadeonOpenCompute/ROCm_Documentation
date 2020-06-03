@@ -724,13 +724,13 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 **ROCm Compilers**
 
- -  `HCC compiler`_
+ -  `HCC compiler`_  (in deprecation)
  -  `HIP`_
  -  `ROCM Clang-OCL Kernel Compiler`_
   
  Example Applications:
 
- -  `HCC Examples`_
+ -  `HCC Examples`_ (in deprecation)
  -  `HIP Examples`_
   
 **ROCm Device Libraries and Tools**
@@ -796,6 +796,7 @@ ROCm Support Software
 ROCm Compilers
 ================
 
+Note: HCC Compiler is in deprecation mode. 
 
 .. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-3.5.0 
 
