@@ -709,7 +709,7 @@ Similarly, a user that only wants to install OpenCL support instead of HCC and H
 ROCm Platform Packages
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following platform packages are for ROCm v3.3.0:
+The following platform packages are for ROCm v3.5.0:
 
 Drivers, ToolChains, Libraries, and Source Code
 
