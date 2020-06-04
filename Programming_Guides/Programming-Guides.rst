@@ -2,41 +2,37 @@
 
 .. _Programming-Guides:
 
-===================
-Programming Guides
-===================
+=======================
+HCC Deprecation Notice
+=======================
 
-ROCm Languages
-================
+In the v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
 
+**NOTE**: The HCC environment variables will be gradually deprecated in subsequent releases.
+
+The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
+
+`FAQ Transition to HIP from HCC <https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq>`_
+
+`HIP Porting Guide <https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-porting-guide.html#hip-porting-guide>`_
+
+
+
+
+========================================================
+HIP: Heterogeneous-Computing Interface for Portability
+========================================================
+
+ROCm Supported Languages
+=========================
 
 ROCm, Lingua Franca,  C++, OpenCL and Python
 #############################################
 The open-source ROCm stack offers multiple programming-language choices. The goal is to give you a range of tools to help solve the
 problem at hand. Here, we describe some of the options and how to choose among them.
 
-
-HCC: Heterogeneous Compute Compiler
-####################################
-
-**HCC : An open source C++ compiler for heterogeneous devices**
-
-This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as HC, C++ 17 ParallelSTL and transforms it into the AMD GCN ISA.
-
-Deprecation Notice
-*******************
-
-In this release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
-
-**NOTE**: The HCC environment variables will be gradually deprecated in subsequent releases.
-
-The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
-
-The project is based on LLVM+CLANG. For more information, please visit :ref:`HCCguide`
-
-========================================================
-HIP: Heterogeneous-Computing Interface for Portability
-========================================================
+HIP Programming Guide
+======================
 
 What is Heterogeneous-Computing Interface for Portability (HIP)? It’s a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the
 host/kernel boundary.
@@ -193,8 +189,8 @@ Notes
 3. HC allows tile dimensions to be specified at runtime while C++AMP requires that tile dimensions be specified at compile-time.  Thus hc syntax for tile dims is ``t_ext.tile_dim[0]``  while C++AMP is ``t_ext.tile_dim0``.
 4. **From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
-HIP Programming Guide
-====================
+HIP Repository Information
+============================
 
 **What is this repository for?**
 
@@ -235,26 +231,26 @@ This section describes the built-in variables and functions accessible from the 
 
   * :ref:`HIP-GUIDE`
 
-Transition from HCC to HIP FAQ
-################################
+Transitioning from HCC to HIP 
+===============================
 
  * :ref:`HIP-FAQ`
-
+ * :ref:`HIP-porting-guide`
+ * :ref:`hip-pro`
 
 HIP Best Practices
-###################
+=====================
 
  * :ref:`HIP-IN`
  * :ref:`Kernel_language`
  * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
- * :ref:`HIP-porting-guide`
  * :ref:`hip-p`
- * :ref:`hip-pro`
  * :ref:`hip_profiling`
  * :ref:`HIP_Debugging`
  * :ref:`HIP-terminology`
  * :ref:`HIP-Term2`
  * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
+
 Supported CUDA APIs:
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
@@ -349,8 +345,9 @@ The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP
 
     * **doc:** Documentation - markdown and doxygen info
 
+==========================
 OpenCL Programming Guide
-========================
+==========================
 
 * :ref:`Opencl-Programming-Guide`
 
@@ -364,9 +361,9 @@ OpenCL Best Practices
 
    
 
-
-HC Programming Guide
-====================
+======================
+HCC Programming Guide
+======================
 
 **What is the Heterogeneous Compute (HC) API ?**
 

@@ -56,7 +56,7 @@ Turn Off Page Retry on GFX9/Vega devices
   
 
 
-HCC Debug Enviroment Varibles
+HCC Debug Enviroment Variables
 ********************************
 
 +-------------------------------------+----------------------------------------------------------------------------------------------+
@@ -96,7 +96,7 @@ HCC Debug Enviroment Varibles
 +-------------------------------------+----------------------------------------------------------------------------------------------+
 
 
-HIP Environment Varibles
+HIP Environment Variables
 *************************
 
 +------------------------------+-----------------------------------------------------------------------------------------------------+
@@ -165,7 +165,7 @@ PCIe-Debug
 
 Refer here for :ref:`PCIe-Debug`
 
-**There’s some more information here on how to debug and profile HIP applications**
+**More information here on how to debug and profile HIP applications**
 
 * `HIP-Debugging <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/HIP_Debugging.html#hip-debugging>`_
 * `HIP-Profiling <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#hip-profiling>`_

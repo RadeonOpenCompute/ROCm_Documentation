@@ -1,9 +1,9 @@
 
 .. _ROCm-Compiler-SDK:
 
-==========================
-AMD ROCm Compiler SDK
-==========================
+================
+Compiler SDK
+================
 
 GCN Native ISA LLVM Code Generator
 ###################################
