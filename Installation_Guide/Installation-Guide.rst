@@ -187,8 +187,11 @@ Note: The following steps do not apply to the CentOS installation.
    sudo rpm -ivh <repo>
 
 
-For more details, see https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm for RHEL v7.x
-                  see https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm for RHEL v8.x
+For more details, 
+
+* see https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm for RHEL v7.x
+
+* see https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm for RHEL v8.x
 
 4. Install and set up Devtoolset-7.
    
@@ -218,8 +221,11 @@ To install ROCm on your system, follow the instructions below:
 1. Delete the previous versions of ROCm before installing the latest version.
 
 2. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
-    CentOS/RHEL 7.x : baseurl=http://repo.radeon.com/rocm/yum/rpm 
-    CentOS/RHEL 8.x : baseurl=http://repo.radeon.com/rocm/centos8/rpm
+
+* CentOS/RHEL 7.x : baseurl=http://repo.radeon.com/rocm/yum/rpm 
+
+* CentOS/RHEL 8.x : baseurl=http://repo.radeon.com/rocm/centos8/rpm
+
 ::
 
     [ROCm] 
@@ -328,10 +334,12 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 ::
 
   sudo yum install rocm-dev
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
-  sudo tee /etc/udev/rules.d/70-kfd.rules
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules  
+  sudo reboot
 
 **Note**: You can use this command instead of installing rocm-dkms.
+
+**Note**: Ensure you restart the system after ROCm installation. 
 
 .. _SLES 15 Service Pack 1:
 
