@@ -158,8 +158,7 @@ Recommended:Install using published PyTorch ROCm docker image:
   cd ~
   git clone https://github.com/pytorch/pytorch.git
   cd pytorch
-  git submodule init
-  git submodule update
+  git submodule update --init --recursive
 
 4. Start a docker container using the downloaded image:
 
@@ -218,9 +217,9 @@ Option 2: Install using PyTorch upstream docker file
 
   cd ~
   git clone https://github.com/pytorch/pytorch.git
-  cd pytorch
-  git submodule init
-  git submodule update
+  cd pytorch  
+  git submodule update --init --recursive
+  
 
 3. Build PyTorch docker image:
 
@@ -310,9 +309,9 @@ Note: This will mount your host home directory on /data in the container.
   
   cd ~
   git clone https://github.com/pytorch/pytorch.git or git clone https://github.com/ROCmSoftwarePlatform/pytorch.git
-  cd pytorch
-  git submodule init
-  git submodule update
+  cd pytorch  
+  git submodule update --init --recursive
+
 
 6. Run "hipify" to prepare source code (in the container):
 
