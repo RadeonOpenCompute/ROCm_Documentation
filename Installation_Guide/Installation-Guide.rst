@@ -222,9 +222,9 @@ To install ROCm on your system, follow the instructions below:
 
 2. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
 
-* CentOS/RHEL 7.x : baseurl=http://repo.radeon.com/rocm/yum/rpm 
+* CentOS/RHEL 7.x : http://repo.radeon.com/rocm/yum/rpm 
 
-* CentOS/RHEL 8.x : baseurl=http://repo.radeon.com/rocm/centos8/rpm
+* CentOS/RHEL 8.x : http://repo.radeon.com/rocm/centos8/rpm
 
 ::
 
