@@ -465,7 +465,7 @@ You can also install specific ROCm packages like so:
 
 ::
 
-    yay -S hcc
+    yay -S rocminfo
 
 For additional installation configuration, such as adding a user to the `video`
 group refer to the installation instructions of the above operating systems.
