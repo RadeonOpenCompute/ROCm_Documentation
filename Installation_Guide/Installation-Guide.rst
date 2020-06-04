@@ -77,7 +77,8 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
      sudo apt update
 
-     sudo apt install rocm-dkms
+     sudo apt install rocm-dkms && sudo reboot
+    
 
 4. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
 
@@ -113,8 +114,7 @@ Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 
 ::
 
-	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
-	sudo tee -a /etc/profile.d/rocm.sh
+    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Uninstalling ROCm Packages from Ubuntu
@@ -124,7 +124,7 @@ To uninstall the ROCm packages from Ubuntu 16.04.6 or Ubuntu 18.04.4, run the fo
 
 ::
 
-  sudo apt autoremove rocm-opencl rocm-dkms rocm-dev rocm-utils
+  sudo apt autoremove rocm-opencl rocm-dkms rocm-dev rocm-utils && sudo reboot
 
 
 Installing Development Packages for Cross Compilation
@@ -151,8 +151,7 @@ You can install the ROCm user-level software without installing the AMD's custom
 
   sudo apt update	
   sudo apt install rocm-dev	
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' 
-  sudo tee /etc/udev/rules.d/70-kfd.rules
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
 
 
 .. _CentOS RHEL:
@@ -242,7 +241,7 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
 
 ::
 
-    sudo yum install rocm-dkms
+    sudo yum install rocm-dkms && sudo reboot
 
 
 4. Restart the system. The rock-dkms component is installed and the /dev/kfd device is now available.
@@ -289,8 +288,7 @@ After restarting the system, run the following commands to verify that the ROCm 
 
 ::
 
-  echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' |
-  sudo tee -a /etc/profile.d/rocm.sh
+  echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Compiling Applications Using HCC, HIP, and Other ROCm Software
@@ -438,7 +436,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 
 ::
   
-  sudo yum install rock-dkms rocm-opencl-devel
+  sudo yum install rock-dkms rocm-opencl-devel && sudo reboot
   
 
 AMD ROCm MultiVersion Installation
