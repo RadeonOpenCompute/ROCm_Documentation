@@ -87,7 +87,8 @@ The hipLaunchKernelGGL macro always starts with the five parameters specified ab
 Kernel-Launch Example
 +++++++++++++++++++++++
  
-.. code-block:: c++
+:: 
+
     // Example showing use of host/device function
     __host__ __device__
     float PlusOne(float x)
