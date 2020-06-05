@@ -87,37 +87,31 @@ The hipLaunchKernelGGL macro always starts with the five parameters specified ab
 Kernel-Launch Example
 +++++++++++++++++++++++
  
- ::
+.. code-block:: c++
+    // Example showing use of host/device function
+    __host__ __device__
+    float PlusOne(float x)
+    {
+       return x + 1.0;
+    }
 
-
-// Example showing use of host/device function __host__ __device__
-
-float PlusOne(float x)
-{
-   return x + 1.0;
-}
-
-__global__
-void
-MyKernel (const float *a, const float *b, float *c, unsigned N)
-{
-   unsigned gid = hipThreadIdx_x; // <- coordinate index function
-   if (gid < N) {
-       c[gid] = a[gid] + PlusOne(b[gid]);
-   }
-}
-void callMyKernel()
-{
-   float *a, *b, *c; // initialization not shown...
-   unsigned N = 1000000;
-   const unsigned blockSize = 256;
-   hipLaunchKernelGGL(MyKernel,
- (N/blockSize), dim3(blockSize), 0, 0,  a,b,c,N);
-}
- 
- 
- 
-
+    __global__
+    void
+    MyKernel (const float *a, const float *b, float *c, unsigned N)
+    {
+       unsigned gid = hipThreadIdx_x; // <- coordinate index function
+       if (gid < N) {
+           c[gid] = a[gid] + PlusOne(b[gid]);
+       }
+    }
+    void callMyKernel()
+    {
+        float *a, *b, *c; // initialization not shown...
+        unsigned N = 1000000;
+        const unsigned blockSize = 256;
+        hipLaunchKernelGGL(MyKernel,
+        (N/blockSize), dim3(blockSize), 0, 0,  a,b,c,N);
+    }
 
 
  
