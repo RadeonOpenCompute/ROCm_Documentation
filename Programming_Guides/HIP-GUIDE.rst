@@ -88,9 +88,8 @@ Kernel-Launch Example
 +++++++++++++++++++++++
  
  ::
- 
- // Example showing use of host/device function
-__host__ __device__
+ // Example showing use of host/device function __host__ __device__
+
 float PlusOne(float x)
 {
    return x + 1.0;
@@ -113,6 +112,9 @@ void callMyKernel()
    hipLaunchKernelGGL(MyKernel,
  (N/blockSize), dim3(blockSize), 0, 0,  a,b,c,N);
 }
+ 
+ 
+ 
 
 
 
