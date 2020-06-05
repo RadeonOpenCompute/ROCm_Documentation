@@ -149,43 +149,15 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:rocm3.0_ubuntu16.04_py3.6_pytorch
+  docker pull rocm/pytorch:rocm3.5_ubuntu16.04_py3.6_pytorch
 
-3. Clone PyTorch repository on the host:
 
-::
-
-  cd ~
-  git clone https://github.com/pytorch/pytorch.git
-  cd pytorch
-  git submodule init
-  git submodule update
-
-4. Start a docker container using the downloaded image:
+3. Start a docker container using the downloaded image:
 
 ::
 
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.0_ubuntu16.04_py3.6_pytorch
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.5_ubuntu16.04_py3.6_pytorch
 
-Note: This will mount your host home directory on /data in the container.
-
-5. Change to previous PyTorch checkout from within the running docker:
-
-::
-
-  cd /data/pytorch
-
-6. Build PyTorch for ROCm:
-
-Unless you are running a gfx900/Vega10-type GPU (MI25, Vega56, Vega64,...), explicitly export the GPU architecture to build for, e.g.:
-export HCC_AMDGPU_TARGET=gfx906
-
-then
-::
-
-  .jenkins/pytorch/build.sh
-
-This will first hipify the PyTorch sources and then compile using 4 concurrent jobs, needing 16 GB of RAM to be available to the docker image.
 
 7. Confirm working installation:
 
@@ -203,11 +175,6 @@ No tests will fail if the compilation and installation is correct.
 
 This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
 
-9. Commit the container to preserve the pytorch install (from the host):
-
-::
-
-  sudo docker commit <container_id> -m 'pytorch installed'
 
 Option 2: Install using PyTorch upstream docker file
 ****************************************************
