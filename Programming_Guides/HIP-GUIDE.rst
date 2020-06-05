@@ -88,7 +88,9 @@ Kernel-Launch Example
 +++++++++++++++++++++++
  
  ::
- // Example showing use of host/device function __host__ __device__
+
+
+// Example showing use of host/device function __host__ __device__
 
 float PlusOne(float x)
 {
