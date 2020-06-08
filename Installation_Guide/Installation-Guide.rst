@@ -659,28 +659,32 @@ The chain of software installed by these meta-packages is illustrated below:
 
 ::
 
-   rocm-dkms
-    |--rock-dkms
-    \--rocm-dev
-       |--comgr
-       |--hcc
-       |--hip-base
-       |--hip-doc
-       |--hip-hcc
-       |--hip-samples
-       |--hsakmt-roct
-       |--hsakmt-roct-dev
-       |--hsa-amd-aqlprofile
-       |--hsa-ext-rocr-dev
-       |--hsa-rocr-dev
-       |--rocm-cmake
-       |--rocm-device-libs
-       |--rocm-smi-lib64
-       |--rocprofiler-dev
-       |--rocm-debug-agent
-       \--rocm-utils
-          |--rocminfo
-          \--rocm-clang-ocl # This will cause OpenCL to be installed
+   └── rocm-dkms
+    ├── rock-dkms
+    └── rocm-dev
+        ├── comgr
+        ├── hip-base
+        ├── hip-doc
+        ├── hip-rocclr
+        ├── hip-samples
+        ├── hsa-amd-aqlprofile
+        ├── hsa-ext-rocr-dev
+        ├── hsakmt-roct
+        ├── hsakmt-roct-dev
+        ├── hsa-rocr-dev
+        ├── llvm-amdgpu
+        ├── rocm-cmake
+        ├── rocm-dbgapi
+        ├── rocm-debug-agent
+        ├── rocm-device-libs
+        ├── rocm-gdb
+        ├── rocm-smi
+        ├── rocm-smi-lib64
+        ├── rocprofiler-dev
+        └── roctracer-dev
+  ├── rocm-utils
+            │   ├── rocm-clang-ocl
+            │   └── rocminfo
 
   rocm-libs
     |--hipblas
