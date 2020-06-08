@@ -682,7 +682,7 @@ The chain of software installed by these meta-packages is illustrated below:
         ├── rocm-smi-lib64
         ├── rocprofiler-dev
         └── roctracer-dev
-  ├── rocm-utils
+	├── rocm-utils
             │   ├── rocm-clang-ocl
             │   └── rocminfo
 
