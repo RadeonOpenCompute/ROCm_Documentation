@@ -905,12 +905,12 @@ ROCm Libraries
 .. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/d1e945dabce0078d44c78de67b00232b856e18bc 
 
 
-======================================================
+
 List of ROCm Packages for Supported Operating Systems
 =======================================================
 
-ROCm-Libs Meta Package
-=======================
+ROCm-Libs Meta Packages
+#########################
 
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |Package                            |  Debian 	            |   RPM						      |	
@@ -940,7 +940,7 @@ ROCm-Libs Meta Package
 
 
 All Meta Packages
-==================
+####################
 
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |Package                            |  Debian 	            |   RPM						      |	
