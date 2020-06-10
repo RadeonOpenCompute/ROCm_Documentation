@@ -30,6 +30,24 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Note**: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
+
+Upgrading to v3.5 Release
+---------------------------
+
+You must perform a fresh and a clean AMD ROCm install to successfully
+upgrade from v3.3 to v3.5. The following changes apply in this release:
+
+-  HCC is deprecated and replaced with the HIP-Clang compiler
+-  HIP-HCC runtime is changed to Radeon Open Compute Common Language
+   Runtime (HIP-ROCClr)
+-  In the v3.5 release, the firmware is separated from the kernel
+   package. The difference is as follows:
+
+   -  v3.5 release has two separate rock-dkms and rock-dkms-firmware
+      packages
+   -  v3.3 release had the firmware as part of the rock-dkms package
+   
+
 .. _Ubuntu:
 
 Ubuntu
