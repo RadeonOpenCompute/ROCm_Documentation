@@ -6,6 +6,9 @@ AMD ROCm Installation Guide v3.5.0
 
 -  `Deploying ROCm`_
 
+
+   -  `Prerequisites`_
+   
    -  `Ubuntu`_
    
    -  `CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1`_
@@ -31,8 +34,8 @@ The following directions show how to install ROCm on supported Debian-based syst
 **Note**: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
 
-Upgrading to v3.5 Release
----------------------------
+Prerequisites 
+~~~~~~~~~~~~~~~
 
 You must perform a fresh and a clean AMD ROCm install to successfully
 upgrade from v3.3 to v3.5. The following changes apply in this release:
