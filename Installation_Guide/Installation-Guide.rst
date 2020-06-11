@@ -9,15 +9,21 @@ AMD ROCm Installation Guide v3.5.0
 
    -  `Prerequisites`_
    
+   
    -  `Ubuntu`_
+   
    
    -  `CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1`_
    
+   
    -  `SLES 15 Service Pack 1`_
+   
    
 -  `AMD ROCm MultiVersion Installation`_
 
+
 -  `ROCm Installation Known Issues and Workarounds`_
+
 
 -  `Getting the ROCm Source Code`_
 
