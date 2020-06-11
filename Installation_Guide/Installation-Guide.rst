@@ -714,6 +714,7 @@ The chain of software installed by these meta-packages is illustrated below:
     |--rocfft
     |--rocprim
     |--rocrand
+    |--rocsolver
     |--rocsparse
     \--rocthrust
 
