@@ -19,9 +19,9 @@ The majority of the codebase for the HIP-Clang compiler has been upstreamed to t
 
 
 
-========================================================
-HIP: Heterogeneous-Computing Interface for Portability
-========================================================
+===================
+HIP Documentation 
+===================
 
 ROCm Supported Languages
 =========================
