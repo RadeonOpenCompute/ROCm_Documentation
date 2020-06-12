@@ -42,12 +42,12 @@ The HIPify tool automates much of the conversion work by performing a source-to-
 Programmers familiar with other GPGPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.
 
 When to Use HIP
-****************
+^^^^^^^^^^^^^^^
 Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and NVIDIA. HIP provides a C++ development language and access to the best development tools on both platforms.
 
 
 HIP Installation Instructions
-================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Refer the AMD ROCm Installation Guide at https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#hip-installation-instructions for HIP installation instructions. 
 
