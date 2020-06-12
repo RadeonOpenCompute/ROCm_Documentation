@@ -22,6 +22,9 @@ AMD ROCm Installation Guide v3.5.0
    -  `SLES 15 Service Pack 1`_
    
    
+-  `HIP Installation Instructions`_
+
+
 -  `AMD ROCm MultiVersion Installation`_
 
 
