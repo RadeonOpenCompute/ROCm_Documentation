@@ -1,8 +1,8 @@
 .. image:: /Installation_Guide/amdblack.jpg
 |
-==============================================
-AMD ROCm Installation Guide v3.5.0
-==============================================
+===============================
+AMD ROCm Installation Guide 
+===============================
 
 -  `Deploying ROCm`_
 
