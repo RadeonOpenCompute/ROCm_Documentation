@@ -45,6 +45,14 @@ When to Use HIP
 ****************
 Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and NVIDIA. HIP provides a C++ development language and access to the best development tools on both platforms.
 
+
+HIP Installation Instructions
+================================
+
+Refer the 'AMD ROCm Installation Guide<https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#hip-installation-instructions>'_for HIP installation instructions. 
+
+
+
 OpenCL™: Open Compute Language
 ################################
 What is OpenCL ?  It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
