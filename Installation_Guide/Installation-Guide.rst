@@ -7,7 +7,10 @@ AMD ROCm Installation Guide v3.5.0
 -  `Deploying ROCm`_
 
 
-   -  `Prerequisites`_
+-  `Prerequisites`_
+   
+   
+-  `Supported Operating Systems`_
    
    
    -  `Ubuntu`_
@@ -55,6 +58,10 @@ upgrade from v3.3 to v3.5. The following changes apply in this release:
    -  v3.5 release has two separate rock-dkms and rock-dkms-firmware
       packages
    -  v3.3 release had the firmware as part of the rock-dkms package
+   
+   
+Supported Operating Systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
 
 .. _Ubuntu:
