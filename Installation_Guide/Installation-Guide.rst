@@ -549,7 +549,8 @@ HIP-clang
    packages. ROCm will install some of the necessary components,
    including the kernel driver, HSA runtime, etc.
 
--  Build HIP-Clang
+
+1. Build HIP-Clang
 
 ::
 
@@ -559,7 +560,8 @@ HIP-clang
    make -j
    sudo make install
 
--  Build Rocm device library
+
+2. Build Rocm device library
 
 ::
 
@@ -571,7 +573,7 @@ HIP-clang
    make -j
    sudo make install
 
--  Build HIP
+3. Build HIP
 
 ::
 
