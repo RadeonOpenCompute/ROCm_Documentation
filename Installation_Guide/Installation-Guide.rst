@@ -519,8 +519,6 @@ AMD Platform
    sudo apt install comgr
    sudo apt-get -y install rocm-dkms
 
-Public link for Rocm installation
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 HIP-Clang is the compiler for compiling HIP programs on AMD platform.
 
