@@ -536,7 +536,7 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 -  Add the ROCm package server to your system as per the OS-specific
    guide available
    `here <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`__.
--  Install the â€œhip-nvccâ€ package. This will install CUDA SDK and the
+-  Install the HIP-nvcc package. This will install CUDA SDK and the
    HIP porting layer.
 
 ::
