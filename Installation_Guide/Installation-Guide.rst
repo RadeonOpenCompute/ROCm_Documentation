@@ -498,19 +498,19 @@ HIP Installation Instructions
 -  `Verify your installation <#verify-your-installation>`__
 
 Installing pre-built packages
-=============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 HIP can be easily installed using pre-built binary packages using the
 package manager for your platform.
 
 Prerequisites
--------------
+^^^^^^^^^^^^^^^
 
 HIP code can be developed either on AMD ROCm platform using HIP-Clang
 compiler, or a CUDA platform with nvcc installed.
 
 AMD Platform
-------------
+#############
 
 ::
 
@@ -545,7 +545,7 @@ Rocm device library can be manually built as following,
    sudo make install
 
 NVIDIA Platform
----------------
+################
 
 HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 
@@ -569,10 +569,10 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
       easier to use the tools.
 
 Building HIP from source
-========================
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Build ROCclr
-------------
+#############
 
 ROCclr is defined on AMD platform that HIP use Radeon Open Compute
 Common Language Runtime (ROCclr), which is a virtual device interface
@@ -592,7 +592,7 @@ https://github.com/ROCm-Developer-Tools/ROCclr
    sudo make install (this is optional)
 
 Build HIP
----------
+##########
 
 ::
 
@@ -605,7 +605,7 @@ Build HIP
    sudo make install
 
 Default paths and environment variables
----------------------------------------
+##########################################
 
 -  By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by
    setting HSA_PATH environment variable).
@@ -628,7 +628,7 @@ Default paths and environment variables
 After the installation, ensure HIP_PATH is pointed to */where/to/install/hip*
 
 Verify your installation
-========================
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run hipconfig (instructions below assume default installation path) :
 
@@ -655,7 +655,7 @@ Compile and run the `square sample <https://github.com/ROCm-Developer-Tools/HIP/
       compilation to make sure clang is used instead of hcc.
 
 HIP-nvcc
---------
+^^^^^^^^^^
 
 -  Add the ROCm package server to your system as per the OS-specific
    guide available
@@ -677,7 +677,7 @@ HIP-nvcc
       easier to use the tools.
 
 Verify your installation
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run hipconfig (instructions below assume default installation path) :
 
