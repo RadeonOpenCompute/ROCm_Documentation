@@ -484,19 +484,7 @@ HIP Installation Instructions
 
 -  `Installing pre-built packages <#installing-pre-built-packages>`__
 
-   -  `Prerequisites <#prerequisites>`__
-   -  `AMD Platform <#amd-platform>`__
-   -  `NVIDIA Platform <#nvidia-platform>`__
-
--  `Building HIP from source <#building-hip-from-source>`__
-
-   -  `Build ROCclr <#build-rocclr>`__
-   -  `Build HIP <#build-hip>`__
-   -  `Default paths and environment
-      variables <#default-paths-and-environment-variables>`__
-
--  `Verify your installation <#verify-your-installation>`__
-
+ 
 Installing pre-built packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
