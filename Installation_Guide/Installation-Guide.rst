@@ -482,9 +482,7 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 HIP Installation Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `Installing pre-built packages <#installing-pre-built-packages>`__
 
- 
 Installing pre-built packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -642,7 +640,7 @@ Compile and run the `square sample <https://github.com/ROCm-Developer-Tools/HIP/
    -  Optionally, set HIPCC_VERBOSE=7 to output the command line for
       compilation to make sure clang is used instead of hcc.
 
-HIP-nvcc
+HIP-NVCC
 ^^^^^^^^^^
 
 -  Add the ROCm package server to your system as per the OS-specific
