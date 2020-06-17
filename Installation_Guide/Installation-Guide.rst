@@ -486,17 +486,15 @@ HIP Installation Instructions
 Installing pre-built packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-HIP can be easily installed using pre-built binary packages using the
-package manager for your platform.
+HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
 
 Prerequisites
-^^^^^^^^^^^^^^^
+***************
 
-HIP code can be developed either on AMD ROCm platform using HIP-Clang
-compiler, or a CUDA platform with nvcc installed.
+HIP code can be developed either on AMD ROCm platform using HIP-Clang compiler, or a CUDA platform with nvcc installed.
 
 AMD Platform
-#############
+^^^^^^^^^^^^^^
 
 ::
 
@@ -506,7 +504,7 @@ AMD Platform
    sudo apt-get -y install rocm-dkms
 
 
-HIP-Clang is the compiler for compiling HIP programs on AMD platform.
+**Note**: HIP-Clang is the compiler for compiling HIP programs on AMD platform.
 
 HIP-Clang can be built manually:
 
@@ -518,7 +516,7 @@ HIP-Clang can be built manually:
    make -j
    sudo make install
 
-Rocm device library can be manually built as following,
+To build the ROCm device library manually, use
 
 ::
 
@@ -531,14 +529,14 @@ Rocm device library can be manually built as following,
    sudo make install
 
 NVIDIA Platform
-################
+^^^^^^^^^^^^^^^^
 
 HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 
 -  Add the ROCm package server to your system as per the OS-specific
    guide available
    `here <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`__.
--  Install the *HIP-nvcc* package. This will install CUDA SDK and the
+-  Install the â€œhip-nvccâ€ package. This will install CUDA SDK and the
    HIP porting layer.
 
 ::
@@ -555,14 +553,14 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
       easier to use the tools.
 
 Building HIP from source
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Build ROCclr
-#############
+*************
 
-ROCclr is defined on AMD platform that HIP use Radeon Open Compute
-Common Language Runtime (ROCclr), which is a virtual device interface
-that HIP runtimes interact with different backends. See
+ROCclr is defined on AMD platform that HIP use Radeon Open Compute Common Language Runtime (ROCclr), which is a virtual device interface that HIP runtimes interact with different backends.
+
+For more information, see
 https://github.com/ROCm-Developer-Tools/ROCclr
 
 ::
@@ -578,7 +576,7 @@ https://github.com/ROCm-Developer-Tools/ROCclr
    sudo make install (this is optional)
 
 Build HIP
-##########
+**********
 
 ::
 
@@ -591,30 +589,25 @@ Build HIP
    sudo make install
 
 Default paths and environment variables
-##########################################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by
    setting HSA_PATH environment variable).
-   
 -  By default HIP is installed into /opt/rocm/hip (can be overridden by
    setting HIP_PATH environment variable).
-   
 -  By default HIP looks for clang in /opt/rocm/llvm/bin (can be
    overridden by setting HIP_CLANG_PATH environment variable)
-   
 -  By default HIP looks for device library in /opt/rocm/lib (can be
    overridden by setting DEVICE_LIB_PATH environment variable).
-   
 -  Optionally, consider adding /opt/rocm/bin to your PATH to make it
    easier to use the tools.
-   
 -  Optionally, set HIPCC_VERBOSE=7 to output the command line for
    compilation.
 
 After the installation, ensure HIP_PATH is pointed to */where/to/install/hip*
 
 Verify your installation
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run hipconfig (instructions below assume default installation path) :
 
@@ -622,58 +615,7 @@ Run hipconfig (instructions below assume default installation path) :
 
    /opt/rocm/bin/hipconfig --full
 
-Compile and run the `square sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
-
-
--  Default paths and environment variables:
-
-   -  By default HIP looks for HSA in /opt/rocm/hsa (can be overridden
-      by setting HSA_PATH environment variable)
-   -  By default HIP is installed into /opt/rocm/hip (can be overridden
-      by setting HIP_PATH environment variable).
-   -  By default HIP looks for clang in /opt/rocm/llvm/bin (can be
-      overridden by setting HIP_CLANG_PATH environment variable)
-   -  By default HIP looks for device library in /opt/rocm/lib (can be
-      overriden by setting DEVICE_LIB_PATH environment variable).
-   -  Optionally, consider adding /opt/rocm/bin to your PATH to make it
-      easier to use the tools.
-   -  Optionally, set HIPCC_VERBOSE=7 to output the command line for
-      compilation to make sure clang is used instead of hcc.
-
-HIP-NVCC
-^^^^^^^^^^
-
--  Add the ROCm package server to your system as per the OS-specific
-   guide available
-   `here <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`__.
--  Install the â€œhip-nvccâ€ package. This will install CUDA SDK and the
-   HIP porting layer.
-
-::
-
-   apt-get install hip-nvcc
-
--  Default paths and environment variables:
-
-   -  By default HIP looks for CUDA SDK in /usr/local/cuda (can be
-      overriden by setting CUDA_PATH env variable)
-   -  By default HIP is installed into /opt/rocm/hip (can be overridden
-      by setting HIP_PATH environment variable).
-   -  Optionally, consider adding /opt/rocm/bin to your path to make it
-      easier to use the tools.
-
-Verify your installation
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Run hipconfig (instructions below assume default installation path) :
-
-.. code:: shell
-
-   /opt/rocm/bin/hipconfig --full
-
-Compile and run the `square
-
-sample https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square
+Compile and run the square sample at https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square
 
 
 
