@@ -552,7 +552,7 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 -  Add the ROCm package server to your system as per the OS-specific
    guide available
    `here <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`__.
--  Install the â€œhip-nvccâ€ package. This will install CUDA SDK and the
+-  Install the *HIP-nvcc* package. This will install CUDA SDK and the
    HIP porting layer.
 
 ::
@@ -630,13 +630,13 @@ After the installation, ensure HIP_PATH is pointed to */where/to/install/hip*
 Verify your installation
 ========================
 
-1. Run hipconfig (instructions below assume default installation path) :
+Run hipconfig (instructions below assume default installation path) :
 
 .. code:: shell
 
    /opt/rocm/bin/hipconfig --full
 
-2. Compile and run the `square sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
+Compile and run the `square sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
 
 
 -  Default paths and environment variables:
@@ -686,60 +686,10 @@ Run hipconfig (instructions below assume default installation path) :
    /opt/rocm/bin/hipconfig --full
 
 Compile and run the `square
+
 sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
 
-Building HIP from source
-========================
 
-HIP source code is available and the project can be built from source on
-the HCC platform.
-
-1. Follow the above steps to install and validate the binary packages.
-2. Download HIP source code (from the `GitHub
-   repot <https://github.com/ROCm-Developer-Tools/HIP>`__.)
-3. Install HIP build-time dependencies using
-   ``sudo apt-get install libelf-dev``.
-4. Build and install HIP (This is the simple version assuming default
-   paths ; see below for additional options.)
-
-By default, HIP uses HCC to compile programs. To use HIP-Clang, add
--DHIP_COMPILER=clang to cmake command line.
-
-::
-
-   cd HIP
-   mkdir build
-   cd build
-   cmake .. 
-   make
-   make install
-
--  Default paths:
-
-   -  By default cmake looks for hcc in /opt/rocm/hcc (can be overridden
-      by setting ``-DHCC_HOME=/path/to/hcc`` in the cmake step).\*
-   -  By default cmake looks for HSA in /opt/rocm/hsa (can be overridden
-      by setting ``-DHSA_PATH=/path/to/hsa`` in the cmake step).\*
-   -  By default cmake installs HIP to /opt/rocm/hip (can be overridden
-      by setting ``-DCMAKE_INSTALL_PREFIX=/where/to/install/hip`` in the
-      cmake step).\*
-
-Hereâ€™s a richer command-line that overrides the default paths:
-
-.. code:: shell
-
-   cd HIP
-   mkdir build
-   cd build
-   cmake -DHSA_PATH=/path/to/hsa -DHCC_HOME=/path/to/hcc -DCMAKE_INSTALL_PREFIX=/where/to/install/hip -DCMAKE_BUILD_TYPE=Release ..
-   make
-   make install
-
--  After installation, make sure HIP_PATH is pointed to
-   ``/where/to/install/hip``.
-
-  
-  
 
 AMD ROCm MultiVersion Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
