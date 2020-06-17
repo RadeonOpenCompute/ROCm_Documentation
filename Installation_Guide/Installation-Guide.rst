@@ -675,7 +675,7 @@ Run hipconfig (instructions below assume default installation path) :
 
 Compile and run the `square
 
-sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
+sample https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square
 
 
 
