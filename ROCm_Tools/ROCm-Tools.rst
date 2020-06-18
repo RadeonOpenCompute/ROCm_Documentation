@@ -574,9 +574,9 @@ Metrics:
    •   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value range: 0% (optimal) to 100% (bad).
 
 
-=====================
-ROC Profiler Library
-=====================
+==========================
+AMD ROC Profiler Library
+==========================
 
 ROC profiler library. Profiling with perf-counters and derived metrics. Library supports GFX8/GFX9.
 
