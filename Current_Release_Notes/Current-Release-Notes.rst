@@ -73,7 +73,7 @@ AMD ROCm Glossary of Terms
 -  `Updated Glossary of Terms and
    Definitions <https://rocmdocs.amd.com/en/latest/ROCm_Glossary/ROCm-Glossary.html>`__
 
-General AMD ROCm Documentatin Links
+General AMD ROCm Documentation Links
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Access the following links for more information on:
