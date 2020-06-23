@@ -163,7 +163,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  PYTORCH_TEST_WITH_ROCM=1 python3.6 test/run_test.py –verbose
+  PYTORCH_TEST_WITH_ROCM=1 python3.6 test/run_test.py –-verbose
 
 No tests will fail if the compilation and installation is correct.
 
