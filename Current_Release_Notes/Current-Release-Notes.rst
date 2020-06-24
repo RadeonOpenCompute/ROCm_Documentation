@@ -3,7 +3,7 @@
 |
 
 ===============================================================
-AMD Radeon Open ECosystem platforM (ROCm) Release Notes v3.5.1
+AMD Radeon Open eCosystem platforM (ROCm) Release Notes v3.5.1
 ===============================================================
 June, 2020
 
