@@ -2,9 +2,9 @@
 
 |
 
-===============================================================
-AMD Radeon Open Ecosystem (ROCm) Release Notes v3.5.1
-===============================================================
+=====================================
+AMD ROCm Release Notes v3.5.1
+=====================================
 June, 2020
 
 AMD ROCm released a maintenance patch release v3.5.1. For more information, see
