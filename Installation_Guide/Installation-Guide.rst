@@ -47,6 +47,17 @@ The following directions show how to install ROCm on supported Debian-based syst
 **Note**: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
 
+Known Issue with AMD ROCm v3.5.1 Installation
+===============================================
+
+**Multiple Release Installations of AMD ROCm on a Server Fail**
+
+The Side-by-Side install feature does not behave as expected, and multiple release installations of AMD ROCm on a server fail. Attempts to install AMD ROCm v3.5.0 and AMD ROCm v3.5.1 side-by-side can result in breaking the existing ROCm v3.5.0 installation.
+
+This known issue is currently under investigation.
+
+
+
 Prerequisites 
 ~~~~~~~~~~~~~~~
 
