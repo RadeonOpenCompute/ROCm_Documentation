@@ -1,7 +1,7 @@
 .. image:: /Installation_Guide/amdblack.jpg
 |
 ===============================
-AMD ROCm Installation Guide 
+Install AMD ROCm 
 ===============================
 
 -  `Deploying ROCm`_
@@ -768,11 +768,12 @@ Each ROCm component repository contains directions for building that component. 
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
 
-===================================================================================
+====================
+Build AMD ROCm
+====================
+
 Machine Learning and High Performance Computing Software Stack for AMD GPU v3.5.0
-===================================================================================
-
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **ROCm Version 3.5.0**
 
 .. _ROCm Binary Package Structure:
