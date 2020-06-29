@@ -391,7 +391,7 @@ Option 2: Install using Caffe2 ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:pytorch:rocm3.0_ubuntu16.04_py3.6_caffe2
+  docker pull rocm/pytorch: rocm3.5_ubuntu16.04_py3.6_caffe2
   docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/pytorch:rocm3.0_ubuntu16.04_py3.6_caffe2
 
 3. Build Caffe2 from source
