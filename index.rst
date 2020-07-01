@@ -11,6 +11,9 @@ Welcome to AMD ROCm Platform
 
 AMD ROCm is the first open-source software development platform for HPC/Hyperscale-class GPU computing. AMD ROCm brings the UNIX philosophy of choice, minimalism and modular software development to GPU computing. 
 
+.. image:: ROCmComp.png
+    :align: center
+
 AMD ROCm is built for scale; it supports multi-GPU computing in and out of server-node communication through RDMA. AMD ROCm also simplifies the stack when the driver directly incorporates RDMA peer-sync support.
 
 The AMD ROCm Programming-Language Run-Time 
