@@ -1179,3 +1179,11 @@ All Meta Packages
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 
 
+============================================
+Hardware and Software Support Information
+============================================
+
+ 
+-  `Hardware and Software Support <https://github.com/RadeonOpenCompute/ROCm#Hardware-and-Software-Support>`__
+
+- `AMD Server Systems <https://www.amd.com/en/graphics/servers-radeon-instinct-mi-powered-servers>`__
