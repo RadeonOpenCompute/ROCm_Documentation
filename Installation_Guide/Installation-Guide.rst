@@ -1186,4 +1186,4 @@ Hardware and Software Support Information
  
 -  `Hardware and Software Support <https://github.com/RadeonOpenCompute/ROCm#Hardware-and-Software-Support>`__
 
-- `AMD Server Solutions <https://www.amd.com/en/graphics/servers-radeon-instinct-mi-powered-servers>`__
+- `Radeon Instinct™ GPU-Powered HPC Solutions <https://www.amd.com/en/graphics/servers-radeon-instinct-mi-powered-servers>`__
