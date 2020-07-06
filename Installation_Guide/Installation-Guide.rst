@@ -13,10 +13,10 @@ Install AMD ROCm
 - `Supported Operating Systems`_
    
    
-	-   `Ubuntu`_
+	-   `Ubuntu`_ 
    
    
-	-  `CentOS RHEL`_
+	-   `CentOS RHEL`_ 
    
    
 	-  `SLES 15 Service Pack 1`_  
