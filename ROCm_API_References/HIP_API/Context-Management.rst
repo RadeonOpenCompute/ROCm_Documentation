@@ -24,9 +24,10 @@ hipDevicePrimaryCtxSetFlags
 .. doxygenfunction:: hipDevicePrimaryCtxSetFlags 
 
 
-========================
+
 Deprecated HIP APIs
 ========================
+
 
 hipCtxCreate
 ----------------
