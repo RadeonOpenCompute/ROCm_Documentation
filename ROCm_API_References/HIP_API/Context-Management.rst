@@ -3,6 +3,31 @@
 Context Management
 ====================
 
+hipDevicePrimaryCtxGetState 
+-----------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxGetState 
+
+hipDevicePrimaryCtxRelease
+----------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxRelease
+
+hipDevicePrimaryCtxRetain
+--------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxRetain
+
+hipDevicePrimaryCtxReset
+---------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxReset 
+
+hipDevicePrimaryCtxSetFlags 
+----------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxSetFlags 
+
+
+========================
+Deprecated HIP APIs
+========================
+
 hipCtxCreate
 ----------------
 .. doxygenfunction::  hipCtxCreate
@@ -62,27 +87,6 @@ hipCtxEnablePeerAccess
 hipCtxDisablePeerAccess  
 ------------------------
 .. doxygenfunction:: hipCtxDisablePeerAccess 
-
-hipDevicePrimaryCtxGetState 
------------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxGetState 
-
-hipDevicePrimaryCtxRelease
-----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxRelease
-
-hipDevicePrimaryCtxRetain
---------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxRetain
-
-hipDevicePrimaryCtxReset
----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxReset 
-
-hipDevicePrimaryCtxSetFlags 
-----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxSetFlags 
-
 
 
 
