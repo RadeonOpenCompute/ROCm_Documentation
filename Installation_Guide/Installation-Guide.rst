@@ -92,7 +92,7 @@ Supported Operating Systems
 .. _Ubuntu:
 
 Ubuntu
-^^^^^^^
+=========
 
 Installing a ROCm Package from a Debian Repository
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -216,10 +216,10 @@ You can install the ROCm user-level software without installing the AMD's custom
 .. _CentOS RHEL:
 
 CentOS RHEL
-^^^^^^^^^^^^^^
+============
 
 CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1
-==========================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1.
 
@@ -405,7 +405,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 .. _SLES 15 Service Pack 1:
 
 SLES 15 Service Pack 1
-^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
 
