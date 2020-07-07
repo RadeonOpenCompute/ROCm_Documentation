@@ -17,7 +17,7 @@ This page describes the features, fixed issues, and information about downloadin
 
    -  `Supported Operating Systems <#Supported-Operating-Systems>`__
    -  `Documentation Updates <#Documentation-Updates>`__
-   -  `AMD ROCm General Documentation Links <#AMD ROCm-General-Documentation-Links>`__
+   -  `AMD ROCm General Documentation Links <#AMD-ROCm-General-Documentation-Links>`__
 
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
@@ -27,7 +27,7 @@ This page describes the features, fixed issues, and information about downloadin
    -  `AMD ROCm System Management Interface <#AMD-ROCm-System-Management-Interface>`__
    -  `AMD ROCm GNU Debugger <#AMD-ROCm-GNU-Debugger>`__
    -  `AMD ROCm Debugger API Library <#AMD-ROCm-Debugger-API-Library>`_
-   -  `ROCm Communications Collective Library <#ROCm-Communications-Collective-Library>`__
+   -  `ROCm Communications Collective Library<#ROCm-Communications-Collective-Library>`__
    -  `AMD MIVisionX <#AMD-MIVisionX>`__
    
 -  `Known Issues <#Known-Issues>`__
@@ -110,6 +110,7 @@ AMD ROCm Glossary of Terms
 
 -  `Updated Glossary of Terms and
    Definitions <https://rocmdocs.amd.com/en/latest/ROCm_Glossary/ROCm-Glossary.html>`__
+
 
 AMD ROCm General Documentation Links
 ------------------------------------
@@ -315,8 +316,9 @@ which is in the rocm-dkms package. The AMD ROCm Debugger API Specification is av
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
 
+
 ROCm Communications Collective Library
---------------------------------------
+---------------------------------------
 
 rocBLAS and hipBLAS Enhancements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
