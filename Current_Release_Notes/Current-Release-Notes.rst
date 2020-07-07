@@ -77,7 +77,7 @@ Documentation Updates
 AMD ROCm Data Center Tool Guides
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  AMD ROCm Data Center Toolâ„¢ User Guide
+-  AMD ROCm Data Center Tool User Guide
 -  `AMD ROCm Data Center Tool API Guide - Alpha Release <https://github.com/Rmalavally/ROCm/blob/master/RDC_API_Guide_Alpha.pdf>`_ 
 
 HIP-Clang Compiler
