@@ -22,12 +22,12 @@ This page describes the features, fixed issues, and information about downloadin
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
    -  `Upgrading to This Release <#Upgrading-to-This-Release>`__
-   -  `AMD ROCm Collective Groups<#AMD-ROCm-Collective-Groups>`__
+   -  `AMD ROCm Collective Groups <#AMD-ROCm-Collective-Groups>`__
    -  `AMD ROCm Data Center Tool <#AMD-ROCm-Data-Center-Tool>`__
    -  `AMD ROCm System Management Interface <#AMD-ROCm-System-Management-Interface>`__
    -  `AMD ROCm GNU Debugger <#AMD-ROCm-GNU-Debugger>`__
    -  `AMD ROCm Debugger API Library <#AMD-ROCm-Debugger-API-Library>`_
-   -  `ROCm Communications Collective Library<#ROCm-Communications-Collective-Library>`__
+   -  `ROCm Communications Collective Library <#ROCm-Communications-Collective-Library>`__
    -  `AMD MIVisionX <#AMD-MIVisionX>`__
    
 -  `Known Issues <#Known-Issues>`__
