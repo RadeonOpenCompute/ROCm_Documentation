@@ -3,15 +3,13 @@
 |
 
 ================================
-AMD (ROCm) Release Notes v3.6
+AMD ROCm™ Release Notes v3.6.0
 ================================
 July, 2020
 
-This page describes the features, fixed issues, and information about
-downloading and installing the ROCm software. It also covers known
-issues and deprecated features in the ROCm v3.5 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.6.0 release.
 
--  ` Download AMD ROCm v3.5 Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
+-  ` Download AMD ROCm v3.6 Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
 -  `Supported Operating Systems and Documentation
@@ -19,31 +17,20 @@ issues and deprecated features in the ROCm v3.5 release.
 
    -  `Supported Operating Systems <#Supported-Operating-Systems>`__
    -  `Documentation Updates <#Documentation-Updates>`__
+   -  `AMD ROCm General Documentation Links <#AMD ROCm-General-Documentation-Links>`__
 
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
    -  `Upgrading to This Release <#Upgrading-to-This-Release>`__
-   -  `Heterogeneous-Compute Interface for Portability <#Heterogeneous-Compute-Interface-for-Portability>`__
-   -  `Radeon Open Compute Common Language Runtime <#Radeon-Open-Compute-Common-Language-Runtime>`__
-   -  `OpenCL Runtime <#OpenCL-Runtime>`__
-   -  `AMD ROCm GNU Debugger-ROCgdb <#AMD-ROCm-GNU-Debugger-ROCgdb>`__
+   -  `AMD ROCm Collective Groups<#AMD-ROCm-Collective-Groups>`__
+   -  `AMD ROCm Data Center Tool <#AMD-ROCm-Data-Center-Tool>`__
+   -  `AMD ROCm System Management Interface <#AMD-ROCm-System-Management-Interface>`__
+   -  `AMD ROCm GNU Debugger <#AMD-ROCm-GNU-Debugger>`__
    -  `AMD ROCm Debugger API Library <#AMD-ROCm-Debugger-API-Library>`_
-   -  `rocProfiler Dispatch Callbacks Start-Stop API <#rocProfiler-Dispatch-Callbacks-Start-Stop-API>`__
    -  `ROCm Communications Collective Library <#ROCm-Communications-Collective-Library>`__
-   -  `NVIDIA Communications Collective Library Version Compatibility<#NVIDIA-Communications-Collective-Library-Version -Compatibility>`__
-   -  `MIOpen - Optional Kernel Package Installation <#MIOpen-Optional-Kernel-Package-Installation>`__
-   -  `New SMI Event Interface and Library <#New-SMI-Event-Interface-and-Library>`__
-   -  `API for CPU Affinity <#API-for-CPU-Affinity>`__
-   -  `Radeon Performance Primitives Library <#Radeon-Performance-Primitives-Library>`__
-
--  `Fixed Issues <#Fixed-Issues>`__
-
+   -  `AMD MIVisionX <#AMD-MIVisionX>`__
+   
 -  `Known Issues <#Known-Issues>`__
-
--  `Deprecations <#Deprecations>`__
-
-   -  `Heterogeneous Compute
-      Compiler <#Heterogeneous-Compute-Compiler>`__
 
 -  `Deploying ROCm <#Deploying-ROCm>`__
 
@@ -269,10 +256,10 @@ For more information about the original and the enhanced APIs, refer the AMD ROC
 
 *Add Doc Link*
 
-AMD ROCm GNU Debugger (ROCgdb)
-------------------------------
+AMD ROCm GNU Debugger
+----------------------
 
-AMD ROCm v3.6 ROCgdb is a multi-architecture debugger.that has a full standard x86_64 and HIP source language standard gdb support for amdgcn.
+AMD ROCm v3.6.0 ROC Debugger (ROCgdb) is a multi-architecture debugger.that has a full standard x86_64 and HIP source language standard gdb support for amdgcn.
 The following enhancements are available in the AMD ROCm v3.6 release.
 
 Fixed AMD GPU Thread List
