@@ -167,7 +167,7 @@ environments. The important features of this tool are:
 The Radeon Data Center Tool can be used in the standalone mode if all components are installed. The same set of features is also available in
 a library format that can be used by existing management tools.
 
-.. figure:: RDCComponentsGit.png
+.. figure:: RDCComponentsrevised.png
    :alt: ScreenShot
 
 Refer to the Radeon Data Center Tool User Guide for more details on the different modes of operation.
