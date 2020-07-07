@@ -360,7 +360,7 @@ hipBLAS
 AMD MIVisionX
 -------------
 
-AMD Radeon Augmentation Libraryâ„¢
+AMD Radeon Augmentation Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Deep learning applications require loading and pre-processing of data efficiently to achieve high processing throughput. This requires
