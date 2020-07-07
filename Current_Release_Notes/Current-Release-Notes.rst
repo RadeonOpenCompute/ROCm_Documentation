@@ -403,16 +403,23 @@ Known Issues
 
 The following are the known issues in the v3.6.0 release.
 
-System Failure when using ROCgdb with Co-operative Groups or P2P on Vega 10 and 7nm
+Use of ROCgdb on Cooperative Queues Results in System Failure on Vega 10 and 7nm
 -----------------------------------------------------------------------------------
 
-Using the ROCm Debugger (ROCgdb) on programs that use the following features may result in a system failure on Vega 10 and 7nm:
+In this release, using ROC Debugger (ROCgdb) on Cooperative queues can lead to a system failure on Vega 10 and 7nm. Cooperative queues are HSA queues created with the type HSA_QUEUE_TYPE_COOPERATIVE. The HIP runtime creates such queues when using: 
 
--  Co-operative groups
+* Cooperative Groups features that launch a kernel to the device: 
 
--  P2P on a system without large BAR support
+	   * hipLaunchCooperativeKernel()
+      
+      * hipLaunchCooperativeKernelMultiDevice()
+      
+* Peer-to-peer transfers on systems without PCIe large BAR support
+
+If a system crash occurs, examine the messages in ‘dmesg’ before rebooting the system. 
 
 There is no known workaround at this time.
+.
 
 NaN Loss during ImageNet Training on Tensorflow
 -----------------------------------------------
