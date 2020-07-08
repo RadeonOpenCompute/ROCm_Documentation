@@ -181,15 +181,15 @@ environments. The important features of this tool are:
 * GPU statistics for jobs â€¢ Integration with third-party tools â€¢ Open
   source
 
-The Radeon Data Center Tool can be used in the standalone mode if all components are installed. The same set of features is also available in
+The ROCm Data Center Tool can be used in the standalone mode if all components are installed. The same set of features is also available in
 a library format that can be used by existing management tools.
 
 .. figure:: RDCComponentsrevised.png
    :alt: ScreenShot
 
-Refer to the Radeon Data Center Tool User Guide for more details on the different modes of operation.
+Refer to the ROCm Data Center Tool User Guide for more details on the different modes of operation.
 
-**NOTE**: The Radeon Data Center User Guide is intended to provide an overview of ROCm Data Center Tool features and how system administrators
+**NOTE**: The ROCm Data Center User Guide is intended to provide an overview of ROCm Data Center Tool features and how system administrators
 and Data Center (or HPC) users can administer and configure AMD GPUs. The guide also provides an overview of its components and open source
 developer handbook. For more information, refer the Radeon Data Center User Guide at
 
@@ -212,7 +212,7 @@ The RDC Tool API supports the following components:
 
 -  Third-party tools such as collectd integration
 
-For more information, refer the Radeon Data Center API Guide at
+For more information, refer the ROCm Data Center Tool API Guide (Alpha Release) at
 
 *Add doc link*
 
