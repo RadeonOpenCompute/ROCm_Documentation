@@ -191,7 +191,7 @@ Refer to the ROCm Data Center Tool User Guide for more details on the different 
 
 **NOTE**: The ROCm Data Center User Guide is intended to provide an overview of ROCm Data Center Tool features and how system administrators
 and Data Center (or HPC) users can administer and configure AMD GPUs. The guide also provides an overview of its components and open source
-developer handbook. For more information, refer the Radeon Data Center User Guide at
+developer handbook. For more information, refer the ROCm Data Center User Guide at
 
 *Add doc link*
 
