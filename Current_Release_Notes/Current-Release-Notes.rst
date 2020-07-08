@@ -387,6 +387,18 @@ Known Issues
 
 The following are the known issues in the v3.6.0 release.
 
+Hipify-Clang Installation Fails on CentOS/RHEL
+------------------------------------------------
+
+Installation of Hipify-Clang fails on CentOS/RHEL. Note, this issue is not observed on Ubuntu and SLES. 
+
+**Workaround**: You can download and install the hipify-clang package manually using “—force”.
+
+::
+
+$ sudo rpm -ivh --force hipify-clang-11.0.0.x86_64.rpm
+
+
 Use of ROCgdb on Cooperative Queues Results in System Failure on Vega 10 and 7nm
 -----------------------------------------------------------------------------------
 
@@ -408,17 +420,20 @@ There is no known workaround at this time.
 NaN Loss during ImageNet Training on Tensorflow
 -----------------------------------------------
 
-[Need content from Ryan/Subhani/Gowtham and workaround if any]
+A Not a Number (NaN) loss error is observed while running Imagenet training on Tensorflow.
 
-ROC Debugger Freezes with hipMemcpyWithStream
----------------------------------------------
+This issue is under investigation and there is no known workaround at this time.
 
-[Need content from Tony and workaround if any]
 
 Debug Agent Encounters an Error and Fails When Using Thunk API
 --------------------------------------------------------------
 
-[Need content from Qingchuan and workaround if any]
+The Debug Agent encounters the following error and, as a result, fails when using the Thunk API.
+
+*“Error: Debug Agent: Cannot get queue info from KMT”
+
+This known issue is under investigation and the Debug Agent functionality is unavailable in the AMD ROCm v3.6 release.
+
 
 ROCgdb Fails to Recognize Code Objects Loaded by the Deprecated Runtime Loader API
 ----------------------------------------------------------------------------------
@@ -439,6 +454,14 @@ work. The use of the device malloc launched thrust::sort and thrust::sort_by_key
 
 **Workaround**: A partial enablement of device malloc is possible by setting **HIP_ENABLE_DEVICE_MALLOC** to 1. Thrust::sort and
 thrust::sort_by_key may work on certain input sizes.
+
+Memory Fault Error for fp16 operations in MIGraphX 
+-----------------------------------------------------
+
+fp16 operations in MIGraphX result in a memory fault error in ROCm v3.6.
+
+There is no known workaround for the issue at this time.
+
 
 
 Deploying ROCm
