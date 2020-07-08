@@ -145,9 +145,7 @@ Guide <https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.
 AMD ROCm Collective Groups
 --------------------------
 
-AMD ROCm introduces the Collective Groups feature for defining and synchronizing groups of threads and sharing data to perform efficient
-collective computations. The sharing of data varies from algorithm to algorithm, so the thread synchronization must be flexible to ensure
-modularity.
+AMD ROCm introduces the Collective Groups feature for defining and synchronizing groups of threads and sharing data to perform efficient collective computations. The sharing of data varies from algorithm to algorithm, so the thread synchronization must be flexible to ensure modularity.
 
 The Cooperative Groups feature in AMD ROCm adds the following two important mechanisms:
 
@@ -155,6 +153,23 @@ The Cooperative Groups feature in AMD ROCm adds the following two important mech
    kernel running on a single GPU.
 -  System-wide barriers to synchronize between multiple kernels running
    on multiple GPUs.
+   
+You may use the Cooperative Groups feature in HIP applications by:
+
+- Including the header file "hip/hip_cooperative_groups.h"
+
+- Querying the target GPU(s) to ensure that they support the Cooperative Groups functionality
+
+- Writing a GPU kernel that uses the new features of the cooperative_groups name-space
+
+- Launching the GPU kernel using the new Cooperative Groups host-side APIs
+
+Limitations
+
+- This feature is currently only supported on AMD "gfx9" devices.
+
+- This features does not currently support the classes: cooperative_groups::thread_group, cooperative_groups::thread_block, or cooperative_groups::coalesced_group, or cooperative_groups::thread_block_tile<>.
+
 
 AMD ROCm Data Center Tool
 -------------------------
