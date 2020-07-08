@@ -478,14 +478,15 @@ fp16 operations in MIGraphX result in a memory fault error in ROCm v3.6.
 There is no known workaround for the issue at this time.
 
 
-Random Freeze while Running Tensorflow Benchmarks
+Random Hang while Running Tensorflow Benchmarks
 -----------------------------------------------------
 
-A freeze has been observed with Tensorflow benchmarks at random times. It is noticed that the frequency of the freeze is more with MultiGPU runs (75% reproducibility) compared to Single GPU runs (20% reproducibility) when executed with higher iterations. 
+A software hang has been observed with Tensorflow benchmarks at random times. The hang occurs more frequently on systems with multiple GPUs than a single GPU. 
 
-You can kill the process or use  CNTRL + C to recover the system.
+You can kill the process or use  CNTRL + C to recover the system. 
 
-There is no known workaround at this time. Note, the issue does not occur when executed with the Debug version of Runtime/Libraries.
+There is no known workaround at this time.
+
 
 
 
