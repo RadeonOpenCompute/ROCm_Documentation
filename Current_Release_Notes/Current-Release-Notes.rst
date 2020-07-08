@@ -98,7 +98,7 @@ AMD ROCm Systems Management Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `System Management Interface Event API
-   Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual.pdf>`__
+   Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide.pdf>`__
 
 AMD ROCm Glossary of Terms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -214,7 +214,8 @@ The RDC Tool API supports the following components:
 
 For more information, refer the ROCm Data Center Tool API Guide (Alpha Release) at
 
-*Add doc link*
+https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Guide_Alpha.pdf
+
 
 AMD ROCm System Management Interface
 ------------------------------------
@@ -246,7 +247,7 @@ functions enable you to retrieve the following details about the connection type
 
 For more details, refer the ROCm SMI API Guide at
 
-*Add doc link to API Guide*
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide.pdf
 
 Get Process ID API
 ~~~~~~~~~~~~~~~~~~
@@ -265,7 +266,7 @@ Note, the VRAM usage file stores the VRAM memory currently in use (in bytes) by 
 
 For more information about the original and the enhanced APIs, refer the AMD ROCm SMI API Guide at
 
-*Add Doc Link*
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide.pdf
 
 AMD ROCm GNU Debugger
 ----------------------
