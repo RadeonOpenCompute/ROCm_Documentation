@@ -25,7 +25,7 @@ This page describes the features, fixed issues, and information about downloadin
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
    -  `Upgrading to This Release <#Upgrading-to-This-Release>`__
-   -  `AMD ROCm Collective Groups <#AMD-ROCm-Collective-Groups>`__
+   -  `AMD ROCm Cooperative Groups <#AMD-ROCm-Cooperative-Groups>`__
    -  `AMD ROCm Data Center Tool <#AMD-ROCm-Data-Center-Tool>`__
    -  `AMD ROCm System Management Interface <#AMD-ROCm-System-Management-Interface>`__
    -  `AMD ROCm GNU Debugger <#AMD-ROCm-GNU-Debugger>`__
@@ -142,17 +142,17 @@ For more information, refer to the `Installation
 Guide <https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html>`__
 
 
-AMD ROCm Collective Groups
---------------------------
+AMD ROCm Cooperative Groups
+----------------------------
 
-AMD ROCm introduces the Collective Groups feature for defining and synchronizing groups of threads and sharing data to perform efficient collective computations. The sharing of data varies from algorithm to algorithm, so the thread synchronization must be flexible to ensure modularity.
+AMD ROCm 3.6 introduces the Cooperative Groups feature into HIP. Cooperative Groups introduces additional mechanisms for synchronizing groups of threads within and between GPUs, which can be used to increase the performance and ease programmability for a number of different programming paradigms.
 
-The Cooperative Groups feature in AMD ROCm adds the following two important mechanisms:
+The Cooperative Groups feature in AMD ROCm adds the following two important mechanisms into the HIP programming environment:
 
--  Kernel-wide barriers to synchronize between the workgroups in a
-   kernel running on a single GPU.
--  System-wide barriers to synchronize between multiple kernels running
-   on multiple GPUs.
+* Inter-thread-block barriers to synchronize between the thread blocks in a kernel running on a single GPU.
+
+* System-wide barriers to synchronize between multiple kernels running on multiple GPUs.
+
    
 You may use the Cooperative Groups feature in HIP applications by:
 
