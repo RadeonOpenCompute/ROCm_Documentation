@@ -142,6 +142,7 @@ For more information, refer to the `Installation
 Guide <https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html>`__
 
 
+
 AMD ROCm Cooperative Groups
 ----------------------------
 
@@ -169,6 +170,7 @@ Limitations
 - This feature is currently only supported on AMD "gfx9" devices.
 
 - This features does not currently support the classes: cooperative_groups::thread_group, cooperative_groups::thread_block, or cooperative_groups::coalesced_group, or cooperative_groups::thread_block_tile<>.
+
 
 
 AMD ROCm Data Center Tool
@@ -215,6 +217,7 @@ The RDC Tool API supports the following components:
 For more information, refer the ROCm Data Center Tool API Guide (Alpha Release) at
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Guide_Alpha.pdf
+
 
 
 AMD ROCm System Management Interface
@@ -267,6 +270,8 @@ Note, the VRAM usage file stores the VRAM memory currently in use (in bytes) by 
 For more information about the original and the enhanced APIs, refer the AMD ROCm SMI API Guide at
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide.pdf
+
+
 
 AMD ROCm GNU Debugger
 ----------------------
@@ -328,6 +333,8 @@ which is in the rocm-dkms package. The AMD ROCm Debugger API Specification is av
 https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
 
 
+
+
 ROCm Communications Collective Library
 ---------------------------------------
 
@@ -367,6 +374,8 @@ hipBLAS
 -  gemm_batched_ex and gemm_strided_batched_ex
 
 -  tbsv, tbsv_batched, and tbsv_strided_batched
+
+
 
 AMD MIVisionX
 -------------
@@ -444,6 +453,7 @@ This issue is under investigation and there is no known workaround at this time.
 
 
 
+
 Debug Agent Encounters an Error and Fails When Using Thunk API
 --------------------------------------------------------------
 
@@ -456,6 +466,7 @@ This known issue is under investigation and the Debug Agent functionality is una
 
 
 
+
 ROCgdb Fails to Recognize Code Objects Loaded by the Deprecated Runtime Loader API
 ----------------------------------------------------------------------------------
 
@@ -464,6 +475,7 @@ code object using an argument of type hsa_code_object_t. The ROCgdb info sharedl
 ROCgdb from displaying source information or setting breakpoints by source position in these code objects.
 
 There is no workaround available at this time.
+
 
 
 
@@ -480,12 +492,14 @@ thrust::sort_by_key may work on certain input sizes.
 
 
 
+
 Memory Fault Error for fp16 operations in MIGraphX 
 -----------------------------------------------------
 
 fp16 operations in MIGraphX result in a memory fault error in ROCm v3.6.
 
 There is no known workaround for the issue at this time.
+
 
 
 
