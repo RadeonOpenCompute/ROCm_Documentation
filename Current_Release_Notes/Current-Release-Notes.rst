@@ -415,6 +415,7 @@ Installation of Hipify-Clang fails on CentOS/RHEL. Note, this issue is not obser
 $ sudo rpm -ivh --force hipify-clang-11.0.0.x86_64.rpm
 
 
+
 Use of ROCgdb on Cooperative Queues Results in System Failure on Vega 10 and 7nm
 -----------------------------------------------------------------------------------
 
@@ -431,6 +432,7 @@ In this release, using ROC Debugger (ROCgdb) on Cooperative queues can lead to a
 If a system crash occurs, examine the messages in ‘dmesg’ before rebooting the system. 
 
 There is no known workaround at this time.
+
 .
 
 NaN Loss during ImageNet Training on Tensorflow
@@ -439,6 +441,7 @@ NaN Loss during ImageNet Training on Tensorflow
 A Not a Number (NaN) loss error is observed while running Imagenet training on Tensorflow.
 
 This issue is under investigation and there is no known workaround at this time.
+
 
 
 Debug Agent Encounters an Error and Fails When Using Thunk API
@@ -451,6 +454,7 @@ The Debug Agent encounters the following error and, as a result, fails when usin
 This known issue is under investigation and the Debug Agent functionality is unavailable in the AMD ROCm v3.6 release.
 
 
+
 ROCgdb Fails to Recognize Code Objects Loaded by the Deprecated Runtime Loader API
 ----------------------------------------------------------------------------------
 
@@ -459,6 +463,7 @@ code object using an argument of type hsa_code_object_t. The ROCgdb info sharedl
 ROCgdb from displaying source information or setting breakpoints by source position in these code objects.
 
 There is no workaround available at this time.
+
 
 Calling thrust::sort() and thrust::sort_by_key() Not Supported from Device Code
 -------------------------------------------------------------------------------
@@ -471,12 +476,14 @@ work. The use of the device malloc launched thrust::sort and thrust::sort_by_key
 **Workaround**: A partial enablement of device malloc is possible by setting **HIP_ENABLE_DEVICE_MALLOC** to 1. Thrust::sort and
 thrust::sort_by_key may work on certain input sizes.
 
+
 Memory Fault Error for fp16 operations in MIGraphX 
 -----------------------------------------------------
 
 fp16 operations in MIGraphX result in a memory fault error in ROCm v3.6.
 
 There is no known workaround for the issue at this time.
+
 
 
 Random Hang while Running Tensorflow Benchmarks
