@@ -455,6 +455,7 @@ This known issue is under investigation and the Debug Agent functionality is una
 
 
 
+
 ROCgdb Fails to Recognize Code Objects Loaded by the Deprecated Runtime Loader API
 ----------------------------------------------------------------------------------
 
@@ -463,6 +464,7 @@ code object using an argument of type hsa_code_object_t. The ROCgdb info sharedl
 ROCgdb from displaying source information or setting breakpoints by source position in these code objects.
 
 There is no workaround available at this time.
+
 
 
 Calling thrust::sort() and thrust::sort_by_key() Not Supported from Device Code
@@ -477,12 +479,14 @@ work. The use of the device malloc launched thrust::sort and thrust::sort_by_key
 thrust::sort_by_key may work on certain input sizes.
 
 
+
 Memory Fault Error for fp16 operations in MIGraphX 
 -----------------------------------------------------
 
 fp16 operations in MIGraphX result in a memory fault error in ROCm v3.6.
 
 There is no known workaround for the issue at this time.
+
 
 
 
