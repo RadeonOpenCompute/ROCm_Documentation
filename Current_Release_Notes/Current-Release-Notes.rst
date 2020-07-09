@@ -77,7 +77,7 @@ Documentation Updates
 AMD ROCm Data Center Tool Guides
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  AMD ROCm Data Center Tool User Guide
+-  `AMD ROCm Data Center Tool User Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_Data_Center_Tool_User_Guide.pdf>`_
 -  `AMD ROCm Data Center Tool API Guide - Alpha Release <https://github.com/Rmalavally/ROCm/blob/master/RDC_API_Guide_Alpha.pdf>`_ 
 
 HIP-Clang Compiler
@@ -193,7 +193,7 @@ Refer to the ROCm Data Center Tool User Guide for more details on the different 
 and Data Center (or HPC) users can administer and configure AMD GPUs. The guide also provides an overview of its components and open source
 developer handbook. For more information, refer the ROCm Data Center User Guide at
 
-*Add doc link*
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_Data_Center_Tool_User_Guide.pdf
 
 AMD ROCm Data Center Tool API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
