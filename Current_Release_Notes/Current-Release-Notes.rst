@@ -441,7 +441,6 @@ In this release, using ROC Debugger (ROCgdb) on Cooperative queues can lead to a
 If a system crash occurs, examine the messages in ‘dmesg’ before rebooting the system. 
 
 There is no known workaround at this time.
-
 .
 
 NaN Loss during ImageNet Training on Tensorflow
