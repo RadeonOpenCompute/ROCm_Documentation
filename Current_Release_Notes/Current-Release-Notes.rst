@@ -22,8 +22,8 @@ This known issue is currently under investigation.
 
 
 
-================================
-AMD ROCm™ Release Notes v3.6.0
+
+AMD ROCm™ Release Notes v3.5.0
 ================================
 July, 2020
 
