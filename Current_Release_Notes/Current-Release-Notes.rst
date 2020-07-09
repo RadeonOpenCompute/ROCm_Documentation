@@ -422,9 +422,9 @@ In this release, using ROC Debugger (ROCgdb) on Cooperative queues can lead to a
 
 * Cooperative Groups features that launch a kernel to the device: 
 
-	* hipLaunchCooperativeKernel()
+ - hipLaunchCooperativeKernel()
       
- 	* hipLaunchCooperativeKernelMultiDevice()
+ - hipLaunchCooperativeKernelMultiDevice()
       
 * Peer-to-peer transfers on systems without PCIe large BAR support
 
