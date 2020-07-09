@@ -422,7 +422,7 @@ Installation of Hipify-Clang fails on CentOS/RHEL. Note, this issue is not obser
 ::
 
 $ sudo rpm -ivh --force hipify-clang-11.0.0.x86_64.rpm
-|
+
 
 
 Use of ROCgdb on Cooperative Queues Results in System Failure on Vega 10 and 7nm
@@ -449,7 +449,6 @@ NaN Loss during ImageNet Training on Tensorflow
 A Not a Number (NaN) loss error is observed while running Imagenet training on Tensorflow.
 
 This issue is under investigation and there is no known workaround at this time.
-
 |
 
 Debug Agent Encounters an Error and Fails When Using Thunk API
