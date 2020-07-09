@@ -500,6 +500,62 @@ This file contains archived version history information for the ROCm project.
 New features and enhancements in ROCm v3.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.5.0
+
+**rocProf Command Line Tool Python Requirement**
+SQLite3 is a required Python module for the rocprof command-line tool. You can install the SQLite3 Python module using the pip utility and set env var ROCP_PYTHON_VERSION to the Python version, which includes the SQLite3 module.
+
+**Heterogeneous-Compute Interface for Portability**
+In this release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs.
+
+**Radeon Open Compute Common Language Runtime**
+In this release, the HIP runtime API is implemented on top of Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr.
+
+**OpenCL Runtime**
+The following OpenCL runtime changes are made in this release:
+
+-AMD ROCm OpenCL Runtime extends support to OpenCL2.2
+-The developer branch is changed from master to master-next
+
+**AMD ROCm GNU Debugger (ROCgdb)**
+The AMD ROCm Debugger (ROCgdb) is the AMD ROCm source-level debugger for Linux based on the GNU Debugger (GDB). It enables heterogeneous debugging on the AMD ROCm platform of an x86-based host architecture along with AMD GPU architectures and supported by the AMD Debugger API Library (ROCdbgapi).
+
+**AMD ROCm Debugger API Library**
+The AMD ROCm Debugger API Library (ROCdbgapi) implements an AMD GPU debugger application programming interface (API) that provides the support necessary for a client of the library to control the execution and inspect the state of AMD GPU devices.
+
+**rocProfiler Dispatch Callbacks Start Stop API**
+In this release, a new rocprofiler start/stop API is added to enable/disable GPU kernel HSA dispatch callbacks. The callback can be registered with the 'rocprofiler_set_hsa_callbacks' API. The API helps you eliminate some profiling performance impact by invoking the profiler only for kernel dispatches of interest. This optimization will result in significant performance gains.
+
+**ROCm Communications Collective Library**
+The ROCm Communications Collective Library (RCCL) consists of the following enhancements:
+
+-Re-enable target 0x803
+-Build time improvements for the HIP-Clang compiler
+
+**NVIDIA Communications Collective Library Version Compatibility**
+AMD RCCL is now compatible with NVIDIA Communications Collective Library (NCCL) v2.6.4 and provides the following features:
+
+Network interface improvements with API v3
+Network topology detection
+Improved CPU type detection
+Infiniband adaptive routing support
+
+**MIOpen Optional Kernel Package Installation**
+MIOpen provides an optional pre-compiled kernel package to reduce startup latency.
+
+**New SMI Event Interface and Library**
+An SMI event interface is added to the kernel and ROCm SMI lib for system administrators to get notified when specific events occur. On the kernel side, AMDKFD_IOC_SMI_EVENTS input/output control is enhanced to allow notifications propagation to user mode through the event channel.
+
+**API for CPU Affinity**
+A new API is introduced for aiding applications to select the appropriate memory node for a given accelerator(GPU).
+
+**Radeon Performance Primitives Library**
+The new Radeon Performance Primitives (RPP) library is a comprehensive high-performance computer vision library for AMD (CPU and GPU) with the HIP and OpenCL backend. The target operating system is Linux.
+
+
+New features and enhancements in ROCm v3.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.3.0
 
 **Multi-Version Installation**
