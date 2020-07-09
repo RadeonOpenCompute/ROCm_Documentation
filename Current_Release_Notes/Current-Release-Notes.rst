@@ -21,8 +21,6 @@ The Side-by-Side install feature does not behave as expected, and multiple relea
 This known issue is currently under investigation.
 
 
-AMD ROCm Release Notes v3.6.0
-==============================
 
 ================================
 AMD ROCm™ Release Notes v3.6.0
@@ -336,6 +334,8 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/gdb.pdf
 
 For more information about GNU Debugger (GDB), refer to the GNU Debugger
 (GDB) web site at: http://www.gnu.org/software/gdb
+
+
 
 AMD ROCm Debugger API Library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
