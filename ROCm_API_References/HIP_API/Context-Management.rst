@@ -45,7 +45,7 @@ HIP Management APIs
 Use "hipHostMalloc" 
 
 
-** hipMemAllocHost** 
+**hipMemAllocHost** 
 
 Use "hipHostMalloc" 
 
