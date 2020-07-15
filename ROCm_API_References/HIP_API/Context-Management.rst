@@ -52,6 +52,7 @@ Deprecated HIP APIs
 * Use "hipHostMalloc" 
 
 For more information on 'hipHostMalloc', see 
+
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
@@ -62,6 +63,7 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 **Note**: "hipHostFree" has the same input as deprecated "hipFreeHost".
 
 For more information, see
+
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
 
 
