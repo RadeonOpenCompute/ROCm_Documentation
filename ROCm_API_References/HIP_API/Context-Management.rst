@@ -37,28 +37,32 @@ hipDevicePrimaryCtxSetFlags
 Deprecated HIP APIs
 ========================
 
-## HIP Management APIs
+HIP Management APIs
+####################
 
-### hipMallocHost
+**hipMallocHost**
 
-* Use "hipHostMalloc" 
+Use "hipHostMalloc" 
 
-### hipMemAllocHost
 
-* Use "hipHostMalloc" 
+** hipMemAllocHost** 
 
-### hipHostAlloc
+Use "hipHostMalloc" 
 
-* Use "hipHostMalloc" 
+
+**hipHostAlloc**
+
+Use "hipHostMalloc" 
+
 
 For more information on 'hipHostMalloc', see 
 
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
-### hipFreeHost
+**hipFreeHost**
 
-* Use "hipHostFree" 
+Use "hipHostFree" 
 
 **Note**: "hipHostFree" has the same input as deprecated "hipFreeHost".
 
