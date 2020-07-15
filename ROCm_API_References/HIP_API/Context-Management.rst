@@ -42,17 +42,17 @@ HIP Management APIs
 
 **hipMallocHost**
 
-Use "hipHostMalloc" 
+Recommendation: Use "hipHostMalloc" 
 
 
 **hipMemAllocHost** 
 
-Use "hipHostMalloc" 
+Recommendation: Use "hipHostMalloc" 
 
 
 **hipHostAlloc**
 
-Use "hipHostMalloc" 
+Recommendation: Use "hipHostMalloc" 
 
 
 For more information on 'hipHostMalloc', see 
@@ -62,7 +62,7 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 
 **hipFreeHost**
 
-Use "hipHostFree" 
+Recommendation: Use "hipHostFree" 
 
 **Note**: "hipHostFree" has the same input as the deprecated "hipFreeHost" API.
 
