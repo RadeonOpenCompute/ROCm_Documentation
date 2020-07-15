@@ -1,12 +1,16 @@
 .. _Context-Management:
 
+====================
 Context Management
 ====================
 
-**Note**: See the section on Deprecated HIP APIs below for a list of deprecated APIs.
+*  `Current HIP APIs`_
 
-:ref:`Deprecated HIP APIs <Deprecated HIP APIs>`
+* `Deprecated HIP APIs`_
 
+
+Current HIP APIs
+==================
 
 hipDevicePrimaryCtxGetState 
 -----------------------------
