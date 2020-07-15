@@ -5,7 +5,7 @@ Context Management
 
 **Note**: See the section on Deprecated HIP APIs below for a list of deprecated APIs.
 
-:ref: `Deprecated HIP APIs<Deprecated HIP APIs>`
+:ref:`Deprecated HIP APIs<Deprecated HIP APIs>`
 
 
 hipDevicePrimaryCtxGetState 
