@@ -3,6 +3,9 @@
 Context Management
 ====================
 
+**Note**: See the section on Deprecated APIs below for a list of deprecated APIs.
+
+
 hipDevicePrimaryCtxGetState 
 -----------------------------
 .. doxygenfunction:: hipDevicePrimaryCtxGetState 
@@ -27,6 +30,33 @@ hipDevicePrimaryCtxSetFlags
 
 Deprecated HIP APIs
 ========================
+
+## HIP Management APIs
+
+### hipMallocHost
+
+* Use "hipHostMalloc" 
+
+### hipMemAllocHost
+
+* Use "hipHostMalloc" 
+
+### hipHostAlloc
+
+* Use "hipHostMalloc" 
+
+For more information on 'hipHostMalloc', see 
+https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
+
+
+### hipFreeHost
+
+* Use "hipHostFree" 
+
+**Note**: "hipHostFree" has the same input as deprecated "hipFreeHost".
+
+For more information, see
+https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
 
 
 hipCtxCreate
