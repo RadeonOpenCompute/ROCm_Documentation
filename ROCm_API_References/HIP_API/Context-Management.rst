@@ -64,7 +64,7 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 
 Use "hipHostFree" 
 
-**Note**: "hipHostFree" has the same input as deprecated "hipFreeHost".
+**Note**: "hipHostFree" has the same input as the deprecated "hipFreeHost" API.
 
 For more information, see
 
