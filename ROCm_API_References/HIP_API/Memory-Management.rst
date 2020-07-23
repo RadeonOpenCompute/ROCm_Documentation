@@ -11,17 +11,10 @@ hipMalloc
 ------------------------
 .. doxygenfunction:: hipMalloc 
 
-hipMallocHost
-------------------------
-.. doxygenfunction:: hipMallocHost
-
 hipHostMalloc
 ------------------------
 .. doxygenfunction:: hipHostMalloc
 
-hipHostAlloc 
-------------------------
-.. doxygenfunction:: hipHostAlloc 
 
 hipHostGetDevicePointer
 ------------------------
@@ -46,10 +39,6 @@ hipMallocPitch
 hipFree
 ------------------------
 .. doxygenfunction:: hipFree
-
-hipFreeHost
-------------------------
-.. doxygenfunction:: hipFreeHost
 
 hipMemcpy 
 ------------------------
