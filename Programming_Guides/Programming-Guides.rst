@@ -504,9 +504,9 @@ OpenCL Best Practices
 
    
 
-======================
-HCC Programming Guide
-======================
+====================================
+HCC Programming Guide (Deprecated)
+=====================================
 
 **What is the Heterogeneous Compute (HC) API ?**
 
