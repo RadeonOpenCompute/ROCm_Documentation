@@ -359,8 +359,8 @@ The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP
 Deprecated HIP APIs
 =====================
 
-HIP Management APIs
-####################
+HIP Memory Management APIs
+###########################
 
 **hipMallocHost**
 
@@ -452,6 +452,33 @@ hipCtxEnablePeerAccess
 hipCtxDisablePeerAccess  
 ------------------------
 .. doxygenfunction:: hipCtxDisablePeerAccess 
+
+
+
+.. _Context-Management:
+
+HIP Context Management APIs
+############################
+
+hipDevicePrimaryCtxGetState 
+-----------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxGetState 
+
+hipDevicePrimaryCtxRelease
+----------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxRelease
+
+hipDevicePrimaryCtxRetain
+--------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxRetain
+
+hipDevicePrimaryCtxReset
+---------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxReset 
+
+hipDevicePrimaryCtxSetFlags 
+----------------------------
+.. doxygenfunction:: hipDevicePrimaryCtxSetFlags 
 
 
 
