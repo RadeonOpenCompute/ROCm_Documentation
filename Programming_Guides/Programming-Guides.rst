@@ -136,7 +136,7 @@ Table Comparing Syntax for Different Compute APIs
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Block  dim             | blockDim.x    | hipBlockDim_x   | t_ext.tile_dim[0]   |  t_idx.tile_dim0       |get_local_size(0)          |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
-|Grid-dim               | gridDim.x     | hipGridDim_x    |   	t_ext[0]        |      t_ext[0]          |get_global_size(0)         |
+|Grid-dim               | gridDim.x     | hipGridDim_x    |   	t_ext[0]        |      t_ext[0]          |get_global_size(0)          |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Device Function        | __device__    | __device__      |[[hc]] (detected     |                        |Implied in device          |
@@ -176,7 +176,7 @@ Table Comparing Syntax for Different Compute APIs
 |                       |               |                 |                     |                        |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |                       |               |                 |                     |                        |                           |
-|Precise Math           |  cos(f)       |   cos(f)        | hc::                |   concurrency::        |      	cos(f)       |
+|Precise Math           |  cos(f)       |   cos(f)        | hc::                |   concurrency::        |      	cos(f)              |
 |                       |               |                 | precise_math::cos(f)|   precise_math::cos(f) |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |                       |               |                 |hc::fast_math::cos(f)|   concurrency::        |                           |
@@ -184,7 +184,7 @@ Table Comparing Syntax for Different Compute APIs
 |                       |               |                 |                     |                        |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |                       |               |                 |hc::                 |concurrency::           |                           |
-|Vector                 |   float4      |   	float4    |short_vector::float4 |graphics::float_4       |         float4            |
+|Vector                 |   float4      |   	float4    |short_vector::float4 |graphics::float_4          |         float4            |
 |                       |               |                 |                     |                        |                           |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 
@@ -393,6 +393,13 @@ For more information, see
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
 
 
+
+.. _Context-Management:
+
+HIP Context Management APIs
+############################
+
+
 hipCtxCreate
 ----------------
 .. doxygenfunction::  hipCtxCreate
@@ -452,34 +459,6 @@ hipCtxEnablePeerAccess
 hipCtxDisablePeerAccess  
 ------------------------
 .. doxygenfunction:: hipCtxDisablePeerAccess 
-
-
-
-.. _Context-Management:
-
-HIP Context Management APIs
-############################
-
-hipDevicePrimaryCtxGetState 
------------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxGetState 
-
-hipDevicePrimaryCtxRelease
-----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxRelease
-
-hipDevicePrimaryCtxRetain
---------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxRetain
-
-hipDevicePrimaryCtxReset
----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxReset 
-
-hipDevicePrimaryCtxSetFlags 
-----------------------------
-.. doxygenfunction:: hipDevicePrimaryCtxSetFlags 
-
 
 
 
