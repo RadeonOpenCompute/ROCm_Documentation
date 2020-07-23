@@ -359,9 +359,6 @@ The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP
 Deprecated HIP APIs
 =====================
 
-Deprecated HIP APIs
-========================
-
 HIP Management APIs
 ####################
 
