@@ -20,8 +20,8 @@ Math Library API
 *  :ref:`clSPARSE_api`
 
 
-HCC Language Runtime API
-========================
+HCC Language Runtime API (Deprecated)
+======================================
 
 * :ref:`HCC-API`
 
