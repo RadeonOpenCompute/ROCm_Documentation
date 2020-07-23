@@ -389,13 +389,6 @@ hipMallocHost
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
-**hipMemAllocHost** 
-
-Recommendation: Use "hipHostMalloc" 
-
-https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
-
-
 hipHostAlloc 
 ------------------------
 .. doxygenfunction:: hipHostAlloc 
@@ -415,6 +408,13 @@ hipFreeHost
 **Note**: "hipHostFree" has the same input as the deprecated "hipFreeHost" API.
 
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
+
+
+**hipMemAllocHost** 
+
+Recommendation: Use "hipHostMalloc" 
+
+https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
 
