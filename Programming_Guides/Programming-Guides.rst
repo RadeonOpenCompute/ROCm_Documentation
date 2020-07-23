@@ -355,6 +355,23 @@ The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP
     * **doc:** Documentation - markdown and doxygen info
     
     
+==========================
+HIP API Documentation
+==========================
+
+HIP Language Runtime API
+========================
+
+* :ref:`HIP-API`
+
+
+HIP Math API
+====================
+
+* :ref:`HIP-MATH`
+
+    
+    
     
 Deprecated HIP APIs
 =====================
