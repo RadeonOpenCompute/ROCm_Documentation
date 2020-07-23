@@ -920,10 +920,10 @@ CUDA Driver API functions supported by HIP
 | CUDA                            | HIP                          |
 +=================================+==============================+
 |   cuCtxCreate                   |   hipCtxCreate               |
-|                                 |   (deprecated)               |
+|                                 |                              |
 +---------------------------------+------------------------------+
 |   cuCtxDestroy                  |   hipCtxDestroy              |
-|                                 |   (deprecated)               |
+|                                 |                              |
 +---------------------------------+------------------------------+
 |   cuCtxGetApiVersion            |   hipCtxGetApiVersion        |
 +---------------------------------+------------------------------+
