@@ -373,10 +373,10 @@ HIP Math API
     
     
     
-Deprecated HIP APIs
+Deprecated HIP API
 =====================
 
-HIP Memory Management APIs
+HIP Memory Management API
 ###########################
 
 
@@ -418,7 +418,7 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 
 .. _Context-Management:
 
-HIP Context Management APIs
+HIP Context Management API
 ############################
 
 
