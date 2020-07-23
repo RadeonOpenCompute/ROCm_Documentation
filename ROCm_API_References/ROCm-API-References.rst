@@ -5,15 +5,6 @@
 ROCm API References
 =====================
 
-HIP Language Runtime API
-========================
-* :ref:`HIP-API`
-
-HIP Math API
-====================
-
-* :ref:`HIP-MATH`
-
 
 ROCr System Runtime API
 ========================
