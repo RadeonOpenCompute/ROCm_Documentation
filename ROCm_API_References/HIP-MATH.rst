@@ -1,6 +1,6 @@
 .. _HIP-MATH:
 
-HIP MATH APIs Documentation 
+HIP MATH API Documentation 
 ############################
 HIP supports most of the device functions supported by CUDA. Way to find the unsupported one is to search for the function and check its description
 
