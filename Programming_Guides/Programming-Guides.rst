@@ -362,9 +362,14 @@ Deprecated HIP APIs
 HIP Memory Management APIs
 ###########################
 
-**hipMallocHost**
 
-Recommendation: Use "hipHostMalloc" 
+hipMallocHost
+------------------------
+.. doxygenfunction:: hipMallocHost
+
+**Recommendation**: Use "hipHostMalloc" 
+
+https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
 **hipMemAllocHost** 
@@ -372,23 +377,23 @@ Recommendation: Use "hipHostMalloc"
 Recommendation: Use "hipHostMalloc" 
 
 
-**hipHostAlloc**
+hipHostAlloc 
+------------------------
+.. doxygenfunction:: hipHostAlloc 
 
 Recommendation: Use "hipHostMalloc" 
-
-
-For more information on 'hipHostMalloc', see 
 
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
-**hipFreeHost**
+hipFreeHost
+------------------------
+.. doxygenfunction:: hipFreeHost
 
-Recommendation: Use "hipHostFree" 
+
+**Recommendation**: Use "hipHostFree" 
 
 **Note**: "hipHostFree" has the same input as the deprecated "hipFreeHost" API.
-
-For more information, see
 
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
 
