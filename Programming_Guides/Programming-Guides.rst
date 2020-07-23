@@ -393,6 +393,8 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 
 Recommendation: Use "hipHostMalloc" 
 
+https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
+
 
 hipHostAlloc 
 ------------------------
