@@ -4,6 +4,14 @@
 Context Management
 ====================
 
+hipCtxCreate
+----------------
+.. doxygenfunction::  hipCtxCreate
+
+hipCtxDestroy
+----------------
+.. doxygenfunction:: hipCtxDestroy
+
 hipDevicePrimaryCtxGetState 
 -----------------------------
 .. doxygenfunction:: hipDevicePrimaryCtxGetState 
