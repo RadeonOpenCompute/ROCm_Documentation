@@ -424,14 +424,6 @@ HIP Context Management API
 ############################
 
 
-hipCtxCreate
-----------------
-.. doxygenfunction::  hipCtxCreate
-
-hipCtxDestroy
-----------------
-.. doxygenfunction:: hipCtxDestroy
-
 hipCtxPopCurrent
 ----------------
 .. doxygenfunction:: hipCtxPopCurrent
