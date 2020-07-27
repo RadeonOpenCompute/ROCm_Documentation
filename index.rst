@@ -116,9 +116,10 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: Additional Documentation 
    
    GCN_ISA_Manuals/GCN-ISA-Manuals
+   ROCm_Glossary/ROCm-Glossary
    Remote_Device_Programming/Remote-Device-Programming
    Tutorial/Tutorial
-   ROCm_Glossary/ROCm-Glossary
+   
 
 
    
