@@ -204,7 +204,7 @@ with respect to the operation or use of AMD hardware, software or other
 products described herein. No license, including implied or arising by
 estoppel, to any intellectual property rights is granted by this
 document. Terms and limitations applicable to the purchase or use of
-AMDâ€™s products are as set forth in a signed agreement between the
+AMD products are as set forth in a signed agreement between the
 parties or in AMD™ Standard Terms and Conditions of Sale.
 
 AMD, the AMD Arrow logo, ROCm® and combinations thereof are trademarks
