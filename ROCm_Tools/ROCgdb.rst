@@ -43,7 +43,7 @@ Introduction
 
 The AMD Debugger API is a library that provides all the support
 necessary for a debugger and other tools to perform low level control of
-the execution and inspection of execution state of AMDâ€™s commercially
+the execution and inspection of execution state of AMD™ commercially
 available GPU architectures.
 
 For more information about the AMD ROCm ecosystem, see:
@@ -207,19 +207,19 @@ products described herein. No license, including implied or arising by
 estoppel, to any intellectual property rights is granted by this
 document. Terms and limitations applicable to the purchase or use of
 AMDâ€™s products are as set forth in a signed agreement between the
-parties or in AMDâ€™s Standard Terms and Conditions of Sale.
+parties or in AMD™ Standard Terms and Conditions of Sale.
 
-AMDÂ®, the AMD Arrow logo, ROCmÂ® and combinations thereof are trademarks
-of Advanced Micro Devices, Inc.Â LinuxÂ® is the registered trademark of
-Linus Torvalds in the U.S. and other countries. PCIeÂ® is a registered
+AMD, the AMD Arrow logo, ROCm® and combinations thereof are trademarks
+of Advanced Micro Devices, Inc. Linux® is the registered trademark of
+Linus Torvalds in the U.S. and other countries. PCIe® is a registered
 trademark of PCI-SIG Corporation. RedHatÂ® and the Shadowman logo are
-registered trademarks of Red Hat, Inc.Â www.redhat.com in the U.S. and
-other countries. SUSEÂ® is a registered trademark of SUSE LLC in the
-United Stated and other countries. UbuntuÂ® and the Ubuntu logo are
-registered trademarks of Canonical Ltd.Â Other product names used in this
+registered trademarks of Red Hat, Inc. www.redhat.com in the U.S. and
+other countries. SUSE® is a registered trademark of SUSE LLC in the
+United Stated and other countries. Ubuntu® and the Ubuntu logo are
+registered trademarks of Canonical Ltd. Other product names used in this
 publication are for identification purposes only and may be trademarks
 of their respective companies.
 
-Copyright (c) 2019-2020 Advanced Micro Devices, Inc.Â All rights
+Copyright (c) 2019-2020 Advanced Micro Devices, Inc. All rights
 reserved.
 
