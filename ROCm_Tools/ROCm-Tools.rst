@@ -575,7 +575,7 @@ Metrics:
 
 
 ==========================
-AMD ROC Profiler Library
+AMD ROCProfiler Library
 ==========================
 
 ROC profiler library. Profiling with perf-counters and derived metrics. Library supports GFX8/GFX9.
