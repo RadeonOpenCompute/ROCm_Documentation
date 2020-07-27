@@ -32,16 +32,14 @@ For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) w
 
 .. _AMD-ROCm-Debugger-API-Library:
 
-
-
-=============================
-AMD Debugger API (ROCdbgapi)
-============================
+======================
+AMD Debugger API 
+======================
 
 Introduction
 ------------
 
-The AMD Debugger API is a library that provides all the support
+The AMD Debugger API (ROCdbgapi) is a library that provides all the support
 necessary for a debugger and other tools to perform low level control of
 the execution and inspection of execution state of AMD™ commercially
 available GPU architectures.
