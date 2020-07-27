@@ -198,7 +198,7 @@ is subject to change without notice. While every precaution has been
 taken in the preparation of this document, it may contain technical
 inaccuracies, omissions and typographical errors, and AMD is under no
 obligation to update or otherwise correct this information. Advanced
-Micro Devices, Inc.Â makes no representations or warranties with respect
+Micro Devices, Inc. makes no representations or warranties with respect
 to the accuracy or completeness of the contents of this document, and
 assumes no liability of any kind, including the implied warranties of
 noninfringement, merchantability or fitness for particular purposes,
