@@ -1244,7 +1244,9 @@ The Cuda __prof_trigger() instruction is not supported.
 
 Assert
 *******
-Previously, a failing assertion caused early termination of kernels and the application to exit with a line number, file, and failing condition printed to the screen. This issue is now fixed and the assert() and abort() functions are implemented for HIP device code. NOTE: There may be a performance impact in the use of device assertions in its current form.
+The assert() and abort() functions are implemented for HIP device code. 
+
+**NOTE**: There may be a performance impact in the use of device assertions in its current form.
 
 You may choose to disable the assertion in the production code. For example, to disable an assertion of:
 
