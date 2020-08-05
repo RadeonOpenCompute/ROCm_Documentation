@@ -1244,7 +1244,17 @@ The Cuda __prof_trigger() instruction is not supported.
 
 Assert
 *******
-The assert function is under development.
+Previously, a failing assertion caused early termination of kernels and the application to exit with a line number, file, and failing condition printed to the screen. This issue is now fixed and the assert() and abort() functions are implemented for HIP device code. NOTE: There may be a performance impact in the use of device assertions in its current form.
+
+You may choose to disable the assertion in the production code. For example, to disable an assertion of:
+
+*assert(foo != 0);*
+
+you may comment it out as:
+
+*//assert(foo != 0);*
+
+**NOTE**: Assertions are currently enabled by default.
 
 Printf
 ********
