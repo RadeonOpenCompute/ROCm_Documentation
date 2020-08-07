@@ -1199,13 +1199,175 @@ Following is the list of supported floating-point intrinsics. Note that intrinsi
 Texture Functions
 ------------------
 
-Texture functions are not supported.
+::
+hipError_t hipBindTexture(
+    size_t* offset,
+    const textureReference* tex,
+    const void* devPtr,
+    const hipChannelFormatDesc* desc,
+    size_t size __dparm(UINT_MAX));
+    
+::
+hipError_t hipBindTexture2D(
+    size_t* offset,
+    const textureReference* tex,
+    const void* devPtr,
+    const hipChannelFormatDesc* desc,
+    size_t width,
+    size_t height,
+    size_t pitch);
+
+::
+hipError_t hipBindTextureToArray(
+    const textureReference* tex,
+    hipArray_const_t array,
+    const hipChannelFormatDesc* desc);
+
+::
+hipError_t hipGetTextureReference(
+    const textureReference** texref,
+    const void* symbol);
+    
+::
+hipError_t hipUnbindTexture(const textureReference* tex);
+
+
+::
+hipError_t hipCreateTextureObject(
+    hipTextureObject_t* pTexObject,
+    const hipResourceDesc* pResDesc,
+    const hipTextureDesc* pTexDesc,
+    const struct hipResourceViewDesc* pResViewDesc);
+    
+::
+hipError_t hipDestroyTextureObject(hipTextureObject_t textureObject);
+
+::
+hipError_t hipGetChannelDesc(
+    hipChannelFormatDesc* desc,
+    hipArray_const_t array);
+    
+::
+hipError_t hipGetTextureObjectResourceDesc(
+    hipResourceDesc* pResDesc,
+    hipTextureObject_t textureObject);
+
+::
+hipError_t hipGetTextureObjectResourceViewDesc(
+    struct hipResourceViewDesc* pResViewDesc,
+    hipTextureObject_t textureObject);
+
+::
+hipError_t hipGetTextureObjectTextureDesc(
+    hipTextureDesc* pTexDesc,
+    hipTextureObject_t textureObject);
+
+::
+hipError_t hipTexRefGetAddress(
+    hipDeviceptr_t* dev_ptr,
+    const textureReference* texRef);
+
+::
+hipError_t hipTexRefGetAddressMode(
+    enum hipTextureAddressMode* pam,
+    const textureReference* texRef,
+    int dim);
+
+::
+hipError_t hipTexRefGetFilterMode(
+    enum hipTextureFilterMode* pfm,
+    const textureReference* texRef);
+
+::
+hipError_t hipTexRefGetFlags(
+    unsigned int* pFlags,
+    const textureReference* texRef);
+
+::
+hipError_t hipTexRefGetFormat(
+    hipArray_Format* pFormat,
+    int* pNumChannels,
+    const textureReference* texRef);
+
+::
+hipError_t hipTexRefSetAddress(
+    size_t* ByteOffset,
+    textureReference* texRef,
+    hipDeviceptr_t dptr,
+    size_t bytes);
+
+::
+hipError_t hipTexRefSetAddress2D(
+    textureReference* texRef,
+    const HIP_ARRAY_DESCRIPTOR* desc,
+    hipDeviceptr_t dptr,
+    size_t Pitch);
+
+::
+hipError_t hipTexRefSetAddressMode(
+    textureReference* texRef,
+    int dim,
+    enum hipTextureAddressMode am);
+
+::
+hipError_t hipTexRefSetArray(
+    textureReference* tex,
+    hipArray_const_t array,
+    unsigned int flags);
+
+::
+hipError_t hipTexRefSetFilterMode(
+    textureReference* texRef,
+    enum hipTextureFilterMode fm);
+
+::
+hipError_t hipTexRefSetFlags(
+    textureReference* texRef,
+    unsigned int Flags);
+
+::
+hipError_t hipTexRefSetFormat(
+    textureReference* texRef,
+    hipArray_Format fmt,
+    int NumPackedComponents);
+
+::
+hipError_t hipTexObjectCreate(
+    hipTextureObject_t* pTexObject,
+    const HIP_RESOURCE_DESC* pResDesc,
+    const HIP_TEXTURE_DESC* pTexDesc,
+    const HIP_RESOURCE_VIEW_DESC* pResViewDesc);
+
+::
+hipError_t hipTexObjectDestroy(
+    hipTextureObject_t texObject);
+
+::
+hipError_t hipTexObjectGetResourceDesc(
+    HIP_RESOURCE_DESC* pResDesc,
+    hipTextureObject_t texObject);
+
+::
+hipError_t hipTexObjectGetResourceViewDesc(
+    HIP_RESOURCE_VIEW_DESC* pResViewDesc,
+    hipTextureObject_t texObject);
+
+::
+hipError_t hipTexObjectGetTextureDesc(
+    HIP_TEXTURE_DESC* pTexDesc,
+    hipTextureObject_t texObject);
+
 
 .. _Surface-Functions:
 
 Surface Functions
 ------------------
-Surface functions are not supported.
+::
+hipError_t hipCreateSurfaceObject(hipSurfaceObject_t* pSurfObject, const hipResourceDesc* pResDesc);
+
+::
+hipError_t hipDestroySurfaceObject(hipSurfaceObject_t surfaceObject);
+
   
 .. _Timer-Functions:
 
