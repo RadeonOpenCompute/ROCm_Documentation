@@ -1535,7 +1535,9 @@ Applications can test whether the target platform supports the any/all instructi
 
 Warp Shuffle Functions
 ++++++++++++++++++++++++
-Half-float shuffles are not supported. The default width is warpSize---see :ref:`Warp Cross-Lane Functions`. Applications should not assume the warpSize is 32 or 64.
+Half-float shuffles are not supported. The default width is warpSize---
+
+See :ref:`Warp Cross-Lane Functions`. Note, applications should not assume the warpSize is 32 or 64.
 
 ::
  
