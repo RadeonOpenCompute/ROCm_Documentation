@@ -1391,14 +1391,13 @@ hipError_t hipTexObjectGetTextureDesc(
 Surface Functions
 ------------------
 
-::
-
-hipError_t hipCreateSurfaceObject(hipSurfaceObject_t* pSurfObject, const hipResourceDesc* pResDesc);
-
-
-::
-
-hipError_t hipDestroySurfaceObject(hipSurfaceObject_t surfaceObject);
++-----------------------------------------------------------------------------------------------------------------------------+
+| Function                                                                                                                    | 
++=============================================================================================================================+
+| hipError_t hipCreateSurfaceObject(hipSurfaceObject_t* pSurfObject, const hipResourceDesc* pResDesc);                        | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| hipError_t hipDestroySurfaceObject(hipSurfaceObject_t surfaceObject);                                                       |      
++-----------------------------------------------------------------------------------------------------------------------------+
 
   
 .. _Timer-Functions:
@@ -1539,56 +1538,59 @@ Half-float shuffles are not supported. The default width is warpSize---
 
 See :ref:`Warp Cross-Lane Functions`. Note, applications should not assume the warpSize is 32 or 64.
 
-::
++-----------------------------------------------------------------------------------------------------------------------------+
+| Function                                                                                                                    | 
++=============================================================================================================================+
+| int __shfl(int var, int src_lane, int width = warpSize)                                                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl(unsigned int var, int src_lane, int width = warpSize)                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl(float var, int src_lane, int width = warpSize)                                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl(double var, int src_lane, int width = warpSize)                                                               | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl(long var, int src_lane, int width = warpSize)                                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl(long long var, int src_lane, int width = warpSize)                                                         | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| int __shfl_up(int var, unsigned int lane_delta, int width = warpSize)                                                       | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl_up(unsigned int var, unsigned int lane_delta, int width = warpSize)                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl_up(float var, unsigned int lane_delta, int width = warpSize)                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl_up(double var, unsigned int lane_delta, int width = warpSize)                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl_up(long var, unsigned int lane_delta, int width = warpSize)                                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl_up(long long var, unsigned int lane_delta, int width = warpSize)                                           |
++-----------------------------------------------------------------------------------------------------------------------------+
+| int __shfl_down(int var, unsigned int lane_delta, int width = warpSize)                                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl_down(unsigned int var, unsigned int lane_delta, int width = warpSize)                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl_down(float var, unsigned int lane_delta, int width = warpSize)                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl_down(double var, unsigned int lane_delta, int width = warpSize)                                               | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl_down(long var, unsigned int lane_delta, int width = warpSize)                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl_down(long long var, unsigned int lane_delta, int width = warpSize)                                         | 
++-----------------------------------------------------------------------------------------------------------------------------+
+|int __shfl_xor(int var, int lane_mask, int width = warpSize)                                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl_xor(unsigned int var, int lane_mask, int width = warpSize)                                              | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl_xor(float var, int lane_mask, int width = warpSize)                                                            | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl_xor(double var, int lane_mask, int width = warpSize)                                                          | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl_xor(long var, int lane_mask, int width = warpSize)                                                              | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl_xor(long long var, int lane_mask, int width = warpSize)                                                    | 
++-----------------------------------------------------------------------------------------------------------------------------+
+
  
-int __shfl(int var, int src_lane, int width = warpSize) 
-
-unsigned int __shfl(unsigned int var, int src_lane, int width = warpSize) 
-
-float __shfl(float var, int src_lane, int width = warpSize)
-
-double __shfl(double var, int src_lane, int width = warpSize)
-
-long __shfl(long var, int src_lane, int width = warpSize)
-
-long long __shfl(long long var, int src_lane, int width = warpSize)
-
-int __shfl_up(int var, unsigned int lane_delta, int width = warpSize) 
-
-unsigned int __shfl_up(unsigned int var, unsigned int lane_delta, int width = warpSize)
-
-float __shfl_up(float var, unsigned int lane_delta, int width = warpSize)
-
-double __shfl_up(double var, unsigned int lane_delta, int width = warpSize) 
-
-long __shfl_up(long var, unsigned int lane_delta, int width = warpSize)
-
-long long __shfl_up(long long var, unsigned int lane_delta, int width = warpSize)
-
-int __shfl_down(int var, unsigned int lane_delta, int width = warpSize)
-
-unsigned int __shfl_down(unsigned int var, unsigned int lane_delta, int width = warpSize)
-
-float __shfl_down(float var, unsigned int lane_delta, int width = warpSize)
-
-double __shfl_down(double var, unsigned int lane_delta, int width = warpSize) 
-
-long __shfl_down(long var, unsigned int lane_delta, int width = warpSize)
-
-long long __shfl_down(long long var, unsigned int lane_delta, int width = warpSize)
-
-int __shfl_xor(int var, int lane_mask, int width = warpSize)
-
-unsigned int __shfl_xor(unsigned int var, int lane_mask, int width = warpSize)
-
-float __shfl_xor(float var, int lane_mask, int width = warpSize) 
-
-double __shfl_xor(double var, int lane_mask, int width = warpSize)
-
-long __shfl_xor(long var, int lane_mask, int width = warpSize)
-
-long long __shfl_xor(long long var, int lane_mask, int width = warpSize)
-
 
 .. _Cooperative Groups Functions:
 
