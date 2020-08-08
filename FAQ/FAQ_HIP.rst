@@ -83,7 +83,7 @@ However, we can provide a rough summary of the features included in each CUDA SD
     * Dynamic Parallelism (not supported) 
     * cuIpc functions (under development).
 * CUDA 5.5 : 
-    * CUPTI (not directly supported), `AMD GPUPerfAPI <http://developer.amd.com/tools*and*sdks/graphics*development/gpuperfapi/>`_ can be used as an alternative in some cases)
+    * CUPTI (not directly supported), `AMD GPUPerfAPI <https://gpuopen.com/gpuperfapi/>`_ can be used as an alternative in some cases)
 * CUDA 6.0
     * Managed memory (under development)
 * CUDA 6.5
