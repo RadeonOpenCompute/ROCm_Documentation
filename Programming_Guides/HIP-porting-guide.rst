@@ -281,99 +281,84 @@ Compiler Defines: Summary
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 The table below provides a summary of compiler defines.
 
-+-------------+-------------+-------------+-------------+-------------+
-| Define      | hcc         | HIP-Clang   | nvcc        | Other (GCC, |
-|             |             |             |             | ICC, Clang, |
-|             |             |             |             | etc.)       |
-+=============+=============+=============+=============+=============+
-| HIP-related |             |             |             |             |
-| defines:    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``          | Defined     | Defined     | Undefined   | Defined if  |
-| __HIP_PLATF |             |             |             | targeting   |
-| ORM_HCC__`` |             |             |             | hcc         |
-|             |             |             |             | platform;   |
-|             |             |             |             | undefined   |
-|             |             |             |             | otherwise   |
-+-------------+-------------+-------------+-------------+-------------+
-| ``_         | Undefined   | Undefined   | Defined     | Defined if  |
-| _HIP_PLATFO |             |             |             | targeting   |
-| RM_NVCC__`` |             |             |             | nvcc        |
-|             |             |             |             | platform;   |
-|             |             |             |             | undefined   |
-|             |             |             |             | otherwise   |
-+-------------+-------------+-------------+-------------+-------------+
-| ``__        | 1 if        | 1 if        | 1 if        | Undefined   |
-| HIP_DEVICE_ | compiling   | compiling   | compiling   |             |
-| COMPILE__`` | for device; | for device; | for device; |             |
-|             | undefined   | undefined   | undefined   |             |
-|             | if          | if          | if          |             |
-|             | compiling   | compiling   | compiling   |             |
-|             | for host    | for host    | for host    |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``          | Defined     | Defined     | Defined     | Undefined   |
-| __HIPCC__`` |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``__H       | 0 or 1      | 0 or 1      | 0 or 1      | 0           |
-| IP_ARCH_*`` | depending   | depending   | depending   |             |
-|             | on feature  | on feature  | on feature  |             |
-|             | support     | support     | support     |             |
-|             | (see below) | (see below) | (see below) |             |
-+-------------+-------------+-------------+-------------+-------------+
-| n           |             |             |             |             |
-| vcc-related |             |             |             |             |
-| defines:    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``_         | Undefined   | Undefined   | Defined if  | Undefined   |
-| _CUDACC__`` |             |             | source code |             |
-|             |             |             | is compiled |             |
-|             |             |             | by nvcc;    |             |
-|             |             |             | undefined   |             |
-|             |             |             | otherwise   |             |
-+-------------+-------------+-------------+-------------+-------------+
-| `           | Undefined   | Undefined   | Defined     | Undefined   |
-| `__NVCC__`` |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``__CU      | Undefined   | Undefined   | Unsigned    | Undefined   |
-| DA_ARCH__`` |             |             | r           |             |
-|             |             |             | epresenting |             |
-|             |             |             | compute     |             |
-|             |             |             | capability  |             |
-|             |             |             | For example,|             |
-|             |             |             | if          |             |
-|             |             |             | in device   |             |
-|             |             |             | code; 0 if  |             |
-|             |             |             | in host     |             |
-|             |             |             | code        |             |
-+-------------+-------------+-------------+-------------+-------------+
-| hcc-related |             |             |             |             |
-| defines:    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``__HCC__`` | Defined     | Undefined   | Undefined   | Undefined   |
-+-------------+-------------+-------------+-------------+-------------+
-| `           | Nonzero if  | Undefined   | Undefined   | Undefined   |
-| `__HCC_ACCE | in device   |             |             |             |
-| LERATOR__`` | code;       |             |             |             |
-|             | otherwise   |             |             |             |
-|             | undefined   |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| hip-cl      |             |             |             |             |
-| ang-related |             |             |             |             |
-| defines:    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``__HIP__`` | Undefined   | Defined     | Undefined   | Undefined   |
-+-------------+-------------+-------------+-------------+-------------+
-| hc          |             |             |             |             |
-| c/HIP-Clang |             |             |             |             |
-| common      |             |             |             |             |
-| defines:    |             |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ``          | Defined     | Defined     | Undefined   | Defined if  |
-| __clang__`` |             |             |             | using       |
-|             |             |             |             | Clang;      |
-|             |             |             |             | otherwise   |
-|             |             |             |             | undefined   |
-+-------------+-------------+-------------+-------------+-------------+
++----------------------------+-------------+-------------+--------------+-------------+
+| Define                     | hcc         | HIP-Clang   | nvcc         | Other (GCC, |
+|                            |             |             |              | ICC, Clang, |
+|                            |             |             |              | etc.)       |
++============================+=============+=============+==============+=============+
+| HIP-related defines:       |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HIP_PLATFORM_HCC__``   | Defined     | Defined     | Undefined    | Defined if  |
+|                            |             |             |              | targeting   |
+|                            |             |             |              | hcc         |
+|                            |             |             |              | platform;   |
+|                            |             |             |              | undefined   |
+|                            |             |             |              | otherwise   |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HIP_PLATFORM_NVCC__``  | Undefined   | Undefined   | Defined      | Defined if  |
+|                            |             |             |              | targeting   |
+|                            |             |             |              | nvcc        |
+|                            |             |             |              | platform;   |
+|                            |             |             |              | undefined   |
+|                            |             |             |              | otherwise   |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HIP_DEVICE_COMPILE__`` | 1 if        | 1 if        | 1 if         | Undefined   |
+|                            | compiling   | compiling   | compiling    |             |
+|                            | for device; | for device; | for device;  |             |
+|                            | undefined   | undefined   | undefined    |             |
+|                            | if          | if          | if           |             |
+|                            | compiling   | compiling   | compiling    |             |
+|                            | for host    | for host    | for host     |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HIPCC__``              | Defined     | Defined     | Defined      | Undefined   |
+|                            |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HIP_ARCH_*``           | 0 or 1      | 0 or 1      | 0 or 1       | 0           |
+|                            | depending   | depending   | depending    |             |
+|                            | on feature  | on feature  | on feature   |             |
+|                            | support     | support     | support      |             |
+|                            | (see below) | (see below) | (see below)  |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| nvcc-related defines:      |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__CUDACC__``             | Undefined   | Undefined   | Defined if   | Undefined   |
+|                            |             |             | source code  |             |
+|                            |             |             | is compiled  |             |
+|                            |             |             | by nvcc;     |             |
+|                            |             |             | undefined    |             |
+|                            |             |             | otherwise    |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__NVCC__``               | Undefined   | Undefined   | Defined      | Undefined   |
+|                            |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__CUDA_ARCH__``          | Undefined   | Undefined   | Unsigned     | Undefined   |
+|                            |             |             | representing |             |
+|                            |             |             | compute      |             |
+|                            |             |             | capability   |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| hcc-related defines:       |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HCC__``                | Defined     | Undefined   | Undefined    | Undefined   |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HCC_ACCELERATOR__``    | Nonzero if  | Undefined   | Undefined    | Undefined   |
+|                            | in device   |             |              |             |
+|                            | code;       |             |              |             |
+|                            | otherwise   |             |              |             |
+|                            | undefined   |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| hip-clang-related defines: |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__HIP__``                | Undefined   | Defined     | Undefined    | Undefined   |
++----------------------------+-------------+-------------+--------------+-------------+
+| hcc/HIP-Clang common       |             |             |              |             |
+| defines:                   |             |             |              |             |
++----------------------------+-------------+-------------+--------------+-------------+
+| ``__clang__``              | Defined     | Defined     | Undefined    | Defined if  |
+|                            |             |             |              | using       |
+|                            |             |             |              | Clang;      |
+|                            |             |             |              | otherwise   |
+|                            |             |             |              | undefined   |
++----------------------------+-------------+-------------+--------------+-------------+
 
 
 
@@ -424,91 +409,85 @@ Table of Architecture Properties
 
 The table below shows the full set of architectural properties that HIP supports.
 
-+-----------------------+-----------------------------+----------------+
-| Define (use only in   | Device Property (run-time   | Comment        |
-| device code)          | query)                      |                |
-+=======================+=============================+================+
-| 32-bit atomics:       |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS_GLO  | hasGlobalInt32Atomics       | 32-bit integer |
-| BAL_INT32_ATOMICS__`` |                             | atomics for    |
-|                       |                             | global memory  |
-+-----------------------+-----------------------------+----------------+
-| ``_                   | hasGlobalFloatAtomicExch    | 32-bit float   |
-| _HIP_ARCH_HAS_GLOBAL_ |                             | atomic         |
-| FLOAT_ATOMIC_EXCH__`` |                             | exchange for   |
-|                       |                             | global memory  |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS_SHA  | hasSharedInt32Atomics       | 32-bit integer |
-| RED_INT32_ATOMICS__`` |                             | atomics for    |
-|                       |                             | shared memory  |
-+-----------------------+-----------------------------+----------------+
-| ``_                   | hasSharedFloatAtomicExch    | 32-bit float   |
-| _HIP_ARCH_HAS_SHARED_ |                             | atomic         |
-| FLOAT_ATOMIC_EXCH__`` |                             | exchange for   |
-|                       |                             | shared memory  |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS      | hasFloatAtomicAdd           | 32-bit float   |
-| _FLOAT_ATOMIC_ADD__`` |                             | atomic add in  |
-|                       |                             | global and     |
-|                       |                             | shared memory  |
-+-----------------------+-----------------------------+----------------+
-| 64-bit atomics:       |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS_GLO  | hasGlobalInt64Atomics       | 64-bit integer |
-| BAL_INT64_ATOMICS__`` |                             | atomics for    |
-|                       |                             | global memory  |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS_SHA  | hasSharedInt64Atomics       | 64-bit integer |
-| RED_INT64_ATOMICS__`` |                             | atomics for    |
-|                       |                             | shared memory  |
-+-----------------------+-----------------------------+----------------+
-| Doubles:              |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP               | hasDoubles                  | Do             |
-| _ARCH_HAS_DOUBLES__`` |                             | uble-precision |
-|                       |                             | floating point |
-+-----------------------+-----------------------------+----------------+
-| Warp cross-lane       |                             |                |
-| operations:           |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_A             | hasWarpVote                 | Warp vote      |
-| RCH_HAS_WARP_VOTE__`` |                             | instructions   |
-|                       |                             | (any, all)     |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARC           | hasWarpBallot               | Warp ballot    |
-| H_HAS_WARP_BALLOT__`` |                             | instructions   |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH          | hasWarpShuffle              | Warp shuffle   |
-| _HAS_WARP_SHUFFLE__`` |                             | operations     |
-|                       |                             | (shfl_*)       |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS_     | hasFunnelShift              | Funnel shift   |
-| WARP_FUNNEL_SHIFT__`` |                             | two input      |
-|                       |                             | words into one |
-+-----------------------+-----------------------------+----------------+
-| Sync:                 |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS_TH   | hasThreadFenceSystem        | thre           |
-| READ_FENCE_SYSTEM__`` |                             | adfence_system |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HA       | hasSyncThreadsExt           | sync           |
-| S_SYNC_THREAD_EXT__`` |                             | threads_count, |
-|                       |                             | sy             |
-|                       |                             | ncthreads_and, |
-|                       |                             | syncthreads_or |
-+-----------------------+-----------------------------+----------------+
-| Miscellaneous:        |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_         | hasSurfaceFuncs             |                |
-| HAS_SURFACE_FUNCS__`` |                             |                |
-+-----------------------+-----------------------------+----------------+
-| ``__HI                | has3dGrid                   | Grids and      |
-| P_ARCH_HAS_3DGRID__`` |                             | groups are 3D  |
-+-----------------------+-----------------------------+----------------+
-| ``__HIP_ARCH_HAS      | hasDynamicParallelism       |                |
-| _DYNAMIC_PARALLEL__`` |                             |                |
-+-----------------------+-----------------------------+----------------+
++-----------------------------------------------+--------------------------+--------------------+
+| Define                                        | Device Property          | Comment            |
+| (use only in device code)                     | (run-time query)         |                    |
++===============================================+==========================+====================+
+| 32-bit atomics:                               |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_GLOBAL_INT32_ATOMICS__``     | hasGlobalInt32Atomics    | 32-bit integer     |
+|                                               |                          | atomics for        |
+|                                               |                          | global memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_GLOBAL_FLOAT_ATOMIC_EXCH__`` | hasGlobalFloatAtomicExch | 32-bit float       |
+|                                               |                          | atomic             |
+|                                               |                          | exchange for       |
+|                                               |                          | global memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_SHARED_INT32_ATOMICS__``     | hasSharedInt32Atomics    | 32-bit integer     |
+|                                               |                          | atomics for        |
+|                                               |                          | shared memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_SHARED_FLOAT_ATOMIC_EXCH__`` | hasSharedFloatAtomicExch | 32-bit float       |
+|                                               |                          | atomic             |
+|                                               |                          | exchange for       |
+|                                               |                          | shared memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_FLOAT_ATOMIC_ADD__``         | hasFloatAtomicAdd        | 32-bit float       |
+|                                               |                          | atomic add in      |
+|                                               |                          | global and         |
+|                                               |                          | shared memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| 64-bit atomics:                               |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_GLOBAL_INT64_ATOMICS__``     | hasGlobalInt64Atomics    | 64-bit integer     |
+|                                               |                          | atomics for        |
+|                                               |                          | global memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_SHARED_INT64_ATOMICS__``     | hasSharedInt64Atomics    | 64-bit integer     |
+|                                               |                          | atomics for        |
+|                                               |                          | shared memory      |
++-----------------------------------------------+--------------------------+--------------------+
+| Doubles:                                      |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_DOUBLES__``                  | hasDoubles               | Double-precision   |
+|                                               |                          | floating point     |
++-----------------------------------------------+--------------------------+--------------------+
+| Warp cross-lane operations:                   |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_WARP_VOTE__``                | hasWarpVote              | Warp vote          |
+|                                               |                          | instructions       |
+|                                               |                          | (any, all)         |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_WARP_BALLOT__``              | hasWarpBallot            | Warp ballot        |
+|                                               |                          | instructions       |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_WARP_SHUFFLE__``             | hasWarpShuffle           | Warp shuffle       |
+|                                               |                          | operations         |
+|                                               |                          | (shfl_*)           |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_WARP_FUNNEL_SHIFT__``        | hasFunnelShift           | Funnel shift       |
+|                                               |                          | two input words    |
+|                                               |                          | into one           |
++-----------------------------------------------+--------------------------+--------------------+
+| Sync:                                         |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_THREAD_FENCE_SYSTEM__``      | hasThreadFenceSystem     | threadfence_system |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_SYNC_THREAD_EXT__``          | hasSyncThreadsExt        | syncthreads_count, |
+|                                               |                          | syncthreads_and,   |
+|                                               |                          | syncthreads_or     |
++-----------------------------------------------+--------------------------+--------------------+
+| Miscellaneous:                                |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_SURFACE_FUNCS__``            | hasSurfaceFuncs          |                    |
+|                                               |                          |                    |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_3DGRID__``                   | has3dGrid                | Grids and groups   |
+|                                               |                          | are 3D             |
++-----------------------------------------------+--------------------------+--------------------+
+| ``__HIP_ARCH_HAS_DYNAMIC_PARALLEL__``         | hasDynamicParallelism    |                    |
++-----------------------------------------------+--------------------------+--------------------+
 
 Finding HIP
 -----------
