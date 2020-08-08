@@ -731,8 +731,11 @@ Device Code:
    #include<hip/hip_runtime_api.h>
    #include<iostream>
 
-   #define HIP_ASSERT(status) \
-       assert(status == hipSuccess)
+   #define HIP_ASSERT(expr)              \
+       do {                              \
+           hipError_t status = (expr);   \
+           assert(status == hipSuccess); \
+       } while (0)
 
    #define LEN 512
    #define SIZE 2048
