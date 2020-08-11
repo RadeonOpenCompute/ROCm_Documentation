@@ -736,29 +736,29 @@ default headers, and instead all required files must be explicitly
 included. Specifically, files that call HIP run-time APIs or define HIP
 kernels must explicitly include the appropriate HIP headers. If the
 compilation process reports that it cannot find necessary APIs (for
-example, â€œerror: identifier â€˜hipSetDeviceâ€™ is undefinedâ€), ensure that
+example, error: identifier 'hipSetDevice' is undefined, ensure that
 the file includes hip_runtime.h (or hip_runtime_api.h, if appropriate).
-The hipify-perl script automatically converts â€œcuda_runtime.hâ€ to
-â€œhip_runtime.h,â€ and it converts â€œcuda_runtime_api.hâ€ to
-â€œhip_runtime_api.hâ€, but it may miss nested headers or macros.
+The hipify-perl script automatically converts 'cuda_runtime.h' to
+'hip_runtime.h', and it converts 'cuda_runtime_api.h' to
+'hip_runtime_api.h', but it may miss nested headers or macros.
 
 cuda.h
 ^^^^^^
 
 The hcc path provides an empty cuda.h file. Some existing CUDA programs
-include this file but donâ€™t require any of the functions.
+include this file but does not require any of the functions.
 
 Choosing HIP File Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Many existing CUDA projects use the â€œ.cuâ€ and â€œ.cuhâ€ file extensions to
+Many existing CUDA projects use the '.cu' and '.cuh' file extensions to
 indicate code that should be run through the nvcc compiler. For quick
 HIP ports, leaving these file extensions unchanged is often easier, as
 it minimizes the work required to change file names in the directory and
 #include statements in the files.
 
 For new projects or ports which can be re-factored, we recommend the use
-of the extension â€œ.hip.cppâ€ for source files, and â€œ.hip.hâ€ or â€œ.hip.hppâ€
+of the extension '.hip.cpp' for source files, and '.hip.h' or '.hip.hpp'
 for header files. This indicates that the code is standard C++ code, but
 also provides a unique indication for make tools to run hipcc when
 appropriate.
@@ -943,12 +943,12 @@ variable HIPCC_VERBOSE to 1. Doing so will print to stderr the HIP-clang
 What Does This Error Mean?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-/usr/include/c++/v1/memory:5172:15: error: call to implicitly deleted default constructor of â€™std::__1::bad_weak_ptrâ€™ throw bad_weak_ptr();
+/usr/include/c++/v1/memory:5172:15: error: call to implicitly deleted default constructor of 'std::__1::bad_weak_ptr' throw bad_weak_ptr();
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you pass a â€œ.cuâ€ file, hcc will attempt to compile it as a CUDA
-language file. You must tell hcc that itâ€™s in fact a C++ file: use the
--x c++ option.
+If you pass a '.cu' file, hcc will attempt to compile it as a CUDA
+language file. You must tell hcc that it is, infact, a C++ file: use the
+-x c++ option.
 
 Editor Highlighting
 ~~~~~~~~~~~~~~~~~~~
