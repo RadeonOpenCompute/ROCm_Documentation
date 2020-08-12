@@ -506,10 +506,6 @@ Some users may want to install a subset of the full ROCm installation. If you ar
 HIP Installation Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-Installing pre-built packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
 
 -  `Installing pre-built packages <#installing-pre-built-packages>`__
