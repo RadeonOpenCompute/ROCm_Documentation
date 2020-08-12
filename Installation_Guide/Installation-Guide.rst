@@ -50,29 +50,13 @@ The following directions show how to install ROCm on supported Debian-based syst
 Prerequisites 
 ~~~~~~~~~~~~~~~
 
-You must perform a fresh and a clean AMD ROCm install to successfully
-upgrade from v3.3 to v3.5. The following changes apply in this release:
+The AMD ROCm platform is designed to support the following operating systems:
 
--  HCC is deprecated and replaced with the HIP-Clang compiler
--  HIP-HCC runtime is changed to Radeon Open Compute Common Language
-   Runtime (HIP-ROCClr)
--  In the v3.5 release, the firmware is separated from the kernel
-   package. The difference is as follows:
-
-   -  v3.5 release has two separate rock-dkms and rock-dkms-firmware
-      packages
-   -  v3.3 release had the firmware as part of the rock-dkms package
-   
- Known Issue with AMD v3.5.1 Installation
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Multiple Release Installations of AMD ROCm on a Server Fail**
-
-The Side-by-Side install feature does not behave as expected, and multiple release installations of AMD ROCm fails. Attempts to install AMD ROCm v3.5.0 and AMD ROCm v3.5.1 side-by-side can result in breaking the existing ROCm v3.5.0 installation.
-
-This known issue is currently under investigation.
-   
-   
+* Ubuntu 20.04 and 18.04.4 (Kernel 5.3)	
+* CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
+* CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
+* SLES 15 SP1
+    
    
 Supported Operating Systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
