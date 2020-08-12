@@ -54,7 +54,7 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 * Ubuntu 16.04 and 18.04.4 (Kernel 5.3)	
 * CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
-* * SLES 15 SP1
+* SLES 15 SP1
     
    
 Supported Operating Systems
