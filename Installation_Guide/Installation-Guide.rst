@@ -610,7 +610,7 @@ Default paths and environment variables
 After installation, make sure HIP_PATH is pointed to
 /where/to/install/hip
 
-Verify your installation
+Verifying Installation
 ========================
 
 Run hipconfig (instructions below assume default installation path) :
