@@ -488,7 +488,7 @@ HIP can be easily installed using the pre-built binary packages with the package
    -  `NVIDIA Platform`_
    
    
- -  `Building HIP from source <#building-hip-from-source>`__
+-  `Building HIP from source <#building-hip-from-source>`__
 
    -  `Build ROCclr`_
    -  `Build HIP`_
