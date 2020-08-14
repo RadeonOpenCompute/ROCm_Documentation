@@ -90,6 +90,13 @@ AMD ROCm Version History
 
 This file contains archived version history information for the ROCm project.
 
+Patch Release -  ROCm v3.5.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+AMD ROCm released a maintenance patch release v3.5.1. For more information about the release see,
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.5.1
+
 New features and enhancements in ROCm v3.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
