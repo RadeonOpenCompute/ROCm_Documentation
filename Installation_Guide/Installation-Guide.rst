@@ -487,6 +487,7 @@ HIP can be easily installed using the pre-built binary packages with the package
    -  `AMD Platform`_
    -  `NVIDIA Platform`_
    
+   
 
 -  `Building HIP from source <#building-hip-from-source>`__
 
