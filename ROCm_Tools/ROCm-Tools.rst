@@ -19,8 +19,7 @@ Overview
   metrics/counters, HW traces and runtime API/activity traces. The tool consumes an input XML or text file with counters list or trace
   parameters and provides output profiling data and statistics in various formats as text, CSV and JSON traces. Google Chrome tracing
   can be used to visualize the JSON traces with runtime API/activity timelines and per kernel counters data.
-  
-
+  |
 **NOTE**: You must set the ‘PATH’ environment variable to the ROCM bin directory. This enables the profiler to find the correct ROCm setup and get ROCm info metadata. For example, *“export PATH=$PATH:/opt/rocm/bin”*.
 
 Profiling Modes
