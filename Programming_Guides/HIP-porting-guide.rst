@@ -18,7 +18,7 @@ issues.
    -  `Scanning existing CUDA code to scope the porting
       effort <#scanning-existing-cuda-code-to-scope-the-porting-effort>`__
    -  `Converting a project
-      in-place <#converting-a-project-in-place>`__
+      in-place <#converting-a-project-in-place>`__
    -  `CUDA to HIP Math Library Equivalents <#library-equivalents>`__
 
 -  `Distinguishing Compiler Modes <#distinguishing-compiler-modes>`__
@@ -394,7 +394,7 @@ Compiler Defines: Summary
 | __CUDA_ARCH__`` |                 | representing    |                 |
 |                 |                 | compute         |                 |
 |                 |                 | capability      |                 |
-|                 |                 | (e.g., â€œ130â€)   |                 |
+|                 |                 | (e.g.,130)      |                 |
 |                 |                 | if in device    |                 |
 |                 |                 | code; 0 if in   |                 |
 |                 |                 | host code       |                 |
