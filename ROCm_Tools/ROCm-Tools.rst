@@ -14,22 +14,21 @@ Overview
   at GitHub:
   `https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/bin/rocprof <https://github.com/ROCm-Developer-Tools/rocprofiler/blob/amd-master/bin/rocprof>`__
 
-| This command line tool is implemented as a script which is setting up
-  the environment for attaching the profiler and then run the provided
-  application command line. The tool uses two profiling plugins loaded
-  by ROC runtime and based on rocProfiler and rocTracer for collecting
-  metrics/counters, HW traces and runtime API/activity traces. The tool
-  consumes an input XML or text file with counters list or trace
-  parameters and provides output profiling data and statistics in
-  various formats as text, CSV and JSON traces. Google Chrome tracing
-  can be used to visualize the JSON traces with runtime API/activity
-  timelines and per kernel counters data.
+| This command line tool is implemented as a script which is setting up the environment for attaching the profiler and then run the provided
+  application command line. The tool uses two profiling plugins loaded by ROC runtime and based on rocProfiler and rocTracer for collecting
+  metrics/counters, HW traces and runtime API/activity traces. The tool consumes an input XML or text file with counters list or trace
+  parameters and provides output profiling data and statistics in various formats as text, CSV and JSON traces. Google Chrome tracing
+  can be used to visualize the JSON traces with runtime API/activity timelines and per kernel counters data.
+  
+
+**NOTE**: You must set the ‘PATH’ environment variable to the ROCM bin directory. This enables the profiler to find the correct ROCm setup and get ROCm info metadata. For example, *“export PATH=$PATH:/opt/rocm/bin”*.
 
 Profiling Modes
 ***************
 
 ‘rocprof’ can be used for GPU profiling using HW counters and
-application tracing
+application tracing.
+
 
 GPU profiling
 +++++++++++++
