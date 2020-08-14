@@ -485,14 +485,12 @@ HIP can be easily installed using the pre-built binary packages with the package
 Installing pre-built packages
 =============================
 
-HIP can be easily installed using pre-built binary packages using the
-package manager for your platform.
+HIP can be easily installed using pre-built binary packages using the package manager for your platform.
 
 HIP Prerequisites
 ==================
 
-HIP code can be developed either on AMD ROCm platform using HIP-Clang
-compiler, or a CUDA platform with nvcc installed.
+HIP code can be developed either on AMD ROCm platform using HIP-Clang compiler, or a CUDA platform with nvcc installed.
 
 AMD Platform
 =============
@@ -504,7 +502,8 @@ AMD Platform
    sudo apt install comgr
    sudo apt-get -y install rocm-dkms
 
-Public link for Rocm installation
+For more information, see the AMD ROCm Installation Guide at:
+
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 HIP-Clang is the compiler for compiling HIP programs on AMD platform.
