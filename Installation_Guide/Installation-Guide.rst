@@ -483,16 +483,15 @@ HIP can be easily installed using the pre-built binary packages with the package
 
 -  `Installing pre-built packages <#installing-pre-built-packages>`__
 
-   - `Prerequisites'_
-   - `AMD Platform'__
-   - `NVIDIA Platform`__
+   -  `HIP Prerequisites`_
+   -  `AMD Platform`_
+   -  `NVIDIA Platform`_
 
 -  `Building HIP from source <#building-hip-from-source>`__
 
-   - `Build ROCclr`__
-   - `Build HIP`__
-   - _Default paths and environment
-      variables`__
+  -  `Build ROCclr`_
+  -  `Build HIP`_
+  -  `Default path and environment variables`_
 
 -  `Verify your installation <#verify-your-installation>`__
 
@@ -502,8 +501,8 @@ Installing pre-built packages
 HIP can be easily installed using pre-built binary packages using the
 package manager for your platform.
 
-Prerequisites
--------------
+HIP Prerequisites
+------------------
 
 HIP code can be developed either on AMD ROCm platform using HIP-Clang
 compiler, or a CUDA platform with nvcc installed.
