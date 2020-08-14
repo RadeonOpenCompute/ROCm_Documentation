@@ -483,15 +483,15 @@ HIP can be easily installed using the pre-built binary packages with the package
 
 -  `Installing pre-built packages <#installing-pre-built-packages>`__
 
-   -  `HIP Prerequisites <#HIP-Prerequisites>`_
-   -  `AMD Platform <#AMD-Platform>`_
-   -  `NVIDIA Platform <#NVIDIA-Platform>`_
+   -  `HIP Prerequisites`_
+   -  `AMD Platform`_
+   -  `NVIDIA Platform`_
 
 -  `Building HIP from source <#building-hip-from-source>`__
 
   -  `Build ROCclr`_
   -  `Build HIP`_
-  -  `Default path and environment variables`_
+  - `Default path and environment variables`_
 
 -  `Verify your installation <#verify-your-installation>`__
 
