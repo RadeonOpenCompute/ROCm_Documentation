@@ -492,7 +492,7 @@ HIP can be easily installed using the pre-built binary packages with the package
 
   -  `Build ROCclr`_
   -  `Build HIP`_
-  - `Default path and environment variables`_
+  -  `Default paths and environment variables`_
 
 -  `Verify your installation <#verify-your-installation>`__
 
