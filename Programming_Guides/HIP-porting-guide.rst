@@ -402,8 +402,8 @@ Compiler Defines: Summary
 |                 |                 | code; 0 if in   |                 |
 |                 |                 | host code       |                 |
 +-----------------+-----------------+-----------------+-----------------+
-| hi              |                 |                 |                 |
-| p-clang-related |                 |                 |                 |
+| hip             |                 |                 |                 |
+|-clang-related   |                 |                 |                 |
 | defines:        |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
 | ``__HIP__``     | Defined         | Undefined       | Undefined       |
