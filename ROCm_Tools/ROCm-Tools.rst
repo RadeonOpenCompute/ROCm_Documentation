@@ -19,8 +19,7 @@ Overview
   metrics/counters, HW traces and runtime API/activity traces. The tool consumes an input XML or text file with counters list or trace
   parameters and provides output profiling data and statistics in various formats as text, CSV and JSON traces. Google Chrome tracing
   can be used to visualize the JSON traces with runtime API/activity timelines and per kernel counters data.
-|
-**NOTE**: You must set the ‘PATH’ environment variable to the ROCM bin directory. This enables the profiler to find the correct ROCm setup and get ROCm info metadata. For example, *“export PATH=$PATH:/opt/rocm/bin”*.
+
 
 Profiling Modes
 ***************
@@ -335,7 +334,7 @@ length and rate:
 Concurrent kernels
 ++++++++++++++++++
 
-Currently concurrent kernels profiling is not supported which is a
+Currently concurrent kernels profiling is not supported, which is a
 planned feature. Kernels are serialized.
 
 Multi-processes profiling
@@ -357,14 +356,15 @@ Profiler errors are logged to global logs:
 3rd party visualization tools
 *****************************
 
-‘rocprof’ is producing JSON trace compatible with Chrome Tracing, which
-is an internal trace visualization tool in Google Chrome.
+‘rocprof’ produces JSON trace, which is compatible with Chrome Tracing. Chrome Tracing is an internal trace visualization tool in Google Chrome.
 
-Chrome tracing
-++++++++++++++
-
-Good review can be found by the link:
+For more information about Chrome Tracing, see
 `https://aras-p.info/blog/2017/01/23/Chrome-Tracing-as-Profiler-Frontend/ <https://aras-p.info/blog/2017/01/23/Chrome-Tracing-as-Profiler-Frontend/>`__
+
+Runtime Environment Setup
+****************************
+|
+You must set the ‘PATH’ environment variable to the ROCM bin directory. This enables the profiler to find the correct ROCm setup and get ROCm info metadata. For example, *“export PATH=$PATH:/opt/rocm/bin”*.
 
 Command line options
 ********************
