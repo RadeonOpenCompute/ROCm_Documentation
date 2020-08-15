@@ -354,20 +354,23 @@ Compiler Defines: Summary
 | HIP-related     |                 |                 |                 |
 | defines:        |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
-| ``__HIP_P       | Defined         | Undefined       | Defined if      |
-| LATFORM_HCC__`` |                 |                 | targeting AMD   |
+| ``__HIP_        |                 |                 |                 |
+|PLATFORM_HCC__`` | Defined         | Undefined       | Defined if      |
+|                 |                 | targeting AMD   |platform;        |
+|                 |                 |                 | undefined       |
+|                 |                 |                 | otherwise       |
++-----------------+-----------------+-----------------+-----------------+
+| ``__HIP_        |                 |                 |                 |
+|PLATFORM_NVCC__``| Undefined       | Defined         | Defined if      |
+|                 |                 |                 | targeting nvcc  |
 |                 |                 |                 | platform;       |
 |                 |                 |                 | undefined       |
 |                 |                 |                 | otherwise       |
 +-----------------+-----------------+-----------------+-----------------+
-| ``__HIP_PL      | Undefined       | Defined         | Defined if      |
-| ATFORM_NVCC__`` |                 |                 | targeting nvcc  |
-|                 |                 |                 | platform;       |
-|                 |                 |                 | undefined       |
-|                 |                 |                 | otherwise       |
-+-----------------+-----------------+-----------------+-----------------+
-| ``__HIP_DEV     | 1 if compiling  | 1 if compiling  | Undefined       |
-| ICE_COMPILE__`` | for device;     | for device;     |                 |
+| ``              |                 |                 |                 |
+|__HIP_DEVICE     |                 |                 |                 |
+|_COMPILE__``     | 1 if compiling  | 1 if compiling  | Undefined       |
+|                 | for device;     | for device;     |                 |
 |                 | undefined if    | undefined if    |                 |
 |                 | compiling for   | compiling for   |                 |
 |                 | host            | host            |                 |
