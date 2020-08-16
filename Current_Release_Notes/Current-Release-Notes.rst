@@ -137,36 +137,42 @@ What's New in This Release
 AOMP ENHANCEMENTS
 -----------------
 
-AOMP is a scripted build of LLVM. It supports OpenMP target offload on
-AMD GPUs. Since AOMP is a Clang/LLVM compiler, it also supports GPU
-offloading with HIP, CUDA, and OpenCL.
+AOMP is a scripted build of LLVM. It supports OpenMP target offload on AMD GPUs. Since AOMP is a Clang/LLVM compiler, it also supports GPU offloading with HIP, CUDA, and OpenCL.
 
-The following enhancements are made for AOMP in this release: \* OpenMP
-5.0 is enabled by default. You can use -fopenmp-version=45 for OpenMP
-4.5 compliance \* Restructured to include the ROCm compiler \* B=Bitcode
-search path using hip policy HIP_DEVICE_LIB_PATH and hip-devic-lib
-command line option to enable global_free for kmpc_impl_free
+The following enhancements are made for AOMP in this release: 
 
-Restructured hostrpc, including: \* Replaced hostcall register functions
-with handlePayload(service, payload). Note, handlPayload has a simple
-switch to call the correct service handler function. \* Removed the
-WITH_HSA macro \* Moved the hostrpc stubs and host fallback functions
-into a single library and the include file. This enables the stubs
-openmp cpp source instead of hip and reorganizes the directory
-openmp/libomptarget/hostrpc. \* Moved hostrpc_invoke.cl to
-DeviceRTLs/amdgcn. \* Generalized the vargs processing in printf to work
-for any vargs function to execute on the host, including a vargs
-function that uses a function pointer. \* Reorganized files, added
-global_allocate and global_free. \* Fixed llvm TypeID enum to match the
-current upstream llvm TypeID. \* Moved strlen_max function inside the
-declare target #ifdef \_DEVICE_GPU in hostrpc.cpp to resolve linker
-failure seen in pfspecifier_str smoke test. \* Fixed
-AOMP_GIT_CHECK_BRANCH in aomp_common_vars to not block builds in Red Hat
-if the repository is on a specific commit hash. \* Simplified and
-reduced the size of openmp host runtime \* Switched to default OpenMP
-5.0
+•	OpenMP 5.0 is enabled by default. You can use -fopenmp-version=45 for OpenMP 4.5 compliance
+
+•	Restructured to include the ROCm compiler
+
+•	B=Bitcode search path using hip policy HIP_DEVICE_LIB_PATH and hip-devic-lib command line option to enable global_free for kmpc_impl_free
+
+Restructured hostrpc, including:
+
+•	Replaced hostcall register functions with handlePayload(service, payload). Note, handlPayload has a simple switch to call the correct service handler function.
+
+•	Removed the WITH_HSA macro
+
+•	Moved the hostrpc stubs and host fallback functions into a single library and the include file. This enables the stubs openmp cpp source instead of hip and reorganizes the directory openmp/libomptarget/hostrpc.
+
+•	Moved hostrpc_invoke.cl to DeviceRTLs/amdgcn.
+
+•	Generalized the vargs processing in printf to work for any vargs function to execute on the host, including a vargs function that uses a function pointer.
+
+•	Reorganized files, added global_allocate and global_free.
+
+•	Fixed llvm TypeID enum to match the current upstream llvm TypeID.
+
+•	Moved strlen_max function inside the declare target #ifdef _DEVICE_GPU in hostrpc.cpp to resolve linker failure seen in pfspecifier_str smoke test.
+
+•	Fixed AOMP_GIT_CHECK_BRANCH in aomp_common_vars to not block builds in Red Hat if the repository is on a specific commit hash.
+
+•	Simplified and reduced the size of openmp host runtime.
+
+•	Switched to default OpenMP 5.0
 
 For more information, see https://github.com/ROCm-Developer-Tools/aomp
+
 
 ROCm COMMUNICATIONS COLLECTIVE LIBRARY
 --------------------------------------
