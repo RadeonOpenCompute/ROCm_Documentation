@@ -174,164 +174,114 @@ ROCm COMMUNICATIONS COLLECTIVE LIBRARY
 Compatibility with NVIDIA Communications Collective Library v2.7 API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROCm Communications Collective Library (RCCL) is now compatible with the
-NVIDIA Communications Collective Library (NCCL) v2.7 API.
+ROCm Communications Collective Library (RCCL) is now compatible with the NVIDIA Communications Collective Library (NCCL) v2.7 API.
 
-RCCL (pronounced â€œRickleâ€) is a stand-alone library of standard
-collective communication routines for GPUs, implementing all-reduce,
-all-gather, reduce, broadcast, reduce-scatter, gather, scatter, and
-all-to-all. There is also initial support for direct GPU-to-GPU send and
-receive operations. It has been optimized to achieve high bandwidth on
-platforms using PCIe, xGMI as well as networking using InfiniBand Verbs
-or TCP/IP sockets. RCCL supports an arbitrary number of GPUs installed
-in a single node or multiple nodes, and can be used in either single- or
-multi-process (e.g., MPI) applications.
+RCCL (pronounced "Rickle") is a stand-alone library of standard collective communication routines for GPUs, implementing all-reduce, all-gather, reduce, broadcast, reduce-scatter, gather, scatter, and all-to-all. There is also initial support for direct GPU-to-GPU send and receive operations. It has been optimized to achieve high bandwidth on platforms using PCIe, xGMI as well as networking using InfiniBand Verbs or TCP/IP sockets. RCCL supports an arbitrary number of GPUs installed in a single node or multiple nodes, and can be used in either single- or multi-process (e.g., MPI) applications.
+The collective operations are implemented using ring and tree algorithms and have been optimized for throughput and latency. For best performance, small operations can be either batched into larger operations or aggregated through the API.
 
-The collective operations are implemented using ring and tree algorithms
-and have been optimized for throughput and latency. For best
-performance, small operations can be either batched into larger
-operations or aggregated through the API.
+For more information about RCCL APIs and compatibility with NCCL v2.7, see
+https://rccl.readthedocs.io/en/develop/index.html
 
-For more information about RCCL APIs and compatibility with NCCL v2.7,
-see https://rccl.readthedocs.io/en/develop/index.html
 
 Singular Value Decomposition of Bi-diagonal Matrices
 ----------------------------------------------------
 
-Rocsolver_bdsqr now computes the Singular Value Decomposition (SVD) of
-bi-diagonal matrices. It is an auxiliary function for the SVD of general
-matrices (function rocsolver_gesvd).
+Rocsolver_bdsqr now computes the Singular Value Decomposition (SVD) of bi-diagonal matrices. It is an auxiliary function for the SVD of general matrices (function rocsolver_gesvd). 
 
-BDSQR computes the singular value decomposition (SVD) of a n-by-n
-bidiagonal matrix B.
+BDSQR computes the singular value decomposition (SVD) of a n-by-n bidiagonal matrix B.
 
 The SVD of B has the following form:
+B = Ub * S * Vb'
+where 
+•	S is the n-by-n diagonal matrix of singular values of B
+•	the columns of Ub are the left singular vectors of B
+•	the columns of Vb are its right singular vectors
 
-B = Ub \* S \* Vbâ€™ where â€¢ S is the n-by-n diagonal matrix of singular
-values of B â€¢ the columns of Ub are the left singular vectors of B â€¢ the
-columns of Vb are its right singular vectors
+The computation of the singular vectors is optional; this function accepts input matrices U (of size nu-by-n) and V (of size n-by-nv) that are overwritten with U*Ub and Vb’*V. If nu = 0 no left vectors are computed; if nv = 0 no right vectors are computed.
 
-The computation of the singular vectors is optional; this function
-accepts input matrices U (of size nu-by-n) and V (of size n-by-nv) that
-are overwritten with U\ *Ub and Vbâ€™*\ V. If nu = 0 no left vectors are
-computed; if nv = 0 no right vectors are computed.
-
-Optionally, this function can also compute Ubâ€™*C for a given n-by-nc
-input matrix C.
+Optionally, this function can also compute Ub’*C for a given n-by-nc input matrix C.
 
 PARAMETERS
 
-â€¢ [in] handle: rocblas_handle.
-
-â€¢ [in] uplo: rocblas_fill.
-
+•	[in] handle: rocblas_handle.
+•	[in] uplo: rocblas_fill.
 Specifies whether B is upper or lower bidiagonal.
 
-â€¢ [in] n: rocblas_int. n >= 0.
-
+•	[in] n: rocblas_int. n >= 0.
 The number of rows and columns of matrix B.
 
-â€¢ [in] nv: rocblas_int. nv >= 0.
-
+•	[in] nv: rocblas_int. nv >= 0.
 The number of columns of matrix V.
 
-â€¢ [in] nu: rocblas_int. nu >= 0.
-
+•	[in] nu: rocblas_int. nu >= 0.
 The number of rows of matrix U.
 
-â€¢ [in] nc: rocblas_int. nu >= 0.
-
+•	[in] nc: rocblas_int. nu >= 0.
 The number of columns of matrix C.
 
-â€¢ [inout] D: pointer to real type. Array on the GPU of dimension n.
+•	[inout] D: pointer to real type. Array on the GPU of dimension n.
+On entry, the diagonal elements of B. On exit, if info = 0, the singular values of B in decreasing order; if info > 0, the diagonal elements of a bidiagonal matrix orthogonally equivalent to B.
 
-On entry, the diagonal elements of B. On exit, if info = 0, the singular
-values of B in decreasing order; if info > 0, the diagonal elements of a
-bidiagonal matrix orthogonally equivalent to B.
+•	[inout] E: pointer to real type. Array on the GPU of dimension n-1.
+On entry, the off-diagonal elements of B. On exit, if info > 0, the off-diagonal elements of a bidiagonal matrix orthogonally equivalent to B (if info = 0 this matrix converges to zero).
 
-â€¢ [inout] E: pointer to real type. Array on the GPU of dimension n-1.
+•	[inout] V: pointer to type. Array on the GPU of dimension ldv*nv.
+On entry, the matrix V. On exit, it is overwritten with Vb’*V. (Not referenced if nv = 0).
 
-On entry, the off-diagonal elements of B. On exit, if info > 0, the
-off-diagonal elements of a bidiagonal matrix orthogonally equivalent to
-B (if info = 0 this matrix converges to zero).
-
-â€¢ [inout] V: pointer to type. Array on the GPU of dimension ldv*nv.
-
-On entry, the matrix V. On exit, it is overwritten with Vbâ€™*V. (Not
-referenced if nv = 0).
-
-â€¢ [in] ldv: rocblas_int. ldv >= n if nv > 0, or ldv >=1 if nv = 0.
-
+•	[in] ldv: rocblas_int. ldv >= n if nv > 0, or ldv >=1 if nv = 0.
 Specifies the leading dimension of V.
 
-â€¢ [inout] U: pointer to type. Array on the GPU of dimension ldu*n.
+•	[inout] U: pointer to type. Array on the GPU of dimension ldu*n.
+On entry, the matrix U. On exit, it is overwritten with U*Ub. (Not referenced if nu = 0).
 
-On entry, the matrix U. On exit, it is overwritten with U*Ub. (Not
-referenced if nu = 0).
-
-â€¢ [in] ldu: rocblas_int. ldu >= nu.
-
+•	[in] ldu: rocblas_int. ldu >= nu.
 Specifies the leading dimension of U.
 
-â€¢ [inout] C: pointer to type. Array on the GPU of dimension ldc*nc.
+•	[inout] C: pointer to type. Array on the GPU of dimension ldc*nc.
+On entry, the matrix C. On exit, it is overwritten with Ub’*C. (Not referenced if nc = 0).
 
-On entry, the matrix C. On exit, it is overwritten with Ubâ€™*C. (Not
-referenced if nc = 0).
-
-â€¢ [in] ldc: rocblas_int. ldc >= n if nc > 0, or ldc >=1 if nc = 0.
-
+•	[in] ldc: rocblas_int. ldc >= n if nc > 0, or ldc >=1 if nc = 0.
 Specifies the leading dimension of C.
 
-â€¢ [out] info: pointer to a rocblas_int on the GPU.
+•	[out] info: pointer to a rocblas_int on the GPU.
+If info = 0, successful exit. If info = i > 0, i elements of E have not converged to zero.
 
-If info = 0, successful exit. If info = i > 0, i elements of E have not
-converged to zero.
 
 For more information, see
 https://rocsolver.readthedocs.io/en/latest/userguide_api.html#rocsolver-type-bdsqr
 
+
 rocSPARSE_gemmi() Operations for Sparse Matrices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This enhancement provides a dense matrix sparse matrix multiplication
-using the CSR storage format. rocsparse_gemmi multiplies the scalar Î±Î±
-with a dense mÃ—kmÃ—k matrix AA and the sparse kÃ—nkÃ—n matrix BB defined in
-the CSR storage format, and adds the result to the dense mÃ—nmÃ—n matrix
-CC that is multiplied by the scalar Î²Î², such that
-C:=Î±â‹…op(A)â‹…op(B)+Î²â‹…CC:=Î±â‹…op(A)â‹…op(B)+Î²â‹…C with
+This enhancement provides a dense matrix sparse matrix multiplication using the CSR storage format.
+rocsparse_gemmi multiplies the scalar αα with a dense m×km×k matrix AA and the sparse k×nk×n matrix BB defined in the CSR storage format, and adds the result to the dense m×nm×n matrix CC that is multiplied by the scalar ββ, such that
 
-op(A)=âŽ§âŽ©âŽ¨âŽªâŽªA,AT,AH,if trans_A == rocsparse_operation_noneif trans_A ==
-rocsparse_operation_transposeif trans_A ==
-rocsparse_operation_conjugate_transposeop(A)={A,if trans_A ==
-rocsparse_operation_noneAT,if trans_A ==
-rocsparse_operation_transposeAH,if trans_A ==
-rocsparse_operation_conjugate_transpose
+C:=α⋅op(A)⋅op(B)+β⋅CC:=α⋅op(A)⋅op(B)+β⋅C
+
+with
+
+op(A)=⎧⎩⎨⎪⎪A,AT,AH,if trans_A == rocsparse_operation_noneif trans_A == rocsparse_operation_transposeif trans_A == rocsparse_operation_conjugate_transposeop(A)={A,if trans_A == rocsparse_operation_noneAT,if trans_A == rocsparse_operation_transposeAH,if trans_A == rocsparse_operation_conjugate_transpose
 
 and
 
-op(B)=âŽ§âŽ©âŽ¨âŽªâŽªB,BT,BH,if trans_B == rocsparse_operation_noneif trans_B ==
-rocsparse_operation_transposeif trans_B ==
-rocsparse_operation_conjugate_transposeop(B)={B,if trans_B ==
-rocsparse_operation_noneBT,if trans_B ==
-rocsparse_operation_transposeBH,if trans_B ==
-rocsparse_operation_conjugate_transpose Note: This function is
-non-blocking and executed asynchronously with the host. It may return
-before the actual computation has finished.
+op(B)=⎧⎩⎨⎪⎪B,BT,BH,if trans_B == rocsparse_operation_noneif trans_B == rocsparse_operation_transposeif trans_B == rocsparse_operation_conjugate_transposeop(B)={B,if trans_B == rocsparse_operation_noneBT,if trans_B == rocsparse_operation_transposeBH,if trans_B == rocsparse_operation_conjugate_transpose
+Note: This function is non-blocking and executed asynchronously with the host. It may return before the actual computation has finished.
 
 For more information and examples, see
 https://rocsparse.readthedocs.io/en/master/usermanual.html#rocsparse-gemmi
-â€ƒ
+
 
 Known Issues
 ============
 
 The following are the known issues in this release.
 
-(AOMP) â€˜Undefined Hidden Symbolâ€™ Linker Error Causes Compilation Failure in HIP
--------------------------------------------------------------------------------
+(AOMP) '˜Undefined Hidden Symbol' Linker Error Causes Compilation Failure in HIP
+----------------------------------------------------------------------------------
 
 The HIP example device_lib fails to compile due to unreferenced symbols
-with Link Time Optimization resulting in â€˜undefined hidden symbolâ€™
+with Link Time Optimization resulting in '˜undefined hidden symbol'
 errors.
 
 This issue is under investigation and there is no known workaround at
@@ -377,24 +327,25 @@ An internal tracing buffer allocation issue can cause a partial loss of
 some tracing events for large applications.
 
 As a workaround, rebuild the roctracer/rocprofiler libraries from the
-GitHub â€˜roc-3.7â€™ branch at: â€¢
+GitHub ˜roc-3.7" branch at: 
+
 https://github.com/ROCm-Developer-Tools/rocprofiler â€¢
 https://github.com/ROCm-Developer-Tools/roctracer
 
 GPU Kernel C++ Names Not Demangled
 ----------------------------------
 
-GPU kernel C++ names in the profiling traces and stats produced by
-â€˜â€”hsa-traceâ€™ option are not demangled.
+GPU kernel C++ names in the profiling traces and stats produced by ‘—hsa-trace’ option are not demangled.
+As a workaround, users may choose to demangle the GPU kernel C++ names as required.
 
 As a workaround, users may choose to demangle the GPU kernel C++ names
 as required.
 
-â€˜rocprofâ€™ option â€˜â€“parallel-kernelsâ€™ Not Supported in This Release
-------------------------------------------------------------------
+‘rocprof’ option ‘--parallel-kernels’ Not Supported in This Release
+----------------------------------------------------------------------
 
-â€˜rocprofâ€™ option â€˜â€“parallel-kernelsâ€™ is available in the options list,
-however, it is not fully validated and supported in this release.
+‘rocprof’ option ‘--parallel-kernels’ is available in the options list, however,  it is not fully validated and supported in this release.
+
 
 Deploying ROCm
 ==============
