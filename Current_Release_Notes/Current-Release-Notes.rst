@@ -417,25 +417,6 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
 
-Machine Learning and High Performance Computing Software Stack for AMD GPU
---------------------------------------------------------------------------
-
-For an updated version of the software stack for AMD GPU, see
-
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#machine-learning-and-high-performance-computing-software-stack-for-amd-gpu-v3-7-0
-
-
-
-
-Deploying ROCm
-=================
-
-AMD hosts both Debian and RPM repositories for the ROCm v3.5.x packages.
-
-For more information on ROCM installation on all platforms, see
-
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
-
 
 DISCLAIMER 
 ===========
