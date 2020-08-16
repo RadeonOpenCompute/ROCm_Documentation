@@ -32,16 +32,6 @@ This page describes the features, fixed issues, and information about downloadin
 
 -  `Known Issues <#Known-Issues>`__
 
--  `Deploying ROCm <#Deploying-ROCm>`__
-
--  `Hardware and Software Support <#Hardware-and-Software-Support>`__
-
--  `Machine Learning and High Performance Computing Software Stack for
-   AMD
-   GPU <#Machine-Learning-and-High-Performance-Computing-Software-Stack-for-AMD-GPU>`__
-
-   -  `ROCm Binary Package Structure <#ROCm-Binary-Package-Structure>`__
-   -  `ROCm Platform Packages <#ROCm-Platform-Packages>`__
 
 Supported Operating Systems
 ===========================
