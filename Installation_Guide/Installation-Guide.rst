@@ -140,13 +140,13 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
      /opt/rocm/bin/rocminfo
-     /opt/rocm/opencl/bin/x86_64/clinfo
+     /opt/rocm/opencl/bin/clinfo
 
 Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 
 ::
 
-    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
+    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Uninstalling ROCm Packages from Ubuntu
@@ -316,14 +316,14 @@ After restarting the system, run the following commands to verify that the ROCm 
 ::
 
   /opt/rocm/bin/rocminfo
-  /opt/rocm/opencl/bin/x86_64/clinfo
+  /opt/rocm/opencl/bin/clinfo
 
 
 **Note**: Add the ROCm binaries in your PATH for easy implementation of the ROCm programs.
 
 ::
 
-  echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
+  echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Compiling Applications Using HCC, HIP, and Other ROCm Software
@@ -414,7 +414,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 4. Verify the ROCm installation.
 
-5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
+5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
 
 6. Set permissions. 
 
@@ -444,14 +444,14 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 ::
 
 	/opt/rocm/bin/rocminfo
-	/opt/rocm/opencl/bin/x86_64/clinfo
+	/opt/rocm/opencl/bin/clinfo
 
 Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
 
 
 ::
 
-echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64'|sudo tee -a /etc/profile.d/rocm.sh
+echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin'|sudo tee -a /etc/profile.d/rocm.sh
 
 **Uninstallation**
 
