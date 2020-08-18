@@ -70,10 +70,11 @@ AMD ROCm Documentation Updates
 AMD ROCm Installation Guide
 ---------------------------
 
-The AMD ROCm Installation Guide in this release includes:
+The AMD ROCm Installation Guide in this release includes the following updates:
 
--  Updated Supported Environments
--  HIP Installation Instructions
+- Supported Environments
+- Installation Instructions
+- HIP Installation Instructions
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
