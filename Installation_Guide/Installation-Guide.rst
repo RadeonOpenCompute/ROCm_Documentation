@@ -90,7 +90,7 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
 
 ::
 
-    wget -q -O - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+    wget -q -O - http://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
 
     echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
@@ -263,10 +263,11 @@ To install ROCm on your system, follow the instructions below:
 ::
 
     [ROCm] 
-    name=ROCm
-    baseurl=http://repo.radeon.com/rocm/yum/rpm 
-    enabled=1
-    gpgcheck=0
+	name=ROCm
+	baseurl=http://repo.radeon.com/rocm/yum/rpm
+	enabled=1
+	gpgcheck=1
+	gpgkey=http://repo.radeon.com/rocm/rocm.gpg.key
 
 Note: The URL of the repository must point to the location of the repositories’ repodata database.
 
@@ -396,12 +397,12 @@ The following section tells you how to perform an install and uninstall ROCm on 
  
 ::
 
-	sudo zypper clean –all
-	sudo zypper addrepo --no-gpgcheck http://repo.radeon.com/rocm/zyp/zypper/ rocm 
-	sudo zypper ref
-	zypper install rocm-dkms
-	sudo zypper install rocm-dkms
-	sudo reboot
+		sudo zypper clean –all
+		sudo zypper addrepo http://repo.radeon.com/rocm/zyp/zypper/ rocm
+		sudo zypper ref
+		sudo rpm --import http://repo.radeon.com/rocm/rocm.gpg.key
+		sudo zypper --gpg-auto-import-keys install rocm-dkms
+		sudo reboot
 
 3. Run the following command once
 
