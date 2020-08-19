@@ -41,6 +41,13 @@ Supported Operating Systems
 Supported Operating Systems
 ---------------------------
 
+**Support for Ubuntu 20.04**
+
+In this release, AMD ROCm extends support to Ubuntu 20.04, including dual-kernel.
+
+
+**List of Supported Operating Systems**
+
 The AMD ROCm v3.7.x platform is designed to support the following
 operating systems:
 
