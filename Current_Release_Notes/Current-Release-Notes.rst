@@ -18,6 +18,7 @@ This page describes the features, fixed issues, and information about downloadin
    -  `Supported Operating Systems <#Supported-Operating-Systems>`__
    -  `AMD ROCm Documentation
       Updates <#AMD-ROCm-Documentation-Updates>`__
+      
 
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
@@ -28,6 +29,7 @@ This page describes the features, fixed issues, and information about downloadin
       Matrices <#Singular-Value-Decomposition-of-Bi-diagonal-Matrices>`__
    -  `rocSPARSE_gemmi() Operations for Sparse
       Matrices <#rocSPARSE_gemmi-Operations-for-Sparse-Matrices>`__
+      
 
 -  `Known Issues <#Known-Issues>`__
 
