@@ -741,7 +741,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.5.0
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.7.0
   repo sync
 
 
