@@ -360,6 +360,16 @@ as required.
 
 ‘rocprof’ option ‘--parallel-kernels’ is available in the options list, however,  it is not fully validated and supported in this release.
 
+Random Soft Hang Observed When Running ResNet-Based Models
+----------------------------------------------------------------------
+
+A random soft hang is observed when running ResNet-based models for a loop run of more than 25 to 30 hours.  The issue is observed on both PyTorch and TensorFlow frameworks.
+
+You can terminate the unresponsive process to temporarily resolve the issue.
+
+There is no known workaround at this time.
+
+
 
 Deploying ROCm
 ==============
