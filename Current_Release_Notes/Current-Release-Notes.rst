@@ -182,11 +182,18 @@ Rocsolver_bdsqr now computes the Singular Value Decomposition (SVD) of bi-diagon
 BDSQR computes the singular value decomposition (SVD) of a n-by-n bidiagonal matrix B.
 
 The SVD of B has the following form:
-B = Ub * S * Vb'
+
+::
+
+ B = Ub * S * Vb'
+
 where 
-•	S is the n-by-n diagonal matrix of singular values of B
-•	the columns of Ub are the left singular vectors of B
-•	the columns of Vb are its right singular vectors
+
+* S is the n-by-n diagonal matrix of singular values of B
+
+* the columns of Ub are the left singular vectors of B
+
+* the columns of Vb are its right singular vectors
 
 The computation of the singular vectors is optional; this function accepts input matrices U (of size nu-by-n) and V (of size n-by-nv) that are overwritten with U*Ub and Vb’*V. If nu = 0 no left vectors are computed; if nv = 0 no right vectors are computed.
 
