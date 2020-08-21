@@ -175,7 +175,7 @@ https://rccl.readthedocs.io/en/develop/index.html
 
 
 Singular Value Decomposition of Bi Diagonal Matrices
-----------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Rocsolver_bdsqr now computes the Singular Value Decomposition (SVD) of bi-diagonal matrices. It is an auxiliary function for the SVD of general matrices (function rocsolver_gesvd). 
 
