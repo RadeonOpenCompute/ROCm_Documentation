@@ -12,13 +12,11 @@ This page describes the features, fixed issues, and information about downloadin
 
 
 
-Supported Operating Systems
-===========================
 
 .. _supported-operating-systems-1:
 
 Supported Operating Systems
----------------------------
+===========================
 
 **Support for Ubuntu 20.04**
 
