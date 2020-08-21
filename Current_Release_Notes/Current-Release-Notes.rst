@@ -15,23 +15,22 @@ This page describes the features, fixed issues, and information about downloadin
    Updates <#Supported-Operating-Systems-and-Documentation-Updates>`__
 
    -  `Supported Operating Systems <#Supported-Operating-Systems>`__
-   -  `AMD ROCm Documentation
-      Updates <#AMD-ROCm-Documentation-Updates>`__
-      
+   
+   -  `AMD ROCm Documentation Updates <#AMD-ROCm-Documentation-Updates>`__
+   
+       
 
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
-   -  `AOMP Enhancements <#AOMP-Enhancements>`__
+   -  `AOMP Enhancements<#AOMP-Enhancements>`__
    
-   -  `Compatibility with NVIDIA Communications Collective Library v2.7
-      API <#Compatibility-with-NVIDIA-Communications-Collective-Library-v27-API>`__
+   -  `Compatibility with NVIDIA Communications Collective Library API<#Compatibility with NVIDIA Communications Collective Library API>`__
+   
+   -  `Singular Value Decomposition of Bi Diagonal Matrices<#Singular-Value-Decomposition-of-Bi-Diagonal-Matrices>`__
       
-   -  `Singular Value Decomposition of Bi-diagonal
-      Matrices <#Singular-Value-Decomposition-of-Bi-diagonal-Matrices>`__
-      
-   -  `rocSPARSE_gemmi() Operations for Sparse
-      Matrices <#rocSPARSE_gemmi-Operations-for-Sparse-Matrices>`__
-      
+  -  `rocSPARSE-gemmi Opertions for Sparse Matrices<#rocSPARSE-gemmi-Operations-for-Sparse-Matrices>`__
+  
+        
 
 -  `Known Issues <#Known-Issues>`__
 
@@ -188,7 +187,7 @@ For more information, see https://github.com/ROCm-Developer-Tools/aomp
 ROCm COMMUNICATIONS COLLECTIVE LIBRARY
 --------------------------------------
 
-Compatibility with NVIDIA Communications Collective Library v2.7 API
+Compatibility with NVIDIA Communications Collective Library API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ROCm Communications Collective Library (RCCL) is now compatible with the NVIDIA Communications Collective Library (NCCL) v2.7 API.
@@ -200,7 +199,7 @@ For more information about RCCL APIs and compatibility with NCCL v2.7, see
 https://rccl.readthedocs.io/en/develop/index.html
 
 
-Singular Value Decomposition of Bi-diagonal Matrices
+Singular Value Decomposition of Bi Diagonal Matrices
 ----------------------------------------------------
 
 Rocsolver_bdsqr now computes the Singular Value Decomposition (SVD) of bi-diagonal matrices. It is an auxiliary function for the SVD of general matrices (function rocsolver_gesvd). 
@@ -268,10 +267,11 @@ For more information, see
 https://rocsolver.readthedocs.io/en/latest/userguide_api.html#rocsolver-type-bdsqr
 
 
-rocSPARSE_gemmi() Operations for Sparse Matrices
+rocSPARSE_gemmi Operations for Sparse Matrices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This enhancement provides a dense matrix sparse matrix multiplication using the CSR storage format.
+The rocSPARSE_gemmi() operations for sparse matrices enhancement provides a dense matrix sparse matrix multiplication using the CSR storage format.
+
 rocsparse_gemmi multiplies the scalar αα with a dense m×km×k matrix AA and the sparse k×nk×n matrix BB defined in the CSR storage format, and adds the result to the dense m×nm×n matrix CC that is multiplied by the scalar ββ, such that
 
 C:=α⋅op(A)⋅op(B)+β⋅CC:=α⋅op(A)⋅op(B)+β⋅C
