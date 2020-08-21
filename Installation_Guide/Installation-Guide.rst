@@ -973,7 +973,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
  -  `AMDMIGraphX`_
 
 
-ROCm Core Components
+..  ROCm Core Components
 
 .. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/rocm-3.7.0
 
@@ -982,7 +982,7 @@ ROCm Core Components
 .. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/rocm-3.7.0
 
 
-ROCm Support Software
+.. ROCm Support Software
 
 .. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/rocm-3.7.0
 
@@ -993,7 +993,7 @@ ROCm Support Software
 .. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.7.0
 
 
-ROCm Compilers
+.. ROCm Compilers
 
 .. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.7.0
 
@@ -1001,7 +1001,7 @@ ROCm Compilers
 
 
 
-ROCm Device Libraries and Tools
+.. ROCm Device Libraries and Tools
 
 .. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.7.0
 
@@ -1030,7 +1030,7 @@ ROCm Device Libraries and Tools
 .. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/rocm-3.7.0
 
 
-ROCm Libraries
+.. ROCm Libraries
 
 .. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.7.0
 
