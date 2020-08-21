@@ -22,10 +22,13 @@ This page describes the features, fixed issues, and information about downloadin
 -  `What's New in This Release <#Whats-New-in-This-Release>`__
 
    -  `AOMP Enhancements <#AOMP-Enhancements>`__
+   
    -  `Compatibility with NVIDIA Communications Collective Library v2.7
       API <#Compatibility-with-NVIDIA-Communications-Collective-Library-v27-API>`__
+      
    -  `Singular Value Decomposition of Bi-diagonal
       Matrices <#Singular-Value-Decomposition-of-Bi-diagonal-Matrices>`__
+      
    -  `rocSPARSE_gemmi() Operations for Sparse
       Matrices <#rocSPARSE_gemmi-Operations-for-Sparse-Matrices>`__
       
