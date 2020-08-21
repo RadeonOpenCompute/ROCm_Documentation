@@ -11,20 +11,6 @@ This page describes the features, fixed issues, and information about downloadin
 `Download AMD ROCm v3.7.0 Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
--  `Supported Operating Systems and Documentation
-   Updates <#Supported-Operating-Systems-and-Documentation-Updates>`__
-
-   -  `Supported Operating Systems <#Supported-Operating-Systems>`__
-   
-   -  `AMD ROCm Documentation Updates <#AMD-ROCm-Documentation-Updates>`__
-   
-       
-
--  `What's New in This Release <#Whats-New-in-This-Release>`__
-      
-
--  `Known Issues <#Known-Issues>`__
-
 
 Supported Operating Systems
 ===========================
