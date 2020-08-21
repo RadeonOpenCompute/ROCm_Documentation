@@ -50,13 +50,22 @@ The following directions show how to install ROCm on supported Debian-based syst
 Prerequisites 
 ~~~~~~~~~~~~~~~
 
+In this release, AMD ROCm extends support to Ubuntu 20.04, including dual kernel.
+
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 16.04 and 18.04.4 (Kernel 5.3)	
+* Ubuntu 20.04 and 18.04.4 (Kernel 5.3)	
 * CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
+* CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
 * SLES 15 SP1
 
-**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to ROCM v3.5 or higher versions and vice-versa.
+
+**FRESH INSTALLATION OF AMD ROCm V3.7 RECOMMENDED**
+
+A fresh and clean installation of AMD ROCm v3.7 is recommended. An upgrade from previous releases to AMD ROCm v3.7 is not supported.
+
+**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+
    
 Supported Operating Systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -626,8 +635,6 @@ sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/
 
 
 
-
-
 AMD ROCm MultiVersion Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -755,13 +762,13 @@ Each ROCm component repository contains directions for building that component. 
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
 
-====================
+==================
 Build AMD ROCm
-====================
+==================
 
-Machine Learning and High Performance Computing Software Stack for AMD GPU v3.5.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-**ROCm Version 3.5.0**
+Machine Learning and High Performance Computing Software Stack for AMD GPU v3.7.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 .. _ROCm Binary Package Structure:
 
@@ -923,13 +930,11 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 **ROCm Compilers**
 
- -  `HCC compiler`_  (in deprecation)
  -  `HIP`_
  -  `ROCM Clang-OCL Kernel Compiler`_
   
  Example Applications:
 
- -  `HCC Examples`_ (in deprecation)
  -  `HIP Examples`_
   
 **ROCm Device Libraries and Tools**
@@ -969,111 +974,93 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 
 ROCm Core Components
-=====================
 
+.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/rocm-3.7.0
 
-.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/rocm-3.5.0
+.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/rocm-3.7.0
 
-.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/rocm-3.5.0
-
-.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/rocm-3.5.0
+.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/rocm-3.7.0
 
 
 ROCm Support Software
-======================
 
+.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/rocm-3.7.0
 
-.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/rocm-3.5.0
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/rocm-3.7.0
 
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/rocm-3.5.0
+.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.7.0
 
-.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.5.0
-
-.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.5.0
+.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.7.0
 
 
 ROCm Compilers
-================
 
-Note: HCC Compiler is in deprecation mode. 
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.7.0
 
-.. _HCC compiler: https://github.com/RadeonOpenCompute/hcc/tree/rocm-3.5.0 
-
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.5.0
-
-
-.. _HCC Examples: https://github.com/ROCm-Developer-Tools/HCC-Example-Application/tree/ffd65333
-
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.5.0
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.7.0
 
 
 
 ROCm Device Libraries and Tools
-==================================
 
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.7.0
 
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.5.0
+.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/rocm-3.7.0
 
-.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/roc-3.5.0
+.. _ROCm LLVM OCL: https://github.com/RadeonOpenCompute/llvm-project/tree/rocm-ocl-3.7.0
 
-.. _ROCm LLVM OCL: https://github.com/RadeonOpenCompute/llvm-project/tree/rocm-ocl-3.5.0
+.. _ROCm Device Libraries OCL: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.7.0
 
-.. _ROCm Device Libraries OCL: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.5.0
+.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/rocm-3.7.0
 
-.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/rocm-3.5.0
+.. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm-3.7.0
 
-.. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm-3.5.0
+.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/rocm-3.7.0
 
-.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/roc-3.5.0
+.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/rocm-3.7.0
 
-.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/rocm-3.5.0
+.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/rocm-3.7.0
 
-.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/rocm-3.5.0
+.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/rocm-3.7.0
 
-.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/rocm-3.5.0
-
-.. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/rocm-3.5.0
+.. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/rocm-3.7.0
 
 .. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
 
-.. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/rocm-3.5.0
-
-
-
+.. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/rocm-3.7.0
 
 
 ROCm Libraries
-===============
 
-.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.5.0
+.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.7.0
 
-.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.5.0
+.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.7.0
 
-.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.5.0
+.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.7.0
 
-.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/rocm-3.5.0
+.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/rocm-3.7.0
 
-.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.5.0
+.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.7.0
 
-.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.5.0
+.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.7.0
 
-.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.5.0
+.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.7.0
 
-.. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/1.1.6
+.. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/rocm-3.7.0
 
-.. _mi open: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/rocm-3.5.0
+.. _mi open: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/rocm-3.7.0
 
-.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/rocm-3.5.0
+.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/rocm-3.7.0
 
-.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/rocm-3.5.0
+.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/rocm-3.7.0
 
-.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/rocm-3.5.0
+.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/rocm-3.7.0
 
-.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.5.0
+.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.7.0
 
-.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/1.7
+.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/rocm-3.7.0
 
-.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/d1e945dabce0078d44c78de67b00232b856e18bc 
+.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/e66968a25f9342a28af1157b06cbdbf8579c5519
 
 
 
@@ -1081,8 +1068,8 @@ ROCm Libraries
 List of ROCm Packages for Supported Operating Systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROCm-Libs Meta Packages
-~~~~~~~~~~~~~~~~~~~~~~~~
+ROCm-Library Meta Packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |Package                            |  Debian 	            |   RPM						      |	
@@ -1111,8 +1098,8 @@ ROCm-Libs Meta Packages
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 
 
-All Meta Packages
-~~~~~~~~~~~~~~~~~~~~~
+Meta Packages
+~~~~~~~~~~~~~~~~~
 
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |Package                            |  Debian 	            |   RPM						      |	
@@ -1124,14 +1111,6 @@ All Meta Packages
 |ROCm Libraries Master Package 	    |   rocm-libs 	    |  rocm-libs-1.6.77-Linux.rpm            		      |	
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |ATMI       	                    |   atmi     	    |  atmi-0.3.7-45-gde867f2-Linux.rpm			      | 
-+-----------------------------------+-----------------------+---------------------------------------------------------+
-|HCC   				    |   hcc	            |  hcc-1.0.17262-Linux.rpm  			      |	
-+-----------------------------------+-----------------------+---------------------------------------------------------+
-|hcBLAS 			    |   hcblas 	            |  hcblas-master-482646f-Linux.rpm			      |	
-+-----------------------------------+-----------------------+---------------------------------------------------------+
-|hcFFT 	                            |   hcfft. 	            |  hcfft-master-1a96022-Linux.rpm			      |	
-+-----------------------------------+-----------------------+---------------------------------------------------------+
-|hcRNG 	                            |   hcrng. 	            |  hcrng-master-c2ada99-Linux.rpm			      |	
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |HIP Core 	                    |   hip_base 	    |  hip_base-1.2.17263.rpm				      |	
 +-----------------------------------+-----------------------+---------------------------------------------------------+
