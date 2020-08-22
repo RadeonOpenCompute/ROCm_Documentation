@@ -160,7 +160,7 @@ CUDA Runtime API functions supported by HIP
 +--------------------------------+---------------------------+
 |   cudaGetParameterBufferV2     |                           |
 +--------------------------------+---------------------------+
-|   cudaLaunchKernel             |   hipLaunchKernel         |
+|   cudaLaunchKernel             |   hipLaunchKernelGGL      |
 +--------------------------------+---------------------------+
 |   cudaSetDoubleForDevice       |                           |
 +--------------------------------+---------------------------+

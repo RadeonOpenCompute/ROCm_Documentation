@@ -11,37 +11,19 @@ ROCr System Runtime API
 
 *  :ref:`ROCr-API`
 
-HCC Language Runtime API
-========================
-
-* :ref:`HCC-API`
-
-HIP Language Runtime API
-========================
-* :ref:`HIP-API`
-
-HIP Math API
-====================
-
-* :ref:`HIP-MATH`
-
-Math Libarary API's
+Math Library API
 ====================
 * `hcRNG <http://hcrng-documentation.readthedocs.io/en/latest/>`_
 
 *  :ref:`clBLAS`
 
-*  :ref:`clSPARSE_API`
-
-Deep Learning API's
-====================
-
-* `MIOpen API <https://rocmsoftwareplatform.github.io/MIOpen/doc/html/>`_
-
-* `MIOpenGEMM API <https://rocmsoftwareplatform.github.io/MIOpenGEMM/doc/html/>`_
+*  :ref:`clSPARSE_api`
 
 
+HCC Language Runtime API (Deprecated)
+======================================
 
+* :ref:`HCC-API`
 
 
 

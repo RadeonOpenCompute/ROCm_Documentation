@@ -10,7 +10,7 @@ Install ROCm
 -------------
 Here are the main ROCm components we’ll be using::
 
- sudo apt-get install rocm
+ sudo apt install rocm-dkms
  sudo apt-get install rocm-libs
  sudo apt-get install miopen-hip miopengemm
  
@@ -37,7 +37,7 @@ Test a simple HIP sample::
  
  make
  
- ./square.hip.out
+ ./square.out
   
 Install hipCaffe
 ----------------

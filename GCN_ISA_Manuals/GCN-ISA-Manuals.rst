@@ -1,23 +1,23 @@
 
 .. _GCN-ISA-Manuals:
 
-=====================
+====================
 GCN ISA Manuals
-=====================
+====================
 
 GCN 1.1
 ========
 
-ISA Manual for Hawaii :download:`pdf </GCN_ISA_Manuals/AMD_Sea_Islands_Instruction_Set_Architecture.pdf>`
-
+ISA Manual for Hawaii `pdf <http://developer.amd.com/wordpress/media/2013/07/AMD_Sea_Islands_Instruction_Set_Architecture1.pdf>`_
 
 GCN 2.0
 ========
-ISA Manual for Fiji and Polaris :download:`pdf </GCN_ISA_Manuals//AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`
+
+ISA Manual for Fiji and Polaris `pdf <http://developer.amd.com/wordpress/media/2013/12/AMD_GCN3_Instruction_Set_Architecture_rev1.1.pdf>`_
 
 
 Vega
-====
+=====
 
 * :ref:`testdocbook`
 
@@ -26,7 +26,7 @@ Inline GCN ISA Assembly Guide
 
 The Art of AMDGCN Assembly: How to Bend the Machine to Your Will
 ******************************************************************
-The ability to write code in assembly is essential to achieving the best performance for a GPU program. In a `previous blog <https://gpuopen.com/rocm-with-harmony-combining-opencl-hcc-hsa-in-a-single-program/>`_ we described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
+The ability to write code in assembly is essential to achieving the best performance for a GPU program. We have previously described how to combine several languages in a single program using ROCm and Hsaco. This article explains how to produce Hsaco from assembly code and also takes a closer look at some new features of the GCN architecture. I'd like to thank Ilya Perminov of Luxsoft for co-authoring this blog post. Programs written for GPUs should achieve the highest performance possible. Even carefully written ones, however, won’t always employ 100% of the GPU’s capabilities. Some reasons are the following:
 
  * The program may be written in a high level language that does not expose all of the features available on the hardware.
  * The compiler is unable to produce optimal ISA code, either because the compiler needs to ‘play it safe’ while adhering to the     	semantics of a language or because the compiler itself is generating un-optimized code.
@@ -146,7 +146,9 @@ Initial Wavefront and Register State To launch a kernel in real hardware, the ru
    flat_store_dword  v[3:4], v1
    s_endpgm
 
-Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. initial_state
+Currently, a programmer must manually set all non-default values to provide the necessary information. Hopefully, this situation will change with new updates that bring automatic register counting and possibly a new syntax to fill that structure. Before the start of every wavefront execution, the GPU sets up the register state on the basis of the enable_sgpr_* and enable_vgpr_* flags. VGPR v0 is always initialized with a work-item ID in the x dimension. Registers v1 and v2 can be initialized with work-item IDs in the y and z dimensions, respectively. Scalar GPRs can be initialized with a work-group ID and work-group count in each dimension, a dispatch ID, and pointers to kernarg, the aql packet, the aql queue, and so on. Again, the AMDGPU-ABI specification contains a full list in in the section on initial register state. For this example, a 64-bit base kernarg address will be stored in the s[0:1] registers (enable_sgpr_kernarg_segment_ptr = 1), and the work-item thread ID will occupy v0 (by default). Below is the scheme showing initial state for our kernel. 
+
+.. image:: initial_state-768x387.png
 
 The GPR Counting
 ******************

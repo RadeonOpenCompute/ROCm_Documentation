@@ -26,17 +26,17 @@ HC comes with two header files as of now:
 
 Most HC APIs are stored under "hc" namespace, and the class name is the same as their counterpart in C++AMP "Concurrency" namespace. Users of C++AMP should find it easy to switch from C++AMP to HC.
 
-=================================== ======================
+=================================== =========================
 C++AMP					     HC
-=================================== ======================
-Concurrency::accelerator	     hc::accelerator
-Concurrency::accelerator_view	     hc::accelerator_view
-Concurrency::extent		     hc::extent
-Concurrency::index		     hc::index
-Concurrency::completion_future	     hc::completion_future
-Concurrency::array		     hc::array
-Concurrency::array_view		     hc::array_view
-=================================== ======================
+=================================== =========================
+``Concurrency::accelerator``	      ``hc::accelerator``
+``Concurrency::accelerator_view``	``hc::accelerator_view``
+``Concurrency::extent``		         ``hc::extent``
+``Concurrency::index``		         ``hc::index``
+``Concurrency::completion_future``  ``hc::completion_future``
+``Concurrency::array``	            ``hc::array``
+``Concurrency::array_view``		   ``hc::array_view``
+=================================== =========================
 
 How to build programs with HC API
 ************************************
@@ -52,36 +52,36 @@ HCC built-in macros
 ********************
 Built-in macros:
 
-=================== ==========================================================================
+====================== ===============================================================================
 Macro							Meaning
-=================== ==========================================================================
-__HCC__			always be 1
-__hcc_major__		major version number of HCC
-__hcc_minor__		minor version number of HCC
-__hcc_patchlevel__	patchlevel of HCC
-__hcc_version__		combined string of __hcc_major__, __hcc_minor__, __hcc_patchlevel__
-=================== ==========================================================================
+====================== ===============================================================================
+``__HCC__``			     always be 1
+``__hcc_major__``	     major version number of HCC
+``__hcc_minor__``	     minor version number of HCC
+``__hcc_patchlevel__`` patchlevel of HCC
+``__hcc_version__``	  combined string of ``__hcc_major__``, ``__hcc_minor__``, ``__hcc_patchlevel__``
+====================== ===============================================================================
 
-The rule for __hcc_patchlevel__ is: yyWW-(HCC driver git commit #)-(HCC clang git commit #)
+The rule for ``__hcc_patchlevel__`` is: yyWW-(HCC driver git commit #)-(HCC clang git commit #)
 
    * yy stands for the last 2 digits of the year
    * WW stands for the week number of the year
 Macros for language modes in use:
 
-================ =============================================
-Macro				Meaning.
-================ =============================================
-__KALMAR_AMP__    1 in case in C++ AMP mode (-std=c++amp)
-__KALMAR_HC__	  1 in case in HC mode (-hc)
-================ =============================================
+================== ==========================================================================
+Macro				    Meaning.
+================== ==========================================================================
+``__KALMAR_AMP__`` 1 in case in C++ AMP mode (-std=c++amp; **Removed from ROCm 2.0 onwards**)
+``__KALMAR_HC__``	 1 in case in HC mode (-hc)
+================== ==========================================================================
 Compilation mode: HCC is a single-source compiler where kernel codes and host codes can reside in the same file. Internally HCC would trigger 2 compilation iterations, and the following macros can be user by user programs to determine which mode the compiler is in.
 
-========================= ===================================================================
-Macro				Meaning
-========================= ===================================================================
-__KALMAR_ACCELERATOR__	   not 0 in case the compiler runs in kernel code compilation mode
-__KALMAR_CPU__	           not 0 in case the compiler runs in host code compilation mode
-========================= ===================================================================
+========================== ===============================================================
+Macro				            Meaning
+========================== ===============================================================
+``__KALMAR_ACCELERATOR__``	not 0 in case the compiler runs in kernel code compilation mode
+``__KALMAR_CPU__``	      not 0 in case the compiler runs in host code compilation mode
+========================== ===============================================================
 
 HC-specific features
 *********************
@@ -103,7 +103,7 @@ HC supports the automatic synchronization behavior as in C++ AMP. In addition, H
 
 Annotation of device functions
 ********************************
-C++ AMP uses the restrict(amp) keyword to annotatate functions that runs on the device.
+C++ AMP uses the restrict(amp) keyword to annotate functions that runs on the device.
 
 ``` void foo() restrict(amp) { .. } ... parallel_for_each(...,[=] () restrict(amp) { foo(); });
 
@@ -144,37 +144,3 @@ HC supports capturing memory pointer by a GPU kernel.
 ``` // allocate GPU memory through the HSA API int* gpu_pointer; hsa_memory_allocate(..., &gpu_pointer); ... parallel_for_each(ext, [=](index i) [[hc]] { gpu_pointer[i[0]]++; }
 
 ``` For HSA APUs that supports system wide shared virtual memory, a GPU kernel can directly access system memory allocated by the host: ``` int* cpu_memory = (int*) malloc(...); ... parallel_for_each(ext, [=](index i) [[hc]] { cpu_memory[i[0]]++; }); ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

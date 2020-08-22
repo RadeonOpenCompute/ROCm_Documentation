@@ -4,11 +4,8 @@
 clBLAS
 =========
 
-=======
-clBlas
-=======
 
- * `clBLAS <https://github.com/clMathLibraries/clBLAS>`_
+For Github repository `clBLAS <https://github.com/clMathLibraries/clBLAS>`_
 
 This repository houses the code for the OpenCL™ BLAS portion of clMath. The complete set of BLAS level 1, 2 & 3 routines is implemented. Please see Netlib BLAS for the list of supported routines. In addition to GPU devices, the library also supports running on CPU devices to facilitate debugging and multicore programming. APPML 1.12 is the most current generally available pre-packaged binary version of the library available for download for both Linux and Windows platforms.
 

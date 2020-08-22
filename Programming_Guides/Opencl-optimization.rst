@@ -1,12 +1,12 @@
 
 
-.. _Opencl-optimization:
-
-.. Note:: Re-Write in Progress to move this to Vega and FIJI/Polaris optimization guide 
+.. _Optimization-Opencl:
 
 ========================
 OPENCL Optimization
 ========================
+
+.. Note:: Re-Write in Progress to move this to Vega and FIJI/Polaris optimization guide 
 
 Chapter 1 OpenCL Performance and Optimization
 ==============================================

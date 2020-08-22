@@ -6,19 +6,19 @@
 
 
 .. _ROCm_Install_Guide:
+
 2.0 Installation Guide
 ======================
 
 2.1 Quick Start Guide
----------------------
+----------------------------
 2.2 Installation Guide Ubuntu
 -----------------------------
 2.3 Installation Guide Fedora
 -----------------------------
 
-
  
-.. _ROCm_Programing_Guide:
+.. _ROCm_Developer_Guides:
 
 3.0 Programing Guides
 ======================
@@ -264,18 +264,6 @@
 
 .. _ROCm_Hardware_Tunning_Guides:
 
-
-4.0 ROCm GPU Tunning Guides 
-============================
-
-4.1 GFX7 Tuning Guide
----------------------
-
-4.2 GFX8 Tuning Guide
----------------------
-
-4.3 GFX9 Tuning Guide
----------------------
 
 .. _GCN_ISA_Manuals:
 

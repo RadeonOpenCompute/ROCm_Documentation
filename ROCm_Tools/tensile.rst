@@ -133,9 +133,9 @@ Structure of config.yaml
 Top level data structure whose keys are Parameters, BenchmarkProblems, LibraryLogic and LibraryClient.
 
  * Parameters contains a dictionary storing global parameters used for all parts of the benchmarking.
- * BenchmarkProblems contains a list of dictionaries representing the benchmarks to conduct; each element, i.e. dictionary, in the    	 list is for benchmarking a single ProblemType. The keys for these dictionaries are ProblemType, InitialSolutionParameters, 	     	BenchmarkCommonParameters, ForkParameters, BenchmarkForkParameters, JoinParameters, BenchmarkJoinParameters and 		     	BenchmarkFinalParameters. See Benchmark Protocol for more information on these steps.
- * LibraryLogic contains a dictionary storing parameters for analyzing the benchmark data and designing how the backend library will 	select which Solution for certain ProblemSizes.
- * LibraryClient contains a dictionary storing parameters for actually creating the library and creating a client which calls into   	the library.
+ * BenchmarkProblems contains a list of dictionaries representing the benchmarks to conduct; each element, i.e. dictionary, in the list is for benchmarking a single ProblemType. The keys for these dictionaries are ProblemType, InitialSolutionParameters, 	     	BenchmarkCommonParameters, ForkParameters, BenchmarkForkParameters, JoinParameters, BenchmarkJoinParameters and 		     	BenchmarkFinalParameters. See Benchmark Protocol for more information on these steps.
+ * LibraryLogic contains a dictionary storing parameters for analyzing the benchmark data and designing how the backend library will select which Solution for certain ProblemSizes.
+ * LibraryClient contains a dictionary storing parameters for actually creating the library and creating a client which calls into the library.
 
 Global Parameters
 ********************
@@ -143,7 +143,7 @@ Global Parameters
 * Name: Prefix to add to API function names; typically name of device.
 * MinimumRequiredVersion: Which version of Tensile is required to interpret this yaml file
 * RuntimeLanguage: Use HIP or OpenCL runtime.
-* KernelLanguage: For OpenCL runtime, kernel language must be set to OpenCL. For HIP runtime, kernel language can be set to HIP or    	assembly (gfx803, gfx900).
+* KernelLanguage: For OpenCL runtime, kernel language must be set to OpenCL. For HIP runtime, kernel language can be set to HIP or assembly (gfx803, gfx900).
 * PrintLevel: 0=Tensile prints nothing, 1=prints some, 2=prints a lot.
 * ForceRedoBenchmarkProblems: False means don't redo a benchmark phase if results for it already exist.
 * ForceRedoLibraryLogic: False means don't re-generate library logic if it already exist.
@@ -199,11 +199,11 @@ Benchmark Protocol
 
 Old Benchmark Architecture was Intractable
 ********************************************
-The benchmarking strategy from version 1 was vanilla flavored brute force: (8 WorkGroups)* (12 ThreadTiles)* (4 NumLoadsCoalescedAs)* (4 NumLoadsCoalescedBs)* (3 LoopUnrolls)* (5 BranchTypes)* ...*(1024 ProblemSizes)=23,592,960 is a multiplicative series which grows very quickly. Adding one more boolean parameter doubles the number of kernel enqueues of the benchmark.
+The benchmarking strategy from version 1 was vanilla flavored brute force: ``(8 WorkGroups)* (12 ThreadTiles)* (4 NumLoadsCoalescedAs)* (4 NumLoadsCoalescedBs)* (3 LoopUnrolls)* (5 BranchTypes)* ...*(1024 ProblemSizes)=23,592,960`` is a multiplicative series which grows very quickly. Adding one more boolean parameter doubles the number of kernel enqueues of the benchmark.
 
 Incremental Benchmark is Faster
 ********************************
-Tensile version 2 allows the user to manually interrupt the multiplicative series with "additions" instead of "multiplies", i.e., (8 WorkGroups)* (12 ThreadTiles)+ (4 NumLoadsCoalescedAs)* (4 NumLoadsCoalescedBs)* (3 LoopUnrolls)+ (5 BranchTypes)* ...+(1024 ProblemSizes)=1,151 is a dramatically smaller number of enqueues. Now, adding one more boolean parameter may only add on 2 more enqueues.
+Tensile version 2 allows the user to manually interrupt the multiplicative series with "additions" instead of "multiplies", i.e., ``(8 WorkGroups)* (12 ThreadTiles)+ (4 NumLoadsCoalescedAs)* (4 NumLoadsCoalescedBs)* (3 LoopUnrolls)+ (5 BranchTypes)* ...+(1024 ProblemSizes)=1,151`` is a dramatically smaller number of enqueues. Now, adding one more boolean parameter may only add on 2 more enqueues.
 
 Phases of Benchmark
 ********************
@@ -263,15 +263,15 @@ Each step of the benchmark can override what problem sizes will be benchmarked. 
  2.[16, 1920]
   * Benchmark sizes 16 to 1968 using the default step size (=16); n = 123.
  
- 3. [16, 32, 1968]
+ 3.[16, 32, 1968]
   * Benchmark sizes 16 to 1968 using a step size of 32; n = 61.
  
- 4. [64, 32, 16, 1968]
+ 4.[64, 32, 16, 1968]
   * Benchmark sizes from 64 to 1968 with a step size of 32. Also, increase the step size by 16 each iteration.
   * This causes fewer sizes to be benchmarked when the sizes are large, and more benchmarks where the sizes are small; this is 	      	typically desired behavior.
   * n = 16 (64, 96, 144, 208, 288, 384, 496, 624, 768, 928, 1104, 1296, 1504, 1728, 1968). The stride at the beginning is 32, but     	the stride at the end is 256.
  
- 5. 0
+ 5.[0]
   * The size of this index is just whatever size index 0 is. For a 3-dimensional ProblemType, this allows benchmarking only a 2- 	      	dimensional or 1-dimensional slice of problem sizes.
 
 Here are a few examples of valid ProblemSizes for 3D GEMMs:
@@ -342,7 +342,7 @@ Compilers
       * Visual Studio 14 (2015). (VS 2012 may also be supported; c++11 should no longer be required by Tensile. Need to verify.)
       * GCC 4.8
  * For Tensile_BACKEND = HIP
-      * ROCM 1.6
+      * ROCM 2.4
 
  .. _Installation:
 
@@ -528,7 +528,6 @@ After running the benchmark and generating library config files, you're ready to
     )
   target_link_libraries( TARGET Tensile )
 
-TODO: Where is the Tensile include directory?
 
  .. _Versioning:
 

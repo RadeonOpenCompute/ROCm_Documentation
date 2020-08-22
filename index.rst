@@ -1,21 +1,28 @@
- .. rocm documentation master file, created by
+
+.. image:: amdblack.jpg
+.. rocm documentation master file, created by
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+|
 
-Welcome to ROCm Platform
-=========================
+Welcome to AMD ROCm Platform
+=============================
 
-We are excited to present ROCm, the first open-source HPC/Hyperscale-class platform for GPU computing that’s also programming-language independent. We are bringing the UNIX philosophy of choice, minimalism and modular software development to GPU computing. The new ROCm foundation lets you choose or even develop tools and a language run time for your application.
+AMD ROCm is the first open-source software development platform for HPC/Hyperscale-class GPU computing. AMD ROCm brings the UNIX philosophy of choice, minimalism and modular software development to GPU computing. 
 
-**ROCm is built for scale**; it supports multi-GPU computing in and out of server-node communication through RDMA. It also simplifies the stack when the driver directly incorporates RDMA peer-sync support.
+Since the ROCm ecosystem is comprised of open technologies: frameworks (Tensorflow / PyTorch), libraries (MIOpen / Blas / RCCL), programming model (HIP), inter-connect (OCD) and up streamed Linux® Kernel support – the platform is continually optimized for performance and extensibility.  Tools, guidance and insights are shared freely across the ROCm GitHub community and forums.
 
-**ROCm has a rich system run time** with the critical features that large-scale application, compiler and language-run-time development requires.
+.. image:: ROCmComp.png
+    :align: center
 
+AMD ROCm is built for scale; it supports multi-GPU computing in and out of server-node communication through RDMA. AMD ROCm also simplifies the stack when the driver directly incorporates RDMA peer-sync support.
 
-Going to 11: Amping Up the Programming-Language Run-Time Foundation
-####################################################################
-The ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to exectute programming languages such as HCC C++ and HIP, the Khronos Group’s OpenCL, and Continuum’s Anaconda Python.
+The AMD ROCm Programming-Language Run-Time 
+############################################
+
+The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP.
+
 
 .. image:: ROCm_Stack.png
     :align: center
@@ -40,32 +47,80 @@ Important features include the following:
     
 Solid Compilation Foundation and Language Support
 ####################################################
-    * LLVM compiler foundation
-    * HCC C++ and HIP for application portability
-    * GCN assembler and disassembler
 
-The frontiers of what you can accomplish with ROCm are vast and uncharted. We look forward to working with you to improve the platform so you can use it more effectively in your own projects. Our efforts have opened the door to unique heterogeneous-computing applications that explore what this growing technology can do.
+•	LLVM compiler foundation
+•	HCC C++ and HIP for application portability
+•	GCN assembler and disassembler
+
+AMD ROCm gives developers the flexibility of choice for hardware and aids in the development of compute-intensive applications.
+
+
 
 .. toctree::
    :maxdepth: 6
    :hidden:
-   
-
+   :caption: Release Documentation
+  
+   Release Notes
    Current_Release_Notes/Current-Release-Notes
    Installation_Guide/Installation-Guide
+   
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption:  Compiler Documentation
+      
    Programming_Guides/Programming-Guides
-   ROCm_GPU_Tunning_Guides/ROCm-GPU-Tunning-Guides
-   GCN_ISA_Manuals/GCN-ISA-Manuals
-   ROCm_API_References/ROCm-API-References
-   ROCm_Tools/ROCm-Tools
+   Programming_Guides/aomp
+   Programming_Guides/gcn-assembler
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
-   ROCm_System_Managment/ROCm-System-Managment
-   ROCm_Virtualization_Containers/ROCm-Virtualization-&-Containers
-   Remote_Device_Programming/Remote-Device-Programming
+      
+   
+
+      
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: Library Documentation 
+   
+   ROCm_Libraries/ROCm_Libraries
+   ROCm_API_References/ROCm-API-References
    Deep_learning/Deep-learning
+   
+   
+  
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: ROCm-Tools
+      
+   ROCm_Tools/ROCm-Tools
+   ROCm_Tools/ROCgdb.rst
+   ROCm_Tools/rocm-debug-agent
    Other_Solutions/Other-Solutions
-   Tutorial/Tutorial
+   Other_Solutions/rocm-validation-suite
+   
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: System Management Interface
+      
+   ROCm_System_Managment/ROCm-System-Managment
+    
+    
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: Additional Documentation 
+   
+   GCN_ISA_Manuals/GCN-ISA-Manuals
    ROCm_Glossary/ROCm-Glossary
+   Remote_Device_Programming/Remote-Device-Programming
+   Tutorial/Tutorial
+   
 
 
    

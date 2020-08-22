@@ -7,7 +7,7 @@ Kernel Language
 Index
 ######
 
-* :ref:`Introduction`
+* :ref:`Introduction-Kernel`
 * :ref:`Function-Type-Qualifiers`
 * :ref:`Calling__global__Functions`
 * :ref:`Kernel-Launch-Example`
@@ -34,6 +34,9 @@ Index
 * :ref:`Warp-Cross-Lane-Functions`
 	* :ref:`Warp-Vote-and-Ballot-Functions`
 	* :ref:`Warp-Shuffle-Functions`
+* :ref:`Cooperative Groups Functions`
+* :ref:`Warp Matrix Functions`
+* :ref:`Independent Thread Scheduling`
 * :ref:`Profiler-Counter-Function`
 * :ref:`Assert`
 * :ref:`Printf`
@@ -49,7 +52,7 @@ Index
 * :ref:`C++Support`
 * :ref:`Kernel-Compilation`
 
-.. _Introduction:
+.. _Introduction-Kernel:
 
 Introduction
 -------------
@@ -90,7 +93,7 @@ Supported ``__global__`` functions are
 * Executed on the device
 * Called ("launched") from the host
 
-HIP ``__global__`` functions must have a void return type, and the first parameter to a HIP ``__global__`` function must have the type hipLaunchParm. See `Kernel-Launch Example <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#kernel-launch-example>`_ .
+HIP ``__global__`` functions must have a void return type. See `Kernel-Launch Example <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#kernel-launch-example>`_ .
 
 HIP lacks dynamic-parallelism support, so ``__global__`` functions cannot be called from the device.
 
@@ -115,8 +118,8 @@ Calling __global__ Functions
 
 ``__global__`` functions are often referred to as kernels, and calling one is termed launching the kernel. These functions require the caller to specify an "execution configuration" that includes the grid and block dimensions. The execution configuration can also include other information for the launch, such as the amount of additional shared memory to allocate and the stream where the kernel should execute. HIP introduces a standard C++ calling convention to pass the execution configuration to the kernel (this convention replaces the Cuda <<< >>> syntax). In HIP,
 
-* Kernels launch with the "hipLaunchKernel" function
-* The first five parameters to hipLaunchKernel are the following:
+* Kernels launch with the "hipLaunchKernelGGL" function
+* The first five parameters to hipLaunchKernelGGL are the following:
 	* **symbol kernelName:** the name of the kernel to launch. To support template kernels which contains "," use the HIP_KERNEL_NAME macro. The hipify tools insert this automatically.
 	* **dim3 gridDim:** 3D-grid dimensions specifying the number of blocks to launch.
 	* **dim3 blockDim:** 3D-block dimensions specifying the number of threads in each block.
@@ -125,20 +128,20 @@ Calling __global__ Functions
 
 * Kernel arguments follow these first five parameters
 
-  ::
+::
 
-  // Example pseudo code introducing hipLaunchKernel:
-  __global__ MyKernel(hipLaunchParm lp, float *A, float *B, float *C, size_t N)
+  // Example pseudo code introducing hipLaunchKernelGGL:
+  __global__ MyKernel(float *A, float *B, float *C, size_t N)
   {
   ...
   } 
  
   // Replace MyKernel<<<dim3(gridDim), dim3(gridDim), 0, 0>>> (a,b,c,n);
   
-  hipLaunchKernel(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n);
+  hipLaunchKernelGGL(MyKernel, dim3(gridDim), dim3(groupDim), 0/*dynamicShared*/, 0/*stream), a, b, c, n);
  
 
-The hipLaunchKernel macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernel, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernel parameters. The dim3 constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See `dim3 <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#dim3>`_. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. See `Coordinate Built-Ins <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#coordinate-built-ins>`_.
+The hipLaunchKernelGGL macro always starts with the five parameters specified above, followed by the kernel arguments. The Hipify script automatically converts Cuda launch syntax to hipLaunchKernelGGL, including conversion of optional arguments in <<< >>> to the five required hipLaunchKernelGGL parameters. The dim3 constructor accepts zero to three arguments and will by default initialize unspecified dimensions to 1. See `dim3 <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#dim3>`_. The kernel uses the coordinate built-ins (hipThread*, hipBlock*, hipGrid*) to determine coordinate index and coordinate bounds of the work item that’s currently executing. See `Coordinate Built-Ins <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/hip_kernel_language.md#coordinate-built-ins>`_.
 
 .. _Kernel-Launch-Example:
 
@@ -156,8 +159,7 @@ Kernel-Launch Example
  
   __global__ 
   void 
-  MyKernel (hipLaunchParm lp, /*lp parm for execution configuration */
-           const float *a, const float *b, float *c, unsigned N)
+  MyKernel (const float *a, const float *b, float *c, unsigned N)
   {
       unsigned gid = hipThreadIdx_x; // <- coordinate index function
       if (gid < N) {
@@ -170,7 +172,7 @@ Kernel-Launch Example
      unsigned N = 1000000;
      const unsigned blockSize = 256; 
  
-     hipLaunchKernel(MyKernel, dim3(N/blockSize), dim3(blockSize), 0, 0,  a,b,c,N);
+     hipLaunchKernelGGL(MyKernel, dim3(N/blockSize), dim3(blockSize), 0, 0,  a,b,c,N);
   }
  
 .. _Variable-Type-Qualifiers:
@@ -181,7 +183,7 @@ Variable-Type Qualifiers
 __constant__
 +++++++++++++++
 
-The ``__constant__`` keyword is supported. The host writes constant memory before launching the kernel; from the GPU, this memory is read-only during kernel execution. The functions for accessing constant memory (hipGetSymbolAddress(), hipGetSymbolSize(), hipMemcpyToSymbol(), hipMemcpyToSymbolAsync, hipMemcpyFromSymbol, hipMemcpyFromSymbolAsync) are under development.
+The ``__constant__`` keyword is supported. The host writes constant memory before launching the kernel; from the GPU, this memory is read-only during kernel execution. The functions for accessing constant memory (hipGetSymbolAddress(), hipGetSymbolSize(), hipMemcpyToSymbol(), hipMemcpyToSymbolAsync, hipMemcpyFromSymbol, hipMemcpyFromSymbolAsync) are available.
 
 __shared__
 +++++++++++++
@@ -1197,13 +1199,206 @@ Following is the list of supported floating-point intrinsics. Note that intrinsi
 Texture Functions
 ------------------
 
-Texture functions are not supported.
+::
+
+hipError_t hipBindTexture(
+    size_t* offset,
+    const textureReference* tex,
+    const void* devPtr,
+    const hipChannelFormatDesc* desc,
+    size_t size __dparm(UINT_MAX));
+    
+::
+
+hipError_t hipBindTexture2D(
+    size_t* offset,
+    const textureReference* tex,
+    const void* devPtr,
+    const hipChannelFormatDesc* desc,
+    size_t width,
+    size_t height,
+    size_t pitch);
+
+::
+
+hipError_t hipBindTextureToArray(
+    const textureReference* tex,
+    hipArray_const_t array,
+    const hipChannelFormatDesc* desc);
+
+::
+
+hipError_t hipGetTextureReference(
+    const textureReference** texref,
+    const void* symbol);
+    
+::
+
+hipError_t hipUnbindTexture(const textureReference* tex);
+
+
+::
+
+hipError_t hipCreateTextureObject(
+    hipTextureObject_t* pTexObject,
+    const hipResourceDesc* pResDesc,
+    const hipTextureDesc* pTexDesc,
+    const struct hipResourceViewDesc* pResViewDesc);
+    
+::
+
+hipError_t hipDestroyTextureObject(hipTextureObject_t textureObject);
+
+::
+
+hipError_t hipGetChannelDesc(
+    hipChannelFormatDesc* desc,
+    hipArray_const_t array);
+    
+::
+
+hipError_t hipGetTextureObjectResourceDesc(
+    hipResourceDesc* pResDesc,
+    hipTextureObject_t textureObject);
+
+::
+
+hipError_t hipGetTextureObjectResourceViewDesc(
+    struct hipResourceViewDesc* pResViewDesc,
+    hipTextureObject_t textureObject);
+
+::
+
+hipError_t hipGetTextureObjectTextureDesc(
+    hipTextureDesc* pTexDesc,
+    hipTextureObject_t textureObject);
+
+::
+
+hipError_t hipTexRefGetAddress(
+    hipDeviceptr_t* dev_ptr,
+    const textureReference* texRef);
+
+::
+
+hipError_t hipTexRefGetAddressMode(
+    enum hipTextureAddressMode* pam,
+    const textureReference* texRef,
+    int dim);
+
+::
+
+hipError_t hipTexRefGetFilterMode(
+    enum hipTextureFilterMode* pfm,
+    const textureReference* texRef);
+
+::
+
+hipError_t hipTexRefGetFlags(
+    unsigned int* pFlags,
+    const textureReference* texRef);
+
+::
+
+hipError_t hipTexRefGetFormat(
+    hipArray_Format* pFormat,
+    int* pNumChannels,
+    const textureReference* texRef);
+
+::
+
+hipError_t hipTexRefSetAddress(
+    size_t* ByteOffset,
+    textureReference* texRef,
+    hipDeviceptr_t dptr,
+    size_t bytes);
+
+::
+
+hipError_t hipTexRefSetAddress2D(
+    textureReference* texRef,
+    const HIP_ARRAY_DESCRIPTOR* desc,
+    hipDeviceptr_t dptr,
+    size_t Pitch);
+
+::
+
+hipError_t hipTexRefSetAddressMode(
+    textureReference* texRef,
+    int dim,
+    enum hipTextureAddressMode am);
+
+::
+
+hipError_t hipTexRefSetArray(
+    textureReference* tex,
+    hipArray_const_t array,
+    unsigned int flags);
+
+::
+
+hipError_t hipTexRefSetFilterMode(
+    textureReference* texRef,
+    enum hipTextureFilterMode fm);
+
+::
+
+hipError_t hipTexRefSetFlags(
+    textureReference* texRef,
+    unsigned int Flags);
+
+::
+
+hipError_t hipTexRefSetFormat(
+    textureReference* texRef,
+    hipArray_Format fmt,
+    int NumPackedComponents);
+
+::
+
+hipError_t hipTexObjectCreate(
+    hipTextureObject_t* pTexObject,
+    const HIP_RESOURCE_DESC* pResDesc,
+    const HIP_TEXTURE_DESC* pTexDesc,
+    const HIP_RESOURCE_VIEW_DESC* pResViewDesc);
+
+::
+
+hipError_t hipTexObjectDestroy(
+    hipTextureObject_t texObject);
+
+::
+
+hipError_t hipTexObjectGetResourceDesc(
+    HIP_RESOURCE_DESC* pResDesc,
+    hipTextureObject_t texObject);
+
+::
+
+hipError_t hipTexObjectGetResourceViewDesc(
+    HIP_RESOURCE_VIEW_DESC* pResViewDesc,
+    hipTextureObject_t texObject);
+
+::
+
+hipError_t hipTexObjectGetTextureDesc(
+    HIP_TEXTURE_DESC* pTexDesc,
+    hipTextureObject_t texObject);
+
 
 .. _Surface-Functions:
 
 Surface Functions
 ------------------
-Surface functions are not supported.
+
++-----------------------------------------------------------------------------------------------------------------------------+
+| Function                                                                                                                    | 
++=============================================================================================================================+
+| hipError_t hipCreateSurfaceObject(hipSurfaceObject_t* pSurfObject, const hipResourceDesc* pResDesc);                        | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| hipError_t hipDestroySurfaceObject(hipSurfaceObject_t surfaceObject);                                                       |      
++-----------------------------------------------------------------------------------------------------------------------------+
+
   
 .. _Timer-Functions:
 
@@ -1339,18 +1534,201 @@ Applications can test whether the target platform supports the any/all instructi
 
 Warp Shuffle Functions
 ++++++++++++++++++++++++
-Half-float shuffles are not supported. The default width is warpSize---see :ref:`Warp Cross-Lane Functions`. Applications should not assume the warpSize is 32 or 64.
-::
+Half-float shuffles are not supported. The default width is warpSize---
+
+See :ref:`Warp Cross-Lane Functions`. Note, applications should not assume the warpSize is 32 or 64.
+
++-----------------------------------------------------------------------------------------------------------------------------+
+| Function                                                                                                                    | 
++=============================================================================================================================+
+| int __shfl(int var, int src_lane, int width = warpSize)                                                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl(unsigned int var, int src_lane, int width = warpSize)                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl(float var, int src_lane, int width = warpSize)                                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl(double var, int src_lane, int width = warpSize)                                                               | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl(long var, int src_lane, int width = warpSize)                                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl(long long var, int src_lane, int width = warpSize)                                                         | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| int __shfl_up(int var, unsigned int lane_delta, int width = warpSize)                                                       | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl_up(unsigned int var, unsigned int lane_delta, int width = warpSize)                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl_up(float var, unsigned int lane_delta, int width = warpSize)                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl_up(double var, unsigned int lane_delta, int width = warpSize)                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl_up(long var, unsigned int lane_delta, int width = warpSize)                                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl_up(long long var, unsigned int lane_delta, int width = warpSize)                                           |
++-----------------------------------------------------------------------------------------------------------------------------+
+| int __shfl_down(int var, unsigned int lane_delta, int width = warpSize)                                                     | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl_down(unsigned int var, unsigned int lane_delta, int width = warpSize)                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl_down(float var, unsigned int lane_delta, int width = warpSize)                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl_down(double var, unsigned int lane_delta, int width = warpSize)                                               | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl_down(long var, unsigned int lane_delta, int width = warpSize)                                                   | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl_down(long long var, unsigned int lane_delta, int width = warpSize)                                         | 
++-----------------------------------------------------------------------------------------------------------------------------+
+|int __shfl_xor(int var, int lane_mask, int width = warpSize)                                                                 | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| unsigned int __shfl_xor(unsigned int var, int lane_mask, int width = warpSize)                                              | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| float __shfl_xor(float var, int lane_mask, int width = warpSize)                                                            | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| double __shfl_xor(double var, int lane_mask, int width = warpSize)                                                          | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long __shfl_xor(long var, int lane_mask, int width = warpSize)                                                              | 
++-----------------------------------------------------------------------------------------------------------------------------+
+| long long __shfl_xor(long long var, int lane_mask, int width = warpSize)                                                    | 
++-----------------------------------------------------------------------------------------------------------------------------+
+
  
- int   __shfl      (int var,   int srcLane, int width=warpSize);
- float __shfl      (float var, int srcLane, int width=warpSize);
- int   __shfl_up   (int var,   unsigned int delta, int width=warpSize);
- float __shfl_up   (float var, unsigned int delta, int width=warpSize);
- int   __shfl_down (int var,   unsigned int delta, int width=warpSize);
- float __shfl_down (float var, unsigned int delta, int width=warpSize) ;
- int   __shfl_xor  (int var,   int laneMask, int width=warpSize) 
- float __shfl_xor  (float var, int laneMask, int width=warpSize);
- 
+
+.. _Cooperative Groups Functions:
+
+Cooperative Groups Functions
+------------------------------
+
+Cooperative groups is a mechanism for forming and communicating between groups of threads at
+a granularity different than the block.  This feature was introduced in Cuda 9.
+
+HIP does not support any of the kernel language cooperative groups
+types or functions.
+
++--------------------------------------------------------+------------------------+----------------------------+
+|   Function                                             |  Supported in HIP      |    Supported in CUDA       | 
++--------------------------------------------------------+------------------------+----------------------------+
+|void thread_group.sync()                                |                        |           y                | 
+|			                                 |		          |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned thread_group.size()                            |                        |           y                | 
+|			                                 |		          |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned thread_group.thread_rank()                     |                        |           y                |
+|			                                 |		          |                            | 
++--------------------------------------------------------+------------------------+----------------------------+
+|bool thread_group.is_valid()                            |                        |           y                | 
+|			                                 |		          |           	               |
++--------------------------------------------------------+------------------------+----------------------------+
+|thread_group tiled_partiti0on(thread_group, size)       |                        |           y                |
+|			                                 |		          |	      		       |                           
++--------------------------------------------------------+------------------------+----------------------------+
+|thread_block_tile<N> tiled_partition<N>(thread_group)   |                        |           y                |
+|			                                 |		          |		  	       |  
++--------------------------------------------------------+------------------------+----------------------------+
+|thread_block this_thread_block()                        |                        |           y                |
+|			                                 |		          |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl()                              |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl_down()                         |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl_up()                           |                        |           y                |
+|			                                 |                        |                            |
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.shfl_xor()                          |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.any()                               |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.all()                               |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.ballot()                            |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.match_any()                         |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|T thread_block_tile.match_all()                         |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|coalesced_group coalesced_threads()                     |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|grid_group this_grid()                                  |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|void grid_group.sync()                                  |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned grid_group.size()                              |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned grid_group.thread_rank()                       |                        |           y                |
+|			                                 |         		  |                            |		  
++--------------------------------------------------------+------------------------+----------------------------+
+|bool grid_group.is_valid()                              |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|multi_grid_group this_multi_grid()                      |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|void multi_grid_group.sync()                            |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned multi_grid_group.size()                        |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|unsigned multi_grid_group.thread_rank()                 |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+|bool multi_grid_group.is_valid()                        |                        |           y                |
+|					        	 | 	  		  |                            |  
++--------------------------------------------------------+------------------------+----------------------------+
+
+
+.. _Warp Matrix Functions:
+
+
+Warp Matrix Functions
+----------------------
+
+Warp matrix functions allow a warp to cooperatively operate on small matrices whose elements are spread over the lanes in an unspecified manner. This feature was introduced in Cuda 9.
+
+HIP does not support any of the kernel language warp matrix types or functions.
+
+
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|   Function                                                                           |  Supported in HIP      |    Supported in CUD        | 
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void load_matrix_sync(fragment<...> &a, const T* mptr, unsigned lda)                  |                        |             ✓                    | 
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void load_matrix_sync(fragment<...> &a, const T* mptr, unsigned lda, layout_t layout) |                        |             ✓                    |
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void store_matrix_sync(T* mptr, fragment<...> &a,  unsigned lda, layout_t layout)     |                        |             ✓                    |
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void fill_fragment(fragment<...> &a, const T &value)                                  |                        |             ✓                    |
+|			                                                               |		        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+|void mma_sync(fragment<...> &d, const fragment<...> &a, const fragment<...> &b,       |                        |             ✓                    |
+|const fragment<...> &c , bool sat)                                                    |                        |                            |
++--------------------------------------------------------------------------------------+------------------------+----------------------------+
+
+
+.. _Independent Thread Scheduling:
+
+Independent Thread Scheduling
+-------------------------------
+
+The hardware support for independent thread scheduling introduced in certain architectures supporting Cuda allows threads to progress independently of each other and enables intra-warp synchronizations that were previously not allowed.
+
+HIP does not support this type of scheduling.
+
 
 .. _Profiler-Counter-Function:
 

@@ -34,10 +34,11 @@ The Heterogeneous Compute Compiler (HCC) provides two important benefits:
  * Fully control asynchronous kernel launch and completion
  * Get device-side dependency resolution for kernel and data commands (without host involvement)
  * Obtain HSA agents, queues and signals for low-level control of the architecture using the HSA Runtime API
- * Use [direct-to-ISA](https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA) compilation
+ * Use `direct-to-ISA <https://github.com/RadeonOpenCompute/HCC-Native-GCN-ISA>`_ compilation
 
-When to Use HC
-###############
+
+**When to Use HC**
+
 Use HC when you're targeting the AMD ROCm platform: it delivers a single-source, easy-to-program C++ environment without compromising
 performance or control of the machine.
 
@@ -50,27 +51,27 @@ The Hipify tool automates much of the conversion work by performing a source-to-
 
 Programmers familiar with other GPGPU languages will find HIP very easy to learn and use. AMD platforms implement this language using the HC dialect described above, providing similar low-level control over the machine.
 
-When to Use HIP
-################
+**When to Use HIP**
+
 Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and Nvidia. HIP provides a C++ development language and access to the best development tools on both platforms.
 
-OpenCL™: Open Compute Language
-################################
+**OpenCL™: Open Compute Language**
+
 What is OpenCL? It’s a framework for developing programs that can execute across a wide variety of heterogeneous platforms. AMD, Intel
 and Nvidia GPUs support version 1.2 of the specification, as do x86 CPUs and other devices (including FPGAs and DSPs). OpenCL provides a C run-time API and C99-based kernel language.
 
-When to Use OpenCL
-####################
+**When to Use OpenCL**
+
 Use OpenCL when you have existing code in that language and when you need portability to multiple platforms and devices. It runs on
 Windows, Linux and Mac OS, as well as a wide variety of hardware platforms (described above).
 
-Anaconda Python With Numba
-###########################
+**Anaconda Python With Numba**
+
 What is Anaconda? It’s a modern open-source analytics platform powered by Python. Continuum Analytics, a ROCm platform partner,  is the driving force behind it. Anaconda delivers high-performance capabilities including acceleration of HSA APUs, as well as
 ROCm-enabled discrete GPUs via Numba. It gives superpowers to the people who are changing the world.
 
-Numba
-####### 
+**Numba**
+
 Numba gives you the power to speed up your applications with high-performance functions written directly in Python. Through a few
 annotations, you can just-in-time compile array-oriented and math-heavy Python code to native machine instructions---offering
 performance similar to that of C, C++ and Fortran---without having to switch languages or Python interpreters.
@@ -78,8 +79,8 @@ performance similar to that of C, C++ and Fortran---without having to switch lan
 Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, run time or statically
 (through the included Pycc tool). It supports Python compilation to run on either CPU or GPU hardware and is designed to integrate with Python scientific software stacks, such as NumPy.
 
-When to Use Anaconda
-#####################
+**When to Use Anaconda**
+
 Use Anaconda when you’re handling large-scale data-analytics,
 scientific and engineering problems that require you to manipulate
 large data arrays.
@@ -151,7 +152,7 @@ Table Comparing Syntax for Different Compute APIs
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |Kernel Launch          |               |                 |                     | concurrency::          |                           |
 |                       |   <<< >>>     | hipLaunchKernel |hc::                 | parallel_for_each      |clEnqueueND-               |
-|                       |               |                 |parallel_for_each    |                        |RangeKernel                |
+|                       |               |         GGL     |parallel_for_each    |                        |RangeKernel                |
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 |                       |               |                 |                     |                        |                           |
@@ -187,10 +188,9 @@ Table Comparing Syntax for Different Compute APIs
 +-----------------------+---------------+-----------------+---------------------+------------------------+---------------------------+
 
 
-
-###Notes
+Notes
+******
 1. For HC and C++AMP, assume a captured _tiled_ext_ named "t_ext" and captured _extent_ named "ext".  These languages use captured variables to pass information to the kernel rather than using special built-in functions so the exact variable name may vary.
-2. The indexing functions (starting with `thread-index`) show the terminology for a 1D grid.  Some APIs use reverse order of xyz / 012 indexing for 3D grids.
-3. HC allows tile dimensions to be specified at runtime while C++AMP requires that tile dimensions be specified at compile-time.  Thus hc syntax for tile dims is `t_ext.tile_dim[0]` while C++AMP is t_ext.tile_dim0.
-
-
+2. The indexing functions (starting with ``thread-index``) show the terminology for a 1D grid.  Some APIs use reverse order of xyz / 012 indexing for 3D grids.
+3. HC allows tile dimensions to be specified at runtime while C++AMP requires that tile dimensions be specified at compile-time.  Thus hc syntax for tile dims is ``t_ext.tile_dim[0]`` while C++AMP is t_ext.tile_dim0.
+4. **From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**

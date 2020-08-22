@@ -29,7 +29,7 @@ cuCtx API
 
 The Driver API defines "Context" and "Devices" as separate entities. Contexts contain a single device, and a device can theoretically have multiple contexts. Each context contains a set of streams and events specific to the context. Historically contexts also defined a unique address space for the GPU, though this may no longer be the case in Unified Memory platforms (since the CPU and all the devices in the same process share a single unified address space). The Context APIs also provide a mechanism to switch between devices, which allowed a single CPU thread to send commands to different GPUs. HIP as well as a recent versions of CUDA Runtime provide other mechanisms to accomplish this feat - for example using streams or ``cudaSetDevice``.
 
-The CUDA Runtime API unifies the Context API with the Device API. This simplifies the APIs and has little loss of functionality since each Context can contain a single device, and the benefits of multiple contexts has been replaced with other interfaces. HIP provides a context API to facilitate easy porting from existing Driver codes. In HIP, the Ctx functions largely provide an alternate syntax for changing the active device. Most new applications will prefer to use ``hipSetDevice`` or the stream APIs.
+The CUDA Runtime API unifies the Context API with the Device API. This simplifies the APIs and has little loss of functionality since each Context can contain a single device, and the benefits of multiple contexts has been replaced with other interfaces. HIP provides a context API to facilitate easy porting from existing Driver codes. In HIP, the Ctx functions largely provide an alternate syntax for changing the active device. Most new applications will prefer to use ``hipSetDevice`` or the stream APIs,therefore HIP has marked hipCtx APIs as deprecated. Support for these APIs may not be available in future releases. For more details on deprecated APIs please refer `HIP deprecated APIs <https://github.com/ROCm-Developer-Tools/HIP/tree/master/docs/markdown/hip_deprecated_api_list.md>`_
 
 HIP Module and Ctx APIs
 -------------------------
@@ -83,6 +83,31 @@ Additional Information
 ***********************
 * HCC allocates staging buffers (used for unpinned copies) on a per-device basis.
 * HCC creates a primary context when the HIP API is called. So in a pure driver API code, HIP/HCC will create a primary context while HIP/NVCC will have empty context stack. HIP/HCC will push primary context to context stack when it is empty. This can have subtle differences on applications which mix the runtime and driver APIs.
+
+
+hip-clang Implementation Notes
+++++++++++++++++++++++++++++++++
+
+.hip_fatbin
+************
+
+hip-clang links device code from different translation units together. For each device target, a code object is generated. Code objects for different device targets are bundled by clang-offload-bundler as one fatbinary, which is embeded as a global symbol __hip_fatbin in the .hip_fatbin section of the ELF file of the executable or shared object.
+
+Initialization and Termination Functions
+*****************************************
+
+hip-clang generates initializatiion and termination functions for each translation unit for host code compilation. The initialization functions call __hipRegisterFatBinary to register the fatbinary embeded in the ELF file. They also call __hipRegisterFunction and __hipRegisterVar to register kernel functions and device side global variables. The termination functions call __hipUnregisterFatBinary. hip-clang emits a global variable __hip_gpubin_handle of void** type with linkonce linkage and inital value 0 for each host translation unit. Each initialization function checks __hip_gpubin_handle and register the fatbinary only if __hip_gpubin_handle is 0 and saves the return value of __hip_gpubin_handle to __hip_gpubin_handle. This is to guarantee that the fatbinary is only registered once. Similar check is done in the termination functions.
+
+Kernel Launching
+*****************
+
+hip-clang supports kernel launching by CUDA <<<>>> syntax, hipLaunchKernelGGL. The latter is a macros which expands to CUDA <<<>>> syntax.
+
+In host code, hip-clang emits a stub function with the same name and arguments as the kernel. In the body of this function, hipSetupArgument is called for each kernel argument, then hipLaunchByPtr is called with a function pointer to the stub function.
+
+When the executable or shared library is loaded by the dynamic linker, the initilization functions are called. In the initialization functions, when __hipRegisterFatBinary is called, the code objects containing all kernels are loaded; when __hipRegisterFunction is called, the stub functions are associated with the corresponding kernels in code objects.
+
+In the host code, for the <<<>>> statement, hip-clang first emits call of hipConfigureCall to set up the threads and grids, then emits call of the stub function with the given arguments. In the stub function, when the runtime host API function hipLaunchByPtr is called, the real kernel associated with the stub function is launched.
 
 NVCC Implementation Notes
 +++++++++++++++++++++++++++
@@ -234,4 +259,44 @@ The below sample shows how to use hipModuleGetFunction.
  }
  
 
+HIP Module and Texture Driver API
+++++++++++++++++++++++++++++++++++
+
+HIP supports texture driver APIs however texture reference should be declared in host scope. Following code explains the use of texture reference for HIP_PLATFORM_HCC platform.
+
+::
+
+  // Code to generate code object
+
+  #include "hip/hip_runtime.h"
+  extern texture<float, 2, hipReadModeElementType> tex;
+
+  __global__ void tex2dKernel(float* outputData,
+                             int width,
+                             int height)
+   {
+    int x = hipBlockIdx_x*hipBlockDim_x + hipThreadIdx_x;
+    int y = hipBlockIdx_y*hipBlockDim_y + hipThreadIdx_y;
+    outputData[y*width + x] = tex2D(tex, x, y);
+   }
+
+  // Host code:
+
+  texture<float, 2, hipReadModeElementType> tex;
+
+  void myFunc () 
+   {
+    // ...
+
+    textureReference* texref;
+    hipModuleGetTexRef(&texref, Module1, "tex");
+    hipTexRefSetAddressMode(texref, 0, hipAddressModeWrap);
+    hipTexRefSetAddressMode(texref, 1, hipAddressModeWrap);
+    hipTexRefSetFilterMode(texref, hipFilterModePoint);
+    hipTexRefSetFlags(texref, 0);
+    hipTexRefSetFormat(texref, HIP_AD_FORMAT_FLOAT, 1);
+    hipTexRefSetArray(texref, array, HIP_TRSA_OVERRIDE_FORMAT);
+
+   // ...
+  }
 

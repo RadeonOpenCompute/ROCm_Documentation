@@ -1,21 +1,28 @@
 
 .. _ROCm-Virtualization-&-Containers:
 
-=================================
-ROCm Virtualization & Containers
-=================================
+==============================
+Virtualization & Containers
+==============================
 
-KVM Passthrough
+PCIe Passthrough on KVM
 ================
+The following KVM-based instructions assume a headless host with an input/output memory management unit (IOMMU) to pass peripheral devices such as a GPU to guest virtual machines.  If you know your host supports IOMMU but the below command does not find "svm" or "vxm", you may need to enable IOMMU in your BIOS.
 
+::	
+ 
+   cat /proc/cpuinfo | grep -E “svm|vxm”
 
-Setup host passthrough mode
+Ubuntu 16.04
 ****************************
-Assume we use an intel system  that support VT-d , with fresh ubuntu 16.04 installed
+Assume we use an intel system that support VT-d , with fresh ubuntu 16.04 installed
  
 **a. Install necessary packages and prepare for pass through device**
 
-1. sudo apt-get install qemu-kvm qemu-system bridge-utils virt-manager ubuntu-vm-builder libvirt-dev
+1. ::	
+ 
+   sudo apt-get install qemu-kvm qemu-system bridge-utils virt-manager ubuntu-vm-builder libvirt-dev
+
 	
 2. add following modules into /etc/modules
        | vfio
@@ -26,11 +33,14 @@ Assume we use an intel system  that support VT-d , with fresh ubuntu 16.04 insta
 
     add intel_iommu=on in /etc/default/grub 
  	| GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on"
-    sudo update-grub
+    ::	
+ 
+   sudo update-grub
 
 3. Blacklist amdgpu by adding the following line to /etc/modprobe.d/blacklist.conf
-	blacklist amdgpu
-
+    ::	
+ 
+   blacklist amdgpu
 **b. Bind pass through device to vfio-pci**
 
 1. Create a script file (vfio-bind) under /usr/bin. The script file has the following content:
@@ -73,25 +83,85 @@ Assume we use an intel system  that support VT-d , with fresh ubuntu 16.04 insta
 
 After reboot, start virt-manager and then start the VM, inside the VM , lspci -d 1002: should shows the pass throughed device.   
 
+Fedora 27 or CentOS 7 (1708)
+****************************
+From a fresh install of Fedora 27 or CentOS 7 (1708)
+ 
+**a. Install necessary packages and prepare for pass through device**
+
+1. Identity the vendor and device id(s) for the PCIe device(s) you wish to passthrough, e.g., 1002:6861 and 1002:aaf8 for an AMD Radeon Pro WX 9100 and its associated audio device,
+    lspci -nnk
+
+2. Install virtualization packages
+    sudo dnf install @virtualization
+    sudo usermod -G libvirt -a $(whoami)
+    sudo usermod -G kvm -a $(whoami)
+
+3. Enable IOMMU in the GRUB_CMDLINE_LINUX variable for your target kernel
+    a. For an AMD CPU
+        sudo sed 's/quiet/quiet amd_iommu=on iommu=pt/' /etc/sysconfig/grub
+    b. For an Intel CPU
+        sudo sed 's/quiet/quiet intel_iommu=on iommu=pt/' /etc/sysconfig/grub
+
+**b. Bind pass through device to vfio-pci**
+
+4. Preempt the host claiming the device by loading a stub driver
+
+::
+    echo "options vfio-pci ids=1002:6861,1002:aaf8" | sudo tee -a /etc/modprobe.d/vfio.conf
+    echo "options vfio-pci disable_vga=1" | sudo tee -a /etc/modprobe.d/vfio.conf
+    sed 's/quiet/quiet rd.driver.pre=vfio-pci video=efifb:off/' /etc/sysconfig/grub
+    
+5. Update the kernel boot settings
+
+::
+    sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+    echo 'add_drivers+="vfio vfio_iommu_type1 vfio_pci"' | sudo tee -a /etc/dracut.conf.d/vfio.conf
+    sudo dracut -f --kver `uname -r`
+
+6. Reboot and verify that vfio-pci driver has been loaded
+
+::
+    lspci -nnk
+
+**c. Pass through device to guest VM**
+
+1. Within virt-manager the device should now appear in the list of available PCI devices
+
+Note: To pass a device within a particular IOMMU group, all devices within that IOMMU group must also be passed.  You may wish to refer `here <https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF>`_ for more details, such as the following script that lists all IOMMU groups and the devices within them.
+
+::
+
+    #!/bin/bash
+    shopt -s nullglob
+    for d in /sys/kernel/iommu_groups/*/devices/*; do
+        n=${d#*/iommu_groups/*}; n=${n%%/*}
+	printf 'IOMMU Group %s ' "$n"
+	lspci -nns "${d##*/}"
+    done;
+
 		
 ROCm-Docker
 ===========
 
- * `ROCm-Docker <https://github.com/RadeonOpenCompute/ROCm-docker>`_
+**Radeon Open Compute Platform for docker**
+
+ Please refer `ROCm-Docker <https://github.com/RadeonOpenCompute/ROCm-docker>`_
 
 This repository contains a framework for building the software layers defined in the Radeon Open Compute Platform into portable docker images. The following are docker dependencies, which should be installed on the target machine.
 
- * Docker on Ubuntu systems or Fedora systems
+ * Docker on `Ubuntu <https://docs.docker.com/v2.0/installation/ubuntulinux/>`_ systems or `Fedora systems <https://docs.docker.com/v2.0/installation/fedora/>`_
  * Highly recommended: `Docker-Compose <https://docs.docker.com/compose/install/>`_ to simplify container management
    
 Docker Hub
 **********
-Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is hosted on `Docker Hub <https://hub.docker.com/r/rocm/rocm-terminal/>`_ . After the `ROCm kernel is installed <https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/README.md#install-rocm-kernel>`_ , pull the image from Docker Hub and create a new instance of a container.
+Looking for an easy start with ROCm + Docker? The rocm/rocm-terminal image is hosted on `Docker Hub <https://hub.docker.com/r/rocm/rocm-terminal/>`_ . After the `ROCm kernel is installed <https://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/ROCK-Kernel-Driver_readme.html#opencomute-kernel-deriver>`_ , pull the image from Docker Hub and create a new instance of a container.
 
 ::
 
   sudo docker pull rocm/rocm-terminal
-  sudo docker run -it --rm --device="/dev/kfd" rocm/rocm-terminal
+  sudo docker run -it --device=/dev/kfd --device=/dev/dri --security-opt seccomp=unconfined --group-add video rocm/rocm-terminal
+  
   
 ROCm-docker set up guide
 *************************
@@ -102,7 +172,7 @@ ROCm-docker set up guide
 When working with the ROCm containers, the following are common and useful docker commands:
 
  * A new docker container typically does not house apt repository meta-data. Before trying to install new software using apt, make    	 sure to run sudo apt update first
- * A message like the following typically means your user does not have permissions to execute docker; use sudo or `add your user <https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/>`_ to  	the docker group.
+ * A message like the following typically means your user **does not** have permissions to execute docker; use sudo or `add your user <https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/>`_ to  	the docker group.
  * Cannot connect to the Docker daemon. Is the docker daemon running on this host?
  * Open another terminal into a running container
  * sudo docker exec -it <CONTAINER-NAME> bash -l
@@ -115,7 +185,7 @@ When working with the ROCm containers, the following are common and useful docke
 
 **Saving work in a container**
 
-Docker containers are typically ephemeral, and are discarded after closing the container with the '--rm' flag to docker run. However, there are times when it is desirable to close a container that has arbitrary work in it, and serialize it back into a docker image. This may be to to create a checkpoint in a long and complicated series of instructions, or it may be desired to share the image with others through a docker registry, such as docker hub.
+Docker containers are typically ephemeral, and are discarded after closing the container with the **'--rm'** flag to docker run. However, there are times when it is desirable to close a container that has arbitrary work in it, and serialize it back into a docker image. This may be to to create a checkpoint in a long and complicated series of instructions, or it may be desired to share the image with others through a docker registry, such as docker hub.
 
 ::
 
@@ -126,7 +196,7 @@ Docker containers are typically ephemeral, and are discarded after closing the c
 
 Details
 *******
-Docker does not virtualize or package the linux kernel inside of an image or container. This is a design decision of docker to provide lightweight and fast containerization. The implication for this on the ROCm compute stack is that in order for the docker framework to function, the ROCm kernel and corresponding modules must be installed on the host machine. Containers share the host kernel, so the ROCm KFD component ROCK-Kernel-Driver1 functions outside of docker.
+Docker does not virtualize or package the linux kernel inside of an image or container. This is a design decision of docker to provide lightweight and fast containerization. The implication for this on the ROCm compute stack is that in order for the docker framework to function, **the ROCm kernel and corresponding modules must be installed on the host machine.** Containers share the host kernel, so the ROCm KFD component ROCK-Kernel-Driver1 functions outside of docker.
 
 **Installing ROCK on the host machine.**
 
@@ -136,7 +206,7 @@ Building images
 ****************
 There are two ways to install rocm components:
 
- 1.install from the rocm apt/rpm repository (packages.amd.com)
+ 1.install from the rocm apt/rpm repository (repo.radeon.com)
 
  2.build the components from source and run install scripts
 
@@ -146,7 +216,7 @@ The setup script included in this repository is provides some flexibility to how
 
 **setup.sh**
 
-Currently, the setup.sh scripts checks to make sure that it is running on an Ubuntu system, as it makes a few assumptions about the availability of tools and file locations. If running rocm on a Fedora machine, inspect the source of setup.sh and issue the appropriate commands manually. There are a few parameters to setup.sh of a generic nature that affects all images built after running. If no parameters are given, built images will be based off of Ubuntu 16.04 with rocm components installed from debians downloaded from packages.amd.com. Supported parameters can be queried with ./setup --help.
+Currently, the setup.sh scripts checks to make sure that it is running on an **Ubuntu system**, as it makes a few assumptions about the availability of tools and file locations. If running rocm on a Fedora machine, inspect the source of setup.sh and issue the appropriate commands manually. There are a few parameters to setup.sh of a generic nature that affects all images built after running. If no parameters are given, built images will be based off of Ubuntu 16.04 with rocm components installed from debians downloaded from packages.amd.com. Supported parameters can be queried with ./setup --help.
 
 ============================ ======================== ===============================================
 setup.sh parameters		parameter [default]	description
@@ -170,7 +240,7 @@ setup.sh parameters		parameter [default]	description
 Docker compose
 *****************
 
-./setup prepares an environment to be controlled with Docker Compose. While docker-compose is not necessary for proper operation, it is highly recommended. setup.sh does provide a flag to simplify the installation of this tool. Docker-compose coordinates the relationships between the various ROCm software layers, and it remembers flags that should be passed to docker to expose devices and import volumes.
+./setup prepares an environment to be controlled with `Docker Compose <https://docs.docker.com/compose/>`_. While docker-compose is not necessary for proper operation, it is highly recommended. setup.sh does provide a flag to simplify the installation of this tool. Docker-compose coordinates the relationships between the various ROCm software layers, and it remembers flags that should be passed to docker to expose devices and import volumes.
 
 **Example of using docker-compose**
 
@@ -185,18 +255,21 @@ Docker-compose			description
 docker-compose		      docker compose executable
 run			      sub-command to bring up interactive container
 --rm			      when shutting the container down, delete it
-rocm			      application service defined in docker-compose.yml
+rocm			      application service defined in **docker-compose.yml**
 ============================ =====================================================
 
 **rocm-user has root privileges by default**
 
-The dockerfile that serves as a 'terminal' creates a non-root user called rocm-user. This container is meant to serve as a development environment (therefore apt-get is likely needed), the user has been added to the linux sudo group. Since it is somewhat difficult to set and change passwords in a container (often requiring a rebuild), the password prompt has been disabled for the sudo group. While this is convenient for development to be able sudo apt-get install packages, it does imply lower security in the container.
+The dockerfile that serves as a 'terminal' creates a non-root user called **rocm-user**. This container is meant to serve as a development environment (therefore apt-get is likely needed), the user has been added to the linux sudo group. Since it is somewhat difficult to set and change passwords in a container (often requiring a rebuild), the password prompt has been disabled for the sudo group. While this is convenient for development to be able sudo apt-get install packages, it does imply lower security in the container.
 
 To increase container security:
 
  1.Eliminate the sudo-nopasswd COPY statement in the dockerfile and replace with
  
  2.Your own password with RUN echo 'account:password' | chpasswd
+
+The docker.ce release 18.02 has known defects working with rocm-user account insider docker image. Please upgrade docker package to the `18.04 build <https://download.docker.com/linux/ubuntu/dists/xenial/pool/nightly/amd64/docker-ce_18.04.0~ce~dev~git20180313.171447.0.6e4307b-0~ubuntu_amd64.deb>`_.
+
 
 **Footnotes:**
 

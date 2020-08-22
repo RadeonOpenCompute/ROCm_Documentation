@@ -3,7 +3,7 @@
 Quick Start Guide For OpenCL
 ============================
 
-* ROCm 1.6 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack! 
+* ROCm 1.7 introduces big updates to our OpenCL compiler and runtime implementation -- built on top of the ROCm software stack! 
 
 This developer release includes the following:
 ------------------------------

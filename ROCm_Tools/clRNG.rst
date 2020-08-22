@@ -1,10 +1,10 @@
-.. _clRNG:
+.. _cl1RNG:
 
 =========
 clRNG
 =========
  
- * `clRNG github <https://github.com/clMathLibraries/clRNG>`_
+For Github repository `clRNG <https://github.com/clMathLibraries/clRNG>`_
 
 A library for uniform random number generation in OpenCL.
 
@@ -39,7 +39,7 @@ Building
 
  3. Get the clRNG source code.
 
- 4. Configure the project using `CMake <https://cmake.org/>`_(to generate standard makefiles) or `CMake Tools for Visual Studio <https://cmaketools.codeplex.com/>`_ (to generate solution and project files).
+ 4. Configure the project using `CMake <https://cmake.org/>`_ (to generate standard makefiles) or `CMake Tools for Visual Studio <https://cmaketools.codeplex.com/>`_ (to generate solution and project files).
 
  5. Build the project.
 

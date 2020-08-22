@@ -32,7 +32,7 @@ If your system has a PCIe Express Switch it needs to support AtomicsOp routing. 
 
 Atomic Operation is a Non-Posted transaction supporting 32-bit and 64-bit address formats, there must be a response for Completion containing the result of the operation. Errors associated with the operation (uncorrectable error accessing the target location or carrying out the Atomic operation) are signaled to the requester by setting the Completion Status field in the completion descriptor, they are set to to Completer Abort (CA) or Unsupported Request (UR).
 
-To understand more about how PCIe Atomic operations work `PCLe Atomics <https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf>`_
+To understand more about how PCIe Atomic operations work `PCIe Atomics <https://pcisig.com/sites/default/files/specification_documents/ECN_Atomic_Ops_080417.pdf>`_
 
 `Linux Kernel Patch to pci_enable_atomic_request <https://patchwork.kernel.org/patch/7261731/>`_
 
@@ -54,7 +54,7 @@ Future bus technology with richer I/O Atomics Operation Support
 
   * `GenZ <http://genzconsortium.org/faq/gen-z-technology/#33/>`_
 
-New PCIe Endpoints with support beyond AMD Ryzen and EPIC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
+New PCIe Endpoints with support beyond AMD Ryzen and EPYC CPU; Intel Haswell or newer CPU’s with PCIe Generation 3.0 support.
 
   * `Mellanox Bluefield SOC <http://www.mellanox.com/related-docs/npu-multicore-processors/PB_Bluefield_SoC.pdf>`_
   * `Cavium Thunder X2 <http://www.cavium.com/ThunderX2_ARM_Processors.html>`_

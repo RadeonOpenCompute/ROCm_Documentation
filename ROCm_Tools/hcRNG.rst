@@ -100,69 +100,64 @@ Installation steps
 ********************
 The following are the steps to use the library
 
-  * ROCM 1.5 Kernel, Driver and Compiler Installation (if not done until now)
+  * ROCM 2.4 Kernel, Driver and Compiler Installation (if not done until now)
   * Library installation.
 
-ROCM 1.5 Installation
+ROCM 2.4 Installation
 ************************
-To Know more about ROCM refer https://github.com/RadeonOpenCompute/ROCm/blob/master/README.md
+To Know more about ROCM refer https://rocm-documentation.readthedocs.io/en/latest/Current_Release_Notes/Current-Release-Notes.html
 
 **a. Installing Debian ROCM repositories**
 
 Before proceeding, make sure to completely uninstall any pre-release ROCm packages.
 
-Refer https://github.com/RadeonOpenCompute/ROCm#removing-pre-release-packages for instructions to remove pre-release ROCM packages.
+Refer `Here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Guide/Installation-Guide.html#removing-pre-release-packages>`_ for instructions to remove pre-release ROCM packages
 
-Steps to install rocm package are,
-
+Follow Steps to install rocm package
 ::
-
   wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-
   sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
-
   sudo apt-get update
-
   sudo apt-get install rocm
 
+
 Then, make the ROCm kernel your default kernel. If using grub2 as your bootloader, you can edit the GRUB_DEFAULT variable in the following file:
-
 ::
-
   sudo vi /etc/default/grub
-
   sudo update-grub
 
-and Reboot the system
+and **Reboot the system**
 
 **b. Verifying the Installation**
 
 Once Reboot, to verify that the ROCm stack completed successfully you can execute HSA vector_copy sample application:
-
-   * cd /opt/rocm/hsa/sample        
-   * make       
-   * ./vector_copy
+::
+  cd /opt/rocm/hsa/sample        
+  make       
+  ./vector_copy
 
 Library Installation
 ***********************
 **a. Install using Prebuilt debian**
 
-wget https://github.com/ROCmSoftwarePlatform/hcRNG/blob/master/pre-builds/hcrng-master-184472e-Linux.deb
-
-sudo dpkg -i hcrng-master-184472e-Linux.deb
+::
+  
+  wget https://github.com/ROCmSoftwarePlatform/hcRNG/blob/master/pre-builds/hcrng-master-184472e-Linux.deb
+  sudo dpkg -i hcrng-master-184472e-Linux.deb
 
 **b. Build debian from source**
 
-git clone https://github.com/ROCmSoftwarePlatform/hcRNG.git && cd hcRNG
+::
+  
+  git clone https://github.com/ROCmSoftwarePlatform/hcRNG.git && cd hcRNG
+  chmod +x build.sh && ./build.sh
 
-chmod +x build.sh && ./build.sh
-
-build.sh execution builds the library and generates a debian under build directory.
+**build.sh** execution builds the library and generates a debian under build directory.
 
 Introduction
 ##############
 
-The hcRNG library is an implementation of uniform random number generators targeting the AMD heterogeneous hardware via HCC compiler runtime. The computational resources of underlying AMD heterogenous compute gets exposed and exploited through the HCC C++ frontend. Refer `here <https://github.com/RadeonOpenCompute/hcc>`_ for more details on HCC compiler.
+The hcRNG library is an implementation of uniform random number generators targeting the AMD heterogeneous hardware via HCC compiler runtime. The computational resources of underlying AMD heterogenous compute gets exposed and exploited through the HCC C++ frontend. Refer `here <https://rocm-documentation.readthedocs.io/en/latest/ROCm_Tools/ROCm-Tools.html#hcc>`_ for more details on HCC compiler.
 
 The following list enumerates the current set of RNG generators that are supported so far.
 
@@ -255,15 +250,16 @@ Unit testing
 
 a) Automated testing:
 **********************
-cd ~/hcRNG/
-
-./build.sh --test=on
+Follow these steps to start automated testing:
+::
+  cd ~/hcRNG/
+  ./build.sh --test=on
 
 b) Manual testing:
 ******************
 (i) Google testing (GTEST) with Functionality check
-
-cd ~/hcRNG/build/test/unit/bin/
+::
+  cd ~/hcRNG/build/test/unit/bin/
 
 All functions are tested against google test.
 
