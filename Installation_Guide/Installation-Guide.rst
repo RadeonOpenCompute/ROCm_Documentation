@@ -121,26 +121,30 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      sudo apt install rocm-dkms && sudo reboot
     
 
-4. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
+4. Set permissions. To access the GPU, you must be a user in the video and render groups. Ensure your user account is a member of the video and render groups prior to using ROCm. To identify the groups you are a member of, use the following command:
 
 ::
 
      groups
      
 
-5. To add your user to the video group, use the following command with the sudo password:
+5. To add your user to the video and render groups, use the following command with the sudo password:
 
 ::
 
      sudo usermod -a -G video $LOGNAME
 
-6. By default, you must add any future users to the video group. To add future users to the video group, run the following command:
+     sudo usermod -a -G render $LOGNAME
+
+6. By default, you must add any future users to the video and render groups. To add future users to the video and render groups, run the following command:
 
 ::
 
      echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
 
      echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+
+     echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
 
 7. Restart the system.
 
@@ -149,13 +153,13 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 ::
 
      /opt/rocm/bin/rocminfo
-     /opt/rocm/opencl/bin/x86_64/clinfo
+     /opt/rocm/opencl/bin/clinfo
 
 Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 
 ::
 
-    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
+    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Uninstalling ROCm Packages from Ubuntu
@@ -326,14 +330,14 @@ After restarting the system, run the following commands to verify that the ROCm 
 ::
 
   /opt/rocm/bin/rocminfo
-  /opt/rocm/opencl/bin/x86_64/clinfo
+  /opt/rocm/opencl/bin/clinfo
 
 
 **Note**: Add the ROCm binaries in your PATH for easy implementation of the ROCm programs.
 
 ::
 
-  echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | sudo tee -a /etc/profile.d/rocm.sh
+  echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Compiling Applications Using HCC, HIP, and Other ROCm Software
@@ -424,7 +428,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 4. Verify the ROCm installation.
 
-5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/x86_64/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
+5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
 
 6. Set permissions. 
 
@@ -454,14 +458,14 @@ To access the GPU, you must be a user in the video group. Ensure your user accou
 ::
 
 	/opt/rocm/bin/rocminfo
-	/opt/rocm/opencl/bin/x86_64/clinfo
+	/opt/rocm/opencl/bin/clinfo
 
 Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
 
 
 ::
 
-echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64'|sudo tee -a /etc/profile.d/rocm.sh
+echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin'|sudo tee -a /etc/profile.d/rocm.sh
 
 **Uninstallation**
 
