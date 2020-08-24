@@ -1,4 +1,4 @@
-﻿
+
 .. _ROCm-Tools:
 
 
@@ -312,7 +312,7 @@ Filtering Traced APIs
 ---------------------
 
 A list of traced API names can be specified in profiler input file. An
-example of input file line for ROCr runtime trace (HAS API):
+example of input file line for ROCr runtime trace (HSA API):
 
 ::
  
