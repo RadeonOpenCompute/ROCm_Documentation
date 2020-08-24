@@ -103,6 +103,8 @@ To install from a Debian Repository:
 2. Add the ROCm apt repository.
 
 For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
+ 
+**Note**: The public key has changed to reflect the new location. You must update to the new location as the old path will be removed in a future release.
 
 ::
 
