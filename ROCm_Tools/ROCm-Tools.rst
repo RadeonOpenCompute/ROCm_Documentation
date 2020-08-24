@@ -3,7 +3,7 @@
 
 
 =====================
-AMD ROCm ROCProfiler
+AMD ROCm Profiler
 =====================
 
 Overview
@@ -576,9 +576,9 @@ Metrics:
    •   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value range: 0% (optimal) to 100% (bad).
 
 
-==========================
-AMD ROCProfiler Library
-==========================
+======================
+AMD ROCProfiler API
+======================
 
 ROC profiler library. Profiling with perf-counters and derived metrics. Library supports GFX8/GFX9.
 
@@ -669,7 +669,7 @@ Build environment:
 
 
 ====================
-AMD ROCm ROCTracer
+AMD ROCTracer API
 ====================
 
 ROCtracer library, Runtimes Generic Callback/Activity APIs.
