@@ -312,8 +312,12 @@ Filtering traced APIs
 ---------------------
 
 A list of traced API names can be specified in profiler input file. An
-example of input file line for ROCr runtime trace (HAS API): hsa:
-hsa_queue_create hsa_amd_memory_pool_allocate
+example of input file line for ROCr runtime trace (HAS API):
+
+::
+
+hsa:hsa_queue_create hsa_amd_memory_pool_allocate
+
 
 Tracing period
 --------------
