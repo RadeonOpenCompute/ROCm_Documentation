@@ -37,15 +37,15 @@ Both whl packages and docker containers are available below.
 Tensorflow Installation
 ***********************
 
-First, you’ll need to install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
+1. Install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 
-Then, install these other relevant ROCm packages:
+2. Install other relevant ROCm packages:
 ::
    sudo apt update
    sudo apt install rocm-libs miopen-hip cxlactivitylogger rccl
 
-And finally, install TensorFlow itself (via the Python Package Index):
+3. Install TensorFlow itself (via the Python Package Index):
 ::
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
@@ -56,24 +56,20 @@ Tensorflow v2.2.0 is installed.
 Tensorflow ROCm port: Basic installation on RHEL
 ================================================
 
-Intro
------
+The following instructions provide a starting point for using the TensorFlow ROCm port on RHEL.
 
-These instructions provide a starting point for using the TensorFlow
-ROCm port on RHEL.
-
-*Note*: it is recommended to start with a clean RHEL 8.2 system
+**Note** It is recommended to start with a clean RHEL 8.2 system. 
 
 Install ROCm
 ------------
 
-Add the ROCm repository:
+1. Use the instructions below to add the ROCm repository:
 
 ::
 
    export RPM_ROCM_REPO=http://repo.radeon.com/rocm/yum/3.7
 
-Install misc pkgs:
+2. Install the following packages:
 
 ::
 
@@ -113,7 +109,7 @@ Install misc pkgs:
        qemu-kvm \
        wget
 
-Install ROCm pkgs:
+3. Install ROCm packages.
 
 ::
 
@@ -131,8 +127,8 @@ Ensure the ROCm target list is set up
 
    bash -c 'echo -e "gfx803\ngfx900\ngfx906\ngfx908" >> $ROCM_PATH/bin/target.lst'
 
-Install required python packages
---------------------------------
+4. Install the required Python packages
+
 
 ::
 
@@ -161,8 +157,8 @@ Install required python packages
        h5py==2.8.0 \
        keras_preprocessing==1.0.5
 
-Install TensorFlow
-------------------
+5. Install TensorFlow
+
 
 ::
 
@@ -170,13 +166,11 @@ Install TensorFlow
    wget <location of WHL file>
    pip3.6 install --user ./tensorflow*linux_x86_64.whl
 
-Quick sanity test
------------------
+6. Perform a quick sanity test
 
-\``\` cd ~ && git clone -b cnn_tf_v1.15_compatible
-https://github.com/tensorflow/benchmarks.git python3.6
-~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py
-â€“model=resnet50
+
+\``\` cd ~ && git clone -b cnn_tf_v1.15_compatible https://github.com/tensorflow/benchmarks.git python3.6 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py
+“model=resnet50“
 
 
 Tensorflow More Resources
