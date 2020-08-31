@@ -40,6 +40,7 @@ Tensorflow Installation
 1. Install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 
+
 2. Install other relevant ROCm packages:
 ::
    sudo apt update
@@ -121,13 +122,13 @@ Install ROCm
    sudo yum install -y rocm-dev
    sudo yum install -y hipblas hipcub hipsparse miopen-hip miopengemm rccl rocblas rocfft rocprim rocrand
 
-Ensure the ROCm target list is set up
+4. Ensure the ROCm target list is set up
 
 ::
 
    bash -c 'echo -e "gfx803\ngfx900\ngfx906\ngfx908" >> $ROCM_PATH/bin/target.lst'
 
-4. Install the required Python packages
+5. Install the required Python packages
 
 
 ::
@@ -157,7 +158,7 @@ Ensure the ROCm target list is set up
        h5py==2.8.0 \
        keras_preprocessing==1.0.5
 
-5. Install TensorFlow
+6. Install TensorFlow
 
 
 ::
@@ -166,7 +167,7 @@ Ensure the ROCm target list is set up
    wget <location of WHL file>
    pip3.6 install --user ./tensorflow*linux_x86_64.whl
 
-6. Perform a quick sanity test
+7. Perform a quick sanity test
 
 
 \``\` cd ~ && git clone -b cnn_tf_v1.15_compatible https://github.com/tensorflow/benchmarks.git python3.6 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py
