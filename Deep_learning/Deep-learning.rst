@@ -41,12 +41,12 @@ Tensorflow Installation
 
 
 
-2. Install other relevant ROCm packages:
+2. Install other relevant ROCm packages.
 ::
    sudo apt update
    sudo apt install rocm-libs miopen-hip cxlactivitylogger rccl
 
-3. Install TensorFlow itself (via the Python Package Index):
+3. Install TensorFlow itself (via the Python Package Index).
 ::
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
@@ -64,13 +64,13 @@ The following instructions provide a starting point for using the TensorFlow ROC
 Install ROCm
 ------------
 
-1. Use the instructions below to add the ROCm repository:
+1. Use the instructions below to add the ROCm repository.
 
 ::
 
    export RPM_ROCM_REPO=http://repo.radeon.com/rocm/yum/3.7
 
-2. Install the following packages:
+2. Install the following packages.
 
 ::
 
@@ -122,13 +122,13 @@ Install ROCm
    sudo yum install -y rocm-dev
    sudo yum install -y hipblas hipcub hipsparse miopen-hip miopengemm rccl rocblas rocfft rocprim rocrand
 
-4. Ensure the ROCm target list is set up
+4. Ensure the ROCm target list is set up.
 
 ::
 
    bash -c 'echo -e "gfx803\ngfx900\ngfx906\ngfx908" >> $ROCM_PATH/bin/target.lst'
 
-5. Install the required Python packages
+5. Install the required Python packages.
 
 
 ::
@@ -158,7 +158,7 @@ Install ROCm
        h5py==2.8.0 \
        keras_preprocessing==1.0.5
 
-6. Install TensorFlow
+6. Install TensorFlow.
 
 
 ::
