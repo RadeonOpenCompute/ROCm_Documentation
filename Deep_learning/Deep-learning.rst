@@ -39,8 +39,6 @@ Tensorflow Installation
 
 1. Install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
-
-
 2. Install other relevant ROCm packages.
 ::
    sudo apt update
@@ -169,9 +167,12 @@ Install ROCm
 
 7. Perform a quick sanity test
 
+::
 
-\``\` cd ~ && git clone -b cnn_tf_v1.15_compatible https://github.com/tensorflow/benchmarks.git python3.6 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py
-“model=resnet50“
+```
+cd ~ && git clone -b cnn_tf_v1.15_compatible https://github.com/tensorflow/benchmarks.git
+python3.6 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --model=resnet50
+```
 
 
 Tensorflow More Resources
