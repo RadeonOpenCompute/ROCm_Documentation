@@ -68,9 +68,7 @@ A fresh and clean installation of AMD ROCm v3.7 is recommended. An upgrade from 
 
 **Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
 
-* For ROCm v3.7 and future releases,the *clinfo* path is changed to - */opt/rocm/opencl/bin/clinfo*.
-
-* For the ROCm v3.5 release, the *clinfo* path is */opt/rocm/opencl/bin/clinfo* 
+* For ROCm v3.5 and releases thereafter, the *clinfo* path is changed to - */opt/rocm/opencl/bin/clinfo*.
 
 * For ROCm v3.3 and older releases, the *clinfo* path remains unchanged - */opt/rocm/opencl/bin/x86_64/clinfo*.
 
