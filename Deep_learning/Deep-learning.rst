@@ -270,14 +270,14 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:rocm3.5_ubuntu16.04_py3.6_pytorch
+  docker pull rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_pytorch
 
 
 3. Start a docker container using the downloaded image:
 
 ::
 
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.5_ubuntu16.04_py3.6_pytorch
+  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_pytorch
 
 
 4. Confirm working installation:
