@@ -494,7 +494,7 @@ This option provides a docker image which has Caffe2 installed. Users can launch
 
 ::
 
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.0_ubuntu16.04_py3.6_caffe2
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_caffe2
 
 This will automatically download the image if it does not exist on the host. You can also pass -v argument to mount any data directories on to the container.
 
@@ -512,8 +512,8 @@ Option 2: Install using Caffe2 ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:rocm3.5_ubuntu16.04_py3.6_caffe2
-  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/pytorch:rocm3.5_ubuntu16.04_py3.6_caffe2
+  docker pull rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_caffe2
+  docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add video -v $PWD:/pytorch rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_caffe2
 
 
 3. Build Caffe2 from source
