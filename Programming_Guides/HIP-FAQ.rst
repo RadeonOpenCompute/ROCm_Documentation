@@ -118,7 +118,7 @@ Kernel language features
    (CUDA 4.0)
 -  Virtual functions, indirect functions and try/catch (CUDA 4.0)
 -  ``__prof_trigger``
--  PTX assembly (CUDA 4.0). HCC supports inline GCN assembly.
+-  PTX assembly (CUDA 4.0). HIP-Clang supports inline GCN assembly.
 
 Several kernel features are under development. See the `HIP Kernel Language <hip_kernel_language.md>`__ for more information. This includes:
 
@@ -163,7 +163,7 @@ However, we can provide a rough summary of the features included in each CUDA SD
 -  CUDA 7.0 :
 
    -  Per-thread-streams (under development)
-   -  C++11 (HCC supports all of C++11, all of C++14 and some C++17
+   -  C++11 (HIP-Clang supports all of C++11, all of C++14 and some C++17
       features)
 
 -  CUDA 7.5 :
@@ -344,7 +344,7 @@ See the `HIP Profiling Guide <hip_porting_guide.md>`__ for more information.
 What if HIP generates error of symbol multiply defined only on the AMD machine?
 ------------------------------------------------------------------------------
 
-Unlike CUDA, in HCC, for functions defined in the header files, the keyword of "forceinline" does not imply "static". Thus, if failed to define "static" keyword, you might see a lot of "symbols that multiply defined" errors at compilation. The workaround is to explicitly add the keyword of "static" before any functions that were defined as "forceinline".
+Unlike CUDA, in HIP-Clang, for functions defined in the header files, the keyword of "forceinline" does not imply "static". Thus, if failed to define "static" keyword, you might see a lot of "symbols that multiply defined" errors at compilation. The workaround is to explicitly add the keyword of "static" before any functions that were defined as "forceinline".
 
 What is maximum limit of kernel launching parameter?
 ----------------------------------------------------
