@@ -3,21 +3,6 @@
 .. _Programming-Guides:
 
 =======================
-HCC Deprecation Notice
-=======================
-
-In the v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler is deprecated and the HIP-Clang compiler is introduced for compiling Heterogeneous-Compute Interface for Portability   (HIP) programs.
-
-**NOTE**: The HCC environment variables will be gradually deprecated in subsequent releases.
-
-The majority of the codebase for the HIP-Clang compiler has been upstreamed to the Clang trunk. The HIP-Clang implementation has undergone a strict code review by the LLVM/Clang community and comprehensive tests consisting of LLVM/Clang build bots. These reviews and tests resulted in higher productivity, code quality, and lower cost of maintenance.
-
-`FAQ Transition to HIP from HCC <https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq>`_
-
-`HIP Porting Guide <https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-porting-guide.html#hip-porting-guide>`_
-
-
-
 
 ===================
 HIP Documentation 
@@ -229,8 +214,8 @@ CUDA application. HIP is not intended to be a drop-in replacement for
 CUDA, and developers should expect to do some manual coding and
 performance tuning work to complete the port.
 
-Repository branches:
-====================
+Repository Branches
+--------------------
 
 The HIP repository maintains several branches. The branches that are of
 importance are:
@@ -242,14 +227,15 @@ importance are:
    many, it should be noted that this branch and the features under
    development might not be stable.
 
-Release tagging:
-================
+Release Tagging
+-----------------
 
 HIP releases are typically of two types. The tag naming convention is
 different for both types of releases to help differentiate them.
 
 -  release_x.yy.zzzz: These are the stable releases based on the master
    branch. This type of release is typically made once a month.
+   
 -  preview_x.yy.zzzz: These denote pre-release code and are based on the
    developer-preview branch. This type of release is typically made once
    a week.
@@ -289,12 +275,12 @@ Supported CUDA APIs:
  * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
 
 How do I get set up?
-====================
+---------------------
 
-See the `Installation <INSTALL.md>`__ notes.
+Refer to the Installation Guide at https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#hip-installation-instructions
 
 Simple Example
-==============
+---------------
 
 The HIP API includes functions such as hipMalloc, hipMemcpy, and hipFree. Programmers familiar with CUDA will also be able to quickly
 learn and start coding with the HIP API. Compute kernels are launched with the â€œhipLaunchKernelâ€ macro call. Here is simple example showing a
@@ -363,8 +349,8 @@ conditional compilation. Thus HIP provides source portability to either
 platform. HIP provides the *hipcc* compiler driver which will call the
 appropriate toolchain depending on the desired platform.
 
-Examples and Getting Started:
-=============================
+Examples and Getting Started
+-------------------------------
 
 -  A sample and
    `blog <http://gpuopen.com/hip-to-be-squared-an-introductory-hip-tutorial>`__
@@ -390,7 +376,7 @@ Examples and Getting Started:
    Project <docs/markdown/hip_porting_guide.md#porting-a-new-cuda-project%22>`__
 
 More Examples
-=============
+--------------
 
 The GitHub repository
 `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP-Examples.git>`__
@@ -398,19 +384,22 @@ contains a hipified version of the popular Rodinia benchmark suite. The README w
 effort is here: `Porting Guide <https://github.com/ROCm-Developer-Tools/HIP-Examples/blob/master/rodinia_3.0/hip/README.hip_porting>`__
 
 Tour of the HIP Directories
-===========================
+----------------------------
 
 -  **include**:
 
    -  **hip_runtime_api.h** : Defines HIP runtime APIs and can be
       compiled with many standard Linux compilers (hcc, GCC, ICC, CLANG,
       etc), in either C or C++ mode.
+      
    -  **hip_runtime.h** : Includes everything in hip_runtime_api.h PLUS
       hipLaunchKernel and syntax for writing device kernels and device
       functions. hip_runtime.h can only be compiled with hcc.
+      
    -  **hcc_detail/**\ \*\* , **nvcc_detail/**\ \*\* : Implementation
       details for specific platforms. HIP applications should not
       include these files directly.
+      
    -  **hcc.h** : Includes interop APIs for HIP and HCC
 
 -  **bin**: Tools and scripts to help with hip porting
@@ -432,8 +421,8 @@ Tour of the HIP Directories
 
 -  **doc**: Documentation - markdown and doxygen info.
 
-Reporting an issue
-==================
+Reporting an Issue
+--------------------
 
 Use the `GitHub issue tracker <https://github.com/ROCm-Developer-Tools/HIP/issues>`__. 
 
