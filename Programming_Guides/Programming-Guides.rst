@@ -187,8 +187,7 @@ HIP Repository Information
 ============================
 
 
-**HIP is a C++ Runtime API and Kernel Language that allows developers to
-create portable applications for AMD and NVIDIA GPUs from single source
+**HIP is a C++ Runtime API and Kernel Language that allows developers to create portable applications for AMD and NVIDIA GPUs from single source
 code.**
 
 Key features include:
@@ -215,23 +214,20 @@ CUDA, and developers should expect to do some manual coding and
 performance tuning work to complete the port.
 
 Repository Branches
---------------------
+#####################
 
 The HIP repository maintains several branches. The branches that are of
 importance are:
 
--  master branch: This is the stable branch. All stable releases are
-   based on this branch.
--  developer-preview branch: This is the branch were the new features
-   still under development are visible. While this maybe of interest to
-   many, it should be noted that this branch and the features under
-   development might not be stable.
+-  master branch: This is the stable branch. All stable releases are based on this branch.
+
+-  developer-preview branch: This is the branch were the new features still under development are visible. While this maybe of interest to
+   many, it should be noted that this branch and the features under development might not be stable.
 
 Release Tagging
------------------
+################
 
-HIP releases are typically of two types. The tag naming convention is
-different for both types of releases to help differentiate them.
+HIP releases are typically of two types. The tag naming convention is different for both types of releases to help differentiate them.
 
 -  release_x.yy.zzzz: These are the stable releases based on the master
    branch. This type of release is typically made once a month.
@@ -274,13 +270,13 @@ Supported CUDA APIs:
  * `Developer/CONTRIBUTING Info <https://github.com/ROCm-Developer-Tools/HIP/blob/master/CONTRIBUTING.md>`_
  * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
 
-How do I get set up?
----------------------
+How to Install
+###############
 
 Refer to the Installation Guide at https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#hip-installation-instructions
 
 Simple Example
----------------
+###############
 
 The HIP API includes functions such as hipMalloc, hipMemcpy, and hipFree. Programmers familiar with CUDA will also be able to quickly
 learn and start coding with the HIP API. Compute kernels are launched with the â€œhipLaunchKernelâ€ macro call. Here is simple example showing a
@@ -350,7 +346,7 @@ platform. HIP provides the *hipcc* compiler driver which will call the
 appropriate toolchain depending on the desired platform.
 
 Examples and Getting Started
--------------------------------
+###############################
 
 -  A sample and
    `blog <http://gpuopen.com/hip-to-be-squared-an-introductory-hip-tutorial>`__
@@ -376,7 +372,7 @@ Examples and Getting Started
    Project <docs/markdown/hip_porting_guide.md#porting-a-new-cuda-project%22>`__
 
 More Examples
---------------
+##############
 
 The GitHub repository
 `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP-Examples.git>`__
@@ -384,7 +380,7 @@ contains a hipified version of the popular Rodinia benchmark suite. The README w
 effort is here: `Porting Guide <https://github.com/ROCm-Developer-Tools/HIP-Examples/blob/master/rodinia_3.0/hip/README.hip_porting>`__
 
 Tour of the HIP Directories
-----------------------------
+###############################
 
 -  **include**:
 
@@ -422,7 +418,7 @@ Tour of the HIP Directories
 -  **doc**: Documentation - markdown and doxygen info.
 
 Reporting an Issue
---------------------
+######################
 
 Use the `GitHub issue tracker <https://github.com/ROCm-Developer-Tools/HIP/issues>`__. 
 
