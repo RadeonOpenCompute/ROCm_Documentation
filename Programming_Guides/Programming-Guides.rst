@@ -415,7 +415,7 @@ Tour of the HIP Directories
       all code, and convert the found CUDA code to HIP reporting all
       unconverted things.
 
--  **doc**: Documentation - markdown and doxygen info.
+-  **doc**: Documentation - markdown and doxygen information.
 
 Reporting an Issue
 ######################
@@ -424,22 +424,6 @@ Use the `GitHub issue tracker <https://github.com/ROCm-Developer-Tools/HIP/issue
 
 If reporting a bug, include the output of 'hipconfig' 'full' and samples/1_hipInfo/hipInfo (if possible).
 
-
-**Tour of the HIP Directories**
-
-    **include:**
-        * **hip_runtime_api.h** : Defines HIP runtime APIs and can be compiled with many standard Linux compilers (hcc, GCC, ICC, CLANG, etc), in either C or C++ mode.
-        * **hip_runtime.h** : Includes everything in hip_runtime_api.h PLUS hipLaunchKernelGGL and syntax for writing device kernels and device functions. hip_runtime.h can only be compiled with hcc.
-        * **hcc_detail/** , nvcc_detail/** : Implementation details for specific platforms. HIP applications should not include these files directly.
-        * **hcc.h** : Includes interop APIs for HIP and HCC
-
-   * **bin:** Tools and scripts to help with hip porting
-        * **hipify :** Tool to convert CUDA code to portable CPP. Converts CUDA APIs and kernel builtins.
-        * **hipcc :** Compiler driver that can be used to replace nvcc in existing CUDA code. hipcc will call nvcc or hcc depending on platform, and include appropriate platform-specific headers and libraries.
-        * **hipconfig :** Print HIP configuration (HIP_PATH, HIP_PLATFORM, CXX config flags, etc)
-        * **hipexamine.sh** : Script to scan directory, find all code, and report statistics on how much can be ported with HIP (and identify likely features not yet supported)
-
-    * **doc:** Documentation - markdown and doxygen info
     
     
 ==========================
