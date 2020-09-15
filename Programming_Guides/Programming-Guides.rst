@@ -254,38 +254,39 @@ different for both types of releases to help differentiate them.
    developer-preview branch. This type of release is typically made once
    a week.
 
-More Info:
-==========
+  * :ref:`HIP-GUIDE`
 
--  `Installation <INSTALL.md>`__
--  `HIP FAQ <docs/markdown/hip_faq.md>`__
--  `HIP Kernel Language <docs/markdown/hip_kernel_language.md>`__
--  `HIP Runtime API
-   (Doxygen) <http://rocm-developer-tools.github.io/HIP>`__
--  `HIP Porting Guide <docs/markdown/hip_porting_guide.md>`__
--  `HIP Porting Driver
-   Guide <docs/markdown/hip_porting_driver_api.md>`__
--  `HIP Programming Guide <docs/markdown/hip_programming_guide.md>`__
--  `HIP Logging <docs/markdown/hip_logging.md>`__
--  `HIP Terminology <docs/markdown/hip_terms2.md>`__ (including Rosetta
-   Stone of GPU computing terms across CUDA/HIP/OpenCL)
--  `HIPIFY <https://github.com/ROCm-Developer-Tools/HIPIFY/blob/master/README.md>`__
--  Supported CUDA APIs:
+HIP FAQ, Porting Guide, and Programming Guide
+===============================================
 
-   -  `Runtime
-      API <docs/markdown/CUDA_Runtime_API_functions_supported_by_HIP.md>`__
-   -  `Driver
-      API <docs/markdown/CUDA_Driver_API_functions_supported_by_HIP.md>`__
-   -  `cuComplex
-      API <docs/markdown/cuComplex_API_supported_by_HIP.md>`__
-   -  `cuBLAS <docs/markdown/CUBLAS_API_supported_by_HIP.md>`__
-   -  `cuRAND <docs/markdown/CURAND_API_supported_by_HIP.md>`__
-   -  `cuDNN <docs/markdown/CUDNN_API_supported_by_HIP.md>`__
-   -  `cuFFT <docs/markdown/CUFFT_API_supported_by_HIP.md>`__
-   -  `cuSPARSE <docs/markdown/CUSPARSE_API_supported_by_HIP.md>`__
+ * :ref:`HIP-FAQ`
+ * :ref:`HIP-porting-guide`
+ * :ref:`hip-pro`
 
--  `Developer/CONTRIBUTING Info <CONTRIBUTING.md>`__
--  `Release Notes <RELEASE.md>`__
+HIP Best Practices
+=====================
+
+ * :ref:`HIP-IN`
+ * :ref:`Kernel_language`
+ * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
+ * :ref:`hip-p`
+ * :ref:`hip_profiling`
+ * :ref:`HIP_Debugging`
+ * :ref:`HIP-terminology`
+ * :ref:`HIP-Term2`
+ * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
+
+Supported CUDA APIs:
+ * :ref:`CUDAAPIHIP`
+ * :ref:`CUDAAPIHIPTEXTURE`
+ * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_
+ * `cuBLAS <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUBLAS_API_supported_by_HIP.md>`_
+ * `cuRAND <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CURAND_API_supported_by_HIP.md>`_
+ * `cuDNN <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUDNN_API_supported_by_HIP.md>`_
+ * `cuFFT <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUFFT_API_supported_by_HIP.md>`_
+ * `cuSPARSE <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUSPARSE_API_supported_by_HIP.md>`_
+ * `Developer/CONTRIBUTING Info <https://github.com/ROCm-Developer-Tools/HIP/blob/master/CONTRIBUTING.md>`_
+ * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
 
 How do I get set up?
 ====================
@@ -393,10 +394,8 @@ More Examples
 
 The GitHub repository
 `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP-Examples.git>`__
-contains a hipified version of the popular Rodinia benchmark suite. The
-README with the procedures and tips the team used during this porting
-effort is here: `Rodinia Porting
-Guide <https://github.com/ROCm-Developer-Tools/HIP-Examples/blob/master/rodinia_3.0/hip/README.hip_porting>`__
+contains a hipified version of the popular Rodinia benchmark suite. The README with the procedures and tips the team used during this porting
+effort is here: `Porting Guide <https://github.com/ROCm-Developer-Tools/HIP-Examples/blob/master/rodinia_3.0/hip/README.hip_porting>`__
 
 Tour of the HIP Directories
 ===========================
@@ -440,146 +439,6 @@ Use the `GitHub issue tracker <https://github.com/ROCm-Developer-Tools/HIP/issue
 
 If reporting a bug, include the output of 'hipconfig' 'full' and samples/1_hipInfo/hipInfo (if possible).
 
-
-
-v3.7
-
-**What is this repository for?**
-
-HIP allows developers to convert CUDA code to portable C++. The same source code can be compiled to run on NVIDIA or AMD GPUs. Key features include:
-
- * HIP is very thin and has little or no performance impact over coding directly in CUDA or hcc "HC" mode.
- *   HIP allows coding in a single-source C++ programming language including features such as templates, C++11 lambdas, classes, namespaces, and more.
- *  HIP allows developers to use the "best" development environment and tools on each target platform.
- *   The "hipify" tool automatically converts source from CUDA to HIP.
- *   Developers can specialize for the platform (CUDA or hcc) to tune for performance or handle tricky cases
-
-New projects can be developed directly in the portable HIP C++ language and can run on either NVIDIA or AMD platforms. Additionally, HIP provides porting tools which make it easy to port existing CUDA codes to the HIP layer, with no loss of performance as compared to the original CUDA application. HIP is not intended to be a drop-in replacement for CUDA, and developers should expect to do some manual coding and performance tuning work to complete the port.
-
-**Repository branches:**
-
-The HIP repository maintains several branches. The branches that are of importance are:
-
-    master branch: This is the stable branch. All stable releases are based on this branch.
-    developer-preview branch: This is the branch were the new features still under development are visible. While this maybe of interest to many, it should be noted that this branch and the features under development might not be stable.
-
-**Release tagging:**
-
-HIP releases are typically of two types. The tag naming convention is different for both types of releases to help differentiate them.
-
-    release_x.yy.zzzz: These are the stable releases based on the master branch. This type of release is typically made once a month.
-    preview_x.yy.zzzz: These denote pre-release code and are based on the developer-preview branch. This type of release is typically made once a week
-
-**More Info**
-
-HIP provides a C++ syntax that is suitable for compiling most code that commonly appears in compute kernels, including classes, namespaces, operator overloading, templates and more. Additionally, it defines other language features designed specifically to target accelerators, such as the following:
-
-   * A kernel-launch syntax that uses standard C++, resembles a function call and is portable to all HIP targets
-   * Short-vector headers that can serve on a host or a device
-   * Math functions resembling those in the "math.h" header included with standard C++ compilers
-   * Built-in functions for accessing specific GPU hardware capabilities
-
-This section describes the built-in variables and functions accessible from the HIP kernel. It’s intended for readers who are familiar with Cuda kernel syntax and want to understand how HIP is different.
-
-  * :ref:`HIP-GUIDE`
-
-HIP FAQ, Porting Guide, and Programming Guide
-===============================================
-
- * :ref:`HIP-FAQ`
- * :ref:`HIP-porting-guide`
- * :ref:`hip-pro`
-
-HIP Best Practices
-=====================
-
- * :ref:`HIP-IN`
- * :ref:`Kernel_language`
- * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
- * :ref:`hip-p`
- * :ref:`hip_profiling`
- * :ref:`HIP_Debugging`
- * :ref:`HIP-terminology`
- * :ref:`HIP-Term2`
- * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
-
-Supported CUDA APIs:
- * :ref:`CUDAAPIHIP`
- * :ref:`CUDAAPIHIPTEXTURE`
- * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_
- * `cuBLAS <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUBLAS_API_supported_by_HIP.md>`_
- * `cuRAND <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CURAND_API_supported_by_HIP.md>`_
- * `cuDNN <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUDNN_API_supported_by_HIP.md>`_
- * `cuFFT <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUFFT_API_supported_by_HIP.md>`_
- * `cuSPARSE <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUSPARSE_API_supported_by_HIP.md>`_
- * `Developer/CONTRIBUTING Info <https://github.com/ROCm-Developer-Tools/HIP/blob/master/CONTRIBUTING.md>`_
- * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
-
-**Simple Example**
-
-The HIP API includes functions such as hipMalloc, hipMemcpy, and hipFree.
-Programmers familiar with CUDA will also be able to quickly learn and start coding with the HIP API. Compute kernels are launched with the "hipLaunchKernelGGL" macro call. Here is simple example showing a snippet of HIP API code:
-
-hipMalloc(&A_d, Nbytes));
-hipMalloc(&C_d, Nbytes));
-
-hipMemcpy(A_d, A_h, Nbytes, hipMemcpyHostToDevice);
-
-const unsigned blocks = 512;
-const unsigned threadsPerBlock = 256;
-hipLaunchKernelGGL(vector_square,   /* compute kernel*/
-                dim3(blocks), dim3(threadsPerBlock), 0/*dynamic shared*/, 0/*stream*/,     /* launch config*/
-                C_d, A_d, N);  /* arguments to the compute kernel */
-
-hipMemcpy(C_h, C_d, Nbytes, hipMemcpyDeviceToHost); 
-
-The HIP kernel language defines builtins for determining grid and block coordinates, math functions, short vectors, atomics, and timer functions. It also specifies additional defines and keywords for function types, address spaces, and optimization controls. (See the  :ref:`Kernel_language` for a full description). Here's an example of defining a simple 'vector_square' kernel.
-
-template <typename T>
-__global__ void
-vector_square(T *C_d, const T *A_d, size_t N)
-{
-    size_t offset = (hipBlockIdx_x * hipBlockDim_x + hipThreadIdx_x);
-    size_t stride = hipBlockDim_x * hipGridDim_x ;
-
-    for (size_t i=offset; i<N; i+=stride) {
-        C_d[i] = A_d[i] * A_d[i];
-    }
-}
-
-The HIP Runtime API code and compute kernel definition can exist in the same source file - HIP takes care of generating host and device code appropriately.
-
-**HIP Portability and Compiler Technology**
-
-HIP C++ code can be compiled with either :
-
-    * On the NVIDIA CUDA platform, HIP provides header file which translate from the HIP runtime APIs to CUDA runtime APIs. The header file contains mostly inlined functions and thus has very low overhead - developers coding in HIP should expect the same performance as coding in native CUDA. The code is then compiled with nvcc, the standard C++ compiler provided with the CUDA SDK. Developers can use any tools supported by the CUDA SDK including the CUDA profiler and debugger.
-    * On the AMD ROCm platform, HIP provides a header and runtime library built on top of hcc compiler. The HIP runtime implements HIP streams, events, and memory APIs, and is a object library that is linked with the application. The source code for all headers and the library implementation is available on GitHub.
-    HIP developers on ROCm can use AMD's CodeXL for debugging and profiling.
-
-Thus HIP source code can be compiled to run on either platform. Platform-specific features can be isolated to a specific platform using conditional compilation. Thus HIP provides source portability to either platform. HIP provides the hipcc compiler driver which will call the appropriate toolchain depending on the desired platform.
-
-**Examples and Getting Started:**
-
-    * A sample and blog that uses hipify to convert a simple app from CUDA to HIP:
- ::
-
- cd samples/01_Intro/square
- # follow README / blog steps to hipify the application.
-
-
-    * A sample and blog demonstrating platform specialization:
- ::
-
- cd samples/01_Intro/bit_extract
- make
-
-
-    * Guide to Porting a New Cuda Project
-
-**More Examples**
-
-The GitHub repository `HIP-Examples <https://github.com/ROCm-Developer-Tools/HIP-Examples.git>`_ contains a hipified version of the popular Rodinia benchmark suite. The README with the procedures and tips the team used during this porting effort is here: `Rodinia Porting Guide <https://github.com/ROCm-Developer-Tools/HIP-Examples/blob/master/rodinia_3.0/hip/README.hip_porting>`_
 
 **Tour of the HIP Directories**
 
