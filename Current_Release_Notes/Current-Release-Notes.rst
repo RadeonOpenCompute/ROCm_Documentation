@@ -126,7 +126,7 @@ can be corrected, double bit per word errors cannot be corrected.
 The RDC tool now helps monitor and protect undetected memory data corruption. If the system is using ECC- enabled memory, the ROCm Data
 Center tool can report the error counters to monitor the status of the memory.
 
-.. image:: forweb.png
+.. image:: forweb.PNG
     :align: center
 
 
@@ -142,7 +142,7 @@ successfully tested for basic functionalities like *rocminfo /rocm_bandwidth_tes
 
 In the AMD ROCm v3.8 release, the following libraries support static linking:
 
-.. image:: staticlinkinglib.png
+.. image:: staticlinkinglib.PNG
     :align: center
 
 
