@@ -3,37 +3,203 @@
 |
 
 ================================
-AMD ROCm™ Release Notes v3.7.0
+AMD ROCm™ Release Notes v3.8.0
 ================================
-August, 2020
+September, 2020
 
-This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.7.0 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.8.0 release.
 
 `Download AMD ROCm v3.7.0 Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
--  `Supported Operating Systems and Documentation
-   Updates <#Supported-Operating-Systems-and-Documentation-Updates>`__
+Support for Vega 7nm Workstation
+--------------------------------
 
-   -  `Supported Operating Systems <#Supported-Operating-Systems>`__
-   -  `AMD ROCm Documentation
-      Updates <#AMD-ROCm-Documentation-Updates>`__
-      
+This release extends support to the Vega 7nm Workstation (Vega20 GL-XE) version.
 
--  `What's New in This Release <#Whats-New-in-This-Release>`__
+List of Supported Operating Systems
+-----------------------------------
 
-   -  `AOMP Enhancements <#AOMP-Enhancements>`__
-   -  `Compatibility with NVIDIA Communications Collective Library v2.7
-      API <#Compatibility-with-NVIDIA-Communications-Collective-Library-v27-API>`__
-   -  `Singular Value Decomposition of Bi-diagonal
-      Matrices <#Singular-Value-Decomposition-of-Bi-diagonal-Matrices>`__
-   -  `rocSPARSE_gemmi() Operations for Sparse
-      Matrices <#rocSPARSE_gemmi-Operations-for-Sparse-Matrices>`__
-      
+The AMD ROCm platform is designed to support the following operating
+systems:
 
--  `Known Issues <#Known-Issues>`__
+-  Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+-  CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7
+   runtime support)
+-  CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
+-  SLES 15 SP1
+
+Fresh Installation of AMD ROCm v3.8 Recommended
+-----------------------------------------------
+
+A fresh and clean installation of AMD ROCm v3.8 is recommended. An upgrade from previous releases to AMD ROCm v3.8 is not supported.
+
+For more information, refer to the AMD ROCm Installation Guide at:
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
+
+**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a
+fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+
+**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+
+-  For ROCm v3.5 and releases thereafter,the *clinfo* path is changed to
+   - */opt/rocm/opencl/bin/clinfo*.
+
+-  For ROCm v3.3 and older releases, the *clinfo* path remains unchanged
+   - */opt/rocm/opencl/bin/x86_64/clinfo*.
+
+AMD ROCm Documentation Updates
+==============================
+
+AMD ROCm Installation Guide
+---------------------------
+
+The AMD ROCm Installation Guide in this release includes:
+
+-  Updated Supported Environments
+-  HIP Installation Instructions
+-  Tensorflow ROCm Port: Basic Installations on RHEL v8.2
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
+
+AMD ROCm - HIP Documentation Updates
+------------------------------------
+
+-  HIP Repository Information
+
+For more information, see
+https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html#hip-repository-information
+
+ROCm Data Center Tool User Guide
+--------------------------------
+
+-  Error-Correction Codes Field and Output Documentation
+-  Installation and Build instructions for SLES 15 Service Pack 1
+
+General AMD ROCm Documentation Links
+------------------------------------
+
+Access the following links for more information:
+
+-  For AMD ROCm documentation, see
+
+   https://rocmdocs.amd.com/en/latest/
+
+-  For installation instructions on supped platforms, see
+
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
+
+-  For AMD ROCm binary structure, see
+
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#build-amd-rocm
+
+-  For AMD ROCm Release History, see
+
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#amd-rocm-version-history
+   
+
+What's New in This Release
+==========================
+
+Hipfort-Interface for GPU Kernel Libraries
+------------------------------------------
+
+Hipfort is an interface library for accessing GPU Kernels. It provides support to the AMD ROCm architecture from within the Fortran programming
+language. Currently, the gfortran and HIP-Clang compilers support hipfort. Note, the gfortran compiler belongs to the GNU Compiler
+Collection (GCC). While hipfc wrapper calls hipcc for the non-fortran kernel source, gfortran is used for FORTRAN applications that call GPU
+kernels.
+
+The hipfort interface library is meant for Fortran developers with a focus on gfortran users.
+
+For information on HIPFort installation and examples, see
+
+https://github.com/ROCmSoftwarePlatform/hipfort
 
 
+Error Correcting Code Fields in ROCm Data Center Tool
+-----------------------------------------------------
+
+The ROCm Data Center (RDC) tool is enhanced to provide counters to track
+correctable and uncorrectable errors. While a single bit per word error
+can be corrected, double bit per word errors cannot be corrected.
+
+The RDC tool now helps monitor and protect undetected memory data
+corruption. If the system is using ECC- enabled memory, the ROCm Data
+Center tool can report the error counters to monitor the status of the
+memory.
+
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/forweb.PNG
+   :alt: ScreenShot
+
+   ScreenShot
+
+Static Linking Libraries
+------------------------
+
+The underlying libraries of AMD ROCm are dynamic and are called shared objects (.so) in Linux. The AMD ROCm v3.8 release includes the
+capability to build static ROCm libraries and link to the applications statically. CMake target files enable linking an application statically
+to ROCm libraries and each component exports the required dependencies for linking. The static libraries are called Archives (.a) in Linux.
+
+This release also comprises of the requisite changes required for all the components to work in a static environment. The components have been
+successfully tested for basic functionalities like *rocminfo /rocm_bandwidth_test* and archives.
+
+In the AMD ROCm v3.8 release, the following libraries support static linking:
+
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/staticlinkinglib.PNG
+   :alt: ScreenShot
+
+   ScreenShot
+
+Fixed Defects
+=============
+
+The following defects are fixed in this release:
+
+-  GPU Kernel C++ Names Not Demangled
+-  MIGraphX Fails for fp16 Datatype
+-  Issue with Peer-to-Peer Transfers
+-  *"rocprof"* option *“parallel-kernels" Not Supported in this Release
+
+Known Issues
+============
+
+ROCm Data Center Installation Issue on CentOS/RHEL 7.8/8.2 and SLES
+-------------------------------------------------------------------
+
+Installing ROCm Data Center on CentOS/RHEL v7.8/v8.2 and SLES may fail with an error.
+
+This issue is under investigation and there is no known workaround currently.
+
+
+Undefined Reference Issue in Statically Linked Libraries
+--------------------------------------------------------
+
+Libraries and applications statically linked using flags *-rtlib=compiler-rt*, such as rocBLAS, have an implicit dependency on
+gcc_s not captured in their CMAKE configuration.
+
+Client applications may require linking with an additional library *-lgcc_s* to resolve the undefined reference to symbol *"_Unwind_ResumeGCC_3.0"*.
+
+MIGraphX Pooling Operation Fails for Some Models
+------------------------------------------------
+
+MIGraphX does not work for some models with pooling operations and the following error appears:
+
+*˜test_gpu_ops_test FAILED"*
+
+This issue is currently under investigation and there is no known workaround currently.
+
+MIVisionX Installation Error on CentOS/RHEL8.2 and SLES 15
+----------------------------------------------------------
+
+Installing ROCm on MIVisionX results in the following error on CentOS/RHEL8.2 and SLES 15:
+
+*"Problem: nothing provides opencv needed"*
+
+As a workaround, install opencv before installing MIVisionX.
+
+
+v3.7
 Supported Operating Systems
 ===========================
 
