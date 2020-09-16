@@ -1,4 +1,4 @@
-.. image:: /Currrent-Release-Notes/amdblack.jpg
+.. image:: /Currrent_Release_Notes/amdblack.jpg
 
 |
 
