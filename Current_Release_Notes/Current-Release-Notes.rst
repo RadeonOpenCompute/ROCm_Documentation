@@ -120,19 +120,15 @@ https://github.com/ROCmSoftwarePlatform/hipfort
 Error Correcting Code Fields in ROCm Data Center Tool
 -----------------------------------------------------
 
-The ROCm Data Center (RDC) tool is enhanced to provide counters to track
-correctable and uncorrectable errors. While a single bit per word error
+The ROCm Data Center (RDC) tool is enhanced to provide counters to track correctable and uncorrectable errors. While a single bit per word error
 can be corrected, double bit per word errors cannot be corrected.
 
-The RDC tool now helps monitor and protect undetected memory data
-corruption. If the system is using ECC- enabled memory, the ROCm Data
-Center tool can report the error counters to monitor the status of the
-memory.
+The RDC tool now helps monitor and protect undetected memory data corruption. If the system is using ECC- enabled memory, the ROCm Data
+Center tool can report the error counters to monitor the status of the memory.
 
 .. image:: forweb.png
     :align: center
 
-   ScreenShot
 
 Static Linking Libraries
 ------------------------
@@ -149,7 +145,6 @@ In the AMD ROCm v3.8 release, the following libraries support static linking:
 .. image:: staticlinkinglib.png
     :align: center
 
-   ScreenShot
 
 Fixed Defects
 =============
