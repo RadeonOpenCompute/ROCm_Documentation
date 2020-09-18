@@ -54,15 +54,15 @@ In this release, AMD ROCm extends support to Ubuntu 20.04, including dual kernel
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.4 (Kernel 5.3)	
+* Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.3)	
 * CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
 * CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
 * SLES 15 SP1
 
 
-**FRESH INSTALLATION OF AMD ROCm V3.7 RECOMMENDED**
+**FRESH INSTALLATION OF AMD ROCm V3.8 RECOMMENDED**
 
-A fresh and clean installation of AMD ROCm v3.7 is recommended. An upgrade from previous releases to AMD ROCm v3.7 is not supported.
+A fresh and clean installation of AMD ROCm v3.8 is recommended. An upgrade from previous releases to AMD ROCm v3.8 is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
@@ -179,7 +179,7 @@ Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 Uninstalling ROCm Packages from Ubuntu
 ''''''''''''''''''''''''''''''''''''''''
 
-To uninstall the ROCm packages from Ubuntu 16.04.6 or Ubuntu 18.04.4, run the following command:
+To uninstall the ROCm packages from Ubuntu 20.04 or Ubuntu 18.04.5, run the following command:
 
 ::
 
