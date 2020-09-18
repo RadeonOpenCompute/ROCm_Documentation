@@ -104,10 +104,10 @@ Access the following links for more information:
    
 
 What's New in This Release
-==========================
+-----------------------------
 
 Hipfort-Interface for GPU Kernel Libraries
-------------------------------------------
+===========================================
 
 Hipfort is an interface library for accessing GPU Kernels. It provides support to the AMD ROCm architecture from within the Fortran programming
 language. Currently, the gfortran and HIP-Clang compilers support hipfort. Note, the gfortran compiler belongs to the GNU Compiler
@@ -122,7 +122,7 @@ https://github.com/ROCmSoftwarePlatform/hipfort
 
 
 Error Correcting Code Fields in ROCm Data Center Tool
------------------------------------------------------
+==========================================================
 
 The ROCm Data Center (RDC) tool is enhanced to provide counters to track correctable and uncorrectable errors. While a single bit per word error
 can be corrected, double bit per word errors cannot be corrected.
@@ -139,7 +139,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_U
 
 
 Static Linking Libraries
-------------------------
+=========================
 
 The underlying libraries of AMD ROCm are dynamic and are called shared objects (.so) in Linux. The AMD ROCm v3.8 release includes the
 capability to build static ROCm libraries and link to the applications statically. CMake target files enable linking an application statically
@@ -166,10 +166,10 @@ The following defects are fixed in this release:
 
 
 Known Issues
-============
+-------------------
 
 ROCm Data Center Installation Issue on CentOS/RHEL 7.8/8.2 and SLES
--------------------------------------------------------------------
+=====================================================================
 
 Installing ROCm Data Center on CentOS/RHEL v7.8/v8.2 and SLES may fail with an error.
 
@@ -177,15 +177,16 @@ This issue is under investigation and there is no known workaround currently.
 
 
 Undefined Reference Issue in Statically Linked Libraries
---------------------------------------------------------
+===============================================================
 
 Libraries and applications statically linked using flags *-rtlib=compiler-rt*, such as rocBLAS, have an implicit dependency on
 gcc_s not captured in their CMAKE configuration.
 
 Client applications may require linking with an additional library *-lgcc_s* to resolve the undefined reference to symbol *"_Unwind_ResumeGCC_3.0"*.
 
+
 MIGraphX Pooling Operation Fails for Some Models
-------------------------------------------------
+========================================================
 
 MIGraphX does not work for some models with pooling operations and the following error appears:
 
@@ -193,8 +194,9 @@ MIGraphX does not work for some models with pooling operations and the following
 
 This issue is currently under investigation and there is no known workaround currently.
 
+
 MIVisionX Installation Error on CentOS/RHEL8.2 and SLES 15
-----------------------------------------------------------
+=============================================================
 
 Installing ROCm on MIVisionX results in the following error on CentOS/RHEL8.2 and SLES 15:
 
@@ -204,7 +206,7 @@ As a workaround, install opencv before installing MIVisionX.
 
 
 Deploying ROCm
-==============
+-------------------
 
 AMD hosts both Debian and RPM repositories for the ROCm v3.7.x packages.
 
@@ -214,9 +216,8 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
 
-
 DISCLAIMER 
-===========
+----------------
 The information contained herein is for informational purposes only and is subject to change without notice. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information.  Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein.  No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document.  Terms and limitations applicable to the purchase or use of AMD’s products are as set forth in a signed agreement between the parties or in AMD’s Standard Terms and Conditions of Sale. S
 AMD, the AMD Arrow logo, Radeon, Ryzen, Epyc, and combinations thereof are trademarks of Advanced Micro Devices, Inc.  
 Google®  is a registered trademark of Google LLC.
