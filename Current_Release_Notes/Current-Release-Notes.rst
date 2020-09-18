@@ -76,7 +76,6 @@ ROCm Data Center Tool User Guide
 ==================================
 
 -  Error-Correction Codes Field and Output Documentation
--  Installation and Build instructions for SLES 15 Service Pack 1
 
 For more information, see
 
@@ -122,8 +121,34 @@ For information on HIPFort installation and examples, see
 https://github.com/ROCmSoftwarePlatform/hipfort
 
 
-Error Correcting Code Fields in ROCm Data Center Tool
-==========================================================
+ROCm Data Center Tool
+======================
+
+The ROCm™ Data Center Tool™ simplifies the administration and addresses key infrastructure challenges in AMD GPUs in cluster and datacenter environments. The important features of this tool are:
+
+* GPU telemetry
+
+* GPU statistics for jobs
+
+* Integration with third-party tools
+
+* Open source
+
+The ROCm Data Center Tool can be used in the standalone mode if all components are installed. The same set of features is also available in a library format that can be used by existing management tools.
+
+.. image:: /Current_Release_Notes/RDCComponentsrevised.PNG
+    :align: center
+    
+Refer to the ROCm Data Center Tool™ User Guide for more details on the different modes of operation.
+
+**NOTE**: The ROCm Data Center User Guide is intended to provide an overview of ROCm Data Center Tool features and how system administrators and Data Center (or HPC) users can administer and configure AMD GPUs. The guide also provides an overview of its components and open source developer handbook.
+
+For installation information on different distributions, refer to the ROCm Data Center User Guide at
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
+
+
+**Error Correcting Code Fields in ROCm Data Center Tool**
 
 The ROCm Data Center (RDC) tool is enhanced to provide counters to track correctable and uncorrectable errors. While a single bit per word error
 can be corrected, double bit per word errors cannot be corrected.
@@ -168,14 +193,6 @@ The following defects are fixed in this release:
 
 Known Issues
 -------------------
-
-ROCm Data Center Installation Issue on CentOS/RHEL 7.8/8.2 and SLES
-=====================================================================
-
-Installing ROCm Data Center on CentOS/RHEL v7.8/v8.2 and SLES may fail with an error.
-
-This issue is under investigation and there is no known workaround currently.
-
 
 Undefined Reference Issue in Statically Linked Libraries
 ===============================================================
