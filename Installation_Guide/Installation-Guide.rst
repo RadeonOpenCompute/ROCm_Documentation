@@ -218,7 +218,7 @@ You can install the ROCm user-level software without installing the AMD's custom
 CentOS RHEL
 ============
 
-CentOS v7.7/RHEL v7.8 and CentOS/RHEL 8.1
+CentOS v7.8/RHEL v7.8 and CentOS/RHEL 8.2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1.
@@ -549,7 +549,7 @@ HIP-Clang can be built manually:
    make -j
    sudo make install
 
-Rocm device library can be manually built as following,
+The ROCm device library can be manually built as following,
 
 ::
 
@@ -772,7 +772,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.7.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.8.x
   repo sync
 
 
