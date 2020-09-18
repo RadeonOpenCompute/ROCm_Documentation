@@ -384,7 +384,6 @@ New features and enhancements in ROCm v3.7
 
 Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.7.x
 
-
 - AOMP Enhancements
 
 - Compatibility with NVIDIA Communications Collective Library v2.7 API
