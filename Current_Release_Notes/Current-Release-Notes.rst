@@ -50,10 +50,10 @@ fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.
    - */opt/rocm/opencl/bin/x86_64/clinfo*.
 
 AMD ROCm Documentation Updates
-==============================
+-----------------------------------
 
 AMD ROCm Installation Guide
----------------------------
+================================
 
 The AMD ROCm Installation Guide in this release includes:
 
@@ -63,8 +63,9 @@ The AMD ROCm Installation Guide in this release includes:
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
+
 AMD ROCm - HIP Documentation Updates
-------------------------------------
+========================================
 
 -  HIP Repository Information
 
@@ -72,7 +73,7 @@ For more information, see
 https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html#hip-repository-information
 
 ROCm Data Center Tool User Guide
---------------------------------
+==================================
 
 -  Error-Correction Codes Field and Output Documentation
 -  Installation and Build instructions for SLES 15 Service Pack 1
