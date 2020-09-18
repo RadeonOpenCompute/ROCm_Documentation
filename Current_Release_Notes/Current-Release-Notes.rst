@@ -11,8 +11,6 @@ This page describes the features, fixed issues, and information about downloadin
 `Download AMD ROCm v3.7.0 Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
-
-
 .. _supported-operating-systems-1:
 
 Supported Operating Systems
@@ -380,6 +378,20 @@ AMD ROCm Version History
 =========================
 
 This file contains archived version history information for the ROCm project.
+
+New features and enhancements in ROCm v3.7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.7.x
+
+
+- AOMP Enhancements
+
+- Compatibility with NVIDIA Communications Collective Library v2.7 API
+
+- Singular Value Decomposition of Bi-diagonal Matrices
+
+- rocSPARSE_gemmi() Operations for Sparse Matrices
 
 Patch Release -  ROCm v3.5.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
