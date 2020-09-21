@@ -237,7 +237,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 Features and enhancements introduced in previous versions of ROCm can be found in :ref:`Current-Release-Notes`.
 
-
+==========================
 AMD ROCm Version History
 =========================
 
