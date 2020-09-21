@@ -1084,7 +1084,7 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 .. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/rocm-3.8.0
 
-.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/commit/e66968a25f9342a28af1157b06cbdbf8579c5519
+.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/tree/0.8
 
 
 
