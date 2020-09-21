@@ -9,7 +9,7 @@ September, 2020
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.8.0 release.
 
-`Download AMD ROCm v3.7.0 Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
+`Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
 Support for Vega 7nm Workstation
