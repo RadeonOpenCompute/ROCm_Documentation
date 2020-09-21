@@ -226,16 +226,16 @@ As a workaround, install opencv before installing MIVisionX.
 Deploying ROCm
 -------------------
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.7.x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v3.8.x packages.
 
 For more information on ROCM installation on all platforms, see
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-
-
-
 Features and enhancements introduced in previous versions of ROCm can be found in :ref:`Current-Release-Notes`.
+
+
+
 
 ==========================
 AMD ROCm Version History
@@ -255,6 +255,8 @@ Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.7.x
 - Singular Value Decomposition of Bi-diagonal Matrices
 
 - rocSPARSE_gemmi() Operations for Sparse Matrices
+
+
 
 Patch Release -  ROCm v3.5.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
