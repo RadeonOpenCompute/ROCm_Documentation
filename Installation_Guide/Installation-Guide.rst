@@ -790,7 +790,7 @@ Each ROCm component repository contains directions for building that component. 
 Software Stack for AMD GPU
 ============================
 
-Machine Learning and High Performance Computing Software Stack for AMD GPU v3.7.0
+Machine Learning and High Performance Computing Software Stack for AMD GPU v3.8.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
