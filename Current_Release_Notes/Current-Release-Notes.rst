@@ -237,9 +237,9 @@ Features and enhancements introduced in previous versions of ROCm can be found i
 
 
 
-==========================
+
 AMD ROCm Version History
-=========================
+-----------------------------
 
 This file contains archived version history information for the ROCm project.
 
