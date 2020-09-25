@@ -54,7 +54,10 @@ In this release, AMD ROCm extends support to Ubuntu 20.04, including dual kernel
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.3)	
+* Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.3)
+
+**Note**: Ubuntu versions lower than 18 are no longer supported.
+
 * CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
 * CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
 * SLES 15 SP1
