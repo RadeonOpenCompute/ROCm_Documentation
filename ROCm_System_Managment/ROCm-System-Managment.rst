@@ -134,7 +134,7 @@ On the ROCm SMI lib side, APIs are added to set an event mask and receive event 
 
 For more information, see the System Management Interface API guide at:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/roc-3.5.1/ROCm_SMI_Manual.pdf
 
 
 =================================
