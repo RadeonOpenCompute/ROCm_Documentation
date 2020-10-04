@@ -477,9 +477,9 @@ Read/write values may be read-only for some chips, depending on the hardware imp
 All entries (except name) are optional, and should only be created in a given driver if the chip has the feature.
 
 
-*********************
- Global attributes 
-*********************
+
+ Global Attributes 
+#######################
 
 ================ ============================================================================================
 name		  | The chip name.This should be a short, lowercase string, not containing whitespace,
@@ -494,9 +494,9 @@ update_interval	  | The interval at which the chip will update readings.
 		  | This attribute can be used to change it to the desired value.
 ================ ============================================================================================
 
-************
+ 
  Voltages 
-************
+############
 
 ====================== ===============================================================================================
 in[0-*]_min	        |  Voltage min value.
@@ -574,9 +574,9 @@ vrm			| Voltage Regulator Module version number.
 Also see the Alarms section for status flags associated with voltages.
 
 
-********
+
  Fans 
-********
+#######
 
 =============== =============================================================================================
 fan[1-*]_min	 | Fan minimum value
@@ -630,9 +630,9 @@ fan[1-*]_enable  | Enable or disable the sensors
 Also see the Alarms section for status flags associated with fans.
 
 
-*******
- PWM 
-*******
+
+ Pulse with Modulation
+###############################
 		
 +--------------------------------------+-----------------------------------------------------------------------------------------+
 | pwm[1-*]	 		       | | Pulse width modulation fan control.							 |
@@ -673,9 +673,9 @@ There is a third case where trip points are associated to both PWM output channe
 value (fastest fan speed) wins.
 
 
-****************
+
  Temperatures 
-****************
+################
 
 ========================= ==========================================================================================
 temp[1-*]_type		  | Sensor type selection.
@@ -776,9 +776,9 @@ Some chips measure temperature using external thermistors and an ADC, and report
 Also see the Alarms section for status flags associated with temperatures.
 
 
-************
+
  Currents 
-************
+###########
 
 ======================= ========================================================
 curr[1-*]_max		 |  Current max value
@@ -828,9 +828,9 @@ curr[1-*]_enable         | Enable or disable the sensors
 
 Also see the Alarms section for status flags associated with currents.
 
-*********
+
  Power 
-*********
+########
 
 ================================ ===============================================================================
 power[1-*]_average		 | Average power use
@@ -927,9 +927,9 @@ power[1-*]_enable                | Enable or disable the sensors.
 
 Also see the Alarms section for status flags associated with power readings.
 
-**********
+
  Energy 
-**********
+#########
 
 ==================== ========================
 energy[1-*]_input    |  Cumulative energy use
@@ -943,9 +943,9 @@ energy[1-*]_enable   | Enable or disable the sensors
                      | RW
 ==================== ========================
 
-************
+
  Humidity 
-************
+############
 
 ==================== ===========================================
 humidity[1-*]_input  | Humidity
@@ -959,9 +959,10 @@ humidity[1-*]_enable | Enable or disable the sensors
                      | RW
 ==================== ===========================================
 
-**********
+
+
  Alarms 
-**********
+#########
 
 Each channel or limit may have an associated alarm file, containing a
 boolean value. 1 means than an alarm condition exists, 0 means no alarm.
@@ -1057,9 +1058,9 @@ beep_mask      | Bitmask for beep.
 ============= ===========================================================
 
 
-***********************
+
  Intrusion detection 
-***********************
+#######################
 
 ======================= ===========================================================
 intrusion[0-*]_alarm
