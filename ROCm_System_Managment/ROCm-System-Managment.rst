@@ -1,8 +1,9 @@
 .. _ROCm-System-Management:
 
-***************************************
-System Management Interface Event API 
-****************************************
+
+*******************************
+System Management Interface  
+*******************************
 
 A System Management Interface (SMI) event interface is added to the kernel and a ROCm SMI library for system administrators to get notified when specific events occur. On the kernel side, AMDKFD_IOC_SMI_EVENTS input/output control is enhanced to allow notifications propagation to user mode through the event channel. 
 
@@ -135,9 +136,6 @@ A simple "Hello World" type program that displays the device ID of detected devi
   ret = rsmi_shut_down();
   return 0;
   } 
-
-
-
 
 
 ************************************
