@@ -331,7 +331,27 @@ If the level ends with a %, the fan speed is calculated as pct*maxlevel/100 (max
     Operating the GPU outside of specifications can cause irreparable damage to your hardware
     Please observe the warning displayed when using this option
 
-**--setprofile SETPROFILE:** The Compute Profile accepts 1 or n parameters, either the Profile to select (see --showprofile for a list of preset Power Profiles) or a quoted string of values for the CUSTOM profile. NOTE: These values can vary based on the ASIC, and may include: SCLK_PROFILE_ENABLE - Whether or not to apply the 3 following SCLK settings (0=disable,1=enable) NOTE: This is a hidden field. If set to 0, the following 3 values are displayed as '-' SCLK_UP_HYST - Delay before sclk is increased (in milliseconds) SCLK_DOWN_HYST - Delay before sclk is decresed (in milliseconds) SCLK_ACTIVE_LEVEL - Workload required before sclk levels change (in %) MCLK_PROFILE_ENABLE - Whether or not to apply the 3 following MCLK settings (0=disable,1=enable) NOTE: This is a hidden field. If set to 0, the following 3 values are displayed as '-' MCLK_UP_HYST - Delay before mclk is increased (in milliseconds) MCLK_DOWN_HYST - Delay before mclk is decresed (in milliseconds) MCLK_ACTIVE_LEVEL - Workload required before mclk levels change (in %)
+**--setprofile SETPROFILE:** The Compute Profile accepts 1 or n parameters, either the Profile to select (see --showprofile for a list of preset Power Profiles) or a quoted string of values for the CUSTOM profile. 
+
+NOTE: These values can vary based on the ASIC, and may include: SCLK_PROFILE_ENABLE - Whether or not to apply the 3 following SCLK settings (0=disable,1=enable) 
+
+NOTE: This is a hidden field. If set to 0, the following 3 values are displayed as '-' SCLK_UP_HYST 
+
+- Delay before sclk is increased (in milliseconds) SCLK_DOWN_HYST 
+
+- Delay before sclk is decresed (in milliseconds) SCLK_ACTIVE_LEVEL 
+
+- Workload required before sclk levels change (in %) MCLK_PROFILE_ENABLE 
+
+- Whether or not to apply the 3 following MCLK settings (0=disable,1=enable) 
+
+NOTE: This is a hidden field. If set to 0, the following 3 values are displayed as '-' MCLK_UP_HYST 
+
+- Delay before mclk is increased (in milliseconds) MCLK_DOWN_HYST 
+
+- Delay before mclk is decresed (in milliseconds) MCLK_ACTIVE_LEVEL 
+
+- Workload required before mclk levels change (in %)
 
     BUSY_SET_POINT       - Threshold for raw activity level before levels change
     FPS                  - Frames Per Second
@@ -427,14 +447,9 @@ The test can run all flags for the SMI, or specific flags can be tested with the
 
 Any new functionality added to the SMI should have a corresponding test added to the test script.
 
-**Disclaimer**
 
-The information contained herein is for informational purposes only, and is subject to change without notice. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD's products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
 
-AMD, the AMD Arrow logo, and combinations thereof are trademarks of Advanced Micro Devices, Inc. Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
-
-Copyright (c) 2014-2017 Advanced Micro Devices, Inc. All rights reserved.
-
+*********************
 Programming ROCm-SMI
 *********************
 
