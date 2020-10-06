@@ -46,7 +46,7 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Note**: These directions may not work as written on unsupported Debian-based distributions. For example, newer versions of Ubuntu may not be compatible with the rock-dkms kernel driver. In this case, you can exclude the rocm-dkms and rock-dkms packages.
 
-**Note**: You must use either ROCm or the amdgpu-pro driver. Using both drivers at once will result in an error. 
+**Note**: You must use either ROCm or the amdgpu-pro driver. Using both drivers will result in an installation error. 
 
 
 Prerequisites 
