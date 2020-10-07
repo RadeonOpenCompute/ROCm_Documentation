@@ -676,13 +676,13 @@ Now, users have the option to install multiple versions simultaneously and toggl
 **Prerequisites**
 ###############################
 
-Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.3 ROCm toolkit installation. The ROCm v3.3 package requires a clean installation.
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.8 ROCm toolkit installation. The ROCm v3.8 package requires a clean installation.
 
 * To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
 
-* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.8.0 /opt/rocm*
 
-* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.3.0 /opt/rocm*
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.8.0 /opt/rocm*
 
 **Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
 
@@ -714,11 +714,11 @@ A fresh installation or an upgrade of the single-version installation will remov
 
 For example,
 
-  * rocm-dkms3.3.0
+  * rocm-dkms3.8.0
 
-  * rocm-dev3.3.0
+  * rocm-dev3.8.0
 
-  * hip3.3.0
+  * hip3.8.0
 
 * The new multi-instance package enables you to install two versions of the ROCm toolkit simultaneously and provides the ability to toggle between the two versioned packages.
 
