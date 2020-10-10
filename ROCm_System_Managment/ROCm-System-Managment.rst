@@ -138,9 +138,9 @@ A simple "Hello World" type program that displays the device ID of detected devi
   } 
 
 
-************************************
+******************************
 ROCM Command Line Interface 
-***********************************
+******************************
 
 This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of the  
 ROCm-enabled system.
@@ -448,10 +448,6 @@ The test can run all flags for the SMI, or specific flags can be tested with the
 Any new functionality added to the SMI should have a corresponding test added to the test script.
 
 
-
-*********************
-Programming ROCm-SMI
-*********************
 
 
 SYSFS Interface
