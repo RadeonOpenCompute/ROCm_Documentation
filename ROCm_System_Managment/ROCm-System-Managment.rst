@@ -139,7 +139,7 @@ A simple "Hello World" type program that displays the device ID of detected devi
 
 
 ************************************
-System Management Interface Tool
+ROCM Command Line Interface 
 ***********************************
 
 This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of the  
