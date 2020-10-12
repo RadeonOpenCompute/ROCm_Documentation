@@ -45,7 +45,7 @@ In order to build the ROCm SMI library, the following components are required. N
 
 In order to build the latest documentation, the following are required:
 
-    * DOxygen (1.8.11)
+    * Doxygen (1.8.11)
     * latex (pdfTeX 3.14159265-2.6-1.40.16)
 
 The source code for ROCm SMI is available on `Github <https://github.com/RadeonOpenCompute/rocm_smi_lib>`_.
