@@ -50,7 +50,7 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Important - Mellanox ConnectX NIC Users**: If you are using Mellanox ConnetX NIC, you must install Mellanox OFED before installing ROCm. 
 
-For more information about installing  Mellanox OFED, refer to:
+For more information about installing Mellanox OFED, refer to:
 
 https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
 
