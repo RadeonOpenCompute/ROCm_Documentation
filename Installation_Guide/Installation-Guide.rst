@@ -48,6 +48,8 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Note**: You must use either ROCm or the amdgpu-pro driver. Using both drivers will result in an installation error. 
 
+**Note**: Ensure network drivers, like Mellanox OFED, are loaded and up-to-date before installing ROCm.
+
 
 Prerequisites 
 ~~~~~~~~~~~~~~~
