@@ -1,7 +1,7 @@
 
 
 ================
-AOMP - V 0.7-5
+OpenMP Support
 ================
 
 Overview
