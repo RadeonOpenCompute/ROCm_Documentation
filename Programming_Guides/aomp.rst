@@ -4,8 +4,6 @@
 OpenMP Support
 ================
 
-OpenMP Support
-******************
 
 OpenMP-Extras V12.9-0
 ------------------------
@@ -71,8 +69,8 @@ System package dependencies can be found `here. <https://github.com/ROCm-Develop
 
 
 
-Overview
-**********
+AOMP
+*******
 
 AOMP is a scripted build of LLVM and supporting software. It has support for OpenMP target offload on AMD GPUs. Since AOMP is a clang/llvm compiler, it also supports GPU offloading with HIP, CUDA, and OpenCL.
 
