@@ -799,8 +799,8 @@ AOMP
 
 * https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/ROCM_AOMP_SOURCE_INSTALL.md
 
-OpenMP
-*******
+OpenMP Extras
+**************
 
 * https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md
 
