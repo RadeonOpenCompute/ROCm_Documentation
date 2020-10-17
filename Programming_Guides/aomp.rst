@@ -651,7 +651,7 @@ See the `release notes <https://github.com/ROCm-Developer-Tools/aomp/releases>`_
  - Some simd constructs fail to vectorize on both host and GPUs.  
  
  
-****************
+
  OpenMP Support
 ******************
 
