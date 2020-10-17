@@ -794,6 +794,16 @@ Building the ROCm Source Code
 
 Each ROCm component repository contains directions for building that component. You can access the desired component for instructions to build the repository.
 
+AOMP
+*****
+
+* https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/ROCM_AOMP_SOURCE_INSTALL.md
+
+OpenMP
+*******
+
+* https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md
+
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
 
