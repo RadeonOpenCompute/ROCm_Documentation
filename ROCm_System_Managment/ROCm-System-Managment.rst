@@ -172,36 +172,39 @@ For detailed and up to date usage information, we recommend consulting the help:
 For convenience purposes, following is the output from the -h flag:
 
 
-AMD ROCm System Management Interface | ROCM-SMI version: 1.3.1|
+AMD ROCm System Management Interface | ROCM-SMI version: 1.4.1 | Kernel version: 5.6.20
 
 usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [--alldevices] [--showhw] [-a] [-i] [-v] [--showdriverversion]
                 [--showfwinfo [BLOCK [BLOCK ...]]] [--showmclkrange] [--showmemvendor] [--showsclkrange]
                 [--showproductname] [--showserial] [--showuniqueid] [--showvoltagerange] [--showbus] [--showpagesinfo]
                 [--showpendingpages] [--showretiredpages] [--showunreservablepages] [-f] [-P] [-t] [-u] [--showmemuse]
                 [--showvoltage] [-b] [-c] [-g] [-l] [-M] [-m] [-o] [-p] [-S] [-s] [--showmeminfo TYPE [TYPE ...]]
-                [--showpids] [--showreplaycount] [--showrasinfo BLOCK [BLOCK ...]] [--showvc] [--showxgmierr] [-r]
-                [--resetfans] [--resetprofile] [--resetpoweroverdrive] [--resetxgmierr] [--setsclk LEVEL [LEVEL ...]]
+                [--showpids] [--showpidgpus [SHOWPIDGPUS [SHOWPIDGPUS ...]]] [--showreplaycount]
+                [--showrasinfo [SHOWRASINFO [SHOWRASINFO ...]]] [--showvc] [--showxgmierr] [--showtopo]
+                [--showtopoweight] [--showtopohops] [--showtopotype] [--showtoponuma] [-r] [--resetfans]
+                [--resetprofile] [--resetpoweroverdrive] [--resetxgmierr] [--setsclk LEVEL [LEVEL ...]]
                 [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]] [--setslevel SCLKLEVEL SCLK SVOLT]
                 [--setmlevel MCLKLEVEL MCLK MVOLT] [--setvc POINT SCLK SVOLT] [--setsrange MINMAX SCLK]
                 [--setmrange MINMAX SCLK] [--setfan LEVEL] [--setperflevel LEVEL] [--setoverdrive %]
                 [--setmemoverdrive %] [--setpoweroverdrive WATTS] [--setprofile SETPROFILE] [--rasenable BLOCK ERRTYPE]
                 [--rasdisable BLOCK ERRTYPE] [--rasinject BLOCK] [--gpureset] [--load FILE | --save FILE]
-                [--autorespond RESPONSE] [--loglevel LEVEL] [--json]
+                [--autorespond RESPONSE] [--loglevel LEVEL] [--json] [--csv]
 
 =================================== ===================================================================================
-  -h, --help                  		show this help message and exit
-  --gpureset                            Reset specified GPU (One GPU must be specified)
-  --load FILE                 		Load Clock, Fan, Performance and Profile settings 
-  --save FILE                 		Save Clock, Fan, Performance and Profile settings 
+ optional arguments:
+  -h, --help                                            show this help message and exit
+  --gpureset                                            Reset specified GPU (One GPU must be specified)
+  --load FILE                                           Load Clock, Fan, Performance and Profile settings from FILE
+  --save FILE                                           Save Clock, Fan, Performance and Profile settings to FILE
+ 
 =================================== ===================================================================================
 
-
- -d DEVICE [DEVICE ...], --device DEVICE [DEVICE ...]  	   Execute command on specified device
+  -d DEVICE [DEVICE ...], --device DEVICE [DEVICE ...]  Execute command on specified device
 
 ================================================ ======================================================================
 
-  Display Options:
-  --alldevices                                          Execute command on non-AMD devices as well as AMD devices
+ Display Options:
+  --alldevices
   --showhw                                              Show Hardware details
   -a, --showallinfo                                     Show Temperature, Fan and Clock values
 
@@ -219,11 +222,13 @@ Topology:
   --showvoltagerange                                    Show voltage range
   --showbus                                             Show PCI bus number
 
+
 Pages information:
   --showpagesinfo                                       Show retired, pending and unreservable pages
   --showpendingpages                                    Show pending retired pages
   --showretiredpages                                    Show retired pages
   --showunreservablepages                               Show unreservable pages
+
 
 Hardware-related information:
   -f, --showfan                                         Show current fan speed
@@ -232,6 +237,7 @@ Hardware-related information:
   -u, --showuse                                         Show current GPU use
   --showmemuse                                          Show current GPU memory used
   --showvoltage                                         Show current GPU voltage
+
 
 Software-related/controlled information:
   -b, --showbw                                          Show estimated PCIe use
@@ -246,11 +252,18 @@ Software-related/controlled information:
   -s, --showclkfrq                                      Show supported GPU and Memory Clock
   --showmeminfo TYPE [TYPE ...]                         Show Memory usage information for given block(s) TYPE
   --showpids                                            Show current running KFD PIDs
+  --showpidgpus [SHOWPIDGPUS [SHOWPIDGPUS ...]]         Show GPUs used by specified KFD PIDs (all if no arg given)
   --showreplaycount                                     Show PCIe Replay Count
-  --showrasinfo BLOCK [BLOCK ...]                       Show RAS enablement information and error counts for the
-                                                        specified block(s)
+  --showrasinfo [SHOWRASINFO [SHOWRASINFO ...]]         Show RAS enablement information and error counts for the
+                                                        specified block(s) (all if no arg given)
   --showvc                                              Show voltage curve
   --showxgmierr                                         Show XGMI error information since last read
+  --showtopo                                            Show hardware topology information
+  --showtopoweight                                      Shows the relative weight between GPUs
+  --showtopohops                                        Shows the number of hops between GPUs
+  --showtopotype                                        Shows the link type between GPUs
+  --showtoponuma                                        Shows the numa nodes
+
 
 Set options:
   --setsclk LEVEL [LEVEL ...]                           Set GPU Clock Frequency Level(s) (requires manual Perf level)
@@ -276,7 +289,7 @@ Set options:
   --rasdisable BLOCK ERRTYPE                            Disable RAS for specified block and error type
   --rasinject BLOCK                                     Inject RAS poison for specified block (ONLY WORKS ON UNSECURE
                                                         BOARDS)
-
+  
 Reset options:
   -r, --resetclocks                                     Reset clocks and OverDrive to default
   --resetfans                                           Reset fans to automatic (driver) control
@@ -288,10 +301,13 @@ Auto-response options:
   --autorespond RESPONSE                                Response to automatically provide for all prompts (NOT
                                                         RECOMMENDED)
 
+
+
 Output options:
   --loglevel LEVEL                                      How much output will be printed for what program is doing, one
                                                         of debug/info/warning/error/critical
   --json                                                Print output in JSON format
+  --csv                                                 Print output in CSV format
 ================================================ ======================================================================
 
 **Detailed Option Descriptions**
