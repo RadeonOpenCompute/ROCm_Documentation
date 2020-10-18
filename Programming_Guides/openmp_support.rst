@@ -23,7 +23,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 OpenMP-Extras Source Build
 --------------------------
 
-For instructions on building OpenMP-Extras from source, refer to `OPENMPEXTRAS_SOURCE_INSTALL.<https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md>`__
+For instructions on building OpenMP-Extras from source, refer to `OPENMPEXTRAS_SOURCE_INSTALL. <https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md>`__
 
 System package dependencies can be found `here. <https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.0/docs/SOURCEINSTALL.md>`__
 
