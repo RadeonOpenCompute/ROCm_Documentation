@@ -191,7 +191,7 @@ usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [--alldevices] [--showhw] [-a] [-i
                 [--autorespond RESPONSE] [--loglevel LEVEL] [--json] [--csv]
 
 =================================== ===================================================================================
- optional arguments:
+ **Optional Arguments**
   -h, --help                                            show this help message and exit
   --gpureset                                            Reset specified GPU (One GPU must be specified)
   --load FILE                                           Load Clock, Fan, Performance and Profile settings from FILE
@@ -203,12 +203,12 @@ usage: rocm-smi [-h] [-d DEVICE [DEVICE ...]] [--alldevices] [--showhw] [-a] [-i
 
 ================================================ ======================================================================
 
- Display Options:
+ **Display Options**
   --alldevices
   --showhw                                              Show Hardware details
   -a, --showallinfo                                     Show Temperature, Fan and Clock values
 
-Topology:
+**Topology**
   -i, --showid                                          Show GPU ID
   -v, --showvbios                                       Show VBIOS version
   --showdriverversion                                   Show kernel driver version
@@ -223,14 +223,14 @@ Topology:
   --showbus                                             Show PCI bus number
 
 
-Pages information:
+**Pages Information**
   --showpagesinfo                                       Show retired, pending and unreservable pages
   --showpendingpages                                    Show pending retired pages
   --showretiredpages                                    Show retired pages
   --showunreservablepages                               Show unreservable pages
 
 
-Hardware-related information:
+**Hardware-related Information**
   -f, --showfan                                         Show current fan speed
   -P, --showpower                                       Show current Average Graphics Package Power Consumption
   -t, --showtemp                                        Show current temperature
@@ -239,7 +239,7 @@ Hardware-related information:
   --showvoltage                                         Show current GPU voltage
 
 
-Software-related/controlled information:
+**Software-related/controlled information**
   -b, --showbw                                          Show estimated PCIe use
   -c, --showclocks                                      Show current clock frequencies
   -g, --showgpuclocks                                   Show current GPU clock frequencies
@@ -265,7 +265,7 @@ Software-related/controlled information:
   --showtoponuma                                        Shows the numa nodes
 
 
-Set options:
+**Set Options**
   --setsclk LEVEL [LEVEL ...]                           Set GPU Clock Frequency Level(s) (requires manual Perf level)
   --setmclk LEVEL [LEVEL ...]                           Set GPU Memory Clock Frequency Level(s) (requires manual Perf
                                                         level)
@@ -290,20 +290,20 @@ Set options:
   --rasinject BLOCK                                     Inject RAS poison for specified block (ONLY WORKS ON UNSECURE
                                                         BOARDS)
   
-Reset options:
+**Reset Options**
   -r, --resetclocks                                     Reset clocks and OverDrive to default
   --resetfans                                           Reset fans to automatic (driver) control
   --resetprofile                                        Reset Power Profile back to default
   --resetpoweroverdrive                                 Set the maximum GPU power back to the device deafult state
   --resetxgmierr                                        Reset XGMI error count
 
-Auto-response options:
+**Auto-response Options**
   --autorespond RESPONSE                                Response to automatically provide for all prompts (NOT
                                                         RECOMMENDED)
 
 
 
-Output options:
+**Output Options**
   --loglevel LEVEL                                      How much output will be printed for what program is doing, one
                                                         of debug/info/warning/error/critical
   --json                                                Print output in JSON format
@@ -506,9 +506,9 @@ All entries (except name) are optional, and should only be created in a given dr
 
 
 
- Global Attributes 
-#######################
-
+Global Attributes
+******************
+ 
 ================ ============================================================================================
 name		  | The chip name.This should be a short, lowercase string, not containing whitespace,
 		  | dashes, or the wildcard character '*'.This attribute represents the chip name. 
@@ -523,8 +523,8 @@ update_interval	  | The interval at which the chip will update readings.
 ================ ============================================================================================
 
  
- Voltages 
-############
+Voltages 
+*********
 
 ====================== ===============================================================================================
 in[0-*]_min	        |  Voltage min value.
@@ -603,8 +603,8 @@ Also see the Alarms section for status flags associated with voltages.
 
 
 
- Fans 
-#######
+Fans 
+*****
 
 =============== =============================================================================================
 fan[1-*]_min	 | Fan minimum value
@@ -659,8 +659,8 @@ Also see the Alarms section for status flags associated with fans.
 
 
 
- Pulse with Modulation
-###############################
+Pulse with Modulation
+**********************
 		
 +--------------------------------------+-----------------------------------------------------------------------------------------+
 | pwm[1-*]	 		       | | Pulse width modulation fan control.							 |
@@ -702,8 +702,8 @@ value (fastest fan speed) wins.
 
 
 
- Temperatures 
-################
+Temperatures 
+******************
 
 ========================= ==========================================================================================
 temp[1-*]_type		  | Sensor type selection.
@@ -805,8 +805,8 @@ Also see the Alarms section for status flags associated with temperatures.
 
 
 
- Currents 
-###########
+Currents 
+*********
 
 ======================= ========================================================
 curr[1-*]_max		 |  Current max value
@@ -857,8 +857,8 @@ curr[1-*]_enable         | Enable or disable the sensors
 Also see the Alarms section for status flags associated with currents.
 
 
- Power 
-########
+Power
+******
 
 ================================ ===============================================================================
 power[1-*]_average		 | Average power use
@@ -956,8 +956,8 @@ power[1-*]_enable                | Enable or disable the sensors.
 Also see the Alarms section for status flags associated with power readings.
 
 
- Energy 
-#########
+Energy 
+*********
 
 ==================== ========================
 energy[1-*]_input    |  Cumulative energy use
@@ -972,8 +972,8 @@ energy[1-*]_enable   | Enable or disable the sensors
 ==================== ========================
 
 
- Humidity 
-############
+Humidity
+**********
 
 ==================== ===========================================
 humidity[1-*]_input  | Humidity
@@ -989,8 +989,8 @@ humidity[1-*]_enable | Enable or disable the sensors
 
 
 
- Alarms 
-#########
+Alarms
+*********
 
 Each channel or limit may have an associated alarm file, containing a
 boolean value. 1 means than an alarm condition exists, 0 means no alarm.
@@ -1087,8 +1087,8 @@ beep_mask      | Bitmask for beep.
 
 
 
- Intrusion detection 
-#######################
+Intrusion detection 
+********************
 
 ======================= ===========================================================
 intrusion[0-*]_alarm
