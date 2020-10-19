@@ -82,6 +82,21 @@ A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from 
 
 * For ROCm v3.3 and older releases, the *clinfo* path remains unchanged - */opt/rocm/opencl/bin/x86_64/clinfo*.
 
+**Multi-Version Installation Updates for ROCm v3.9 Release**
+
+The meta packages *rocm-dkms<version>* are now deprecated for multi-version rocm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
+
+Multi-version installation of ROCm should be performed by installing *rocm-dev<version>* using each of the desired rocm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0).  
+
+* ‘version’ files should be created for each multi-version rocm <= 3.9.0
+	* Command: *echo <version> | sudo tee /opt/rocm-<version>/.info/version*
+	* For example, *echo 3.9.0 | sudo tee /opt/rocm-3.9.0/.info/version* 
+
+* The rock-dkms loadable kernel modules should be installed using a single ‘rock-dkms’ package
+ 
+ Single version installation of the rocm stack remains the same. The ‘rocm-dkms’ package can be used for single version installs and is not deprecated at this time.
+
+
 
    
 Supported Operating Systems
