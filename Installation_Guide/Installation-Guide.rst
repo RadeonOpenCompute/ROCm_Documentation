@@ -19,7 +19,7 @@ Install AMD ROCm
 	-   `CentOS RHEL`_ 
    
    
-	-  `SLES 15 Service Pack 1`_  
+	-  `SLES 15 Service Pack 2`_  
  
  
       
@@ -58,26 +58,25 @@ https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
 Prerequisites 
 ~~~~~~~~~~~~~~~
 
-In this release, AMD ROCm extends support to Ubuntu 20.04, including dual kernel.
+In this release, AMD ROCm extends support to SLES 15 SP2
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.3)
+* Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
 
 **Note**: Ubuntu versions lower than 18 are no longer supported.
 
 * CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
 * CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
-* SLES 15 SP1
+* SLES 15 SP2
 
 
-**FRESH INSTALLATION OF AMD ROCm V3.8 RECOMMENDED**
+**FRESH INSTALLATION OF AMD ROCm V3.9 RECOMMENDED**
 
 A fresh and clean installation of AMD ROCm v3.8 is recommended. An upgrade from previous releases to AMD ROCm v3.8 is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
 
 * For ROCm v3.5 and releases thereafter, the *clinfo* path is changed to - */opt/rocm/opencl/bin/clinfo*.
 
@@ -155,6 +154,8 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 5. To add your user to the video and render groups, use the following command with the sudo password:
 
+**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+
 ::
 
      sudo usermod -a -G video $LOGNAME
@@ -229,10 +230,10 @@ You can install the ROCm user-level software without installing the AMD's custom
 CentOS RHEL
 ============
 
-CentOS v7.8/RHEL v7.8 and CentOS/RHEL 8.2
+CentOS/RHEL v7.8 and CentOS/RHEL 8.2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section describes how to install ROCm on supported RPM-based systems such as CentOS v7.7/RHEL v7.8 and CentOS/RHEL v8.1.
+This section describes how to install ROCm on supported RPM-based systems such as CentOS/RHEL v7.8 and CentOS/RHEL v8.2.
 
 Preparing RHEL for Installation
 '''''''''''''''''''''''''''''''''''
@@ -312,7 +313,6 @@ Note: The URL of the repository must point to the location of the repositoriesâ€
 
 3. Install ROCm components using the following command:
 
-**Note**: This step is applicable only for CentOS/RHEL v8.x and is not required for v7.x.
 
 ::
 
@@ -415,12 +415,12 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 **Note**: Ensure you restart the system after ROCm installation. 
 
 
-.. _SLES 15 Service Pack 1:
+.. _SLES 15 Service Pack 2:
 
-SLES 15 Service Pack 1
+SLES 15 Service Pack 2
 ========================
 
-The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 1. 
+The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 2. 
 
 **Installation**
 
@@ -700,7 +700,9 @@ Review the following important notes:
 
 **Single Version Installation**
 
-To install a single instance of the ROCm package, access the non-versioned packages. You must not install any components from the multi-instance set.
+To install a single instance of the ROCm package, access the non-versioned packages. 
+
+**Note**: You must not install any components from the multi-instance set.
 
 For example, 
 
@@ -710,7 +712,7 @@ For example,
 
 * hip
 
-A fresh installation or an upgrade of the single-version installation will remove the existing version completely and install the new version in the */opt/rocm-<version>* folder.
+A fresh installation of single-version installation will install the new version in the */opt/rocm-<version>* folder.
 
 .. image:: /Current_Release_Notes/singleinstance.png
 
@@ -720,11 +722,11 @@ A fresh installation or an upgrade of the single-version installation will remov
 
 For example,
 
-  * rocm-dkms3.8.0
+  * rocm-dev3.9.0
 
-  * rocm-dev3.8.0
+  * hip3.9.0
 
-  * hip3.8.0
+* kernel/firmware package doesn't have multi version so it should be installed using "apt/yum/zypper install rock-dkms".
 
 * The new multi-instance package enables you to install two versions of the ROCm toolkit simultaneously and provides the ability to toggle between the two versioned packages.
 
