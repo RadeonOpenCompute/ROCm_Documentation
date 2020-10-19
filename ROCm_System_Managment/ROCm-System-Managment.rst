@@ -470,7 +470,7 @@ SYSFS Interface
 =================
 
 Naming and data format standards for sysfs files
-************************************************
+------------------------------------------------------------
 
 The libsensors library offers an interface to the raw sensors data through the sysfs interface. Since lm-sensors 3.0.0, libsensors is completely chip-independent. It assumes that all the kernel drivers implement the standard sysfs interface described in this document. This makes adding or updating support for any given chip very easy, as libsensors, and applications using it, do not need to be modified. This is a major improvement compared to lm-sensors 2.
 
@@ -507,7 +507,7 @@ All entries (except name) are optional, and should only be created in a given dr
 
 
 Global Attributes
-******************
+--------------------
  
 ================ ============================================================================================
 name		  | The chip name.This should be a short, lowercase string, not containing whitespace,
@@ -524,7 +524,7 @@ update_interval	  | The interval at which the chip will update readings.
 
  
 Voltages 
-*********
+----------
 
 ====================== ===============================================================================================
 in[0-*]_min	        |  Voltage min value.
@@ -604,7 +604,7 @@ Also see the Alarms section for status flags associated with voltages.
 
 
 Fans 
-*****
+---------
 
 =============== =============================================================================================
 fan[1-*]_min	 | Fan minimum value
@@ -660,8 +660,8 @@ Also see the Alarms section for status flags associated with fans.
 
 
 Pulse with Modulation
-**********************
-		
+------------------------------
+
 +--------------------------------------+-----------------------------------------------------------------------------------------+
 | pwm[1-*]	 		       | | Pulse width modulation fan control.							 |
 |				       | | Integer value in the range 0 to 255							 |
@@ -703,7 +703,7 @@ value (fastest fan speed) wins.
 
 
 Temperatures 
-******************
+---------------
 
 ========================= ==========================================================================================
 temp[1-*]_type		  | Sensor type selection.
@@ -806,7 +806,7 @@ Also see the Alarms section for status flags associated with temperatures.
 
 
 Currents 
-*********
+----------
 
 ======================= ========================================================
 curr[1-*]_max		 |  Current max value
@@ -858,7 +858,7 @@ Also see the Alarms section for status flags associated with currents.
 
 
 Power
-******
+--------
 
 ================================ ===============================================================================
 power[1-*]_average		 | Average power use
@@ -957,7 +957,7 @@ Also see the Alarms section for status flags associated with power readings.
 
 
 Energy 
-*********
+----------
 
 ==================== ========================
 energy[1-*]_input    |  Cumulative energy use
@@ -973,7 +973,7 @@ energy[1-*]_enable   | Enable or disable the sensors
 
 
 Humidity
-**********
+-----------
 
 ==================== ===========================================
 humidity[1-*]_input  | Humidity
@@ -990,7 +990,7 @@ humidity[1-*]_enable | Enable or disable the sensors
 
 
 Alarms
-*********
+--------
 
 Each channel or limit may have an associated alarm file, containing a
 boolean value. 1 means than an alarm condition exists, 0 means no alarm.
@@ -1088,7 +1088,7 @@ beep_mask      | Bitmask for beep.
 
 
 Intrusion detection 
-********************
+-----------------------
 
 ======================= ===========================================================
 intrusion[0-*]_alarm
@@ -1181,9 +1181,9 @@ Example2, fan divider setting, valid values 2, 4 and 8:
 	}
 	/* write v to register */
 
-*********
+*************
 Performance 
-*********
+*************
 
 The pcie_bw sysfs file will report the usage of the PCIe bus over the last second, as a string with 3 integers: "bytes-received bytes-sent mps" . As there is no efficient way to calculate the size of each packet transmitted to and from the GPU in real time, the maximum payload size (mps), or the largest size of a PCIe packet, is included. The estimated bandwidth can then be calculated using by "bytes-received*mps + bytes-sent*mps" sed and multiplied by the number of packets received and sent.  
 
