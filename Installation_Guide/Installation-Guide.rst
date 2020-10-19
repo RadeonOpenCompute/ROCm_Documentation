@@ -73,7 +73,7 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 **FRESH INSTALLATION OF AMD ROCm V3.9 RECOMMENDED**
 
-A fresh and clean installation of AMD ROCm v3.8 is recommended. An upgrade from previous releases to AMD ROCm v3.8 is not supported.
+A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from previous releases to AMD ROCm v3.9 is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
@@ -553,7 +553,7 @@ HIP-Clang can be built manually:
 
 ::
 
-   git clone -b rocm-3.8.x https://github.com/RadeonOpenCompute/llvm-project.git
+   git clone -b rocm-3.9.x https://github.com/RadeonOpenCompute/llvm-project.git
    cd llvm-project
    mkdir -p build && cd build
    cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" ../llvm
@@ -565,7 +565,7 @@ The ROCm device library can be manually built as following,
 ::
 
    export PATH=/opt/rocm/llvm/bin:$PATH
-   git clone -b rocm-3.8.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
+   git clone -b rocm-3.9.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
    cd ROCm-Device-Libs
    mkdir -p build && cd build
    CC=clang CXX=clang++ cmake -DLLVM_DIR=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_WERROR=1 -DLLVM_ENABLE_ASSERTIONS=1 -DCMAKE_INSTALL_PREFIX=/opt/rocm ..
@@ -581,7 +581,7 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 -  Add the ROCm package server to your system as per the OS-specific
    guide available
    `here <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`__.
--  Install the â€œhip-nvccâ€ package. This will install CUDA SDK and the
+-  Install the 'hip-nvcc' package. This will install CUDA SDK and the
    HIP porting layer.
 
 ::
@@ -611,9 +611,9 @@ https://github.com/ROCm-Developer-Tools/ROCclr
 
 ::
 
-   git clone -b rocm-3.8.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+   git clone -b rocm-3.9.x https://github.com/ROCm-Developer-Tools/ROCclr.git
    export ROCclr_DIR="$(readlink -f ROCclr)"
-   git clone -b rocm-3.8.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+   git clone -b rocm-3.9.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
    export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
    cd "$ROCclr_DIR"
    mkdir -p build;cd build
@@ -627,7 +627,7 @@ Build HIP
 
 ::
 
-   git clone -b rocm-3.8.x https://github.com/ROCm-Developer-Tools/HIP.git
+   git clone -b rocm-3.9.x https://github.com/ROCm-Developer-Tools/HIP.git
    export HIP_DIR="$(readlink -f HIP)"
    cd "$HIP_DIR"
    mkdir -p build; cd build
@@ -682,13 +682,13 @@ Now, users have the option to install multiple versions simultaneously and toggl
 **Prerequisites**
 ###############################
 
-Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.8 ROCm toolkit installation. The ROCm v3.8 package requires a clean installation.
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.9 ROCm toolkit installation. The ROCm v3.9 package requires a clean installation.
 
 * To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
 
-* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.8.0 /opt/rocm*
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.9.0 /opt/rocm*
 
-* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.8.0 /opt/rocm*
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.9.0 /opt/rocm*
 
 **Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
 
@@ -785,7 +785,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.8.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.9.x
   repo sync
 
 
