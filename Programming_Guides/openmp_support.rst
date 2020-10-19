@@ -20,7 +20,7 @@ Openmp-extras is automatically installed as a part of the rocm-dkms or rocm-dev 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
-OpenMP-Extras Source Build
+1. OpenMP-Extras Source Build
 --------------------------
 
 For instructions on building OpenMP-Extras from source, refer to `OPENMPEXTRAS_SOURCE_INSTALL. <https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md>`__
