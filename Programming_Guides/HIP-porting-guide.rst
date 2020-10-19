@@ -846,6 +846,28 @@ Device Code:
        }
        std::cout<<"Passed"<<std::endl;
    }
+   
+
+CU_POINTER_ATTRIBUTE_MEMORY_TYPE
+------------------------------------
+
+To get pointer's memory type in HIP/HIP-Clang one should use hipPointerGetAttributes API. First parameter of the API is hipPointerAttribute_t which has 'memoryType' as member variable. 'memoryType' indicates input pointer is allocated on device or host.
+
+For example:
+
+::
+
+double * ptr;
+hipMalloc(reinterpret_cast<void**>(&ptr), sizeof(double));
+hipPointerAttribute_t attr;
+hipPointerGetAttributes(&attr, ptr); /*attr.memoryType will have value as hipMemoryTypeDevice*/
+
+double* ptrHost;
+hipHostMalloc(&ptrHost, sizeof(double));
+hipPointerAttribute_t attr;
+hipPointerGetAttributes(&attr, ptrHost); /*attr.memoryType will have value as hipMemoryTypeHost*/
+
+
 
 threadfence_system
 ------------------
