@@ -68,7 +68,7 @@ issues.
       256 <#kernel-launch-with-group-size--256>`__
 
 -  `memcpyToSymbol <#memcpytosymbol>`__
--  `CU_Pointer_Attribute_Memory_Type  <#CU-Pointer-Attribute-Memory-Type>`__
+-  `CU Pointer Attribute Memory Type  <#CU-Pointer-Attribute-Memory-Type>`__
 -  `threadfence_system <#threadfence_system>`__
 
    -  `Textures and Cache Control <#textures-and-cache-control>`__
@@ -849,7 +849,7 @@ Device Code:
    }
    
 
-CU_POINTER_ATTRIBUTE_MEMORY_TYPE
+CU POINTER ATTRIBUTE MEMORY TYPE
 ------------------------------------
 
 To get pointer's memory type in HIP/HIP-Clang one should use hipPointerGetAttributes API. First parameter of the API is hipPointerAttribute_t which has 'memoryType' as member variable. 'memoryType' indicates input pointer is allocated on device or host.
