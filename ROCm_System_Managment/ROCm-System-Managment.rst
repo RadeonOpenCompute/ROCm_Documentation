@@ -139,11 +139,32 @@ A simple "Hello World" type program that displays the device ID of detected devi
 
 
 ******************************
-ROCM Command Line Interface 
+ROCm Command Line Interface 
 ******************************
 
 This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of the  
 ROCm-enabled system.
+
+For detailed and up to date usage information, use: 
+
+::
+
+  /opt/rocm/bin/rocm-smi -h
+  
+
+Or see below for information on:
+
+ * Optional Arguments
+ * Display Options
+ * Topology
+ * Pages Information
+ * Hardware-related Information
+ * Software-related/controlled Information
+ * Set Options
+ * Reset Options
+ * Auto-response Options
+ * Output Options
+
 
 **Installation**
 
@@ -165,11 +186,13 @@ $(uname -a) | cut -d ' ' -f 3)
 
 **Usage**
 
-For detailed and up to date usage information, we recommend consulting the help: ::
+For detailed and up to date usage information, see: 
+
+::
 
   /opt/rocm/bin/rocm-smi -h
 
-For convenience purposes, following is the output from the -h flag:
+For your convenience, the output from the -h flag is as follows:
 
 
 AMD ROCm System Management Interface | ROCM-SMI version: 1.4.1 | Kernel version: 5.6.20
