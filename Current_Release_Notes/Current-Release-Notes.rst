@@ -458,6 +458,28 @@ https://rocsolver.readthedocs.io/en/latest/userguide_api.html
 ROCm AOMP ENHANCEMENTS
 ----------------------
 
+AOMP v11.9-0
+~~~~~~~~~~~~~
+
+The source code base for this release is the upstream LLVM 11 monorepo release/11.x sources as of August 18, 2020, with the hash value 
+
+1e6907f09030b636054b1c7b01de36f281a61fa2
+
+The llvm-project branch used to build this release is aomp11. In addition to completing the source tarball, the artifacts of this release include the file llvm-project.patch. This file shows the delta from the llvm-project upstream release/11.x. The size of this patch XXXX lines in XXX files. These changes include support for flang driver, OMPD support, and the hsa libomptarget plugin. The goal is to reduce this with continued upstreaming activity.
+
+The changes for this release of AOMP are:
+
+* Fix compiler warnings for build_project.sh and build_openmp.sh.
+* Fix: [flang] The AOMP 11.7-1 Fortran compiler claims to support the -isystem flag, but ignores it.
+* Fix: [flang] producing internal compiler error when a character is used with KIND.
+* Fix: [flang] openmp map clause on complex allocatable expressions !$omp target data map( chunk%tiles(1)%field%density0).
+* DeviceRTL memory footprint has been reduced from ~2.3GB to ~770MB for AMDGCN target.
+* Workaround for red_bug_51 failing on gfx908.
+* Switch to python3 for ompd and rocgdb.
+* Now require cmake 3.13.4 to compile from source.
+* Fix aompcc to accept file type cxx.
+
+
 AOMP v11.08-0
 ~~~~~~~~~~~~~
 
