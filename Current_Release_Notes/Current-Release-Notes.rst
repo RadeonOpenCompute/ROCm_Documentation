@@ -208,15 +208,11 @@ https://rocmdocs.amd.com/en/latest/index.html
 Auxiliary Package Supporting OpenMP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The openmp-extras_12.9-0_amd64.deb auxiliary package supports OpenMP
-within the ROCm compiler. It contains OpenMP specific header files,
-which are installed in /opt/rocm/llvm/include as well as runtime
-libraries, fortran runtime libraries, and device bitcode files in
-/opt/rocm/llvm/lib. The auxiliary package also consists of examples in
-the /opt/rocm/llvm/examples folder.
+The openmp-extras_12.9-0_amd64.deb auxiliary package supports OpenMP within the ROCm compiler. It contains OpenMP specific header files,
+which are installed in /opt/rocm/llvm/include as well as runtime libraries, fortran runtime libraries, and device bitcode files in
+/opt/rocm/llvm/lib. The auxiliary package also consists of examples in the /opt/rocm/llvm/examples folder.
 
-**NOTE**: The optional AOMP package resides in /opt/rocm//aomp/bin/clang
-and the ROCm compiler, which supports OpenMP for AMDGPU, is located in
+**NOTE**: The optional AOMP package resides in /opt/rocm//aomp/bin/clang and the ROCm compiler, which supports OpenMP for AMDGPU, is located in
 /opt/rocm/llvm/bin/clang.
 
 AOMP Optional Package Deprecation
@@ -274,24 +270,19 @@ For more examples, see */opt/rocm/llvm/examples*.
 ROCm SYSTEM MANAGEMENT INFORMATION
 ----------------------------------
 
-The AMD ROCm v3.9 release consists of the following ROCm System
-Management Information (SMI) enhancements:
+The AMD ROCm v3.9 release consists of the following ROCm System Management Information (SMI) enhancements:
 
 -  Shows the hardware topology
 
--  The ROCm-SMI showpids option shows per-process Compute Unit (CU)
-   Occupancy, VRAM usage, and SDMA usage
+-  The ROCm-SMI showpids option shows per-process Compute Unit (CU) Occupancy, VRAM usage, and SDMA usage
 
--  Support for GPU Reset Event and Thermal Throttling Event in ROCm-SMI
-   Library
+-  Support for GPU Reset Event and Thermal Throttling Event in ROCm-SMI Library
 
 ROCm-SMI Hardware Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ROCm-SMI Command Line Interface (CLI) is enhanced to include new
-options to denote GPU inter-connect topology in the system along with
-the relative distance between each other and the closest NUMA (CPU) node
-for each GPU.
+The ROCm-SMI Command Line Interface (CLI) is enhanced to include new options to denote GPU inter-connect topology in the system along with
+the relative distance between each other and the closest NUMA (CPU) node for each GPU.
 
 .. image:: /Current_Release_Notes/images/ROCMCLI1.PNG 
     :align: center
@@ -301,38 +292,31 @@ for each GPU.
 Compute Unit Occupancy
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The AMD ROCm stack now supports a user process in querying Compute Unit
-(CU) occupancy at a particular moment. This service can be accessed to
+The AMD ROCm stack now supports a user process in querying Compute Unit (CU) occupancy at a particular moment. This service can be accessed to
 determine if a process P is using sufficient compute units.
 
-A periodic collection is used to build the profile of a compute unit
-occupancy for a workload.
+A periodic collection is used to build the profile of a compute unit occupancy for a workload.
 
 
 
 .. image:: /Current_Release_Notes/images/ROCMCLI2.PNG 
    :align: center
 
-ROCm supports this capability only on GFX9 devices. Users can access the
-functionality in two ways:
+ROCm supports this capability only on GFX9 devices. Users can access the functionality in two ways:
 
 -  indirectly from the SMI library
 
 -  directly via Sysfs
 
-**NOTE**: On systems that have both GFX9 and non-GFX9 devices, users
-should interpret the compute unit (CU) occupancy value carefully as the
+**NOTE**: On systems that have both GFX9 and non-GFX9 devices, users should interpret the compute unit (CU) occupancy value carefully as the
 service does not support non-GFX9 devices.
 
 Accessing Compute Unit Occupancy Indirectly
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ROCm System Management Interface (SMI) library provides a convenient
-interface to determine the CU occupancy for a process. To get the CU
-occupancy of a process reported in percentage terms, invoke the SMI
-interface using rsmi_compute_process_info_by_pid_get(). The value is
-reported through the member field cu_occupancy of struct
-rsmi_process_info_t.
+The ROCm System Management Interface (SMI) library provides a convenient interface to determine the CU occupancy for a process. To get the CU
+occupancy of a process reported in percentage terms, invoke the SMI interface using rsmi_compute_process_info_by_pid_get(). The value is
+reported through the member field cu_occupancy of struct rsmi_process_info_t.
 
 ::
 
@@ -354,10 +338,8 @@ rsmi_process_info_t.
 Accessing Compute Unit Occupancy Directly Using SYSFS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Information provided by SMI library is built from sysfs. For every valid
-device, ROCm stack surfaces a file by the name cu_occupancy in Sysfs.
-Users can read this file to determine how that device is being used by a
-particular workload. The general structure of the file path is
+Information provided by SMI library is built from sysfs. For every valid device, ROCm stack surfaces a file by the name cu_occupancy in Sysfs.
+Users can read this file to determine how that device is being used by a particular workload. The general structure of the file path is
 /proc//stats\_/cu_occupancy
 
 ::
