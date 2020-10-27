@@ -284,7 +284,7 @@ ROCm-SMI Hardware Topology
 The ROCm-SMI Command Line Interface (CLI) is enhanced to include new options to denote GPU inter-connect topology in the system along with
 the relative distance between each other and the closest NUMA (CPU) node for each GPU.
 
-.. image:: /Current_Release_Notes/images/ROCMCLI1.PNG 
+.. image:: https://github.com/RadeonOpenCompute/ROCm_Documentation/blob/doc_updates/Current_Release_Notes/images/ROCMCLI1.PNG
     :align: center
 
   
