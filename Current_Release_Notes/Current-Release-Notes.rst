@@ -293,7 +293,7 @@ options to denote GPU inter-connect topology in the system along with
 the relative distance between each other and the closest NUMA (CPU) node
 for each GPU.
 
-.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI1.PNG
+.. image:: /Current_Release_Notes/images/ROCMCLI1.PNG 
     :align: center
 
   
