@@ -64,7 +64,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 -  For ROCm v3.3 and older releases, the *clinfo* path remains unchanged
    - */opt/rocm/opencl/bin/x86_64/clinfo*.
    
- ROCm MultiVersion Installation Update
+ROCm MultiVersion Installation Update
 ---------------------------------------
 
 With the AMD ROCm v3.9 release, the following ROCm multi-version installation changes apply:
