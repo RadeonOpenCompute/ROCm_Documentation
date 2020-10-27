@@ -297,8 +297,6 @@ determine if a process P is using sufficient compute units.
 
 A periodic collection is used to build the profile of a compute unit occupancy for a workload.
 
-
-
 .. image:: /Current_Release_Notes/images/ROCMCLI2.PNG 
    :align: center
 
@@ -439,7 +437,69 @@ In this release, the following new Matrix Pruning functions are introduced.
    :align: center
 
    
+rocSOLVER General Matrix Singular Value Decomposition API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The rocSOLVER General Matrix Singular Value Decomposition (GESVD) API is now available in the AMD ROCm v3.9 release.
+
+GESVD computes the Singular Values and, optionally, the Singular Vectors of a general m-by-n matrix A (Singular Value Decomposition).
+
+The SVD of matrix A is given by:
+
+::
+
+   A = U * S * V'
+
+For more information, refer to
+
+https://rocsolver.readthedocs.io/en/latest/userguide_api.html
+
+
+ROCm AOMP ENHANCEMENTS
+----------------------
+
+AOMP v11.08-0
+~~~~~~~~~~~~~
+
+The source code base for this release is the upstream LLVM 11 monorepo release/11.x sources as of August 18, 2020 with the hash value
+
+*aabff0f7d564b22600b33731e0d78d2e70d060b4*
+
+The amd-llvm-project branch used to build this release is amd-stg-openmp. In addition to complete source tarball, the artifacts of this release includes the file llvm-project.patch. This file shows the delta from the llvm-project upstream release/11.x which is currently at 32715 lines in 240 files. These changes include support for flang driver, OMPD support and the hsa libomptarget plugin. Our goal is to reduce this with continued upstreaming activity.
+
+These are the major changes for this release of AOMP:
+
+-  Switch to the LLVM 11.x stable code base.
+
+-  OMPD updates for flang.
+
+-  To support debugging OpenMP, selected OpenMP runtime sources are included in lib-debug/src/openmp. The ROCgdb debugger will find these
+   automatically.
+
+-  Threadsafe hsa plugin for libomptarget.
+
+-  Updates to support device libraries.
+
+-  Openmpi configure issue with real16 resolved.
+
+-  DeviceRTL memory use is now independent of number of openmp binaries.
+
+-  Startup latency on first kernel launch reduced by order of magnitude.
+
+
+AOMP v11.07-1
+~~~~~~~~~~~~~
+
+The source code base for this release is the upstream LLVM 11 monorepo development sources as July 10, 2020 with hash valued 979c5023d3f0656cf51bd645936f52acd62b0333 The amd-llvm-project branch used to build this release is amd-stg-openmp. In addition to complete source tarball, the artifacts of this release includes the file
+llvm-project.patch. This file shows the delta from the llvm-project upstream trunk which is currently at 34121 lines in 277 files. Our goal is to reduce this with continued upstreaming activity.
+
+-  Inclusion of OMPD support which is not yet upstream
+
+-  Build of ROCgdb
+
+-  Host runtime optimisation. GPU image information is now mostly read on the host instead of from the GPU.
+
+-  Fixed the source build scripts so that building from the source tarball does not fail because of missing test directories. This fixes issue #116.
 
 
 
@@ -448,10 +508,14 @@ Fixed Defects
 
 The following defects are fixed in this release:
 
--  GPU Kernel C++ Names Not Demangled
--  MIGraphX Fails for fp16 Datatype
--  Issue with Peer-to-Peer Transfers
--  *"rocprof"* option *“parallel-kernels" Not Supported in this Release
+-  Random Soft Hang Observed When Running ResNet-Based Models
+
+-  (AOMP) 'Undefined Hidden Symbol" Linker Error Causes Compilation Failure in HIP
+
+-  MIGraphx -> test_gpu_ops_test FAILED
+
+-  Unable to install RDC on CentOS/RHEL 7.8/8.2 & SLES
+
 
 
 Known Issues
