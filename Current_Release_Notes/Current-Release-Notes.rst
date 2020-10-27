@@ -271,6 +271,186 @@ For more examples, see */opt/rocm/llvm/examples*.
 
 
 
+ROCm SYSTEM MANAGEMENT INFORMATION
+----------------------------------
+
+The AMD ROCm v3.9 release consists of the following ROCm System
+Management Information (SMI) enhancements:
+
+-  Shows the hardware topology
+
+-  The ROCm-SMI showpids option shows per-process Compute Unit (CU)
+   Occupancy, VRAM usage, and SDMA usage
+
+-  Support for GPU Reset Event and Thermal Throttling Event in ROCm-SMI
+   Library
+
+ROCm-SMI Hardware Topology
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCm-SMI Command Line Interface (CLI) is enhanced to include new
+options to denote GPU inter-connect topology in the system along with
+the relative distance between each other and the closest NUMA (CPU) node
+for each GPU.
+
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI1.PNG
+   :alt: Screenshot
+
+   Screenshot
+
+Compute Unit Occupancy
+~~~~~~~~~~~~~~~~~~~~~~
+
+The AMD ROCm stack now supports a user process in querying Compute Unit
+(CU) occupancy at a particular moment. This service can be accessed to
+determine if a process P is using sufficient compute units.
+
+A periodic collection is used to build the profile of a compute unit
+occupancy for a workload.
+
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI2.PNG
+   :alt: Screenshot
+
+   Screenshot
+
+ROCm supports this capability only on GFX9 devices. Users can access the
+functionality in two ways:
+
+-  indirectly from the SMI library
+
+-  directly via Sysfs
+
+**NOTE**: On systems that have both GFX9 and non-GFX9 devices, users
+should interpret the compute unit (CU) occupancy value carefully as the
+service does not support non-GFX9 devices.
+
+Accessing Compute Unit Occupancy Indirectly
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCm System Management Interface (SMI) library provides a convenient
+interface to determine the CU occupancy for a process. To get the CU
+occupancy of a process reported in percentage terms, invoke the SMI
+interface using rsmi_compute_process_info_by_pid_get(). The value is
+reported through the member field cu_occupancy of struct
+rsmi_process_info_t.
+
+::
+
+   /**
+      * @brief Encodes information about a process
+      * @cu_occupancy Compute Unit usage in percent
+      */
+     typedef struct {
+         - - -,
+         uint32_t cu_occupancy;
+     } rsmi_process_info_t;
+
+     /**
+      * API to get information about a process
+     rsmi_status_t
+         rsmi_compute_process_info_by_pid_get(uint32_t pid,
+             rsmi_process_info_t *proc);
+
+Accessing Compute Unit Occupancy Directly Using SYSFS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Information provided by SMI library is built from sysfs. For every valid
+device, ROCm stack surfaces a file by the name cu_occupancy in Sysfs.
+Users can read this file to determine how that device is being used by a
+particular workload. The general structure of the file path is
+/proc//stats\_/cu_occupancy
+
+::
+
+   /**
+      * CU occupancy files for processes P1 and P2 on two devices with 
+      * ids: 1008 and 112326
+      */
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_1>/stats_1008/cu_occupancy
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_1>/stats_2326/cu_occupancy
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_2>/stats_1008/cu_occupancy
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_2>/stats_2326/cu_occupancy
+     
+   // To get CU occupancy for a process P<i>
+     for each valid-device from device-list {
+       path-1 = Build path for cu_occupancy file;
+       path-2 = Build path for file Gpu-Properties;
+       cu_in_use += Open and Read the file path-1;
+       cu_total_cnt += Open and Read the file path-2;
+     }
+     cu_percent = ((cu_in_use * 100) / cu_total_cnt);
+     
+
+GPU Reset Event and Thermal Throttling Event
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCm-SMI library clients can now register for the following events:
+
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI3.PNG
+   :alt: Screenshot
+
+   Screenshot
+
+ROCm Math and Communication Libraries
+-------------------------------------
+
+â€˜rocfft_execution_info_set_streamâ€™ API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+rocFFT is a software library for computing Fast Fourier Transforms
+(FFT). It is part of AMDâ€™s software ecosystem based on ROCm. In addition
+to AMD GPU devices, the library can be compiled with the CUDA compiler
+using HIP tools for running on Nvidia GPU devices.
+
+The â€˜rocfft_execution_info_set_streamâ€™ API is a function to specify
+optional and additional information to control execution. This API
+specifies the compute stream, which must be invoked before the call to
+rocfft_execute. Compute stream is the underlying device queue/stream
+where the library computations are inserted.
+
+PREREQUISITES
+^^^^^^^^^^^^^
+
+Using the compute stream API makes the following assumptions:
+
+-  This stream already exists in the program and assigns work to the
+   stream
+
+-  The stream must be of type hipStream_t. Note, it is an error to pass
+   the address of a hipStream_t object
+
+PARAMETERS
+^^^^^^^^^^
+
+Input
+
+-  info execution info handle
+-  stream underlying compute stream
+
+Improved GEMM Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Currently, rocblas_gemm_ext2() supports matrix multiplication D <= alpha \* A \* B + beta \* C, where the A, B, C, and D matrices are single-precision float, column-major, and non-transposed, except that the row stride of C may equal 0. This means the first row of C is broadcast M times in C:
+
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/GEMM2.PNG
+   :alt: Screenshot
+
+ 
+If an optimized kernel solution for a particular problem is not available, a slow fallback algorithm is used, and the first time a fallback algorithm is used, the following message is printed to standard error:
+
+*Warning: Using slow on-host algorithm, because it is not implemented in Tensile yet.*
+
+**NOTE**: ROCBLAS_LAYER controls the logging of the calls. It is recommended to use logging with the rocblas_gemm_ext2() feature, to identify the precise parameters which are passed to it.
+
+-  Setting the ROCBLAS_LAYER environment variable to 2 will print the problem parameters as they are being executed.
+-  Setting the ROCBLAS_LAYER environment variable to 4 will collect all of the sizes, and print them out at the end of program execution.
+
+For more logging information, refer to
+
+https://rocblas.readthedocs.io/en/latest/logging.html.
+
+
+
 Fixed Defects
 =============
 
