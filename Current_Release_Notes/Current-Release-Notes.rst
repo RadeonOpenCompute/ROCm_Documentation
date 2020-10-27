@@ -510,50 +510,88 @@ The following defects are fixed in this release:
 
 -  Random Soft Hang Observed When Running ResNet-Based Models
 
--  (AOMP) 'Undefined Hidden Symbol" Linker Error Causes Compilation Failure in HIP
+-  (AOMP) "Undefined Hidden Symbol" Linker Error Causes Compilation Failure in HIP
 
 -  MIGraphx -> test_gpu_ops_test FAILED
 
 -  Unable to install RDC on CentOS/RHEL 7.8/8.2 & SLES
 
 
-
 Known Issues
 -------------------
 
-Undefined Reference Issue in Statically Linked Libraries
-===============================================================
+The following are the known issues in this release.
 
-Libraries and applications statically linked using flags *-rtlib=compiler-rt*, such as rocBLAS, have an implicit dependency on
-gcc_s not captured in their CMAKE configuration.
+(AOMP) HIP EXAMPLE DEVICE_LIB FAILS TO COMPILE
+----------------------------------------------
 
-Client applications may require linking with an additional library *-lgcc_s* to resolve the undefined reference to symbol *"_Unwind_ResumeGCC_3.0"*.
+The HIP example device_lib fails to compile and displays the following error:
 
+*lld: error: undefined hidden symbol: inc_arrayval*
 
-MIGraphX Pooling Operation Fails for Some Models
-========================================================
-
-MIGraphX does not work for some models with pooling operations and the following error appears:
-
-*˜test_gpu_ops_test FAILED"*
-
-This issue is currently under investigation and there is no known workaround currently.
+The recommended workaround is to use */opt/rocm/hip/bin/hipcc to compile HIP applications*.
 
 
-MIVisionX Installation Error on CentOS/RHEL8.2 and SLES 15
-=============================================================
+HIPFORT INSTALLATION FAILURE
+----------------------------
 
-Installing ROCm on MIVisionX results in the following error on CentOS/RHEL8.2 and SLES 15:
+Hipfort fails to install during the ROCm installation.
 
-*"Problem: nothing provides opencv needed"*
+As a workaround, you may force install hipfort using the following instructions:
 
-As a workaround, install opencv before installing MIVisionX.
+Ubuntu
+~~~~~~
+
+::
+
+   sudo apt-get -o Dpkg::Options::="--force-overwrite" install hipfort
+
+SLES
+~~~~
+
+Zypper gives you an option to continue with the overwrite during the installation.
+
+CentOS
+~~~~~~
+
+Download hipfort to a temporary location and force install with rpm:
+
+::
+
+   yum install --downloadonly --downloaddir=/tmp/hipfort hipfort
+   rpm -i --replacefiles hipfort<package-version>
+
+
+MEMORY FAULT ACCESS ERROR DURING ROCM VALIDATION SUITE INSTALLATION
+-------------------------------------------------------------------
+
+When the ROCm Validation Suite (RVS) is installed using the prebuilt Debian/rpm package and run for the first time, the memory module
+displays the following error message,
+
+*Memory access fault by GPU node- (Agent handle: 0xa55170) on address 0x7fc268c00000. Reason: Page not present or supervisor privilege.
+Aborted (core dumped)*
+
+As a workaround, run the installation process again. Subsequent runs appear to fix the error and result in a successful installation.
+
+**NOTE**: The error may display after a system reboot. Reinstallation of the ROCm Validation Suite is not required.
+
+
+Deprecations
+-------------------
+
+This section describes deprecations and removals in AMD ROCm.
+
+**WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION**
+
+Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
+
+Support for loading code object version 2 is also being deprecated with no announced removal release.
 
 
 Deploying ROCm
 -------------------
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.7.x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v3.9.x packages.
 
 For more information on ROCM installation on all platforms, see
 
