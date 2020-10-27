@@ -562,18 +562,20 @@ Download hipfort to a temporary location and force install with rpm:
    rpm -i --replacefiles hipfort<package-version>
 
 
-MEMORY FAULT ACCESS ERROR DURING ROCM VALIDATION SUITE INSTALLATION
--------------------------------------------------------------------
+MEMORY FAULT ACCESS ERROR DURING MEMORY TEST OF ROCM VALIDATION SUITE 
+-----------------------------------------------------------------------
 
-When the ROCm Validation Suite (RVS) is installed using the prebuilt Debian/rpm package and run for the first time, the memory module
-displays the following error message,
+When the ROCm Validation Suite (RVS) is installed using the prebuilt Debian/rpm package and run for the first time, the memory module displays the following error message, 
 
-*Memory access fault by GPU node- (Agent handle: 0xa55170) on address 0x7fc268c00000. Reason: Page not present or supervisor privilege.
-Aborted (core dumped)*
+*“Memory access fault by GPU node-<x> (Agent handle: 0xa55170) on address 0x7fc268c00000. Reason: Page not present or supervisor privilege.
+Aborted (core dumped).”*
 
-As a workaround, run the installation process again. Subsequent runs appear to fix the error and result in a successful installation.
+As a workaround, run the test again. Subsequent runs appear to fix the error.
 
-**NOTE**: The error may display after a system reboot. Reinstallation of the ROCm Validation Suite is not required.
+**NOTE**: The error may appear after a system reboot. Run the test again to fix the issue.  
+
+Note, reinstallation of ROCm Validation Suite is not required. 
+
 
 
 Deprecations
