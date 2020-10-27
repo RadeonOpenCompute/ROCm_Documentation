@@ -293,10 +293,10 @@ options to denote GPU inter-connect topology in the system along with
 the relative distance between each other and the closest NUMA (CPU) node
 for each GPU.
 
-.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI1.PNG
-   :alt: Screenshot
+.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI1.PNG
+    :align: center
 
-   Screenshot
+  
 
 Compute Unit Occupancy
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -308,10 +308,10 @@ determine if a process P is using sufficient compute units.
 A periodic collection is used to build the profile of a compute unit
 occupancy for a workload.
 
-.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI2.PNG
-   :alt: Screenshot
 
-   Screenshot
+
+.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI2.PNG
+   :align: center
 
 ROCm supports this capability only on GFX9 devices. Users can access the
 functionality in two ways:
