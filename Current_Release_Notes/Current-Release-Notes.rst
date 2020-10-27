@@ -470,13 +470,21 @@ The llvm-project branch used to build this release is aomp11. In addition to com
 The changes for this release of AOMP are:
 
 * Fix compiler warnings for build_project.sh and build_openmp.sh.
+
 * Fix: [flang] The AOMP 11.7-1 Fortran compiler claims to support the -isystem flag, but ignores it.
+
 * Fix: [flang] producing internal compiler error when a character is used with KIND.
+
 * Fix: [flang] openmp map clause on complex allocatable expressions !$omp target data map( chunk%tiles(1)%field%density0).
+
 * DeviceRTL memory footprint has been reduced from ~2.3GB to ~770MB for AMDGCN target.
+
 * Workaround for red_bug_51 failing on gfx908.
+
 * Switch to python3 for ompd and rocgdb.
+
 * Now require cmake 3.13.4 to compile from source.
+
 * Fix aompcc to accept file type cxx.
 
 
