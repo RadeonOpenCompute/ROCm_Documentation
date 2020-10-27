@@ -310,7 +310,7 @@ occupancy for a workload.
 
 
 
-.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI2.PNG
+.. image:: /Current_Release_Notes/images/ROCMCLI2.PNG 
    :align: center
 
 ROCm supports this capability only on GFX9 devices. Users can access the
@@ -386,68 +386,14 @@ GPU Reset Event and Thermal Throttling Event
 
 The ROCm-SMI library clients can now register for the following events:
 
-.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/ROCMCLI3.PNG
-   :alt: Screenshot
+.. image:: /Current_Release_Notes/images/ROCMCLI3.PNG 
+   :align: center
 
-   Screenshot
 
 ROCm Math and Communication Libraries
 -------------------------------------
 
-â€˜rocfft_execution_info_set_streamâ€™ API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-rocFFT is a software library for computing Fast Fourier Transforms
-(FFT). It is part of AMDâ€™s software ecosystem based on ROCm. In addition
-to AMD GPU devices, the library can be compiled with the CUDA compiler
-using HIP tools for running on Nvidia GPU devices.
-
-The â€˜rocfft_execution_info_set_streamâ€™ API is a function to specify
-optional and additional information to control execution. This API
-specifies the compute stream, which must be invoked before the call to
-rocfft_execute. Compute stream is the underlying device queue/stream
-where the library computations are inserted.
-
-PREREQUISITES
-^^^^^^^^^^^^^
-
-Using the compute stream API makes the following assumptions:
-
--  This stream already exists in the program and assigns work to the
-   stream
-
--  The stream must be of type hipStream_t. Note, it is an error to pass
-   the address of a hipStream_t object
-
-PARAMETERS
-^^^^^^^^^^
-
-Input
-
--  info execution info handle
--  stream underlying compute stream
-
-Improved GEMM Performance
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Currently, rocblas_gemm_ext2() supports matrix multiplication D <= alpha \* A \* B + beta \* C, where the A, B, C, and D matrices are single-precision float, column-major, and non-transposed, except that the row stride of C may equal 0. This means the first row of C is broadcast M times in C:
-
-.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/GEMM2.PNG
-   :alt: Screenshot
-
- 
-If an optimized kernel solution for a particular problem is not available, a slow fallback algorithm is used, and the first time a fallback algorithm is used, the following message is printed to standard error:
-
-*Warning: Using slow on-host algorithm, because it is not implemented in Tensile yet.*
-
-**NOTE**: ROCBLAS_LAYER controls the logging of the calls. It is recommended to use logging with the rocblas_gemm_ext2() feature, to identify the precise parameters which are passed to it.
-
--  Setting the ROCBLAS_LAYER environment variable to 2 will print the problem parameters as they are being executed.
--  Setting the ROCBLAS_LAYER environment variable to 4 will collect all of the sizes, and print them out at the end of program execution.
-
-For more logging information, refer to
-
-https://rocblas.readthedocs.io/en/latest/logging.html.
 
 
 
