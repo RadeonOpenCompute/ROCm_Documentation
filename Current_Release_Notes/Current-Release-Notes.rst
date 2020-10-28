@@ -79,7 +79,7 @@ The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. 
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
-- ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must use *LD_LIBRARY_PATH* to load the ROCm library version of choice.
+- ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must set *LD_LIBRARY_PATH* to load the ROCm library version of choice.
 
 **NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
