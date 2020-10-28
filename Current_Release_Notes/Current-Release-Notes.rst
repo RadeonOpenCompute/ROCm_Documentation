@@ -283,7 +283,7 @@ ROCm-SMI Hardware Topology
 The ROCm-SMI Command Line Interface (CLI) is enhanced to include new options to denote GPU inter-connect topology in the system along with
 the relative distance between each other and the closest NUMA (CPU) node for each GPU.
 
-.. image:: https://github.com/RadeonOpenCompute/ROCm_Documentation/blob/doc_updates/Current_Release_Notes/images/ROCMCLI1.PNG
+.. image:: /Current_Release_Notes/images/ROCMCLI1.PNG 
     :align: center
 
   
@@ -408,7 +408,7 @@ Currently, rocblas_gemm_ext2() supports matrix multiplication D <= alpha \* A \*
 single-precision float, column-major, and non-transposed, except that the row stride of C may equal 0. This means the first row of C is
 broadcast M times in C:
 
-.. image:: /Current_Release_Notes/images/GEMM.PNG
+.. image:: /Current_Release_Notes/images/GEMM2.PNG
    :align: center
 
 If an optimized kernel solution for a particular problem is not available, a slow fallback algorithm is used, and the first time a
@@ -432,7 +432,7 @@ New Matrix Pruning Functions
 
 In this release, the following new Matrix Pruning functions are introduced.
 
-.. image:: /Current_Release_Notes/images/matrix.PNG 
+.. image:: /Current_Release_Notes/images/matrix.png 
    :align: center
 
    
