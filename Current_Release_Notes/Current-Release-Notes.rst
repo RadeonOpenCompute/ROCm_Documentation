@@ -42,7 +42,7 @@ systems:
 -  SLES 15 SP2
 
 
-Fresh Installation of AMD ROCm v3.8 Recommended
+Fresh Installation of AMD ROCm v3.9 Recommended
 -----------------------------------------------
 
 A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from previous releases to AMD ROCm v3.9 is not supported.
