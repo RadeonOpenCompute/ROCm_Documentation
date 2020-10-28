@@ -98,7 +98,7 @@ The AMD ROCm Installation Guide in this release includes:
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 ROCm Compiler Documentation Updates
----------------------------------------
+=======================================
 
 The ROCm Compiler documentation updates include,
 
