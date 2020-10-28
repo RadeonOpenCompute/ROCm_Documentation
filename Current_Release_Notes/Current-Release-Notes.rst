@@ -98,7 +98,7 @@ The AMD ROCm Installation Guide in this release includes:
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 ROCm Compiler Documentation Updates
-======================================
+---------------------------------------
 
 The ROCm Compiler documentation updates include,
 
@@ -267,7 +267,7 @@ For more examples, see */opt/rocm/llvm/examples*.
 
 
 ROCm SYSTEM MANAGEMENT INFORMATION
-----------------------------------
+==================================
 
 The AMD ROCm v3.9 release consists of the following ROCm System Management Information (SMI) enhancements:
 
@@ -372,7 +372,7 @@ The ROCm-SMI library clients can now register for the following events:
 
 
 ROCm Math and Communication Libraries
--------------------------------------
+======================================
 
 "rocfft_execution_info_set_stream" API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -455,7 +455,7 @@ https://rocsolver.readthedocs.io/en/latest/userguide_api.html
 
 
 ROCm AOMP ENHANCEMENTS
-----------------------
+=============================
 
 AOMP v11.9-0
 ~~~~~~~~~~~~~
@@ -533,7 +533,7 @@ llvm-project.patch. This file shows the delta from the llvm-project upstream tru
 
 
 Fixed Defects
-=============
+-------------------
 
 The following defects are fixed in this release:
 
