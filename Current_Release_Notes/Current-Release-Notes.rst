@@ -146,7 +146,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_v3.9.pdf
 AMD ROCm - HIP Documentation Updates
 =======================================
 
--  HIP Porting Guide â€“ CU_Pointer_Attribute_Memory_Type
+-  HIP Porting Guide - CU_Pointer_Attribute_Memory_Type
 
 For more information, refer to
 
