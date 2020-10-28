@@ -40,8 +40,6 @@ systems:
 
 -  CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
 
--  SLES 15 SP1
-
 -  SLES 15 SP2
 
 
