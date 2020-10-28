@@ -266,7 +266,7 @@ For more examples, see */opt/rocm/llvm/examples*.
 
 
 
-ROCm SYSTEM MANAGEMENT INFORMATION
+ROCm System Management Information
 ==================================
 
 The AMD ROCm v3.9 release consists of the following ROCm System Management Information (SMI) enhancements:
@@ -454,8 +454,8 @@ For more information, refer to
 https://rocsolver.readthedocs.io/en/latest/userguide_api.html
 
 
-ROCm AOMP ENHANCEMENTS
-=============================
+ROCm AOMP Enhancements
+========================
 
 AOMP v11.9-0
 ~~~~~~~~~~~~~
@@ -551,7 +551,7 @@ Known Issues
 
 The following are the known issues in this release.
 
-(AOMP) HIP EXAMPLE DEVICE_LIB FAILS TO COMPILE
+(AOMP) HIP Example device_lib Fails to Compile
 ----------------------------------------------
 
 The HIP example device_lib fails to compile and displays the following error:
@@ -561,7 +561,7 @@ The HIP example device_lib fails to compile and displays the following error:
 The recommended workaround is to use */opt/rocm/hip/bin/hipcc to compile HIP applications*.
 
 
-HIPFORT INSTALLATION FAILURE
+Hipfort Installation Failure
 ----------------------------
 
 Hipfort fails to install during the ROCm installation.
@@ -591,7 +591,7 @@ Download hipfort to a temporary location and force install with rpm:
    rpm -i --replacefiles hipfort<package-version>
 
 
-MEMORY FAULT ACCESS ERROR DURING MEMORY TEST OF ROCM VALIDATION SUITE 
+Memory Fault Access Error During Memory Test of ROCm Validation Suite 
 -----------------------------------------------------------------------
 
 When the ROCm Validation Suite (RVS) is installed using the prebuilt Debian/rpm package and run for the first time, the memory module displays the following error message, 
