@@ -552,7 +552,7 @@ Known Issues
 The following are the known issues in this release.
 
 (AOMP) HIP Example device_lib Fails to Compile
-----------------------------------------------
+===================================================
 
 The HIP example device_lib fails to compile and displays the following error:
 
@@ -562,7 +562,7 @@ The recommended workaround is to use */opt/rocm/hip/bin/hipcc to compile HIP app
 
 
 Hipfort Installation Failure
-----------------------------
+===============================
 
 Hipfort fails to install during the ROCm installation.
 
@@ -592,7 +592,7 @@ Download hipfort to a temporary location and force install with rpm:
 
 
 Memory Fault Access Error During Memory Test of ROCm Validation Suite 
------------------------------------------------------------------------
+========================================================================
 
 When the ROCm Validation Suite (RVS) is installed using the prebuilt Debian/rpm package and run for the first time, the memory module displays the following error message, 
 
