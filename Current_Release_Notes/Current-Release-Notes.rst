@@ -1,21 +1,27 @@
 .. image:: /Current_Release_Notes/amdblack.jpg
 
 
-
 ================================
-AMD ROCm™ Release Notes v3.8.0
+AMD ROCm™ Release Notes v3.9.0
 ================================
-September, 2020
+October, 2020
 
-This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.8.0 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.9.0 release.
 
 `Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
-Support for Vega 7nm Workstation
---------------------------------
+Support for Ubuntu 20.04.1
+--------------------------
 
-This release extends support to the Vega 7nm Workstation (Vega20 GL-XE) version.
+In this release, AMD ROCm extends support to Ubuntu 20.04.1, including
+v5.4 and v5.6-oem.
+
+Support for SLES 15 SP2
+-----------------------
+
+This release extends support to SLES 15 SP2.
+
 
 List of Supported Operating Systems
 -----------------------------------
@@ -23,26 +29,29 @@ List of Supported Operating Systems
 The AMD ROCm platform is designed to support the following operating
 systems:
 
--  Ubuntu 20.04 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+The AMD ROCm platform is designed to support the following operating
+systems:
 
-   **Note**: Ubuntu versions lower than 18 are no longer supported.   
+-  Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
 
 -  CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7
    runtime support)
+
 -  CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
--  SLES 15 SP1
+
+-  SLES 15 SP2
+
 
 Fresh Installation of AMD ROCm v3.8 Recommended
 -----------------------------------------------
 
-A fresh and clean installation of AMD ROCm v3.8 is recommended. An upgrade from previous releases to AMD ROCm v3.8 is not supported.
+A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from previous releases to AMD ROCm v3.9 is not supported.
 
 For more information, refer to the AMD ROCm Installation Guide at:
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a
-fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
 **Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
 
@@ -51,6 +60,29 @@ fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.
 
 -  For ROCm v3.3 and older releases, the *clinfo* path remains unchanged
    - */opt/rocm/opencl/bin/x86_64/clinfo*.
+   
+ROCm MultiVersion Installation Update
+---------------------------------------
+
+With the AMD ROCm v3.9 release, the following ROCm multi-version installation changes apply:
+
+The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
+
+-   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
+
+-  Version files must be created for each multi-version rocm <= 3.9.0
+
+   -  command: echo \| sudo tee /opt/rocm-/.info/version
+
+   -  example: echo 3.9.0 \| sudo tee /opt/rocm-3.9.0/.info/version
+
+-  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
+
+- ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must set *LD_LIBRARY_PATH* to load the ROCm library version of choice.
+
+**NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
+
+
 
 AMD ROCm Documentation Updates
 -----------------------------------
@@ -61,28 +93,69 @@ AMD ROCm Installation Guide
 The AMD ROCm Installation Guide in this release includes:
 
 -  Updated Supported Environments
--  HIP Installation Instructions
--  Tensorflow ROCm Port: Basic Installations on RHEL v8.2
+-  Multi-version Installation Instructions
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
+ROCm Compiler Documentation Updates
+======================================
+
+The ROCm Compiler documentation updates include,
+
+-  OpenMP Extras v12.9-0
+-  OpenMP-Extras Installation
+-  OpenMP-Extras Source Build
+-  AOMP-v11.9-0
+-  AOMP Source Build
+
+For more information, see
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+
+For the updated ROCm SMI API Guide, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_v3.9.pdf
+
+
+ROCm System Management Information
+====================================
+
+ROCM-SMI version: 1.4.1 \| Kernel version: 5.6.20
+
+-  ROCm SMI and Command Line Interface
+-  ROCm SMI APIs for Compute Unit Occupancy
+
+   -  Usage
+   -  Optional Arguments
+   -  Display Options
+   -  Topology
+   -  Pages Information
+   -  Hardware-related Information
+   -  Software-related/controlled information
+   -  Set Options
+   -  Reset Options
+   -  Auto-response Options
+   -  Output Options
+
+For more information, refer to
+
+https://rocmdocs.amd.com/en/latest/ROCm_System_Managment/ROCm-System-Managment.html#rocm-command-line-interface
+
+For ROCm SMI API Guide, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_v3.9.pdf
+
 
 AMD ROCm - HIP Documentation Updates
-========================================
+=======================================
 
--  HIP Repository Information
+-  HIP Porting Guide â€“ CU_Pointer_Attribute_Memory_Type
 
-For more information, see
-https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html#hip-repository-information
+For more information, refer to
 
-ROCm Data Center Tool User Guide
-==================================
+https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-porting-guide.html#hip-porting-guide
 
--  Error-Correction Codes Field and Output Documentation
 
-For more information, see
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
 General AMD ROCm Documentation Links
 ------------------------------------
@@ -109,78 +182,354 @@ Access the following links for more information:
 What's New in This Release
 -----------------------------
 
-Hipfort-Interface for GPU Kernel Libraries
-===========================================
+ROCm Compiler Enhancements
+=============================
 
-Hipfort is an interface library for accessing GPU Kernels. It provides support to the AMD ROCm architecture from within the Fortran programming
-language. Currently, the gfortran and HIP-Clang compilers support hipfort. Note, the gfortran compiler belongs to the GNU Compiler
-Collection (GCC). While hipfc wrapper calls hipcc for the non-fortran kernel source, gfortran is used for FORTRAN applications that call GPU
-kernels.
+The ROCm compiler support in the llvm-amdgpu-12.0.dev-amd64.deb package is enhanced to include support for OpenMP. To utilize this support, the additional package openmp-extras_12.9-0_amd64.deb is required.
 
-The hipfort interface library is meant for Fortran developers with a focus on gfortran users.
+Note, by default, both packages are installed during the ROCm v3.9 installation. For information about ROCm installation, refer to the ROCm Installation Guide.
 
-For information on HIPFort installation and examples, see
+AMD ROCm supports the following compilers:
 
-https://github.com/ROCmSoftwarePlatform/hipfort
+-  C++ compiler - Clang++
+-  C compiler - Clang
+-  Flang - FORTRAN compiler (FORTRAN 2003 standard)
+
+**NOTE** : All of the above-mentioned compilers support:
+
+-  OpenMP standard 4.5 and an evolving subset of the OpenMP 5.0 standard
+-  OpenMP computational offloading to the AMD GPUs
+
+For more information about AMD ROCm compilers, see the Compiler Documentation section at,
+
+https://rocmdocs.amd.com/en/latest/index.html
+
+Auxiliary Package Supporting OpenMP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The openmp-extras_12.9-0_amd64.deb auxiliary package supports OpenMP within the ROCm compiler. It contains OpenMP specific header files,
+which are installed in /opt/rocm/llvm/include as well as runtime libraries, fortran runtime libraries, and device bitcode files in
+/opt/rocm/llvm/lib. The auxiliary package also consists of examples in the /opt/rocm/llvm/examples folder.
+
+**NOTE**: The optional AOMP package resides in /opt/rocm//aomp/bin/clang and the ROCm compiler, which supports OpenMP for AMDGPU, is located in
+/opt/rocm/llvm/bin/clang.
+
+AOMP Optional Package Deprecation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before the AMD ROCm v3.9 release, the optional AOMP package provided support for OpenMP. While AOMP is available in this release, the optional package may be deprecated from ROCm in the future. It is recommended you transition to the ROCm compiler or AOMP standalone releases for OpenMP support.
+
+Understanding ROCm Compiler OpenMP Support and AOMP OpenMP Support
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The AOMP OpenMP support in ROCm v3.9 is based on the standalone AOMP v11.9-0, with LLVM v11 as the underlying system. However, the ROCm compiler's OpenMP support is based on LLVM v12 (upstream).
+
+**NOTE**: Do not combine the object files from the two LLVM implementations. You must rebuild the application in its entirety using either the AOMP OpenMP or the ROCm OpenMP implementation.
 
 
-ROCm Data Center Tool
-======================
+Example - OpenMP Using the ROCm Compiler
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ROCm™ Data Center Tool™ simplifies the administration and addresses key infrastructure challenges in AMD GPUs in cluster and datacenter environments. The important features of this tool are:
+::
 
-* GPU telemetry
+   $ cat helloworld.c
+   #include <stdio.h>
+   #include <omp.h>
+    int main(void) {
+     int isHost = 1; 
+   #pragma omp target map(tofrom: isHost)
+     {
+       isHost = omp_is_initial_device();
+       printf("Hello world. %d\n", 100);
+       for (int i =0; i<5; i++) {
+         printf("Hello world. iteration %d\n", i);
+       }
+     }
+      printf("Target region executed on the %s\n", isHost ? "host" : "device");
+     return isHost;
+   }
+   $ /opt/rocm/llvm/bin/clang  -O3 -target x86_64-pc-linux-gnu -fopenmp -fopenmp-targets=amdgcn-amd-amdhsa -Xopenmp-target=amdgcn-amd-amdhsa -march=gfx900 helloworld.c -o helloworld
+   $ export LIBOMPTARGET_KERNEL_TRACE=1
+   $ ./helloworld
+   DEVID: 0 SGN:1 ConstWGSize:256  args: 1 teamsXthrds:(   1X 256) reqd:(   1X   0) n:__omp_offloading_34_af0aaa_main_l7
+   Hello world. 100
+   Hello world. iteration 0
+   Hello world. iteration 1
+   Hello world. iteration 2
+   Hello world. iteration 3
+   Hello world. iteration 4
+   Target region executed on the device
 
-* GPU statistics for jobs
+For more examples, see */opt/rocm/llvm/examples*.
 
-* Integration with third-party tools
+.. _rocm-system-management-information-1:
 
-* Open source
 
-The ROCm Data Center Tool can be used in the standalone mode if all components are installed. The same set of features is also available in a library format that can be used by existing management tools.
 
-.. image:: /Current_Release_Notes/RDCComponentsrevised.png
+ROCm SYSTEM MANAGEMENT INFORMATION
+----------------------------------
+
+The AMD ROCm v3.9 release consists of the following ROCm System Management Information (SMI) enhancements:
+
+-  Shows the hardware topology
+
+-  The ROCm-SMI showpids option shows per-process Compute Unit (CU) Occupancy, VRAM usage, and SDMA usage
+
+-  Support for GPU Reset Event and Thermal Throttling Event in ROCm-SMI Library
+
+ROCm-SMI Hardware Topology
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCm-SMI Command Line Interface (CLI) is enhanced to include new options to denote GPU inter-connect topology in the system along with
+the relative distance between each other and the closest NUMA (CPU) node for each GPU.
+
+.. image:: https://github.com/RadeonOpenCompute/ROCm_Documentation/blob/doc_updates/Current_Release_Notes/images/ROCMCLI1.PNG
     :align: center
-    
-Refer to the ROCm Data Center Tool™ User Guide for more details on the different modes of operation.
 
-**NOTE**: The ROCm Data Center User Guide is intended to provide an overview of ROCm Data Center Tool features and how system administrators and Data Center (or HPC) users can administer and configure AMD GPUs. The guide also provides an overview of its components and open source developer handbook.
+  
 
-For installation information on different distributions, refer to the ROCm Data Center User Guide at
+Compute Unit Occupancy
+~~~~~~~~~~~~~~~~~~~~~~
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
+The AMD ROCm stack now supports a user process in querying Compute Unit (CU) occupancy at a particular moment. This service can be accessed to
+determine if a process P is using sufficient compute units.
+
+A periodic collection is used to build the profile of a compute unit occupancy for a workload.
+
+.. image:: /Current_Release_Notes/images/ROCMCLI2.PNG 
+   :align: center
+
+ROCm supports this capability only on GFX9 devices. Users can access the functionality in two ways:
+
+-  indirectly from the SMI library
+
+-  directly via Sysfs
+
+**NOTE**: On systems that have both GFX9 and non-GFX9 devices, users should interpret the compute unit (CU) occupancy value carefully as the
+service does not support non-GFX9 devices.
+
+Accessing Compute Unit Occupancy Indirectly
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCm System Management Interface (SMI) library provides a convenient interface to determine the CU occupancy for a process. To get the CU
+occupancy of a process reported in percentage terms, invoke the SMI interface using rsmi_compute_process_info_by_pid_get(). The value is
+reported through the member field cu_occupancy of struct rsmi_process_info_t.
+
+::
+
+   /**
+      * @brief Encodes information about a process
+      * @cu_occupancy Compute Unit usage in percent
+      */
+     typedef struct {
+         - - -,
+         uint32_t cu_occupancy;
+     } rsmi_process_info_t;
+
+     /**
+      * API to get information about a process
+     rsmi_status_t
+         rsmi_compute_process_info_by_pid_get(uint32_t pid,
+             rsmi_process_info_t *proc);
+
+Accessing Compute Unit Occupancy Directly Using SYSFS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Information provided by SMI library is built from sysfs. For every valid device, ROCm stack surfaces a file by the name cu_occupancy in Sysfs.
+Users can read this file to determine how that device is being used by a particular workload. The general structure of the file path is
+/proc//stats\_/cu_occupancy
+
+::
+
+   /**
+      * CU occupancy files for processes P1 and P2 on two devices with 
+      * ids: 1008 and 112326
+      */
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_1>/stats_1008/cu_occupancy
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_1>/stats_2326/cu_occupancy
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_2>/stats_1008/cu_occupancy
+     /sys/devices/virtual/kfd/kfd/proc/<Pid_2>/stats_2326/cu_occupancy
+     
+   // To get CU occupancy for a process P<i>
+     for each valid-device from device-list {
+       path-1 = Build path for cu_occupancy file;
+       path-2 = Build path for file Gpu-Properties;
+       cu_in_use += Open and Read the file path-1;
+       cu_total_cnt += Open and Read the file path-2;
+     }
+     cu_percent = ((cu_in_use * 100) / cu_total_cnt);
+     
+
+GPU Reset Event and Thermal Throttling Event
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ROCm-SMI library clients can now register for the following events:
+
+.. image:: /Current_Release_Notes/images/ROCMCLI3.PNG 
+   :align: center
 
 
-**Error Correcting Code Fields in ROCm Data Center Tool**
-
-The ROCm Data Center (RDC) tool is enhanced to provide counters to track correctable and uncorrectable errors. While a single bit per word error
-can be corrected, double bit per word errors cannot be corrected.
-
-The RDC tool now helps monitor and protect undetected memory data corruption. If the system is using ECC- enabled memory, the ROCm Data
-Center tool can report the error counters to monitor the status of the memory.
-
-.. image:: /Current_Release_Notes/forweb.PNG
-    :align: center
-
-For more information, refer to the ROCm Data Center User Guide at:
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
 
-Static Linking Libraries
-=========================
+ROCm Math and Communication Libraries
+-------------------------------------
 
-The underlying libraries of AMD ROCm are dynamic and are called shared objects (.so) in Linux. The AMD ROCm v3.8 release includes the
-capability to build static ROCm libraries and link to the applications statically. CMake target files enable linking an application statically
-to ROCm libraries and each component exports the required dependencies for linking. The static libraries are called Archives (.a) in Linux.
+"rocfft_execution_info_set_stream" API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This release also comprises of the requisite changes required for all the components to work in a static environment. The components have been
-successfully tested for basic functionalities like *rocminfo /rocm_bandwidth_test* and archives.
+rocFFT is a software library for computing Fast Fourier Transforms (FFT). It is part of AMDâ€™s software ecosystem based on ROCm. In addition
+to AMD GPU devices, the library can be compiled with the CUDA compiler using HIP tools for running on Nvidia GPU devices.
 
-In the AMD ROCm v3.8 release, the following libraries support static linking:
+The ˜rocfft_execution_info_set_stream" API is a function to specify optional and additional information to control execution. This API
+specifies the compute stream, which must be invoked before the call to rocfft_execute. Compute stream is the underlying device queue/stream
+where the library computations are inserted.
 
-.. image:: /Current_Release_Notes/staticlinkinglib.PNG
-    :align: center
+PREREQUISITES
+^^^^^^^^^^^^^
+
+Using the compute stream API makes the following assumptions:
+
+-  This stream already exists in the program and assigns work to the stream
+
+-  The stream must be of type hipStream_t. Note, it is an error to pass the address of a hipStream_t object
+
+PARAMETERS
+^^^^^^^^^^
+
+Input
+
+-  info execution info handle
+-  stream underlying compute stream
+
+Improved GEMM Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Currently, rocblas_gemm_ext2() supports matrix multiplication D <= alpha \* A \* B + beta \* C, where the A, B, C, and D matrices are
+single-precision float, column-major, and non-transposed, except that the row stride of C may equal 0. This means the first row of C is
+broadcast M times in C:
+
+.. image:: /Current_Release_Notes/images/GEMM.PNG
+   :align: center
+
+If an optimized kernel solution for a particular problem is not available, a slow fallback algorithm is used, and the first time a
+fallback algorithm is used, the following message is printed to standard error:
+
+*Warning: Using slow on-host algorithm, because it is not implemented in Tensile yet.*
+
+**NOTE**: ROCBLAS_LAYER controls the logging of the calls. It is recommended to use logging with the rocblas_gemm_ext2() feature, to
+identify the precise parameters which are passed to it.
+
+-  Setting the ROCBLAS_LAYER environment variable to 2 will print the problem parameters as they are being executed.
+
+-  Setting the ROCBLAS_LAYER environment variable to 4 will collect all of the sizes, and print them out at the end of program execution.
+
+For more logging information, refer to
+
+https://rocblas.readthedocs.io/en/latest/logging.html.
+
+New Matrix Pruning Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this release, the following new Matrix Pruning functions are introduced.
+
+.. image:: /Current_Release_Notes/images/matrix.PNG 
+   :align: center
+
+   
+rocSOLVER General Matrix Singular Value Decomposition API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The rocSOLVER General Matrix Singular Value Decomposition (GESVD) API is now available in the AMD ROCm v3.9 release.
+
+GESVD computes the Singular Values and, optionally, the Singular Vectors of a general m-by-n matrix A (Singular Value Decomposition).
+
+The SVD of matrix A is given by:
+
+::
+
+   A = U * S * V'
+
+For more information, refer to
+
+https://rocsolver.readthedocs.io/en/latest/userguide_api.html
+
+
+ROCm AOMP ENHANCEMENTS
+----------------------
+
+AOMP v11.9-0
+~~~~~~~~~~~~~
+
+The source code base for this release is the upstream LLVM 11 monorepo release/11.x sources as of August 18, 2020, with the hash value 
+
+1e6907f09030b636054b1c7b01de36f281a61fa2
+
+The llvm-project branch used to build this release is aomp11. In addition to completing the source tarball, the artifacts of this release include the file llvm-project.patch. This file shows the delta from the llvm-project upstream release/11.x. The size of this patch XXXX lines in XXX files. These changes include support for flang driver, OMPD support, and the hsa libomptarget plugin. The goal is to reduce this with continued upstreaming activity.
+
+The changes for this release of AOMP are:
+
+- Fix compiler warnings for build_project.sh and build_openmp.sh.
+
+- Fix: [flang] The AOMP 11.7-1 Fortran compiler claims to support the -isystem flag, but ignores it.
+
+- Fix: [flang] producing internal compiler error when a character is used with KIND.
+
+- Fix: [flang] openmp map clause on complex allocatable expressions !$omp target data map( chunk%tiles(1)%field%density0).
+
+- DeviceRTL memory footprint has been reduced from ~2.3GB to ~770MB for AMDGCN target.
+
+- Workaround for red_bug_51 failing on gfx908.
+
+- Switch to python3 for ompd and rocgdb.
+
+- Now require cmake 3.13.4 to compile from source.
+
+- Fix aompcc to accept file type cxx.
+
+
+AOMP v11.08-0
+~~~~~~~~~~~~~
+
+The source code base for this release is the upstream LLVM 11 monorepo release/11.x sources as of August 18, 2020 with the hash value
+
+*aabff0f7d564b22600b33731e0d78d2e70d060b4*
+
+The amd-llvm-project branch used to build this release is amd-stg-openmp. In addition to complete source tarball, the artifacts of this release includes the file llvm-project.patch. This file shows the delta from the llvm-project upstream release/11.x which is currently at 32715 lines in 240 files. These changes include support for flang driver, OMPD support and the hsa libomptarget plugin. Our goal is to reduce this with continued upstreaming activity.
+
+These are the major changes for this release of AOMP:
+
+-  Switch to the LLVM 11.x stable code base.
+
+-  OMPD updates for flang.
+
+-  To support debugging OpenMP, selected OpenMP runtime sources are included in lib-debug/src/openmp. The ROCgdb debugger will find these
+   automatically.
+
+-  Threadsafe hsa plugin for libomptarget.
+
+-  Updates to support device libraries.
+
+-  Openmpi configure issue with real16 resolved.
+
+-  DeviceRTL memory use is now independent of number of openmp binaries.
+
+-  Startup latency on first kernel launch reduced by order of magnitude.
+
+
+AOMP v11.07-1
+~~~~~~~~~~~~~
+
+The source code base for this release is the upstream LLVM 11 monorepo development sources as July 10, 2020 with hash valued 979c5023d3f0656cf51bd645936f52acd62b0333 The amd-llvm-project branch used to build this release is amd-stg-openmp. In addition to complete source tarball, the artifacts of this release includes the file
+llvm-project.patch. This file shows the delta from the llvm-project upstream trunk which is currently at 34121 lines in 277 files. Our goal is to reduce this with continued upstreaming activity.
+
+-  Inclusion of OMPD support which is not yet upstream
+
+-  Build of ROCgdb
+
+-  Host runtime optimisation. GPU image information is now mostly read on the host instead of from the GPU.
+
+-  Fixed the source build scripts so that building from the source tarball does not fail because of missing test directories. This fixes issue #116.
+
 
 
 Fixed Defects
@@ -188,54 +537,109 @@ Fixed Defects
 
 The following defects are fixed in this release:
 
--  GPU Kernel C++ Names Not Demangled
--  MIGraphX Fails for fp16 Datatype
--  Issue with Peer-to-Peer Transfers
--  *"rocprof"* option *“parallel-kernels" Not Supported in this Release
+-  Random Soft Hang Observed When Running ResNet-Based Models
+
+-  (AOMP) "Undefined Hidden Symbol" Linker Error Causes Compilation Failure in HIP
+
+-  MIGraphx -> test_gpu_ops_test FAILED
+
+-  Unable to install RDC on CentOS/RHEL 7.8/8.2 & SLES
 
 
 Known Issues
 -------------------
 
-Undefined Reference Issue in Statically Linked Libraries
-===============================================================
+The following are the known issues in this release.
 
-Libraries and applications statically linked using flags *-rtlib=compiler-rt*, such as rocBLAS, have an implicit dependency on
-gcc_s not captured in their CMAKE configuration.
+(AOMP) HIP EXAMPLE DEVICE_LIB FAILS TO COMPILE
+----------------------------------------------
 
-Client applications may require linking with an additional library *-lgcc_s* to resolve the undefined reference to symbol *"_Unwind_ResumeGCC_3.0"*.
+The HIP example device_lib fails to compile and displays the following error:
 
+*lld: error: undefined hidden symbol: inc_arrayval*
 
-MIGraphX Pooling Operation Fails for Some Models
-========================================================
-
-MIGraphX does not work for some models with pooling operations and the following error appears:
-
-*˜test_gpu_ops_test FAILED"*
-
-This issue is currently under investigation and there is no known workaround currently.
+The recommended workaround is to use */opt/rocm/hip/bin/hipcc to compile HIP applications*.
 
 
-MIVisionX Installation Error on CentOS/RHEL8.2 and SLES 15
-=============================================================
+HIPFORT INSTALLATION FAILURE
+----------------------------
 
-Installing ROCm on MIVisionX results in the following error on CentOS/RHEL8.2 and SLES 15:
+Hipfort fails to install during the ROCm installation.
 
-*"Problem: nothing provides opencv needed"*
+As a workaround, you may force install hipfort using the following instructions:
 
-As a workaround, install opencv before installing MIVisionX.
+Ubuntu
+~~~~~~
+
+::
+
+   sudo apt-get -o Dpkg::Options::="--force-overwrite" install hipfort
+
+SLES
+~~~~
+
+Zypper gives you an option to continue with the overwrite during the installation.
+
+CentOS
+~~~~~~
+
+Download hipfort to a temporary location and force install with rpm:
+
+::
+
+   yum install --downloadonly --downloaddir=/tmp/hipfort hipfort
+   rpm -i --replacefiles hipfort<package-version>
+
+
+MEMORY FAULT ACCESS ERROR DURING MEMORY TEST OF ROCM VALIDATION SUITE 
+-----------------------------------------------------------------------
+
+When the ROCm Validation Suite (RVS) is installed using the prebuilt Debian/rpm package and run for the first time, the memory module displays the following error message, 
+
+*“Memory access fault by GPU node-<x> (Agent handle: 0xa55170) on address 0x7fc268c00000. Reason: Page not present or supervisor privilege.
+Aborted (core dumped).”*
+
+As a workaround, run the test again. Subsequent runs appear to fix the error.
+
+**NOTE**: The error may appear after a system reboot. Run the test again to fix the issue.  
+
+Note, reinstallation of ROCm Validation Suite is not required. 
+
+
+
+Deprecations
+-------------------
+
+This section describes deprecations and removals in AMD ROCm.
+
+**WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION**
+
+Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
+
+Support for loading code object version 2 is also being deprecated with no announced removal release.
 
 
 Deploying ROCm
 -------------------
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.8.x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v3.9.x packages.
 
 For more information on ROCM installation on all platforms, see
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-Features and enhancements introduced in previous versions of ROCm can be found in :ref:`Current-Release-Notes`.
+
+
+DISCLAIMER 
+----------------
+The information contained herein is for informational purposes only, and is subject to change without notice. In addition, any stated support is planned and is also subject to change. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD’s products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
+AMD, the AMD Arrow logo, Radeon, Ryzen, Epyc, and combinations thereof are trademarks of Advanced Micro Devices, Inc.  
+Google®  is a registered trademark of Google LLC.
+PCIe® is a registered trademark of PCI-SIG Corporation.
+Linux is the registered trademark of Linus Torvalds in the U.S. and other countries.
+Ubuntu and the Ubuntu logo are registered trademarks of Canonical Ltd.
+Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
+
 
 
 
@@ -245,6 +649,19 @@ AMD ROCm Version History
 -----------------------------
 
 This file contains archived version history information for the ROCm project.
+
+New features and enhancements in ROCm v3.8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.8.x
+
+- Hipfort-Interface for GPU Kernel Libraries
+
+- ROCm Data Center Tool
+
+- Error-Correcting Code Fields in ROCm Data Center Tool
+
+- Static Linking Libraries
 
 New features and enhancements in ROCm v3.7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
