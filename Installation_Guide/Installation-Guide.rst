@@ -66,6 +66,8 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 **Note**: Ubuntu versions lower than 18 are no longer supported.
 
+**Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
+
 * CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
 * CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
 * SLES 15 SP2
@@ -114,6 +116,8 @@ Supported Operating Systems
 
 Ubuntu
 =========
+
+**Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
 
 Installing a ROCm Package from a Debian Repository
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -318,18 +322,18 @@ To install ROCm on your system, follow the instructions below:
 
 2. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
 
-* CentOS/RHEL 7.x : http://repo.radeon.com/rocm/yum/rpm 
+* CentOS/RHEL 7.x : https://repo.radeon.com/rocm/yum/rpm 
 
-* CentOS/RHEL 8.x : http://repo.radeon.com/rocm/centos8/rpm
+* CentOS/RHEL 8.x : https://repo.radeon.com/rocm/centos8/rpm
 
 ::
 
     [ROCm] 
 	name=ROCm
-	baseurl=http://repo.radeon.com/rocm/yum/rpm
+	baseurl=https://repo.radeon.com/rocm/yum/rpm
 	enabled=1
 	gpgcheck=1
-	gpgkey=http://repo.radeon.com/rocm/rocm.gpg.key
+	gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
 
 Note: The URL of the repository must point to the location of the repositories’ repodata database.
 
@@ -459,9 +463,9 @@ The following section tells you how to perform an install and uninstall ROCm on 
 ::
 
 		sudo zypper clean –all
-		sudo zypper addrepo http://repo.radeon.com/rocm/zyp/zypper/ rocm
+		sudo zypper addrepo https://repo.radeon.com/rocm/zyp/zypper/ rocm
 		sudo zypper ref
-		sudo rpm --import http://repo.radeon.com/rocm/rocm.gpg.key
+		sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
 		sudo zypper --gpg-auto-import-keys install rocm-dkms
 		sudo reboot
 
@@ -547,8 +551,7 @@ HIP can be easily installed using the pre-built binary packages with the package
 Installing pre-built packages
 =============================
 
-HIP can be easily installed using pre-built binary packages using the
-package manager for your platform.
+HIP can be easily installed using pre-built binary packages using the package manager for your platform.
 
 HIP Prerequisites
 ==================
