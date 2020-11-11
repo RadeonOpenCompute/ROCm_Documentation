@@ -52,7 +52,7 @@ HIP FAQ
 -  `Why OpenMP is undefined when compiling with fopenmp
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
-
+-  `What should I do when HIP detects my platform incorrectly? <#What-should-I-do-when-HIP-detects-my-platform-incorrectly?>`__
 
 
 What APIs and features does HIP support?
