@@ -277,7 +277,7 @@ HIP is a source-portable language that can be compiled to run on either AMD or N
 
 
 
-Can I link HIP code with host code compiled with another compiler on HIP-Clang??
+Can I link HIP code with host code compiled with another compiler on HIP-Clang?
 -------------------------------------------------------------------------------
 
 Yes. HIP generates the object code which conforms to the GCC ABI, and also links with libstdc++. This means you can compile host code with the compiler of your choice and link the generated object code with GPU code compiled with HIP. Larger projects often contain a mixture of accelerator code (initially written in CUDA with nvcc) and host code (compiled with gcc, icc, or clang). These projects can convert the accelerator code to HIP, compile that code with hipcc, and link with object code from their preferred compiler.
