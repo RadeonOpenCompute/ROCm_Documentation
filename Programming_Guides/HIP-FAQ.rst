@@ -37,9 +37,7 @@ HIP FAQ
 -  `Can a HIP binary run on both AMD and Nvidia
    platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
 -  `Linking HIP code with host code compiled with another compiler on HIP Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang>`__
--  `HIP detected my platform (hip-clang vs nvcc) incorrectly - what
-   should I
-   do? <#hip-detected-my-platform-hip-clang-vs-nvcc-incorrectly---what-should-i-do>`__
+-  `What should i do when HIP detects my platform incorrectly? <#What-should-I-do-when-HIP-detects-my-platform-incorrectly?>`__
 -  `Can I install both CUDA SDK and HIP-clang on same
    machine? <#can-i-install-both-cuda-sdk-and-hip-clang-on-same-machine>`__
 -  `On CUDA, can I mix CUDA code with HIP
@@ -54,8 +52,7 @@ HIP FAQ
 -  `Why OpenMP is undefined when compiling with fopenmp
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
--  `Linking HIP code with host code compiled with another compiler on HIP
-   Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
+
 
 
 What APIs and features does HIP support?
@@ -289,8 +286,8 @@ Can I install both CUDA SDK and HIP-Clang on the same machine?
 
 Yes. You can use HIP_PLATFORM to choose which path hipcc targets. This configuration can be useful when using HIP to develop an application which is portable to both AMD and NVIDIA.
 
-HIP detected my platform (HIP-Clang vs nvcc) incorrectly - what should I do?
-----------------------------------------------------------------------------
+What should I do when HIP detects my platform incorrectly?
+-----------------------------------------------------------
 
 HIP will set the platform to HIP-Clang if it sees that the AMD graphics driver is installed and has detected an AMD GPU. if it sees that the AMD graphics driver is installed and has detected an AMD GPU. If this is not what you want, you can force HIP to recognize the platform by setting the following,
 
