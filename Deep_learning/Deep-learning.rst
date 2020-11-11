@@ -66,7 +66,7 @@ Install ROCm
 
 ::
 
-   export RPM_ROCM_REPO=http://repo.radeon.com/rocm/yum/3.7
+   export RPM_ROCM_REPO=https://repo.radeon.com/rocm/yum/3.7
 
 2. Install the following packages.
 
@@ -986,7 +986,7 @@ MIVisionX provides developers with docker images for Ubuntu 16.04, Ubuntu 18.04,
 
 ::
 
-   wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+   wget -qO - https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
    echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
    sudo apt update
    sudo apt install rocm-dkms
