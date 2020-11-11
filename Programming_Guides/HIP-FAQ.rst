@@ -39,7 +39,7 @@ HIP FAQ
 -  `Linking HIP code with host code compiled with another compiler on HIP Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang>`__
 -  `HIP detects my platform incorrectly <#HIP-detects-my-platform-incorrectly>`__
 -  `Installing CUDA SDK and HIP-clang on the same
-   machine? <#Installing-cuda-sdk-and-hip-clang-on-the-same-machine>`__
+   machine <#Installing-cuda-sdk-and-hip-clang-on-the-same-machine>`__
 -  `On CUDA, can I mix CUDA code with HIP
    code? <#on-cuda-can-i-mix-cuda-code-with-hip-code>`__
 -  `How do I trace HIP application
