@@ -36,7 +36,7 @@ HIP FAQ
 -  `What is ROCclr? <#what-is-rocclr>`__
 -  `Can a HIP binary run on both AMD and Nvidia
    platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
--  `Can I link HIP code with host code compiled with another compiler on HIP Clang? <#Can-I-link-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
+-  `Linking HIP code with host code compiled with another compiler on HIP Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang>`__
 -  `HIP detected my platform (hip-clang vs nvcc) incorrectly - what
    should I
    do? <#hip-detected-my-platform-hip-clang-vs-nvcc-incorrectly---what-should-i-do>`__
@@ -54,8 +54,8 @@ HIP FAQ
 -  `Why OpenMP is undefined when compiling with fopenmp
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
--  `Can I link HIP code with host code compiled with another compiler on HIP
-   Clang? <#Can-I-link-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
+-  `Linking HIP code with host code compiled with another compiler on HIP
+   Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
 
 
 What APIs and features does HIP support?
@@ -279,7 +279,7 @@ HIP is a source-portable language that can be compiled to run on either AMD or N
 
 
 
-Can I link HIP code with host code compiled with another compiler on HIP Clang?
+Linking HIP code with host code compiled with another compiler on HIP Clang
 ----------------------------------------------------------------------------------
 
 Yes. HIP generates the object code which conforms to the GCC ABI, and also links with libstdc++. This means you can compile host code with the compiler of your choice and link the generated object code with GPU code compiled with HIP. Larger projects often contain a mixture of accelerator code (initially written in CUDA with nvcc) and host code (compiled with gcc, icc, or clang). These projects can convert the accelerator code to HIP, compile that code with hipcc, and link with object code from their preferred compiler.
