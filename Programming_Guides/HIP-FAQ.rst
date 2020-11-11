@@ -38,8 +38,8 @@ HIP FAQ
    platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
 -  `Linking HIP code with host code compiled with another compiler on HIP Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang>`__
 -  `HIP detects my platform incorrectly <#HIP-detects-my-platform-incorrectly>`__
--  `Can I install both CUDA SDK and HIP-clang on same
-   machine? <#can-i-install-both-cuda-sdk-and-hip-clang-on-same-machine>`__
+-  `Installing CUDA SDK and HIP-clang on the same
+   machine? <#Installing-cuda-sdk-and-hip-clang-on-the-same-machine>`__
 -  `On CUDA, can I mix CUDA code with HIP
    code? <#on-cuda-can-i-mix-cuda-code-with-hip-code>`__
 -  `How do I trace HIP application
@@ -281,8 +281,8 @@ Linking HIP code with host code compiled with another compiler on HIP Clang
 
 Yes. HIP generates the object code which conforms to the GCC ABI, and also links with libstdc++. This means you can compile host code with the compiler of your choice and link the generated object code with GPU code compiled with HIP. Larger projects often contain a mixture of accelerator code (initially written in CUDA with nvcc) and host code (compiled with gcc, icc, or clang). These projects can convert the accelerator code to HIP, compile that code with hipcc, and link with object code from their preferred compiler.
 
-Can I install both CUDA SDK and HIP-Clang on the same machine?
---------------------------------------------------------------
+Installing CUDA SDK and HIP-Clang on the same machine
+---------------------------------------------------------
 
 Yes. You can use HIP_PLATFORM to choose which path hipcc targets. This configuration can be useful when using HIP to develop an application which is portable to both AMD and NVIDIA.
 
