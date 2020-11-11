@@ -329,7 +329,7 @@ Are \__shfl_*_sync functions supported on HIP platform?
 
 __shfl_*_sync is not supported on HIP but for NVCC path CUDA 9.0 and above all shuffle calls get redirected to it's sync version.
 
-Why _OpenMP is undefined when compiling with -fopenmp?
+Why OpenMP is undefined when compiling with -fopenmp?
 -------------------------------------------------------
 
 When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may generate an error if there is a reference to the `_OPENMP` macro.  This is due to a limitation in hipcc that treats any source file type (e.g., `.cpp`) as a HIP translation unit leading to some conflicts with the OpenMP language switch.  If the OpenMP source file doesn't contain any HIP language construct, you can use the following workaround:
