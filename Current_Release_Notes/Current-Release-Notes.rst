@@ -1,6 +1,12 @@
 .. image:: /Current_Release_Notes/amdblack.jpg
 
 
+====================================
+AMD ROCm™ Patch Release Notes v3.9.1
+====================================
+
+Users of RPM-based operating systems (RHEL, CentOS, and others) are recommended to use ROCm v3.9.1 patch release due to a potential compatibility issue with certain drivers.
+
 ================================
 AMD ROCm™ Release Notes v3.9.0
 ================================
