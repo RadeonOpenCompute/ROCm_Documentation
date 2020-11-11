@@ -286,7 +286,7 @@ Can I install both CUDA SDK and HIP-Clang on the same machine?
 
 Yes. You can use HIP_PLATFORM to choose which path hipcc targets. This configuration can be useful when using HIP to develop an application which is portable to both AMD and NVIDIA.
 
-What should I do when HIP detects my platform incorrectly
+What should I do when HIP detects my platform incorrectly?
 -----------------------------------------------------------
 
 HIP will set the platform to HIP-Clang if it sees that the AMD graphics driver is installed and has detected an AMD GPU. if it sees that the AMD graphics driver is installed and has detected an AMD GPU. If this is not what you want, you can force HIP to recognize the platform by setting the following,
