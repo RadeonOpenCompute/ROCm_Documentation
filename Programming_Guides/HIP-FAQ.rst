@@ -45,13 +45,12 @@ HIP FAQ
 -  `How do I trace HIP application
    flow? <#how-do-i-trace-hip-application-flow>`__
 
--  `What is maximum limit of Generic kernel launching
-   parameter? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>`__   
+-  `Maximum limit of Generic kernel launching
+   parameter <#Maximum-limit-of-generic-kernel-launching-parameter>`__   
 
 -  `Why OpenMP is undefined when compiling with fopenmp
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
--  `What should I do when HIP detects my platform incorrectly? <#What-should-I-do-when-HIP-detects-my-platform-incorrectly?>`__
 
 
 What APIs and features does HIP support?
@@ -318,7 +317,7 @@ How do I trace HIP application flow?
 See the `HIP Profiling Guide <hip_porting_guide.md>`__ for more information.
 
 
-What is maximum limit of kernel launching parameter?
+Maximum limit of kernel launching parameter
 ----------------------------------------------------
 
 Product of block.x, block.y, and block.z should be less than 1024.
