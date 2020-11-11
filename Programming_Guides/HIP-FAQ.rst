@@ -55,7 +55,7 @@ HIP FAQ
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
 -  `Can I link HIP code with host code compiled with another compiler on HIP
-   Clang? <#can-I-link-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
+   Clang? <#Can-I-link-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
 
 
 What APIs and features does HIP support?
