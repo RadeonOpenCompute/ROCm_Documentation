@@ -54,7 +54,7 @@ HIP FAQ
 -  `What is maximum limit of Generic kernel launching
    parameter? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>`__   
 
--  `Why OpenMP is undefined when compiling with fopenmpt
+-  `Why OpenMP is undefined when compiling with fopenmp
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenm>`__ 
 
 
