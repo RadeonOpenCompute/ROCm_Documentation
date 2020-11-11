@@ -8,7 +8,7 @@ HIP FAQ
    support? <#what-apis-and-features-does-hip-support>`__
 -  `What is not supported? <#what-is-not-supported>`__
 
-   -  `Runtime/Driver API features <#runtimedriver-api-features>`__
+   -  `Runtime Driver API features <#runtime-driver-api-features>`__
    -  `Kernel language features <#kernel-language-features>`__
 
 -  `Is HIP a drop-in replacement for
@@ -28,18 +28,16 @@ HIP FAQ
 -  `What is HIP-Clang? <#what-is-hip-clang>`__
 -  `Why use HIP rather than supporting CUDA
    directly? <#why-use-hip-rather-than-supporting-cuda-directly>`__
--  `Can I develop HIP code on an Nvidia CUDA
-   platform? <#can-i-develop-hip-code-on-an-nvidia-cuda-platform>`__
+-  `Can I develop HIP code on Nvidia CUDA
+   platform? <#can-i-develop-hip-code-on-nvidia-cuda-platform>`__
 -  `Can I develop HIP code on an AMD HIP-Clang
    platform? <#can-i-develop-hip-code-on-an-amd-hip-clang-platform>`__
--  `How to use HIP-Clang to build HIP programs instead of
-   HCC? <#how-to-use-hip-clang-to-build-hip-programs-instead-of-hcc>`__
+-  `How to use HIP-Clang to build HIP programs? <#how-to-use-hip-clang-to-build-hip-programs>`__
 -  `What is ROCclr? <#what-is-rocclr>`__
 -  `Can a HIP binary run on both AMD and Nvidia
    platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
--  `On HIP-Clang, can I link HIP code with host code compiled with
-   another compiler such as gcc, icc, or
-   clang? <#on-HIP-Clang-can-i-link-hip-code-with-host-code-compiled-with-another-compiler-such-as-gcc-icc-or-clang->`__
+-  `Can I link HIP code with host code compiled with
+   another compiler on HIP-Clang? <#Can-i-link-hip-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
 -  `HIP detected my platform (hip-clang vs nvcc) incorrectly - what
    should I
    do? <#hip-detected-my-platform-hip-clang-vs-nvcc-incorrectly---what-should-i-do>`__
@@ -279,8 +277,8 @@ HIP is a source-portable language that can be compiled to run on either AMD or N
 
 
 
-On HIP-Clang, can I link HIP code with host code compiled with another compiler such as gcc, icc, or clang ?
-------------------------------------------------------------------------------------------------------------
+Can I link HIP code with host code compiled with another compiler on HIP-Clang??
+-------------------------------------------------------------------------------
 
 Yes. HIP generates the object code which conforms to the GCC ABI, and also links with libstdc++. This means you can compile host code with the compiler of your choice and link the generated object code with GPU code compiled with HIP. Larger projects often contain a mixture of accelerator code (initially written in CUDA with nvcc) and host code (compiled with gcc, icc, or clang). These projects can convert the accelerator code to HIP, compile that code with hipcc, and link with object code from their preferred compiler.
 
