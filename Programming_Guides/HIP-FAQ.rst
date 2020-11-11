@@ -52,8 +52,9 @@ HIP FAQ
 -  `What if HIP generates an error of symbol multiply defined only on the AMD
    machine? <#what-if-hip-generates-error-of-symbol-multiply-defined-only-on-the-AMD-machine>`__
 -  `What is maximum limit of Generic kernel launching
-   parameter? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>`__
-- `Why OpenMP is undefined when compiling with -fopenmp? <#Why-OpenMP-is-undefined-when-compiling-with--fopenmp>` __
+   parameter? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>`__   
+-  `Why OpenMP is undefined when compiling with fopenmp? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>` __  
+
 
 What APIs and features does HIP support?
 ----------------------------------------
