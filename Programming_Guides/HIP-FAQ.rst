@@ -54,7 +54,7 @@ HIP FAQ
 -  `Why OpenMP is undefined when compiling with fopenmp
    ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
-   -  `Can I link HIP code with host code compiled with another compiler on HIP
+-  `Can I link HIP code with host code compiled with another compiler on HIP
    Clang? <#can-I-link-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang?>`__
 
 
