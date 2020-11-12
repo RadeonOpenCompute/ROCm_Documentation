@@ -45,11 +45,12 @@ HIP FAQ
 -  `How do I trace HIP application
    flow? <#how-do-i-trace-hip-application-flow>`__
 
--  `Maximum limit of generic kernel launching
-   parameter <#Maximum-limit-of-generic-kernel-launching-parameter>`__   
+-  `Maximum limit of generic kernel launching parameter <#Maximum-limit-of-generic-kernel-launching-parameter>`__   
 
--  `Why OpenMP is undefined when compiling with fopenmp
-   ? <#why-OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
+-  `Shuffle functions supported on HIP platform
+    <#shuffle-functions-supported-on-HIP-platform>`__
+   
+-  `OpenMP is undefined when compiling with fopenmp <OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
 
 
@@ -322,12 +323,12 @@ Maximum limit of generic kernel launching parameter
 
 Product of block.x, block.y, and block.z should be less than 1024.
 
-Are \__shfl_*_sync functions supported on HIP platform?
+Shuffle functions supported on HIP platform
 -------------------------------------------------------
 
-__shfl_*_sync is not supported on HIP but for NVCC path CUDA 9.0 and above all shuffle calls get redirected to it's sync version.
+__shfl_*_sync is not supported on HIP but for NVCC path CUDA 9.0. Above all, shuffle calls get redirected to its sync version.
 
-Why OpenMP is undefined when compiling with fopenmp?
+OpenMP is undefined when compiling with fopenmp
 -------------------------------------------------------
 
 When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may generate an error if there is a reference to the `_OPENMP` macro.  This is due to a limitation in hipcc that treats any source file type (e.g., `.cpp`) as a HIP translation unit leading to some conflicts with the OpenMP language switch.  If the OpenMP source file doesn't contain any HIP language construct, you can use the following workaround:
