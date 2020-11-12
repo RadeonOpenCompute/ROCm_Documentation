@@ -47,8 +47,7 @@ HIP FAQ
 
 -  `Maximum limit of generic kernel launching parameter <#Maximum-limit-of-generic-kernel-launching-parameter>`__   
 
--  `Shuffle functions supported on HIP platform
-    <#shuffle-functions-supported-on-HIP-platform>`__
+-  `Shuffle functions supported on HIP platform <#shuffle-functions-supported-on-HIP-platform>`__
    
 -  `OpenMP is undefined when compiling with fopenmp <OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
    
