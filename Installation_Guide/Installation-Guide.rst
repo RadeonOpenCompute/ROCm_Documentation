@@ -211,7 +211,7 @@ Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 
 ::
 
-    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
+    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/rocprofiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Uninstalling ROCm Packages from Ubuntu
