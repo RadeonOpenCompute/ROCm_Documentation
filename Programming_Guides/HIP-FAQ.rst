@@ -6,55 +6,6 @@ HIP FAQ
 
 .. contents::
 
--  `What APIs and features does HIP
-   support? <#what-apis-and-features-does-hip-support>`__
--  `What is not supported? <#what-is-not-supported>`__
-
-   -  `Runtime Driver API features <#runtime-driver-api-features>`__
-   -  `Kernel language features <#kernel-language-features>`__
-
--  `Is HIP a drop-in replacement for
-   CUDA? <#is-hip-a-drop-in-replacement-for-cuda>`__
--  `What specific version of CUDA does HIP
-   support? <#what-specific-version-of-cuda-does-hip-support>`__
--  `What libraries does HIP
-   support? <#what-libraries-does-hip-support>`__
--  `How does HIP compare with
-   OpenCL? <#how-does-hip-compare-with-opencl>`__
--  `How does porting CUDA to HIP compare to porting CUDA to
-   OpenCL? <#how-does-porting-cuda-to-hip-compare-to-porting-cuda-to-opencl>`__
--  `What hardware does HIP support? <#what-hardware-does-hip-support>`__
--  `Do HIPIFY tools automatically convert all source
-   code? <#do-hipify-tools-automatically-convert-all-source-code>`__
--  `What is NVCC? <#what-is-nvcc>`__
--  `What is HIP-Clang? <#what-is-hip-clang>`__
--  `Why use HIP rather than supporting CUDA
-   directly? <#why-use-hip-rather-than-supporting-cuda-directly>`__
--  `Can I develop HIP code on Nvidia CUDA
-   platform? <#can-i-develop-hip-code-on-nvidia-cuda-platform>`__
--  `Can I develop HIP code on an AMD HIP-Clang
-   platform? <#can-i-develop-hip-code-on-an-amd-hip-clang-platform>`__
--  `How to use HIP-Clang to build HIP programs? <#how-to-use-hip-clang-to-build-hip-programs>`__
--  `What is ROCclr? <#what-is-rocclr>`__
--  `Can a HIP binary run on both AMD and Nvidia
-   platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
--  `Linking HIP code with host code compiled with another compiler on HIP Clang <#Linking-HIP-code-with-host-code-compiled-with-another-compiler-on-HIP-Clang>`__
--  `HIP detects my platform incorrectly <#HIP-detects-my-platform-incorrectly>`__
--  `Installing CUDA SDK and HIP-clang on the same
-   machine <#Installing-cuda-sdk-and-hip-clang-on-the-same-machine>`__
--  `On CUDA, can I mix CUDA code with HIP
-   code? <#on-cuda-can-i-mix-cuda-code-with-hip-code>`__
--  `How do I trace HIP application
-   flow? <#how-do-i-trace-hip-application-flow>`__
-
--  `Maximum limit of generic kernel launching parameter` __
-
--  `Shuffle functions supported on HIP 
-   platform <#shuffle-functions-supported-on-HIP-platform>`__
-   
--  `OpenMP is undefined when compiling with 
-   fopenmp <#OpenMP-is-undefined-when-compiling-with-fopenmp>`__ 
-   
 
 
 What APIs and features does HIP support?
