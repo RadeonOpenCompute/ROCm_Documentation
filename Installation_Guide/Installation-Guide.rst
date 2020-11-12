@@ -519,6 +519,16 @@ Note: To run the ROCm programs more efficiently, add the ROCm binaries in your P
 
 echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin'|sudo tee -a /etc/profile.d/rocm.sh
 
+
+**Using ROCm with Upstream Kernel Drivers**
+
+::
+
+	sudo zypper install rocm-dev
+	echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules
+	sudo reboot
+	
+
 **Uninstallation**
 
 To uninstall, use the following command:
