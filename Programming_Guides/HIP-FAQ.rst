@@ -1,8 +1,6 @@
 .. _HIP-FAQ:
 
-========
-HIP FAQ
-========
+
 
 .. contents::
 
