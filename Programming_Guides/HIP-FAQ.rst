@@ -287,5 +287,5 @@ OpenMP is undefined when compiling with fopenmp
 
 When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may generate an error if there is a reference to the `_OPENMP` macro.  This is due to a limitation in hipcc that treats any source file type (e.g., `.cpp`) as a HIP translation unit leading to some conflicts with the OpenMP language switch.  If the OpenMP source file doesn't contain any HIP language construct, you can use the following workaround:
 
-- Add the `-x c++` switch to force the compiler to treat the file as regular C++.  If the source file also contains HIP language constructs, then any host code referencing to `_OPENMP` will be guarded by `#if !__HIP_DEVICE_COMPILE__`.
+- Add the `-x c++` switch to force the compiler to treat the file as regular C++.  If the source file also contains HIP language constructs, then any host code referencing to `_OPENMP` should be guarded by `#if !__HIP_DEVICE_COMPILE__`.
 
