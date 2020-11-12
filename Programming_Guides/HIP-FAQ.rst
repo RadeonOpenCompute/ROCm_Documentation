@@ -47,7 +47,7 @@ HIP FAQ
 -  `How do I trace HIP application
    flow? <#how-do-i-trace-hip-application-flow>`__
 
--  `Maximum limit of generic kernel launching parameter`__   
+-  Maximum limit of generic kernel launching parameter
 
 -  `Shuffle functions supported on HIP 
    platform <#shuffle-functions-supported-on-HIP-platform>`__
