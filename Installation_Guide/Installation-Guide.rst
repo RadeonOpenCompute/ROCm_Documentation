@@ -329,13 +329,14 @@ To install ROCm on your system, follow the instructions below:
 ::
 
     [ROCm] 
-	name=ROCm
-	baseurl=https://repo.radeon.com/rocm/yum/rpm
-	enabled=1
-	gpgcheck=1
-	gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
+    name=ROCm
+    baseurl=https://repo.radeon.com/rocm/yum/rpm
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
 
-Note: The URL of the repository must point to the location of the repositories’ repodata database.
+
+**Note:** The URL of the repository must point to the location of the repositories’ repodata database.
 
 3. Install ROCm components using the following command:
 
