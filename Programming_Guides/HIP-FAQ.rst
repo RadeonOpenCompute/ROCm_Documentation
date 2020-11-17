@@ -284,10 +284,14 @@ Shuffle functions supported on HIP platform
 
 __shfl_*_sync is not supported on HIP but for NVCC path CUDA 9.0. Above all, shuffle calls get redirected to its sync version.
 
+How to create a guard for code that is specific to the host or the GPU?
+--------------------------------------------------------------------------
+The compiler defines the `__HIP_DEVICE_COMPILE__` macro only when compiling the code for the GPU.  It could be used to guard code that is specific to the host or the GPU.
+
 OpenMP is undefined when compiling with fopenmp
 -------------------------------------------------------
 
-When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may generate an error if there is a reference to the `_OPENMP` macro.  This is due to a limitation in hipcc that treats any source file type (e.g., `.cpp`) as a HIP translation unit leading to some conflicts with the OpenMP language switch.  If the OpenMP source file doesn't contain any HIP language construct, you can use the following workaround:
+When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may generate error if there is a reference to the `_OPENMP` macro.  This is due to a limitation in hipcc that treats any source file type (e.g., `.cpp`) as an HIP translation unit leading to some conflicts with the OpenMP language switch.  If the OpenMP source file doesn't contain any HIP language construct, you could workaround this issue by adding the `-x c++` switch to force the compiler to treat the file as regular C++.  
 
-- Add the `-x c++` switch to force the compiler to treat the file as regular C++.  If the source file also contains HIP language constructs, then any host code referencing to `_OPENMP` should be guarded by `#if !__HIP_DEVICE_COMPILE__`.
+Another approach would be to guard the OpenMP code with `#ifdef _OPENMP` so that the code block is disabled when compiling for the GPU.  The `__HIP_DEVICE_COMPILE__` macro defined by the HIP compiler when compiling the GPU code could also be used for guarding code paths specific to the host or the GPU.
 
