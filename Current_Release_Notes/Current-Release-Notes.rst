@@ -3,25 +3,13 @@
 |
 
 ================================
-AMD ROCm™ Release Notes v3.9.0
+AMD ROCm™ Release Notes v3.10
 ================================
-October, 2020
+November, 2020
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.9.0 release.
 
 `Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
-
-
-Support for Ubuntu 20.04.1
---------------------------
-
-In this release, AMD ROCm extends support to Ubuntu 20.04.1, including
-v5.4 and v5.6-oem.
-
-Support for SLES 15 SP2
------------------------
-
-This release extends support to SLES 15 SP2.
 
 
 List of Supported Operating Systems
@@ -43,10 +31,10 @@ systems:
 -  SLES 15 SP2
 
 
-Fresh Installation of AMD ROCm v3.8 Recommended
+Fresh Installation of AMD ROCm v3.10 Recommended
 -----------------------------------------------
 
-A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from previous releases to AMD ROCm v3.9 is not supported.
+A fresh and clean installation of AMD ROCm v3.10 is recommended. An upgrade from previous releases to AMD ROCm v3.10 is not supported.
 
 For more information, refer to the AMD ROCm Installation Guide at:
 
@@ -65,17 +53,17 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 ROCm MultiVersion Installation Update
 ---------------------------------------
 
-With the AMD ROCm v3.9 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v3.10 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
 
 -   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
 
--  Version files must be created for each multi-version rocm <= 3.9.0
+-  Version files must be created for each multi-version rocm <= 3.10.0
 
    -  command: echo \| sudo tee /opt/rocm-/.info/version
 
-   -  example: echo 3.9.0 \| sudo tee /opt/rocm-3.9.0/.info/version
+   -  example: echo 3.10.0 \| sudo tee /opt/rocm-3.10.0/.info/version
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
@@ -94,57 +82,28 @@ AMD ROCm Installation Guide
 The AMD ROCm Installation Guide in this release includes:
 
 -  Updated Supported Environments
--  Multi-version Installation Instructions
+-  Installation Instructions
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-ROCm Compiler Documentation Updates
-======================================
+HIP Documentation Updates
+===========================
 
-The ROCm Compiler documentation updates include,
-
--  OpenMP Extras v12.9-0
--  OpenMP-Extras Installation
--  OpenMP-Extras Source Build
--  AOMP-v11.9-0
--  AOMP Source Build
+* HIP FAQ 
 
 For more information, see
 
-https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
-
-For the updated ROCm SMI API Guide, see
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_v3.9.pdf
+https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 
-ROCm System Management Information
-====================================
 
-ROCM-SMI version: 1.4.1 \| Kernel version: 5.6.20
+ROCm System Management Information API Updates 
+==================================================
 
--  ROCm SMI and Command Line Interface
--  ROCm SMI APIs for Compute Unit Occupancy
-
-   -  Usage
-   -  Optional Arguments
-   -  Display Options
-   -  Topology
-   -  Pages Information
-   -  Hardware-related Information
-   -  Software-related/controlled information
-   -  Set Options
-   -  Reset Options
-   -  Auto-response Options
-   -  Output Options
-
-For more information, refer to
-
-https://rocmdocs.amd.com/en/latest/ROCm_System_Managment/ROCm-System-Managment.html#rocm-command-line-interface
+* System DMA (SDMA) Utilization API 
 
 For ROCm SMI API Guide, see
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_v3.9.pdf
 
 
 AMD ROCm - HIP Documentation Updates
@@ -156,6 +115,17 @@ For more information, refer to
 
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-porting-guide.html#hip-porting-guide
 
+
+AMD ROCm Data Center Tool User Guide 
+=======================================
+
+* ROCm Data Center Tool Python Binding
+
+* Prometheus plugin integration
+
+For more information, refer to the ROCm Data Center Tool User Guide at:
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
 
 General AMD ROCm Documentation Links
@@ -173,11 +143,12 @@ Access the following links for more information:
 
 -  For AMD ROCm binary structure, see
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#build-amd-rocm
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#software-stack-for-amd-gpu
 
 -  For AMD ROCm Release History, see
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#amd-rocm-version-history
+   https://rocmdocs.amd.com/en/latest/Current_Release_Notes/Current-Release-Notes.html#amd-rocm-version-history
+   
    
 
 What's New in This Release
