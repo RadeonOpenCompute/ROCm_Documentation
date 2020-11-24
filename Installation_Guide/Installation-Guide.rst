@@ -828,22 +828,8 @@ The following example shows how to use the repo binary to download the ROCm sour
   repo sync
 
 
-Note: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
+**Note**: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
 
-Building the ROCm Source Code
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Each ROCm component repository contains directions for building that component. You can access the desired component for instructions to build the repository.
-
-AOMP
-*****
-
-* https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/ROCM_AOMP_SOURCE_INSTALL.md
-
-OpenMP Extras
-**************
-
-* https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md
 
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
