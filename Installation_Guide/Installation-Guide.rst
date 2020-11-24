@@ -845,7 +845,7 @@ Machine Learning and High Performance Computing Software Stack for AMD GPU v3.9.
 .. _ROCm Binary Package Structure:
 
 ROCm Binary Package Structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ROCm is a collection of software ranging from drivers and runtimes to libraries and developer tools. In AMD's package distributions, these software projects are provided as a separate packages. This allows users to install only the packages they need, if they do not wish to install all of ROCm. These packages will install most of the ROCm software into ``/opt/rocm/`` by default.
 
@@ -854,8 +854,8 @@ The packages for each of the major ROCm components are:
 ROCm Core Components
 =====================
 
- -   ROCk Kernel Driver: ``rock-dkms``
- -   ROCr Runtime: ``hsa-rocr-dev``, ``hsa-ext-rocr-dev``
+ -   ROCk Kernel Driver: ``rock-dkms rock-dkms-firmware``
+ -   ROCr Runtime: ``hsa-rocr-dev``
  -   ROCt Thunk Interface: ``hsakmt-roct``, ``hsakmt-roct-dev``
 
 
@@ -871,7 +871,8 @@ ROCm Support Software
 ROCm Compilers
 ================
 
- -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``      
+ -   Clang compiler: ``llvm-amdgpu``
+ -   HIP: ``hip_base``, ``hip_doc``, ``hip_rocclr``, ``hip_samples``     
  -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
      
 
@@ -890,8 +891,7 @@ ROCm Device Libraries
  -   ROCm Code Object Manager: ``comgr``     
  -   ROC Profiler: ``rocprofiler-dev``     
  -   ROC Tracer: ``roctracer-dev``     
- -   Radeon Compute Profiler: ``rocm-profiler``
-     
+      
 
 ROCm Libraries
 ==============
