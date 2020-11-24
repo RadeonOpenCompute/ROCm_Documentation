@@ -650,30 +650,31 @@ See https://github.com/ROCm-Developer-Tools/ROCclr
 
 ::
 
-   git clone -b rocm-3.10.x https://github.com/ROCm-Developer-Tools/ROCclr.git
-export ROCclr_DIR="$(readlink -f ROCclr)"
-git clone -b rocm-3.10.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
-export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
-cd "$ROCclr_DIR"
-mkdir -p build;cd build
-cmake -DOPENCL_DIR="$OPENCL_DIR" -DCMAKE_INSTALL_PREFIX=/opt/rocm/rocclr ..
-make -j
-sudo make install
+   	git clone -b rocm-3.10.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+	export ROCclr_DIR="$(readlink -f ROCclr)"
+	git clone -b rocm-3.10.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+	export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
+	cd "$ROCclr_DIR"
+	mkdir -p build;cd build
+	cmake -DOPENCL_DIR="$OPENCL_DIR" -DCMAKE_INSTALL_PREFIX=/opt/rocm/rocclr ..
+	make -j
+	sudo make install
 
-
+::
 
 Build HIP
 ===========
 
 ::
 
-   git clone -b rocm-3.10.x https://github.com/ROCm-Developer-Tools/HIP.git
-export HIP_DIR="$(readlink -f HIP)"
-cd "$HIP_DIR"
-mkdir -p build; cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DHIP_COMPILER=clang -DHIP_PLATFORM=rocclr -DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" -DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
-make -j
-sudo make install
+   	git clone -b rocm-3.10.x https://github.com/ROCm-Developer-Tools/HIP.git
+	export HIP_DIR="$(readlink -f HIP)"
+	cd "$HIP_DIR"
+	mkdir -p build; cd build
+	cmake -DCMAKE_BUILD_TYPE=Release -DHIP_COMPILER=clang -DHIP_PLATFORM=rocclr -	DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" -DCMAKE_INSTALL_PREFIX=	</where/to/install/hip> ..
+	make -j
+	sudo make install
+::
 
 
 Default paths and environment variables
