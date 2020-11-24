@@ -871,7 +871,6 @@ ROCm Support Software
 ROCm Compilers
 ================
 
- -   HCC compiler: ``hcc``   (in deprecation)     
  -   HIP: ``hip_base``, ``hip_doc``, ``hip_hcc``, ``hip_samples``      
  -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
      
