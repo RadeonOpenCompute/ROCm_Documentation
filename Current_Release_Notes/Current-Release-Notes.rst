@@ -305,17 +305,15 @@ connected. This is represented in terms of weights, hops, and link types
 between two given GPUs. It also provides the numa node and the CPU
 affinity associated with every GPU.
 
-.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/CLI1.PNG
+.. image:: /images/CLI1.PNG
    :align: center
 
  
 
-.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/CLI2.PNG
+.. image:: /images/CLI2.PNG
    :align: center
 
  
-
-
 
 ROCm Math and Communication Libraries
 -------------------------------------
@@ -325,7 +323,7 @@ New rocSOLVER APIs
 
 The following new rocSOLVER APIs are added in this release:
 
-.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/rocsolverAPI.PNG
+.. image:: /images/rocsolverAPI.PNG
    :align: center
 
   
