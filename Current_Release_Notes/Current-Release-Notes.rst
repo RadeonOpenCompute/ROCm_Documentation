@@ -306,14 +306,14 @@ between two given GPUs. It also provides the numa node and the CPU
 affinity associated with every GPU.
 
 .. image:: https://github.com/Rmalavally/ROCm/blob/master/images/CLI1.PNG
-   :alt: Screenshot
+   :align: center
 
-   Screenshot
+ 
 
 .. image:: https://github.com/Rmalavally/ROCm/blob/master/images/CLI2.PNG
-   :alt: Screenshot
+   :align: center
 
-   Screenshot
+ 
 
 
 
@@ -326,9 +326,9 @@ New rocSOLVER APIs
 The following new rocSOLVER APIs are added in this release:
 
 .. image:: https://github.com/Rmalavally/ROCm/blob/master/images/rocsolverAPI.PNG
-   :alt: Screenshot
+   :align: center
 
-   Screenshot
+  
 
 For more information, refer to
 
