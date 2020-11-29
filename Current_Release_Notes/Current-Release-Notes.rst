@@ -305,12 +305,12 @@ connected. This is represented in terms of weights, hops, and link types
 between two given GPUs. It also provides the numa node and the CPU
 affinity associated with every GPU.
 
-.. image:: /images/CLI1.PNG
+.. image:: /Current_Release_Notes/images/CLI1.PNG
    :align: center
 
  
 
-.. image:: /images/CLI2.PNG
+.. image:: /Current_Release_Notes/images/CLI2.PNG
    :align: center
 
  
@@ -323,7 +323,7 @@ New rocSOLVER APIs
 
 The following new rocSOLVER APIs are added in this release:
 
-.. image:: /images/rocsolverAPI.PNG
+.. image:: /Current_Release_Notes/images/rocsolverAPI.PNG
    :align: center
 
   
