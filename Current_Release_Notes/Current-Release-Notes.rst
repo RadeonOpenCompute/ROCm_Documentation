@@ -424,8 +424,7 @@ Known Issues
 Upgrade to AMD ROCm v3.10 Not Supported
 ########################################
 
-An upgrade from previous releases to AMD ROCm v3.10 is not supported. A
-fresh and clean installation of AMD ROCm v3.10 is recommended.
+An upgrade from previous releases to AMD ROCm v3.10 is not supported. A fresh and clean installation of AMD ROCm v3.10 is recommended.
 
 
 Deprecations
