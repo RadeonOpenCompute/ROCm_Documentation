@@ -325,8 +325,7 @@ affinity associated with every GPU.
 
  
  For more information about ROCm SMI API libraries, refer to the ROCm SMI API Guide at
- 
- 
+  
  https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
  
 
