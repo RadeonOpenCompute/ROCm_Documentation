@@ -171,7 +171,7 @@ ROCm DATA CENTER TOOL
 The following enhancements are made to the ROCm Data Center Tool.
 
 Prometheus Plugin for ROCm Data Center Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###############################################
 
 The ROCm Data Center (RDC) Tool now provides the Prometheus plugin, a
 Python client to collect the telemetry data of the GPU. The RDC uses
@@ -185,7 +185,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_U
 
 
 Python Binding
-~~~~~~~~~~~~~~
+################
 
 The ROCm Data Center (RDC) Tool now uses PyThon Binding for Prometheus
 and collectd plugins. PyThon binding maps the RDC C APIs to PyThon using
@@ -242,23 +242,19 @@ utilization using the RdcReader:
 ::
 
 
-For more information about RDC Python binding and the Prometheus plugin
-integration, refer to the ROCm Data Center Tool User Guide at
+For more information about RDC Python binding and the Prometheus plugin integration, refer to the ROCm Data Center Tool User Guide at
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
 
 
 ROCm System Management Information
-----------------------------------
+====================================
 
 System DMA (SDMA) Utilization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##################################
 
-Per-process, the SDMA usage is exposed via the ROCm SMI library. The
-structure rsmi_process_info_t is extended to include sdma_usage.
-sdma_usage is a 64-bit value that counts the duration (in microseconds)
-for which the SDMA engine was active during that processâ€™s lifetime.
+Per-process, the SDMA usage is exposed via the ROCm SMI library. The structure rsmi_process_info_t is extended to include sdma_usage. sdma_usage is a 64-bit value that counts the duration (in microseconds) for which the SDMA engine was active during that process lifetime.
 
 For example, see the rsmi_compute_process_info_by_pid_get() API below.
 
@@ -280,7 +276,7 @@ For example, see the rsmi_compute_process_info_by_pid_get() API below.
 
 
 ROCm-SMI Command Line Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#################################
 
 The SDMA usage per-process is available using the following command,
 
@@ -292,28 +288,22 @@ The SDMA usage per-process is available using the following command,
 
 
 Enhanced ROCm SMI Library for Events
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+########################################
 
-ROCm-SMI library clients can now register to receive the following
-events:
+ROCm-SMI library clients can now register to receive the following events:
 
--  GPU PRE RESET: This reset event is sent to the client just before a
-   GPU is going to be RESET.
+-  GPU PRE RESET: This reset event is sent to the client just before a GPU is going to be RESET.
 
--  GPU POST RESET: This reset event is sent to the client after a
-   successful GPU RESET.
+-  GPU POST RESET: This reset event is sent to the client after a successful GPU RESET.
 
--  GPU THERMAL THROTTLE: This Thermal throttling event is sent if GPU
-   clocks are throttled
+-  GPU THERMAL THROTTLE: This Thermal throttling event is sent if GPU clocks are throttled
    
    
 ROCm SMI Command Line Interface Hardware Topology
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+########################################################
 
-This feature provides a matrix representation of the GPUs present in a
-system by providing information of the manner in which the nodes are
-connected. This is represented in terms of weights, hops, and link types
-between two given GPUs. It also provides the numa node and the CPU
+This feature provides a matrix representation of the GPUs present in a system by providing information of the manner in which the nodes are
+connected. This is represented in terms of weights, hops, and link types between two given GPUs. It also provides the numa node and the CPU
 affinity associated with every GPU.
 
 .. image:: /Current_Release_Notes/images/CLI1.PNG
@@ -333,10 +323,10 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.p
 
 
 ROCm Math and Communication Libraries
--------------------------------------
+=======================================
 
 New rocSOLVER APIs
-~~~~~~~~~~~~~~~~~~
+########################
 
 The following new rocSOLVER APIs are added in this release:
 
@@ -351,10 +341,9 @@ https://rocsolver.readthedocs.io/en/latest/userguide_api.html
 
 
 RCCL Alltoallv Support in PyTorch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#################################
 
-The AMD ROCm v3.10 release includes a new API for ROCm Communication
-Collectives Library (RCCL). This API sends data from all to all ranks
+The AMD ROCm v3.10 release includes a new API for ROCm Communication Collectives Library (RCCL). This API sends data from all to all ranks
 and each rank provides arrays of input/output data counts and offsets.
 
 For details about the functions and parameters, see
@@ -363,13 +352,12 @@ https://rccl.readthedocs.io/en/master/allapi.html
 
 
 ROCm AOMP Enhancements
-----------------------
+=======================
 
 AOMP Release 11.11-0
-~~~~~~~~~~~~~~~~~~~~
+########################
 
-The source code base for this release is the upstream LLVM 11 monorepo
-release/11.x sources with the hash value
+The source code base for this release is the upstream LLVM 11 monorepo release/11.x sources with the hash value
 
 *176249bd6732a8044d457092ed932768724a6f06*
 
@@ -424,7 +412,7 @@ This release includes fixes to the internal Clang math headers:
 
 
 Fixed Defects
-=============
+-------------------
 
 The following defects are fixed in this release:
 
@@ -443,10 +431,10 @@ The following defects are fixed in this release:
 
 
 Known Issues
---------------
+-------------------
 
 Upgrade to AMD ROCm v3.10 Not Supported
-========================================
+########################################
 
 An upgrade from previous releases to AMD ROCm v3.10 is not supported. A
 fresh and clean installation of AMD ROCm v3.10 is recommended.
