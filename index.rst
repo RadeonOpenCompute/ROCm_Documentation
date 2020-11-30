@@ -21,7 +21,7 @@ AMD ROCm is built for scale; it supports multi-GPU computing in and out of serve
 The AMD ROCm Programming-Language Run-Time 
 ############################################
 
-The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP.
+The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages, such as HIP.
 
 
 .. image:: ROCm_Stack.png
@@ -49,7 +49,7 @@ Solid Compilation Foundation and Language Support
 ####################################################
 
 •	LLVM compiler foundation
-•	HCC C++ and HIP for application portability
+•	HIP for application portability
 •	GCN assembler and disassembler
 
 AMD ROCm gives developers the flexibility of choice for hardware and aids in the development of compute-intensive applications.
