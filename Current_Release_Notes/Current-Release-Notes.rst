@@ -140,7 +140,7 @@ https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 
 General AMD ROCm Documentation Links
-------------------------------------
+======================================
 
 Access the following links for more information:
 
@@ -193,7 +193,7 @@ usage of the RDC:
    fields.
    
 
--  The RdcReader can support both the Embedded and Standalone mode. Standalone mode can be used with and without authentication.
+-  RdcReader can support both the Embedded and Standalone mode. Standalone mode can be used with and without authentication.
 
 
 -  In the Standalone mode, the RdcReader can automatically reconnect to  rdcd when connection is lost.When rdcd is restarted, the previously
