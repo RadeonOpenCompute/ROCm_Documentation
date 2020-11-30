@@ -303,14 +303,15 @@ ROCm SMI Command Line Interface Hardware Topology
 ########################################################
 
 This feature provides a matrix representation of the GPUs present in a system by providing information of the manner in which the nodes are
-connected. This is represented in terms of weights, hops, and link types between two given GPUs. It also provides the numa node and the CPU
-affinity associated with every GPU.
+connected. 
 
 .. image:: /Current_Release_Notes/images/CLI1.PNG
    :align: center
    
    
-   and
+This is represented in terms of weights, hops, and link types between two given GPUs. It also provides the numa node and the CPU
+affinity associated with every GPU.
+
    
 .. image:: /Current_Release_Notes/images/CLI2.PNG
    :align: center
