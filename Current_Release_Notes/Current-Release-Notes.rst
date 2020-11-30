@@ -121,6 +121,10 @@ For more information, refer to the ROCm Data Center Tool User Guide at:
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
+For ROCm Data Center APIs, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_API_Guide.pdf
+
 
 
 HIP Documentation Updates
