@@ -10,7 +10,7 @@ November, 2020
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.9.0 release.
 
-`Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
+`Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_Release_Notes_v3.10.pdf>`__
 
 
 
