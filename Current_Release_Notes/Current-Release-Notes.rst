@@ -173,47 +173,42 @@ The following enhancements are made to the ROCm Data Center Tool.
 Prometheus Plugin for ROCm Data Center Tool
 ###############################################
 
-The ROCm Data Center (RDC) Tool now provides the Prometheus plugin, a
-Python client to collect the telemetry data of the GPU. The RDC uses
-Python binding for Prometheus and the collected plugin. The Python
-binding maps the RDC C APIs to Python using ctypes. The functions
-supported by C APIs can also be used in the Python binding.
+The ROCm Data Center (RDC) Tool now provides the Prometheus plugin, a PyThon client to collect the telemetry data of the GPU. The RDC uses
+PyThon binding for Prometheus and the collected plugin. The PyThon binding maps the RDC C APIs to Python using ctypes. The functions
+supported by C APIs can also be used in the PyThon binding.
 
 For more information, refer to
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
 
-Python Binding
+PyThon Binding
 ################
 
-The ROCm Data Center (RDC) Tool now uses PyThon Binding for Prometheus
-and collectd plugins. PyThon binding maps the RDC C APIs to PyThon using
-ctypes. All the functions supported by C APIs can also be used in PyThon
-binding. A generic PyThon class RdcReader is created to simplify the
+The ROCm Data Center (RDC) Tool now uses PyThon Binding for Prometheus and collectd plugins. PyThon binding maps the RDC C APIs to PyThon using
+ctypes. All the functions supported by C APIs can also be used in PyThon binding. A generic PyThon class RdcReader is created to simplify the
 usage of the RDC:
 
--  Users can only specify the fields they want to monitor. RdcReader
-   creates groups and fieldgroups, watches the fields, and fetches the
+-  Users can only specify the fields they want to monitor. RdcReader creates groups and fieldgroups, watches the fields, and fetches the
    fields.
+   
 
--  The RdcReader can support both the Embedded and Standalone mode.
-   Standalone mode can be used with and without authentication.
+-  The RdcReader can support both the Embedded and Standalone mode. Standalone mode can be used with and without authentication.
 
--  In the Standalone mode, the RdcReader can automatically reconnect to
-   rdcd when connection is lost.When rdcd is restarted, the previously
-   created group and fieldgroup may lose. The RdcReader can re-create
-   them and watch the fields after a reconnect.
 
--  If the client is restarted, RdcReader can detect the groups and
-   fieldgroups created previously, and, therefore, can avoid recreating
+-  In the Standalone mode, the RdcReader can automatically reconnect to  rdcd when connection is lost.When rdcd is restarted, the previously
+   created group and fieldgroup may lose. The RdcReader can re-create them and watch the fields after a reconnect.
+   
+
+-  If the client is restarted, RdcReader can detect the groups and fieldgroups created previously, and, therefore, can avoid recreating
    them.
+   
 
--  Users can pass the unit converter if they do not want to use the RDC
-   default unit.
+-  Users can pass the unit converter if they do not want to use the RDC default unit.
 
-See the following sample program to monitor the power and GPU
-utilization using the RdcReader:
+
+See the following sample program to monitor the power and GPU utilization using the RdcReader:
+
 
 ::
 
@@ -364,51 +359,43 @@ The source code base for this release is the upstream LLVM 11 monorepo release/1
 
 This release includes fixes to the internal Clang math headers:
 
--  This set of changes applies to clang internal headers to support
-   OpenMP C, C++, and FORTRAN and for HIP C. This establishes
-   consistency between NVPTX and AMDGCN offloading and between OpenMP,
-   HIP, and CUDA. OpenMP uses function variants and header overlays to
-   define device versions of functions. This causes clang LLVM IR
-   codegen to mangled names of variants in both the definition and
-   callsites of functions defined in the internal clang headers. These
-   changes apply to headers found in the installation subdirectory
+-  This set of changes applies to clang internal headers to support OpenMP C, C++, and FORTRAN and for HIP C. This establishes
+   consistency between NVPTX and AMDGCN offloading and between OpenMP, HIP, and CUDA. OpenMP uses function variants and header overlays to
+   define device versions of functions. This causes clang LLVM IR codegen to mangled names of variants in both the definition and
+   callsites of functions defined in the internal clang headers. These changes apply to headers found in the installation subdirectory
    lib/clang/11.0.0/include.
+   
 
--  These changes temporarily eliminate the use of the libm bitcode
-   libraries for C and C++. Although math functions are now defined with
-   internal clang headers, a bitcode library of the C functions defined
-   in the headers is still built for FORTRAN toolchain linking because
-   FORTRAN cannot use c math headers. This bitcode library is installed
-   in lib/libdevice/libm-.bc. The source build of this bitcode library
-   is done with the aomp-extras repository and the component built
-   script build_extras.sh. In the future, we will introduce across the
-   board changes to eliminate massive header files for math libraries
-   and replace them with linking to bitcode libraries.
+-  These changes temporarily eliminate the use of the libm bitcode libraries for C and C++. Although math functions are now defined with
+   internal clang headers, a bitcode library of the C functions defined in the headers is still built for FORTRAN toolchain linking because
+   FORTRAN cannot use c math headers. This bitcode library is installed in lib/libdevice/libm-.bc. The source build of this bitcode library
+   is done with the aomp-extras repository and the component built script build_extras.sh. In the future, we will introduce across the
+   board changes to eliminate massive header files for math libraries and replace them with linking to bitcode libraries.
+   
 
 -  Added support for -gpubnames in Flang Driver
 
--  Added an example category for Kokkos. The Kokkos example makefile
-   detects if Kokkos is installed and, if not, it builds Kokkos from the
-   Web. Refer to the script kokkos_build.sh in the bin directory on how
-   to build Kokkos. Kokkos now builds cleanly with the OpenMP backend
+
+-  Added an example category for Kokkos. The Kokkos example makefile detects if Kokkos is installed and, if not, it builds Kokkos from the
+   Web. Refer to the script kokkos_build.sh in the bin directory on how to build Kokkos. Kokkos now builds cleanly with the OpenMP backend
    for simple test cases.
+   
 
--  Fixed hostrpc cmake race condition in the build of openmp
+-  Fixed hostrpc cmake race condition in the build of OpenMP
 
--  Add a fatal error if missing -Xopenmp-target or -march options when
-   -fopenmp-targets is specified. However, we do forgive this
-   requirement for offloading to host when there is only a single target
-   and that target is the host.
 
--  Fix a bug in InstructionSimplify pass where a comparison of two
-   constants of different sizes found in the optimization pass. This
+-  Add a fatal error if missing -Xopenmp-target or -march options when -fopenmp-targets is specified. However, we do forgive this
+   requirement for offloading to host when there is only a single target and that target is the host.
+   
+
+-  Fix a bug in InstructionSimplify pass where a comparison of two constants of different sizes found in the optimization pass. This
    fixes issue #182 which was causing kokkos build failure.
+   
 
--  Fix openmp error message output for no_rocm_device_lib, was
-   asserting.
+-  Fix openmp error message output for no_rocm_device_lib, was asserting.
 
--  Changed linkage on constant per-kernel symbols from external to
-   weaklinkageonly to prevent duplicate symbols when building kokkos.
+
+-  Changed linkage on constant per-kernel symbols from external to weaklinkageonly to prevent duplicate symbols when building kokkos.
 
 
 
