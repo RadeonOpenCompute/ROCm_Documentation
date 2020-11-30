@@ -102,6 +102,10 @@ ROCm SMI API Documentation Updates
 
 -  Enhanced ROCm SMI Library for Events
 
+For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
+
 
 ROCm Data Center Tool User Guide
 ==================================
@@ -294,7 +298,8 @@ events:
    successful GPU RESET.
 
 -  GPU THERMAL THROTTLE: This Thermal throttling event is sent if GPU
-   clocks are throttled.
+   clocks are throttled
+   
    
 ROCm SMI Command Line Interface Hardware Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -313,6 +318,11 @@ affinity associated with every GPU.
 .. image:: /Current_Release_Notes/images/CLI2.PNG
    :align: center
 
+ 
+ For more information about ROCm SMI API libraries, refer to the ROCm SMI API Guide at
+ 
+ 
+ https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
  
 
 ROCm Math and Communication Libraries
