@@ -320,19 +320,17 @@ affinity associated with every GPU.
    :align: center
    
    
-   
+   and
    
 .. image:: /Current_Release_Notes/images/CLI2.PNG
    :align: center
 
  
-
-
-
 For more information about ROCm SMI API libraries, refer to the ROCm SMI API Guide at
   
- https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
  
+
 
 ROCm Math and Communication Libraries
 -------------------------------------
