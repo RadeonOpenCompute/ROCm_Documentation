@@ -73,9 +73,9 @@ The AMD ROCm platform is designed to support the following operating systems:
 * SLES 15 SP2
 
 
-**FRESH INSTALLATION OF AMD ROCm V3.9 RECOMMENDED**
+**FRESH INSTALLATION OF AMD ROCm V3.10 RECOMMENDED**
 
-A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from previous releases to AMD ROCm v3.9 is not supported.
+A fresh and clean installation of AMD ROCm v3.10 is recommended. An upgrade from previous releases to AMD ROCm v3.10 is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
@@ -87,20 +87,20 @@ A fresh and clean installation of AMD ROCm v3.9 is recommended. An upgrade from 
 **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
 
-**MULTI-VERSION INSTALLATION UPDATES for ROCm v3.9 RELEASE**
+**MULTI-VERSION INSTALLATION UPDATES**
 
-With the AMD ROCm v3.9 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v3.10 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
 
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 3.9.0
+* ‘version’ files should be created for each multi-version rocm <= 3.10.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 3.9.0 | sudo tee /opt/rocm-3.9.0/.info/version
+	* example: echo 3.10.0 | sudo tee /opt/rocm-3.10.0/.info/version
 
 * The rock-dkms loadable kernel modules should be installed using a single rock-dkms package. 
 
@@ -239,7 +239,7 @@ Instead, install the following development subset of packages:
   sudo apt install rocm-dev
 
 
-Note: To execute ROCm enabled applications, you must install the full ROCm driver stack on your system.
+**Note**: To execute ROCm enabled applications, you must install the full ROCm driver stack on your system.
 
 Using Debian-based ROCm with Upstream Kernel Drivers
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -713,7 +713,7 @@ sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/
 
 
 
-AMD ROCm MultiVersion Installation
+AMD ROCm Multi Version Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
@@ -725,13 +725,13 @@ Now, users have the option to install multiple versions simultaneously and toggl
 **Prerequisites**
 ###############################
 
-Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.9 ROCm toolkit installation. The ROCm v3.9 package requires a clean installation.
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.10 ROCm toolkit installation. The ROCm v3.10 package requires a clean installation.
 
 * To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
 
-* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.9.0 /opt/rocm*
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.10.0 /opt/rocm*
 
-* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.9.0 /opt/rocm*
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.10.0 /opt/rocm*
 
 **Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
 
@@ -765,9 +765,9 @@ A fresh installation of single-version installation will install the new version
 
 For example,
 
-  * rocm-dev3.9.0
+  * rocm-dev3.10.0
 
-  * hip3.9.0
+  * hip3.10.0
 
 * kernel/firmware package doesn't have multi version so it should be installed using "apt/yum/zypper install rock-dkms".
 
@@ -828,7 +828,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.9.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.10.x
   repo sync
 
 
@@ -987,6 +987,7 @@ ROCm Platform Packages
 The following platform packages are for ROCm v3.9.0:
 
 Drivers, ToolChains, Libraries, and Source Code
+==================================================
 
 The latest supported version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available from the following GitHub repositories:
 
