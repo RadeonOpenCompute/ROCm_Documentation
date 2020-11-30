@@ -318,7 +318,6 @@ affinity associated with every GPU.
 
 .. image:: /Current_Release_Notes/images/CLI1.PNG
    :align: center
-
 .. image:: /Current_Release_Notes/images/CLI2.PNG
    :align: center
 
