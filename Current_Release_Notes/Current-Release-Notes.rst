@@ -3,7 +3,7 @@
 |
 
 ================================
-AMD ROCm™ Release Notes v3.10
+AMD ROCm™ Release Notes v3.10.0
 ================================
 November, 2020
 
