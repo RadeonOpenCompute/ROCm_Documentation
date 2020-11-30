@@ -3,9 +3,10 @@
 
 
 ================================
-AMD ROCm™ Release Notes v3.9.0
+AMD ROCm™ Release Notes v3.10.0
 ================================
-October, 2020
+
+November, 2020
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.9.0 release.
 
@@ -248,7 +249,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_U
 
 
 
-ROCm SYSTEM MANAGEMENT INFORMATION
+ROCm System Management Information
 ----------------------------------
 
 System DMA (SDMA) Utilization
@@ -318,8 +319,6 @@ affinity associated with every GPU.
 .. image:: /Current_Release_Notes/images/CLI1.PNG
    :align: center
 
- 
-
 .. image:: /Current_Release_Notes/images/CLI2.PNG
    :align: center
 
@@ -359,7 +358,7 @@ For details about the functions and parameters, see
 https://rccl.readthedocs.io/en/master/allapi.html
 
 
-ROCm AOMP ENHANCEMENTS
+ROCm AOMP Enhancements
 ----------------------
 
 AOMP Release 11.11-0
