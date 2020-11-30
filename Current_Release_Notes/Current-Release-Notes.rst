@@ -494,6 +494,29 @@ AMD ROCm Version History
 
 This file contains archived version history information for the ROCm project.
 
+New features and enhancements in ROCm v3.9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/blob/roc-3.9.x/README.md
+
+- Compiler support for OpenMP
+
+- ROCm-SMI Hardware Topology
+
+- Compute Unit Occupancy
+
+- Accessing Compute Unit Occupancy Directly Using SYSFS
+
+- ‘rocfft_execution_info_set_stream’ API
+
+- Improved GEMM Performance
+
+- New Matrix Pruning Functions
+
+- AOMP v11.9-0
+
+- AOMP v11.08-0
+
 New features and enhancements in ROCm v3.8
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
