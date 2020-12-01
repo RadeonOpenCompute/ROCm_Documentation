@@ -32,6 +32,11 @@ systems:
 
 -  SLES 15 SP2
 
+**Note**: The ROCm Data Center Tool is supported only on Ubuntu v18.04.5 and Ubuntu v20.04.1 in the AMD ROCm v3.10.0 release. 
+
+The CentOS/RHEL and SLES environments are not supported at this time. 
+
+
 
 Fresh Installation of AMD ROCm v3.10 Recommended
 -----------------------------------------------
