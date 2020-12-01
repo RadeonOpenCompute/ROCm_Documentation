@@ -277,7 +277,7 @@ The SDMA usage per-process is available using the following command,
 
 ::
 
-   $ rocm-smi â€“showpids
+   $ rocm-smi -showpids
    
 ::   
 
