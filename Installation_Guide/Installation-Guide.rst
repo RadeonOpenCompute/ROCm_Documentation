@@ -713,7 +713,7 @@ sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/
 
 
 
-AMD ROCm Multi Version Installation
+AMD ROCm MultiVersion Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
