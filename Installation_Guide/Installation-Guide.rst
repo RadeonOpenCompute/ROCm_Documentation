@@ -64,7 +64,6 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 **Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS or ones including more more recent major kernel release, may work with ROCm, however, they are not officially supported.
 
-
 **FRESH INSTALLATION OF AMD ROCm RECOMMENDED**
 
 A fresh and clean installation of AMD ROCm is recommended. An upgrade from previous releases to AMD ROCm is not supported.
@@ -76,8 +75,10 @@ A fresh and clean installation of AMD ROCm is recommended. An upgrade from previ
 
 * For ROCm v3.3 and older releases, the *clinfo* path is - */opt/rocm/opencl/bin/x86_64/clinfo*.
 
+**Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
-**MULTI-VERSION INSTALLATION UPDATES for ROCm v3.9 RELEASE**
+
+**MULTI-VERSION INSTALLATION UPDATES**
 
 With the AMD ROCm v3.9 release, the following ROCm multi-version installation changes apply:
 
@@ -86,11 +87,11 @@ The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm i
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 3.9.0
+* ‘version’ files should be created for each multi-version rocm < 3.9.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 3.9.0 | sudo tee /opt/rocm-3.9.0/.info/version
+	* example: echo 3.8.0 | sudo tee /opt/rocm-3.8.0/.info/version
 
 * The `rock-dkms` loadable kernel modules should be installed using a single `rock-dkms` package. 
 
@@ -239,7 +240,7 @@ Instead, install the following development subset of packages:
   sudo apt install rocm-dev
 
 
-Note: To execute ROCm enabled applications, you must install the full ROCm driver stack on your system.
+**Note**: To execute ROCm enabled applications, you must install the full ROCm driver stack on your system.
 
 Using Debian-based ROCm with Upstream Kernel Drivers
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -711,7 +712,7 @@ sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/
 
 
 
-AMD ROCm MultiVersion Installation
+AMD ROCm Multi Version Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
@@ -723,13 +724,13 @@ Now, users have the option to install multiple versions simultaneously and toggl
 **Prerequisites**
 ###############################
 
-Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.9 ROCm toolkit installation. The ROCm v3.9 package requires a clean installation.
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v3.10 ROCm toolkit installation. The ROCm v3.10 package requires a clean installation.
 
 * To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
 
-* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.9.0 /opt/rocm*
+* To install individual ROCm components, create the */opt/rocm* symbolic link pointing to the version of ROCm installed on the system. For example, *# ln -s /opt/rocm-3.10.0 /opt/rocm*
 
-* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.9.0 /opt/rocm*
+* To install multiple instance ROCm packages, create */opt/rocm* symbolic link pointing to the version of ROCm installed/used on the system. For example, *# ln -s /opt/rocm-3.10.0 /opt/rocm*
 
 **Note**: The Kernel Fusion Driver (KFD) must be compatible with all versions of the ROCm software installed on the system.
 
@@ -763,9 +764,9 @@ A fresh installation of single-version installation will install the new version
 
 For example,
 
-  * rocm-dev3.9.0
+  * rocm-dev3.10.0
 
-  * hip3.9.0
+  * hip3.10.0
 
 * kernel/firmware package doesn't have multi version so it should be installed using "apt/yum/zypper install rock-dkms".
 
@@ -826,7 +827,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.9.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-3.10.x
   repo sync
 
 
@@ -840,7 +841,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 Software Stack for AMD GPU
 ============================
 
-Machine Learning and High Performance Computing Software Stack for AMD GPU v3.9.0
+Machine Learning and High Performance Computing Software Stack for AMD GPU v3.10.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -982,9 +983,10 @@ Similarly, a user that only wants to install OpenCL support instead of HCC and H
 ROCm Platform Packages
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following platform packages are for ROCm v3.9.0:
+The following platform packages are for ROCm v3.10.0:
 
 Drivers, ToolChains, Libraries, and Source Code
+==================================================
 
 The latest supported version of the drivers, tools, libraries and source code for the ROCm platform have been released and are available from the following GitHub repositories:
 
@@ -1048,92 +1050,92 @@ The latest supported version of the drivers, tools, libraries and source code fo
 
 ..  ROCm Core Components
 
-.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/rocm-3.9.0
+.. _ROCk Kernel Driver: https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/tree/rocm-3.10.0
 
-.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/rocm-3.9.0
+.. _ROCr Runtime: https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/rocm-3.10.0
 
-.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/rocm-3.9.0
+.. _ROCt Thunk Interface: https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/rocm-3.10.0
 
 
 .. ROCm Support Software
 
-.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/rocm-3.9.0
+.. _ROCm SMI: https://github.com/RadeonOpenCompute/ROC-smi/tree/rocm-3.10.0
 
-.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/rocm-3.9.0
+.. _ROCm cmake: https://github.com/RadeonOpenCompute/rocm-cmake/tree/rocm-3.10.0
 
-.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.9.0
+.. _rocminfo: https://github.com/RadeonOpenCompute/rocminfo/tree/rocm-3.10.0
 
-.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.9.0
+.. _ROCm Bandwidth Test: https://github.com/RadeonOpenCompute/rocm_bandwidth_test/tree/rocm-3.10.0
 
 
 .. ROCm Compilers
 
-.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.9.0
+.. _HIP: https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-3.10.0
 
-.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.9.0
+.. _HIP Examples: https://github.com/ROCm-Developer-Tools/HIP-Examples/tree/rocm-3.10.0
 
 
 
 .. ROCm Device Libraries and Tools
 
-.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.9.0
+.. _ROCm Device Libraries: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.10.0
 
-.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/rocm-3.9.0
+.. _ROCm OpenCL Runtime: http://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/tree/rocm-3.10.0
 
-.. _ROCm LLVM OCL: https://github.com/RadeonOpenCompute/llvm-project/tree/rocm-ocl-3.9.0
+.. _ROCm LLVM OCL: https://github.com/RadeonOpenCompute/llvm-project/tree/rocm-ocl-3.10.0
 
-.. _ROCm Device Libraries OCL: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.9.0
+.. _ROCm Device Libraries OCL: https://github.com/RadeonOpenCompute/ROCm-Device-Libs/tree/rocm-3.10.0
 
-.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/rocm-3.9.0
+.. _ROCM Clang-OCL Kernel Compiler: https://github.com/RadeonOpenCompute/clang-ocl/tree/rocm-3.10.0
 
-.. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm-3.9.0
+.. _Asynchronous Task and Memory Interface: https://github.com/RadeonOpenCompute/atmi/tree/rocm-3.10.0
 
-.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/rocm-3.9.0
+.. _ROCr Debug Agent: https://github.com/ROCm-Developer-Tools/rocr_debug_agent/tree/rocm-3.10.0
 
-.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/rocm-3.9.0
+.. _ROCm Code Object Manager: https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/tree/rocm-3.10.0
 
-.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/rocm-3.9.0
+.. _ROC Profiler: https://github.com/ROCm-Developer-Tools/rocprofiler/tree/rocm-3.10.0
 
-.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/rocm-3.9.0
+.. _ROC Tracer: https://github.com/ROCm-Developer-Tools/roctracer/tree/rocm-3.10.0
 
-.. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/rocm-3.9.0
+.. _AOMP: https://github.com/ROCm-Developer-Tools/aomp/tree/rocm-3.10.0
 
 .. _Radeon Compute Profiler: https://github.com/GPUOpen-Tools/RCP/tree/3a49405
 
-.. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/rocm-3.9.0
+.. _ROCm Validation Suite: https://github.com/ROCm-Developer-Tools/ROCmValidationSuite/tree/rocm-3.10.0
 
 
 .. ROCm Libraries
 
-.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.9.0
+.. _rocBLAS: https://github.com/ROCmSoftwarePlatform/rocBLAS/tree/rocm-3.10.0
 
-.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.9.0
+.. _hipBLAS: https://github.com/ROCmSoftwarePlatform/hipBLAS/tree/rocm-3.10.0
 
-.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.9.0
+.. _rocFFT: https://github.com/ROCmSoftwarePlatform/rocFFT/tree/rocm-3.10.0
 
-.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/rocm-3.9.0
+.. _rocRAND: https://github.com/ROCmSoftwarePlatform/rocRAND/tree/rocm-3.10.0
 
-.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.9.0
+.. _rocSPARSE: https://github.com/ROCmSoftwarePlatform/rocSPARSE/tree/rocm-3.10.0
 
-.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.9.0
+.. _hipSPARSE: https://github.com/ROCmSoftwarePlatform/hipSPARSE/tree/rocm-3.10.0
 
-.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.9.0
+.. _rocALUTION: https://github.com/ROCmSoftwarePlatform/rocALUTION/tree/rocm-3.10.0
 
-.. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/rocm-3.9.0
+.. _MIOpenGEMM: https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/tree/rocm-3.10.0
 
-.. _mi open: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/rocm-3.9.0
+.. _mi open: https://github.com/ROCmSoftwarePlatform/MIOpen/tree/rocm-3.10.0
 
-.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/rocm-3.9.0
+.. _rocThrust: https://github.com/ROCmSoftwarePlatform/rocThrust/tree/rocm-3.10.0
 
-.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/rocm-3.9.0
+.. _ROCm SMI Lib: https://github.com/RadeonOpenCompute/rocm_smi_lib/tree/rocm-3.10.0
 
-.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/rocm-3.9.0
+.. _RCCL: https://github.com/ROCmSoftwarePlatform/rccl/tree/rocm-3.10.0
 
-.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.9.0
+.. _hipCUB: https://github.com/ROCmSoftwarePlatform/hipCUB/tree/rocm-3.10.0
 
-.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/rocm-3.9.0
+.. _MIVisionX: https://github.com/GPUOpen-ProfessionalCompute-Libraries/MIVisionX/tree/rocm-3.10.0
 
-.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/tree/rocm-3.9.0
+.. _AMDMIGraphX: https://github.com/ROCmSoftwarePlatform/AMDMIGraphX/tree/rocm-3.10.0
 
 
 
