@@ -595,7 +595,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
 
 
-.. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
+
 
 
 
