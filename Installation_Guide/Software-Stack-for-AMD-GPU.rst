@@ -3,18 +3,19 @@
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
 
+
 ============================
 Software Stack for AMD GPU
 ============================
 
 Machine Learning and High Performance Computing Software Stack for AMD GPU v3.10.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------------------------------------------
 
 
 .. _ROCm Binary Package Structure:
 
 ROCm Binary Package Structure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#################################
 
 ROCm is a collection of software ranging from drivers and runtimes to libraries and developer tools. In AMD's package distributions, these software projects are provided as a separate packages. This allows users to install only the packages they need, if they do not wish to install all of ROCm. These packages will install most of the ROCm software into ``/opt/rocm/`` by default.
 
