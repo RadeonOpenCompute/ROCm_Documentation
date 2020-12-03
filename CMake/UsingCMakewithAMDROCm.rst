@@ -55,8 +55,9 @@ There are two ways to use HIP in CMake:
     # Link with HIP
     target_link_libraries(myLib hip::host)
 
-.. note:: The ``hip::host`` target provides all the usage requirements needed to
-use HIP without compiling GPU device code.
+.. note::
+    The ``hip::host`` target provides all the usage requirements needed to
+    use HIP without compiling GPU device code.
 
 -  Use HIP API and compile GPU device code. This requires using a
    device compiler. The compiler for CMake can be set using either the
@@ -84,9 +85,10 @@ This project can then be configured with::
 Which uses the device compiler provided from the binary packages from
 `<repo.radeon.com>`.
 
-.. note:: Compiling for the GPU device requires at least C++11. This can be
-enabled by setting ``CMAKE_CXX_STANDARD`` or setting the correct compiler flags
-in the CMake toolchain.
+.. note::
+    Compiling for the GPU device requires at least C++11. This can be
+    enabled by setting ``CMAKE_CXX_STANDARD`` or setting the correct compiler flags
+    in the CMake toolchain.
 
 The GPU device code can be built for different GPU architectures by
 setting the ``GPU_TARGETS`` variable. By default, this is set to all the
@@ -109,8 +111,8 @@ Libraries such as rocBLAS, MIOpen, and others support CMake users as
 well.
 
 As illustrated in the example below, to use MIOpen from CMake, you can
-call find_package(miopen), which provides the MIOpen CMake target. This
-can be linked with target_link_libraries.
+call ``find_package(miopen)``, which provides the MIOpen CMake target. This
+can be linked with target_link_libraries::
 
     # Search for rocm in common locations
     list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
@@ -121,8 +123,9 @@ can be linked with target_link_libraries.
     # Link with miopen
     target_link_libraries(myLib MIOpen)
 
-.. note:: Most libraries are designed as host-only API, so using a GPU device
-compiler is not necessary for downstream projects unless it uses the GPU
-device code.
+.. note::
+    Most libraries are designed as host-only API, so using a GPU device
+    compiler is not necessary for downstream projects unless it uses the GPU
+    device code.
 
 
