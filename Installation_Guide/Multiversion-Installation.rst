@@ -1,8 +1,8 @@
 .. image:: amdblack.jpg
 
-===================================
-AMD ROCm MultiVersion Installation
-===================================
+=============================
+MultiVersion Installation
+=============================
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
 
