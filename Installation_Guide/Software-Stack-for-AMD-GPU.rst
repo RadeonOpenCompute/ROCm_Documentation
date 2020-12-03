@@ -23,43 +23,43 @@ The packages for each of the major ROCm components are:
 ROCm Core Components
 =====================
 
- -   ROCk Kernel Driver: ``rock-dkms rock-dkms-firmware``
- -   ROCr Runtime: ``hsa-rocr-dev``
- -   ROCt Thunk Interface: ``hsakmt-roct``, ``hsakmt-roct-dev``
+ -  ROCk Kernel Driver: ``rock-dkms rock-dkms-firmware``
+ -  ROCr Runtime: ``hsa-rocr-dev``
+ -  ROCt Thunk Interface: ``hsakmt-roct``, ``hsakmt-roct-dev``
 
 
 ROCm Support Software
 ======================
 
- -   ROCm SMI: ``rocm-smi``
- -   ROCm cmake: ``rocm-cmake``
- -   rocminfo: ``rocminfo``
- -   ROCm Bandwidth Test: ``rocm_bandwidth_test``
+ -  ROCm SMI: ``rocm-smi``
+ -  ROCm cmake: ``rocm-cmake``
+ -  rocminfo: ``rocminfo``
+ -  ROCm Bandwidth Test: ``rocm_bandwidth_test``
      
     
 ROCm Compilers
 ================
 
- -   Clang compiler: ``llvm-amdgpu``
- -   HIP: ``hip_base``, ``hip_doc``, ``hip_rocclr``, ``hip_samples``     
- -   ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
+ -  Clang compiler: ``llvm-amdgpu``
+ -  HIP: ``hip_base``, ``hip_doc``, ``hip_rocclr``, ``hip_samples``     
+ -  ROCM Clang-OCL Kernel Compiler: ``rocm-clang-ocl``
      
 
 ROCm Device Libraries
 ===========================
      
- -   ROCm Device Libraries: ``rocm-device-libs``     
- -   ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
+ -  ROCm Device Libraries: ``rocm-device-libs``     
+ -  ROCm OpenCL: ``rocm-opencl``, ``rocm-opencl-devel`` (on RHEL/CentOS), ``rocm-opencl-dev`` (on Ubuntu)
      
      
  ROCm Development ToolChain
 ===========================
      
- -   Asynchronous Task and Memory Interface (ATMI): ``atmi``     
- -   ROCm Debug Agent: ``rocm_debug_agent``     
- -   ROCm Code Object Manager: ``comgr``     
- -   ROC Profiler: ``rocprofiler-dev``     
- -   ROC Tracer: ``roctracer-dev``     
+ -  Asynchronous Task and Memory Interface (ATMI): ``atmi``     
+ -  ROCm Debug Agent: ``rocm_debug_agent``     
+ -  ROCm Code Object Manager: ``comgr``     
+ -  ROC Profiler: ``rocprofiler-dev``     
+ -  ROC Tracer: ``roctracer-dev``     
       
 
 ROCm Libraries
