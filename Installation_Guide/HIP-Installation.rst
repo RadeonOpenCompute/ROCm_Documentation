@@ -2,9 +2,9 @@
 .. image:: amdblack.jpg
 
 
-
-HIP Installation Instructions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+====================
+HIP Installation 
+====================
 
 HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
 
