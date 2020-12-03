@@ -62,7 +62,7 @@ Installation Prerequisites
 
 .. note::
 
-   For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
+  For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
     
     
  3.	Use the following instructions to download and install the selected package:
@@ -166,6 +166,8 @@ Check Installation
     Component OMX.mesa.video_encoder registered with 0 quality levels
     
     Specific role OMX.mesa.video_encoder.avc registered
+    
+    
  
  2 OpenMAX IL ST static components in 1 libraries successfully scanned
 
@@ -176,15 +178,28 @@ Check Installation
 
 Plugin Details
 
-  Name                     omx
-  Description              GStreamer OpenMAX Plug-ins
-  Filename                 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstomx.so
-  Version                  1.12.4
-  License                  LGPL
-  Source module            gst-omx
-  Source release date      2017-12-07
-  Binary package           GStreamer OpenMAX Plug-ins source release
-  Origin URL               Unknown package origin
+    +---------------------------------------+--------------------------------------+
+    | Name                                  | OMX                                  |                                                    
+    +---------------------------------------+--------------------------------------+
+    | Description                           | GStreamer OpenMAX Plug-ins           |
+    +---------------------------------------+--------------------------------------+
+    | Filename                              | /usr/lib/x86_64-linux-gnu/           |
+    |                                       | gstreamer-1.0/libgstomx.so           |
+    +---------------------------------------+--------------------------------------+
+    | Version                               | 1.12.4                               |
+    +---------------------------------------+--------------------------------------+
+    | License                               |  LGPL                                |
+    +---------------------------------------+--------------------------------------+
+    | Source module                         | gst-omx                              |
+    +---------------------------------------+--------------------------------------+
+    | Source release date                   |  2017-12-07                          |
+    +---------------------------------------+--------------------------------------+
+    | Binary package                        | GStreamer OpenMAX Plug-ins source    |
+    |                                       | release                              |
+    +---------------------------------------+--------------------------------------+
+    | Origin URL                            |  Unknown package origin              |
+    +---------------------------------------+--------------------------------------+                  
+               
  
  :: 
  
