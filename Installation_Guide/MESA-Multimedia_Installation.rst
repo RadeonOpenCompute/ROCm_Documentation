@@ -41,6 +41,7 @@ The following operating systems are supported for Mesa Multimedia:
   :: 
   
     sudo apt update
+    
     sudo apt dist-upgrade
 
     
