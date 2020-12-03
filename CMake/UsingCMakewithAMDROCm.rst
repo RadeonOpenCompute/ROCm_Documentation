@@ -62,16 +62,16 @@ There are two ways to use HIP in CMake:
 The ``find_package(hip)`` provides the ``hip::device`` target to add all the
 flags for device compilation
 
-   ::
+  ::
 
-    # Search for rocm in common locations
-    list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
-    # Find hip
-    find_package(hip)
-    # Create library
-    add_library(myLib ...)
-    # Link with HIP
-    target_link_libraries(myLib hip::device)
+   # Search for rocm in common locations
+   list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
+   # Find hip
+   find_package(hip)
+   # Create library
+   add_library(myLib ...)
+   # Link with HIP
+   target_link_libraries(myLib hip::device)
 
 This project can then be configured with::
 
