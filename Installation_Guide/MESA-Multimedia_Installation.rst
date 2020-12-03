@@ -62,7 +62,7 @@ Installation Prerequisites
 
 .. note::
 
-    For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
+   For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
     
     
  3.	Use the following instructions to download and install the selected package:
