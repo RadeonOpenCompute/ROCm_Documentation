@@ -370,6 +370,16 @@ Meta Packages
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |ROCm OpenCL for Dev with CL headers|    rocm-opencl-dev    |  rocm-opencl-devel-1.2.0-1424893.x86_64.rpm	      |	
 +-----------------------------------+-----------------------+---------------------------------------------------------+
+
+
+============================================
+Hardware and Software Support Information
+============================================
+
+ 
+-  `Hardware and Software Support <https://github.com/RadeonOpenCompute/ROCm#Hardware-and-Software-Support>`__
+
+- `Radeon Instinct™ GPU-Powered HPC Solutions <https://www.amd.com/en/graphics/servers-radeon-instinct-mi-powered-servers>`__
 |ROCm GDB 	                    |   rocm-gdb 	    |  rocm-gdb-1.5.265-gc4fb045.x86_64.rpm     	      |	
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |RCP profiler 	                    |   rocm-profiler 	    | rocm-profiler-5.1.6386-gbaddcc9.x86_64.rpm	      |	
