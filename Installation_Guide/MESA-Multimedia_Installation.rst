@@ -30,4 +30,4 @@ The following operating systems are supported for Mesa Multimedia:
 
 .. note::
 
-Ensure Mesa Multimedia is a fresh and clean installation. Any previously installed versions of AMD ROCm must be uninstalled before installing Mesa Multimedia.
+  Ensure Mesa Multimedia is a fresh and clean installation. Any previously installed versions of AMD ROCm must be uninstalled before installing Mesa Multimedia.
