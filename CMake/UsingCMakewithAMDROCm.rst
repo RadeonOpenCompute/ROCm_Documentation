@@ -60,7 +60,9 @@ There are two ways to use HIP in CMake:
    compiler that supports AMD GPU targets, which is usually Clang. 
 
 The ``find_package(hip)`` provides the ``hip::device`` target to add all the
-flags for device compilation::
+flags for device compilation
+
+   ::
 
     # Search for rocm in common locations
     list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
