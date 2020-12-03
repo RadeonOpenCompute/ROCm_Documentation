@@ -1,5 +1,6 @@
 
 .. image:: amdblack.jpg
+
 .. rocm documentation master file, created by
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
    You can adapt this file completely to your liking, but it should at least
@@ -73,6 +74,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
   
    Installation_Guide/Installation-Guide
    Installation_Guide/Multiversion-Installation
+   Installation_Guide/HIP-Installation
    
    
 .. toctree::
