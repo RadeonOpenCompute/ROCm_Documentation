@@ -31,3 +31,17 @@ The following operating systems are supported for Mesa Multimedia:
 .. note::
 
   Ensure Mesa Multimedia is a fresh and clean installation. Any previously installed versions of AMD ROCm must be uninstalled before installing Mesa Multimedia.
+  
+ 
+ Installation Prerequisites
+ ############################
+ 
+1.	Use the following instructions to ensure the system on which you want to install Mesa Multimedia is up-to-date:
+
+::
+
+    sudo apt update
+    sudo apt dist-upgrade
+
+2.	Select the desired repository package to download the amdgpu graphics stack packages based on your required Ubuntu version and branch of code. 
+
