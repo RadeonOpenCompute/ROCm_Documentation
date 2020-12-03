@@ -70,6 +70,15 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
 .. toctree::
    :maxdepth: 6
    :hidden:
+   :caption: Install ROCm
+  
+   Installation_Guide/Installation-Guide
+   Installation_Guide/Multiversion-Installation
+   
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
    :caption:  Compiler Documentation
       
    Programming_Guides/Programming-Guides
