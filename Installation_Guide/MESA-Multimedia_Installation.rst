@@ -143,7 +143,7 @@ Installation Instructions
 
 
 Check Installation 
--------------------------------
+--------------------
 
 1. Ensure you perform an installation check.
 
@@ -177,6 +177,7 @@ Check Installation
 ::        
  
      gst-inspect-1.0 omx
+
 
 
 Plugin Details
@@ -250,6 +251,7 @@ Plugin Details
 
 11 features
   
+
 :: 
     
     +-- 11 elements
@@ -257,7 +259,7 @@ Plugin Details
     
 
 Verification Test
--------------------------------
+-------------------
 
 MPEG2 Decode
 **************
@@ -372,19 +374,21 @@ Transcode
 Notes
 =========
 
-1.	MI100 has no X server up, so decode image will be dumped into a YUV (NV12) format file. it can be offline checked with YUV player
+1.	AMD Instinct (TM) has no X server up, so the decode image will be dumped into a YUV (NV12) format file. It can be checked offline with a YUV player.
 
-2.	mediainfo can help you detect original clip's format and resolution.(e.g. mediainfo  ./MJPEG/004_motion_720p60-420-lq.avi)
+2.	Mediainfo can help you detect the original clip's format and resolution. For example,  ``mediainfo  ./MJPEG/004_motion_720p60-420-lq.avi``
 
-3.	ffmpeg can be used to play YUV image file. (e.g. ffplay -framerate 30 -f rawvideo -video_size 1920x1080 -pixel_format nv12 t.yuv )
+3.	``ffmpeg`` can be used to play the YUV image file. For example, ``ffplay -framerate 30 -f rawvideo -video_size 1920x1080 -pixel_format nv12 t.yuv``
 
-4.	For VAAPI decode, output video size needs 16-alignment, eg. 1920x1080 after decode, 1920x1088 needs be used to play.
+4.	For VAAPI decode, the output video size requires 16-alignment. For example, 1920x1080 after decode, 1920x1088 must be used to play.
 
-5.	You can find a quick test script in attachment. You need download the mm_test_arct.instr also. the test clip is located: http://lnx-jfrog/artifactory/linux-ci-generic-local/mesa/1080p_H264.mp4
+5.	You can find a quick test script in the attachment. You must, however, download ``mm_test_arct.instr``. The test clip is located at: 
+    
+    http://lnx-jfrog/artifactory/linux-ci-generic-local/mesa/1080p_H264.mp4
 
 6.	vooya :: raw Video Sequence Player:  https://www.offminor.de/
 
-7.	the below command can list the available amdgpu device render nodes:
+7.	Use the command below to list the available amdgpu device render nodes:
 
 ::
 
