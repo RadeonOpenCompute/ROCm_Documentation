@@ -1,8 +1,8 @@
 .. image:: /Installation_Guide/amdblack.jpg
 |
-===============================
-AMD ROCm Installation
-===============================
+=====================
+ROCm Installation
+=====================
 
 -  `Deploying ROCm`_
 
