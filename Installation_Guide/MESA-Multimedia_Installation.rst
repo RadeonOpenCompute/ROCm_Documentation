@@ -59,9 +59,8 @@ The following operating systems are supported for Mesa Multimedia:
     +---------------------------------------+--------------------------------------+
 
 
-    +------------+------------+-----------+
-    | Header 1   | Header 2   | Header 3  |
-    +============+============+===========+
-    | body row 1 | column 2 | column 3    |
-    +------------+------------+-----------+
+
+.. note::
+
+   For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
 
