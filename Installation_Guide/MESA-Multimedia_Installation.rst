@@ -69,15 +69,15 @@ Installation Prerequisites
  
  ::
 
-    MIRROR=artifactory-cdn.amd.com/artifactory/list/amdgpu-deb
+   MIRROR=artifactory-cdn.amd.com/artifactory/list/amdgpu-deb
 
-    REPO_PKG=amd-nonfree-mainline_18.04-1_all.deb
+   REPO_PKG=amd-nonfree-mainline_18.04-1_all.deb
 
-    cd /tmp
+   cd /tmp
 
-    wget http://${MIRROR}/${REPO_PKG}
+   wget http://${MIRROR}/${REPO_PKG}
 
-    sudo dpkg -i ${REPO_PKG} 
+   sudo dpkg -i ${REPO_PKG} 
 
     
 Installation 
