@@ -81,7 +81,7 @@ Installation Prerequisites
 
     
 Installation Instructions
-##########################
+###########################
 
 1. Use the following installation instructions to install MESA Multimeda:
 
@@ -143,7 +143,7 @@ Installation Instructions
 
 
 Check Installation 
-##########################
+-------------------------------
 
 1. Ensure you perform an installation check.
 
@@ -174,7 +174,7 @@ Check Installation
 2 OpenMAX IL ST static components in 1 libraries successfully scanned
 
 
- ::        
+::        
  
      gst-inspect-1.0 omx
 
@@ -211,6 +211,7 @@ Plugin Details
      omxh264dec: OpenMAX H.264 Video Decoder
      
      omxh264enc: OpenMAX H.264 Video Encoder
+     
  
  3. Features
  
@@ -246,15 +247,17 @@ Plugin Details
       vaapih265enc: VA-API H265 encoder
       vaapih264enc: VA-API H264 encoder
  
-  11 features
+
+11 features
   
- :: 
+:: 
     
     +-- 11 elements
     
+    
 
 Verification Test
-###################
+-------------------------------
 
 MPEG2 Decode
 **************
