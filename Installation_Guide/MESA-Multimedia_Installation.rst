@@ -46,17 +46,16 @@ The following operating systems are supported for Mesa Multimedia:
 
 2.Select the desired repository package to download the amdgpu graphics stack packages based on your required Ubuntu version and branch of code. 
 
-.. list-table:: Title
-   :widths: 10 10 20
-   :header-rows: 1
++---------------------------------------+--------------------------------------+
+|Ubuntu 18.04                           | Ubuntu 20.04                         |                                                    
++==============================================================================+
+| amd-nonfree-mainline_18.04-1_all.deb  | amd-nonfree-mainline_20.04-1_all.deb |
++---------------------------------------+--------------------------------------+
+| amd-nonfree-VERSION_18.04-1_all.deb   | amd-nonfree-VERSION_20.04-1_all.deb  |
++---------------------------------------+--------------------------------------+
+| amd-nonfree-staging_18.04-1_all.deb   | amd-nonfree-staging_20.04-1_all.deb  |
++---------------------------------------+--------------------------------------+
 
-   * - Heading row 1, column 1
-     - Heading row 1, column 2    
-     
-   * - Row 1, column 1
-     - Row 1, column 2
-   
-   * - Row 2, column 1
-     - Row 2, column 2
+
     
 
