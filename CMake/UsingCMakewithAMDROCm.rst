@@ -31,7 +31,7 @@ There are two ways to set this variable:
 
 -  Append the variable in the CMakeLists.txt file. This is useful if
    the dependencies are found in a common location. For example, when
-   the binaries provided on `<repo.radeon.com>` are installed to */opt/rocm*,
+   the binaries provided on `<repo.radeon.com>`_ are installed to */opt/rocm*,
    you can add the following line to a CMakeLists.txt file:: 
 
     list (APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
@@ -83,7 +83,7 @@ This project can then be configured with::
     cmake -DCMAKE_C_COMPILER=/opt/rocm/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/rocm/llvm/bin/clang++,
 
 Which uses the device compiler provided from the binary packages from
-`<repo.radeon.com>`.
+`<repo.radeon.com>`_.
 
 .. note::
     Compiling for the GPU device requires at least C++11. This can be
@@ -112,7 +112,7 @@ well.
 
 As illustrated in the example below, to use MIOpen from CMake, you can
 call ``find_package(miopen)``, which provides the MIOpen CMake target. This
-can be linked with target_link_libraries::
+can be linked with ``target_link_libraries``::
 
     # Search for rocm in common locations
     list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
