@@ -1,8 +1,6 @@
 
 .. image:: amdblack.jpg
-
-
-
+|
 
 ====================
 HIP Installation 
