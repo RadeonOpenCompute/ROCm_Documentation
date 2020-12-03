@@ -1,4 +1,4 @@
-
+.. image:: amdblack.jpg
 
 ===================================
 AMD ROCm MultiVersion Installation
