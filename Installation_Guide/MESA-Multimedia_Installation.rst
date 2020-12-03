@@ -8,7 +8,7 @@ MESA Multimedia Installation
 Prerequisites
 --------------
 
-- Ensure you have installation ROCm on the system. 
+- Ensure you have ROCm installed on the system. 
 
 For ROCm installation instructions, see 
 
