@@ -33,8 +33,8 @@ The following operating systems are supported for Mesa Multimedia:
     Ensure Mesa Multimedia is a fresh and clean installation. Any previously installed versions of AMD ROCm must be uninstalled before installing Mesa Multimedia.
   
  
- Installation Prerequisites
- ############################
+Installation Prerequisites
+############################
  
 1.Use the following instructions to ensure the system on which you want to install Mesa Multimedia is up-to-date:
 
@@ -63,4 +63,22 @@ The following operating systems are supported for Mesa Multimedia:
 .. note::
 
     For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
+    
+    
+ 3.	Use the following instructions to download and install the selected package:
+ 
+ ::
 
+    MIRROR=artifactory-cdn.amd.com/artifactory/list/amdgpu-deb
+
+    REPO_PKG=amd-nonfree-mainline_18.04-1_all.deb
+
+    cd /tmp
+
+    wget http://${MIRROR}/${REPO_PKG}
+
+    sudo dpkg -i ${REPO_PKG} 
+
+    
+Installation 
+###############
