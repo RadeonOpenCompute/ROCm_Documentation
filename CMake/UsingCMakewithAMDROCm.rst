@@ -34,7 +34,7 @@ There are two ways to set this variable:
    the binaries provided on `<repo.radeon.com>` are installed to */opt/rocm*,
    you can add the following line to a CMakeLists.txt file:: 
 
-        list (APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
+    list (APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
 
 Using HIP in CMake
 ==================
@@ -55,7 +55,7 @@ There are two ways to use HIP in CMake:
     # Link with HIP
     target_link_libraries(myLib hip::host)
 
-Note: The ``hip::host`` target provides all the usage requirements needed to
+.. note:: The ``hip::host`` target provides all the usage requirements needed to
 use HIP without compiling GPU device code.
 
 -  Use HIP API and compile GPU device code. This requires using a
@@ -66,4 +66,63 @@ use HIP without compiling GPU device code.
    compiler that supports AMD GPU targets, which is usually Clang. 
 
 The ``find_package(hip)`` provides the ``hip::device`` target to add all the
-flags for device compilation:
+flags for device compilation::
+
+    # Search for rocm in common locations
+    list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
+    # Find hip
+    find_package(hip)
+    # Create library
+    add_library(myLib ...)
+    # Link with HIP
+    target_link_libraries(myLib hip::device)
+
+This project can then be configured with::
+
+    cmake -DCMAKE_C_COMPILER=/opt/rocm/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/rocm/llvm/bin/clang++,
+
+Which uses the device compiler provided from the binary packages from
+`<repo.radeon.com>`.
+
+.. note:: Compiling for the GPU device requires at least C++11. This can be
+enabled by setting ``CMAKE_CXX_STANDARD`` or setting the correct compiler flags
+in the CMake toolchain.
+
+The GPU device code can be built for different GPU architectures by
+setting the ``GPU_TARGETS`` variable. By default, this is set to all the
+currently supported architectures for AMD ROCm. It can be set by passing
+the flag during configuration with ``-DGPU_TARGETS=gfx900``. It can also be
+set in the CMakeLists.txt as a cached variable before calling
+``find_package(hip)``::
+
+    # Set the GPU to compile for
+    set(GPU_TARGETS "gfx900" CACHE STRING "GPU targets to compile for")
+    # Search for rocm in common locations
+    list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
+    # Find hip
+    find_package(hip)
+
+Using AMD ROCm Libraries
+========================
+
+Libraries such as rocBLAS, MIOpen, and others support CMake users as
+well.
+
+As illustrated in the example below, to use MIOpen from CMake, you can
+call find_package(miopen), which provides the MIOpen CMake target. This
+can be linked with target_link_libraries.
+
+    # Search for rocm in common locations
+    list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
+    # Find miopen
+    find_package(miopen)
+    # Create library
+    add_library(myLib ...)
+    # Link with miopen
+    target_link_libraries(myLib MIOpen)
+
+.. note:: Most libraries are designed as host-only API, so using a GPU device
+compiler is not necessary for downstream projects unless it uses the GPU
+device code.
+
+
