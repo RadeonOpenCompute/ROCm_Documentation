@@ -2,7 +2,7 @@
 
 
 .. _Machine Learning and High Performance Computing Software Stack for AMD GPU:
-
+|
 
 ============================
 Software Stack for AMD GPU
