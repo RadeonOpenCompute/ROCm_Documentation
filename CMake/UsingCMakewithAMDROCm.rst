@@ -3,7 +3,7 @@
 Using CMake with AMD ROCm
 ===========================
 
-Most components in AMD ROCm support CMake out-of-the-box and do not
+Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not
 require any special Find modules. A Find module is often used by
 downstream to find the files by guessing locations of files with
 platform-specific hints. Typically, the Find module is required when the
@@ -31,7 +31,7 @@ There are two ways to set this variable:
 
 -  Append the variable in the CMakeLists.txt file. This is useful if
    the dependencies are found in a common location. For example, when
-   the binaries provided on `<repo.radeon.com>`_ are installed to */opt/rocm*,
+   the binaries provided on `repo.radeon.com <http://repo.radeon.com>`_ are installed to */opt/rocm*,
    you can add the following line to a CMakeLists.txt file:: 
 
     list (APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
@@ -80,10 +80,10 @@ flags for device compilation::
 
 This project can then be configured with::
 
-    cmake -DCMAKE_C_COMPILER=/opt/rocm/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/rocm/llvm/bin/clang++,
+    cmake -DCMAKE_C_COMPILER=/opt/rocm/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/rocm/llvm/bin/clang++ ..
 
 Which uses the device compiler provided from the binary packages from
-`<repo.radeon.com>`_.
+`repo.radeon.com <http://repo.radeon.com>`_.
 
 .. note::
     Compiling for the GPU device requires at least C++11. This can be
@@ -111,7 +111,7 @@ Libraries such as rocBLAS, MIOpen, and others support CMake users as
 well.
 
 As illustrated in the example below, to use MIOpen from CMake, you can
-call ``find_package(miopen)``, which provides the MIOpen CMake target. This
+call ``find_package(miopen)``, which provides the ``MIOpen`` CMake target. This
 can be linked with ``target_link_libraries``::
 
     # Search for rocm in common locations
@@ -127,5 +127,23 @@ can be linked with ``target_link_libraries``::
     Most libraries are designed as host-only API, so using a GPU device
     compiler is not necessary for downstream projects unless it uses the GPU
     device code.
+
+
+ROCm CMake Packages
+===================
+
++-----------+----------+-------------------------------------------------------+
+| Component | Package  | Targets                                               |
++===========+==========+=======================================================+
+| HIP       | hip      | hip::host, hip::device                                |
++-----------+----------+-------------------------------------------------------+
+| rocBLAS   | rocblas  | roc::rocblas                                          |
++-----------+----------+-------------------------------------------------------+
+| MIOpen    | miopen   | MIOpen                                                |
++-----------+----------+-------------------------------------------------------+
+| MIGraphX  | migraphx | migraphx::migraphx, migraphx::migraphx_c,             |
+|           |          | migraphx::migraphx_cpu, migraphx::migraphx_gpu,       |
+|           |          | migraphx::migraphx_onnx, migraphx::migraphx_tf        |
++-----------+----------+-------------------------------------------------------+
 
 
