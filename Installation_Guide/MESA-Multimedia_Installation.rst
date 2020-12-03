@@ -169,8 +169,10 @@ Check Installation
     
 ::
 
+
  
- 2 OpenMAX IL ST static components in 1 libraries successfully scanned
+2 OpenMAX IL ST static components in 1 libraries successfully scanned
+
 
  ::        
  
