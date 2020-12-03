@@ -86,6 +86,7 @@ Installation Instructions
 1. Use the following installation instructions to install MESA Multimeda:
 
 :: 
+    
     sudo apt install -y ./amd-nonfree-mainline_20.04-1_all.deb && sudo apt update
     
     sudo amdgpu-install -y --no-dkms
@@ -93,13 +94,16 @@ Installation Instructions
 2. gstreamer Installation
 
 :: 
+    
     sudo apt-get -y install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-vaapi         gstreamer1.0-libav gstreamer1.0-tools
     
     sudo apt-get -y install gst-omx-listcomponents gstreamer1.0-omx-bellagio-config gstreamer1.0-omx-generic gstreamer1.0-omx-generic-config
     
+    
 3. Utilities Installation
 
 :: 
+    
     sudo apt-get -y install mediainfo ffmpeg
     
     sudo reboot
