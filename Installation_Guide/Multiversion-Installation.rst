@@ -3,7 +3,7 @@
 |
 
 =============================
-Multiversion Installation
+Multi Version Installation
 =============================
 
 Users can install and access multiple versions of the ROCm toolkit simultaneously.
