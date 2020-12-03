@@ -38,11 +38,12 @@ The following operating systems are supported for Mesa Multimedia:
  
 1.Use the following instructions to ensure the system on which you want to install Mesa Multimedia is up-to-date:
 
-  ::
+   ::
 
-      sudo apt update
-      sudo apt dist-upgrade
+    sudo apt update
+    sudo apt dist-upgrade
     
+   ::
 
 2.Select the desired repository package to download the amdgpu graphics stack packages based on your required Ubuntu version and branch of code. 
 
