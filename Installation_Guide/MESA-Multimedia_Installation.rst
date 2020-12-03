@@ -167,7 +167,8 @@ Check Installation
     
     Specific role OMX.mesa.video_encoder.avc registered
     
-    
+::
+
  
  2 OpenMAX IL ST static components in 1 libraries successfully scanned
 
@@ -198,7 +199,7 @@ Plugin Details
     |                                       | release                              |
     +---------------------------------------+--------------------------------------+
     | Origin URL                            |  Unknown package origin              |
-    +---------------------------------------+--------------------------------------+                  
+    +---------------------------------------+--------------------------------------+                    
                
  
  :: 
