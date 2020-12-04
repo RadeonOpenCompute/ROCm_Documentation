@@ -108,17 +108,17 @@ Installation Instructions
 
 :: 
     
-        sudo apt-get -y install mediainfo ffmpeg
+     sudo apt-get -y install mediainfo ffmpeg
 
-        sudo reboot
+     sudo reboot
 
-        # Check amdgpu loadking status after reboot
+     # Check amdgpu loadking status after reboot
 
-        dmesg | grep -i initialized
+     dmesg | grep -i initialized
 
-        Sep 24 13:00:42 jz-tester kernel: [  277.120055] [drm] VCN decode and encode initialized successfully.
+     Sep 24 13:00:42 jz-tester kernel: [  277.120055] [drm] VCN decode and encode initialized successfully.
 
-        Sep 24 13:00:42 jz-tester kernel: [  277.121654] [drm] Initialized amdgpu 3.34.0 20150101 for 0000:03:00.0 on minor 1
+     Sep 24 13:00:42 jz-tester kernel: [  277.121654] [drm] Initialized amdgpu 3.34.0 20150101 for 0000:03:00.0 on minor 1
     
 
 
@@ -127,13 +127,13 @@ Installation Instructions
 
 :: 
 
-        export BELLAGIO_SEARCH_PATH=/opt/amdgpu/lib/x86_64-linux-gnu/libomxil-bellagio0:/opt/amdgpu/lib/libomxil-bellagio0
+     export BELLAGIO_SEARCH_PATH=/opt/amdgpu/lib/x86_64-linux-gnu/libomxil-bellagio0:/opt/amdgpu/lib/libomxil-bellagio0
 
-        export GST_PLUGIN_PATH=/opt/amdgpu/lib/x86_64-linux-gnu/gstreamer-1.0/
+     export GST_PLUGIN_PATH=/opt/amdgpu/lib/x86_64-linux-gnu/gstreamer-1.0/
 
-        export GST_VAAPI_ALL_DRIVERS=1
+     export GST_VAAPI_ALL_DRIVERS=1
 
-        export OMX_RENDER_NODE=/dev/dri/renderD128
+     export OMX_RENDER_NODE=/dev/dri/renderD128
     
    
     
@@ -147,23 +147,23 @@ Check Installation
 
 ::  
 
-        omxregister-bellagio -v
+     omxregister-bellagio -v
 
-        Scanning directory /opt/amdgpu/lib/libomxil-bellagio0/
+     Scanning directory /opt/amdgpu/lib/libomxil-bellagio0/
 
-        Scanning library /opt/amdgpu/lib/libomxil-bellagio0/libomx_mesa.so
+     Scanning library /opt/amdgpu/lib/libomxil-bellagio0/libomx_mesa.so
 
-        Component OMX.mesa.video_decoder registered with 0 quality levels
+     Component OMX.mesa.video_decoder registered with 0 quality levels
 
-        Specific role OMX.mesa.video_decoder.mpeg2 registered
+     Specific role OMX.mesa.video_decoder.mpeg2 registered
 
-        Specific role OMX.mesa.video_decoder.avc registered
+     Specific role OMX.mesa.video_decoder.avc registered
 
-        Specific role OMX.mesa.video_decoder.hevc registered
+     Specific role OMX.mesa.video_decoder.hevc registered
 
-        Component OMX.mesa.video_encoder registered with 0 quality levels
+     Component OMX.mesa.video_encoder registered with 0 quality levels
 
-        Specific role OMX.mesa.video_encoder.avc registered
+     Specific role OMX.mesa.video_encoder.avc registered
 
  
 2 OpenMAX IL ST static components in 1 library successfully scanned
@@ -171,7 +171,7 @@ Check Installation
 
 ::        
  
-     gst-inspect-1.0 omx
+    gst-inspect-1.0 omx
 
 
 Plugin Details
@@ -260,7 +260,7 @@ Plugin Details
    
     +-- 11 elements
     
-::     
+     
 
 
 
