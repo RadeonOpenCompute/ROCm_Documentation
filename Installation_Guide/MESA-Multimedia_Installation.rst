@@ -90,7 +90,7 @@ Installation Instructions
 
      sudo amdgpu-install -y --no-dkms
         
-:: 
+
 
 
 2. ``gstreamer`` Installation
@@ -101,7 +101,7 @@ Installation Instructions
     
     sudo apt-get -y install gst-omx-listcomponents gstreamer1.0-omx-bellagio-config gstreamer1.0-omx-generic gstreamer1.0-omx-generic-config
 
-::     
+   
 
     
 3. Utilities Installation
@@ -120,7 +120,7 @@ Installation Instructions
 
         Sep 24 13:00:42 jz-tester kernel: [  277.121654] [drm] Initialized amdgpu 3.34.0 20150101 for 0000:03:00.0 on minor 1
     
-:: 
+
 
 
 4. Configure Running Environment Variables
@@ -135,7 +135,7 @@ Installation Instructions
 
         export OMX_RENDER_NODE=/dev/dri/renderD128
     
-::    
+   
     
 
 
