@@ -2,7 +2,7 @@
 
 
 ===============================
-MESA Multimedia Installation
+Mesa Multimedia Installation
 ===============================
 
 Prerequisites
@@ -15,7 +15,7 @@ For ROCm installation instructions, see
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
-MESA Multimedia Installation
+Mesa Multimedia Installation
 -------------------------------
 
 System Prerequisites
@@ -83,7 +83,7 @@ Installation Prerequisites
 Installation Instructions
 ###########################
 
-1. Use the following installation instructions to install MESA Multimeda:
+1. Use the following installation instructions to install Mesa Multimeda:
 
 :: 
             sudo apt install -y ./amd-nonfree-mainline_20.04-1_all.deb && sudo apt update
@@ -164,10 +164,6 @@ Check Installation
         Component OMX.mesa.video_encoder registered with 0 quality levels
 
         Specific role OMX.mesa.video_encoder.avc registered
-    
-
-::
-
 
  
 2 OpenMAX IL ST static components in 1 library successfully scanned
@@ -176,8 +172,6 @@ Check Installation
 ::        
  
      gst-inspect-1.0 omx
-
-:: 
 
 
 Plugin Details
@@ -203,25 +197,24 @@ Plugin Details
     +---------------------------------------+--------------------------------------+
     | Origin URL                            |  Unknown package origin              |
     +---------------------------------------+--------------------------------------+                    
-               
- 
- :: 
+                
  
      omxmpeg2dec: OpenMAX MPEG2 Video Decoder
      
      omxh264dec: OpenMAX H.264 Video Decoder
      
-     omxh264enc: OpenMAX H.264 Video Encoder
-     
-:: 
+     omxh264enc: OpenMAX H.264 Video Encoder 
 
  
- 3. Features
- 
- ::
+     3. Features
  
      +-- 3 elements 
      
+ :: 
+     
+   
+::    
+   
     gst-inspect-1.0 vaapi
     
 ::   
@@ -253,10 +246,7 @@ Plugin Details
     +---------------------------------------+--------------------------------------+                    
                    
            
- 
- :: 
- 
-      vaapijpegdec: VA-API JPEG decoder
+       vaapijpegdec: VA-API JPEG decoder
       vaapimpeg2dec: VA-API MPEG2 decoder
       vaapih264dec: VA-API H264 decoder
       vaapivc1dec: VA-API VC1 decoder
@@ -267,14 +257,9 @@ Plugin Details
       vaapisink: VA-API sink
       vaapih265enc: VA-API H265 encoder
       vaapih264enc: VA-API H264 encoder
-:: 
 
-
-11 Features
-  
-
-:: 
-    
+    11 Features
+   
     +-- 11 elements
     
 ::     
