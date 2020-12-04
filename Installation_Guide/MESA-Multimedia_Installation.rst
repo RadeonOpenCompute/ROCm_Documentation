@@ -215,10 +215,8 @@ Plugin Details
    
 ::    
    
-    gst-inspect-1.0 vaapi
-    
-::   
-    
+    gst-inspect-1.0 vaapi  
+   
  
  Plugin Details
   
@@ -246,7 +244,7 @@ Plugin Details
     +---------------------------------------+--------------------------------------+                    
                    
            
-       vaapijpegdec: VA-API JPEG decoder
+      vaapijpegdec: VA-API JPEG decoder
       vaapimpeg2dec: VA-API MPEG2 decoder
       vaapih264dec: VA-API H264 decoder
       vaapivc1dec: VA-API VC1 decoder
