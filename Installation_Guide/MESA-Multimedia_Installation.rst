@@ -221,18 +221,34 @@ Plugin Details
      +-- 3 elements 
      
     gst-inspect-1.0 vaapi
-
-Plugin Details
-
-  Name                     vaapi
-  Description              VA-API based elements
-  Filename                 /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstvaapi.so
-  Version                  1.14.5
-  License                  LGPL
-  Source module            gstreamer-vaapi
-  Source release date      2019-05-29
-  Binary package           gstreamer-vaapi
-  Origin URL               http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer
+    
+    
+  Plugin Details
+  
+    +---------------------------------------+--------------------------------------+
+    | Name                                  | vaapi                                |                                                    
+    +---------------------------------------+--------------------------------------+
+    | Description                           | VA-API based elements                |
+    +---------------------------------------+--------------------------------------+
+    | Filename                              | /usr/lib/x86_64-linux-gnu/           |
+    |                                       | gstreamer-1.0/libgstvaapi.so         | 
+    +---------------------------------------+--------------------------------------+
+    | Version                               | 1.14.5                               |
+    +---------------------------------------+--------------------------------------+
+    | License                               |  LGPL                                |
+    +---------------------------------------+--------------------------------------+
+    | Source module                         | gstreamer-vaapi                      |
+    +---------------------------------------+--------------------------------------+
+    | Source release date                   |  2019-05-29                          |
+    +---------------------------------------+--------------------------------------+
+    | Binary package                        | gstreamer-vaapi                      |
+    |                                       |                                      |
+    +---------------------------------------+--------------------------------------+
+    | Origin URL                            | http://bugzilla.gnome.org            |
+    |                                       |  /enter_bug.cgi?product=GStreamer    |
+    +---------------------------------------+--------------------------------------+                    
+                   
+           
  
  :: 
  
