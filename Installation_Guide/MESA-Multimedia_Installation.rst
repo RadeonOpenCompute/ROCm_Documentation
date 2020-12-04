@@ -87,18 +87,23 @@ Installation Instructions
 
 :: 
     
-    sudo apt install -y ./amd-nonfree-mainline_20.04-1_all.deb && sudo apt update
+        sudo apt install -y ./amd-nonfree-mainline_20.04-1_all.deb && sudo apt update
     
-    sudo amdgpu-install -y --no-dkms
+        sudo amdgpu-install -y --no-dkms
+        
+:: 
 
-2. gstreamer Installation
+
+2. ``gstreamer`` Installation
 
 :: 
     
     sudo apt-get -y install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-vaapi         gstreamer1.0-libav gstreamer1.0-tools
     
     sudo apt-get -y install gst-omx-listcomponents gstreamer1.0-omx-bellagio-config gstreamer1.0-omx-generic gstreamer1.0-omx-generic-config
-    
+
+::     
+
     
 3. Utilities Installation
 
@@ -115,6 +120,8 @@ Installation Instructions
     Sep 24 13:00:42 jz-tester kernel: [  277.120055] [drm] VCN decode and encode initialized successfully.
     
     Sep 24 13:00:42 jz-tester kernel: [  277.121654] [drm] Initialized amdgpu 3.34.0 20150101 for 0000:03:00.0 on minor 1
+    
+:: 
 
 
 4. Configure Running Environment Variables
@@ -129,17 +136,9 @@ Installation Instructions
     
     export OMX_RENDER_NODE=/dev/dri/renderD128
     
-5. Configure Running Environment Variables
+::    
+    
 
-:: 
-
-    export BELLAGIO_SEARCH_PATH=/opt/amdgpu/lib/x86_64-linux-gnu/libomxil-bellagio0:/opt/amdgpu/lib/libomxil-bellagio0
-    
-    export GST_PLUGIN_PATH=/opt/amdgpu/lib/x86_64-linux-gnu/gstreamer-1.0/
-    
-    export GST_VAAPI_ALL_DRIVERS=1
-    
-    export OMX_RENDER_NODE=/dev/dri/renderD128
 
 
 Check Installation 
@@ -147,7 +146,7 @@ Check Installation
 
 1. Ensure you perform an installation check.
 
-:: 
+::  
 
     omxregister-bellagio -v
  
@@ -171,13 +170,14 @@ Check Installation
 
 
  
-2 OpenMAX IL ST static components in 1 libraries successfully scanned
+2 OpenMAX IL ST static components in 1 library successfully scanned
 
 
 ::        
  
      gst-inspect-1.0 omx
 
+:: 
 
 
 Plugin Details
@@ -213,6 +213,8 @@ Plugin Details
      
      omxh264enc: OpenMAX H.264 Video Encoder
      
+:: 
+
  
  3. Features
  
@@ -265,16 +267,19 @@ Plugin Details
       vaapisink: VA-API sink
       vaapih265enc: VA-API H265 encoder
       vaapih264enc: VA-API H264 encoder
- 
+:: 
 
-11 features
+
+11 Features
   
 
 :: 
     
     +-- 11 elements
     
-    
+::     
+
+
 
 Verification Test
 -------------------
