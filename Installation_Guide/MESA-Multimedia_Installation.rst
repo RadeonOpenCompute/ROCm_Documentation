@@ -222,7 +222,7 @@ Plugin Details
      
     gst-inspect-1.0 vaapi
     
-  ::   
+::   
     
  
  Plugin Details
