@@ -139,7 +139,7 @@ A simple "Hello World" type program that displays the device ID of detected devi
 
 
 SYSFS Interface
-=================
+#####################
 
 Naming and data format standards for sysfs files
 ------------------------------------------------------------
