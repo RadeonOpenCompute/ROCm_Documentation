@@ -6,6 +6,7 @@ ROCm Command Line Interface
 This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of the  
 ROCm-enabled system.
 
+
 For detailed and up to date usage information, use: 
 
 ::
@@ -346,3 +347,39 @@ After making changes to the SMI, run the test script to ensure that all function
 The test can run all flags for the SMI, or specific flags can be tested with the -s option.
 
 Any new functionality added to the SMI should have a corresponding test added to the test script.
+
+SDMA Usage Per-process
+#################################
+
+The SDMA usage per-process is available using the following command,
+
+::
+
+   $ rocm-smi -showpids
+   
+::   
+
+
+ 
+   
+ROCm SMI Command Line Interface Hardware Topology
+########################################################
+
+This feature provides a matrix representation of the GPUs present in a system by providing information of the manner in which the nodes are
+connected. 
+
+.. image:: /Current_Release_Notes/images/CLI1.PNG
+   :align: center
+   
+   
+This is represented in terms of weights, hops, and link types between two given GPUs. It also provides the numa node and the CPU
+affinity associated with every GPU.
+
+   
+.. image:: /Current_Release_Notes/images/CLI2.PNG
+   :align: center
+
+ 
+For more information about ROCm SMI API libraries, refer to the ROCm SMI API Guide at
+  
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
