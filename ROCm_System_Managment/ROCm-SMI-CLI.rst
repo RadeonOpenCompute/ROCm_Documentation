@@ -7,6 +7,9 @@
 ROCm Command Line Interface 
 ******************************
 
+Clock and Temperature Management
+######################################
+
 This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of the  
 ROCm-enabled system.
 
