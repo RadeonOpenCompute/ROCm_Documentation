@@ -1,3 +1,6 @@
+.. image:: amdblack.jpg
+
+
 
 ******************************
 ROCm Command Line Interface 
