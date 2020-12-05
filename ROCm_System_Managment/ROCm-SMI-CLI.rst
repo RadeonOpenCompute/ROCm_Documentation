@@ -3,6 +3,7 @@
 
 
 
+
 ******************************
 ROCm Command Line Interface 
 ******************************
@@ -369,8 +370,8 @@ The SDMA usage per-process is available using the following command,
 
  
    
-ROCm SMI Command Line Interface Hardware Topology
-########################################################
+Hardware Topology
+#####################
 
 This feature provides a matrix representation of the GPUs present in a system by providing information of the manner in which the nodes are
 connected. 
