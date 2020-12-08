@@ -101,7 +101,6 @@ The chain of software installed by these meta-packages is illustrated below:
         ├── hip-rocclr
         ├── hip-samples
         ├── hsa-amd-aqlprofile
-        ├── hsa-ext-rocr-dev
         ├── hsakmt-roct
         ├── hsakmt-roct-dev
         ├── hsa-rocr-dev
@@ -120,6 +119,7 @@ The chain of software installed by these meta-packages is illustrated below:
             │   └── rocminfo
 
   rocm-libs
+    |--miopen
     |--hipblas
     |--hipcub
     |--hipsparse
