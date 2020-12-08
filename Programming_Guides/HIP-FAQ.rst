@@ -66,7 +66,7 @@ Kernel language features
    (CUDA 4.0)
 -  Virtual functions, indirect functions and try/catch (CUDA 4.0)
 -  ``__prof_trigger``
-- PTX assembly (CUDA 4.0).  HIP-Clang supports inline GCN assembly.
+- PTX assembly (CUDA 4.0).  HIP-Clang supports inline GCN assembly..
 
 Several kernel features are under development. See the `HIP Kernel Language <hip_kernel_language.md>`__ for more information. This includes:
 
@@ -170,7 +170,7 @@ There have been several tools that have attempted to convert CUDA into OpenCL, s
 What hardware does HIP support?
 -------------------------------
 
-- For a list of AMD-supported platforms, see https://github.com/RadeonOpenCompute/ROCm#supported-gpus 
+- For a list of AMD-supported platforms, refer to the HIP Programming Guide.  
 -  For Nvidia platforms, HIP requires Unified Memory and should run on any device supporting CUDA SDK 6.0 or newer. We have tested the NVIDIA Titan and Tesla K40.
 
 Do HIPIFY tools automatically convert all source code?
@@ -186,8 +186,8 @@ NVCC is Nvidia's compiler driver for compiling CUDA C++ code into PTX or device 
 
 What is HIP-Clang?
 ------------------
+HIP-Clang is a Clang/LLVM based compiler to compile HIP programs, which can run on the AMD platform.
 
-HIP-Clang is a Clang/LLVM based compiler to compile HIP programs which can run on AMD platform.
 
 Why use HIP rather than supporting CUDA directly?
 -------------------------------------------------
