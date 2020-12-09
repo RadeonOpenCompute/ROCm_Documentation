@@ -1,7 +1,11 @@
 .. _AOMP developers README:
 
-AOMP Developer README.md
-****************************
+AOMP Developer README.md (Deprecated)
+*************************************
+
+This feature is deprecated as of AMD ROCm v4.0. Refer to the documentation for OpenMP for more information at:
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
 
 AOMP is a scripted build of LLVM and supporting software. It has support for OpenMP target offload on amdgcn GPUs. This is the AOMP developer README stored at:
 
