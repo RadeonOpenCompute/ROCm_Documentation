@@ -20,9 +20,6 @@ List of Supported Operating Systems
 The AMD ROCm platform is designed to support the following operating
 systems:
 
-The AMD ROCm platform is designed to support the following operating
-systems:
-
 -  Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
 
 -  CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7
