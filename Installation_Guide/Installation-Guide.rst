@@ -42,66 +42,57 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Note**: You must use either ROCm or the amdgpu-pro driver. Using both drivers will result in an installation error. 
 
-**Important - Mellanox ConnectX NIC Users**: If you are using Mellanox ConnetX NIC, you must install Mellanox OFED before installing ROCm. 
-
-For more information about installing Mellanox OFED, refer to:
-
-https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
+**Important - Mellanox ConnectX NIC Users**: If you are using Mellanox ConnetX NIC, you must install Mellanox OFED before installing ROCm.  For more information about installing Mellanox OFED, refer to: https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
 
 
 Prerequisites 
 ~~~~~~~~~~~~~~~
 
-In this release, AMD ROCm extends support to SLES 15 SP2
-
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
-
-**Note**: Ubuntu versions lower than 18 are no longer supported.
-
-**Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
-
-* CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
-* CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
+* Ubuntu 20.04.1 (5.4 and 5.6-oem)
+* Ubuntu 18.04.5 (kernel 5.4)	
+* CentOS 7.8 & RHEL 7.8 (kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
+* CentOS 8.2 & RHEL 8.2 (kernel 4.18.0) (devtoolset is not required)
 * SLES 15 SP2
 
+**Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS or ones including more more recent major kernel release, may work with ROCm, however, they are not officially supported.
 
-**FRESH INSTALLATION OF AMD ROCm V3.10 RECOMMENDED**
+**FRESH INSTALLATION OF AMD ROCm RECOMMENDED**
 
-A fresh and clean installation of AMD ROCm v3.10 is recommended. An upgrade from previous releases to AMD ROCm v3.10 is not supported.
+A fresh and clean installation of AMD ROCm is recommended. An upgrade from previous releases to AMD ROCm is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
 
-* For ROCm v3.5 and releases thereafter, the *clinfo* path is changed to - */opt/rocm/opencl/bin/clinfo*.
+* For ROCm v3.5 and releases thereafter, the *clinfo* path is - */opt/rocm/opencl/bin/clinfo*.
 
-* For ROCm v3.3 and older releases, the *clinfo* path remains unchanged - */opt/rocm/opencl/bin/x86_64/clinfo*.
+* For ROCm v3.3 and older releases, the *clinfo* path is - */opt/rocm/opencl/bin/x86_64/clinfo*.
 
 **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
 
 **MULTI-VERSION INSTALLATION UPDATES**
 
-With the AMD ROCm v3.10 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v3.9 release, the following ROCm multi-version installation changes apply:
 
-The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
+The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0 can't and should not be coninstaleled, as the running kernel can only use one specific kernel rocm module at the time.
 
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 3.10.0
+* ‘version’ files should be created for each multi-version rocm < 3.9.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 3.10.0 | sudo tee /opt/rocm-3.10.0/.info/version
+	* example: echo 3.8.0 | sudo tee /opt/rocm-3.8.0/.info/version
 
-* The rock-dkms loadable kernel modules should be installed using a single rock-dkms package. 
+* The `rock-dkms` loadable kernel modules should be installed using a single `rock-dkms` package. 
 
-* ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must set *LD_LIBRARY_PATH* to load the ROCm library version of choice.
+* ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must set *LD_LIBRARY_PATH* to load the ROCm library version of choice, or the proper entries in `/etc/ld.so.conf.d` must be made, followed by running `ldconfig` as root.
 
 
-**NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
+**NOTE**: The single version installation of the ROCm stack remains the same. The `rocm-dkms` package can be used for single version installs and is not deprecated at this time.
 
    
 Supported Operating Systems
@@ -113,7 +104,7 @@ Supported Operating Systems
 Ubuntu
 =========
 
-**Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
+**Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. Debian-based distributions other than Ubuntu LTS are not officially supported, they might however work. In case of issues or bugs, retest on Ubuntu LTS, if possible.
 
 Installing a ROCm Package from a Debian Repository
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -128,20 +119,13 @@ To install from a Debian Repository:
 
     sudo apt dist-upgrade
 
-    sudo apt install libnuma-dev
+    sudo reboot
 
-    sudo reboot 
+You might skip the reboot step in many cases, but it is best to perform it before continuing, to ensure most recent kernel is running.
 
 2. Add the ROCm apt repository.
 
-For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
- 
-**Note**: The public key has changed to reflect the new location. You must update to the new location as the old key will be removed in a future release.
-
-* Old Key: https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key
-
-* New Key: https://repo.radeon.com/rocm/rocm.gpg.key 
-
+Configure the Debian ROCm repository as follows:
 
 ::
 
@@ -150,13 +134,15 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
     echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
-The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository.
+The GPG key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository.
 
-The current rocm.gpg.key is not available in a standard key ring distribution, but has the following sha1sum hash:
+The current rocm.gpg.key has the following sha1sum hash:
 
 ::
 
   e85a40d1a43453fe37d63aa6899bc96e08f2817a rocm.gpg.key
+
+*Note*: To enable access to older versions of ROCm packages, use `https://repo.radeon.com/rocm/apt/3.9/` or similar as a repository URI. Visit https://repo.radeon.com/rocm/apt/ for a list of archived repositories. You might also need to check the archived installation guides for specific version, as they might differ from most recent version in important aspects.
 
 3. Install the ROCm meta-package. Update the appropriate repository list and install the rocm-dkms meta-package:
 
@@ -176,7 +162,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 5. To add your user to the video and render groups, use the following command with the sudo password:
 
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+**Note**: Group `render` is required only for Ubuntu v20.04. For all other supported operating systems, continue to use `video` group.
 
 ::
 
@@ -203,21 +189,36 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      /opt/rocm/bin/rocminfo
      /opt/rocm/opencl/bin/clinfo
 
-Note: To run the ROCm programs, add the ROCm binaries in your PATH.
+Note: To run the ROCm programs, add the ROCm binaries in your PATH. To make the PATH change permanent, execute command below, and relogin or reboot.
 
 ::
 
     echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/rocprofiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
+**Note**: If you installed versioned packages (see below), change `/opt/rocm` to a relevant path with version, like `/opt/rocm-3.9.0`
 
-Uninstalling ROCm Packages from Ubuntu
-''''''''''''''''''''''''''''''''''''''''
+**Note**: If you installed versioned packages, you might also need to setup your `LD_LIBRARY_PATH` environment variables. Please refer to the information at the top of this document.
 
-To uninstall the ROCm packages from Ubuntu 20.04 or Ubuntu 18.04.5, run the following command:
+Uninstalling ROCm Packages
+'''''''''''''''''''''''''''''
+
+To uninstall the ROCm packages from Ubuntu, run the following command:
 
 ::
 
-  sudo apt autoremove rocm-opencl rocm-dkms rocm-dev rocm-utils && sudo reboot
+  sudo apt autoremove --purge -V rocm-opencl* rocm-dkms* rocm-dev* rocm-utils* && sudo reboot
+
+**Note**: Before confirming removal, verify manually the list of removed packages is sensible, and doesn't remove other important applications. The `autoremove` might remove some non-ROCm libraries, as long as they are not used by other installed packages. If you want to preserved them, use `apt remove` instead, or use package pinning, or force them to be manually installed and preserved using `apt install`.
+
+
+Updating ROCm Packages
+''''''''''''''''''''''''
+
+Due to technical issues, currently updating ROCm packages using `apt` (i.e. `apt upgrade` when new stable ROCm is relased) is not supported. Doing so will most likely result in a non-functional installation.
+
+Instead, perform Uninstall step above first (including a reboot), and then follow by installing new packages from the start.
+
+In the future versions of ROCm this limitation might be fixed.
 
 
 Installing Development Packages for Cross Compilation
@@ -316,7 +317,7 @@ To install ROCm on your system, follow the instructions below:
 
 1. Delete the previous versions of ROCm before installing the latest version.
 
-2. Create a /etc/yum.repos.d/rocm.repo file with the following contents:
+2. Create a `/etc/yum.repos.d/rocm.repo` file with the following contents:
 
 * CentOS/RHEL 7.x : https://repo.radeon.com/rocm/yum/rpm 
 
@@ -434,8 +435,6 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
   sudo reboot
 
 **Note**: You can use this command instead of installing rocm-dkms.
-
-**Note**: Ensure you restart the system after ROCm installation. 
 
 
 .. _SLES 15 Service Pack 2:
