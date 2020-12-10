@@ -134,29 +134,29 @@ ROCm CMake Packages
 +-----------+----------+-------------------------------------------------------+
 | rocPRIM   | rocprim  | roc::rocprim                                          |
 +-----------+----------+-------------------------------------------------------+
-| rocThrust   | rocthrust  | roc::rocthrust                                    |
+| rocThrust | rocthrust| roc::rocthrust                                        |
 +-----------+----------+-------------------------------------------------------+
-| hipCUB   | hipcub  | hip::hipcub                                             |
+| hipCUB    | hipcub   | hip::hipcub                                           |
 +-----------+----------+-------------------------------------------------------+
 | rocRAND   | rocrand  | roc::rocrand                                          |
 +-----------+----------+-------------------------------------------------------+
 | rocBLAS   | rocblas  | roc::rocblas                                          |
 +-----------+----------+-------------------------------------------------------+
-| rocSOLVER   | rocsolver  | roc::rocsolver                                    |
+| rocSOLVER | rocsolver| roc::rocsolver                                        |
 +-----------+----------+-------------------------------------------------------+
 | hipBLAS   | hipblas  | roc::hipblas                                          |
 +-----------+----------+-------------------------------------------------------+
-| rocFFT   | rocfft | roc::rocfft                                              |
+| rocFFT    | rocfft   | roc::rocfft                                           |
 +-----------+----------+-------------------------------------------------------+
-| hipFFT   | hipfft  | hip::hipfft                                             |
+| hipFFT    | hipfft   | hip::hipfft                                           |
 +-----------+----------+-------------------------------------------------------+
-| rocSPARSE   | rocsparse  | roc::rocsparse                                    |
+| rocSPARSE | rocsparse| roc::rocsparse                                        |
 +-----------+----------+-------------------------------------------------------+
-| hipSPARSE   | hipsparse  |roc::hipsparse                                     |
+| hipSPARSE | hipsparse|roc::hipsparse                                         |
 +-----------+----------+-------------------------------------------------------+
-| rocALUTION   | rocalution  | roc::rocalution                                 |
+| rocALUTION|rocalution| roc::rocalution                                       |
 +-----------+----------+-------------------------------------------------------+
-| RCCL   | rccl  | rccl                                                        |
+| RCCL      | rccl     | rccl                                                  |
 +-----------+----------+-------------------------------------------------------+
 | MIOpen    | miopen   | MIOpen                                                |
 +-----------+----------+-------------------------------------------------------+
