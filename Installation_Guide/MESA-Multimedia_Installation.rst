@@ -51,9 +51,36 @@ Installation Prerequisites
 .. note::
 
   For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
+  
+  
+2. If installed, ensure the *amd-nonfree-mainline* package is uninstalled. Use the following instruction to uninstall:
+
+ ::      
+      
+      sudo dpkg --purge amd-nonfree-mainline
+      
     
+.. note::
+ 
+    If the *amd-nonfree-mainline* package is uninstalled, the following error displays:
     
- 2.	Use the following instructions to download and install the selected package:
+ ::     
+  
+      taccuser@mlseqa-hyd-virt-srv-07:~/4.0-mesa$ amdgpu-install --no-dkms
+      Reading package lists... Done
+      Building dependency tree
+      Reading state information... Done
+      E: Unable to locate package amdgpu-pin
+      Reading package lists... Done
+      Building dependency tree
+      Reading state information... Done
+      E: Unable to locate package amdgpu-pro-pin
+      ERROR: Unable to install pin package.
+
+      
+      
+    
+ 3.	Use the following instructions to download and install the selected package:
  
  ::
 
@@ -75,7 +102,7 @@ Installation Instructions
 1. Use the following installation instructions to install Mesa Multimeda:
 
 :: 
-     sudo apt install -y ./amd-nonfree-mainline_20.04-1_all.deb && sudo apt update
+     sudo apt update
 
      sudo amdgpu-install -y --no-dkms
         
@@ -132,7 +159,12 @@ Installation Instructions
 Check Installation 
 --------------------
 
-1. Ensure you perform an installation check.
+1. Ensure you perform an installation check. This must be run with **sudo**
+
+     *o	sudo omxregister-bellagio -v*
+     *o	sudo gst-inspect-1.0 omx*
+     *o	sudo gst-inspect-1.0 vaapi*
+
 
 ::  
 
@@ -255,6 +287,25 @@ Plugin Details
 
 Verification Test
 -------------------
+
+Run the verification test with *sudo*. For example,
+
+::
+
+  sudo gst-launch-1.0 -f filesrc location=./mpeg2/1080p/hdwatermellon_1_5.mpg ! mpegpsdemux ! mpegvideoparse ! vaapimpeg2dec ! filesink location=t.yuv
+  
+
+.. note::
+
+    If the verification test is not run with *sudo*, you may encounter the following error:
+    
+::
+    
+    (gst-plugin-scanner:8781): GLib-GObject-WARNING **: 20:04:40.048: cannot register existing type 'GstOMXVideoDec'
+    (gst-plugin-scanner:8781): GLib-CRITICAL **: 20:04:40.048: g_once_init_leave: assertion 'result != 0' failed
+    (gst-plugin-scanner:8781): GLib-GObject-CRITICAL **: 20:04:40.048: g_type_register_static: assertion 'parent_type > 0' failed
+    (gst-plugin-scanner:8781): GLib-CRITICAL **: 20:04:40.048: g_once_init_leave: assertion 'result != 0' failed
+
 
 MPEG2 Decode
 **************
