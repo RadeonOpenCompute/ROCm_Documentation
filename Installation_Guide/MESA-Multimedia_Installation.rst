@@ -62,7 +62,7 @@ Installation Prerequisites
     
 .. note::
  
-    If the *amd-nonfree-mainline* package is uninstalled, the following error displays:
+    If the *amd-nonfree-mainline* package is installed and available on the system, the following error displays:
     
  ::     
   
@@ -159,13 +159,11 @@ Installation Instructions
 Check Installation 
 --------------------
 
-1. Ensure you perform an installation check. This must be run with **sudo**
+1. Ensure you perform an installation check. 
 
-     *o	sudo omxregister-bellagio -v*
-     *o	sudo gst-inspect-1.0 omx*
-     *o	sudo gst-inspect-1.0 vaapi*
+The following instructions must be run with **sudo**:
 
-
+   
 ::  
 
      omxregister-bellagio -v
@@ -187,7 +185,7 @@ Check Installation
      Specific role OMX.mesa.video_encoder.avc registered
 
  
-2 OpenMAX IL ST static components in 1 library successfully scanned
+     2  OpenMAX IL ST static components in 1 library successfully scanned
 
 
 ::        
@@ -264,7 +262,9 @@ Plugin Details
     |                                       |  /enter_bug.cgi?product=GStreamer    |
     +---------------------------------------+--------------------------------------+                    
                    
-           
+   
+
+::
       vaapijpegdec: VA-API JPEG decoder
       vaapimpeg2dec: VA-API MPEG2 decoder
       vaapih264dec: VA-API H264 decoder
