@@ -40,14 +40,14 @@ There are two ways to use HIP in CMake:
    
    ::
 
-    # Search for rocm in common locations
-    list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
-    # Find hip
-    find_package(hip)
-    # Create the library
-    add_library(myLib ...)
-    # Link with HIP
-    target_link_libraries(myLib hip::host)
+   # Search for rocm in common locations
+   list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
+   # Find hip
+   find_package(hip)
+   # Create the library
+   add_library(myLib ...)
+   # Link with HIP
+   target_link_libraries(myLib hip::host)
 
 .. note::
     The ``hip::host`` target provides all the usage requirements needed to use HIP without compiling GPU device code.
