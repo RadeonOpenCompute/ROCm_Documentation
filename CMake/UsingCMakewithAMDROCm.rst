@@ -38,7 +38,7 @@ There are two ways to use HIP in CMake:
 -  Use the HIP API without compiling the GPU device code. As there is no GPU code, any C or C++ compiler can be used.
    The ``find_package(hip)`` provides the ``hip::host`` target to use HIP in this context
    
-   ::
+::
 
    # Search for rocm in common locations
    list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hip /opt/rocm)
