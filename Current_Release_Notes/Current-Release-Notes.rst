@@ -101,7 +101,7 @@ ROCm SMI API Documentation Updates
 
 For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
+Add link
 
 
 
