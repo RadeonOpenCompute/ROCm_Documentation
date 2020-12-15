@@ -299,7 +299,7 @@ This section describes deprecations and removals in AMD ROCm.
 COMPILER-GENERATED CODE OBJECT VERSION 2
 =========================================
 
-**WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION**
+*WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION*
 
 Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
 
