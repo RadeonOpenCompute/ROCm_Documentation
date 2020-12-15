@@ -211,7 +211,7 @@ What's New in This Release
 -----------------------------
 
 RAS ENHANCEMENTS
-~~~~~~~~~~~~~~~~~
+===================
 
 RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
 
@@ -226,7 +226,7 @@ https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html#amdgpu-ras-support
 
 
 USING CMAKE WITH AMD ROCM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================
 
 Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not require any special Find modules. A Find module is often used downstream to find the files by guessing locations of files with platform-specific hints. Typically, the Find module is required when the upstream is not built with CMake or the package configuration files are not available.
 
@@ -238,7 +238,7 @@ UPDATE LINK
 
 
 AMD ROCM AND MESA MULTIMEDIA 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===============================
 
 AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software implementation of OpenGL, Vulkan, and other graphics API specifications. Mesa translates these specifications to vendor-specific graphics hardware drivers.
 
@@ -253,7 +253,7 @@ ROCM – SYSTEM MANAGEMENT INTERFACE
 The following enhancements are made to ROCm System Management Interface (SMI).
 
 Support for Printing PCle Information on AMD Instinct™100
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================================================
 
 AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
 
@@ -265,7 +265,7 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
    :align: center
    
 New API for xGMI 
-~~~~~~~~~~~~~~~~~~
+===================
 
 Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
 
@@ -273,7 +273,7 @@ Add a link to API guide
 
 
 AMD GPU Debugger Enhancements
--------------------------------------
+------------------------------
 
 In this release, AMD GPU Debugger has the following enhancements:
 
@@ -292,18 +292,57 @@ An upgrade from previous releases to AMD ROCm v4.0 is not supported. A fresh and
 
 
 Deprecations
--------------------
+--------------
 
 This section describes deprecations and removals in AMD ROCm.
 
 COMPILER-GENERATED CODE OBJECT VERSION 2
-
+=========================================
 
 **WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION**
 
 Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
 
 Support for loading code object version 2 is also being deprecated with no announced removal release.
+
+
+ROCr RUNTIME DEPRECATIONS
+============================
+
+The following ROCr Runtime enumerations, functions, and structs are deprecated in the AMD ROCm v4.0 release.
+
+Deprecated ROCr Runtime Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* hsa_isa_get_info
+
+* hsa_isa_compatible
+
+* hsa_executable_create
+
+* hsa_executable_get_symbol
+
+* hsa_executable_iterate_symbols
+
+* hsa_code_object_serialize
+
+* hsa_code_object_deserialize
+
+* hsa_code_object_destroy
+
+* hsa_code_object_get_info
+
+* hsa_executable_load_code_object
+
+* hsa_code_object_get_symbol
+
+* hsa_code_object_get_symbol_from_name
+
+* hsa_code_symbol_get_info
+
+* hsa_code_object_iterate_symbols
+
+
 
 
 
