@@ -240,6 +240,16 @@ For more information, see
 UPDATE LINK
 
 
+AMD ROCM AND MESA MULTIMEDIA 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software implementation of OpenGL, Vulkan, and other graphics API specifications. Mesa translates these specifications to vendor-specific graphics hardware drivers.
+
+For detailed installation instructions, refer to
+
+UPDATE LINK
+
+
 
 ROCm-SMI Command Line Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
