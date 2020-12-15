@@ -158,6 +158,7 @@ INTRODUCING AMD INSTINCT™ MI100
 
 The AMD Instinct™ MI100 accelerator is the world’s fastest HPC GPU, and a culmination of the AMD CDNA architecture, with all-new Matrix Core Technology, and AMD ROCm™ open ecosystem to deliver new levels of performance, portability, and productivity. AMD CDNA is an all-new GPU architecture from AMD to drive accelerated computing into the era of exascale computing. The new architecture augments scalar and vector processing with new Matrix Core Engines and adds Infinity Fabric™ technology to scale up to larger systems. The open ROCm ecosystem puts customers in control and is a robust, mature platform that is easy to develop for and capable of running the most critical applications. The overall result is that the MI100 is the first GPU to break the 10TFLOP/s FP64 barrier designed as the steppingstone to the next generation of Exascale systems that will deliver pioneering discoveries in machine learning and scientific computing.
 
+
 Key Features of AMD Instinct™ MI100 
 ------------------------------------
 
@@ -170,10 +171,46 @@ Important features of the AMD Instinct™ MI100 accelerator include:
 * 3 Infinity fabric connections per GPU enable a fully connected group of 4 GPUs in a ‘hive’ 
 
 
+.. image:: /Current_Release_Notes/images/keyfeatures.PNG
+   :align: center
 
 
-ROCm SYSTEM MANAGEMENT INFORMATION
-----------------------------------
+Matrix Core Engines and GFX908 Considerations
+----------------------------------------------
+
+The AMD CDNA architecture builds on GCN’s foundation of scalars and vectors and adds matrices while simultaneously adding support for new numerical formats for machine learning and preserving backward compatibility for any software written for the GCN architecture. These Matrix Core Engines add a new family of wavefront-level instructions, the Matrix Fused MultiplyAdd or MFMA. The MFMA family performs mixed-precision arithmetic and operates on KxN matrices using four different types of input data: 8-bit integers (INT8), 16-bit half-precision FP (FP16), 16-bit brain FP (bf16), and 32-bit single-precision (FP32). All MFMA instructions produce either a 32-bit integer (INT32) or FP32 output, which reduces the likelihood of overflowing during the final accumulation stages of matrix multiplication.
+
+On nodes with gfx908, MFMA instructions are available to substantially speed up matrix operations. This hardware feature is used only in matrix multiplications functions in rocBLAS and supports only three base types f16_r, bf16_r, and f32_r. 
+
+* For half precision (f16_r and bf16_r) GEMM, use the function rocblas_gemm_ex, and set the compute_type parameter to f32_r.
+
+* For single precision (f32_r) GEMM, use the function rocblas_sgemm.
+
+* For single precision complex (f32_c) GEMM, use the function rocblas_cgemm.
+
+
+
+References
+------------
+
+* For more information about bfloat16, see 
+
+https://rocblas.readthedocs.io/en/master/usermanual.html
+
+* For more details about AMD Instinct™ MI100 accelerator key features, see 
+
+https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
+
+* For more information about the AMD Instinct MI100 accelerator, refer to the following sources:
+
+ - AMD CDNA whitepaper at https://www.amd.com/system/files/documents/amd-cdna-whitepaper.pdf
+ 
+ - MI100 datasheet at https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
+
+* AMD Instinct MI100/CDNA1 Shader Instruction Set Architecture (Dec. 2020) – This document describes the current environment, organization, and program state of AMD CDNA “Instinct MI100” devices. It details the instruction set and the microcode formats native to this family of processors that are accessible to programmers and compilers.
+
+https://developer.amd.com/wp-content/resources/CDNA1_Shader_ISA_14December2020.pdf
+
 
 System DMA (SDMA) Utilization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -209,7 +246,8 @@ The SDMA usage per-process is available using the following command,
 
 ::
 
-   $ rocm-smi â€“showpids
+   $ rocm-smi “showpids
+   
    
 ::   
 
