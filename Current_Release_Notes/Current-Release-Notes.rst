@@ -389,6 +389,16 @@ Deprecated ROCr Runtime Structs
 * hsa_code_symbol_
 
 
+AOMP DEPRECATION
+====================
+
+As of AMD ROCm v4.0, AOMP (aomp-amdgpu) is deprecated. OpenMP support has moved to the openmp-extras auxiliary package, which leverages the ROCm compiler on LLVM 12.
+
+For more information, refer to 
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+
+
 Deploying ROCm
 -------------------
 
