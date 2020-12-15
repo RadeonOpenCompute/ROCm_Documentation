@@ -248,11 +248,12 @@ UPDATE LINK
 
 
 ROCM – SYSTEM MANAGEMENT INTERFACE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 The following enhancements are made to ROCm System Management Interface (SMI).
 
 Support for Printing PCle Information on AMD Instinct™100
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
 
@@ -284,11 +285,10 @@ In this release, AMD GPU Debugger has the following enhancements:
 Known Issues
 --------------
 
-Upgrade to AMD ROCm v3.10 Not Supported
+Upgrade to AMD ROCm v4.0 Not Supported
 ========================================
 
-An upgrade from previous releases to AMD ROCm v3.10 is not supported. A
-fresh and clean installation of AMD ROCm v3.10 is recommended.
+An upgrade from previous releases to AMD ROCm v4.0 is not supported. A fresh and clean installation of AMD ROCm v4.0 is recommended.
 
 
 Deprecations
@@ -296,11 +296,16 @@ Deprecations
 
 This section describes deprecations and removals in AMD ROCm.
 
+COMPILER-GENERATED CODE OBJECT VERSION 2
+
+
 **WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION**
 
 Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
 
 Support for loading code object version 2 is also being deprecated with no announced removal release.
+
+
 
 
 Deploying ROCm
