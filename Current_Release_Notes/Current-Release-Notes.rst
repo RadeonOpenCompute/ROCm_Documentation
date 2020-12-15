@@ -248,12 +248,12 @@ UPDATE LINK
 
 
 ROCM – SYSTEM MANAGEMENT INTERFACE
--------------------------------------
+====================================
 
 The following enhancements are made to ROCm System Management Interface (SMI).
 
 Support for Printing PCle Information on AMD Instinct™100
-===========================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
 
@@ -265,7 +265,7 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
    :align: center
    
 New API for xGMI 
-===================
+~~~~~~~~~~~~~~~~~~
 
 Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
 
@@ -273,7 +273,7 @@ Add a link to API guide
 
 
 AMD GPU Debugger Enhancements
-------------------------------
+=================================
 
 In this release, AMD GPU Debugger has the following enhancements:
 
