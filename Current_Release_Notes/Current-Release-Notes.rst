@@ -264,7 +264,7 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
 
  */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
 
-.. image:: /Current_Release_Notes/images/latestGPU.PNG
+.. image:: /Current_Release_Notes/images/.PNG
    :align: center
 
 Enhanced ROCm SMI Library for Events
