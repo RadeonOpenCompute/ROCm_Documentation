@@ -97,11 +97,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 ROCm SMI API Documentation Updates
 ===================================
 
--  System DMA (SDMA) Utilization API
-
--  ROCm-SMI Command Line Interface
-
--  Enhanced ROCm SMI Library for Events
+-  xGMI API
 
 For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
 
@@ -252,7 +248,7 @@ UPDATE LINK
 
 
 ROCM – SYSTEM MANAGEMENT INTERFACE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following enhancements are made to ROCm System Management Interface (SMI).
 
@@ -264,157 +260,25 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
 
  */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
 
-.. image:: /Current_Release_Notes/images/.PNG
+.. image:: /Current_Release_Notes/images/SMI.PNG
    :align: center
-
-Enhanced ROCm SMI Library for Events
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ROCm-SMI library clients can now register to receive the following
-events:
-
--  GPU PRE RESET: This reset event is sent to the client just before a
-   GPU is going to be RESET.
-
--  GPU POST RESET: This reset event is sent to the client after a
-   successful GPU RESET.
-
--  GPU THERMAL THROTTLE: This Thermal throttling event is sent if GPU
-   clocks are throttled
    
-   
-ROCm SMI Command Line Interface Hardware Topology
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This feature provides a matrix representation of the GPUs present in a
-system by providing information of the manner in which the nodes are
-connected. This is represented in terms of weights, hops, and link types
-between two given GPUs. It also provides the numa node and the CPU
-affinity associated with every GPU.
-
-.. image:: /Current_Release_Notes/images/CLI1.PNG
-   :align: center
-
- 
-
-.. image:: /Current_Release_Notes/images/CLI2.PNG
-   :align: center
-
- 
- For more information about ROCm SMI API libraries, refer to the ROCm SMI API Guide at
- 
- 
- https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
- 
-
-ROCm Math and Communication Libraries
--------------------------------------
-
-New rocSOLVER APIs
+New API for xGMI 
 ~~~~~~~~~~~~~~~~~~
 
-The following new rocSOLVER APIs are added in this release:
+Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
 
-.. image:: /Current_Release_Notes/images/rocsolverAPI.PNG
-   :align: center
-
-  
-
-For more information, refer to
-
-https://rocsolver.readthedocs.io/en/latest/userguide_api.html
+Add a link to API guide 
 
 
-RCCL Alltoallv Support in PyTorch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AMD GPU Debugger Enhancements
+-------------------------------------
 
-The AMD ROCm v3.10 release includes a new API for ROCm Communication
-Collectives Library (RCCL). This API sends data from all to all ranks
-and each rank provides arrays of input/output data counts and offsets.
+In this release, AMD GPU Debugger has the following enhancements:
 
-For details about the functions and parameters, see
+* ROCm v4.0 ROCgdb is based on gdb 10.1
 
-https://rccl.readthedocs.io/en/master/allapi.html
-
-
-ROCm AOMP ENHANCEMENTS
-----------------------
-
-AOMP Release 11.11-0
-~~~~~~~~~~~~~~~~~~~~
-
-The source code base for this release is the upstream LLVM 11 monorepo
-release/11.x sources with the hash value
-
-*176249bd6732a8044d457092ed932768724a6f06*
-
-This release includes fixes to the internal Clang math headers:
-
--  This set of changes applies to clang internal headers to support
-   OpenMP C, C++, and FORTRAN and for HIP C. This establishes
-   consistency between NVPTX and AMDGCN offloading and between OpenMP,
-   HIP, and CUDA. OpenMP uses function variants and header overlays to
-   define device versions of functions. This causes clang LLVM IR
-   codegen to mangled names of variants in both the definition and
-   callsites of functions defined in the internal clang headers. These
-   changes apply to headers found in the installation subdirectory
-   lib/clang/11.0.0/include.
-
--  These changes temporarily eliminate the use of the libm bitcode
-   libraries for C and C++. Although math functions are now defined with
-   internal clang headers, a bitcode library of the C functions defined
-   in the headers is still built for FORTRAN toolchain linking because
-   FORTRAN cannot use c math headers. This bitcode library is installed
-   in lib/libdevice/libm-.bc. The source build of this bitcode library
-   is done with the aomp-extras repository and the component built
-   script build_extras.sh. In the future, we will introduce across the
-   board changes to eliminate massive header files for math libraries
-   and replace them with linking to bitcode libraries.
-
--  Added support for -gpubnames in Flang Driver
-
--  Added an example category for Kokkos. The Kokkos example makefile
-   detects if Kokkos is installed and, if not, it builds Kokkos from the
-   Web. Refer to the script kokkos_build.sh in the bin directory on how
-   to build Kokkos. Kokkos now builds cleanly with the OpenMP backend
-   for simple test cases.
-
--  Fixed hostrpc cmake race condition in the build of openmp
-
--  Add a fatal error if missing -Xopenmp-target or -march options when
-   -fopenmp-targets is specified. However, we do forgive this
-   requirement for offloading to host when there is only a single target
-   and that target is the host.
-
--  Fix a bug in InstructionSimplify pass where a comparison of two
-   constants of different sizes found in the optimization pass. This
-   fixes issue #182 which was causing kokkos build failure.
-
--  Fix openmp error message output for no_rocm_device_lib, was
-   asserting.
-
--  Changed linkage on constant per-kernel symbols from external to
-   weaklinkageonly to prevent duplicate symbols when building kokkos.
-
-
-
-Fixed Defects
-=============
-
-The following defects are fixed in this release:
-
--  HIPfort failed to be installed
-
--  rocm-smi does not work as-is in 3.9, instead prints a reference to
-   documentation
-
--  *showtopo*, weight and hop count shows wrong data
-
--  Unable to install RDC on CentOS/RHEL 7.8/8.2 & SLES
-
--  Unable to install mivisionx with error *Problem: nothing provides
-   opencv needed*
-
+* Extended support for AMD Instinct™ MI100 
 
 
 Known Issues
