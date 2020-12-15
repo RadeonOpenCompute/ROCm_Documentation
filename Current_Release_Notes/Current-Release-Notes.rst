@@ -149,8 +149,6 @@ Access the following links for more information:
    
    
 
-What's New in This Release
------------------------------
 
 ===============================
 INTRODUCING AMD INSTINCT™ MI100
@@ -212,31 +210,35 @@ https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
 https://developer.amd.com/wp-content/resources/CDNA1_Shader_ISA_14December2020.pdf
 
 
-System DMA (SDMA) Utilization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Per-process, the SDMA usage is exposed via the ROCm SMI library. The
-structure rsmi_process_info_t is extended to include sdma_usage.
-sdma_usage is a 64-bit value that counts the duration (in microseconds)
-for which the SDMA engine was active during that processâ€™s lifetime.
+What's New in This Release
+-----------------------------
 
-For example, see the rsmi_compute_process_info_by_pid_get() API below.
+RAS ENHANCEMENTS
+~~~~~~~~~~~~~~~~~
+RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
 
-::
+For more information about rocm-smi, see 
+
+https://github.com/RadeonOpenCompute/ROC-smi 
+
+The command options are wrappers of the system calls into the device driver interface as described here:
+
+https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html#amdgpu-ras-support
 
 
-   /**
-   * @brief This structure contains information specific to a process.
-   */
-     typedef struct {
-         - - -,
-         uint64_t sdma_usage; // SDMA usage in microseconds
-     } rsmi_process_info_t;
-     rsmi_status_t
-         rsmi_compute_process_info_by_pid_get(uint32_t pid,
-             rsmi_process_info_t *proc);
-             
-::
+
+USING CMAKE WITH AMD ROCM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not require any special Find modules. A Find module is often used downstream to find the files by guessing locations of files with platform-specific hints. Typically, the Find module is required when the upstream is not built with CMake or the package configuration files are not available.
+
+AMD ROCm provides the respective config-file packages, and this enables find_package to be used directly. AMD ROCm does not require any Find module as the config-file packages are shipped with the upstream projects.
+
+For more information, see 
+
+UPDATE LINK
+
 
 
 ROCm-SMI Command Line Interface
