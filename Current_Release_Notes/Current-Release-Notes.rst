@@ -216,6 +216,7 @@ What's New in This Release
 
 RAS ENHANCEMENTS
 ~~~~~~~~~~~~~~~~~
+
 RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
 
 For more information about rocm-smi, see 
@@ -250,19 +251,21 @@ For detailed installation instructions, refer to
 UPDATE LINK
 
 
-
-ROCm-SMI Command Line Interface
+ROCM – SYSTEM MANAGEMENT INTERFACE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The SDMA usage per-process is available using the following command,
+The following enhancements are made to ROCm System Management Interface (SMI).
 
-::
+Support for Printing PCle Information on AMD Instinct™100
 
-   $ rocm-smi “showpids
-   
-   
-::   
+AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
 
+To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
+
+ */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
+
+.. image:: /Current_Release_Notes/images/latestGPU.PNG
+   :align: center
 
 Enhanced ROCm SMI Library for Events
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
