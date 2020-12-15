@@ -343,14 +343,56 @@ Deprecated ROCr Runtime Functions
 * hsa_code_object_iterate_symbols
 
 
+Deprecated ROCr Runtime Enumerations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* HSA_ISA_INFO_CALL_CONVENTION_COUNT
 
+* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONT_SIZE
+
+* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONTS_PER_COMPUTE_UNIT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME_LENGTH
+
+* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME
+
+* HSA_EXECUTABLE_SYMBOL_INFO_AGENT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALLOCATION
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SEGMENT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALIGNMENT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SIZE
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_IS_CONST
+
+* HSA_EXECUTABLE_SYMBOL_INFO_KERNEL_CALL_CONVENTION
+
+* HSA_EXECUTABLE_SYMBOL_INFO_INDIRECT_FUNCTION_CALL_CONVENTION
+
+   - hsa_code_object_type_t
+ 
+   - hsa_code_object_info_t
+ 
+   - hsa_code_symbol_info_t
+   
+
+Deprecated ROCr Runtime Structs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* hsa_code_object_t
+
+* hsa_callback_data_t
+
+* hsa_code_symbol_
 
 
 Deploying ROCm
 -------------------
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.10.x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v4.x packages.
 
 For more information on ROCM installation on all platforms, see
 
