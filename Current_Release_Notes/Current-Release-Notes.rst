@@ -3,11 +3,11 @@
 |
 
 ================================
-AMD ROCm™ Release Notes v3.10.0
+AMD ROCm™ Release Notes v4.0
 ================================
-November, 2020
+December, 2020
 
-This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.10.0 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.0.0 release.
 
 `Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
@@ -15,26 +15,22 @@ This page describes the features, fixed issues, and information about downloadin
 List of Supported Operating Systems
 -----------------------------------
 
-The AMD ROCm platform is designed to support the following operating
-systems:
+The AMD ROCm platform is designed to support the following operating systems:
 
-The AMD ROCm platform is designed to support the following operating
-systems:
+* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
 
--  Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+* CentOS 7.8 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
 
--  CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7
-   runtime support)
+* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.3 (4.18.0-240.1.1.el8) (devtoolset is not required)
 
--  CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
-
--  SLES 15 SP2
+* SLES 15 SP2
 
 
-Fresh Installation of AMD ROCm v3.10 Recommended
+
+Fresh Installation of AMD ROCm v4.0 Recommended
 -----------------------------------------------
 
-A fresh and clean installation of AMD ROCm v3.10 is recommended. An upgrade from previous releases to AMD ROCm v3.10 is not supported.
+A fresh and clean installation of AMD ROCm v4.0 is recommended. An upgrade from previous releases to AMD ROCm v4.0 is not supported.
 
 For more information, refer to the AMD ROCm Installation Guide at:
 
@@ -56,17 +52,17 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 ROCm Multi Version Installation Update
 ---------------------------------------
 
-With the AMD ROCm v3.10 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.0 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.8.0, rocm-dkms3.9.0.
 
 -   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
 
--  Version files must be created for each multi-version rocm <= 3.10.0
+-  Version files must be created for each multi-version rocm <= 4.0.0
 
    -  command: echo \| sudo tee /opt/rocm-/.info/version
 
-   -  example: echo 3.10.0 \| sudo tee /opt/rocm-3.10.0/.info/version
+   -  example: echo 4.0.0 \| sudo tee /opt/rocm-4.0.0/.info/version
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
@@ -90,6 +86,11 @@ The AMD ROCm Installation Guide in this release includes:
 
 -  HIP Installation Instructions
 
+- AMD ROCm and Mesa Multimedia Installation 
+
+- Using CMake with AMD ROCm 
+
+
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
@@ -107,28 +108,16 @@ For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
 https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
 
 
-ROCm Data Center Tool User Guide
-==================================
-
-The ROCm Data Center Tool User Guide includes the following
-enhancements:
-
--  ROCm Data Center Tool Python Binding
-
--  Prometheus plugin integration
-
-For more information, refer to the ROCm Data Center Tool User Guide at:
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
-
-For ROCm Data Center APIs, see
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_API_Guide.pdf
-
-
 
 HIP Documentation Updates
 ===========================
+* HIP Programming Guide v4.0 
+
+Add link
+
+* HIP API Guide v4.0
+
+Add link
 
 * HIP FAQ 
 
@@ -152,98 +141,34 @@ Access the following links for more information:
 
 -  For AMD ROCm binary structure, see
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#software-stack-for-amd-gpu
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Software-Stack-for-AMD-GPU.html
 
 -  For AMD ROCm Release History, see
 
-   https://rocmdocs.amd.com/en/latest/Current_Release_Notes/Current-Release-Notes.html#amd-rocm-version-history
+   https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.html
    
    
 
 What's New in This Release
 -----------------------------
 
-ROCm DATA CENTER TOOL
-========================
+===============================
+INTRODUCING AMD INSTINCT™ MI100
+===============================
 
-The following enhancements are made to the ROCm Data Center Tool.
+The AMD Instinct™ MI100 accelerator is the world’s fastest HPC GPU, and a culmination of the AMD CDNA architecture, with all-new Matrix Core Technology, and AMD ROCm™ open ecosystem to deliver new levels of performance, portability, and productivity. AMD CDNA is an all-new GPU architecture from AMD to drive accelerated computing into the era of exascale computing. The new architecture augments scalar and vector processing with new Matrix Core Engines and adds Infinity Fabric™ technology to scale up to larger systems. The open ROCm ecosystem puts customers in control and is a robust, mature platform that is easy to develop for and capable of running the most critical applications. The overall result is that the MI100 is the first GPU to break the 10TFLOP/s FP64 barrier designed as the steppingstone to the next generation of Exascale systems that will deliver pioneering discoveries in machine learning and scientific computing.
 
-Prometheus Plugin for ROCm Data Center Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Key Features of AMD Instinct™ MI100 
+------------------------------------
 
-The ROCm Data Center (RDC) Tool now provides the Prometheus plugin, a
-Python client to collect the telemetry data of the GPU. The RDC uses
-Python binding for Prometheus and the collected plugin. The Python
-binding maps the RDC C APIs to Python using ctypes. The functions
-supported by C APIs can also be used in the Python binding.
+Important features of the AMD Instinct™ MI100 accelerator include:
 
-For more information, refer to
+* Extended matrix core engine with Matrix Fused Multiply-Add (MFMA) for mixed-precision arithmetic and operates on KxN matrices (FP32, FP16, BF16, Int8) 
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
+* Added native support for the bfloat16 data type
 
+* 3 Infinity fabric connections per GPU enable a fully connected group of 4 GPUs in a ‘hive’ 
 
-Python Binding
-~~~~~~~~~~~~~~
-
-The ROCm Data Center (RDC) Tool now uses PyThon Binding for Prometheus
-and collectd plugins. PyThon binding maps the RDC C APIs to PyThon using
-ctypes. All the functions supported by C APIs can also be used in PyThon
-binding. A generic PyThon class RdcReader is created to simplify the
-usage of the RDC:
-
--  Users can only specify the fields they want to monitor. RdcReader
-   creates groups and fieldgroups, watches the fields, and fetches the
-   fields.
-
--  The RdcReader can support both the Embedded and Standalone mode.
-   Standalone mode can be used with and without authentication.
-
--  In the Standalone mode, the RdcReader can automatically reconnect to
-   rdcd when connection is lost.When rdcd is restarted, the previously
-   created group and fieldgroup may lose. The RdcReader can re-create
-   them and watch the fields after a reconnect.
-
--  If the client is restarted, RdcReader can detect the groups and
-   fieldgroups created previously, and, therefore, can avoid recreating
-   them.
-
--  Users can pass the unit converter if they do not want to use the RDC
-   default unit.
-
-See the following sample program to monitor the power and GPU
-utilization using the RdcReader:
-
-::
-
-
-   from RdcReader import RdcReader
-   from RdcUtil import RdcUtil
-   from rdc_bootstrap import *
-    
-   default_field_ids = [
-           rdc_field_t.RDC_FI_POWER_USAGE,
-           rdc_field_t.RDC_FI_GPU_UTIL
-   ]
-    
-   class SimpleRdcReader(RdcReader):
-       def __init__(self):
-           RdcReader.__init__(self,ip_port=None, field_ids = default_field_ids, update_freq=1000000)
-       def handle_field(self, gpu_index, value):
-           field_name = self.rdc_util.field_id_string(value.field_id).lower()
-           print("%d %d:%s %d" % (value.ts, gpu_index, field_name, value.value.l_int))
-    
-   if __name__ == '__main__':
-       reader = SimpleRdcReader()
-       while True:
-           time.sleep(1)
-           reader.process()
-::
-
-
-For more information about RDC Python binding and the Prometheus plugin
-integration, refer to the ROCm Data Center Tool User Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
 
 
 
