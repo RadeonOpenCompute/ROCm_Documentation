@@ -4,13 +4,9 @@
 
 
 
-===================
-HIP Documentation 
-===================
-
-
-HIP Progamming Guide 
-*********************
+======================
+HIP Progamming Guide  
+======================
 
 
 What Is HIP?
