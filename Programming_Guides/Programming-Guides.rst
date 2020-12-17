@@ -32,10 +32,6 @@ For HIP installation instructions, refer the AMD ROCm Installation Guide at http
 
 
 
-HIP API Guide
-=================
-
-
 =========================
 HIP Documentation v3.10
 =========================
