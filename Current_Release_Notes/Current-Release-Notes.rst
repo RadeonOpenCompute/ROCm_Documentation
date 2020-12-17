@@ -101,8 +101,7 @@ ROCm SMI API Documentation Updates
 
 For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
 
-Add link
-
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
 
 
 HIP Documentation Updates
@@ -113,7 +112,7 @@ Add link
 
 * HIP API Guide v4.0
 
-Add link
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP-API_Guide_v4.0.pdf
 
 * HIP FAQ 
 
@@ -252,6 +251,7 @@ ROCM – SYSTEM MANAGEMENT INTERFACE
 
 The following enhancements are made to ROCm System Management Interface (SMI).
 
+
 Support for Printing PCle Information on AMD Instinct™100
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -264,12 +264,13 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
 .. image:: /Current_Release_Notes/images/SMI.PNG
    :align: center
    
+
 New API for xGMI 
 ~~~~~~~~~~~~~~~~~~
 
 Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
 
-Add a link to API guide 
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
 
 
 AMD GPU Debugger Enhancements
