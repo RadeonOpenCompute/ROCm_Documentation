@@ -10,7 +10,11 @@ HIP Documentation
 
 
 HIP Progamming Guide 
-=====================
+*********************
+
+
+What Is HIP?
+****************
 
 What is Heterogeneous-Computing Interface for Portability (HIP)? It’s a C++ dialect designed to ease conversion of Cuda applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the
 host/kernel boundary.
@@ -29,6 +33,38 @@ HIP Installation Instructions
 ******************************
 
 For HIP installation instructions, refer the AMD ROCm Installation Guide at https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#hip-installation-instructions 
+
+
+HIP FAQ 
+=========
+
+ * :ref:`HIP-FAQ`
+
+
+HIP Best Practices
+=====================
+
+ * :ref:`HIP-IN`
+ * :ref:`Kernel_language`
+ * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
+ * :ref:`hip-p`
+ * :ref:`hip_profiling`
+ * :ref:`HIP_Debugging`
+ * :ref:`HIP-terminology`
+ * :ref:`HIP-Term2`
+ * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
+
+Supported CUDA APIs:
+ * :ref:`CUDAAPIHIP`
+ * :ref:`CUDAAPIHIPTEXTURE`
+ * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_
+ * `cuBLAS <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUBLAS_API_supported_by_HIP.md>`_
+ * `cuRAND <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CURAND_API_supported_by_HIP.md>`_
+ * `cuDNN <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUDNN_API_supported_by_HIP.md>`_
+ * `cuFFT <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUFFT_API_supported_by_HIP.md>`_
+ * `cuSPARSE <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUSPARSE_API_supported_by_HIP.md>`_
+ * `Developer/CONTRIBUTING Info <https://github.com/ROCm-Developer-Tools/HIP/blob/master/CONTRIBUTING.md>`_
+ * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
 
 
 
@@ -218,7 +254,7 @@ CUDA, and developers should expect to do some manual coding and
 performance tuning work to complete the port.
 
 Repository Branches
-#####################
+======================
 
 The HIP repository maintains several branches. The branches that are of
 importance are:
@@ -228,8 +264,9 @@ importance are:
 -  developer-preview branch: This is the branch were the new features still under development are visible. While this maybe of interest to
    many, it should be noted that this branch and the features under development might not be stable.
 
+
 Release Tagging
-################
+================
 
 HIP releases are typically of two types. The tag naming convention is different for both types of releases to help differentiate them.
 
@@ -242,38 +279,14 @@ HIP releases are typically of two types. The tag naming convention is different 
 
   * :ref:`HIP-GUIDE`
 
-HIP FAQ, Porting Guide, and Programming Guide
-===============================================
+HIP FAQ and HIP Porting Guide
+===============================
 
  * :ref:`HIP-FAQ`
  * :ref:`HIP-porting-guide`
  * :ref:`hip-pro`
-
-HIP Best Practices
-=====================
-
- * :ref:`HIP-IN`
- * :ref:`Kernel_language`
- * `HIP Runtime API (Doxygen) <https://rocm-documentation.readthedocs.io/en/latest/ROCm_API_References/HIP-API.html#hip-api>`_
- * :ref:`hip-p`
- * :ref:`hip_profiling`
- * :ref:`HIP_Debugging`
- * :ref:`HIP-terminology`
- * :ref:`HIP-Term2`
- * `hipify-clang <https://github.com/ROCm-Developer-Tools/HIP/blob/master/hipify-clang/README.md>`_
-
-Supported CUDA APIs:
- * :ref:`CUDAAPIHIP`
- * :ref:`CUDAAPIHIPTEXTURE`
- * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_
- * `cuBLAS <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUBLAS_API_supported_by_HIP.md>`_
- * `cuRAND <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CURAND_API_supported_by_HIP.md>`_
- * `cuDNN <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUDNN_API_supported_by_HIP.md>`_
- * `cuFFT <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUFFT_API_supported_by_HIP.md>`_
- * `cuSPARSE <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUSPARSE_API_supported_by_HIP.md>`_
- * `Developer/CONTRIBUTING Info <https://github.com/ROCm-Developer-Tools/HIP/blob/master/CONTRIBUTING.md>`_
- * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
-
+ 
+ 
 How to Install
 ###############
 
