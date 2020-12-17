@@ -60,7 +60,7 @@ HIP Best Practices
 
 
 =========================
-HIP Documentation v3.10
+HIP Documentation v3.x
 =========================
 
 ROCm Supported Languages
