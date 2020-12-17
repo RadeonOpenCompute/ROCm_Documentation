@@ -21,7 +21,7 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 * CentOS 7.8 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
 
-* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.3 (4.18.0-240.1.1.el8) (devtoolset is not required)
+* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.2 (4.18.0-240.1.1.el8) (devtoolset is not required)
 
 * SLES 15 SP2
 
