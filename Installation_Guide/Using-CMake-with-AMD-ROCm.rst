@@ -33,7 +33,7 @@ There are two ways to set this variable:
 
 
 Using HIP in CMake
-==================
+--------------------
 
 There are two ways to use HIP in CMake:
 
@@ -102,7 +102,7 @@ set in the CMakeLists.txt as a cached variable before calling
     find_package(hip)
 
 Using AMD ROCm Libraries
-========================
+---------------------------
 
 Libraries such as rocBLAS, MIOpen, and others support CMake users as
 well.
@@ -127,7 +127,7 @@ can be linked with ``target_link_libraries``::
 
 
 ROCm CMake Packages
-===================
+--------------------
 
 +-----------+----------+-------------------------------------------------------+
 | Component | Package  | Targets                                               |
