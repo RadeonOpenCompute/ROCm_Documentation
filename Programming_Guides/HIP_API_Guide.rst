@@ -4,7 +4,7 @@ HIP API Documentation
 
 
 =============================
-HIP API Documentation v3.10 
+HIP API Documentation v3.x 
 =============================
 
 
