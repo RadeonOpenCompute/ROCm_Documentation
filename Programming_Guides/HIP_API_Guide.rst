@@ -20,7 +20,9 @@ HIP Math API
 * :ref:`HIP-MATH`
 
 
-Supported CUDA APIs:
+Supported CUDA APIs
+====================
+
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
  * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_
@@ -35,7 +37,7 @@ Supported CUDA APIs:
     
     
     
-Deprecated HIP API
+Deprecated HIP APIs
 =====================
 
 HIP Memory Management API 
@@ -82,7 +84,7 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 
 .. _Context-Management:
 
-HIP Context Management API 
+HIP Context Management APIs 
 ############################
 
 
