@@ -84,6 +84,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption:  Compiler Documentation
       
    Programming_Guides/Programming-Guides
+   Programming_Guides/HIP_API_Guide
    Programming_Guides/openmp_support
    Programming_Guides/gcn-assembler
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
