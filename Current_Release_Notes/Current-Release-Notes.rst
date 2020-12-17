@@ -233,7 +233,7 @@ AMD ROCm provides the respective config-file packages, and this enables find_pac
 
 For more information, see 
 
-UPDATE LINK
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Using-CMake-with-AMD-ROCm.html
 
 
 AMD ROCM AND MESA MULTIMEDIA 
