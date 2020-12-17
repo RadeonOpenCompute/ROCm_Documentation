@@ -80,19 +80,13 @@ Installation Prerequisites
       
       
     
- 3.	Use the following instructions to download and install the selected package:
- 
- ::
+3. Obtain the AMDGPU driver from https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-20-45 for the appropriate distro version.
 
-   MIRROR=artifactory-cdn.amd.com/artifactory/list/amdgpu-deb
 
-   REPO_PKG=amd-nonfree-mainline_18.04-1_all.deb
+4. Follow the pre-installation instructions at https://amdgpu-install.readthedocs.io/en/latest/.  
 
-   cd /tmp
 
-   wget http://${MIRROR}/${REPO_PKG}
-
-   sudo dpkg -i ${REPO_PKG} 
+5. After installing the AMDGPU driver, proceed with the installation instructions as documented in the next section of this document. 
 
 
     
