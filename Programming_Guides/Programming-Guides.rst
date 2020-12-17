@@ -32,7 +32,9 @@ Use HIP when converting Cuda applications to portable C++ and for new projects t
 HIP Installation Instructions
 ******************************
 
-For HIP installation instructions, refer the AMD ROCm Installation Guide at https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#hip-installation-instructions 
+For HIP installation instructions, refer the AMD ROCm Installation Guide at:
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/HIP-Installation.html
 
 
 HIP FAQ 
