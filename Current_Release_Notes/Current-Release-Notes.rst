@@ -36,9 +36,14 @@ For more information, refer to the AMD ROCm Installation Guide at:
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+.. note::
 
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+   AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade       from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+   
+.. note::
+
+   *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+   
 
 -  For ROCm v3.5 and releases thereafter,the *clinfo* path is changed to
    - */opt/rocm/opencl/bin/clinfo*.
@@ -46,7 +51,10 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 -  For ROCm v3.3 and older releases, the *clinfo* path remains unchanged
    - */opt/rocm/opencl/bin/x86_64/clinfo*.
    
- **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
+   
+.. note::
+
+   After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall    and reinstall AMD ROCm after an operating system upgrade.
 
    
 ROCm Multi Version Installation Update
@@ -68,7 +76,9 @@ The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. 
 
 - ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must set *LD_LIBRARY_PATH* to load the ROCm library version of choice.
 
-**NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
+.. note::
+
+   The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
 
 
