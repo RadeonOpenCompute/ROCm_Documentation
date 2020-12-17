@@ -15,7 +15,7 @@ AMD ROCm is the first open-source software development platform for HPC/Hypersca
 Since the ROCm ecosystem is comprised of open technologies: frameworks (Tensorflow / PyTorch), libraries (MIOpen / Blas / RCCL), programming model (HIP), inter-connect (OCD) and up streamed Linux® Kernel support – the platform is continually optimized for performance and extensibility.  Tools, guidance and insights are shared freely across the ROCm GitHub community and forums.
 
 
-.. image:: https://github.com/Rmalavally/ROCm/blob/master/images/latestGPU.PNG
+.. image:: https://github.com/RadeonOpenCompute/ROCm_Documentation/blob/master/latestGPU.PNG
     :align: center
 
 
