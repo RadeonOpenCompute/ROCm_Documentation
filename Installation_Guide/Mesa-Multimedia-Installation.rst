@@ -83,10 +83,10 @@ Installation Prerequisites
 3. Obtain the AMDGPU driver from https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-20-45 for the appropriate distro version.
 
 
-4. Follow the pre-installation instructions at https://amdgpu-install.readthedocs.io/en/latest/.  
+4. Follow the pre-installation instructions at https://amdgpu-install.readthedocs.io/en/latest/ (from “Preamble” to “Using the amdgpu-install Script” sections).
 
 
-5. After installing the AMDGPU driver, proceed with the installation instructions as documented in the next section of this document. 
+5. Proceed with the installation instructions as documented in the next section of this document. 
 
 
     
