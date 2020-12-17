@@ -19,6 +19,19 @@ HIP Math API
 
 * :ref:`HIP-MATH`
 
+
+Supported CUDA APIs:
+ * :ref:`CUDAAPIHIP`
+ * :ref:`CUDAAPIHIPTEXTURE`
+ * `cuComplex API <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/cuComplex_API_supported_by_HIP.md>`_
+ * `cuBLAS <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUBLAS_API_supported_by_HIP.md>`_
+ * `cuRAND <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CURAND_API_supported_by_HIP.md>`_
+ * `cuDNN <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUDNN_API_supported_by_HIP.md>`_
+ * `cuFFT <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUFFT_API_supported_by_HIP.md>`_
+ * `cuSPARSE <https://github.com/ROCm-Developer-Tools/HIP/blob/master/docs/markdown/CUSPARSE_API_supported_by_HIP.md>`_
+ * `Developer/CONTRIBUTING Info <https://github.com/ROCm-Developer-Tools/HIP/blob/master/CONTRIBUTING.md>`_
+ * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
+
     
     
     
