@@ -58,13 +58,17 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 * Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
 
+* CentOS 7.8 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
+
+* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.2 (4.18.0-193.1.1.el8) (devtoolset is not required)
+
+* SLES 15 SP2
+	
+
 **Note**: Ubuntu versions lower than 18 are no longer supported.
 
 **Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
 
-* CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7 runtime support)
-* CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
-* SLES 15 SP2
 
 
 **FRESH INSTALLATION OF AMD ROCm V3.10 RECOMMENDED**
