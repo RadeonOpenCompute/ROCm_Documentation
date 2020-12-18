@@ -265,7 +265,7 @@ Plugin Details
     |                                       |                                      |
     +---------------------------------------+--------------------------------------+
     | Origin URL                            | http://bugzilla.gnome.org            |
-    |                                       |  /enter_bug.cgi?product=GStreamer    |
+    |                                       |/enter_bug.cgi?product=GStreamer      |
     +---------------------------------------+--------------------------------------+                    
                    
 
