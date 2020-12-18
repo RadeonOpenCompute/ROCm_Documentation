@@ -74,6 +74,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    Installation_Guide/Multiversion-Installation
    Installation_Guide/HIP-Installation
    Installation_Guide/Using-CMake-with-AMD-ROCm
+   Installation_Guide/Mesa-Multimedia-Installation
    Installation_Guide/Software-Stack-for-AMD-GPU
    
    
