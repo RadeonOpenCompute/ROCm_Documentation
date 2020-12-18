@@ -4,9 +4,11 @@
 
 
 
-======================
-HIP Progamming Guide  
-======================
+==========================
+HIP Progamming Guide 4.0 
+==========================
+
+`Download HIP Programming Guide v4.0 PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
 What Is HIP?
@@ -25,8 +27,20 @@ When to Use HIP
 Use HIP when converting Cuda applications to portable C++ and for new projects that require portability between AMD and NVIDIA. HIP provides a C++ development language and access to the best development tools on both platforms.
 
 
+Related Topics
+----------------
+
+HIP API Guide v4.0
+====================
+
+You can access the Doxygen-generated HIP API Guide v4.0 at the following location:
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP-API_Guide_v4.0.pdf
+
+
+
 HIP Installation Instructions
-******************************
+===============================
 
 For HIP installation instructions, refer the AMD ROCm Installation Guide at:
 
