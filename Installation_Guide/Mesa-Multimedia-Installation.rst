@@ -55,12 +55,13 @@ Installation Instructions
       
 .. note:: 
 
-  Run it from the directory where the download is unpacked. The download and install instructions are:
+      Run it from the directory where the download is unpacked. The download and install instructions are:
 
-  | $ cd ~/Downloads 
-  | $ tar -Jxvf amdgpu-pro-YY.XX-NNNNNN.tar.xz
-  | $ cd ~/Downloads/amdgpu-pro-YY.XX-NNNNNN
-  | $ ./amdgpu-install -y --no-dkms     
+     | $ cd ~/Downloads 
+     | $ tar -Jxvf amdgpu-pro-YY.XX-NNNNNN.tar.xz
+     | $ cd ~/Downloads/amdgpu-pro-YY.XX-NNNNNN
+     | $ ./amdgpu-install -y --no-dkms     
+
 
 
 
