@@ -234,9 +234,11 @@ Plugin Details
      +-- 3 elements 
      
 ::    
-     
-::     
-     gst-inspect-1.0 vaapi  
+  
+  
+::      
+
+  gst-inspect-1.0 vaapi  
   
   
  
