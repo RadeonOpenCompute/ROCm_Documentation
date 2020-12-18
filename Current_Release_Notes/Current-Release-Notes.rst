@@ -3,52 +3,48 @@
 
 
 ================================
-AMD ROCm™ Release Notes v3.10.0
+AMD ROCm™ Release Notes v4.0
 ================================
 
-November, 2020
+December, 2020
 
-This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v3.9.0 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.0.0 release.
 
-`Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_Release_Notes_v3.10.pdf>`__
-
+`Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
 
 List of Supported Operating Systems
 -----------------------------------
 
-The AMD ROCm platform is designed to support the following operating
-systems:
+The AMD ROCm platform is designed to support the following operating systems:
 
--  Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
 
-**Note**: AMD ROCm v3.10 fails to install on Ubuntu kernel v5.4.0-56. To resolve the installation issue, new packages for 'rock-dkms' and 'rock-dkms-firmware' are created and replaced.  It is recommended to perform a clean and fresh installation with the new packages. 
+* CentOS 7.8 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
 
--  CentOS 7.8 & RHEL 7.8 (Kernel 3.10.0-1127) (Using devtoolset-7
-   runtime support)
+* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.2 (4.18.0-193.1.1.el8) (devtoolset is not required)
 
--  CentOS 8.2 & RHEL 8.2 (Kernel 4.18.0 ) (devtoolset is not required)
-
--  SLES 15 SP2
-
-**Note**: The ROCm Data Center Tool is supported only on Ubuntu v18.04.5 and Ubuntu v20.04.1 in the AMD ROCm v3.10.0 release. 
-
-The CentOS/RHEL and SLES environments are not supported at this time. 
+* SLES 15 SP2
 
 
 
-Fresh Installation of AMD ROCm v3.10 Recommended
+Fresh Installation of AMD ROCm v4.0 Recommended
 -----------------------------------------------
 
-A fresh and clean installation of AMD ROCm v3.10 is recommended. An upgrade from previous releases to AMD ROCm v3.10 is not supported.
+A fresh and clean installation of AMD ROCm v4.0 is recommended. An upgrade from previous releases to AMD ROCm v4.0 is not supported.
 
 For more information, refer to the AMD ROCm Installation Guide at:
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-**Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+.. note::
 
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+   AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade       from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+   
+.. note::
+
+   *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
+   
 
 -  For ROCm v3.5 and releases thereafter,the *clinfo* path is changed to
    - */opt/rocm/opencl/bin/clinfo*.
@@ -56,29 +52,34 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 -  For ROCm v3.3 and older releases, the *clinfo* path remains unchanged
    - */opt/rocm/opencl/bin/x86_64/clinfo*.
    
- **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
+   
+.. note::
+
+   After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall    and reinstall AMD ROCm after an operating system upgrade.
 
    
 ROCm Multi Version Installation Update
 ---------------------------------------
 
-With the AMD ROCm v3.10 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.0 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.8.0, rocm-dkms3.9.0.
 
 -   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
 
--  Version files must be created for each multi-version rocm <= 3.10.0
+-  Version files must be created for each multi-version rocm <= 4.0.0
 
    -  command: echo \| sudo tee /opt/rocm-/.info/version
 
-   -  example: echo 3.10.0 \| sudo tee /opt/rocm-3.10.0/.info/version
+   -  example: echo 4.0.0 \| sudo tee /opt/rocm-4.0.0/.info/version
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
 - ROCm v3.9 and above will not set any *ldconfig* entries for ROCm libraries for multi-version installation.  Users must set *LD_LIBRARY_PATH* to load the ROCm library version of choice.
 
-**NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
+.. note::
+
+   The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
 
 
@@ -96,45 +97,33 @@ The AMD ROCm Installation Guide in this release includes:
 
 -  HIP Installation Instructions
 
+- AMD ROCm and Mesa Multimedia Installation 
+
+- Using CMake with AMD ROCm 
+
+
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
 ROCm SMI API Documentation Updates
 ===================================
 
--  System DMA (SDMA) Utilization API
-
--  ROCm-SMI Command Line Interface
-
--  Enhanced ROCm SMI Library for Events
+-  xGMI API
 
 For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
-
-
-ROCm Data Center Tool User Guide
-==================================
-
-The ROCm Data Center Tool User Guide includes the following
-enhancements:
-
--  ROCm Data Center Tool Python Binding
-
--  Prometheus plugin integration
-
-For more information, refer to the ROCm Data Center Tool User Guide at:
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
-
-For ROCm Data Center APIs, see
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_API_Guide.pdf
-
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
 
 
 HIP Documentation Updates
 ===========================
+* HIP Programming Guide v4.0 
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0.pdf
+
+* HIP API Guide v4.0
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP-API_Guide_v4.0.pdf
 
 * HIP FAQ 
 
@@ -144,7 +133,7 @@ https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 
 General AMD ROCm Documentation Links
-======================================
+------------------------------------
 
 Access the following links for more information:
 
@@ -158,295 +147,274 @@ Access the following links for more information:
 
 -  For AMD ROCm binary structure, see
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html#software-stack-for-amd-gpu
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Software-Stack-for-AMD-GPU.html
 
 -  For AMD ROCm Release History, see
 
-   https://rocmdocs.amd.com/en/latest/Current_Release_Notes/Current-Release-Notes.html#amd-rocm-version-history
+   https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.html
    
    
+
+
+===============================
+INTRODUCING AMD INSTINCT™ MI100
+===============================
+
+The AMD Instinct™ MI100 accelerator is the world’s fastest HPC GPU, and a culmination of the AMD CDNA architecture, with all-new Matrix Core Technology, and AMD ROCm™ open ecosystem to deliver new levels of performance, portability, and productivity. AMD CDNA is an all-new GPU architecture from AMD to drive accelerated computing into the era of exascale computing. The new architecture augments scalar and vector processing with new Matrix Core Engines and adds Infinity Fabric™ technology to scale up to larger systems. The open ROCm ecosystem puts customers in control and is a robust, mature platform that is easy to develop for and capable of running the most critical applications. The overall result is that the MI100 is the first GPU to break the 10TFLOP/s FP64 barrier designed as the steppingstone to the next generation of Exascale systems that will deliver pioneering discoveries in machine learning and scientific computing.
+
+
+Key Features of AMD Instinct™ MI100 
+------------------------------------
+
+Important features of the AMD Instinct™ MI100 accelerator include:
+
+* Extended matrix core engine with Matrix Fused Multiply-Add (MFMA) for mixed-precision arithmetic and operates on KxN matrices (FP32, FP16, BF16, Int8) 
+
+* Added native support for the bfloat16 data type
+
+* 3 Infinity fabric connections per GPU enable a fully connected group of 4 GPUs in a ‘hive’ 
+
+
+.. image:: /Current_Release_Notes/images/keyfeatures.PNG
+   :align: center
+
+
+Matrix Core Engines and GFX908 Considerations
+----------------------------------------------
+
+The AMD CDNA architecture builds on GCN’s foundation of scalars and vectors and adds matrices while simultaneously adding support for new numerical formats for machine learning and preserving backward compatibility for any software written for the GCN architecture. These Matrix Core Engines add a new family of wavefront-level instructions, the Matrix Fused MultiplyAdd or MFMA. The MFMA family performs mixed-precision arithmetic and operates on KxN matrices using four different types of input data: 8-bit integers (INT8), 16-bit half-precision FP (FP16), 16-bit brain FP (bf16), and 32-bit single-precision (FP32). All MFMA instructions produce either a 32-bit integer (INT32) or FP32 output, which reduces the likelihood of overflowing during the final accumulation stages of matrix multiplication.
+
+On nodes with gfx908, MFMA instructions are available to substantially speed up matrix operations. This hardware feature is used only in matrix multiplications functions in rocBLAS and supports only three base types f16_r, bf16_r, and f32_r. 
+
+* For half precision (f16_r and bf16_r) GEMM, use the function rocblas_gemm_ex, and set the compute_type parameter to f32_r.
+
+* For single precision (f32_r) GEMM, use the function rocblas_sgemm.
+
+* For single precision complex (f32_c) GEMM, use the function rocblas_cgemm.
+
+
+
+References
+------------
+
+* For more information about bfloat16, see 
+
+https://rocblas.readthedocs.io/en/master/usermanual.html
+
+* For more details about AMD Instinct™ MI100 accelerator key features, see 
+
+https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
+
+* For more information about the AMD Instinct MI100 accelerator, refer to the following sources:
+
+ - AMD CDNA whitepaper at https://www.amd.com/system/files/documents/amd-cdna-whitepaper.pdf
+ 
+ - MI100 datasheet at https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
+
+* AMD Instinct MI100/CDNA1 Shader Instruction Set Architecture (Dec. 2020) – This document describes the current environment, organization, and program state of AMD CDNA “Instinct MI100” devices. It details the instruction set and the microcode formats native to this family of processors that are accessible to programmers and compilers.
+
+https://developer.amd.com/wp-content/resources/CDNA1_Shader_ISA_14December2020.pdf
+
+
 
 What's New in This Release
 -----------------------------
 
-ROCm DATA CENTER TOOL
-========================
+RAS ENHANCEMENTS
+===================
 
-The following enhancements are made to the ROCm Data Center Tool.
+RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
 
-Prometheus Plugin for ROCm Data Center Tool
-###############################################
+For more information about rocm-smi, see 
 
-The ROCm Data Center (RDC) Tool now provides the Prometheus plugin, a PyThon client to collect the telemetry data of the GPU. The RDC uses
-PyThon binding for Prometheus and the collected plugin. The PyThon binding maps the RDC C APIs to Python using ctypes. The functions
-supported by C APIs can also be used in the PyThon binding.
+https://github.com/RadeonOpenCompute/ROC-smi 
 
-For more information, refer to
+The command options are wrappers of the system calls into the device driver interface as described here:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
-
-
-PyThon Binding
-################
-
-The ROCm Data Center (RDC) Tool now uses PyThon Binding for Prometheus and collectd plugins. PyThon binding maps the RDC C APIs to PyThon using
-ctypes. All the functions supported by C APIs can also be used in PyThon binding. A generic PyThon class RdcReader is created to simplify the
-usage of the RDC:
-
--  Users can only specify the fields they want to monitor. RdcReader creates groups and fieldgroups, watches the fields, and fetches the
-   fields.
-   
-
--  RdcReader can support both the Embedded and Standalone mode. Standalone mode can be used with and without authentication.
-
-
--  In the Standalone mode, the RdcReader can automatically reconnect to  rdcd when connection is lost.When rdcd is restarted, the previously
-   created group and fieldgroup may lose. The RdcReader can re-create them and watch the fields after a reconnect.
-   
-
--  If the client is restarted, RdcReader can detect the groups and fieldgroups created previously, and, therefore, can avoid recreating
-   them.
-   
-
--  Users can pass the unit converter if they do not want to use the RDC default unit.
-
-
-See the following sample program to monitor the power and GPU utilization using the RdcReader:
-
-
-::
-
-
-   from RdcReader import RdcReader
-   from RdcUtil import RdcUtil
-   from rdc_bootstrap import *
-    
-   default_field_ids = [
-           rdc_field_t.RDC_FI_POWER_USAGE,
-           rdc_field_t.RDC_FI_GPU_UTIL
-   ]
-    
-   class SimpleRdcReader(RdcReader):
-       def __init__(self):
-           RdcReader.__init__(self,ip_port=None, field_ids = default_field_ids, update_freq=1000000)
-       def handle_field(self, gpu_index, value):
-           field_name = self.rdc_util.field_id_string(value.field_id).lower()
-           print("%d %d:%s %d" % (value.ts, gpu_index, field_name, value.value.l_int))
-    
-   if __name__ == '__main__':
-       reader = SimpleRdcReader()
-       while True:
-           time.sleep(1)
-           reader.process()
-::
-
-
-For more information about RDC Python binding and the Prometheus plugin integration, refer to the ROCm Data Center Tool User Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide.pdf
+https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html#amdgpu-ras-support
 
 
 
-ROCm System Management Information
+USING CMAKE WITH AMD ROCM
+===========================
+
+Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not require any special Find modules. A Find module is often used downstream to find the files by guessing locations of files with platform-specific hints. Typically, the Find module is required when the upstream is not built with CMake or the package configuration files are not available.
+
+AMD ROCm provides the respective config-file packages, and this enables find_package to be used directly. AMD ROCm does not require any Find module as the config-file packages are shipped with the upstream projects.
+
+For more information, see 
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Using-CMake-with-AMD-ROCm.html
+
+
+AMD ROCM AND MESA MULTIMEDIA 
+===============================
+
+AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software implementation of OpenGL, Vulkan, and other graphics API specifications. Mesa translates these specifications to vendor-specific graphics hardware drivers.
+
+For detailed installation instructions, refer to
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Mesa-Multimedia-Installation.html
+
+
+ROCM – SYSTEM MANAGEMENT INTERFACE
 ====================================
 
-System DMA (SDMA) Utilization
-##################################
-
-Per-process, the SDMA usage is exposed via the ROCm SMI library. The structure rsmi_process_info_t is extended to include sdma_usage. sdma_usage is a 64-bit value that counts the duration (in microseconds) for which the SDMA engine was active during that process lifetime.
-
-For example, see the rsmi_compute_process_info_by_pid_get() API below.
-
-::
+The following enhancements are made to ROCm System Management Interface (SMI).
 
 
-   /**
-   * @brief This structure contains information specific to a process.
-   */
-     typedef struct {
-         - - -,
-         uint64_t sdma_usage; // SDMA usage in microseconds
-     } rsmi_process_info_t;
-     rsmi_status_t
-         rsmi_compute_process_info_by_pid_get(uint32_t pid,
-             rsmi_process_info_t *proc);
-             
-::
+Support for Printing PCle Information on AMD Instinct™100
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
 
-ROCm-SMI Command Line Interface
-#################################
+To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
 
-The SDMA usage per-process is available using the following command,
+ */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
 
-::
-
-   $ rocm-smi -showpids
-   
-::   
-
-
-Enhanced ROCm SMI Library for Events
-########################################
-
-ROCm-SMI library clients can now register to receive the following events:
-
--  GPU PRE RESET: This reset event is sent to the client just before a GPU is going to be RESET.
-
--  GPU POST RESET: This reset event is sent to the client after a successful GPU RESET.
-
--  GPU THERMAL THROTTLE: This Thermal throttling event is sent if GPU clocks are throttled
-   
-   
-ROCm SMI Command Line Interface Hardware Topology
-########################################################
-
-This feature provides a matrix representation of the GPUs present in a system by providing information of the manner in which the nodes are
-connected. 
-
-.. image:: /Current_Release_Notes/images/CLI1.PNG
+.. image:: /Current_Release_Notes/images/SMI.PNG
    :align: center
    
-   
-This is represented in terms of weights, hops, and link types between two given GPUs. It also provides the numa node and the CPU
-affinity associated with every GPU.
 
-   
-.. image:: /Current_Release_Notes/images/CLI2.PNG
-   :align: center
+New API for xGMI 
+~~~~~~~~~~~~~~~~~~
 
- 
-For more information about ROCm SMI API libraries, refer to the ROCm SMI API Guide at
-  
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v3.10.pdf
- 
+Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
 
 
-ROCm Math and Communication Libraries
-=======================================
+AMD GPU Debugger Enhancements
+=================================
 
-New rocSOLVER APIs
-########################
+In this release, AMD GPU Debugger has the following enhancements:
 
-The following new rocSOLVER APIs are added in this release:
+* ROCm v4.0 ROCgdb is based on gdb 10.1
 
-.. image:: /Current_Release_Notes/images/rocsolverAPI.PNG
-   :align: center
-
-  
-
-For more information, refer to
-
-https://rocsolver.readthedocs.io/en/latest/userguide_api.html
-
-
-RCCL Alltoallv Support in PyTorch
-#################################
-
-The AMD ROCm v3.10 release includes a new API for ROCm Communication Collectives Library (RCCL). This API sends data from all to all ranks
-and each rank provides arrays of input/output data counts and offsets.
-
-For details about the functions and parameters, see
-
-https://rccl.readthedocs.io/en/master/allapi.html
-
-
-ROCm AOMP Enhancements
-=======================
-
-AOMP Release 11.11-0
-########################
-
-The source code base for this release is the upstream LLVM 11 monorepo release/11.x sources with the hash value
-
-*176249bd6732a8044d457092ed932768724a6f06*
-
-This release includes fixes to the internal Clang math headers:
-
--  This set of changes applies to clang internal headers to support OpenMP C, C++, and FORTRAN and for HIP C. This establishes
-   consistency between NVPTX and AMDGCN offloading and between OpenMP, HIP, and CUDA. OpenMP uses function variants and header overlays to
-   define device versions of functions. This causes clang LLVM IR codegen to mangled names of variants in both the definition and
-   callsites of functions defined in the internal clang headers. These changes apply to headers found in the installation subdirectory
-   lib/clang/11.0.0/include.
-   
-
--  These changes temporarily eliminate the use of the libm bitcode libraries for C and C++. Although math functions are now defined with
-   internal clang headers, a bitcode library of the C functions defined in the headers is still built for FORTRAN toolchain linking because
-   FORTRAN cannot use c math headers. This bitcode library is installed in lib/libdevice/libm-.bc. The source build of this bitcode library
-   is done with the aomp-extras repository and the component built script build_extras.sh. In the future, we will introduce across the
-   board changes to eliminate massive header files for math libraries and replace them with linking to bitcode libraries.
-   
-
--  Added support for -gpubnames in Flang Driver
-
-
--  Added an example category for Kokkos. The Kokkos example makefile detects if Kokkos is installed and, if not, it builds Kokkos from the
-   Web. Refer to the script kokkos_build.sh in the bin directory on how to build Kokkos. Kokkos now builds cleanly with the OpenMP backend
-   for simple test cases.
-   
-
--  Fixed hostrpc cmake race condition in the build of OpenMP
-
-
--  Add a fatal error if missing -Xopenmp-target or -march options when -fopenmp-targets is specified. However, we do forgive this
-   requirement for offloading to host when there is only a single target and that target is the host.
-   
-
--  Fix a bug in InstructionSimplify pass where a comparison of two constants of different sizes found in the optimization pass. This
-   fixes issue #182 which was causing kokkos build failure.
-   
-
--  Fix openmp error message output for no_rocm_device_lib, was asserting.
-
-
--  Changed linkage on constant per-kernel symbols from external to weaklinkageonly to prevent duplicate symbols when building kokkos.
-
-
-
-Fixed Defects
--------------------
-
-The following defects are fixed in this release:
-
--  HIPfort failed to be installed
-
--  rocm-smi does not work as-is in 3.9, instead prints a reference to
-   documentation
-
--  *showtopo*, weight and hop count shows wrong data
-
--  Unable to install RDC on CentOS/RHEL 7.8/8.2 & SLES
-
--  Unable to install mivisionx with error *Problem: nothing provides
-   opencv needed*
-
+* Extended support for AMD Instinct™ MI100 
 
 
 Known Issues
--------------------
+--------------
 
-Upgrade to AMD ROCm v3.10 Not Supported
-########################################
+Upgrade to AMD ROCm v4.0 Not Supported
+========================================
 
-An upgrade from previous releases to AMD ROCm v3.10 is not supported. A fresh and clean installation of AMD ROCm v3.10 is recommended.
+An upgrade from previous releases to AMD ROCm v4.0 is not supported. A fresh and clean installation of AMD ROCm v4.0 is recommended.
 
 
 Deprecations
--------------------
+--------------
 
 This section describes deprecations and removals in AMD ROCm.
 
-**WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION**
+COMPILER-GENERATED CODE OBJECT VERSION 2
+=========================================
+
+*WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION*
 
 Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
 
 Support for loading code object version 2 is also being deprecated with no announced removal release.
 
 
+ROCr RUNTIME DEPRECATIONS
+============================
+
+The following ROCr Runtime enumerations, functions, and structs are deprecated in the AMD ROCm v4.0 release.
+
+Deprecated ROCr Runtime Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* hsa_isa_get_info
+
+* hsa_isa_compatible
+
+* hsa_executable_create
+
+* hsa_executable_get_symbol
+
+* hsa_executable_iterate_symbols
+
+* hsa_code_object_serialize
+
+* hsa_code_object_deserialize
+
+* hsa_code_object_destroy
+
+* hsa_code_object_get_info
+
+* hsa_executable_load_code_object
+
+* hsa_code_object_get_symbol
+
+* hsa_code_object_get_symbol_from_name
+
+* hsa_code_symbol_get_info
+
+* hsa_code_object_iterate_symbols
+
+
+Deprecated ROCr Runtime Enumerations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* HSA_ISA_INFO_CALL_CONVENTION_COUNT
+
+* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONT_SIZE
+
+* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONTS_PER_COMPUTE_UNIT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME_LENGTH
+
+* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME
+
+* HSA_EXECUTABLE_SYMBOL_INFO_AGENT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALLOCATION
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SEGMENT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALIGNMENT
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SIZE
+
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_IS_CONST
+
+* HSA_EXECUTABLE_SYMBOL_INFO_KERNEL_CALL_CONVENTION
+
+* HSA_EXECUTABLE_SYMBOL_INFO_INDIRECT_FUNCTION_CALL_CONVENTION
+
+   - hsa_code_object_type_t
+ 
+   - hsa_code_object_info_t
+ 
+   - hsa_code_symbol_info_t
+   
+
+Deprecated ROCr Runtime Structs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* hsa_code_object_t
+
+* hsa_callback_data_t
+
+* hsa_code_symbol_
+
+
+AOMP DEPRECATION
+====================
+
+As of AMD ROCm v4.0, AOMP (aomp-amdgpu) is deprecated. OpenMP support has moved to the openmp-extras auxiliary package, which leverages the ROCm compiler on LLVM 12.
+
+For more information, refer to 
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+
+
 Deploying ROCm
 -------------------
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.10.x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v4.x packages.
 
 For more information on ROCM installation on all platforms, see
 
@@ -456,15 +424,10 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 DISCLAIMER 
 ----------------
 The information contained herein is for informational purposes only, and is subject to change without notice. In addition, any stated support is planned and is also subject to change. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD’s products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
-AMD, the AMD Arrow logo, Radeon, Ryzen, Epyc, and combinations thereof are trademarks of Advanced Micro Devices, Inc.  
-Google®  is a registered trademark of Google LLC.
-PCIe® is a registered trademark of PCI-SIG Corporation.
-Linux is the registered trademark of Linus Torvalds in the U.S. and other countries.
-Ubuntu and the Ubuntu logo are registered trademarks of Canonical Ltd.
-Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
+* AMD®, the AMD Arrow logo, AMD Instinct™, Radeon™, ROCm® and combinations thereof are trademarks of Advanced Micro Devices, Inc. 
 
+* Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
 
-
-
+* PCIe® is a registered trademark of PCI-SIG Corporation. Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
