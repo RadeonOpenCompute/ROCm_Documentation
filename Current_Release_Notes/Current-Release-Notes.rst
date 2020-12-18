@@ -221,7 +221,7 @@ What's New in This Release and Other Features
 ==============================================
 
 
-RAS ENHANCEMENTS
+RAS Enhancements
 --------------------
 
 RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
