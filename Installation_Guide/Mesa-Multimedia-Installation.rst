@@ -15,8 +15,6 @@ For ROCm installation instructions, see
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
-Mesa Multimedia Installation
--------------------------------
 
 System Prerequisites
 #######################
