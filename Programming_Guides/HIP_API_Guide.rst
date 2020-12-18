@@ -108,7 +108,6 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0
 
 
 
-=============================
 HIP API Documentation v3.x 
 =============================
 
