@@ -186,8 +186,7 @@ The following instructions must be run with **sudo**:
 
 
 ::        
- 
-    gst-inspect-1.0 omx
+     gst-inspect-1.0 omx
     
 ::        
 
@@ -215,6 +214,7 @@ Plugin Details
     +---------------------------------------+--------------------------------------+
     | Origin URL                            |  Unknown package origin              |
     +---------------------------------------+--------------------------------------+                    
+
 
 
 ::        
@@ -275,7 +275,6 @@ Plugin Details
 
 ::
 
-
       vaapijpegdec: VA-API JPEG decoder
       vaapimpeg2dec: VA-API MPEG2 decoder
       vaapih264dec: VA-API H264 decoder
@@ -292,7 +291,7 @@ Plugin Details
    
     +-- 11 elements
     
- ::    
+ 
 
 
 
