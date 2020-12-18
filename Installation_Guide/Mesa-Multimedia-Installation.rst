@@ -83,7 +83,9 @@ Installation Prerequisites
 3. Obtain the AMDGPU driver from https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-20-45 for the appropriate distro version.
 
 
+
 4. Follow the pre-installation instructions at https://amdgpu-install.readthedocs.io/en/latest/ (from “Preamble” to “Using the amdgpu-install Script” sections).
+
 
 
 5. Proceed with the installation instructions as documented in the next section of this document. 
@@ -95,6 +97,7 @@ Installation Instructions
 
 1. Use the following installation instructions to install Mesa Multimeda:
 
+
 :: 
      sudo apt update
 
@@ -104,6 +107,7 @@ Installation Instructions
 
 
 2. ``gstreamer`` Installation
+
 
 :: 
     
@@ -121,7 +125,7 @@ Installation Instructions
      sudo apt-get -y install mediainfo ffmpeg
 
      sudo reboot
-
+     
      # Check amdgpu loadking status after reboot
 
      dmesg | grep -i initialized
@@ -259,6 +263,8 @@ Plugin Details
    
 
 ::
+
+
       vaapijpegdec: VA-API JPEG decoder
       vaapimpeg2dec: VA-API MPEG2 decoder
       vaapih264dec: VA-API H264 decoder
