@@ -2,6 +2,109 @@
 HIP API Documentation 4.0
 ==========================
 
+HIP API Guide 
+---------------
+
+You can access the Doxygen-generated HIP API Guide v4.0 at the following location:
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP-API_Guide_v4.0.pdf
+
+Supported CUDA APIs
+--------------------
+
+To access the following supported CUDA APIs, see
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html#hip-faq-porting-guide-and-programming-guide
+
+* Runtime API
+
+* Driver API
+
+* cuComplex API
+
+* cuBLAS
+
+* cuRAND
+
+* cuDNN
+
+* cuFFT
+
+* cuSPARSE
+
+
+Deprecated HIP APIs
+-------------------
+
+HIP Context Management APIs
+=============================
+
+CUDA supports cuCtx API, the Driver API that defines "Context" and "Devices" as separate entities. Contexts contain a single device, and a device can theoretically have multiple contexts. HIP initially added limited support for APIs to facilitate easy porting from existing driver codes. The APIs are marked as deprecated now as there is a better alternate interface (such as hipSetDevice or the stream API) to achieve the required functions.
+
+* hipCtxPopCurrent
+
+* hipCtxPushCurrent
+
+* hipCtxSetCurrent
+
+* hipCtxGetCurrent
+
+* hipCtxGetDevice
+
+* hipCtxGetApiVersion
+
+* hipCtxGetCacheConfig
+
+* hipCtxSetCacheConfig
+
+* hipCtxSetSharedMemConfig
+
+* hipCtxGetSharedMemConfig
+
+* hipCtxSynchronize
+
+* hipCtxGetFlags
+
+* hipCtxEnablePeerAccess
+
+* hipCtxDisablePeerAccess
+
+HIP Memory Management APIs
+===========================
+
+hipMallocHost
+**************
+Use "hipHostMalloc"
+
+hipMemAllocHost
+*****************
+Use "hipHostMalloc"
+
+hipHostAlloc
+**************
+Use "hipHostMalloc"
+
+hipFreeHost
+************
+Use "hipHostFree"
+
+Supported HIP Math APIs
+------------------------
+
+You can access the supported HIP Math APIs at:
+
+https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP-MATH.html#hip-math
+
+
+Related Topics
+---------------
+
+HIP Programming Guide v4.0
+============================
+
+For the latest HIP Programming Guide v4.0, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0.pdf
 
 
 
