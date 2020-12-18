@@ -97,9 +97,10 @@ Installation Instructions
 
 
 :: 
-     sudo apt update
+     
+       sudo apt update
 
-     sudo amdgpu-install -y --no-dkms
+       sudo amdgpu-install -y --no-dkms
         
 
 
@@ -187,6 +188,8 @@ The following instructions must be run with **sudo**:
 ::        
  
     gst-inspect-1.0 omx
+    
+::        
 
 
 Plugin Details
@@ -212,7 +215,10 @@ Plugin Details
     +---------------------------------------+--------------------------------------+
     | Origin URL                            |  Unknown package origin              |
     +---------------------------------------+--------------------------------------+                    
-                
+
+
+::        
+
  
      omxmpeg2dec: OpenMAX MPEG2 Video Decoder
      
@@ -231,7 +237,10 @@ Plugin Details
 ::    
    
     gst-inspect-1.0 vaapi  
+    
+::
    
+ 
  
  Plugin Details
   
@@ -279,7 +288,7 @@ Plugin Details
    
     +-- 11 elements
     
-     
+ ::    
 
 
 
