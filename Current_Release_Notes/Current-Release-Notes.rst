@@ -236,7 +236,7 @@ https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html#amdgpu-ras-support
 
 
 
-USING CMake with AMD ROCM
+Using CMake with AMD ROCM
 -----------------------------
 
 Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not require any special Find modules. A Find module is often used downstream to find the files by guessing locations of files with platform-specific hints. Typically, the Find module is required when the upstream is not built with CMake or the package configuration files are not available.
@@ -248,7 +248,7 @@ For more information, see
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Using-CMake-with-AMD-ROCm.html
 
 
-AMD ROCM and Mesa Multimedia 
+AMD ROCm and Mesa Multimedia 
 -----------------------------------
 
 AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software implementation of OpenGL, Vulkan, and other graphics API specifications. Mesa translates these specifications to vendor-specific graphics hardware drivers.
@@ -258,7 +258,7 @@ For detailed installation instructions, refer to
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Mesa-Multimedia-Installation.html
 
 
-ROCM – System Management Interface
+ROCm – System Management Interface
 -----------------------------------
 
 The following enhancements are made to ROCm System Management Interface (SMI).
