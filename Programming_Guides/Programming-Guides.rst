@@ -222,7 +222,7 @@ Notes
 4. **From ROCm version 2.0 onwards C++AMP is no longer available in HCC.**
 
 HIP Repository Information
-============================
+###########################
 
 
 **HIP is a C++ Runtime API and Kernel Language that allows developers to create portable applications for AMD and NVIDIA GPUs from single source
@@ -252,7 +252,7 @@ CUDA, and developers should expect to do some manual coding and
 performance tuning work to complete the port.
 
 Repository Branches
-======================
+#######################
 
 The HIP repository maintains several branches. The branches that are of
 importance are:
@@ -264,7 +264,7 @@ importance are:
 
 
 Release Tagging
-================
+#######################
 
 HIP releases are typically of two types. The tag naming convention is different for both types of releases to help differentiate them.
 
@@ -278,7 +278,7 @@ HIP releases are typically of two types. The tag naming convention is different 
   * :ref:`HIP-GUIDE`
 
 HIP FAQ and HIP Porting Guide
-===============================
+################################
 
  * :ref:`HIP-FAQ`
  * :ref:`HIP-porting-guide`
