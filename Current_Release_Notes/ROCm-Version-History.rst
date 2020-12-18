@@ -5,7 +5,34 @@
 AMD ROCm Version History
 ==========================
 
-This file contains archived version history information for the ROCm project.
+This file contains historical information for ROCm releases.
+
+
+New features and enhancements in ROCm v3.10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-3.10.x
+
+
+- Prometheus Plugin for ROCm Data Center Tool
+
+- Python Binding
+
+- System DMA (SDMA) Utilization
+
+- ROCm-SMI Command Line Interface
+
+- Enhanced ROCm SMI Library for Events
+
+- ROCm SMI – Command Line Interface Hardware Topology
+
+- New rocSOLVER APIs
+
+- RCCL Alltoallv Support in PyTorch
+
+- AOMP Release 11.11-0
+
+
 
 New features and enhancements in ROCm v3.9
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
