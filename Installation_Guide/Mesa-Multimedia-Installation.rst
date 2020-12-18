@@ -26,67 +26,19 @@ The following operating systems are supported for Mesa Multimedia:
 - Ubuntu 20.04, including dual kernel 
 
 
-  
- 
 Installation Prerequisites
-############################
-  
-
-1. Select the desired repository package to download the amdgpu graphics stack packages based on your required Ubuntu version and branch of code. 
-
-    +---------------------------------------+--------------------------------------+
-    | Ubuntu 18.04                          | Ubuntu 20.04                         |                                                    
-    +=======================================+======================================+
-    | amd-nonfree-mainline_18.04-1_all.deb  | amd-nonfree-mainline_20.04-1_all.deb |
-    +---------------------------------------+--------------------------------------+
-    | amd-nonfree-VERSION_18.04-1_all.deb   | amd-nonfree-VERSION_20.04-1_all.deb  |
-    +---------------------------------------+--------------------------------------+
-    | amd-nonfree-staging_18.04-1_all.deb   | amd-nonfree-staging_20.04-1_all.deb  |
-    +---------------------------------------+--------------------------------------+
-
-
-
-.. note::
-
-  For installing release drivers, VERSION must be replaced with a driver version. For example,  19.40, 19.50, 20.10, and others.
-  
-  
-2. If installed, ensure the *amd-nonfree-mainline* package is uninstalled. Use the following instruction to uninstall:
-
- ::      
-      
-      sudo dpkg --purge amd-nonfree-mainline
-      
+############################ 
+     
     
-.. note::
- 
-    If the *amd-nonfree-mainline* package is installed and available on the system, the following error displays:
-    
- ::     
-  
-      taccuser@mlseqa-hyd-virt-srv-07:~/4.0-mesa$ amdgpu-install --no-dkms
-      Reading package lists... Done
-      Building dependency tree
-      Reading state information... Done
-      E: Unable to locate package amdgpu-pin
-      Reading package lists... Done
-      Building dependency tree
-      Reading state information... Done
-      E: Unable to locate package amdgpu-pro-pin
-      ERROR: Unable to install pin package.
-
-      
-      
-    
-3. Obtain the AMDGPU driver from https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-20-45 for the appropriate distro version.
+1. Obtain the AMDGPU driver from https://www.amd.com/en/support/kb/release-notes/rn-amdgpu-unified-linux-20-45 for the appropriate distro version.
 
 
 
-4. Follow the pre-installation instructions at https://amdgpu-install.readthedocs.io/en/latest/ (from “Preamble” to “Using the amdgpu-install Script” sections).
+2. Follow the pre-installation instructions at https://amdgpu-install.readthedocs.io/en/latest/ (from “Preamble” to “Using the amdgpu-install Script” sections).
 
 
 
-5. Proceed with the installation instructions as documented in the next section. 
+3. Proceed with the installation instructions as documented in the next section. 
 
 
     
@@ -98,10 +50,17 @@ Installation Instructions
 
 :: 
      
-       sudo apt update
+      | ./amdgpu-install -y --no-dkms
+      
+      
+..note:: 
 
-       sudo amdgpu-install -y --no-dkms
-        
+  Run it from the directory where the download is unpacked. The download and install instructions are:
+
+  | $ cd ~/Downloads 
+  | $ tar -Jxvf amdgpu-pro-YY.XX-NNNNNN.tar.xz
+  | $ cd ~/Downloads/amdgpu-pro-YY.XX-NNNNNN
+  | $ ./amdgpu-install -y --no-dkms     
 
 
 
@@ -157,8 +116,6 @@ Check Installation
 --------------------
 
 1. Ensure you perform an installation check. 
-
-The following instructions must be run with **sudo**:
 
    
 ::  
