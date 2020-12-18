@@ -53,7 +53,7 @@ Installation Instructions
       | ./amdgpu-install -y --no-dkms
       
       
-..note:: 
+.. note:: 
 
   Run it from the directory where the download is unpacked. The download and install instructions are:
 
