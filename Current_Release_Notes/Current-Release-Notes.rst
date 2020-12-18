@@ -274,7 +274,7 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
  */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
 
 .. image:: images/SMI.PNG
-   :align: center
+   :align: left
    
 
 New API for xGMI 
