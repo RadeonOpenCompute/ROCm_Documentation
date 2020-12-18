@@ -113,19 +113,19 @@ HIP API Documentation v3.x
 
 
 HIP Language Runtime API
-========================
+##############################
 
 * :ref:`HIP-API`
 
 
 HIP Math API
-====================
+#############
 
 * :ref:`HIP-MATH`
 
 
 Supported CUDA APIs
-====================
+#######################
 
  * :ref:`CUDAAPIHIP`
  * :ref:`CUDAAPIHIPTEXTURE`
@@ -142,14 +142,14 @@ Supported CUDA APIs
     
     
 Deprecated HIP APIs
-=====================
+##############################
 
 HIP Memory Management API 
-############################
+*************************
 
 
-hipMallocHost
-------------------------
+*hipMallocHost*
+
 .. doxygenfunction:: hipMallocHost
 
 **Recommendation**: Use "hipHostMalloc" 
@@ -157,8 +157,8 @@ hipMallocHost
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
-hipHostAlloc 
-------------------------
+*hipHostAlloc* 
+
 .. doxygenfunction:: hipHostAlloc 
 
 Recommendation: Use "hipHostMalloc" 
@@ -166,8 +166,8 @@ Recommendation: Use "hipHostMalloc"
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
 
 
-hipFreeHost
-------------------------
+*hipFreeHost*
+
 .. doxygenfunction:: hipFreeHost
 
 
@@ -178,7 +178,7 @@ hipFreeHost
 https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
 
 
-**hipMemAllocHost** 
+*hipMemAllocHost* 
 
 Recommendation: Use "hipHostMalloc" 
 
@@ -189,59 +189,59 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management
 .. _Context-Management:
 
 HIP Context Management APIs 
-############################
+***************************
 
 
-hipCtxPopCurrent
-----------------
+*hipCtxPopCurrent*
+
 .. doxygenfunction:: hipCtxPopCurrent
 
-hipCtxPushCurrent 
-------------------
+*hipCtxPushCurrent* 
+
 .. doxygenfunction:: hipCtxPushCurrent  
 
-hipCtxSetCurrent 
-----------------
+*hipCtxSetCurrent* 
+
 .. doxygenfunction:: hipCtxSetCurrent 
 
-hipCtxGetCurrent 
-----------------
+*hipCtxGetCurrent* 
+
 .. doxygenfunction:: hipCtxGetCurrent 
 
-hipCtxGetDevice 
-----------------
+*hipCtxGetDevice* 
+
 .. doxygenfunction:: hipCtxGetDevice 
 
-hipCtxGetApiVersion 
---------------------
+*hipCtxGetApiVersion* 
+
 .. doxygenfunction:: hipCtxGetApiVersion  
 
-hipCtxGetCacheConfig 
-----------------------
+*hipCtxGetCacheConfig* 
+
 .. doxygenfunction:: hipCtxGetCacheConfig 
 
-hipCtxSetSharedMemConfig
---------------------------
+*hipCtxSetSharedMemConfig*
+
 .. doxygenfunction:: hipCtxSetSharedMemConfig
 
-hipCtxGetSharedMemConfig
---------------------------
+*hipCtxGetSharedMemConfig*
+
 .. doxygenfunction:: hipCtxGetSharedMemConfig
 
-hipCtxSynchronize 
-------------------
+*hipCtxSynchronize* 
+
 .. doxygenfunction:: hipCtxSynchronize 
 
-hipCtxGetFlags 
-----------------
+*hipCtxGetFlags* 
+
 .. doxygenfunction:: hipCtxGetFlags 
 
-hipCtxEnablePeerAccess 
-------------------------
+*hipCtxEnablePeerAccess* 
+
 .. doxygenfunction:: hipCtxEnablePeerAccess 
 
-hipCtxDisablePeerAccess  
-------------------------
+*hipCtxDisablePeerAccess*  
+
 .. doxygenfunction:: hipCtxDisablePeerAccess 
 
 
