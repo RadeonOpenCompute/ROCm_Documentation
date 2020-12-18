@@ -231,15 +231,16 @@ Plugin Details
  
      +-- 3 elements 
      
- :: 
+
+     
      
    
 ::    
    
     gst-inspect-1.0 vaapi  
     
-::
-   
+
+ 
  
  
  Plugin Details
@@ -267,6 +268,7 @@ Plugin Details
     |                                       |  /enter_bug.cgi?product=GStreamer    |
     +---------------------------------------+--------------------------------------+                    
                    
+   
    
 
 ::
