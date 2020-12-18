@@ -175,7 +175,7 @@ Important features of the AMD Instinct™ MI100 accelerator include:
 * 3 Infinity fabric connections per GPU enable a fully connected group of 4 GPUs in a ‘hive’ 
 
 
-.. image:: /Current_Release_Notes/images/keyfeatures.PNG
+.. image:: images/keyfeatures.PNG
    :align: center
 
 
@@ -272,7 +272,7 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
 
  */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
 
-.. image:: /Current_Release_Notes/images/SMI.PNG
+.. image:: images/SMI.PNG
    :align: center
    
 
