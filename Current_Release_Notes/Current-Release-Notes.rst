@@ -216,9 +216,10 @@ https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
 https://developer.amd.com/wp-content/resources/CDNA1_Shader_ISA_14December2020.pdf
 
 
+==============================================
+What's New in This Release and Other Features
+==============================================
 
-What's New in This Release
------------------------------
 
 RAS ENHANCEMENTS
 ===================
