@@ -86,7 +86,7 @@ Installation Prerequisites
 
 
 
-5. Proceed with the installation instructions as documented in the next section of this document. 
+5. Proceed with the installation instructions as documented in the next section. 
 
 
     
@@ -264,7 +264,8 @@ Plugin Details
     | Binary package                        | gstreamer-vaapi                      |
     |                                       |                                      |
     +---------------------------------------+--------------------------------------+
-    | Origin URL                            | http://bugzilla.gnome.org            |
+    | Origin URL                            |                                      |
+    |                                       | http://bugzilla.gnome.org            |
     |                                       |/enter_bug.cgi?product=GStreamer      |
     +---------------------------------------+--------------------------------------+                    
                    
