@@ -270,7 +270,7 @@ Plugin Details
 
    
 
-
+::
 
       vaapijpegdec: VA-API JPEG decoder
       vaapimpeg2dec: VA-API MPEG2 decoder
