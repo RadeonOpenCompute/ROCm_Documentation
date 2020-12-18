@@ -264,8 +264,8 @@ ROCM – System Management Interface
 The following enhancements are made to ROCm System Management Interface (SMI).
 
 
-Support for Printing PCle Information on AMD Instinct™100
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Support for Printing PCle Information on AMD Instinct 100
+###########################################################
 
 AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
 
@@ -278,9 +278,9 @@ To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
    
 
 New API for xGMI 
-~~~~~~~~~~~~~~~~~~
+##################
 
-Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
+rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
 
