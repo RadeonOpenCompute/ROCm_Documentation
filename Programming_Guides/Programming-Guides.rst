@@ -5,7 +5,7 @@
 
 
 ==========================
-HIP Progamming Guide 4.0 
+HIP Progamming Guide v4.0 
 ==========================
 
 Heterogeneous-Computing Interface for Portability (HIP) is a C++ dialect designed to ease conversion of CUDA applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the host/kernel boundary.
@@ -16,8 +16,8 @@ Programmers familiar with other GPGPU languages will find HIP easy to learn and 
 
 Use HIP when converting CUDA applications to portable C++ and for new projects that require portability between AMD and NVIDIA. HIP provides a C++ development language and access to the best development tools on both platforms.
 
-HIP Programming Guide v4.0
------------------------------
+Programming Guide v4.0 (PDF)
+----------------------------
 
 You can access and download the latest version of the HIP Programming Guide v4.0.  
 
