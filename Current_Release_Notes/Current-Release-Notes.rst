@@ -118,7 +118,7 @@ HIP Documentation Updates
 ===========================
 * HIP Programming Guide v4.0 
 
-Add link
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0.pdf
 
 * HIP API Guide v4.0
 
