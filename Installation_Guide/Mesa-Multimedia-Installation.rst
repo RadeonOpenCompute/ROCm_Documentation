@@ -186,6 +186,7 @@ The following instructions must be run with **sudo**:
 
 
 ::        
+     
      gst-inspect-1.0 omx
         
 
@@ -235,8 +236,7 @@ Plugin Details
 ::    
      
 ::     
-   
-   gst-inspect-1.0 vaapi  
+     gst-inspect-1.0 vaapi  
   
   
  
