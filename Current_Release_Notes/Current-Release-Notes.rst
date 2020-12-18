@@ -253,7 +253,7 @@ AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software imp
 
 For detailed installation instructions, refer to
 
-UPDATE LINK
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Mesa-Multimedia-Installation.html
 
 
 ROCM – SYSTEM MANAGEMENT INTERFACE
