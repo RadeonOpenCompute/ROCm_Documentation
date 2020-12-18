@@ -91,7 +91,7 @@ Installation Prerequisites
 
     
 Installation Instructions
-###########################
+----------------------------
 
 1. Use the following installation instructions to install Mesa Multimeda:
 
