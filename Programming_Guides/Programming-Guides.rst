@@ -67,8 +67,6 @@ HIP Best Practices
 
 
 
-
-=========================
 HIP Documentation v3.x
 =========================
 
