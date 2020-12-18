@@ -222,7 +222,7 @@ What's New in This Release and Other Features
 
 
 RAS ENHANCEMENTS
-===================
+#################
 
 RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
 
@@ -237,7 +237,7 @@ https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html#amdgpu-ras-support
 
 
 USING CMake with AMD ROCM
-===========================
+#############################
 
 Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not require any special Find modules. A Find module is often used downstream to find the files by guessing locations of files with platform-specific hints. Typically, the Find module is required when the upstream is not built with CMake or the package configuration files are not available.
 
@@ -249,7 +249,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Using-CMake-with-AMD-ROCm.
 
 
 AMD ROCM and Mesa Multimedia 
-===============================
+#################################
 
 AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software implementation of OpenGL, Vulkan, and other graphics API specifications. Mesa translates these specifications to vendor-specific graphics hardware drivers.
 
@@ -259,7 +259,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Mesa-Multimedia-Installati
 
 
 ROCM – System Management Interface
-====================================
+#######################################
 
 The following enhancements are made to ROCm System Management Interface (SMI).
 
@@ -286,13 +286,14 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pd
 
 
 AMD GPU Debugger Enhancements
-=================================
+#################################
 
 In this release, AMD GPU Debugger has the following enhancements:
 
 * ROCm v4.0 ROCgdb is based on gdb 10.1
 
 * Extended support for AMD Instinct™ MI100 
+
 
 
 Known Issues
@@ -302,6 +303,7 @@ Upgrade to AMD ROCm v4.0 Not Supported
 ========================================
 
 An upgrade from previous releases to AMD ROCm v4.0 is not supported. A fresh and clean installation of AMD ROCm v4.0 is recommended.
+
 
 
 Deprecations
