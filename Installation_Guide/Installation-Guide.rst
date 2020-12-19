@@ -87,18 +87,18 @@ A fresh and clean installation of AMD ROCm v4.0 is recommended. An upgrade from 
 
 **MULTI-VERSION INSTALLATION UPDATES**
 
-With the AMD ROCm v3.10 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.0 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
 
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 3.10.0
+* ‘version’ files should be created for each multi-version rocm <= 4.0.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 3.10.0 | sudo tee /opt/rocm-3.10.0/.info/version
+	* example: echo 4.0.0 | sudo tee /opt/rocm-4.0.0/.info/version
 
 * The rock-dkms loadable kernel modules should be installed using a single rock-dkms package. 
 
