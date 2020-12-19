@@ -34,7 +34,7 @@ ROCm Installation
 Deploying ROCm
 ~~~~~~~~~~~~~~~~
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v4.x packages.
 
 The following directions show how to install ROCm on supported Debian-based systems such as Ubuntu 18.04.x
 
