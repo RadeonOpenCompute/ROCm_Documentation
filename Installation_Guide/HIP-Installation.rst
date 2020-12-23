@@ -40,7 +40,6 @@ HIP-Clang can be built manually:
 	cd llvm-project
 	mkdir -p build && cd build
 	cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" ../llvm”
-
 	make -j
 	sudo make install
 
