@@ -121,7 +121,8 @@ Build HIP
 	export HIP_DIR="$(readlink -f HIP)"
 	cd "$HIP_DIR"
 	mkdir -p build; cd build
-	cmake -DCMAKE_BUILD_TYPE=Release -DHIP_COMPILER=clang -DHIP_PLATFORM=rocclr -DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" -	DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
+	cmake -DCMAKE_BUILD_TYPE=Release -DHIP_COMPILER=clang -DHIP_PLATFORM=rocclr -DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" 
+	-DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
 	make -j
 	sudo make install
 
