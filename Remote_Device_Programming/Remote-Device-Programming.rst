@@ -188,8 +188,9 @@ Unified Communication X (UCX) is a communication library for building Message Pa
 
 See `How to install UCX and OpenMPI <https://github.com/openucx/ucx/wiki/Build-and-run-ROCM-UCX-OpenMPI>`_
 
-MPI
-=====
+OpenMPI
+=========
+
 **OpenMPI and OpenSHMEM installation**
 
 1. Get latest-and-gratest OpenMPI version:
