@@ -48,6 +48,10 @@ For more information about the AMD ROCm ecosystem, see:
 
 -  https://rocmdocs.amd.com/
 
+For the AMD Debugger API Guide, see
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
+
 Build the AMD Debugger API Library
 ----------------------------------
 
