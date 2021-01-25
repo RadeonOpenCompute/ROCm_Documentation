@@ -48,7 +48,7 @@ Tensorflow Installation
 ::
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
-   pip3 install --user tensorflow-rocm
+   pip3 install --user tensorflow-rocm #works only with python3.8 or prior
 
 Tensorflow v2.2.0 is installed.
 
@@ -400,15 +400,14 @@ Note: This will mount your host home directory on /data in the container.
   git clone https://github.com/pytorch/pytorch.git or git clone https://github.com/ROCmSoftwarePlatform/pytorch.git
   cd pytorch
   git submodule init
-  git submodule update
+  git submodule update --init --recursive'
 
 5. Run "hipify" to prepare source code (in the container):
 
 ::
 
   cd /data/pytorch/
-  python tools/amd_build/build_pytorch_amd.py
-  python tools/amd_build/build_caffe2_amd.py
+  python tools/amd_build/build_amd.py
 
 6. Build and install pytorch:
 
