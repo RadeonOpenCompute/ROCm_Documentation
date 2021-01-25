@@ -78,9 +78,6 @@ hipMemcpyFromSymbol
 ------------------------
 .. doxygenfunction:: hipMemcpyFromSymbol 
 
-hipMemcpyFromSymbolAsync 
-------------------------
-.. doxygenfunction:: hipMemcpyFromSymbolAsync 
 
 hipMemcpyAsync
 ------------------------
