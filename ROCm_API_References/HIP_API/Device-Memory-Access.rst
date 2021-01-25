@@ -23,8 +23,6 @@ hipMemcpyPeer
 ------------------------
 .. doxygenfunction:: hipMemcpyPeer
 
-hipMemcpyPeerAsync 
-------------------------
-.. doxygenfunction:: hipMemcpyPeerAsync 
+
 
 
