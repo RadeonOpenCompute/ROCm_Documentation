@@ -102,7 +102,6 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: Library Documentation 
    
    ROCm_Libraries/ROCm_Libraries
-   ROCm_API_References/ROCm-API-References
    Deep_learning/Deep-learning
    
    
