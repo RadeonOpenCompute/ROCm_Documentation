@@ -908,8 +908,7 @@ Where applicable, the node grouping of physical memory follows NUMA principles t
 | sysfs-class-kfd-topology-nodes-N-caches
 
 
- [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]]
-                [--setslevel
+ [--setsclk LEVEL [LEVEL ...]] [--setmclk LEVEL [LEVEL ...]] [--setpcie LEVEL [LEVEL ...]]                 [--setslevel
 		
 
 SMI Event Interface and Library
@@ -929,9 +928,27 @@ ROCR_VISIBLE_DEVICES
 
 It is possible to rearrange or isolate the collection of ROCm GPU/GCD devices that are available on a ROCm platform. This can be achieved at the start of an application by way of ROCR_VISIBLE_DEVICES environment variable.
 
-Devices to be made visible to an application should be specified as a comma-separated list of enumerable devices. For example, to use devices 0 and 2 from a ROCm platform with four devices, set ROCR_VISIBLE_DEVICES=0,2 before launching the application. The application will then enumerate these devices as device 0 and device 1, respectively.
+To make devices visible to an application, they must be specified as a comma-separated list of enumerable devices, where devices are identified by their enumeration index or UUID.
 
-This can used by cooperating applications to effectively allocate GPU/GCDs among themselves.
+For example, consider a ROCm platform with the following devices:
+
+          Enumeration Index     UUID
+Device 1      0                 GPU-365628c172834d70
+Device 2      1                 GPU-368988c172123d70
+Device 3      2                 GPU-367458c172345d70
+Device 4      4                 GPU-363688c172386d70
+
+To use devices 0 and 2 from above ROCm platform and to enumerate them in that order,
+one can employ ROCR_VISIBLE_DEVICES in the following ways:
+
+    ROCR_VISIBLE_DEVICES=0,2
+    ROCR_VISIBLE_DEVICES=0,GPU-367458c172345d70
+    ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,2
+    ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,GPU-363688c172386d70
+
+This can used by cooperative applications to effectively allocate GPU/GCDs among themselves.
+
+
 
 Device cgroup
 ----------------
