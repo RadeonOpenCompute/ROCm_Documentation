@@ -796,39 +796,23 @@ power_samples           | Note that on some devices it won't be possible to set 
 curr_samples            | them to different values so changing one might also change 
 curr_samples            | some others.
                         | RW
+======================= ==================================================================
 
 
 sysfs attribute writes interpretation
 -------------------------------------
 
-hwmon sysfs attributes always contain numbers, so the first thing to do is to
-convert the input to a number, there are 2 ways todo this depending whether
-the number can be negative or not:
-unsigned long u = simple_strtoul(buf, NULL, 10);
-long s = simple_strtol(buf, NULL, 10);
+hwmon sysfs attributes always contain numbers, so the first thing to do is to convert the input to a number, there are 2 ways todo this depending whether the number can be negative or not:
+unsigned long u = simple_strtoul(buf, NULL, 10); long s = simple_strtol(buf, NULL, 10);
 
-With buf being the buffer with the user input being passed by the kernel.
-Notice that we do not use the second argument of strto[u]l, and thus cannot
-tell when 0 is returned, if this was really 0 or is caused by invalid input.
-This is done deliberately as checking this everywhere would add a lot of
-code to the kernel.
+With *buf* being the buffer with the user input being passed by the kernel. Notice that we do not use the second argument of strto[u]l, and thus cannot tell when 0 is returned, if this was really 0 or is caused by invalid input. This is done deliberately as checking this everywhere would add a lot of code to the kernel.
 
-Notice that it is important to always store the converted value in an
-unsigned long or long, so that no wrap around can happen before any further
-checking.
+Notice that it is important to always store the converted value in an unsigned long or long, so that no wrap around can happen before any further checking.
 
-After the input string is converted to an (unsigned) long, the value should be
-checked if its acceptable. Be careful with further conversions on the value
-before checking it for validity, as these conversions could still cause a wrap
-around before the check. For example do not multiply the result, and only
+After the input string is converted to an (unsigned) long, the value should be checked if its acceptable. Be careful with further conversions on the value before checking it for validity, as these conversions could still cause a wrap around before the check. For example do not multiply the result, and only
 add/subtract if it has been divided before the add/subtract.
 
-What to do if a value is found to be invalid, depends on the type of the
-sysfs attribute that is being set. If it is a continuous setting like a
-tempX_max or inX_max attribute, then the value should be clamped to its
-limits using clamp_val(value, min_limit, max_limit). If it is not continuous
-like for example a tempX_type, then when an invalid value is written,
--EINVAL should be returned.
+What to do if a value is found to be invalid, depends on the type of the sysfs attribute that is being set. If it is a continuous setting like a tempX_max or inX_max attribute, then the value should be clamped to its limits using clamp_val(value, min_limit, max_limit). If it is not continuous like for example a tempX_type, then when an invalid value is written, -EINVAL should be returned.
 
 Example1, temp1_max, register is a signed 8 bit value (-128 - 127 degrees):
 
@@ -853,15 +837,14 @@ Example2, fan divider setting, valid values 2, 4 and 8:
 	}
 	/* write v to register */
 
-*************
+
 Performance 
-*************
+--------------
 
 The pcie_bw sysfs file will report the usage of the PCIe bus over the last second, as a string with 3 integers: "bytes-received bytes-sent mps" . As there is no efficient way to calculate the size of each packet transmitted to and from the GPU in real time, the maximum payload size (mps), or the largest size of a PCIe packet, is included. The estimated bandwidth can then be calculated using by "bytes-received*mps + bytes-sent*mps" sed and multiplied by the number of packets received and sent.  
 
 KFD Topology
-==============
-
+---------------
 
 Application software needs to understand the properties of the underlying hardware to leverage the performance capabilities of the platform for feature utilization and task scheduling. The sysfs topology exposes this information in a loosely hierarchal order. The information is populated by the KFD driver is gathered from ACPI (CRAT) and AMDGPU base driver.
 
@@ -877,29 +860,29 @@ Based on the platform inside this directory there will be sub-directories corres
 | /sys/devices/virtual/kfd/kfd/topology/nodes/N-1/
 
 HSA Agent Information
-**********************
+-----------------------
 The HSA Agent directory and the sub-directories inside that contains all the information about that agent. The following are the main information available.
 
 Node Information
-******************
+------------------
 This is available in the root directory of the HSA agent. This provides information about the compute capabilities of the agent which includes number of cores or compute units, SIMD count and clock speed.
 
 Memory
-********
+--------
 The memory bank information attached to this agent is populated in “mem_banks” subdirectory.
 /sys/devices/virtual/kfd/kfd/topology/nodes/N/mem_banks
 
 Cache
-********
+------
 The caches available for this agent is populated in “cache” subdirectory
 /sys/devices/virtual/kfd/kfd/topology/nodes/N/cache
 
 IO-LINKS
-**********
+---------
 The IO links provides HSA agent interconnect information with latency (cost) between agents. This is useful for peer-to-peer transfers.
 
 How to use topology information
-*********************************
+------------------------------------
 The information provided in sysfs should not be directly used by application software. Application software should always use Thunk library API (libhsakmt) to access topology information. Please refer to Thunk API for more information.
 
 The data are associated with a node ID, forming a per-node element list which references the elements contained at relative offsets within that list. A node associates with a kernel agent or agent. Node ID’s should be 0-based, with the “0” ID representing the primary elements of the system (e.g., “boot cores”, memory) if applicable. The enumeration order and—if applicable—values of the ID should match other information reported through mechanisms outside of the scope of the requirements;
@@ -929,7 +912,8 @@ Where applicable, the node grouping of physical memory follows NUMA principles t
 		
 
 SMI Event Interface and Library
-================================
+------------------------------------
+
 An SMI event interface is added to the kernel and ROCm SMI  lib for system administrators to get notified when specific events occur. On the kernel side, AMDKFD_IOC_SMI_EVENTS input/output control is added to allow notifications propagation to user mode through the event channel. 
 
 On the ROCm SMI lib side, APIs are added to set an event mask and receive event notifications with a timeout option. Further, ROCm SMI API details can be found in the PDF generated by Doxygen from source or by referring to the rocm_smi.h header file (see the rsmi_event_notification_* functions).
@@ -940,7 +924,7 @@ ROCm GPU/GCD Isolation
 ======================
 
 ROCR_VISIBLE_DEVICES
-********************
+-----------------------
 
 It is possible to rearrange or isolate the collection of ROCm GPU/GCD devices that are available on a ROCm platform. This can be achieved at the start of an application by way of ROCR_VISIBLE_DEVICES environment variable.
 
@@ -949,7 +933,7 @@ Devices to be made visible to an application should be specified as a comma-sepa
 This can used by cooperating applications to effectively allocate GPU/GCDs among themselves.
 
 Device cgroup
-***************
+----------------
 
 At a system administration level, the GPU/GCD isolation is possible using the device control group (cgroup). For all the AMD GPUs in a compute node, the ROCk-Kernel-Driver exposes a single compute device file /dev/kfd and a separate (Direct Rendering Infrastructure) render device files /dev/dri/renderDN for each device. To participate in the Linux kernel’s cgroup infrastructure, the ROCk driver relies on the render device files.
 
