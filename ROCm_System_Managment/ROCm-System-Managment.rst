@@ -932,18 +932,23 @@ To make devices visible to an application, they must be specified as a comma-sep
 
 For example, consider a ROCm platform with the following devices:
 
-          Enumeration Index     UUID
+======== ==================== ==========================
+Device     Enumeration Index         UUID
+======== ==================== ==========================
 Device 1      0                 GPU-365628c172834d70
 Device 2      1                 GPU-368988c172123d70
 Device 3      2                 GPU-367458c172345d70
 Device 4      4                 GPU-363688c172386d70
+======== ==================== ==========================
 
-To use devices 0 and 2 from above ROCm platform and to enumerate them in that order,
-one can employ ROCR_VISIBLE_DEVICES in the following ways:
+To use devices 0 and 2 from above ROCm platform and to enumerate them in that order, one can employ ROCR_VISIBLE_DEVICES in the following ways:
 
     ROCR_VISIBLE_DEVICES=0,2
+    
     ROCR_VISIBLE_DEVICES=0,GPU-367458c172345d70
+    
     ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,2
+    
     ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,GPU-363688c172386d70
 
 This can used by cooperative applications to effectively allocate GPU/GCDs among themselves.
