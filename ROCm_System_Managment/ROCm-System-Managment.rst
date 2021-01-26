@@ -941,17 +941,17 @@ Device 3      2                 GPU-367458c172345d70
 Device 4      4                 GPU-363688c172386d70
 ======== ==================== ==========================
 
-To use devices 0 and 2 from above ROCm platform and to enumerate them in that order, one can employ ROCR_VISIBLE_DEVICES in the following ways:
+To use devices 0 and 2 from the above-mentioned ROCm platform and to enumerate them in that order, one can employ ROCR_VISIBLE_DEVICES in the following ways:
 
-    ROCR_VISIBLE_DEVICES=0,2
+    * ROCR_VISIBLE_DEVICES=0,2
     
-    ROCR_VISIBLE_DEVICES=0,GPU-367458c172345d70
+    * ROCR_VISIBLE_DEVICES=0,GPU-367458c172345d70
     
-    ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,2
+    * ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,2
     
-    ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,GPU-363688c172386d70
+    * ROCR_VISIBLE_DEVICES=GPU-365628c172834d70,GPU-363688c172386d70
 
-This can used by cooperative applications to effectively allocate GPU/GCDs among themselves.
+Cooperative applications can use this to effectively allocate GPU/GCDs among themselves.
 
 
 
