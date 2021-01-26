@@ -1,2 +1,2 @@
-breathe
+breathe==4.26.0
 sphinxcontrib-bibtex
