@@ -33,10 +33,10 @@ The ROCm SMI library is currently under development, and therefore subject to ch
 Once new development has leveled off, the major version will become greater than 0, and backward compatibility will be enforced between major versions.
 
 Building ROCm SMI
-##################
+------------------
 
 Additional Required software for building
-------------------------------------------
+##########################################
 
 In order to build the ROCm SMI library, the following components are required. Note that the software versions listed are what was used in development. Earlier versions are not guaranteed to work:
 
@@ -97,15 +97,16 @@ In order to verify the build and capability of ROCm SMI on your system and to se
 To run the test, execute the program rsmitst that is built from the steps above. 
 
 Usage Basics
-##############
+--------------
 
 Device Indices
----------------
+##################
 
 Many of the functions in the library take a "device index". The device index is a number greater than or equal to 0, and less than the number of devices detected, as determined by rsmi_num_monitor_devices(). The index is used to distinguish the detected devices from one another. It is important to note that a device may end up with a different index after a reboot, so an index should not be relied upon to be constant over reboots.
 
 Hello ROCm SMI
----------------
+###############
+
 The only required ROCm-SMI call for any program that wants to use ROCm-SMI is the rsmi_init() call. This call initializes some internal data structures that will be used by subsequent ROCm-SMI calls.
 
 When ROCm-SMI is no longer being used, rsmi_shut_down() should be called. This provides a way to do any releasing of resources that ROCm-SMI may have held. In many cases, this may have no effect, but may be necessary in future versions of the library.
@@ -139,10 +140,10 @@ A simple "Hello World" type program that displays the device ID of detected devi
 
 
 SYSFS Interface
-#####################
+----------------
 
 Naming and data format standards for sysfs files
-------------------------------------------------------------
+##################################################
 
 The libsensors library offers an interface to the raw sensors data through the sysfs interface. Since lm-sensors 3.0.0, libsensors is completely chip-independent. It assumes that all the kernel drivers implement the standard sysfs interface described in this document. This makes adding or updating support for any given chip very easy, as libsensors, and applications using it, do not need to be modified. This is a major improvement compared to lm-sensors 2.
 
