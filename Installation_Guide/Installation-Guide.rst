@@ -56,11 +56,11 @@ In this release, AMD ROCm extends support to SLES 15 SP2
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
+* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
 
-* CentOS 7.8 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
+* CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
 
-* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.2 (4.18.0-193.1.1.el8) (devtoolset is not required)
+* CentOS 8.3 (4.18.0-193.el8) and RHEL 8.3 (4.18.0-193.1.1.el8) (devtoolset is not required)
 
 * SLES 15 SP2
 	
