@@ -242,7 +242,7 @@ Instead, install the following development subset of packages:
 Using Debian-based ROCm with Upstream Kernel Drivers
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-You can install the ROCm user-level software without installing the AMD's custom ROCk kernel driver. To use the upstream kernels, run the following commands instead of installing rocm-dkms:
+You can install ROCm user-level software without installing AMD's custom ROCk kernel driver. The kernel used must have the *HSA kernel driver* option enabled and compiled into the *amdgpu* kernel driver. To install only ROCm user-level software, run the following commands instead of installing rocm-dkms:
 
 ::
 
@@ -426,18 +426,16 @@ You can develop and test ROCm packages on different systems. For example, some d
 
 Note: To execute ROCm-enabled applications, you will require a system installed with the full ROCm driver stack.
 
-Using ROCm with Upstream Kernel Drivers
+Using ROCm on CentOS/RHEL with Upstream Kernel Drivers
 '''''''''''''''''''''''''''''''''''''''''
 
-You can install ROCm user-level software without installing AMD's custom ROCk kernel driver. To use the upstream kernel drivers, run the following commands
+You can install ROCm user-level software without installing AMD's custom ROCk kernel driver. The kernel used must have the *HSA kernel driver* option enabled and compiled into the *amdgpu* kernel driver. To install only ROCm user-level software, run the following commands instead of installing rocm-dkms:
 
 ::
 
   sudo yum install rocm-dev
   echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules  
   sudo reboot
-
-**Note**: You can use this command instead of installing rocm-dkms.
 
 **Note**: Ensure you restart the system after ROCm installation. 
 
@@ -521,7 +519,7 @@ Note: To run the ROCm programs more efficiently, add the ROCm binaries in your P
 echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin'|sudo tee -a /etc/profile.d/rocm.sh
 
 
-**Using ROCm with Upstream Kernel Drivers**
+**Using ROCm on SLES with Upstream Kernel Drivers**
 
 ::
 
