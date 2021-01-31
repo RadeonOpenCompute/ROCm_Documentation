@@ -295,3 +295,11 @@ When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may gen
 
 Another approach would be to guard the OpenMP code with `#ifdef _OPENMP` so that the code block is disabled when compiling for the GPU.  The `__HIP_DEVICE_COMPILE__` macro defined by the HIP compiler when compiling the GPU code could also be used for guarding code paths specific to the host or the GPU.
 
+Does the HIP-Clang compiler support extern shared declarations?
+-----------------------------------------------------------------
+
+Previously, it was essential to declare dynamic shared memory using the HIP_DYNAMIC_SHARED macro for accuracy, as using static shared memory in the same kernel could result in overlapping memory ranges and data-races.
+
+Now, the HIP-Clang compiler provides support for extern shared declarations, and the HIP_DYNAMIC_SHARED option is no longer required.
+
+
