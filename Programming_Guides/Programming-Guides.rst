@@ -21,7 +21,7 @@ Programming Guide v4.0 (PDF)
 
 You can access and download the latest version of the HIP Programming Guide v4.0.  
 
-`Download HIP Programming Guide v4.0 PDF <https://github.com/RadeonOpenCompute/ROCm>`__
+`Download HIP Programming Guide v4.0 PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0.pdf>`__
 
 
 Related Topics
