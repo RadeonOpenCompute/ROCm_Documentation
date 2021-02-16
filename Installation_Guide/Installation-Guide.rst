@@ -171,24 +171,11 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      sudo apt install rocm-dkms && sudo reboot
     
 
-4. Set permissions. To access the GPU, you must be a user in the video and render groups. Ensure your user account is a member of the video and render groups prior to using ROCm. To identify the groups you are a member of, use the following command:
+4. Set permissions.      
 
-::
+**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*. By default, you must add any future users to the video and render groups. 
 
-     groups
-     
-
-5. To add your user to the video and render groups, use the following command with the sudo password:
-
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*.
-
-::
-
-     sudo usermod -a -G video $LOGNAME
-
-     sudo usermod -a -G render $LOGNAME
-
-6. By default, you must add any future users to the video and render groups. To add future users to the video and render groups, run the following command:
+To add future users to the video and render groups, run the following command:
 
 ::
 
@@ -198,9 +185,9 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
      echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
 
-7. Restart the system.
+5. Restart the system.
 
-8. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
+6. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
 ::
 
