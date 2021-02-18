@@ -222,7 +222,7 @@ The AMD Instinct™ MI100 accelerator is the world’s fastest HPC GPU, and a cu
 
 
 Key Features of AMD Instinct™ MI100 
-------------------------------------
+========================================
 
 Important features of the AMD Instinct™ MI100 accelerator include:
 
@@ -238,7 +238,7 @@ Important features of the AMD Instinct™ MI100 accelerator include:
 
 
 Matrix Core Engines and GFX908 Considerations
-----------------------------------------------
+================================================
 
 The AMD CDNA architecture builds on GCN’s foundation of scalars and vectors and adds matrices while simultaneously adding support for new numerical formats for machine learning and preserving backward compatibility for any software written for the GCN architecture. These Matrix Core Engines add a new family of wavefront-level instructions, the Matrix Fused MultiplyAdd or MFMA. The MFMA family performs mixed-precision arithmetic and operates on KxN matrices using four different types of input data: 8-bit integers (INT8), 16-bit half-precision FP (FP16), 16-bit brain FP (bf16), and 32-bit single-precision (FP32). All MFMA instructions produce either a 32-bit integer (INT32) or FP32 output, which reduces the likelihood of overflowing during the final accumulation stages of matrix multiplication.
 
@@ -253,7 +253,7 @@ On nodes with gfx908, MFMA instructions are available to substantially speed up 
 
 
 References
-------------
+==============
 
 * For more information about bfloat16, see 
 
