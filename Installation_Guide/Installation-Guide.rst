@@ -108,7 +108,7 @@ The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm i
 **NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
 
-**SETTING PERMISSIONS**  
+**SETTING PERMISSIONS for GROUPS**  
 
 **Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*. By default, you must add any future users to the video and render groups. 
 
