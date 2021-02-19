@@ -107,6 +107,24 @@ The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm i
 
 **NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
+
+**SETTING PERMISSIONS**  
+
+**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*. By default, you must add any future users to the video and render groups. 
+
+To add future users to the video and render groups, run the following command:
+
+::
+
+     echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
+
+     echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+
+     echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
+     
+ 
+ **Note**:  Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
+
    
 Supported Operating Systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -171,23 +189,9 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
      sudo apt install rocm-dkms && sudo reboot
     
 
-4. Set permissions.      
+4. Restart the system.
 
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*. By default, you must add any future users to the video and render groups. 
-
-To add future users to the video and render groups, run the following command:
-
-::
-
-     echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
-
-     echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
-
-     echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
-
-5. Restart the system.
-
-6. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
+5. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
 ::
 
@@ -335,31 +339,9 @@ To install ROCm on your system, follow the instructions below:
 
 4. Restart the system. The rock-dkms component is installed and the /dev/kfd device is now available.
 
-5. Set permissions. To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
+5. Restart the system.
 
-::
-
-    groups
-
-6. To add your user to the video group, use the following command with the sudo password:
-
-::
-
-    sudo usermod -a -G video $LOGNAME
-
-
-7.  By default, add any future users to the video group. Run the following command to add users to the video group:
-
-::
-
-  echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
-  echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
-
-Note:  Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
-
-8. Restart the system.
-
-9. Test the ROCm installation.
+6. Test the ROCm installation.
 
 
 Testing the ROCm Installation
@@ -468,30 +450,11 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 5. Run /opt/rocm/bin/rocminfo and /opt/rocm/opencl/bin/clinfo commands to list the GPUs and verify that the ROCm installation is successful.
 
-6. Set permissions. 
+6. Restart the system.
 
-To access the GPU, you must be a user in the video group. Ensure your user account is a member of the video group prior to using ROCm. To identify the groups you are a member of, use the following command:
+7. Test the basic ROCm installation.
 
-::
-
-	groups
-
-7. To add your user to the video group, use the following command with the sudo password:
-	
-::
-
-	sudo usermod -a -G video $LOGNAME
-	
-8. By default, add any future users to the video group. Run the following command to add users to the video group:
-
-::
-
-	echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
-	echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
-
-9. Restart the system.
-10. Test the basic ROCm installation.
-11. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
+8. After restarting the system, run the following commands to verify that the ROCm installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
 ::
 
