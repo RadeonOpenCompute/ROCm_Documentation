@@ -5845,7 +5845,7 @@ Prerequisites
     * `HIP <https://github.com/ROCm-Developer-Tools/HIP>`_ for running on the GPU
     * `Protobuf <https://github.com/google/protobuf>`_ for reading `onxx <https://github.com/onnx/onnx>`_ files
     * `Half <http://half.sourceforge.net/>`_ - IEEE 754-based half-precision floating point library
-    * `pybind11 <http://half.sourceforge.net/>`_ - for python bindings
+    * `pybind11 <https://github.com/pybind/pybind11/>`_ - for python bindings
 
 Installing the dependencies
 
