@@ -270,7 +270,8 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-   docker pull rocm/pytorch:rocm3.10_ubuntu16.04_py3.6_pytorch
+   docker pull rocm/pytorch:rocm4.0_ubuntu18.04_py3.6_pytorch    
+   
 
 
 3. Start a docker container using the downloaded image:
