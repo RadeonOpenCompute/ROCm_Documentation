@@ -172,6 +172,8 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
     echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
+**Note**: For developer systems or docker container where it could be beneficial to use a fixed ROCm version select a versioned repository from: http://repo.radeon.com/rocm/apt/
+
 The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository.
 
 The current rocm.gpg.key is not available in a standard key ring distribution, but has the following sha1sum hash:
@@ -327,7 +329,7 @@ To install ROCm on your system, follow the instructions below:
     gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
 
 
-**Note:** The URL of the repository must point to the location of the repositories’ repodata database.
+**Note**: The URL of the repository must point to the location of the repositories’ repodata database. For developer systems or docker container where it could be beneficial to use a fixed ROCm version select a versioned repository from: http://repo.radeon.com/rocm/yum/
 
 3. Install ROCm components using the following command:
 
@@ -436,6 +438,9 @@ The following section tells you how to perform an install and uninstall ROCm on 
 		sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
 		sudo zypper --gpg-auto-import-keys install rocm-dkms
 		sudo reboot
+
+
+**Note**: For developer systems or docker container where it could be beneficial to use a fixed ROCm version select a versioned repository from: http://repo.radeon.com/rocm/zyp/
 
 3. Run the following command once
 
