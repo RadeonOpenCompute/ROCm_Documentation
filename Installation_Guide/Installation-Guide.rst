@@ -42,7 +42,7 @@ The following directions show how to install ROCm on supported Debian-based syst
 
 **Note**: You must use either ROCm or the amdgpu-pro driver. Using both drivers will result in an installation error. 
 
-**Important - Mellanox ConnectX NIC Users**: If you are using Mellanox ConnetX NIC, you must install Mellanox OFED before installing ROCm. 
+**Important - Mellanox ConnectX NIC Users**: If you are using Mellanox ConnectX NIC, you must install Mellanox OFED before installing ROCm. 
 
 For more information about installing Mellanox OFED, refer to:
 
@@ -544,12 +544,3 @@ The following example shows how to use the repo binary to download the ROCm sour
 
 
 **Note**: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
-
-
-
-
-
-
-
-
-
