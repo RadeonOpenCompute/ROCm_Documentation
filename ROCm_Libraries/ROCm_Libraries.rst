@@ -6,57 +6,26 @@ ROCm Libraries
 
 Libraries are listed alphabetically below.
 
-******************
-rocALUTION
-******************
 
 `rocALUTION User Guide <https://rocalution.readthedocs.io/en/latest/usermanual.html>`_
 
-******************
-rocBLAS
-******************
 
 `rocBLAS User Guide <https://rocblas.readthedocs.io/en/latest/usermanual.html>`_
 
-******************
-rocFFT
-******************
 
 `rocFFT User Guide <https://rocfft.readthedocs.io/en/latest/usermanual.html>`_
 
-******************
-rocRAND
-******************
 
 `rocRAND User Guide <https://rocrand.readthedocs.io/en/latest/>`_
 
-******************
-RCCL
-******************
-
 `RCCL User Guide <https://rccl.readthedocs.io>`_
-
-******************
-rocSOLVER
-******************
 
 `rocSOLVER User Guide <https://rocsolver.readthedocs.io>`_
 
-******************
-rocSPARSE
-******************
 
 `RCCL User Guide <https://rocsparse.readthedocs.io>`_
 
-******************
-rocThrust
-******************
-
 `rocThrust User Guide <https://rocthrust.readthedocs.io>`_
-
-***************
-AMD MIGraphX
-***************
 
 `MIGraphX User Guide <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`_
 
