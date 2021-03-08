@@ -1,66 +1,14 @@
 .. _HIP-FAQ:
 
-========
-HIP FAQ
-========
 
--  `What APIs and features does HIP
-   support? <#what-apis-and-features-does-hip-support>`__
--  `What is not supported? <#what-is-not-supported>`__
 
-   -  `Runtime/Driver API features <#runtimedriver-api-features>`__
-   -  `Kernel language features <#kernel-language-features>`__
+==========
+HIP-FAQ
+==========
 
--  `Is HIP a drop-in replacement for
-   CUDA? <#is-hip-a-drop-in-replacement-for-cuda>`__
--  `What specific version of CUDA does HIP
-   support? <#what-specific-version-of-cuda-does-hip-support>`__
--  `What libraries does HIP
-   support? <#what-libraries-does-hip-support>`__
--  `How does HIP compare with
-   OpenCL? <#how-does-hip-compare-with-opencl>`__
--  `How does porting CUDA to HIP compare to porting CUDA to
-   OpenCL? <#how-does-porting-cuda-to-hip-compare-to-porting-cuda-to-opencl>`__
--  `What hardware does HIP support? <#what-hardware-does-hip-support>`__
--  `Do HIPIFY tools automatically convert all source
-   code? <#do-hipify-tools-automatically-convert-all-source-code>`__
--  `What is NVCC? <#what-is-nvcc>`__
--  `What is HCC? <#what-is-hcc>`__
--  `What is HIP-Clang? <#what-is-hip-clang>`__
--  `Why use HIP rather than supporting CUDA
-   directly? <#why-use-hip-rather-than-supporting-cuda-directly>`__
--  `Can I develop HIP code on an Nvidia CUDA
-   platform? <#can-i-develop-hip-code-on-an-nvidia-cuda-platform>`__
--  `Can I develop HIP code on an AMD HIP-Clang
-   platform? <#can-i-develop-hip-code-on-an-amd-hip-clang-platform>`__
--  `Do I need to make code changes in HIP code if switch compiler from
-   HCC to
-   HIP-Clang? <#Do-I-need-to-make-code-changes-in-hip-code-if-switch-compiler-from-hcc-to-hip-clang>`__
--  `How to use HIP-Clang to build HIP programs instead of
-   HCC? <#how-to-use-hip-clang-to-build-hip-programs-instead-of-hcc>`__
--  `What is ROCclr? <#what-is-rocclr>`__
--  `Can a HIP binary run on both AMD and Nvidia
-   platforms? <#can-a-hip-binary-run-on-both-amd-and-nvidia-platforms>`__
--  `What is the difference between HIP and
-   hc? <#whats-the-difference-between-hip-and-hc>`__
--  `On HIP-Clang, can I link HIP code with host code compiled with
-   another compiler such as gcc, icc, or
-   clang? <#on-HIP-Clang-can-i-link-hip-code-with-host-code-compiled-with-another-compiler-such-as-gcc-icc-or-clang->`__
--  `HIP detected my platform (hip-clang vs nvcc) incorrectly - what
-   should I
-   do? <#hip-detected-my-platform-hip-clang-vs-nvcc-incorrectly---what-should-i-do>`__
--  `Can I install both CUDA SDK and HIP-clang on same
-   machine? <#can-i-install-both-cuda-sdk-and-hip-clang-on-same-machine>`__
--  `On CUDA, can I mix CUDA code with HIP
-   code? <#on-cuda-can-i-mix-cuda-code-with-hip-code>`__
--  `On HIP-Clang, can I use HC functionality with
-   HIP? <#on-hip-clang-can-i-use-hc-functionality-with-hip>`__
--  `How do I trace HIP application
-   flow? <#how-do-i-trace-hip-application-flow>`__
--  `What if HIP generates an error of symbol multiply defined only on the AMD
-   machine? <#what-if-hip-generates-error-of-symbol-multiply-defined-only-on-the-AMD-machine>`__
--  `What is maximum limit of Generic kernel launching
-   parameter? <#what-is-maximum-limit-of-generic-kernel-launching-parameter>`__
+.. contents::
+
+
 
 What APIs and features does HIP support?
 ----------------------------------------
@@ -118,7 +66,7 @@ Kernel language features
    (CUDA 4.0)
 -  Virtual functions, indirect functions and try/catch (CUDA 4.0)
 -  ``__prof_trigger``
--  PTX assembly (CUDA 4.0). HIP-Clang supports inline GCN assembly.
+- PTX assembly (CUDA 4.0).  HIP-Clang supports inline GCN assembly..
 
 Several kernel features are under development. See the `HIP Kernel Language <hip_kernel_language.md>`__ for more information. This includes:
 
@@ -163,9 +111,8 @@ However, we can provide a rough summary of the features included in each CUDA SD
 -  CUDA 7.0 :
 
    -  Per-thread-streams (under development)
-   -  C++11 (HIP-Clang supports all of C++11, all of C++14 and some C++17
-      features)
-
+   - C++11 (Hip-Clang supports all of C++11, all of C++14 and some C++17 features)
+  
 -  CUDA 7.5 :
 
    -  float16 (supported)
@@ -173,6 +120,10 @@ However, we can provide a rough summary of the features included in each CUDA SD
 -  CUDA 8.0 :
 
    -  Page Migration including cudaMemAdvise, cudaMemPrefetch, other cudaMem\* APIs(not supported)
+   
+- CUDA 9.0 :
+
+ - Cooperative Launch, Surface Object Management, Version Management
 
 What libraries does HIP support?
 --------------------------------
@@ -219,7 +170,7 @@ There have been several tools that have attempted to convert CUDA into OpenCL, s
 What hardware does HIP support?
 -------------------------------
 
--  For AMD platforms, HIP runs on the same hardware that the HCC mode supports. See the ROCm documentation for the list of supported platforms.
+- For a list of AMD-supported platforms, refer to the HIP Programming Guide.  
 -  For Nvidia platforms, HIP requires Unified Memory and should run on any device supporting CUDA SDK 6.0 or newer. We have tested the NVIDIA Titan and Tesla K40.
 
 Do HIPIFY tools automatically convert all source code?
@@ -232,17 +183,11 @@ What is NVCC?
 
 NVCC is Nvidia's compiler driver for compiling CUDA C++ code into PTX or device code for Nvidia GPUs. It's a closed-source binary compiler that is provided by the CUDA SDK.
 
-What is HCC?
-------------
-
-HCC is AMD's compiler driver which compiles the heterogeneous C++ code into HSAIL or GCN device code for AMD GPUs. It is an open-source compiler based on recent versions of CLANG/LLVM.
-
-In ROCM v3.5 release, HCC compiler is deprecated and HIP-Clang compiler is introduced to compile HIP programs.
 
 What is HIP-Clang?
 ------------------
+HIP-Clang is a Clang/LLVM based compiler to compile HIP programs, which can run on the AMD platform.
 
-HIP-Clang is new compiler to emphasize its capability to compile HIP programs which can run on AMD platform.
 
 Why use HIP rather than supporting CUDA directly?
 -------------------------------------------------
@@ -259,12 +204,7 @@ Can I develop HIP code on an AMD HIP-Clang platform?
 
 Yes. HIP-Clang path only exposes the APIs and functions that work on AMD runtime back ends. APIs, parameters, and features that appear in HIP-Clang but not CUDA will typically cause compile or run-time errors. Developers must use the HIP API for most accelerator code and bracket any HIP-Clang specific code with preprocessor conditionals. Those concerned about portability should, of course, test their code on both platforms and should tune it for performance.
 
-Typically, HIP-Clang supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the HIP-Clang path. In ROCM v3.5 release, HCC compiler is deprecated, and the HIP-Clang compiler can be used for compiling HIP programs.
-
-Do I need to make code changes in HIP code if switching compiler from HCC to HIP-Clang?
----------------------------------------------------------------------------------------
-
-For most HIP applications, the transition from HCC to HIP-Clang is transparent as the HIPCC and HIP cmake files automatically choose compiler options for HIP-Clang and hide the difference between the HCC and HIP-Clang code. However, minor changes may be required as HIP-Clang has stricter syntax and semantic checks compared to HCC.
+Typically, HIP-Clang supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the HIP-Clang path. 
 
 How to use HIP-Clang to build HIP programs?
 -------------------------------------------
@@ -289,38 +229,33 @@ Can a HIP binary run on both AMD and NVIDIA platforms?
 
 HIP is a source-portable language that can be compiled to run on either AMD or NVIDIA platform. HIP tools don't create a fat binary that can run on either platform.
 
-What's the difference between HIP and HC?
------------------------------------------
 
-HIP is a portable C++ language that supports a strong subset of the CUDA run-time APIs and device-kernel language. It is designed to simplify CUDA conversion to portable C++. HIP provides a C-compatible run-time API, C-compatible kernel-launch mechanism, C++ kernel language and pointer-based memory management.
 
-A C++ dialect, hc is supported by the AMD compiler. It provides C++ run time, C++ kernel-launch APIs (parallel_for_each), C++ kernel language, and several memory-management options, including pointers, arrays and array_view (with implicit data synchronization). It is intended to be a leading indicator of the ISO C++ standard. The HCC compiler has been deprecated in the ROCm Release v3.5.
-
-On HIP-Clang, can I link HIP code with host code compiled with another compiler such as gcc, icc, or clang ?
-------------------------------------------------------------------------------------------------------------
+Linking HIP code with host code compiled with another compiler on HIP Clang
+----------------------------------------------------------------------------------
 
 Yes. HIP generates the object code which conforms to the GCC ABI, and also links with libstdc++. This means you can compile host code with the compiler of your choice and link the generated object code with GPU code compiled with HIP. Larger projects often contain a mixture of accelerator code (initially written in CUDA with nvcc) and host code (compiled with gcc, icc, or clang). These projects can convert the accelerator code to HIP, compile that code with hipcc, and link with object code from their preferred compiler.
 
-Can I install both CUDA SDK and HIP-Clang on the same machine?
---------------------------------------------------------------
+Installing CUDA SDK and HIP-Clang on the same machine
+---------------------------------------------------------
 
 Yes. You can use HIP_PLATFORM to choose which path hipcc targets. This configuration can be useful when using HIP to develop an application which is portable to both AMD and NVIDIA.
 
-HIP detected my platform (HIP-Clang vs nvcc) incorrectly - what should I do?
-----------------------------------------------------------------------------
+HIP detects my platform incorrectly
+--------------------------------------
 
-HIP will set the platform to hcc and compiler to HIP-Clang if it sees that the AMD graphics driver is installed and has detected an AMD GPU. If this is not what you want, you can force HIP to recognize the platform by setting the following,
+HIP will set the platform to HIP-Clang if it sees that the AMD graphics driver is installed and has detected an AMD GPU. if it sees that the AMD graphics driver is installed and has detected an AMD GPU. If this is not what you want, you can force HIP to recognize the platform by setting the following,
 
 ::
 
    export HIP_COMPILER=clang
-   export HIP_PLATFORM=hcc
+   export HIP_PLATFORM=rocclr
 
 One symptom of this problem is the error message: 'an unknown error(11)
 at square.hipref.cpp:56'. 
 
 This can occur if you have a CUDA installation on an AMD platform, and HIP incorrectly detects the platform as nvcc.
-HIP may be able to compile the application using the nvcc tool-chain but will generate this error at runtime since the platform does not have a CUDA device. The fix is to set HIP_PLATFORM=hcc and rebuild.
+HIP may be able to compile the application using the nvcc tool-chain but will generate this error at runtime since the platform does not have a CUDA device. 
 
 On CUDA, can I mix CUDA code with HIP code?
 -------------------------------------------
@@ -331,30 +266,42 @@ hipErrorToCudaError hipCUDAErrorTohipError hipCUResultTohipError
 
 If platform portability is important, use #ifdef **HIP_PLATFORM_NVCC** to guard the CUDA-specific code.
 
-On HIP-Clang, can I use HC functionality with HIP?
---------------------------------------------------
 
-No. HC functionality is not supported by HIP-Clang.
 
 How do I trace HIP application flow?
 ------------------------------------
 
 See the `HIP Profiling Guide <hip_porting_guide.md>`__ for more information.
 
-What if HIP generates error of symbol multiply defined only on the AMD machine?
-------------------------------------------------------------------------------
 
-Unlike CUDA, in HIP-Clang, for functions defined in the header files, the keyword of "forceinline" does not imply "static". Thus, if failed to define "static" keyword, you might see a lot of "symbols that multiply defined" errors at compilation. The workaround is to explicitly add the keyword of "static" before any functions that were defined as "forceinline".
-
-What is maximum limit of kernel launching parameter?
+Maximum limit of generic kernel launching parameter
 ----------------------------------------------------
 
 Product of block.x, block.y, and block.z should be less than 1024.
 
-Are \__shfl_*_sync functions supported on HIP platform?
+Shuffle functions supported on HIP platform
 -------------------------------------------------------
 
-\__shfl_*_sync is not supported on HIP but for nvcc path CUDA 9.0 and above all shuffle calls get redirected to its sync version.
+__shfl_*_sync is not supported on HIP but for NVCC path CUDA 9.0. Above all, shuffle calls get redirected to its sync version.
 
+How to create a guard for code that is specific to the host or the GPU?
+--------------------------------------------------------------------------
+The compiler defines the `__HIP_DEVICE_COMPILE__` macro only when compiling the code for the GPU.  It could be used to guard code that is specific to the host or the GPU.
+
+OpenMP is undefined when compiling with fopenmp
+-------------------------------------------------------
+
+When compiling an OpenMP source file with `hipcc -fopenmp`, the compiler may generate an error if there is a reference to the `_OPENMP` macro.  This is due to a limitation in hipcc that treats any source file type (e.g., `.cpp`) as HIP translation unit leading to some conflicts with the OpenMP language switch.  If the OpenMP source file doesn't contain any HIP language construct, you could work around this issue by adding the `-x c++` switch to force the compiler to treat the file as regular C++.  
+
+Another approach would be to guard the OpenMP code with `#ifdef _OPENMP` so that the code block is disabled when compiling for the GPU.  The `__HIP_DEVICE_COMPILE__` macro defined by the HIP compiler when compiling the GPU code could also be used for guarding code paths specific to the host or the GPU.
+
+Does the HIP-Clang compiler support extern shared declarations?
+-----------------------------------------------------------------
+
+Previously, it was required to declare dynamic shared memory using the HIP_DYNAMIC_SHARED macro for accuracy, as using static shared memory in the same kernel could result in overlapping memory ranges and data-races.
+
+Now, the HIP-Clang compiler provides support for extern shared declarations, and the HIP_DYNAMIC_SHARED option is no longer required. You may use the standard extern definition:
+
+*extern __shared__ type var[];*
 
 

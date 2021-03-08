@@ -107,7 +107,7 @@ Steps to install rocm package are,
 
 ::
 
-  wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+  wget -qO - https://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
 
   sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 

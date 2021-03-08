@@ -6,7 +6,6 @@ ROCm Libraries
 
 Libraries are listed alphabetically below.
 
-
 `rocALUTION User Guide <https://rocalution.readthedocs.io/en/latest/usermanual.html>`_
 
 

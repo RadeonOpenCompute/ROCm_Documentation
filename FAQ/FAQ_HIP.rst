@@ -1,8 +1,8 @@
 .. _HIP-FAQ:
 
-*********
-HIP Programing FAQ
-*********
+********************
+HIP Programming FAQ
+*********************
 
 
 What APIs and features does HIP support?

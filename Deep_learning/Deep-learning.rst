@@ -48,7 +48,7 @@ Tensorflow Installation
 ::
    sudo apt install wget python3-pip
    # Pip3 install the whl package from PyPI
-   pip3 install --user tensorflow-rocm
+   pip3 install --user tensorflow-rocm #works only with python3.8 or prior
 
 Tensorflow v2.2.0 is installed.
 
@@ -66,7 +66,7 @@ Install ROCm
 
 ::
 
-   export RPM_ROCM_REPO=http://repo.radeon.com/rocm/yum/3.7
+   export RPM_ROCM_REPO=https://repo.radeon.com/rocm/yum/3.7
 
 2. Install the following packages.
 
@@ -270,7 +270,8 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  docker pull rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_pytorch
+   docker pull rocm/pytorch:rocm4.0_ubuntu18.04_py3.6_pytorch    
+   
 
 
 3. Start a docker container using the downloaded image:
@@ -400,15 +401,14 @@ Note: This will mount your host home directory on /data in the container.
   git clone https://github.com/pytorch/pytorch.git or git clone https://github.com/ROCmSoftwarePlatform/pytorch.git
   cd pytorch
   git submodule init
-  git submodule update
+  git submodule update --init --recursive'
 
 5. Run "hipify" to prepare source code (in the container):
 
 ::
 
   cd /data/pytorch/
-  python tools/amd_build/build_pytorch_amd.py
-  python tools/amd_build/build_caffe2_amd.py
+  python tools/amd_build/build_amd.py
 
 6. Build and install pytorch:
 
@@ -986,8 +986,8 @@ MIVisionX provides developers with docker images for Ubuntu 16.04, Ubuntu 18.04,
 
 ::
 
-   wget -qO - http://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-   echo 'deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+   wget -qO - https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+   echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
    sudo apt update
    sudo apt install rocm-dkms
    sudo reboot

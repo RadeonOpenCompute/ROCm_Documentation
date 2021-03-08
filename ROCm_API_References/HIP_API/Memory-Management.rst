@@ -68,9 +68,7 @@ hipMemcpyDtoDAsync
 ------------------------
 .. doxygenfunction:: hipMemcpyDtoDAsync
 
-hipMemcpyToSymbol
-------------------------
-.. doxygenfunction:: hipMemcpyToSymbol
+
 
 hipMemcpyToSymbolAsync
 ------------------------
@@ -80,9 +78,6 @@ hipMemcpyFromSymbol
 ------------------------
 .. doxygenfunction:: hipMemcpyFromSymbol 
 
-hipMemcpyFromSymbolAsync 
-------------------------
-.. doxygenfunction:: hipMemcpyFromSymbolAsync 
 
 hipMemcpyAsync
 ------------------------

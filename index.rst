@@ -1,5 +1,6 @@
 
 .. image:: amdblack.jpg
+
 .. rocm documentation master file, created by
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
    You can adapt this file completely to your liking, but it should at least
@@ -13,15 +14,18 @@ AMD ROCm is the first open-source software development platform for HPC/Hypersca
 
 Since the ROCm ecosystem is comprised of open technologies: frameworks (Tensorflow / PyTorch), libraries (MIOpen / Blas / RCCL), programming model (HIP), inter-connect (OCD) and up streamed Linux® Kernel support – the platform is continually optimized for performance and extensibility.  Tools, guidance and insights are shared freely across the ROCm GitHub community and forums.
 
-.. image:: ROCmComp.png
+**Note:** The AMD ROCm™ open software platform is a compute stack for headless system deployments. GUI-based software applications are currently not supported.
+
+.. image:: latestGPU.PNG
     :align: center
+
 
 AMD ROCm is built for scale; it supports multi-GPU computing in and out of server-node communication through RDMA. AMD ROCm also simplifies the stack when the driver directly incorporates RDMA peer-sync support.
 
 The AMD ROCm Programming-Language Run-Time 
 ############################################
 
-The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages such as HCC C++ and HIP.
+The AMD ROCr System Runtime is language independent and makes heavy use of the Heterogeneous System Architecture (HSA) Runtime API. This approach provides a rich foundation to execute programming languages, such as HIP and OpenMP.
 
 
 .. image:: ROCm_Stack.png
@@ -49,7 +53,7 @@ Solid Compilation Foundation and Language Support
 ####################################################
 
 •	LLVM compiler foundation
-•	HCC C++ and HIP for application portability
+•	HIP for application portability
 •	GCN assembler and disassembler
 
 AMD ROCm gives developers the flexibility of choice for hardware and aids in the development of compute-intensive applications.
@@ -63,7 +67,20 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
   
    Release Notes
    Current_Release_Notes/Current-Release-Notes
+   Current_Release_Notes/ROCm-Version-History
+   Current_Release_Notes/DISCLAIMER
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: Install ROCm
+  
    Installation_Guide/Installation-Guide
+   Installation_Guide/Multiversion-Installation
+   Installation_Guide/HIP-Installation
+   Installation_Guide/Using-CMake-with-AMD-ROCm
+   Installation_Guide/Mesa-Multimedia-Installation
+   Installation_Guide/Software-Stack-for-AMD-GPU
    
    
 .. toctree::
@@ -72,7 +89,8 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption:  Compiler Documentation
       
    Programming_Guides/Programming-Guides
-   Programming_Guides/aomp
+   Programming_Guides/HIP_API_Guide
+   Programming_Guides/openmp_support
    Programming_Guides/gcn-assembler
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
       
@@ -86,7 +104,6 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: Library Documentation 
    
    ROCm_Libraries/ROCm_Libraries
-   ROCm_API_References/ROCm-API-References
    Deep_learning/Deep-learning
    
    
@@ -97,6 +114,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: ROCm-Tools
       
    ROCm_Tools/ROCm-Tools
+   ROCm_Tools/ROCTracer-API
    ROCm_Tools/ROCgdb.rst
    ROCm_Tools/rocm-debug-agent
    Other_Solutions/Other-Solutions
@@ -109,6 +127,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :caption: System Management Information
       
    ROCm_System_Managment/ROCm-System-Managment
+   ROCm_System_Managment/ROCm-SMI-CLI
     
     
 .. toctree::
