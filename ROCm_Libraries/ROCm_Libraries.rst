@@ -28,37 +28,37 @@ rocFFT
 rocRAND
 ******************
 
-`rocRAND User Guide <https://rocrand.readthedocs.io/en/latest/>`
+`rocRAND User Guide <https://rocrand.readthedocs.io/en/latest/>`_
 
 ******************
 RCCL
 ******************
 
-`RCCL User Guide <https://rccl.readthedocs.io>`
+`RCCL User Guide <https://rccl.readthedocs.io>`_
 
 ******************
 rocSOLVER
 ******************
 
-`rocSOLVER User Guide <https://rocsolver.readthedocs.io>`
+`rocSOLVER User Guide <https://rocsolver.readthedocs.io>`_
 
 ******************
 rocSPARSE
 ******************
 
-`RCCL User Guide <https://rocsparse.readthedocs.io>`
+`RCCL User Guide <https://rocsparse.readthedocs.io>`_
 
 ******************
 rocThrust
 ******************
 
-`rocThrust User Guide <https://rocthrust.readthedocs.io>`
+`rocThrust User Guide <https://rocthrust.readthedocs.io>`_
 
 ***************
 AMD MIGraphX
 ***************
 
-`MIGraphX User Guide <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`
+`MIGraphX User Guide <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`_
 
 
 *********************
