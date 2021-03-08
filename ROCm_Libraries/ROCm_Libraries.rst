@@ -10,19 +10,19 @@ Libraries are listed alphabetically below.
 rocALUTION
 ******************
 
-`rocALUTION User Guide <https://rocalution.readthedocs.io/en/latest/usermanual.html>`
+`rocALUTION User Guide <https://rocalution.readthedocs.io/en/latest/usermanual.html>`_
 
 ******************
 rocBLAS
 ******************
 
-`rocBLAS User Guide <https://rocblas.readthedocs.io/en/latest/usermanual.html>`
+`rocBLAS User Guide <https://rocblas.readthedocs.io/en/latest/usermanual.html>`_
 
 ******************
 rocFFT
 ******************
 
-`rocFFT User Guide <https://rocfft.readthedocs.io/en/latest/usermanual.html>`
+`rocFFT User Guide <https://rocfft.readthedocs.io/en/latest/usermanual.html>`_
 
 ******************
 rocRAND
