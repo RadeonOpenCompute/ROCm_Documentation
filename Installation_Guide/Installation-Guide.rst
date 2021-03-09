@@ -71,7 +71,7 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 
 
-**FRESH INSTALLATION OF AMD ROCm V4.0 RECOMMENDED**
+**COMPLETE REINSTALLATION OF AMD ROCm V4.0 RECOMMENDED**
 
 A complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.0 is not supported.
 
