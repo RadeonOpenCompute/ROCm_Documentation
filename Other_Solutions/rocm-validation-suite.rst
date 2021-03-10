@@ -24,15 +24,6 @@ The PCIe State Monitor tool is used to actively monitor the PCIe interconnect be
     * PCIe link speed changes
     * GPU power state changes
 
-**ROCm Configuration Qualification Tool - RCQT module**
-
-The ROCm Configuration Qualification Tool ensures the platform is capable of running ROCm applications and is configured correctly. It checks the installed versions of the ROCm components and the platform configuration of the system. This includes checking that dependencies, corresponding to the associated operating system and runtime environment, are installed correctly. Other qualification steps include checking:
-
-    * The existence of the /dev/kfd device
-    * The /dev/kfd device’s permissions
-    * The existence of all required users and groups that support ROCm
-    * That the user mode components are compatible with the drivers, both the KFD and the amdgpu driver.
-    * The configuration of the runtime linker/loader qualifying that all ROCm libraries are in the correct search path.
 
 **PCI Express Qualification Tool – PEQT module**
 
@@ -43,11 +34,6 @@ The PCIe Qualification Tool consists is used to qualify the PCIe bus on which th
     * PCIe link speed
     * PCIe link width
 
-**SBIOS Mapping Qualification Tool – SMQT module**
-
-The GPU SBIOS mapping qualification tool is designed to verify that a platform’s SBIOS has satisfied the BAR mapping requirements for VDI and Radeon Instinct products for ROCm support.
-
-Refer to the “ROCm Use of Advanced PCIe Features and Overview of How BAR Memory is Used In ROCm Enabled System” web page for more information about how BAR memory is initialized by VDI and Radeon products.
 
 **P2P Benchmark and Qualification Tool – PBQT module**
 
