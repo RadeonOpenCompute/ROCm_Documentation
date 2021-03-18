@@ -394,6 +394,7 @@ Installing Development Packages for Cross Compilation
 
 * **RHEL/CentOS**: You can develop and test ROCm packages on different systems. 
 
+
 * **Ubuntu**: It is recommended that you develop and test development packages on different systems. 
 
 For example, some development or build systems may not have an AMD GPU installed. In this scenario, you can avoid installing the ROCm kernel driver on your development system. Instead, install the following development subset of packages:
@@ -403,7 +404,7 @@ For example, some development or build systems may not have an AMD GPU installed
   sudo yum install rocm-dev
 
 
-Note: To execute ROCm-enabled applications, you will require a system installed with the full ROCm driver stack.
+**Note**: To execute ROCm-enabled applications, you will require a system installed with the full ROCm driver stack.
 
 Using ROCm on CentOS/RHEL with Upstream Kernel Drivers
 '''''''''''''''''''''''''''''''''''''''''
