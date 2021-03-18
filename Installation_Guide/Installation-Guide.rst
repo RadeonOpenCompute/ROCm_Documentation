@@ -219,20 +219,6 @@ To uninstall the ROCm packages from Ubuntu 20.04 or Ubuntu 18.04.5, run the foll
   sudo apt autoremove rocm-opencl rocm-dkms rocm-dev rocm-utils && sudo reboot
 
 
-Installing Development Packages for Cross Compilation
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-It is recommended that you develop and test development packages on different systems. For example, some development or build systems may not have an AMD GPU installed. In this scenario, you must avoid installing the ROCk kernel driver on the development system.
-
-Instead, install the following development subset of packages:
-
-::
-
-  sudo apt update
-  sudo apt install rocm-dev
-
-
-**Note**: To execute ROCm enabled applications, you must install the full ROCm driver stack on your system.
 
 Using Debian-based ROCm with Upstream Kernel Drivers
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
