@@ -423,7 +423,7 @@ The following section tells you how to perform an install and uninstall ROCm on 
 
 ::
 
-	sudo SUSEConnect --product PackageHub/15.1/x86_64
+	sudo SUSEConnect --product PackageHub/15.2/x86_64
 	sudo zypper install dkms
 	
 2. Add the ROCm repo.
