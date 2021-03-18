@@ -392,7 +392,11 @@ To uninstall the ROCm packages, run the following command:
 Installing Development Packages for Cross Compilation
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-You can develop and test ROCm packages on different systems. For example, some development or build systems may not have an AMD GPU installed. In this scenario, you can avoid installing the ROCm kernel driver on your development system. Instead, install the following development subset of packages:
+* **RHEL/CentOS**: You can develop and test ROCm packages on different systems. 
+
+* **Ubuntu**: It is recommended that you develop and test development packages on different systems. 
+
+For example, some development or build systems may not have an AMD GPU installed. In this scenario, you can avoid installing the ROCm kernel driver on your development system. Instead, install the following development subset of packages:
 
 ::
 
