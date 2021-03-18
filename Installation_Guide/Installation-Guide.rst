@@ -124,8 +124,8 @@ To add future users to the video and render groups, run the following command:
      
  
  **Note**:  Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
-
-   
+ 
+    
 Supported Operating Systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
@@ -389,6 +389,21 @@ To uninstall the ROCm packages, run the following command:
   sudo yum autoremove rocm-opencl rocm-dkms rock-dkms
 
 
+Using ROCm on CentOS/RHEL with Upstream Kernel Drivers
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+You can install ROCm user-level software without installing AMD's custom ROCk kernel driver. The kernel used must have the *HSA kernel driver* option enabled and compiled into the *amdgpu* kernel driver. To install only ROCm user-level software, run the following commands instead of installing rocm-dkms:
+
+::
+
+  sudo yum install rocm-dev
+  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules  
+  sudo reboot
+
+**Note**: Ensure you restart the system after ROCm installation. 
+
+
+
 Installing Development Packages for Cross Compilation
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -406,18 +421,6 @@ For example, some development or build systems may not have an AMD GPU installed
 
 **Note**: To execute ROCm-enabled applications, you will require a system installed with the full ROCm driver stack.
 
-Using ROCm on CentOS/RHEL with Upstream Kernel Drivers
-'''''''''''''''''''''''''''''''''''''''''
-
-You can install ROCm user-level software without installing AMD's custom ROCk kernel driver. The kernel used must have the *HSA kernel driver* option enabled and compiled into the *amdgpu* kernel driver. To install only ROCm user-level software, run the following commands instead of installing rocm-dkms:
-
-::
-
-  sudo yum install rocm-dev
-  echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules  
-  sudo reboot
-
-**Note**: Ensure you restart the system after ROCm installation. 
 
 
 .. _SLES 15 Service Pack 2:
