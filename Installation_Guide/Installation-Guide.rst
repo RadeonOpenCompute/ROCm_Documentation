@@ -56,7 +56,19 @@ ROCm Repositories
 
 * For point releases - https://repo.radeon.com/rocm/yum/4.0.x/ 
 
+**Note**
 
+For SUSE, it is strongly recommended to follow the steps below when upgrading the base operating system kernel:
+
+1. Remove *rock-dkms* before the upgrade. 
+
+2. Install the new kernel. 
+
+3. Reboot the system.
+
+4. Reinstall *rock-dkms*. 
+
+Implementing these steps ensures correct loading of *amdgpu* and *amdkfd* after the kernel upgrade and prevents any issue caused by an incomplete DKMS upgrade. Fedora and Ubuntu do not have this restriction.  
 
 
 Prerequisites 
