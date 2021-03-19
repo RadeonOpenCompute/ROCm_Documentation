@@ -49,6 +49,16 @@ For more information about installing Mellanox OFED, refer to:
 https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
 
 
+ROCm Repositories
+===================
+
+* For major releases - https://repo.radeon.com/rocm/yum/rpm/ 
+
+* For point releases - https://repo.radeon.com/rocm/yum/4.0.x/ 
+
+
+
+
 Prerequisites 
 ~~~~~~~~~~~~~~~
 
