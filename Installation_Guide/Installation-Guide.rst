@@ -403,12 +403,7 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 Installing Development Packages for Cross Compilation
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-* **RHEL/CentOS**: You can develop and test ROCm packages on different systems. 
-
-
-* **Ubuntu**: It is recommended that you develop and test development packages on different systems. 
-
-For example, some development or build systems may not have an AMD GPU installed. In this scenario, you can avoid installing the ROCm kernel driver on your development system. Instead, install the following development subset of packages:
+You can develop and test ROCm packages on different systems. For example, some development or build systems may not have an AMD GPU installed. In this scenario, you can avoid installing the ROCm kernel driver on your development system. Instead, install the following development subset of packages:
 
 ::
 
