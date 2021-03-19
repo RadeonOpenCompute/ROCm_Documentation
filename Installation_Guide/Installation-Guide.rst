@@ -56,7 +56,9 @@ ROCm Repositories
 
 * For point releases - https://repo.radeon.com/rocm/yum/4.0.x/ 
 
-**Note**
+
+Base Operating System Kernel Upgrade
+======================================
 
 For SUSE, it is strongly recommended to follow the steps below when upgrading the base operating system kernel:
 
