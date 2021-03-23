@@ -8,12 +8,6 @@ HIP Installation
 
 HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
 
-
-Installing pre-built packages
-=============================
-
-HIP can be easily installed using pre-built binary packages using the package manager for your platform.
-
 HIP Prerequisites
 ==================
 
@@ -36,7 +30,7 @@ HIP-Clang can be built manually:
 
 ::
 
-   	git clone -b roc-4.0.x  https://github.com/RadeonOpenCompute/llvm-project.git
+   	git clone -b rocm-4.1.x  https://github.com/RadeonOpenCompute/llvm-project.git
 	cd llvm-project
 	mkdir -p build && cd build
 	cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" ../llvm
@@ -50,7 +44,7 @@ The ROCm device library can be manually built as following,
 ::
 
   	export PATH=/opt/rocm/llvm/bin:$PATH
-	git clone -b roc-4.0.x  https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
+	git clone -b rocm-4.1.x  https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
 	cd ROCm-Device-Libs
 	mkdir -p build && cd build
 	CC=clang CXX=clang++ cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" ../llvm
@@ -89,23 +83,21 @@ Building HIP from Source
 Build ROCclr
 =============
 
-ROCclr is defined on AMD platform that HIP use Radeon Open Compute
-Common Language Runtime (ROCclr), which is a virtual device interface
-that HIP runtimes interact with different backends. 
+ROCclr is defined on AMD platform that HIP use Radeon Open Compute Common Language Runtime (ROCclr), which is a virtual device interface that HIP runtimes interact with different backends. 
 
 See https://github.com/ROCm-Developer-Tools/ROCclr
 
 ::
 
-   	git clone -b rocm-4.0.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+   	git clone -b rocm-4.1.x https://github.com/ROCm-Developer-Tools/ROCclr.git
 	export ROCclr_DIR="$(readlink -f ROCclr)"
-	git clone -b rocm-4.0.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+	git clone -b rocm-4.1.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
 	export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
 	cd "$ROCclr_DIR"
 	mkdir -p build;cd build
 	cmake -DOPENCL_DIR="$OPENCL_DIR" -DCMAKE_INSTALL_PREFIX=/opt/rocm/rocclr ..
 	make -j
-	sudo make install
+	sudo make install	
 
 
 ::
@@ -123,6 +115,7 @@ Build HIP
 	-DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
 	make -j
 	sudo make install
+	**Note**: If you don't specify CMAKE_INSTALL_PREFIX, hip-rocclr runtime will be installed in "/opt/rocm/hip".
 
 ::
 
@@ -130,18 +123,12 @@ Build HIP
 Default paths and environment variables
 =========================================
 
--  By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by
-   setting HSA_PATH environment variable).
--  By default HIP is installed into /opt/rocm/hip (can be overridden by
-   setting HIP_PATH environment variable).
--  By default HIP looks for clang in /opt/rocm/llvm/bin (can be
-   overridden by setting HIP_CLANG_PATH environment variable)
--  By default HIP looks for device library in /opt/rocm/lib (can be
-   overridden by setting DEVICE_LIB_PATH environment variable).
--  Optionally, consider adding /opt/rocm/bin to your PATH to make it
-   easier to use the tools.
--  Optionally, set HIPCC_VERBOSE=7 to output the command line for
-   compilation.
+-  By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by setting HSA_PATH environment variable).
+-  By default HIP is installed into /opt/rocm/hip (can be overridden by setting HIP_PATH environment variable).
+-  By default HIP looks for clang in /opt/rocm/llvm/bin (can be overridden by setting HIP_CLANG_PATH environment variable)
+-  By default HIP looks for device library in /opt/rocm/lib (can be overridden by setting DEVICE_LIB_PATH environment variable).
+-  Optionally, consider adding /opt/rocm/bin to your PATH to make it easier to use the tools.
+-  Optionally, set HIPCC_VERBOSE=7 to output the command line for compilation.
 
 After installation, make sure HIP_PATH is pointed to */where/to/install/hip*
 
