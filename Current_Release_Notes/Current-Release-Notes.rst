@@ -3,9 +3,9 @@
 |
 
 ================================
-AMD ROCm™ Release Notes v4.0
+AMD ROCm™ Release Notes v4.1
 ================================
-December, 2020
+March, 2021
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.0.0 release.
 
@@ -17,20 +17,20 @@ List of Supported Operating Systems
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
-
-* CentOS 7.8 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
-
-* CentOS 8.2 (4.18.0-193.el8) and RHEL 8.2 (4.18.0-193.1.1.el8) (devtoolset is not required)
-
-* SLES 15 SP2
-
+- Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+-  CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using
+   devtoolset-7 runtime support)
+-  CentOS 8.3 (4.18.0-193.el8) and RHEL 8.3 (4.18.0-193.1.1.el8)
+   (devtoolset is not required)
+-  SLES 15 SP2
 
 
-Fresh Installation of AMD ROCm v4.0 Recommended
+
+Fresh Installation of AMD ROCm v4.1 Recommended
 -----------------------------------------------
 
-A fresh and clean installation of AMD ROCm v4.0 is recommended. An upgrade from previous releases to AMD ROCm v4.0 is not supported.
+A complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to
+AMD ROCm v4.1 is not supported. 
 
 For more information, refer to the AMD ROCm Installation Guide at:
 
@@ -38,7 +38,7 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 .. note::
 
-   AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade       from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
+   AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
    
 .. note::
 
@@ -54,23 +54,23 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
    
 .. note::
 
-   After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall    and reinstall AMD ROCm after an operating system upgrade.
+After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
    
 ROCm Multi Version Installation Update
 ---------------------------------------
 
-With the AMD ROCm v4.0 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.1 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.8.0, rocm-dkms3.9.0.
 
 -   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
 
--  Version files must be created for each multi-version rocm <= 4.0.0
+-  Version files must be created for each multi-version rocm <= 4.1.0
 
    -  command: echo \| sudo tee /opt/rocm-/.info/version
 
-   -  example: echo 4.0.0 \| sudo tee /opt/rocm-4.0.0/.info/version
+   -  example: echo 4.1.0 \| sudo tee /opt/rocm-4.1.0/.info/version
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
@@ -96,39 +96,59 @@ The AMD ROCm Installation Guide in this release includes:
 
 -  HIP Installation Instructions
 
-- AMD ROCm and Mesa Multimedia Installation 
-
-- Using CMake with AMD ROCm 
-
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
-ROCm SMI API Documentation Updates
-===================================
-
--  xGMI API
-
-For more information about ROCm SMI APIs, refer to the ROCm SMI API Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
-
-
 HIP Documentation Updates
 ===========================
-* HIP Programming Guide v4.0 
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0.pdf
+-  HIP Programming Guide v4.1
 
-* HIP API Guide v4.0
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP-API_Guide_v4.0.pdf
+-  HIP API Guide v4.1
 
-* HIP FAQ 
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
 
-For more information, see
+-  HIP-Supported CUDA API Reference Guide v4.1
 
-https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.1.pdf
+
+-  HIP FAQ
+
+   For more information, refer to
+
+   https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
+
+
+ROCm Data Center User and API Guide
+====================================
+
+-  ROCm Data Center Tool User Guide
+
+   -  Grafana Plugin Integration
+
+   For more information, refer to the ROCm Data Center User Guide at,
+
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
+
+-  ROCm Data Center Tool API Guide
+
+   For more information, refer to the ROCm Data Center API Guide at,
+
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_Tool_API_Manual_4.1.pdf
+   
+   
+ROCm SMI API Documentation Updates
+===================================
+   
+-  ROCm SMI API Guide
+
+   For more information, refer to the ROCm SMI API Guide at,
+
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_GUIDE_v4.1.pdf
+
 
 
 General AMD ROCm Documentation Links
@@ -140,7 +160,7 @@ Access the following links for more information:
 
    https://rocmdocs.amd.com/en/latest/
 
--  For installation instructions on supped platforms, see
+-  For installation instructions on supported platforms, see
 
    https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
