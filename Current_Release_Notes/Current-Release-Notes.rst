@@ -376,6 +376,104 @@ You may use the standard extern definition:
    extern __shared__ type var[];
 
 
+OpenMP Enhancements and Fixes
+-----------------------------
+
+This release includes the following OpenMP changes:
+
+-  Usability Enhancements
+-  Fixes to Internal Clang Math Headers
+-  OpenMP Defect Fixes
+
+Usability Enhancements
+========================
+
+-  OMPD updates for flang
+-  To support OpenMP debugging, the selected OpenMP runtime sources are
+   included in lib-debug/src/openmp. The ROCgdb debugger will find these
+   automatically.
+-  Threadsafe hsa plugin for libomptarget
+-  Support multiple devices with malloc and hostrpc
+-  Improve hostrpc version check
+-  Add max reduction offload feature to flang
+-  Integration of changes to support HPC Toolkit
+-  Support for fprintf
+-  Initial support for GPU malloc and Free. The internal (device rtl) is
+   required for GPU malloc and Free for nested parallelism.
+   GPU malloc and Free are now replaced, which improves the device
+   memory footprint.
+-  Increase detail of debug printing controlled by
+   LIBOMPTARGET_KERNEL_TRACE environment variable
+-  Add support for -gpubnames in Flang Driver
+-  Increase detail of debug printing controlled by
+   LIBOMPTARGET_KERNEL_TRACE environment variable
+-  Add support for -gpubnames in Flang Driver
+
+Fixes to Internal Clang Math Headers
+=========================================
+
+This release includes a set of changes applied to Clang internal headers
+to support OpenMP C, C++, FORTRAN, and HIP C. This establishes
+consistency between NVPTX and AMDGCN offloading, and OpenMP, HIP, and
+CUDA. OpenMP uses function variants and header overlays to define device
+versions of functions. This causes Clang LLVM IR codegen to mangle names
+of variants in both the definition and callsites of functions defined in
+the internal Clang headers. The changes apply to headers found in the
+installation subdirectory lib/clang/11.0.0/include.
+
+The changes also temporarily eliminate the use of the libm bitcode
+libraries for C and C++. Although math functions are now defined with
+internal clang headers, a bitcode library of the C functions defined in
+the headers is still built for the FORTRAN toolchain linking. This is
+because FORTRAN cannot use C math headers. This bitcode library is
+installed in lib/libdevice/libm-.bc. The source build of the bitcode
+library is implemented with the aomp-extras repository and the
+component-built script build_extras.sh.
+
+OpenMP Defect Fixes
+=======================
+The following OpenMP defects are fixed in this release:
+
+-  Openmpi configuration issue with real16.
+-  [flang] The AOMP 11.7-1 Fortran compiler claims to support the
+   -isystem flag, but ignores it.
+-  [flang] producing internal compiler error when the character is used
+   with KIND.
+-  [flang] openmp map clause on complex allocatable expressions !$omp
+   target data map( chunk%tiles(1)%field%density0).
+-  Add a fatal error if missing -Xopenmp-target or -march options when
+   -fopenmp-targets is specified. However, this requirement is not
+   applicable for offloading to the host when there is only a single
+   target and that target is the host.
+-  Openmp error message output for no_rocm_device_lib was asserting.
+-  Linkage on constant per-kernel symbols from external to
+   weaklinkageonly to prevent duplicate symbols when building kokkos.
+-  Add environment variables ROCM_LLD_ARGS ROCM_LINK_ARGS
+   ROCM_SELECT_ARGS to test driver options without compiler rebuild.
+-  Fix problems with device math functions being ambiguous, especially
+   the pow function.ix aompcc to accept file type cxx.
+-  Fix a latent race between host runtime and devicertl.
+
+MIOPEN TENSILE INTEGRATION
+--------------------------
+
+MIOpenTensile provides host-callable interfaces to the Tensile library
+and supports the HIP programming model. You may use the Tensile feature
+in the HIP backend by setting the building environment variable value to
+ON.
+
+::
+
+   MIOPEN_USE_MIOPENTENSILE=ON
+
+MIOpenTensile is an open-source collaboration tool where external
+entities can submit source pull requests (PRs) for updates.
+MIOpenTensile maintainers review and approve the PRs using standard
+open-source practices.
+
+For more information about the sources and the build system, see
+
+https://github.com/ROCmSoftwarePlatform/MIOpenTensile
 
 
 
@@ -383,118 +481,54 @@ You may use the standard extern definition:
 Known Issues
 --------------
 
-Upgrade to AMD ROCm v4.0 Not Supported
-========================================
+The following are the known issues in this release.
 
-An upgrade from previous releases to AMD ROCm v4.0 is not supported. A fresh and clean installation of AMD ROCm v4.0 is recommended.
+Upgrade to AMD ROCm v4.1 Not Supported
+==========================================
 
+An upgrade from previous releases to AMD ROCm v4.1 is not supported. A complete uninstallation of previous ROCm versions is required before
+installing a new version of ROCm.
+
+Performance Impact for Kernel Launch Bound Attribute
+=========================================================
+
+Kernels without the **launch_bounds** attribute assume the default maximum threads per block value. In the previous ROCm release, this
+value was 256. In the ROCm v4.1 release, it is changed to 1024. The objective of this change ensures the actual threads per block value used
+to launch a kernel, by default, are always within the launch bounds, thus, establishing the correctness of HIP programs.
+
+**NOTE**: Using the above-mentioned approach may incur performance degradation in certain cases. Users must add a minimum launch bound to
+each kernel, which covers all possible threads per block values used to launch that kernel for correctness and performance.
+
+The recommended workaround to recover the performance is to add *“gpu-max-threads-per-block=256* to the compilation options for HIP
+programs.
+
+Issue with Passing a Subset of GPUs in a Multi-GPU System
+============================================================
+
+ROCm support for passing individual GPUs via the docker *--device* flag in a Docker run command has a known issue when passing a subset of GPUs in
+a multi-GPU system. The command runs without any warning or error notification. However, all GPU executable run outputs are randomly
+corrupted.
+
+Using GPU targeting via the Docker command is not recommended for users of ROCm 4.1. There is no workaround for this issue currently.
+
+Performance Impact for LDS-Bound Kernels
+============================================
+
+The compiler in ROCm v4.1 generates LDS load and stores instructions that incorrectly assume equal performance between aligned and misaligned
+accesses. While this does not impact code correctness, it may result in sub-optimal performance.
+
+This issue is under investigation, and there is no known workaround at this time.
 
 Deprecations
---------------
+---------------
 
 This section describes deprecations and removals in AMD ROCm.
 
-COMPILER-GENERATED CODE OBJECT VERSION 2
-=========================================
+Compiler Generated Code Object Version 2 Deprecation
+======================================================
 
-*WARNING: COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION*
-
-Compiler-generated code object version 2 is no longer supported and will be removed shortly. AMD ROCm users must plan for the code object version 2 deprecation immediately. 
-
-Support for loading code object version 2 is also being deprecated with no announced removal release.
-
-
-ROCr RUNTIME DEPRECATIONS
-============================
-
-The following ROCr Runtime enumerations, functions, and structs are deprecated in the AMD ROCm v4.0 release.
-
-Deprecated ROCr Runtime Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* hsa_isa_get_info
-
-* hsa_isa_compatible
-
-* hsa_executable_create
-
-* hsa_executable_get_symbol
-
-* hsa_executable_iterate_symbols
-
-* hsa_code_object_serialize
-
-* hsa_code_object_deserialize
-
-* hsa_code_object_destroy
-
-* hsa_code_object_get_info
-
-* hsa_executable_load_code_object
-
-* hsa_code_object_get_symbol
-
-* hsa_code_object_get_symbol_from_name
-
-* hsa_code_symbol_get_info
-
-* hsa_code_object_iterate_symbols
-
-
-Deprecated ROCr Runtime Enumerations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* HSA_ISA_INFO_CALL_CONVENTION_COUNT
-
-* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONT_SIZE
-
-* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONTS_PER_COMPUTE_UNIT
-
-* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME_LENGTH
-
-* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME
-
-* HSA_EXECUTABLE_SYMBOL_INFO_AGENT
-
-* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALLOCATION
-
-* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SEGMENT
-
-* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALIGNMENT
-
-* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SIZE
-
-* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_IS_CONST
-
-* HSA_EXECUTABLE_SYMBOL_INFO_KERNEL_CALL_CONVENTION
-
-* HSA_EXECUTABLE_SYMBOL_INFO_INDIRECT_FUNCTION_CALL_CONVENTION
-
-   - hsa_code_object_type_t
- 
-   - hsa_code_object_info_t
- 
-   - hsa_code_symbol_info_t
-   
-
-Deprecated ROCr Runtime Structs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* hsa_code_object_t
-
-* hsa_callback_data_t
-
-* hsa_code_symbol_
-
-
-AOMP DEPRECATION
-====================
-
-As of AMD ROCm v4.0, AOMP (aomp-amdgpu) is deprecated. OpenMP support has moved to the openmp-extras auxiliary package, which leverages the ROCm compiler on LLVM 12.
-
-For more information, refer to 
-
-https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+Compiler-generated code object version 2 is no longer supported and has been completely removed. Support for loading code object version 2 is
+also deprecated with no announced removal release.
 
 
 Deploying ROCm
