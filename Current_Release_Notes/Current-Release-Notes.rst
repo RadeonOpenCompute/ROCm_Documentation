@@ -175,83 +175,53 @@ Access the following links for more information:
    
 
 
-===============================
-INTRODUCING AMD INSTINCT™ MI100
-===============================
+==============================================
+What's New in This Release and Other Features
+==============================================
 
-The AMD Instinct™ MI100 accelerator is the world’s fastest HPC GPU, and a culmination of the AMD CDNA architecture, with all-new Matrix Core Technology, and AMD ROCm™ open ecosystem to deliver new levels of performance, portability, and productivity. AMD CDNA is an all-new GPU architecture from AMD to drive accelerated computing into the era of exascale computing. The new architecture augments scalar and vector processing with new Matrix Core Engines and adds Infinity Fabric™ technology to scale up to larger systems. The open ROCm ecosystem puts customers in control and is a robust, mature platform that is easy to develop for and capable of running the most critical applications. The overall result is that the MI100 is the first GPU to break the 10TFLOP/s FP64 barrier designed as the steppingstone to the next generation of Exascale systems that will deliver pioneering discoveries in machine learning and scientific computing.
+TARGETID FOR MULTIPLE CONFIGURATIONS
+--------------------------------------
 
+The new TargetID functionality allows compilations to specify various configurations of the supported hardware.
 
-Key Features of AMD Instinct™ MI100 
-------------------------------------
+Previously, ROCm supported only a single configuration per target.
 
-Important features of the AMD Instinct™ MI100 accelerator include:
-
-* Extended matrix core engine with Matrix Fused Multiply-Add (MFMA) for mixed-precision arithmetic and operates on KxN matrices (FP32, FP16, BF16, Int8) 
-
-* Added native support for the bfloat16 data type
-
-* 3 Infinity fabric connections per GPU enable a fully connected group of 4 GPUs in a ‘hive’ 
+With the TargetID enhancement, ROCm supports configurations for Linux, PAL and associated configurations such as XNACK. This feature addresses
+configurations for the same target in different modes and allows applications to build executables that specify the supported
+configurations, including the option to be agnostic for the desired setting.
 
 
-.. image:: /Current_Release_Notes/images/keyfeatures.PNG
-   :align: center
+New Code Object Format Version for TargetID
+============================================
 
+-  A new clang option *-mcode-object-version* can be used to request the legacy code object version 3 or code object version 2.    For more information, refer to
 
-Matrix Core Engines and GFX908 Considerations
-----------------------------------------------
+   https://llvm.org/docs/AMDGPUUsage.html#elf-code-object
 
-The AMD CDNA architecture builds on GCN’s foundation of scalars and vectors and adds matrices while simultaneously adding support for new numerical formats for machine learning and preserving backward compatibility for any software written for the GCN architecture. These Matrix Core Engines add a new family of wavefront-level instructions, the Matrix Fused MultiplyAdd or MFMA. The MFMA family performs mixed-precision arithmetic and operates on KxN matrices using four different types of input data: 8-bit integers (INT8), 16-bit half-precision FP (FP16), 16-bit brain FP (bf16), and 32-bit single-precision (FP32). All MFMA instructions produce either a 32-bit integer (INT32) or FP32 output, which reduces the likelihood of overflowing during the final accumulation stages of matrix multiplication.
+-  A new clang *offload-arch=* option is introduced to specify the offload target architecture(s) for the HIP language.
 
-On nodes with gfx908, MFMA instructions are available to substantially speed up matrix operations. This hardware feature is used only in matrix multiplications functions in rocBLAS and supports only three base types f16_r, bf16_r, and f32_r. 
+-  The clang's *offload-arch=* and *-mcpu* options accept a new Target ID syntax. This allows both the processor and target      feature settings to be specified. 
+   
+   For more details, refer to
 
-* For half precision (f16_r and bf16_r) GEMM, use the function rocblas_gemm_ex, and set the compute_type parameter to f32_r.
+   https://llvm.org/docs/AMDGPUUsage.html#amdgpu-target-id
 
-* For single precision (f32_r) GEMM, use the function rocblas_sgemm.
+   -  If a target feature is not specified, it defaults to a new concept of "any". The compiler, then, produces code, which executes on a target configured for           either value of the setting impacting the overall performance. It is recommended to explicitly specify the setting for more efficient performance.
 
-* For single precision complex (f32_c) GEMM, use the function rocblas_cgemm.
+   -  In particular, the setting for XNACK now defaults to produce less performant code than previous ROCm releases.
 
+   -  The legacy clang *-mxnack*, *-mno-xnack*, *-msram-ecc*, and *-mno-sram-ecc* options are deprecated. They are still supported, however, they will be removed in       a future release.
 
+   -  The new Target ID syntax renames the SRAM ECC feature from *sram-ecc* to *sramecc*.
 
-References
-------------
+-  The clang offload bundler uses the new offload hipv4 for HIP code object version 4. For more information, see
+   https://clang.llvm.org/docs/ClangOffloadBundler.html
 
-* For more information about bfloat16, see 
+-  ROCm v4.1 corrects code object loading to enforce target feature settings of the code object to match the setting of the agent. It
+   also corrects the recording of target feature settings in the code object. As a consequence, the legacy code objects may no longer load
+   due to mismatches.
 
-https://rocblas.readthedocs.io/en/master/usermanual.html
-
-* For more details about AMD Instinct™ MI100 accelerator key features, see 
-
-https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
-
-* For more information about the AMD Instinct MI100 accelerator, refer to the following sources:
-
- - AMD CDNA whitepaper at https://www.amd.com/system/files/documents/amd-cdna-whitepaper.pdf
- 
- - MI100 datasheet at https://www.amd.com/system/files/documents/instinct-mi100-brochure.pdf
-
-* AMD Instinct MI100/CDNA1 Shader Instruction Set Architecture (Dec. 2020) – This document describes the current environment, organization, and program state of AMD CDNA “Instinct MI100” devices. It details the instruction set and the microcode formats native to this family of processors that are accessible to programmers and compilers.
-
-https://developer.amd.com/wp-content/resources/CDNA1_Shader_ISA_14December2020.pdf
-
-
-
-What's New in This Release
------------------------------
-
-RAS ENHANCEMENTS
-===================
-
-RAS (Reliability, Availability, and Accessibility) features provide help with data center GPU management. It is a method provided to users to track and manage data points via options implemented in the ROCm-SMI Command Line Interface (CLI) tool. 
-
-For more information about rocm-smi, see 
-
-https://github.com/RadeonOpenCompute/ROC-smi 
-
-The command options are wrappers of the system calls into the device driver interface as described here:
-
-https://dri.freedesktop.org/docs/drm/gpu/amdgpu.html#amdgpu-ras-support
-
+-  gfx802, gfx803, and gfx805 do not support the XNACK target feature in the ROCm v4.1 release.
 
 
 USING CMAKE WITH AMD ROCM
