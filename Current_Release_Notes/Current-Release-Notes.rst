@@ -154,9 +154,12 @@ ROC Debugger User and API Guide
 ===================================
 
 - ROC Debugger User Guide 
+
   https://github.com/RadeonOpenCompute/ROCm/blob/master/Debugging%20with%20ROCGDB%20User%20Guide%20v4.1.pdf
+  
 
 - Debugger API Guide 
+
   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-Debugger%20API%20Guide%20v4.1.pdf
 
 
