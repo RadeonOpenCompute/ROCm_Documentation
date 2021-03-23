@@ -530,6 +530,50 @@ Compiler Generated Code Object Version 2 Deprecation
 Compiler-generated code object version 2 is no longer supported and has been completely removed. Support for loading code object version 2 is
 also deprecated with no announced removal release.
 
+========================================
+Driver Compability Issue in ROCm v4.1
+========================================
+
+In certain scenarios, the ROCm 4.1 run-time and userspace environment are not compatible with ROCm v4.0 and older driver implementations for 7nm-based (Vega 20) hardware (MI50 and MI60). 
+
+To mitigate issues, the ROCm v4.1 or newer userspace prevents running older drivers for these GPUs.
+
+Users are notified in the following scenarios:
+
+* Bare Metal 
+* Containers
+ 
+Bare Metal
+------------
+
+In the bare-metal environment, the following error message displays in the console: 
+
+*“HSA Error: Incompatible kernel and userspace, Vega 20 disabled. Upgrade amdgpu.”*
+
+To test the compatibility, run the ROCm v4.1 version of rocminfo using the following instruction: 
+
+*/opt/rocm-4.1.0/bin/rocminfo 2>&1 | less*
+
+Containers
+------------
+
+A container (built with error detection for this issue) using a ROCm v4.1 or newer run-time is initiated to execute on an older kernel. The container fails to start and the following warning appears:
+
+*Error: Incompatible ROCm environment. The Docker container requires the latest kernel driver to operate correctly. Upgrade the ROCm kernel to v4.1 or newer, or use a container tagged for v4.0.1 or older.*
+
+To inspect the version of the installed kernel driver,  run either: 
+
+* dpkg --status rock-dkms [Debian-based]
+
+or
+
+* rpm -ql rock-dkms [RHEL, SUSE, and others]
+
+To install or update the driver, follow the installation instructions at:
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
+
+
 
 Deploying ROCm
 -------------------
