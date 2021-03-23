@@ -264,41 +264,122 @@ install the Perl modules:
      yum install â€œ perl(File::Which) perl(File::BaseDir) perl(File::Copy) perl(URI::Encode)
 
 
-ROCM – SYSTEM MANAGEMENT INTERFACE
-====================================
+ROCm Data Center Tool
+---------------------
 
-The following enhancements are made to ROCm System Management Interface (SMI).
+Grafana Integration
+====================
+
+The ROCm Data Center (RDC) Tool is enhanced with the Grafana plugin. Grafana is a common monitoring stack used for storing and visualizing
+time series data. Prometheus acts as the storage backend, and Grafana is used as the interface for analysis and visualization. Grafana has a
+plethora of visualization options and can be integrated with Prometheus for the ROCm Data Center (RDC) dashboard.
+
+For more information about Grafana integration and installation, refer to the ROCm Data Center Tool User guide at:
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
 
 
-Support for Printing PCle Information on AMD Instinct™100
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ROCm Math and Communication Libraries
+-------------------------------------
 
-AMD ROCm extends support for printing PCle information on AMD Instinct MI100. 
+rocSPARSE
+===========
 
-To check the pp_dpm_pcie file, use "rocm-smi --showclocks".
+rocSPARSE extends support for:
 
- */opt/rocm-4.0.0-6132/bin/rocm_smi.py  --showclocks*
+-  gebsrmm
+-  gebsrmv
+-  gebsrsv
+-  coo2dense and dense2coo
+-  generic API including axpby, gather, scatter, rot, spvv, spmv, spgemm, sparsetodense, densetosparse
+-  mixed indexing types in matrix formats
 
-.. image:: /Current_Release_Notes/images/SMI.PNG
+For more information, see
+
+https://rocsparse.readthedocs.io/en/latest/
+
+rocSOLVER
+===========
+
+rocSOLVER extends support for:
+
+-  Eigensolver routines for symmetric/hermitian matrices:
+
+   -  STERF, STEQR
+
+-  Linear solvers for general non-square systems:
+
+   -  GELS (API added with batched and strided_batched versions. Only the overdetermined non-transpose case is implemented in this
+      release. Other cases will return rocblas_status_not_implemented status for now.)
+
+-  Extended test coverage for functions returning information
+
+-  Changelog file
+
+-  Tridiagonalization routines for symmetric and hermitian matrices:
+
+   -  LATRD
+   -  SYTD2, SYTRD (with batched and strided_batched versions)
+   -  HETD2, HETRD (with batched and strided_batched versions)
+
+-  Sample code and unit test for unified memory model/Heterogeneous Memory Management (HMM)
+
+For more information, see
+
+https://rocsolver.readthedocs.io/en/latest/
+
+hipCUB
+=========
+
+The new iterator DiscardOutputIterator in hipCUB represents a special kind of pointer that ignores values written to it upon dereference. It
+is useful for ignoring the output of certain algorithms without wasting memory capacity or bandwidth. DiscardOutputIterator may also be used to
+count the size of an algorithm's output, which was not known previously.
+
+For more information, see
+
+https://hipcub.readthedocs.io/en/latest/
+
+
+HIP Enhancements
+----------------
+
+Support for hipEventDisableTiming Flag
+=======================================
+
+HIP now supports the hipEventDisableTiming flag for hipEventCreateWithFlags. Note, events created with this flag do not
+record profiling data and provide optimal performance when used for synchronization.
+
+Cooperative Group Functions
+===============================
+
+Cooperative Groups defines, synchronizes, and communicates between groups of threads and blocks for efficiency and ease of management. HIP
+now supports the following kernel language Cooperative Groups types and functions:
+
+
+
+.. image:: /Current_Release_Notes/images/CG1.PNG
    :align: center
-   
+.. image:: /Current_Release_Notes/images/CG2.PNG
+   :align: center
+.. image:: /Current_Release_Notes/images/CG3.PNG
+   :align: center
 
-New API for xGMI 
-~~~~~~~~~~~~~~~~~~
+Support for Extern Shared Declarations
+========================================
 
-Rocm_smi_lib now provides an API that exposes xGMI (inter-chip Global Memory Interconnect) throughput from one node to another. Refer to the rocm_smi_lib API documentation for more details. 
+Previously, it was required to declare dynamic shared memory using the HIP_DYNAMIC_SHARED macro for accuracy as using static shared memory in
+the same kernel could result in overlapping memory ranges and data-races. Now, the HIP-Clang compiler provides support for extern
+shared declarations, and the HIP_DYNAMIC_SHARED option is no longer required.
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_Guide_v4.0.pdf
+You may use the standard extern definition:
+
+::
+
+   extern __shared__ type var[];
 
 
-AMD GPU Debugger Enhancements
-=================================
 
-In this release, AMD GPU Debugger has the following enhancements:
 
-* ROCm v4.0 ROCgdb is based on gdb 10.1
-
-* Extended support for AMD Instinct™ MI100 
 
 
 Known Issues
