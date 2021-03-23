@@ -107,7 +107,7 @@ Build HIP
 
 ::
 
-   git clone -b rocm-4.0.x https://github.com/ROCm-Developer-Tools/HIP.git
+   git clone -b rocm-4.1.x https://github.com/ROCm-Developer-Tools/HIP.git
 	export HIP_DIR="$(readlink -f HIP)"
 	cd "$HIP_DIR"
 	mkdir -p build; cd build
