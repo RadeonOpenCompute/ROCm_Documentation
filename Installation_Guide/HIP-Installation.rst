@@ -115,7 +115,7 @@ Build HIP
 	-DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
 	make -j
 	sudo make install
-	**Note**: If you don't specify CMAKE_INSTALL_PREFIX, hip-rocclr runtime will be installed in "/opt/rocm/hip".
+	Note: If you don't specify CMAKE_INSTALL_PREFIX, hip-rocclr runtime will be installed in "/opt/rocm/hip".
 
 ::
 
