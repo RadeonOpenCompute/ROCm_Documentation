@@ -137,10 +137,9 @@ Verify your installation
 
 Run hipconfig (instructions below assume default installation path) :
 
-.. code:: 
+.. code:: shell
 	
-	shell
-  	/opt/rocm/bin/hipconfig --full
+	 /opt/rocm/bin/hipconfig --full
 
 Compile and run the `square
 sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
