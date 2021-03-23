@@ -224,26 +224,44 @@ New Code Object Format Version for TargetID
 -  gfx802, gfx803, and gfx805 do not support the XNACK target feature in the ROCm v4.1 release.
 
 
-USING CMAKE WITH AMD ROCM
-===========================
+New Code Object Tools
+======================
 
-Most components in AMD ROCm support CMake 3.5 or higher out-of-the-box and do not require any special Find modules. A Find module is often used downstream to find the files by guessing locations of files with platform-specific hints. Typically, the Find module is required when the upstream is not built with CMake or the package configuration files are not available.
+AMD ROCm v4.1 provides new code object tools *roc-obj-ls* and *roc-obj-extract*. These tools allow for the listing and extraction of
+AMD GPU ROCm code objects that are embedded in HIP executables and shared objects. Each tool supports a â€“help option that provides more
+information.
 
-AMD ROCm provides the respective config-file packages, and this enables find_package to be used directly. AMD ROCm does not require any Find module as the config-file packages are shipped with the upstream projects.
+Refer to the HIP Programming Guide v4.1 for additional information and examples.
 
-For more information, see 
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf
 
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Using-CMake-with-AMD-ROCm.html
+.. note::
 
+The extractkernel tool in previous AMD ROCm releases has been removed from the AMD ROCm v4.1 release and will no longer be supported.
 
-AMD ROCM AND MESA MULTIMEDIA 
-===============================
+.. note::
 
-AMD ROCm extends support to Mesa Multimedia. Mesa is an open-source software implementation of OpenGL, Vulkan, and other graphics API specifications. Mesa translates these specifications to vendor-specific graphics hardware drivers.
+The roc-obj-ls and roc-obj-extract tools may generate an error about the following missing Perl modules:
 
-For detailed installation instructions, refer to
+-  File::Which
+-  File::BaseDir
+-  File::Copy
+-  URI::Encode
 
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Mesa-Multimedia-Installation.html
+This error is due to the missing dependencies in the hip-base installer package. As a workaround, you may use the following instructions to
+install the Perl modules:
+
+*Ubuntu*
+
+::
+
+    apt-get install libfile-which-perl libfile-basedir-perl libfile-copy-recursive-perl liburi-encode-perl
+
+*CentOS*
+
+::
+
+     yum install â€œ perl(File::Which) perl(File::BaseDir) perl(File::Copy) perl(URI::Encode)
 
 
 ROCM – SYSTEM MANAGEMENT INTERFACE
