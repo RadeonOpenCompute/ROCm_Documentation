@@ -19,9 +19,9 @@ Use HIP when converting CUDA applications to portable C++ and for new projects t
 Programming Guide v4.1 (PDF)
 ----------------------------
 
-You can access and download the latest version of the HIP Programming Guide v4.1.  
+You can access and download the latest version of the HIP Programming Guide.  
 
-`Download the latest HIP Programming Guide PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf>`__
+`Download PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf>`__
 
 
 Related Topics
