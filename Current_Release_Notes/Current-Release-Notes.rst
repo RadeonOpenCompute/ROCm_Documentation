@@ -486,7 +486,7 @@ entities can submit source pull requests (PRs) for updates.
 MIOpenTensile maintainers review and approve the PRs using standard
 open-source practices.
 
-For more information about the sources and the build system, see
+For more information about the sources and build system, see
 
 https://github.com/ROCmSoftwarePlatform/MIOpenTensile
 
