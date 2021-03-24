@@ -21,9 +21,9 @@ Release notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.0.x
 
 - RAS (Reliability, Availability, and Accessibility) features
 
-- USING CMAKE WITH AMD ROCM
+- Using CMake with AMD ROCm
 
-- AMD ROCM AND MESA MULTIMEDIA
+- AMD ROCm and MESA Multimedia
 
 - Support for Printing PCle Information on AMD Instinct™100
 
