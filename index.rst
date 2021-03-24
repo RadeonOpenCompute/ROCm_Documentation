@@ -116,6 +116,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    ROCm_Tools/ROCm-Tools
    ROCm_Tools/ROCTracer-API
    ROCm_Tools/ROCgdb.rst
+   ROCm_Tools/ROCm-Data-Center
    ROCm_Tools/rocm-debug-agent
    Other_Solutions/Other-Solutions
    Other_Solutions/rocm-validation-suite
