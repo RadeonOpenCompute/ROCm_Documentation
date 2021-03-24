@@ -8,6 +8,28 @@ AMD ROCm Version History
 This file contains historical information for ROCm releases.
 
 
+New features and enhancements in ROCm v4.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.0.x
+
+- Introducing AMD Instinct™ MI100 accelerator
+
+- Important features of the AMD Instinct™ MI100 accelerator
+
+- Matrix Core Engines and GFX908 Considerations
+
+- RAS (Reliability, Availability, and Accessibility) features
+
+- USING CMAKE WITH AMD ROCM
+
+- AMD ROCM AND MESA MULTIMEDIA
+
+- Support for Printing PCle Information on AMD Instinct™100
+
+- New API for xGMI
+
+
 New features and enhancements in ROCm v3.10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
