@@ -18,7 +18,7 @@ The tool can be used in stand-alone mode if all components are installed. Howeve
 Refer Starting RDC in the ROCm Data Center Tool User Guide for details on different modes of operation.
 
 Objective
-----------
+==========
 
 This user guide is intended to:
 
@@ -28,7 +28,7 @@ This user guide is intended to:
 •	Provide an overview of the open source developer handbook
 
 Target Audience
-------------------
+================
 
  The audience for the AMD ROCm Data Center™ tool consists of: 
  
