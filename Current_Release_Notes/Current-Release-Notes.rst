@@ -243,7 +243,7 @@ New Code Object Tools
 ======================
 
 AMD ROCm v4.1 provides new code object tools *roc-obj-ls* and *roc-obj-extract*. These tools allow for the listing and extraction of
-AMD GPU ROCm code objects that are embedded in HIP executables and shared objects. Each tool supports a â€“help option that provides more
+AMD GPU ROCm code objects that are embedded in HIP executables and shared objects. Each tool supports a *-help* option that provides more
 information.
 
 Refer to the HIP Programming Guide v4.1 for additional information and examples.
