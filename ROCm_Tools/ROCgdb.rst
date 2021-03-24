@@ -25,7 +25,7 @@ installed at:
 
 The AMD ROCm Debugger User Guide is available as a PDF at:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/gdb.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/Debugging%20with%20ROCGDB%20User%20Guide%20v4.1.pdf
 
 For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
 
@@ -44,7 +44,7 @@ the execution and inspection of execution state of AMD™ commercially available
 
 For the AMD Debugger API Guide, see
 
-- https://github.com/RadeonOpenCompute/ROCm/blob/master/amd-dbgapi.pdf
+- https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-Debugger%20API%20Guide%20v4.1.pdf
 
 
 For more information about the AMD ROCm ecosystem, see:
