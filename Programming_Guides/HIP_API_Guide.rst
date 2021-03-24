@@ -5,9 +5,10 @@ HIP API Documentation 4.1
 HIP API Guide 
 ---------------
 
-You can access the Doxygen-generated HIP API Guide v4.0 at the following location:
+You can access the latest Doxygen-generated HIP API Guide at the following location:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP-API_Guide_v4.0.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
+
 
 Supported CUDA APIs
 --------------------
@@ -99,12 +100,21 @@ https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP-MATH.html#hip-math
 Related Topics
 ---------------
 
-HIP Programming Guide v4.0
-============================
+HIP Programming Guide 
+======================
 
-For the latest HIP Programming Guide v4.0, see
+For the latest HIP Programming Guide, see
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Programming_Guide_v4.0.pdf
+https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html
+
+
+=======================================
+HIP-Supported CUDA API Reference Guide
+=======================================
+
+You can access the latest HIP-Supported CUDA API Reference Guide at
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.1.pdf
 
 
 
