@@ -373,7 +373,7 @@ now supports the following kernel language Cooperative Groups types and function
 
 
 .. image:: images/CG1.PNG
-.. image:: /images/CG2.PNG
+.. image:: images/CG2.PNG
 .. image:: Current_Release_Notes/images/CG3.PNG
    :align: center
 
