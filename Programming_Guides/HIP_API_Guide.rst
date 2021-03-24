@@ -1,5 +1,5 @@
 ==========================
-HIP API Documentation 4.0
+HIP API Documentation 4.1
 ==========================
 
 HIP API Guide 
