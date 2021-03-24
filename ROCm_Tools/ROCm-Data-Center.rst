@@ -18,7 +18,7 @@ The ROCm™ Data Center Tool™ simplifies the administration and addresses key 
 
 The tool can be used in stand-alone mode if all components are installed. However, the existing management tools can use the same set of features available in a library format. 
 
-Refer Starting RDC in the ROCm Data Center Tool User Guide for details on different modes of operation.
+Refer to the Starting RDC section in the ROCm Data Center Tool User Guide for details on different modes of operation.
 
 Objective
 =========
