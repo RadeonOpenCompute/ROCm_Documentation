@@ -1,7 +1,10 @@
 
-===========================
+.. image:: amdblack.jpg
+
+
+========================
 ROCm™ Data Center Tool
-=============================
+========================
 
 The ROCm™ Data Center Tool™ simplifies the administration and addresses key infrastructure challenges in AMD GPUs in cluster and datacenter environments. The main features are:
 
