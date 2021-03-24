@@ -372,9 +372,9 @@ now supports the following kernel language Cooperative Groups types and function
 
 
 
-.. image:: /Current_Release_Notes/images/CG1.PNG
-.. image:: /Current_Release_Notes/images/CG2.PNG
-.. image:: /Current_Release_Notes/images/CG3.PNG
+.. image:: Current_Release_Notes/images/CG1.PNG
+.. image:: Current_Release_Notes/images/CG2.PNG
+.. image:: Current_Release_Notes/images/CG3.PNG
    :align: center
 
 Support for Extern Shared Declarations
