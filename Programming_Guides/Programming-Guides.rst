@@ -30,7 +30,7 @@ Related Topics
 HIP API Guide v4.1
 ====================
 
-You can access the Doxygen-generated HIP API Guide v4.0 at the following location:
+You can access the Doxygen-generated HIP API Guide at the following location:
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
 
