@@ -37,7 +37,7 @@ Target Audience
 •	OEM: Add GPU information to their existing cluster management software
 •	Open Source Contributors: RDC is open source and will accept contributions from the community
 
-Access AMD ROCm Data Center Tool User Guide
----------------------------------------------
+Download AMD ROCm Data Center Tool User Guide
+==============================================
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
