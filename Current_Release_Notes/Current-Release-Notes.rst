@@ -194,7 +194,7 @@ Access the following links for more information:
 What's New in This Release and Other Features
 ==============================================
 
-TARGETID FOR MULTIPLE CONFIGURATIONS
+TargetID for Multiple Configurations
 --------------------------------------
 
 The new TargetID functionality allows compilations to specify various configurations of the supported hardware.
@@ -469,7 +469,7 @@ The following OpenMP defects are fixed in this release:
    the pow function.ix aompcc to accept file type cxx.
 -  Fix a latent race between host runtime and devicertl.
 
-MIOPEN TENSILE INTEGRATION
+MIOpen Tensile Integration
 --------------------------
 
 MIOpenTensile provides host-callable interfaces to the Tensile library
