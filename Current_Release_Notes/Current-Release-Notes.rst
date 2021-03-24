@@ -107,21 +107,21 @@ HIP Documentation Updates
 
 -  HIP Programming Guide v4.1
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf
 
 -  HIP API Guide v4.1
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
 
 -  HIP-Supported CUDA API Reference Guide v4.1
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.1.pdf
 
 -  HIP FAQ
 
    For more information, refer to
 
-   https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
+https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 
 ROCm Data Center User and API Guide
@@ -133,13 +133,13 @@ ROCm Data Center User and API Guide
 
    For more information, refer to the ROCm Data Center User Guide at,
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
 
 -  ROCm Data Center Tool API Guide
 
    For more information, refer to the ROCm Data Center API Guide at,
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_Tool_API_Manual_4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_Tool_API_Manual_4.1.pdf
    
    
 ROCm SMI API Documentation Updates
@@ -149,7 +149,7 @@ ROCm SMI API Documentation Updates
 
    For more information, refer to the ROCm SMI API Guide at,
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_GUIDE_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_GUIDE_v4.1.pdf
    
 
 ROC Debugger User and API Guide 
@@ -157,12 +157,12 @@ ROC Debugger User and API Guide
 
 - ROC Debugger User Guide 
 
-  https://github.com/RadeonOpenCompute/ROCm/blob/master/Debugging%20with%20ROCGDB%20User%20Guide%20v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/Debugging%20with%20ROCGDB%20User%20Guide%20v4.1.pdf
   
 
 - Debugger API Guide 
 
-  https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-Debugger%20API%20Guide%20v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-Debugger%20API%20Guide%20v4.1.pdf
 
 
 
@@ -591,9 +591,9 @@ To install or update the driver, follow the installation instructions at:
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
-
+===============
 Deploying ROCm
--------------------
+===============
 
 AMD hosts both Debian and RPM repositories for the ROCm v4.x packages.
 
@@ -601,9 +601,9 @@ For more information on ROCM installation on all platforms, see
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-
+============
 DISCLAIMER 
-----------------
+============
 The information contained herein is for informational purposes only, and is subject to change without notice. In addition, any stated support is planned and is also subject to change. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD’s products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
 
 * AMD®, the AMD Arrow logo, AMD Instinct™, Radeon™, ROCm® and combinations thereof are trademarks of Advanced Micro Devices, Inc. 
