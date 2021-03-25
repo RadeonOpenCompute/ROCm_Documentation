@@ -276,7 +276,7 @@ install the Perl modules:
 
 ::
 
-     yum install â€œ perl(File::Which) perl(File::BaseDir) perl(File::Copy) perl(URI::Encode)
+     yum install "perl(File::Which) perl(File::BaseDir) perl(File::Copy) perl(URI::Encode)"
 
 
 ROCm Data Center Tool
