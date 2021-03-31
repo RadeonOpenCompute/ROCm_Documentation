@@ -259,9 +259,6 @@ You can install ROCm user-level software without installing AMD's custom ROCk ke
 CentOS RHEL
 ============
 
-CentOS/RHEL v7.8 and CentOS/RHEL 8.2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 This section describes how to install ROCm on supported RPM-based systems such as CentOS/RHEL.
 
 Preparing RHEL for Installation
