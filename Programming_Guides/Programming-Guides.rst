@@ -242,7 +242,7 @@ Key features include:
 -  HIP allows coding in a single-source C++ programming language
    including features such as templates, C++11 lambdas, classes,
    namespaces, and more.
--  HIP allows developers to use the â€œbestâ€ development environment and
+-  HIP allows developers to use the best development environment and
    tools on each target platform.
 -  The
    `HIPIFY <https://github.com/ROCm-Developer-Tools/HIPIFY/blob/master/README.md>`__
