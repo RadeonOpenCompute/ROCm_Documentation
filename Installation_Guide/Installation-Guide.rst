@@ -430,6 +430,18 @@ SLES 15 Service Pack 2
 
 The following section tells you how to perform an install and uninstall ROCm on SLES 15 SP 2. 
 
+**Note**: For SUSE-based distributions (SLE, OpenSUSE, etc), upgrading the base kernel after installing ROCm may result in a broken installation. This is due to policies regarding unsupported kernel modules. To mitigate this, make the following change before initializing the amdgpu module:
+
+::
+	
+   #Allow Unsupported Driver and Load Driver 
+   cat <<EOF | tee /etc/modprobe.d/10-unsupported-modules.conf
+   allow_unsupported_modules 1
+   EOF
+
+For more information, refer to https://www.suse.com/support/kb/doc/?id=000016939
+
+
 **Installation**
 
 
