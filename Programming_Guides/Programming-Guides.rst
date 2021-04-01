@@ -301,7 +301,7 @@ HIP API Code - Example
 #######################
 
 The HIP API includes functions such as hipMalloc, hipMemcpy, and hipFree. Programmers familiar with CUDA will also be able to quickly
-learn and start coding with the HIP API. Compute kernels are launched with the â€œhipLaunchKernel's macro call. Here is an example showing a
+learn and start coding with the HIP API. Compute kernels are launched with the hipLaunchKernel's macro call. Here is an example showing a
 snippet of HIP API code:
 
 .. code:: cpp
