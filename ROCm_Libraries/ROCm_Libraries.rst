@@ -6,25 +6,21 @@ ROCm Libraries
 
 Libraries are listed alphabetically below.
 
-`rocALUTION User Guide <https://rocalution.readthedocs.io/en/latest/usermanual.html>`_
+`rocALUTION User Guide <https://rocalution.readthedocs.io/>`_
 
+`rocBLAS User Guide <https://rocblas.readthedocs.io/>`_
 
-`rocBLAS User Guide <https://rocblas.readthedocs.io/en/latest/usermanual.html>`_
+`rocFFT User Guide <https://rocfft.readthedocs.io/>`_
 
+`rocRAND User Guide <https://rocrand.readthedocs.io/>`_
 
-`rocFFT User Guide <https://rocfft.readthedocs.io/en/latest/usermanual.html>`_
+`RCCL User Guide <https://rccl.readthedocs.io/>`_
 
+`rocSOLVER User Guide <https://rocsolver.readthedocs.io/>`_
 
-`rocRAND User Guide <https://rocrand.readthedocs.io/en/latest/>`_
+`rocSPARSE User Guide <https://rocsparse.readthedocs.io/>`_
 
-`RCCL User Guide <https://rccl.readthedocs.io>`_
-
-`rocSOLVER User Guide <https://rocsolver.readthedocs.io>`_
-
-
-`RCCL User Guide <https://rocsparse.readthedocs.io>`_
-
-`rocThrust User Guide <https://rocthrust.readthedocs.io>`_
+`rocThrust User Guide <https://rocthrust.readthedocs.io/>`_
 
 `MIGraphX User Guide <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`_
 
@@ -36,6 +32,6 @@ Deprecated Libraries
 hipeigen
 #########
 
-Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms. hipegen has been upstream to the main project at  http://eigen.tuxfamily.org/.
+Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms. hipeigen has been upstream to the main project at https://eigen.tuxfamily.org/.
 
 
