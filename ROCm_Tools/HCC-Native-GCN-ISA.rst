@@ -1,8 +1,8 @@
 .. _HCC-Native-GCN-ISA:
 
-==========================
-HCC-Native-GCN-ISA
-==========================
+================================
+HCC-Native-GCN-ISA (Deprecated)
+================================
 
 Hardware Requirements
 ***********************
