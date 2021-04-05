@@ -1,8 +1,8 @@
 .. _HCC-API:
 
-======================
-HCC API Documentation
-======================
+====================================
+HCC API Documentation (Deprecated)
+====================================
 
  * :ref:`HCCDocumentation`
  * :ref:`HCAPI`
