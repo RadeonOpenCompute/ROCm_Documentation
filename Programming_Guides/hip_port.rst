@@ -64,8 +64,8 @@ The memory copy API requires additional explanation. The CUDA driver includes th
 
 HIP defines a single error space, and uses camel-case for all errors (i.e. hipErrorInvalidValue).
 
-HCC Implementation Notes
-#########################
+HCC Implementation Notes (Deprecated)
+#########################################
 
 **.hsaco**
 
