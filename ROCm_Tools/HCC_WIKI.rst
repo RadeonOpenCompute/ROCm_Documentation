@@ -1,7 +1,7 @@
 .. _HCCwiki:
  
-HCC WIKI
-=========
+HCC WIKI (Deprecated)
+======================
 
 HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Compute
 **************************************************************************
