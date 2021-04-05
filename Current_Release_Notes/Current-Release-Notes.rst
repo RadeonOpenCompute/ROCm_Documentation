@@ -626,7 +626,7 @@ ROCm Release v4.1
 --------------------
 
 COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION 
-#####################################################
+=======================================================
 
 Compiler-generated code object version 2 is no longer supported and has been completely removed. 
 
@@ -636,8 +636,8 @@ Support for loading code object version 2 is also deprecated with no announced r
 ROCm Release v4.0
 --------------------
 
-ROCR RUNTIME DEPRECATIONS
-##########################
+ROCR RUNTIME DEPRECATION
+===========================
 
 The following ROCr Runtime enumerations, functions, and structs are deprecated in the AMD ROCm v4.0 release.
 
@@ -673,7 +673,7 @@ Deprecated ROCr Runtime Functions
 
 
 Deprecated ROCr Runtime Enumerations
-######################################
+=======================================
 
 * HSA_ISA_INFO_CALL_CONVENTION_COUNT
 
@@ -709,7 +709,7 @@ Deprecated ROCr Runtime Enumerations
 
 
 Deprecated ROCr Runtime Structs
-###############################
+================================
 
 * hsa_code_object_t
 
@@ -719,7 +719,7 @@ Deprecated ROCr Runtime Structs
 
 
 AOMP DEPRECATION
-#################
+===================
 
 As of AMD ROCm v4.0, AOMP (aomp-amdgpu) is deprecated. OpenMP support has moved to the openmp-extras auxiliary package, which leverages the ROCm compiler on LLVM 12.
 
@@ -733,7 +733,7 @@ ROCm Release v3.5
 --------------------
 
 Heterogeneous Compute Compiler
-###############################
+==================================
 
 In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs.
 
