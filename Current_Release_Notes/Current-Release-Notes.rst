@@ -636,7 +636,7 @@ Support for loading code object version 2 is also deprecated with no announced r
 ROCm Release v4.0
 --------------------
 
-ROCR RUNTIME DEPRECATION
+ROCr Runtime Deprecations
 ===========================
 
 The following ROCr Runtime enumerations, functions, and structs are deprecated in the AMD ROCm v4.0 release.
