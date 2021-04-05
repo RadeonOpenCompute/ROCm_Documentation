@@ -619,6 +619,34 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 
 ===============
+Deprecations
+===============
+
+ROCm Release v4.1
+--------------------
+
+COMPILER-GENERATED CODE OBJECT VERSION 2 DEPRECATION 
+#####################################################
+
+Compiler-generated code object version 2 is no longer supported and has been completely removed. 
+
+Support for loading code object version 2 is also deprecated with no announced removal release.
+
+
+ROCm Release v3.5
+--------------------
+
+Heterogeneous Compute Compiler
+###############################
+
+In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs.
+
+For more information, download the HIP Programming Guide at:
+
+https://github.com/RadeonOpenCompute/ROCm
+
+
+===============
 Deploying ROCm
 ===============
 
