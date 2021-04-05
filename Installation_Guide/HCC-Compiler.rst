@@ -1,8 +1,8 @@
 
 .. _HCC-Compiler:
 
-HCC : An open source C++ compiler for heterogeneous devices
-=============================================================
+HCC : An open source C++ compiler for heterogeneous devices (Deprecated)
+==========================================================================
 
 This repository hosts the HCC compiler implementation project. The goal is to implement a compiler that takes a program that conforms to a parallel programming standard such as C++ AMP, HC, C++ 17 ParallelSTL, or OpenMP, and transforms it into the AMD GCN ISA.
 
