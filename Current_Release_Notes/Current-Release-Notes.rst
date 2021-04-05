@@ -643,63 +643,63 @@ The following ROCr Runtime enumerations, functions, and structs are deprecated i
 
 Deprecated ROCr Runtime Functions
 
-•	hsa_isa_get_info
+* hsa_isa_get_info
 
-•	hsa_isa_compatible
+* hsa_isa_compatible
 
-•	hsa_executable_create
+* hsa_executable_create
 
-•	hsa_executable_get_symbol
+* hsa_executable_get_symbol
 
-•	hsa_executable_iterate_symbols
+* hsa_executable_iterate_symbols
 
-•	hsa_code_object_serialize
+* hsa_code_object_serialize
 
-•	hsa_code_object_deserialize
+* hsa_code_object_deserialize
 
-•	hsa_code_object_destroy
+* hsa_code_object_destroy
 
-•	hsa_code_object_get_info
+* hsa_code_object_get_info
 
-•	hsa_executable_load_code_object
+* hsa_executable_load_code_object
 
-•	hsa_code_object_get_symbol
+* hsa_code_object_get_symbol
 
-•	hsa_code_object_get_symbol_from_name
+* hsa_code_object_get_symbol_from_name
 
-•	hsa_code_symbol_get_info
+* hsa_code_symbol_get_info
 
-•	hsa_code_object_iterate_symbols
+* hsa_code_object_iterate_symbols
 
 
 Deprecated ROCr Runtime Enumerations
 ######################################
 
-•	HSA_ISA_INFO_CALL_CONVENTION_COUNT
+* HSA_ISA_INFO_CALL_CONVENTION_COUNT
 
-•	HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONT_SIZE
+* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONT_SIZE
 
-•	HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONTS_PER_COMPUTE_UNIT
+* HSA_ISA_INFO_CALL_CONVENTION_INFO_WAVEFRONTS_PER_COMPUTE_UNIT
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME_LENGTH
+* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME_LENGTH
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME
+* HSA_EXECUTABLE_SYMBOL_INFO_MODULE_NAME
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_AGENT
+* HSA_EXECUTABLE_SYMBOL_INFO_AGENT
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALLOCATION
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALLOCATION
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SEGMENT
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SEGMENT
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALIGNMENT
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_ALIGNMENT
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SIZE
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_SIZE
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_IS_CONST
+* HSA_EXECUTABLE_SYMBOL_INFO_VARIABLE_IS_CONST
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_KERNEL_CALL_CONVENTION
+* HSA_EXECUTABLE_SYMBOL_INFO_KERNEL_CALL_CONVENTION
 
-•	HSA_EXECUTABLE_SYMBOL_INFO_INDIRECT_FUNCTION_CALL_CONVENTION
+* HSA_EXECUTABLE_SYMBOL_INFO_INDIRECT_FUNCTION_CALL_CONVENTION
 
       * hsa_code_object_type_t
       
@@ -711,11 +711,12 @@ Deprecated ROCr Runtime Enumerations
 Deprecated ROCr Runtime Structs
 ###############################
 
-•	hsa_code_object_t
+* hsa_code_object_t
 
-•	hsa_callback_data_t
+* hsa_callback_data_t
 
-•	hsa_code_symbol_t
+* hsa_code_symbol_t
+
 
 AOMP DEPRECATION
 #################
