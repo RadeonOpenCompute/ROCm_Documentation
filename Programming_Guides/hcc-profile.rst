@@ -1,8 +1,8 @@
 .. _hcc-profile:
 
 
-HCC Profile Mode
-##################
+HCC Profile Mode (Deprecated)
+##################################
 
 HCC supports low-overhead profiler to trace or summarize command timestamp information to stderr for any HCC or HIP program. Tho profiler messages are interleaved with the trace output from the application - which is handy to identify the region-of-interest and can complement deeper analysis with the CodeXL GUI Additionally, the hcc profiler requires only console mode access and can be used on machine where graphics are not available or are hard to access.
 
