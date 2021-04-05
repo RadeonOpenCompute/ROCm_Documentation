@@ -1,7 +1,7 @@
 .. _HCCguide:
 
-HCC: Heterogeneous Compute Compiler
-####################################
+HCC: Heterogeneous Compute Compiler (Deprecated)
+#################################################
 
 **HCC is an Open Source, Optimizing C++ Compiler for Heterogeneous Devices**
 
