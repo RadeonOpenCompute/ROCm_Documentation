@@ -63,7 +63,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
 .. toctree::
    :maxdepth: 6
    :hidden:
-  :caption: Release Documentation
+   :caption: Release Documentation
   
    Release Notes
    Current_Release_Notes/Current-Release-Notes
