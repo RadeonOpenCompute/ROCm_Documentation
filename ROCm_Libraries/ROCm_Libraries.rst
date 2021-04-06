@@ -6,6 +6,8 @@ ROCm Libraries
 
 Libraries are listed alphabetically below.
 
+`hipSOLVER User Guide <https://hipsolver.readthedocs.io/>`_
+
 `MIGraphX User Guide <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`_
 
 `RCCL User Guide <https://rccl.readthedocs.io/>`_
