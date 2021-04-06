@@ -67,6 +67,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
   
    Release Notes
    Current_Release_Notes/Current-Release-Notes
+   Current_Release_Notes/Deprecation
    Current_Release_Notes/ROCm-Version-History
    Current_Release_Notes/DISCLAIMER
    
