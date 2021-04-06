@@ -72,6 +72,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    Current_Release_Notes/ROCm-Version-History
    Current_Release_Notes/DISCLAIMER
    
+   
 .. toctree::
    :maxdepth: 6
    :hidden:
@@ -83,6 +84,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    Installation_Guide/Using-CMake-with-AMD-ROCm
    Installation_Guide/Mesa-Multimedia-Installation
    Installation_Guide/Software-Stack-for-AMD-GPU
+   
    
    
 .. toctree::
@@ -124,6 +126,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    Other_Solutions/rocm-validation-suite
    
    
+   
 .. toctree::
    :maxdepth: 6
    :hidden:
@@ -131,6 +134,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
       
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_System_Managment/ROCm-SMI-CLI
+   
     
     
 .. toctree::
