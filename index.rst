@@ -101,7 +101,6 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    ROCm_Compiler_SDK/ROCm-Compiler-SDK
       
    
-
       
    
 .. toctree::
@@ -111,13 +110,15 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    
    ROCm_Libraries/ROCm_Libraries
    Deep_learning/Deep-learning
-   
+  
+  
    
   
 .. toctree::
    :maxdepth: 6
    :hidden:
    :caption: ROCm-Tools
+   
       
    ROCm_Tools/ROCm-Tools
    ROCm_Tools/ROCTracer-API
@@ -133,6 +134,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :maxdepth: 6
    :hidden:
    :caption: System Management Information
+   
       
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_System_Managment/ROCm-SMI-CLI
@@ -143,6 +145,7 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    :maxdepth: 6
    :hidden:
    :caption: Additional Documentation 
+   
    
    GCN_ISA_Manuals/GCN-ISA-Manuals
    ROCm_Glossary/ROCm-Glossary
