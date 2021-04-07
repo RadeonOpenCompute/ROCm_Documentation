@@ -563,6 +563,24 @@ accesses. While this does not impact code correctness, it may result in sub-opti
 
 This issue is under investigation, and there is no known workaround at this time.
 
+
+Changed HIP Environment Variables in ROCm v4.1 Release
+=======================================================
+
+In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs. Also, the HIP runtime API was implemented on top of the Radeon Open Compute Common Language runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr. 
+
+While the *HIP_PLATFORM=hcc* environment variable was functional in subsequent releases after ROCm v3.5, in the ROCm v4.1 release, changes to the following environment variables were implemented: 
+
+* *HIP_PLATFORM=hcc was changed to HIP_PLATFORM=amd*
+
+* *HIP_PLATFORM=nvcc was changed to HIP_PLATFORM=nvidia*
+
+Therefore, any applications continuing to use the HIP_PLATFORM=hcc environment variable will fail.
+
+**Workaround:**  Update the environment variables to reflect the changes mentioned above.
+
+
+
 Deprecations
 ---------------
 
