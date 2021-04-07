@@ -93,7 +93,40 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 
 
-**COMPLETE REINSTALLATION OF AMD ROCm V4.1 RECOMMENDED**
+**Updated HIP Instructions for ROCm Installation**
+
+The hip-base package has a dependency on Perl modules that some operating systems may not have in their default package repositories.  Use the following commands to add repositories that have the required Perl packages:
+
+
+* For SLES 15 SP2
+
+::
+
+	sudo zypper addrepo 
+
+
+For more information, see
+
+https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+
+
+
+* For CentOS8.3
+
+::
+
+	sudo yum config-manager --set-enabled powertools
+	
+
+* For RHEL8.3
+
+::
+
+	sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+	
+
+
+**Complete Reinstallation OF AMD ROCm V4.1 Recommended**
 
 A complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.1 is not supported.
 
@@ -107,7 +140,7 @@ A complete uninstallation of previous ROCm versions is required before installin
 **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
 
-**MULTI-VERSION INSTALLATION UPDATES**
+## Multi-version Installation Updates
 
 With the AMD ROCm v4.1 release, the following ROCm multi-version installation changes apply:
 
