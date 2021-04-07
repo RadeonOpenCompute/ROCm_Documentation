@@ -93,7 +93,8 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 
 
-**Perl Modules for HIP-Base Package**
+Perl Modules for HIP-Base Package
+======================================
 
 The hip-base package has a dependency on Perl modules that some operating systems may not have in their default package repositories.  Use the following commands to add repositories that have the required Perl packages:
 
