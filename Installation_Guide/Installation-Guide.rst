@@ -127,7 +127,8 @@ https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:lan
 	
 
 
-**Complete Reinstallation OF AMD ROCm V4.1 Recommended**
+Complete Reinstallation OF AMD ROCm V4.1 Recommended
+=====================================================
 
 A complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.1 is not supported.
 
@@ -141,7 +142,8 @@ A complete uninstallation of previous ROCm versions is required before installin
 **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
 
-## Multi-version Installation Updates
+Multi-version Installation Updates
+======================================
 
 With the AMD ROCm v4.1 release, the following ROCm multi-version installation changes apply:
 
