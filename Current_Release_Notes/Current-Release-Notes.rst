@@ -18,13 +18,13 @@ Changed Environment Variables for HIP
 
 In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs. In addition, the HIP runtime API was implemented on top of Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr. 
 
-While the HIP_PLATFORM=hcc environment variable was functional in subsequent releases, in the ROCm v4.1 release, the following environment variables were changed: 
+While the *HIP_PLATFORM=hcc* environment variable was functional in subsequent releases, in the ROCm v4.1 release, the following environment variables were changed: 
 
 * *HIP_PLATFORM=hcc to HIP_PLATFORM=amd*
 
 * *HIP_PLATFORM=nvcc to HIP_PLATFORM=nvidia*
 
-Therefore, any applications continuing to use the HIP_PLATFORM=hcc variable will fail. You must update the environment variables to reflect the changes as mentioned above.
+Therefore, any applications continuing to use the *HIP_PLATFORM=hcc* variable will fail. You must update the environment variables to reflect the changes as mentioned above.
 
 
 Updated HIP Instructions for ROCm Installation
