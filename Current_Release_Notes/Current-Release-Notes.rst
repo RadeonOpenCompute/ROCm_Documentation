@@ -6,7 +6,7 @@
 AMD ROCm™ Patch Release Notes v4.1.1
 =====================================
 
-The ROCm v4.1.1 Patch release consists of the following updates:
+The ROCm v4.1.1 patch release consists of the following updates:
 
 * Changed Environment Variables for HIP
 
