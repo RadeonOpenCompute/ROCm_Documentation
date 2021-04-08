@@ -1,6 +1,59 @@
 .. image:: /Current_Release_Notes/amdblack.jpg
 |
 
+
+=====================================
+AMD ROCm™ Patch Release Notes v4.1.1
+=====================================
+
+The ROCm v4.1.1 Patch release consists of the following updates:
+
+* Changed Environment Variables for HIP
+
+* Updated HIP Instructions for ROCm Installation
+
+
+Changed Environment Variables for HIP
+-----------------------------------------
+
+In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs. In addition, the HIP runtime API was implemented on top of Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr. 
+
+While the HIP_PLATFORM=hcc environment variable was functional in subsequent releases, in the ROCm v4.1 release, the following environment variables were changed: 
+
+* *HIP_PLATFORM=hcc to HIP_PLATFORM=amd*
+
+* *HIP_PLATFORM=nvcc to HIP_PLATFORM=nvidia*
+
+Therefore, any applications continuing to use the HIP_PLATFORM=hcc variable will fail. You must update the environment variables to reflect the changes as mentioned above.
+
+
+Updated HIP Instructions for ROCm Installation
+--------------------------------------------------
+
+The hip-base package has a dependency on Perl modules that some operating systems may not have in their default package repositories.  Use the following commands to add repositories that have the required Perl packages:
+
+* For SLES 15 SP2
+
+:: 
+
+      sudo zypper addrepo 
+
+https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+
+
+* For CentOS8.3
+
+::
+
+      sudo yum config-manager --set-enabled powertools
+
+* For RHEL8.3
+
+::
+
+      sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+
+
 ================================
 AMD ROCm™ Release Notes v4.1
 ================================
