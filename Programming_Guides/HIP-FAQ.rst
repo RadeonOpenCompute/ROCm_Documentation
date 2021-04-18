@@ -254,6 +254,7 @@ Sometimes if this isn't what you want, you can force HIP to recognize the platfo
 HIP then sets and uses the correct AMD compiler and runtime:
 
 HIP_COMPILER=clang
+
 HIP_RUNTIME=rocclr
 
 To choose the NVIDIA platform, you can set,
@@ -266,6 +267,7 @@ To choose the NVIDIA platform, you can set,
 In this case, HIP will set and use the following,
 
 HIP_COMPILER=nvcc
+
 HIP_RUNTIME=cuda
 
 
