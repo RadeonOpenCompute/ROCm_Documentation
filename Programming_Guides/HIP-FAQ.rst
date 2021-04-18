@@ -267,12 +267,12 @@ In this case, HIP will set and use the following,
 *HIP_COMPILER=nvcc *HIP_RUNTIME=cuda*
 
 
-One symptom of this problem is the error message: 
+A symptom of this problem is the error message: 
 
-'an unknown error(11) at square.hipref.cpp:56'. 
+*'an unknown error(11) at square.hipref.cpp:56'*
 
-This can occur if you have a CUDA installation on an AMD platform, and HIP incorrectly detects the platform as nvcc.
-HIP may be able to compile the application using the nvcc tool-chain but will generate this error at runtime since the platform does not have a CUDA device. 
+This error can occur if you have a CUDA installation on an AMD platform, and HIP incorrectly detects the platform as nvcc.
+HIP may be able to compile the application using the nvcc tool-chain, however, it will generate this error at runtime as the platform does not have a CUDA device. 
 
 On CUDA, can I mix CUDA code with HIP code?
 -------------------------------------------
