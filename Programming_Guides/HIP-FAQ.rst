@@ -244,7 +244,7 @@ Yes. You can use HIP_PLATFORM to choose which path hipcc targets. This configura
 HIP detects my platform incorrectly
 --------------------------------------
 HIP will set the platform to AMD and use the HIP-Clang as compiler if it sees that the AMD graphics driver is installed and has detected an AMD GPU.
-Sometimes if this isn't what you want, you can force HIP to recognize the platform by setting the following,
+If this is not what you want, you can force HIP to recognize the platform by setting the following,
 
 ::
 
@@ -253,9 +253,9 @@ Sometimes if this isn't what you want, you can force HIP to recognize the platfo
 
 HIP then sets and uses the correct AMD compiler and runtime:
 
-HIP_COMPILER=clang
+*HIP_COMPILER=clang*
 
-HIP_RUNTIME=rocclr
+*HIP_RUNTIME=rocclr*
 
 To choose the NVIDIA platform, you can set,
 
@@ -266,9 +266,9 @@ To choose the NVIDIA platform, you can set,
 
 In this case, HIP will set and use the following,
 
-HIP_COMPILER=nvcc
+*HIP_COMPILER=nvcc*
 
-HIP_RUNTIME=cuda
+*HIP_RUNTIME=cuda*
 
 
 One symptom of this problem is the error message: 
