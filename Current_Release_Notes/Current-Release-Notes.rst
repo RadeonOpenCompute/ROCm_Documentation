@@ -26,6 +26,9 @@ This is primarily caused because of a known issue with the v4.1.1 RCCL library i
 This issue is under investigation and will be fixed in a future release. 
 
 
+ROCm v4.1.1 Patch Release Updates
+===================================
+
 The ROCm v4.1.1 patch release consists of the following updates:
 
 * Changed Environment Variables for HIP
