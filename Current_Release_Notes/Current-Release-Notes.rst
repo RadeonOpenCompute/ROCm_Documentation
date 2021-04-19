@@ -8,8 +8,7 @@ AMD ROCm™ Patch Release Notes v4.1.1
 April, 2021
 
 Known Issue with rocm-libs4.1.1 Installation (RCCL) on Ubuntu 18/20 HWE 
-========================================================================
-
+----------------------------------------------------------------------------------
 The rocm-libs4.1.1 package fails to install on Ubuntu 18/20 HWE. *Note, this issue occurs only if a previous version of ROCm is installed on the system*. Users will not observe the issue in a fresh and complete installation of the rocm-libs4.1.1 package.
 
 **Note**: The rocm-libs4.1.1 package installs successfully on CentOS/RHEL.
@@ -27,7 +26,7 @@ This issue is under investigation and will be fixed in a future release.
 
 
 ROCm v4.1.1 Patch Release Updates
-===================================
+-----------------------------------------
 
 The ROCm v4.1.1 patch release consists of the following updates:
 
@@ -37,7 +36,7 @@ The ROCm v4.1.1 patch release consists of the following updates:
 
 
 Changed Environment Variables for HIP
------------------------------------------
+=======================================
 
 In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs. In addition, the HIP runtime API was implemented on top of Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr. 
 
@@ -51,7 +50,7 @@ Therefore, any applications continuing to use the *HIP_PLATFORM=hcc* variable wi
 
 
 Updated HIP Instructions for ROCm Installation
---------------------------------------------------
+=================================================
 
 The hip-base package has a dependency on Perl modules that some operating systems may not have in their default package repositories.  Use the following commands to add repositories that have the required Perl packages:
 
