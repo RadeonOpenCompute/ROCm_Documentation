@@ -7,6 +7,25 @@ AMD ROCm™ Patch Release Notes v4.1.1
 =====================================
 April, 2021
 
+Known Issue with rocm-libs4.1.1 Installation (RCCL) on Ubuntu 18/20 HWE 
+========================================================================
+
+The rocm-libs4.1.1 package fails to install on Ubuntu 18/20 HWE. *Note, this issue occurs only if a previous version of ROCm is installed on the system*. Users will not observe the issue in a fresh and complete installation of the rocm-libs4.1.1 package.
+
+**Note**: The rocm-libs4.1.1 package installs successfully on CentOS/RHEL.
+
+This is primarily caused because of a known issue with the v4.1.1 RCCL library installation. Users can successfully install other v4.1.1 libraries from the rocm-libs meta-package. For example,
+
+::
+
+      sudo apt-get install rocblas4.1.1 
+      sudo apt-get install hipblas4.1.1
+      sudo apt-get install hipfft4.1.1
+      sudo apt-get install rocftt4.1.1
+
+This issue is under investigation and will be fixed in a future release. 
+
+
 The ROCm v4.1.1 patch release consists of the following updates:
 
 * Changed Environment Variables for HIP
