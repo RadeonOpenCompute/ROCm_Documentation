@@ -34,6 +34,8 @@ The ROCm v4.1.1 patch release consists of the following updates:
 
 * Updated HIP Instructions for ROCm Installation
 
+* Fixed Defect - Performance Impact for LDS-BOUND Kernels 
+
 
 Changed Environment Variables for HIP
 =======================================
@@ -74,6 +76,15 @@ https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:lan
 ::
 
       sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+
+
+Fixed Defect - Performance Impact for LDS-BOUND Kernels 
+=========================================================
+
+The following known issue in the ROCm v4.1 release is fixed in the ROCm v4.1.1 patch release. 
+
+The compiler in ROCm v4.1 generates LDS load and stores instructions that incorrectly assume equal performance between aligned and misaligned accesses. While this does not impact code correctness, it may result in sub-optimal performance.
+
 
 
 ================================
