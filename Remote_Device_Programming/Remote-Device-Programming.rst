@@ -188,6 +188,17 @@ Unified Communication X (UCX) is a communication library for building Message Pa
 
 See `How to install UCX and OpenMPI <https://github.com/openucx/ucx/wiki/Build-and-run-ROCM-UCX-OpenMPI>`_
 
+
+**How to enable ROCm transport during configuration and runtime**
+
+Access the following links to enable ROCm transport during configuration and runtime:
+
+
+* For release builds: ./contrib/configure-release --prefix=/path/to/install --with-rocm=/path/to/rocm
+
+* For debug builds: ./contrib/configure-devel --prefix=/path/to/install --with-rocm=/path/to/rocm
+
+
 OpenMPI
 =========
 
