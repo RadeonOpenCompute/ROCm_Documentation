@@ -28,12 +28,14 @@ To fully utilize ROCmRDMA  the number of limitation could apply impacting either
 
 ROCmRDMA interface specification
 *********************************
-The implementation of ROCmRDMA interface could be found in `[amd_rdma.h] <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/blob/master/include/drm/amd_rdma.h>`_ file.
+The implementation of ROCmRDMA interface can be found in `[amd_rdma.h] <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/blob/master/include/drm/amd_rdma.h>`_ file.
 
 API versions
 ************
 
-ROCm up to and including 4.1 supported RDMA version 1.0. ROCm 4.2 bumped the API version to 2.0 and introduced the following definitions to allow users to detect the API version and apply conditional compilation as needed:
+ROCm up to and including v4.1 supported RDMA version 1.0. 
+
+ROCm 4.2 has enhanced the API version to 2.0, introduced the following definitions to allow users to detect the API version, and apply conditional compilation as needed:
 
 ::
 
