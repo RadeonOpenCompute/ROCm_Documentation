@@ -28,55 +28,66 @@ To fully utilize ROCmRDMA  the number of limitation could apply impacting either
 
 ROCmRDMA interface specification
 *********************************
-The implementation of ROCmRDMA interface could be found in `[amd_rdma.h] <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/blob/roc-2.1.x/include/drm/amd_rdma.h>`_ file.
+The implementation of ROCmRDMA interface could be found in `[amd_rdma.h] <https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/blob/master/include/drm/amd_rdma.h>`_ file.
+
+API versions
+************
+
+ROCm up to and including 4.1 supported RDMA version 1.0. ROCm 4.2 bumped the API version to 2.0 and introduced the following definitions to allow users to detect the API version and apply conditional compilation as needed:
+
+::
+
+   /* API versions:
+    * 1.0 Original API until ROCm 4.1, AMD_RDMA_MAJOR/MINOR undefined
+    * 2.0 Added IOMMU (dma-mapping) support, removed p2p_info.kfd_proc
+    *     Introduced AMD_RDMA_MAJOR/MINOR version definition
+    */
+   #define AMD_RDMA_MAJOR 2
+   #define AMD_RDMA_MINOR 0
 
 Data structures
 *************** 
 
 :: 
    
-  
    /**
     * Structure describing information needed to P2P access from another device
     * to specific location of GPU memory
     */
    struct amd_p2p_info {
-  	   uint64_t	   va;		   /**< Specify user virt. address
-					     * which this page table described
-					     */
-	 
-	   uint64_t	   size;	   /**< Specify total size of
-					     * allocation
-					     */
-	  
-	  struct pid	   *pid;	   /**< Specify process pid to which
-					     * virtual address belongs
-					     */
-	 
-	  struct sg_table *pages;	   /**< Specify DMA/Bus addresses */
-	
-	   void		*priv;		   /**< Pointer set by AMD kernel
-					      * driver
-					      */
-     };
+           uint64_t        va;             /**< Specify user virt. address
+                                             * which this page table
+                                             * described
+                                             */
+           uint64_t        size;           /**< Specify total size of
+                                             * allocation
+                                             */
+           struct pid      *pid;           /**< Specify process pid to which
+                                             * virtual address belongs
+                                             */
+           struct sg_table *pages;         /**< Specify DMA/Bus addresses */
+           void            *priv;          /**< Pointer set by AMD kernel
+                                             * driver
+                                             */
+   };
 
 ::
 
-  /**
-   * Structure providing function pointers to support rdma/p2p requirements.
-   * to specific location of GPU memory
-   */
-   
+   /**
+    * Structure providing function pointers to support rdma/p2p requirements.
+    * to specific location of GPU memory
+    */
    struct amd_rdma_interface {
-  	  int (*get_pages)(uint64_t address, uint64_t length, struct pid *pid,
-				  struct amd_p2p_info  **amd_p2p_data,
-				  void  (*free_callback)(void *client_priv),
-				  void  *client_priv);
-	  int (*put_pages)(struct amd_p2p_info **amd_p2p_data);
-	  int (*is_gpu_address)(uint64_t address, struct pid *pid);
-	  int (*get_page_size)(uint64_t address, uint64_t length, struct pid *pid,
-				  unsigned long *page_size);
-  };
+           int (*get_pages)(uint64_t address, uint64_t length, struct pid *pid,
+                            struct device *dma_dev,
+                            struct amd_p2p_info **amd_p2p_data,
+                            void  (*free_callback)(void *client_priv),
+                            void  *client_priv);
+           int (*put_pages)(struct amd_p2p_info **amd_p2p_data);
+           int (*is_gpu_address)(uint64_t address, struct pid *pid);
+           int (*get_page_size)(uint64_t address, uint64_t length, struct pid *pid,
+                                   unsigned long *page_size);
+   };
  
 The function to query ROCmRDMA interface
 ****************************************
@@ -92,22 +103,8 @@ The function to query ROCmRDMA interface
     *    \param interace     - OUT: Pointer to interface
     *    \return 0 if operation was successful.
     */
-   int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma);
-   
+   int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma); 
 
-The function to query ROCmRDMA interface
-****************************************
-
-::
-
-   
-   /**
-    * amdkfd_query_rdma_interface - Return interface (function pointers table) for rdma interface
-    * \param interace     - OUT: Pointer to interface
-    * \return 0 if operation was successful.
-    */
-    int amdkfd_query_rdma_interface(const struct amd_rdma_interface **rdma);
-   
 
 ROCmRDMA interface functions description
 *****************************************
@@ -124,7 +121,8 @@ ROCmRDMA interface functions description
     * \param   length        - The length of requested mapping
     * \param   pid           - Pointer to structure pid to which address belongs.
     *			       Could be NULL for current process address space.
-    * \param   p2p_data      - On return: Pointer to structure describing
+    * \param   dma_dev       - Device that will need a DMA mapping of the memory
+    * \param   amd_p2p_data  - On return: Pointer to structure describing
     *			       underlying pages/locations
     * \param   free_callback - Pointer to callback which will be called when access
     *			       to such memory must be stopped immediately: Memory
@@ -139,9 +137,9 @@ ROCmRDMA interface functions description
     * \return  0 if operation was successful
     */
     int get_pages(uint64_t address, uint64_t length, struct pid *pid,
-		    struct amd_p2p_info **amd_p2p_data,
-		    void  (*free_callback)(void *client_priv),
-		    void  *client_priv);
+                  struct device *dma_dev, struct amd_p2p_info **amd_p2p_data,
+                  void (*free_callback)(void *client_priv),
+                  void *client_priv);
 ::
 
    /**
@@ -164,18 +162,20 @@ ROCmRDMA interface functions description
     */
     int is_gpu_address(uint64_t address, struct pid *pid);
 
+::
 
-.. function:: int get_page_size(uint64_t address, uint64_t length, struct pid *pid,
-	         		unsigned long *page_size);
-   Return the single page size to be used when building scatter/gather table
-   for given range.
-   :param   address   - Address
-   :param   length    - Range length
-   :param   pid       - Process id structure. Could be NULL if current one.
-   :param   page_size - On return: Page size
-   :rtype:return  0 if operation was successful
-     
-    
+   /**
+    * Return the single page size to be used when building scatter/gather table
+    * for given range.
+    * \param   address   - Address
+    * \param   length    - Range length
+    * \param   pid       - Process id structure. Could be NULL if current one.
+    * \param   page_size - On return: Page size
+    * \return  0 if operation was successful
+    */
+   int get_page_size(uint64_t address, uint64_t length, struct pid *pid,
+                     unsigned long *page_size);
+
 
 UCX
 ====
