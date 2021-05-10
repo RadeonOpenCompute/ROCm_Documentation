@@ -30,5 +30,5 @@ Standard Frameworks for Out of Node Communication
 * `OpenMPI Open MPI Project is an open source Message Passing Interface https://www.open-mpi.org In Development <https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX>`_.
 * `MPICH MPICH is a high-performance and widely portable implementation of the Message Passing Interface (MPI) standard (MPI-1, MPI-2 and MPI-3) <https://www.mpich.org/about/overview/>`_ `In Development <https://www.mpich.org/2016/08/30/mpich-3-3a1-released/>`_.
 * `OpenSHMEM	Partitioned Global Address Space & Communication Library - In Development <https://github.com/openucx/ucx/wiki/OpenMPI-and-OpenSHMEM-installation-with-UCX>`_.
-* `GASNet is a communication layer for high performance communication primitives on top of which a number of programmable address space languages are built. <https://gasnet.lbl.gov/>`_  `Source for GASNet <https://bitbucket.org/berkeleylab/gasnet/wiki/Home>`_
+* `GASNet is a communication layer for high performance communication primitives on top of which a number of programmable address space languages are built. <https://gasnet.lbl.gov/>`_  `In Development <https://bitbucket.org/berkeleylab/gasnet/wiki/Home>`_
 * `OSU benchmark to test performance <https://github.com/ROCm-Developer-Tools/OSU_Microbenchmarks>`_.
