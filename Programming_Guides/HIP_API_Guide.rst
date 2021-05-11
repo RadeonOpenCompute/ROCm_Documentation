@@ -109,12 +109,12 @@ https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html
 
 
 ============================================
-HIP-Supported CUDA API Reference Guide v4.1
+HIP-Supported CUDA API Reference Guide v4.2
 ============================================
 
 You can access the latest HIP-Supported CUDA API Reference Guide at
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.2.pdf
 
 
 
