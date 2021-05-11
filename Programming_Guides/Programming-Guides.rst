@@ -27,7 +27,7 @@ You can access and download the latest version of the HIP Programming Guide.
 Related Topics
 ----------------
 
-HIP API Guide v4.1
+HIP API Guide 
 ====================
 
 You can access the Doxygen-generated HIP API Guide at the following location:
@@ -35,10 +35,10 @@ You can access the Doxygen-generated HIP API Guide at the following location:
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
 
 
-HIP_Supported_CUDA_API_Reference_Guide_v4.1
+HIP_Supported_CUDA_API_Reference_Guide
 ============================================
 
-You can access and download the latest version of the HIP-Supported CUDA API Reference Guide v4.1.  
+You can access and download the latest version of the HIP-Supported CUDA API Reference Guide.  
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
 
