@@ -32,7 +32,7 @@ HIP API Guide
 
 You can access the Doxygen-generated HIP API Guide at the following location:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
 
 
 HIP_Supported_CUDA_API_Reference_Guide
