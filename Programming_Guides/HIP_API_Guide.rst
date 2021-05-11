@@ -1,5 +1,5 @@
 ==========================
-HIP API Documentation 4.2
+HIP API Documentation v4.2
 ==========================
 
 HIP API Guide 
@@ -105,7 +105,7 @@ HIP Programming Guide
 
 For the latest HIP Programming Guide, see
 
-https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20HIP%20Programming%20Guide_v4.2.pdf
 
 
 ============================================
