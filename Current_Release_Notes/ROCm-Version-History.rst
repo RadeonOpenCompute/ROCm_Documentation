@@ -7,6 +7,17 @@ AMD ROCm Version History
 
 This file contains historical information for ROCm releases.
 
+New features and enhancements in ROCm v4.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.1.x
+
+- TargetID for Multiple Configurations
+- Grafana Integration in ROCm Data Center Tool
+- ROCm Math and Communication Libraries Enhancements and Fixes
+- HIP Enhancements 
+- OpenMP Enhancements and Fixes
+- MIOpen Tensile Integration
+
 
 New features and enhancements in ROCm v4.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
