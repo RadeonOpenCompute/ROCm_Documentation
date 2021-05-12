@@ -1,9 +1,16 @@
 .. _Tutorial:
 
 =====================
-Tutorial
+ROCm Learning Center
 =====================
 
+Refer to the new ROCm Learning Center for tutorials and presentations!
+
+https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
+
+
+Other Articles of Interest
+===========================
 
   * :ref:`caffe` How use Caffe on ROCm
 
