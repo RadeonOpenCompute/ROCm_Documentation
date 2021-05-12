@@ -73,10 +73,16 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
   
    Release Notes
    Current_Release_Notes/Current-Release-Notes
-   Current_Release_Notes/Deprecation
-   Current_Release_Notes/ROCm-Learning-Center
+   Current_Release_Notes/Deprecations
    Current_Release_Notes/ROCm-Version-History
    Current_Release_Notes/DISCLAIMER
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption:  ROCm Learning Center
+   
+    Current_Release_Notes/ROCm-Learning-Center
    
    
 .. toctree::
