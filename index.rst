@@ -64,12 +64,7 @@ ROCm Learning Center
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
 
-.. toctree::
-   :maxdepth: 6
-   :hidden:
-   :caption:  ROCm Learning Center
-   
-    Current_Release_Notes/ROCm-Learning-Center
+
     
     
     
@@ -154,6 +149,13 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_System_Managment/ROCm-SMI-CLI
    
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: ROCm Learning Center
+   
+    Current_Release_Notes/ROCm-Learning-Center
     
     
 .. toctree::
