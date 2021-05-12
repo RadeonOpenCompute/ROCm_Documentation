@@ -11,6 +11,29 @@ When it comes to solving the world’s most profound computational challenges, s
 
 ROCm™ Learning Center offers resources to developers looking to tap the power of accelerated computing. No matter where they are in their journey, from those just getting started to experts in GPU programming, a broad range of technical resources below are designed to meet developers where they are at.
 
+Happy learning!!
+
+Getting Started
+-----------------
+
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
-Happy learning!!
+Fundamentals of HIP Programming
+---------------------------------
+
+https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
+
+From CUDA to HIP
+-----------------
+
+https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
+
+Deep Learning on ROCm
+----------------------------
+
+https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
+
+Multi-GPU Programming
+-------------------------
+
+https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
