@@ -58,8 +58,16 @@ Solid Compilation Foundation and Language Support
 
 AMD ROCm gives developers the flexibility of choice for hardware and aids in the development of compute-intensive applications.
 
+ROCm Learning Center
+######################
+
+https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
 
+
+    
+    
+    
 .. toctree::
    :maxdepth: 6
    :hidden:
@@ -68,9 +76,11 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
   
    Release Notes
    Current_Release_Notes/Current-Release-Notes
-   Current_Release_Notes/Deprecation
+   Current_Release_Notes/Deprecations
    Current_Release_Notes/ROCm-Version-History
    Current_Release_Notes/DISCLAIMER
+   
+
    
    
 .. toctree::
@@ -139,6 +149,13 @@ AMD ROCm gives developers the flexibility of choice for hardware and aids in the
    ROCm_System_Managment/ROCm-System-Managment
    ROCm_System_Managment/ROCm-SMI-CLI
    
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: ROCm Learning Center
+   
+    Current_Release_Notes/ROCm-Learning-Center
     
     
 .. toctree::

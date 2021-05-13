@@ -54,7 +54,7 @@ ROCm Repositories
 
 * For major releases - https://repo.radeon.com/rocm/yum/rpm/ 
 
-* For point releases - https://repo.radeon.com/rocm/yum/4.1.x/ 
+* For point releases - https://repo.radeon.com/rocm/yum/4.2.x/ 
 
 
 Base Operating System Kernel Upgrade
@@ -78,11 +78,11 @@ Prerequisites
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-* Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)	
+* Ubuntu 20.04.2 HWE (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
 
-* CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
+* CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support) 
 
-* CentOS 8.3 (4.18.0-193.el8) and RHEL 8.3 (4.18.0-193.1.1.el8) (devtoolset is not required)
+* CentOS 8.3 (4.18.0-193.el8)and RHEL 8.3 (4.18.0-193.1.1.el8) (devtoolset is not required) 
 
 * SLES 15 SP2
 	
@@ -127,10 +127,10 @@ https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:lan
 	
 
 
-Complete Reinstallation OF AMD ROCm V4.1 Recommended
+Complete Reinstallation OF AMD ROCm V4.2 Recommended
 =====================================================
 
-A complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.1 is not supported.
+Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.2 is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
@@ -145,18 +145,18 @@ A complete uninstallation of previous ROCm versions is required before installin
 Multi-version Installation Updates
 ======================================
 
-With the AMD ROCm v4.1 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.2 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
 
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 4.1.0
+* ‘version’ files should be created for each multi-version rocm <= 4.2.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 4.1.0 | sudo tee /opt/rocm-4.1.0/.info/version
+	* example: echo 4.2.0 | sudo tee /opt/rocm-4.2.0/.info/version
 
 * The rock-dkms loadable kernel modules should be installed using a single rock-dkms package. 
 
@@ -606,7 +606,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-4.1.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-4.2.x
   repo sync
 
 

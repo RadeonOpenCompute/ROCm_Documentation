@@ -2,97 +2,13 @@
 |
 
 
+
 =====================================
-AMD ROCm™ Patch Release Notes v4.1.1
+AMD ROCm™ Release Notes v4.2
 =====================================
-April, 2021
+May, 2021
 
-Known Issue with rocm-libs4.1.1 Installation (RCCL) on Ubuntu 18/20 HWE 
-----------------------------------------------------------------------------------
-The rocm-libs4.1.1 package fails to install on Ubuntu 18/20 HWE. *Note, this issue occurs only if a previous version of ROCm is installed on the system*. Users will not observe the issue in a fresh and complete installation of the rocm-libs4.1.1 package.
-
-**Note**: The rocm-libs4.1.1 package installs successfully on CentOS/RHEL.
-
-This is primarily caused because of a known issue with the v4.1.1 RCCL library installation. Users can successfully install other v4.1.1 libraries from the rocm-libs meta-package. For example,
-
-::
-
-      sudo apt-get install rocblas4.1.1 
-      sudo apt-get install hipblas4.1.1
-      sudo apt-get install hipfft4.1.1
-      sudo apt-get install rocftt4.1.1
-
-This issue is under investigation and will be fixed in a future release. 
-
-
-ROCm v4.1.1 Patch Release Updates
------------------------------------------
-
-The ROCm v4.1.1 patch release consists of the following updates:
-
-* Changed Environment Variables for HIP
-
-* Updated HIP Instructions for ROCm Installation
-
-* Fixed Defect - Performance Impact for LDS-BOUND Kernels 
-
-
-Changed Environment Variables for HIP
-=======================================
-
-In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs. In addition, the HIP runtime API was implemented on top of Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr. 
-
-While the *HIP_PLATFORM=hcc* environment variable was functional in subsequent releases, in the ROCm v4.1 release, the following environment variables were changed: 
-
-* *HIP_PLATFORM=hcc to HIP_PLATFORM=amd*
-
-* *HIP_PLATFORM=nvcc to HIP_PLATFORM=nvidia*
-
-Therefore, any applications continuing to use the *HIP_PLATFORM=hcc* variable will fail. You must update the environment variables to reflect the changes as mentioned above.
-
-
-Updated HIP Instructions for ROCm Installation
-=================================================
-
-The hip-base package has a dependency on Perl modules that some operating systems may not have in their default package repositories.  Use the following commands to add repositories that have the required Perl packages:
-
-* For SLES 15 SP2
-
-:: 
-
-      sudo zypper addrepo 
-
-https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
-
-
-* For CentOS8.3
-
-::
-
-      sudo yum config-manager --set-enabled powertools
-
-* For RHEL8.3
-
-::
-
-      sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-
-
-Fixed Defect - Performance Impact for LDS-BOUND Kernels 
-=========================================================
-
-The following known issue in the ROCm v4.1 release is fixed in the ROCm v4.1.1 patch release. 
-
-The compiler in ROCm v4.1 generates LDS load and stores instructions that incorrectly assume equal performance between aligned and misaligned accesses. While this does not impact code correctness, it may result in sub-optimal performance.
-
-
-
-================================
-AMD ROCm™ Release Notes v4.1
-================================
-March, 2021
-
-This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.1.0 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.2.0 release.
 
 `Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
@@ -102,23 +18,22 @@ List of Supported Operating Systems
 
 The AMD ROCm platform is designed to support the following operating systems:
 
--  Ubuntu 20.04.1 (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+-  Ubuntu 20.04.2 HWE (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
 
--  CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using
-   devtoolset-7 runtime support)
+-  CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
    
--  CentOS 8.3 (4.18.0-193.el8) and RHEL 8.3 (4.18.0-193.1.1.el8)
-   (devtoolset is not required)
-   
+-  CentOS 8.3 (4.18.0-193.el8)and RHEL 8.3 (4.18.0-193.1.1.el8) (devtoolset is not required)
+
 -  SLES 15 SP2
 
 
 
-Fresh Installation of AMD ROCm v4.1 Recommended
+
+Fresh Installation of AMD ROCm v4.2 Recommended
 -----------------------------------------------
 
-A complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to
-AMD ROCm v4.1 is not supported. 
+Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to
+AMD ROCm v4.2 is not supported. 
 
 For more information, refer to the AMD ROCm Installation Guide at:
 
@@ -148,17 +63,11 @@ After an operating system upgrade, AMD ROCm may upgrade automatically and result
 ROCm Multi Version Installation Update
 ---------------------------------------
 
-With the AMD ROCm v4.1 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.2 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.8.0, rocm-dkms3.9.0.
 
 -   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
-
--  Version files must be created for each multi-version rocm <= 4.1.0
-
-   -  command: echo \| sudo tee /opt/rocm-/.info/version
-
-   -  example: echo 4.1.0 \| sudo tee /opt/rocm-4.1.0/.info/version
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
@@ -191,17 +100,18 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 HIP Documentation Updates
 ===========================
 
--  HIP Programming Guide v4.1
+-  HIP Programming Guide v4.2
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20HIP%20Programming%20Guide_v4.2.pdf
 
--  HIP API Guide v4.1
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.1.pdf
+-  HIP API Guide v4.2
 
--  HIP-Supported CUDA API Reference Guide v4.1
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.1.pdf
+-  HIP-Supported CUDA API Reference Guide v4.2
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.2.pdf
 
 -  HIP FAQ
 
@@ -215,41 +125,38 @@ ROCm Data Center User and API Guide
 
 -  ROCm Data Center Tool User Guide
 
-   -  Grafana Plugin Integration
+   -  Reliability, Accessibility, and Serviceability (RAS) Plugin Integration
 
-   For more information, refer to the ROCm Data Center User Guide at,
+For more information, refer to the ROCm Data Center User Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.2.pdf
 
 -  ROCm Data Center Tool API Guide
 
-   For more information, refer to the ROCm Data Center API Guide at,
+For more information, refer to the ROCm Data Center API Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_Tool_API_Manual_4.1.pdf
-   
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_Tool_API_Guide_v4.2.pdf
+
    
 ROCm SMI API Documentation Updates
 ===================================
    
 -  ROCm SMI API Guide
 
-   For more information, refer to the ROCm SMI API Guide at,
+For more information, refer to the ROCm SMI API Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_API_GUIDE_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_4.2.pdf
+
    
 
 ROC Debugger User and API Guide 
 ===================================
 
-- ROC Debugger User Guide 
+-  ROC Debugger User Guide
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Debugger_User_Guide_v4.2.pdf
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/Debugging%20with%20ROCGDB%20User%20Guide%20v4.1.pdf
-  
-
-- Debugger API Guide 
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-Debugger%20API%20Guide%20v4.1.pdf
-
+-  Debugger API Guide
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Debugger_API_Guide_v4.2.pdf
 
 
 General AMD ROCm Documentation Links
@@ -280,331 +187,212 @@ Access the following links for more information:
 What's New in This Release and Other Features
 ==============================================
 
-TargetID for Multiple Configurations
---------------------------------------
+HIP Enhancements 
+-------------------
 
-The new TargetID functionality allows compilations to specify various configurations of the supported hardware.
+HIP Target Platform Macro
+===========================
 
-Previously, ROCm supported only a single configuration per target.
+The platform macros are updated to target either the AMD or NVIDIA platform in HIP projects. They now include corresponding headers and
+libraries for compilation/linking.
 
-With the TargetID enhancement, ROCm supports configurations for Linux, PAL and associated configurations such as XNACK. This feature addresses
-configurations for the same target in different modes and allows applications to build executables that specify the supported
-configurations, including the option to be agnostic for the desired setting.
+-  **HIP_PLATFORM_AMD** is defined if the HIP platform targets AMD. Note, **HIP_PLATFORM_HCC** was used previously if the HIP platform      targeted AMD. This is now deprecated.
 
+-  **HIP_PLATFORM_NVIDIA** is defined if the HIP platform targets NVIDIA. Note, \_HIP_PLATFORM_NVCC_\_ was used previously if the HIP platform targeted NVIDIA. This is now deprecated.
 
-New Code Object Format Version for TargetID
-============================================
-
--  A new clang option *-mcode-object-version* can be used to request the legacy code object version 3 or code object version 2.    For more information, refer to
-
-   https://llvm.org/docs/AMDGPUUsage.html#elf-code-object
-
--  A new clang *offload-arch=* option is introduced to specify the offload target architecture(s) for the HIP language.
-
--  The clang's *offload-arch=* and *-mcpu* options accept a new Target ID syntax. This allows both the processor and target      feature settings to be specified. 
-   
-   For more details, refer to
-
-   https://llvm.org/docs/AMDGPUUsage.html#amdgpu-target-id
-
-   -  If a target feature is not specified, it defaults to a new concept of "any". The compiler, then, produces code, which executes on a target configured for           either value of the setting impacting the overall performance. It is recommended to explicitly specify the setting for more efficient performance.
-
-   -  In particular, the setting for XNACK now defaults to produce less performant code than previous ROCm releases.
-
-   -  The legacy clang *-mxnack*, *-mno-xnack*, *-msram-ecc*, and *-mno-sram-ecc* options are deprecated. They are still supported, however, they will be removed in       a future release.
-
-   -  The new Target ID syntax renames the SRAM ECC feature from *sram-ecc* to *sramecc*.
-
--  The clang offload bundler uses the new offload hipv4 for HIP code object version 4. For more information, see
-   https://clang.llvm.org/docs/ClangOffloadBundler.html
-
--  ROCm v4.1 corrects code object loading to enforce target feature settings of the code object to match the setting of the agent. It
-   also corrects the recording of target feature settings in the code object. As a consequence, the legacy code objects may no longer load
-   due to mismatches.
-
--  gfx802, gfx803, and gfx805 do not support the XNACK target feature in the ROCm v4.1 release.
-
-
-New Code Object Tools
-======================
-
-AMD ROCm v4.1 provides new code object tools *roc-obj-ls* and *roc-obj-extract*. These tools allow for the listing and extraction of
-AMD GPU ROCm code objects that are embedded in HIP executables and shared objects. Each tool supports a *-help* option that provides more
-information.
-
-Refer to the HIP Programming Guide v4.1 for additional information and examples.
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.1.pdf
-
-.. note::
-
-The extractkernel tool in previous AMD ROCm releases has been removed from the AMD ROCm v4.1 release and will no longer be supported.
-
-.. note::
-
-The roc-obj-ls and roc-obj-extract tools may generate an error about the following missing Perl modules:
-
--  File::Which
--  File::BaseDir
--  File::Copy
--  URI::Encode
-
-This error is due to the missing dependencies in the hip-base installer package. As a workaround, you may use the following instructions to
-install the Perl modules:
-
-*Ubuntu*
+For example,
 
 ::
 
-    apt-get install libfile-which-perl libfile-basedir-perl libfile-copy-recursive-perl liburi-encode-perl
+            #if (defined(__HIP_PLATFORM_AMD__)) && !(defined(__HIP_PLATFORM_NVIDIA__))
 
+            #include <hip/amd_detail/hip_complex.h>
 
-*CentOS*
+            #elif !(defined(__HIP_PLATFORM_AMD__)) && (defined(__HIP_PLATFORM_NVIDIA__))
 
-::
-
-    “sudo yum install perl-File-Which perl-File-BaseDir perl-File-Copy-Recursive perl-URI-Encode” 
-    
-For CentOS8.3: 
+            #include <hip/nvidia_detail/hip_complex.h>
 
 ::
 
-      sudo yum config-manager --set-enabled powertools
-     
+Updated HIP 'Include' Directories
+==================================
 
-*RHEL*
+In the ROCm v4.2 release, HIP *include* header directories for platforms are updated as follows:
 
-::
+-  *amd_detail/* - includes source header details for the 'amd' platform implementation. In previous releases, the 'hcc_detail' directory was
+   defined, and it it is now deprecated.
 
-   sudo yum install perl-File-Which perl-File-BaseDir perl-File-Copy-Recursive perl-URI-Encode 
-   
-
-For RHEL8.3: 
-
-::
-
-      sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+-  *nvidia_detail/* - includes source header details for the 'nvidia' platform implementation. In previous releases, the 'nvcc_detail'
+   directory was defined, and it is now deprecated.
 
 
-*SLES 15 SP2*
+HIP Stream Memory Operations
+=============================
 
-::
+The ROCm v4.2 extends support to Stream Memory Operations to enable direct synchronization between Network Nodes and GPU. The following new
+APIs are added:
 
-       sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+-  hipStreamWaitValue32
+-  hipStreamWaitValue64
+-  hipStreamWriteValue32
+-  hipStreamWriteValue64
+
+For more details, see the HIP API guide at
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
+
+
+HIP Events in Kernel Dispatch
+===============================
+
+HIP events in kernel dispatch using *hipExtLaunchKernelGGL/hipExtLaunchKernel* and passed in the API are not 
+explicitly recorded and should only be used to get elapsed time for that specific launch.
+
+Events used across multiple dispatches, for example, start and stop events from different *hipExtLaunchKernelGGL/hipExtLaunchKernel* calls,
+are treated as invalid unrecorded events. In such scenarios, HIP will display the error *hipErrorInvalidHandle* from *hipEventElapsedTime*.
+
+For more details, refer to the HIP API Guide at
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
+
+
+Changed Environment Variables for HIP
+======================================
+
+In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for
+compiling Heterogeneous-Compute Interface for Portability (HIP) programs. In addition, the HIP runtime API was implemented on top of
+Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different
+runtime backends such as ROCr.
+
+While the HIP_PLATFORM=hcc environment variable was functional in subsequent releases, in the ROCm v4.1 release, the following environment
+variables were changed:
+
+-  *HIP_PLATFORM=hcc to HIP_PLATFORM=amd*
+
+-  *HIP_PLATFORM=nvcc to HIP_PLATFORM=nvidia*
+
+Therefore, any applications continuing to use the *HIP_PLATFORM=hcc* variable will fail. You must update the environment variables to reflect
+the changes as mentioned above.
+
        
 
 ROCm Data Center Tool
 ---------------------
 
-Grafana Integration
-====================
+RAS Integration
+================
 
-The ROCm Data Center (RDC) Tool is enhanced with the Grafana plugin. Grafana is a common monitoring stack used for storing and visualizing
-time series data. Prometheus acts as the storage backend, and Grafana is used as the interface for analysis and visualization. Grafana has a
-plethora of visualization options and can be integrated with Prometheus for the ROCm Data Center (RDC) dashboard.
+The ROCm Data Center (RDC) Tool is enhanced with the Reliability, Accessibility, and Serviceability (RAS) plugin.
 
-For more information about Grafana integration and installation, refer to the ROCm Data Center Tool User guide at:
+For more information about RAS integration and installation, refer to the ROCm Data Center Tool User guide at:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.1.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.2.pdf
+
 
 
 ROCm Math and Communication Libraries
 -------------------------------------
 
-rocSPARSE
-===========
+rocBLAS
+=========
 
-rocSPARSE extends support for:
+Enhancements and fixes:
 
--  gebsrmm
--  gebsrmv
--  gebsrsv
--  coo2dense and dense2coo
--  generic API including axpby, gather, scatter, rot, spvv, spmv, spgemm, sparsetodense, densetosparse
--  mixed indexing types in matrix formats
+-  Added option to install script to build only rocBLAS clients with a
+   pre-built rocBLAS library
 
-For more information, see
+-  Supported gemm ext for unpacked int8 input layout on gfx908 GPUs
 
-https://rocsparse.readthedocs.io/en/latest/
+   -  Added new flags rocblas_gemm_flags::rocblas_gemm_flags_pack_int8x4 to specify if using the packed layout
+
+      -  Set the rocblas_gemm_flags_pack_int8x4 when using packed int8x;, this should be always set on GPUs before gfx908
+
+      -  For gfx908 GPUs, unpacked int8 is supported. Setting of this flag is no longer required
+
+      -  Notice the default flags 0 uses unpacked int8 and changes the behaviour of int8 gemm from ROCm 4.1.0
+
+-  Added a query function rocblas_query_int8_layout_flag to get the preferable layout of int8 for gemm by device
+
+For more information, refer to
+
+https://rocblas.readthedocs.io/en/master/
+
+rocRAND
+=========
+
+-  Performance fixes
+
+For more information, refer to
+
+https://rocrand.readthedocs.io/en/latest/
+
 
 rocSOLVER
 ===========
 
-rocSOLVER extends support for:
+Support for:
 
--  Eigensolver routines for symmetric/hermitian matrices:
+-  Multi-level logging functionality
 
-   -  STERF, STEQR
+-  Implementation of the Thin-SVD algorithm
 
--  Linear solvers for general non-square systems:
+-  Reductions of generalized symmetric- and hermitian-definite
+   eigenproblems:
 
-   -  GELS (API added with batched and strided_batched versions. Only the overdetermined non-transpose case is implemented in this
-      release. Other cases will return rocblas_status_not_implemented status for now.)
+   -  SYGS2, SYGST (with batched and strided_batched versions)
+   -  HEGS2, HEGST (with batched and strided_batched versions)
 
--  Extended test coverage for functions returning information
+-  Symmetric and hermitian matrix eigensolvers:
 
--  Changelog file
+   -  SYEV (with batched and strided_batched versions)
+   -  HEEV (with batched and strided_batched versions)
 
--  Tridiagonalization routines for symmetric and hermitian matrices:
+-  Generalized symmetric- and hermitian-definite eigensolvers:
 
-   -  LATRD
-   -  SYTD2, SYTRD (with batched and strided_batched versions)
-   -  HETD2, HETRD (with batched and strided_batched versions)
+   -  SYGV (with batched and strided_batched versions)
+   -  HEGV (with batched and strided_batched versions)
 
--  Sample code and unit test for unified memory model/Heterogeneous Memory Management (HMM)
-
-For more information, see
+For more information, refer to
 
 https://rocsolver.readthedocs.io/en/latest/
 
-hipCUB
-=========
 
-The new iterator DiscardOutputIterator in hipCUB represents a special kind of pointer that ignores values written to it upon dereference. It
-is useful for ignoring the output of certain algorithms without wasting memory capacity or bandwidth. DiscardOutputIterator may also be used to
-count the size of an algorithm's output, which was not known previously.
+rocSPARSE
+===========
 
-For more information, see
+Enhancements:
 
-https://hipcub.readthedocs.io/en/latest/
+-  SpMM (CSR, COO)
+-  Code coverage analysis
 
+For more information, refer to
 
-HIP Enhancements
-----------------
-
-Support for hipEventDisableTiming Flag
-=======================================
-
-HIP now supports the hipEventDisableTiming flag for hipEventCreateWithFlags. Note, events created with this flag do not
-record profiling data and provide optimal performance when used for synchronization.
-
-Cooperative Group Functions
-===============================
-
-Cooperative Groups defines, synchronizes, and communicates between groups of threads and blocks for efficiency and ease of management. HIP
-now supports the following kernel language Cooperative Groups types and functions:
+https://rocsparse.readthedocs.io/en/latest/usermanual.html#rocsparse-gebsrmv
 
 
+hipSPARSE
+==========
 
-.. image:: images/CGMain.PNG
+Enhancements:
 
-   
+-  Generic API support, including SpMM (CSR, COO)
+-  csru2csr, csr2csru
 
+For more information, refer to
 
-
-Support for Extern Shared Declarations
-========================================
-
-Previously, it was required to declare dynamic shared memory using the HIP_DYNAMIC_SHARED macro for accuracy as using static shared memory in
-the same kernel could result in overlapping memory ranges and data-races. Now, the HIP-Clang compiler provides support for extern
-shared declarations, and the HIP_DYNAMIC_SHARED option is no longer required.
-
-You may use the standard extern definition:
-
-::
-
-   extern __shared__ type var[];
+https://rocsparse.readthedocs.io/en/latest/usermanual.html#types
 
 
-OpenMP Enhancements and Fixes
------------------------------
+Fixed Defects
+---------------
 
-This release includes the following OpenMP changes:
+Performance Impact for LDS-BOUND Kernels
+==========================================
 
--  Usability Enhancements
--  Fixes to Internal Clang Math Headers
--  OpenMP Defect Fixes
+The following issue is fixed in the ROCm v4.2 release.
 
-Usability Enhancements
-========================
-
--  OMPD updates for flang
--  To support OpenMP debugging, the selected OpenMP runtime sources are
-   included in lib-debug/src/openmp. The ROCgdb debugger will find these
-   automatically.
--  Threadsafe hsa plugin for libomptarget
--  Support multiple devices with malloc and hostrpc
--  Improve hostrpc version check
--  Add max reduction offload feature to flang
--  Integration of changes to support HPC Toolkit
--  Support for fprintf
--  Initial support for GPU malloc and Free. The internal (device rtl) is
-   required for GPU malloc and Free for nested parallelism.
-   GPU malloc and Free are now replaced, which improves the device
-   memory footprint.
--  Increase detail of debug printing controlled by
-   LIBOMPTARGET_KERNEL_TRACE environment variable
--  Add support for -gpubnames in Flang Driver
--  Increase detail of debug printing controlled by
-   LIBOMPTARGET_KERNEL_TRACE environment variable
--  Add support for -gpubnames in Flang Driver
-
-Fixes to Internal Clang Math Headers
-=========================================
-
-This release includes a set of changes applied to Clang internal headers
-to support OpenMP C, C++, FORTRAN, and HIP C. This establishes
-consistency between NVPTX and AMDGCN offloading, and OpenMP, HIP, and
-CUDA. OpenMP uses function variants and header overlays to define device
-versions of functions. This causes Clang LLVM IR codegen to mangle names
-of variants in both the definition and callsites of functions defined in
-the internal Clang headers. The changes apply to headers found in the
-installation subdirectory lib/clang/11.0.0/include.
-
-The changes also temporarily eliminate the use of the libm bitcode
-libraries for C and C++. Although math functions are now defined with
-internal clang headers, a bitcode library of the C functions defined in
-the headers is still built for the FORTRAN toolchain linking. This is
-because FORTRAN cannot use C math headers. This bitcode library is
-installed in lib/libdevice/libm-.bc. The source build of the bitcode
-library is implemented with the aomp-extras repository and the
-component-built script build_extras.sh.
-
-OpenMP Defect Fixes
-=======================
-The following OpenMP defects are fixed in this release:
-
--  Openmpi configuration issue with real16.
--  [flang] The AOMP 11.7-1 Fortran compiler claims to support the
-   -isystem flag, but ignores it.
--  [flang] producing internal compiler error when the character is used
-   with KIND.
--  [flang] openmp map clause on complex allocatable expressions !$omp
-   target data map( chunk%tiles(1)%field%density0).
--  Add a fatal error if missing -Xopenmp-target or -march options when
-   -fopenmp-targets is specified. However, this requirement is not
-   applicable for offloading to the host when there is only a single
-   target and that target is the host.
--  Openmp error message output for no_rocm_device_lib was asserting.
--  Linkage on constant per-kernel symbols from external to
-   weaklinkageonly to prevent duplicate symbols when building kokkos.
--  Add environment variables ROCM_LLD_ARGS ROCM_LINK_ARGS
-   ROCM_SELECT_ARGS to test driver options without compiler rebuild.
--  Fix problems with device math functions being ambiguous, especially
-   the pow function.ix aompcc to accept file type cxx.
--  Fix a latent race between host runtime and devicertl.
-
-MIOpen Tensile Integration
---------------------------
-
-MIOpenTensile provides host-callable interfaces to the Tensile library
-and supports the HIP programming model. You may use the Tensile feature
-in the HIP backend by setting the building environment variable value to
-ON.
-
-::
-
-   MIOPEN_USE_MIOPENTENSILE=ON
-
-MIOpenTensile is an open-source collaboration tool where external
-entities can submit source pull requests (PRs) for updates.
-MIOpenTensile maintainers review and approve the PRs using standard
-open-source practices.
-
-For more information about the sources and build system, see
-
-https://github.com/ROCmSoftwarePlatform/MIOpenTensile
-
+The compiler in ROCm v4.1 generates LDS load and stores instructions that incorrectly assume equal performance between aligned and misaligned
+accesses. While this does not impact code correctness, it may result in sub-optimal performance.
 
 
 
@@ -613,58 +401,57 @@ Known Issues
 
 The following are the known issues in this release.
 
-Upgrade to AMD ROCm v4.1 Not Supported
+Upgrade to AMD ROCm v4.2 Not Supported
 ==========================================
 
-An upgrade from previous releases to AMD ROCm v4.1 is not supported. A complete uninstallation of previous ROCm versions is required before
+An upgrade from previous releases to AMD ROCm v4.2 is not supported. Complete uninstallation of previous ROCm versions is required before
 installing a new version of ROCm.
 
-Performance Impact for Kernel Launch Bound Attribute
-=========================================================
 
-Kernels without the **launch_bounds** attribute assume the default maximum threads per block value. In the previous ROCm release, this
-value was 256. In the ROCm v4.1 release, it is changed to 1024. The objective of this change ensures the actual threads per block value used
-to launch a kernel, by default, are always within the launch bounds, thus, establishing the correctness of HIP programs.
+Modulefile Fails to Install Automatically in ROCm Multi-Version Environment
+============================================================================
 
-**NOTE**: Using the above-mentioned approach may incur performance degradation in certain cases. Users must add a minimum launch bound to
-each kernel, which covers all possible threads per block values used to launch that kernel for correctness and performance.
+The ROCm v4.2 release includes a preliminary implementation of environment modules to enable switching between multi versions of ROCm
+installation. The modulefile in */opt/rocm-4.2/lib/rocmmod* fails to install automatically in the ROCm multi-version environment.
 
-The recommended workaround to recover the performance is to add *“gpu-max-threads-per-block=256* to the compilation options for HIP
-programs.
+This is a known limitation for environment modules in ROCm, and the issue is under investigation at this time.
 
-Issue with Passing a Subset of GPUs in a Multi-GPU System
-============================================================
+**Workaround**
 
-ROCm support for passing individual GPUs via the docker *--device* flag in a Docker run command has a known issue when passing a subset of GPUs in
-a multi-GPU system. The command runs without any warning or error notification. However, all GPU executable run outputs are randomly
-corrupted.
+Ensure you install the modulefile in */opt/rocm-4.2/lib/rocmmod* manually in a multi-version installation environment.
 
-Using GPU targeting via the Docker command is not recommended for users of ROCm 4.1. There is no workaround for this issue currently.
+For general information about modules, see
 
-Performance Impact for LDS-Bound Kernels
-============================================
-
-The compiler in ROCm v4.1 generates LDS load and stores instructions that incorrectly assume equal performance between aligned and misaligned
-accesses. While this does not impact code correctness, it may result in sub-optimal performance.
-
-This issue is under investigation, and there is no known workaround at this time.
+http://modules.sourceforge.net/
 
 
-Changed HIP Environment Variables in ROCm v4.1 Release
-=======================================================
+Issue with Input/Output Types for Scan Algorithms in rocThrust
+=================================================================
 
-In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for compiling Heterogeneous-Compute Interface for Portability (HIP) programs. Also, the HIP runtime API was implemented on top of the Radeon Open Compute Common Language runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different runtime backends such as ROCr. 
+As rocThrust is updated to match CUDA Thrust 1.10, the different input/output types for scan algorithms in rocThrust/CUDA Thrust are no
+longer officially supported. In this situation, the current C++ standard does not specify the intermediate accumulator type leading to
+potentially incorrect results and ill-defined behavior.
 
-While the *HIP_PLATFORM=hcc* environment variable was functional in subsequent releases after ROCm v3.5, in the ROCm v4.1 release, changes to the following environment variables were implemented: 
+As a workaround, users can:
 
-* *HIP_PLATFORM=hcc was changed to HIP_PLATFORM=amd*
+-  Use the same types for input and output
 
-* *HIP_PLATFORM=nvcc was changed to HIP_PLATFORM=nvidia*
+Or
 
-Therefore, any applications continuing to use the HIP_PLATFORM=hcc environment variable will fail.
+-  For exclusive_scan, explicitly specify an *InitialValueType* in the last argument
 
-**Workaround:**  Update the environment variables to reflect the changes mentioned above.
+Or
 
+-  For inclusive_scan, which does not have an initial value argument, use a transform_iterator to explicitly cast the input iterators to
+   match the output's value_type
+   
+   
+Precision Issue in AMD RADEON™ PRO VII and AMD RADEON™ VII
+==============================================================
+
+In AMD RADEON™ Pro VII AND AMD RADEON™ VII, a precision issue can occur when using the Tensorflow XLA path.
+
+This issue is currently under investigation.
 
 
 Deprecations
@@ -682,7 +469,7 @@ also deprecated with no announced removal release.
 Driver Compability Issue in ROCm v4.1
 ========================================
 
-In certain scenarios, the ROCm 4.1 run-time and userspace environment are not compatible with ROCm v4.0 and older driver implementations for 7nm-based (Vega 20) hardware (MI50 and MI60). 
+In certain scenarios, the ROCm v4.1 or higher run-time and userspace environment are not compatible with ROCm v4.0 and older driver implementations for 7nm-based (Vega 20) hardware (MI50 and MI60). 
 
 To mitigate issues, the ROCm v4.1 or newer userspace prevents running older drivers for these GPUs.
 
@@ -705,7 +492,7 @@ To test the compatibility, run the ROCm v4.1 version of rocminfo using the follo
 Containers
 ------------
 
-A container (built with error detection for this issue) using a ROCm v4.1 or newer run-time is initiated to execute on an older kernel. The container fails to start and the following warning appears:
+A container (built with error detection for this issue) using a ROCm v4.1/higher or newer run-time is initiated to execute on an older kernel. The container fails to start and the following warning appears:
 
 *Error: Incompatible ROCm environment. The Docker container requires the latest kernel driver to operate correctly. Upgrade the ROCm kernel to v4.1 or newer, or use a container tagged for v4.0.1 or older.*
 
@@ -733,14 +520,4 @@ For more information on ROCM installation on all platforms, see
 
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
-
-DISCLAIMER 
-============
-The information contained herein is for informational purposes only, and is subject to change without notice. In addition, any stated support is planned and is also subject to change. While every precaution has been taken in the preparation of this document, it may contain technical inaccuracies, omissions and typographical errors, and AMD is under no obligation to update or otherwise correct this information. Advanced Micro Devices, Inc. makes no representations or warranties with respect to the accuracy or completeness of the contents of this document, and assumes no liability of any kind, including the implied warranties of noninfringement, merchantability or fitness for particular purposes, with respect to the operation or use of AMD hardware, software or other products described herein. No license, including implied or arising by estoppel, to any intellectual property rights is granted by this document. Terms and limitations applicable to the purchase or use of AMD’s products are as set forth in a signed agreement between the parties or in AMD's Standard Terms and Conditions of Sale.
-
-* AMD®, the AMD Arrow logo, AMD Instinct™, Radeon™, ROCm® and combinations thereof are trademarks of Advanced Micro Devices, Inc. 
-
-* Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
-
-* PCIe® is a registered trademark of PCI-SIG Corporation. Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 

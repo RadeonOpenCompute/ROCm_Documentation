@@ -121,9 +121,9 @@ See https://github.com/ROCm-Developer-Tools/ROCclr
 
 ::
 
-   	git clone -b rocm-4.1.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+   	git clone -b rocm-4.2.x https://github.com/ROCm-Developer-Tools/ROCclr.git
 	export ROCclr_DIR="$(readlink -f ROCclr)"
-	git clone -b rocm-4.1.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+	git clone -b rocm-4.2.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
 	export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
 	cd "$ROCclr_DIR"
 	mkdir -p build;cd build
@@ -139,7 +139,7 @@ Build HIP
 
 ::
 
-   	git clone -b rocm-4.1.x https://github.com/ROCm-Developer-Tools/HIP.git
+   	git clone -b rocm-4.2.x https://github.com/ROCm-Developer-Tools/HIP.git
 	export HIP_DIR="$(readlink -f HIP)"
 	cd "$HIP_DIR"
 	mkdir -p build; cd build
