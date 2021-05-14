@@ -257,14 +257,14 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 ::
 
-     /opt/rocm/bin/rocminfo
-     /opt/rocm/opencl/bin/clinfo
+     /opt/rocm-4.2.0/bin/rocminfo
+     /opt/rocm-4.2.0/opencl/bin/clinfo
 
 Note: To run the ROCm programs, add the ROCm binaries in your PATH.
 
 ::
 
-    echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/rocprofiler/bin:/opt/rocm/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
+    echo 'export PATH=$PATH:/opt/rocm-4.2.0/bin:/opt/rocm-4.2.0/rocprofiler/bin:/opt/rocm-4.2.0/opencl/bin' | sudo tee -a /etc/profile.d/rocm.sh
 
 
 Uninstalling ROCm Packages from Ubuntu
