@@ -15,7 +15,7 @@ Now, users have the option to install multiple versions simultaneously and toggl
 **Prerequisites**
 ###############################
 
-Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the v4.0 ROCm toolkit installation. The ROCm v4.0 package requires a clean installation.
+Ensure the existing installations of ROCm, including */opt/rocm*, are completely removed before the ROCm toolkit installation. The ROCm package requires a clean installation.
 
 * To install a single instance of ROCm, use the rocm-dkms or rocm-dev packages to install all the required components. This creates a symbolic link */opt/rocm* pointing to the corresponding version of ROCm installed on the system. 
 
@@ -55,9 +55,9 @@ A fresh installation of single-version installation will install the new version
 
 For example,
 
-  * rocm-dev4.0.0
+  * rocm-dev4.2.0
 
-  * hip4.0.0
+  * hip4.2.0
 
 * kernel/firmware package doesn't have multi version so it should be installed using "apt/yum/zypper install rock-dkms".
 
