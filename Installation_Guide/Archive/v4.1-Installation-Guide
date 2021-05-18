@@ -499,7 +499,7 @@ For more information, refer to https://www.suse.com/support/kb/doc/?id=000016939
 ::
 
 		sudo zypper clean –all
-		sudo zypper addrepo https://repo.radeon.com/rocm/yum/4.1/
+		sudo zypper addrepo https://repo.radeon.com/rocm/zyp/4.1/
 		sudo zypper ref
 		sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
 		sudo zypper --gpg-auto-import-keys install rocm-dkms
