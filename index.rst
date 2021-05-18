@@ -167,7 +167,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    GCN_ISA_Manuals/GCN-ISA-Manuals
    ROCm_Glossary/ROCm-Glossary
    Remote_Device_Programming/Remote-Device-Programming
-   Archive/
+   Archive/v4.1-Installatioin-Guide
    
 
 
