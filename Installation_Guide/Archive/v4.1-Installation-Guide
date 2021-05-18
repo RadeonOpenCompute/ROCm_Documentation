@@ -141,6 +141,12 @@ Complete uninstallation of previous ROCm versions is required before installing 
 
 **Note**: After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
+**Note**: render group is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use video group. 
+
+* For ROCm v3.5 and releases thereafter, the clinfo path is changed to /opt/rocm/opencl/bin/clinfo. 
+
+* For ROCm v3.3 and older releases, the clinfo path remains /opt/rocm/opencl/bin/x86_64/clinfo. 
+
 
 Multi-version Installation Updates
 ======================================
