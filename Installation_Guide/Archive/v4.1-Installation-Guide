@@ -372,7 +372,7 @@ To install ROCm on your system, follow the instructions below:
 
     [ROCm] 
     name=ROCm
-    baseurl=https://repo.radeon.com/rocm/yum/rpm
+    baseurl=https://repo.radeon.com/rocm/yum/4.1/
     enabled=1
     gpgcheck=1
     gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
@@ -499,7 +499,7 @@ For more information, refer to https://www.suse.com/support/kb/doc/?id=000016939
 ::
 
 		sudo zypper clean –all
-		sudo zypper addrepo https://repo.radeon.com/rocm/zyp/zypper/ rocm
+		sudo zypper addrepo https://repo.radeon.com/rocm/yum/4.1/
 		sudo zypper ref
 		sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
 		sudo zypper --gpg-auto-import-keys install rocm-dkms
