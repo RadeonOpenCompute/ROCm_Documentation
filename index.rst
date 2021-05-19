@@ -168,8 +168,13 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    GCN_ISA_Manuals/GCN-ISA-Manuals
    ROCm_Glossary/ROCm-Glossary
    Remote_Device_Programming/Remote-Device-Programming
-   Installation_Guide/v4-1_Installation_Guide
+  
    
 
-
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: Archived Documentation 
+   
+   Archived_Documentation/4_1_Installation_Guide.rst
    
