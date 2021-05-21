@@ -42,10 +42,6 @@ Introduction
 The AMD Debugger API (ROCdbgapi) is a library that provides all the support necessary for a debugger and other tools to perform low level control of
 the execution and inspection of execution state of AMD™ commercially available GPU architectures.
 
-For the AMD Debugger User Guide, see
-
-- https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Debugger_User_Guide_v4.2.pdf
-
 For the AMD Debugger API Guide, see
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Debugger_API_Guide_v4.2.pdf
