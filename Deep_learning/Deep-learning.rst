@@ -372,16 +372,16 @@ This step is optional but most PyTorch scripts will use torchvision to load mode
 Option 3: Install using minimal ROCm docker file
 ************************************************
 
-1. Download pytorch dockerfile:
+1. Download dockerfile based on the OS choose:
+Recommend to use - Dockerfile-<OS distro>-complete to get all the ROCm Math libs installed which are required for PyTorch.
 
-`Dockerfile <https://github.com/ROCmSoftwarePlatform/pytorch/wiki/Dockerfile>`_
+`Dockerfile <https://github.com/RadeonOpenCompute/ROCm-docker/tree/master/dev>`_
 
 2. Build docker image:
 
 ::
 
-  cd pytorch_docker
-  sudo docker build .
+  sudo docker build -f ./Dockerfile-<OS distro>-complete .
 
 This should complete with a message "Successfully built <image_id>"
 
@@ -407,18 +407,18 @@ Note: This will mount your host home directory on /data in the container.
 
 ::
 
-  cd /data/pytorch/
-  python tools/amd_build/build_amd.py
+  python3 tools/amd_build/build_amd.py
 
 6. Build and install pytorch:
 
-Unless you are running a gfx900/Vega10-type GPU (MI25, Vega56, Vega64,...), explicitly export the GPU architecture to build for, e.g.:
-export HCC_AMDGPU_TARGET=gfx906
+By default pytorch is built for all supported AMD GPU targets like gfx803/gfx900/gfx906/gfx908 (MI25, MI50, MI60, MI100, ...)
+This can be overwritten using
+export PYTORCH_ROCM_ARCH=gfx803;gfx900
 
 then
 ::
 
-  USE_ROCM=1 MAX_JOBS=4 python setup.py install --user 
+  USE_ROCM=1 MAX_JOBS=4 python3 setup.py install --user
 
 UseMAX_JOBS=n to limit peak memory usage. If building fails try falling back to fewer jobs. 4 jobs assume available main memory of 16 GB or larger.
 
@@ -426,15 +426,14 @@ UseMAX_JOBS=n to limit peak memory usage. If building fails try falling back to 
 
 ::
 
-  PYTORCH_TEST_WITH_ROCM=1 python test/run_test.py --verbose
+  PYTORCH_TEST_WITH_ROCM=1 python3 test/run_test.py --verbose
 
 No tests will fail if the compilation and installation is correct.
 
 8. Install torchvision:
 
 ::
-
-  pip install torchvision
+  pip3 install --user "git+https://github.com/pytorch/vision.git"
 
 This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
 
@@ -442,7 +441,7 @@ This step is optional but most PyTorch scripts will use torchvision to load mode
 
 ::
 
-  sudo docker commit <container_id> -m 'pytorch installed'
+  sudo docker commit <container_id> -m <new image name>
 
 Try PyTorch examples
 *************************
