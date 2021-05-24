@@ -251,8 +251,7 @@ Building PyTorch for ROCm
 
 This is a quick guide to setup PyTorch with ROCm support inside a docker container. Assumes a .deb based system. See `ROCm install <https://github.com/RadeonOpenCompute/ROCm#supported-operating-systems---new-operating-systems-available>`_ for supported operating systems and general information on the ROCm software stack.
 
-
-A ROCm install version 3.3 is required currently.
+Note: Currently, ROCm install version 3.3 is required.
 
 1. Install or update rocm-dev on the host system:
 
@@ -287,7 +286,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
   PYTORCH_TEST_WITH_ROCM=1 python3.6 test/run_test.py –-verbose
 
-No tests will fail if the compilation and installation is correct.
+**Note**:  Compilation and installation must be correct for the tests to be successful.
 
 5. Install torchvision:
 
@@ -318,8 +317,9 @@ Option 2: Install using PyTorch upstream docker file
   cd pytorch/docker/caffe2/jenkins
   ./build.sh py2-clang7-rocmdeb-ubuntu16.04
 
-This should complete with a message "Successfully built <image_id>"
-Note here that other software versions may be chosen, such setups are currently not tested though!
+ A message "Successfully built <image_id>" indicates a successful completion of this step.
+
+**Note**: These steps are not tested and validated on other software versions.
 
 3. Start a docker container using the new image:
 
@@ -345,7 +345,7 @@ then
 
   .jenkins/pytorch/build.sh
 
-This will first hipify the PyTorch sources and then compile using 4 concurrent jobs, needing 16 GB of RAM to be available to the docker image.
+This will hipify the PyTorch sources first, and then compile using 4 concurrent jobs. Note, the docker image requires 16 GB of RAM.
 
 6. Confirm working installation:
 
@@ -361,7 +361,7 @@ No tests will fail if the compilation and installation is correct.
 
   pip install torchvision
 
-This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
+This step is optional; however, most PyTorch scripts use torchvision to load models. For example, running the pytorch examples requires torchvision.
 
 8. Commit the container to preserve the pytorch install (from the host):
 
@@ -383,7 +383,7 @@ Recommend to use - Dockerfile-<OS distro>-complete to get all the ROCm Math libs
 
   sudo docker build -f ./Dockerfile-<OS distro>-complete .
 
-This should complete with a message "Successfully built <image_id>"
+The message "Successfully built <image_id>" indicates a successful completion of this step.
 
 3. Start a docker container using the new image:
 
@@ -435,7 +435,7 @@ No tests will fail if the compilation and installation is correct.
 ::
   pip3 install --user "git+https://github.com/pytorch/vision.git"
 
-This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
+This step is optional. However, most PyTorch scripts will use torchvision to load models. For example, running the PyTorch examples requires torchvision.
 
 9. Commit the container to preserve the pytorch install (from the host):
 
@@ -443,8 +443,8 @@ This step is optional but most PyTorch scripts will use torchvision to load mode
 
   sudo docker commit <container_id> -m <new image name>
 
-Try PyTorch examples
-*************************
+PyTorch examples
+*****************
 
 1. Clone the PyTorch examples repository:
 
