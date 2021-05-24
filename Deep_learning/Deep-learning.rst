@@ -411,9 +411,9 @@ Note: This will mount your host home directory on /data in the container.
 
 6. Build and install pytorch:
 
-By default pytorch is built for all supported AMD GPU targets like gfx803/gfx900/gfx906/gfx908 (MI25, MI50, MI60, MI100, ...)
+By default pytorch is built for all supported AMD GPU targets like gfx900/gfx906/gfx908 (MI25, MI50, MI60, MI100, ...)
 This can be overwritten using
-export PYTORCH_ROCM_ARCH=gfx803;gfx900
+export PYTORCH_ROCM_ARCH=gfx900;gfx906;gfx908
 
 then
 ::
