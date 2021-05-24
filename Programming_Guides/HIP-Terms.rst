@@ -1,8 +1,31 @@
 .. _HIP-Terms:
 
-#####################################################
-Table Comparing Syntax for Different Compute APIs
-#####################################################
+##########################################
+Syntax for Different Compute APIs v4.x
+#########################################
+
+Refer to the latest documentation:
+
+HIP Programming Guide
+========================
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html
+
+HIP API Guide
+==============
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP_API_Guide.html
+
+
+HIP-Supported CUDA API Reference Guide 
+=======================================
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP_API_Guide.html#hip-supported-cuda-api-reference-guide-v4-2
+
+
+###########################################################
+Table Comparing Syntax for Different Compute APIs v3.x
+###########################################################
 
 +------------------------+-----------------------+-----------------------+---------------------------------------------------+----------------------------------------------------+---------------------------------+
 | Term                   | CUDA                  | HIP                   | HC                                                | C++AMP                                             | OpenCL                          |
