@@ -26,7 +26,7 @@ The ROCm System Management Interface Library, or ROCm SMI library, is part of th
 
 
 Important note about Versioning and Backward Compatibility
-###########################################################
+===========================================================
 
 The ROCm SMI library is currently under development, and therefore subject to change either at the ABI or API level. The intention is to keep the API as stable as possible even while in development, but in some cases we may need to break backwards compatibility in order to ensure future stability and usability. Following `Semantic Versioning <https://semver.org/>`_ rules, while the ROCm SMI library is in high state of change, the major version will remain 0, and backward compatibility is not ensured.
 
