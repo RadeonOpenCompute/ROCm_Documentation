@@ -9,7 +9,7 @@ ROCm Command Line Interface
 ******************************
 
 Clock and Temperature Management
-######################################
+------------------------------------
 
 This repository includes the AMD ROCm-SMI tool. This tool exposes functionality for clock and temperature management of the  
 ROCm-enabled system.
@@ -357,7 +357,7 @@ The test can run all flags for the SMI, or specific flags can be tested with the
 Any new functionality added to the SMI should have a corresponding test added to the test script.
 
 SDMA Usage Per-process
-#################################
+-----------------------
 
 The SDMA usage per-process is available using the following command,
 
@@ -371,7 +371,7 @@ The SDMA usage per-process is available using the following command,
  
    
 Hardware Topology
-#####################
+------------------
 
 This feature provides a matrix representation of the GPUs present in a system by providing information of the manner in which the nodes are
 connected. 
