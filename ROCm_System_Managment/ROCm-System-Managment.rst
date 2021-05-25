@@ -956,13 +956,9 @@ Cooperative applications can use this to effectively allocate GPU/GCDs among the
 Interaction between ROCR_VISIBLE_DEVICES and CUDA_VISIBLE_DEVICES
 -------------------------------------------------------------------
 
-RVD - ROCR_VISIBLE_DEVICES
+The ROCR_VISIBLE_DEVICES (RVD) environment is defined by ROCm stack to operate at the ROCr level. The ROCr implementation surfaces all GPU devices when users have not explicitly defined the environment. If defined, ROCr surfaces only those GPU devices that fulfil user requests.
 
-CVD - CUDA_VISIBLE_DEVICES
-
-The RVD environment is defined by ROCm stack to operate at the ROCr level. The ROCr implementation surfaces all GPU devices when users have not explicitly defined the environment. If defined, ROCr surfaces only those GPU devices that fulfil user requests.
-
-CVD controls the subset of GPU devcies that are available to an application. It builds on GPU devices surfaced by ROCr. The CVD value is legal only if it is a subset of the GPU device indices surfaced by ROCr.
+CUDA_VISIBLE_DEVICES (CVD) controls the subset of GPU devcies that are available to an application. It builds on GPU devices surfaced by ROCr. The CVD value is legal only if it is a subset of the GPU device indices surfaced by ROCr.
 
 This is best illustrated by the following example:
 
