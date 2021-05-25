@@ -15,9 +15,9 @@ https://github.com/RadeonOpenCompute/ROCm
 
 
 
-*****************
+
 ROCm SMI library
-*****************
+------------------
 
 ROCm System Management Interface (ROCm SMI) Library
 ----------------------------------------------------
@@ -36,7 +36,7 @@ Building ROCm SMI
 ------------------
 
 Additional Required software for building
-##########################################
+==========================================
 
 In order to build the ROCm SMI library, the following components are required. Note that the software versions listed are what was used in development. Earlier versions are not guaranteed to work:
 
@@ -62,11 +62,10 @@ After the the ROCm SMI library git repository has been cloned to a local Linux m
   $ make install
 
 
-
 The built library will appear in the build folder.
 
-Building the Documentation
-###########################
+Building Documentation
+========================
 
 The documentation PDF file can be built with the following steps (continued from the steps above):
 
@@ -80,8 +79,8 @@ The documentation PDF file can be built with the following steps (continued from
 The reference manual, refman.pdf will be in the latex directory upon a successful build.
 
 
-Building the Tests
-###################
+Building Tests
+===================
 
 In order to verify the build and capability of ROCm SMI on your system and to see an example of how ROCm SMI can be used, you may build and run the tests that are available in the repo. To build the tests, follow these steps:
 
@@ -100,12 +99,12 @@ Usage Basics
 --------------
 
 Device Indices
-##################
+================
 
 Many of the functions in the library take a "device index". The device index is a number greater than or equal to 0, and less than the number of devices detected, as determined by rsmi_num_monitor_devices(). The index is used to distinguish the detected devices from one another. It is important to note that a device may end up with a different index after a reboot, so an index should not be relied upon to be constant over reboots.
 
 Hello ROCm SMI
-###############
+================
 
 The only required ROCm-SMI call for any program that wants to use ROCm-SMI is the rsmi_init() call. This call initializes some internal data structures that will be used by subsequent ROCm-SMI calls.
 
@@ -143,7 +142,7 @@ SYSFS Interface
 ----------------
 
 Naming and data format standards for sysfs files
-##################################################
+=================================================
 
 The libsensors library offers an interface to the raw sensors data through the sysfs interface. Since lm-sensors 3.0.0, libsensors is completely chip-independent. It assumes that all the kernel drivers implement the standard sysfs interface described in this document. This makes adding or updating support for any given chip very easy, as libsensors, and applications using it, do not need to be modified. This is a major improvement compared to lm-sensors 2.
 
@@ -953,6 +952,30 @@ To use devices 0 and 2 from the above-mentioned ROCm platform and to enumerate t
 
 Cooperative applications can use this to effectively allocate GPU/GCDs among themselves.
 
+
+Interaction between ROCR_VISIBLE_DEVICES and CUDA_VISIBLE_DEVICES
+-------------------------------------------------------------------
+
+RVD == ROCR_VISIBLE_DEVICES
+CVD == CUDA_VISIBLE_DEVICES
+
+The RVD environment is defined by ROCm stack to operate at the ROCr level. The ROCr implementation surfaces all GPU devices when users have not explicitly defined the environment. If defined, ROCr surfaces only those GPU devices that fulfil user requests.
+
+CVD controls the subset of GPU devcies that are available to an application. It builds on GPU devices surfaced by ROCr. The CVD value is legal only if it is a subset of the GPU device indices surfaced by ROCr.
+
+This is best illustrated by the following example:
+
+1. Consider a system that has 8 devices - 0, 1, 2, 3, 4, 5, 6, 7
+2. User specifies RVD to select 4 devices - 4, 5, 6, 7
+3. These four devices will be available to application as 0, 1, 2, 3
+
+Note the indices of GPU devices as they become available to an application. Users can specify CVD to select a subset of these 4 devices. For example, they can specify CVD as 1,2 or 1,3 or 0,3 or 3,2 etc
+
+Setting both RVD and CVD is typically unnecessary and may be harmful. Use of both environments can play a role when using multiple GPUs and mixing high level languages within a single process. For example,  if a single Linux process uses both HIP and OpenCL and wants to use two GPUs such that HIP uses one GPU and OpenCL uses the other, then RVD will select the two GPUs that are assigned to the process, and CVD will select a single GPU (index 0 or 1), from those allowed by RVD, for use by HIP.  OpenCL has its own variable enabling it to use the other GPU as allowed by RVD. 
+
+Usually, users will not need per language controls either because the process only runs one language or the languages need to cooperate within the same device and will be best served by RVD alone. 
+
+It is therefore recommended that ROCm applications use RVD.
 
 
 Device cgroup
