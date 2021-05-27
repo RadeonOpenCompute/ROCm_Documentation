@@ -204,7 +204,8 @@ To add future users to the video and render groups, run the following command:
      echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
  
 
-  3. By default, any future users you add to the system must be put in the 'video' group. Use the following commands to add future users to the 'video' group:
+
+3. By default, any future users you add to the system must be put in the 'video' group. Use the following commands to add future users to the 'video' group:
  
  
  ::
