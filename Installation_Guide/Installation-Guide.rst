@@ -166,7 +166,8 @@ The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm i
 **NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
 
-**Setting Permission for Groups** 
+Setting Permissions for Groups 
+======================================
 
 This section provides the steps to add any current user to a video group in order to access GPU resources.
 
