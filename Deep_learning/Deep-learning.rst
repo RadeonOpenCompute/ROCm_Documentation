@@ -433,6 +433,7 @@ No tests will fail if the compilation and installation is correct.
 8. Install torchvision:
 
 ::
+
   pip3 install --user "git+https://github.com/pytorch/vision.git"
 
 This step is optional. However, most PyTorch scripts will use torchvision to load models. For example, running the PyTorch examples requires torchvision.
@@ -441,7 +442,7 @@ This step is optional. However, most PyTorch scripts will use torchvision to loa
 
 ::
 
-  sudo docker commit <container_id> -m <new image name>
+  sudo docker commit <container_id> -m 'pyTorch installed'
 
 PyTorch examples
 *****************
