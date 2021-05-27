@@ -193,12 +193,13 @@ To add future users to the video and render groups, run the following command:
 
 ::
 
-     echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
+     	echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
 
-     echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+     	echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
 
-     echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
+     	echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
      
+  
   
  
  **Note**:  Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues. 
