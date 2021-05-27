@@ -171,7 +171,7 @@ The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm i
 Setting Permissions for Groups 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section provides the steps to add any current user to a video group in order to access GPU resources.
+This section provides steps to add any current user to a video group to access GPU resources.
 
 1. Issue the following command to check the groups in your system:
 
