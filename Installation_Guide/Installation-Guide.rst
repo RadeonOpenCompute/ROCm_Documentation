@@ -166,9 +166,26 @@ The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm i
 **NOTE**: The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
 
 
-**SETTING PERMISSIONS for GROUPS**  
+**Setting Permission for Groups** 
 
-**Note**: *render group* is required only for Ubuntu v20.04. For all other ROCm supported operating systems, continue to use *video group*. By default, you must add any future users to the video and render groups. 
+This section provides the steps to add any current user to a video group in order to access GPU resources.
+
+1. Issue the following command to check the groups in your system:
+
+::
+	groups
+
+
+2. Add yourself to the video group using the following instruction:
+
+::
+	
+	sudo usermod -a -G video $LOGNAME
+	
+	
+For all ROCm supported operating systems, continue to use *video group*. By default, you can add any future users to the video and render groups. 
+
+**Note**: *render group* is required only for Ubuntu v20.04.
 
 To add future users to the video and render groups, run the following command:
 
@@ -182,6 +199,14 @@ To add future users to the video and render groups, run the following command:
      
  
  **Note**:  Before updating to the latest version of the operating system, delete the ROCm packages to avoid DKMS-related issues.
+ 
+ 3. By default, any future users you add to the system must be put in the 'video' group. Use the following commands to add future users to the 'video' group:
+ 
+ ::
+ 
+ 	echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
+	echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+ 
  
     
 Supported Operating Systems
