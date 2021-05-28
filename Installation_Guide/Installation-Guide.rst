@@ -192,7 +192,7 @@ For all ROCm supported operating systems, continue to use *video group*. By defa
 **Note**: *render group* is required only for Ubuntu v20.04.
 
 
-To add future users to the video and render groups, run the following command:
+3. To add future users to the video and render groups, run the following command:
 
 ::
 
