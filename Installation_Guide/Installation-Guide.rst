@@ -248,7 +248,7 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
 
 ::
 
-    sudo apt install wget gpupg2
+    sudo apt install wget gnupg2
 
     wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
 
