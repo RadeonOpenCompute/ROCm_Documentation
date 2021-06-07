@@ -518,7 +518,7 @@ For more information, refer to https://www.suse.com/support/kb/doc/?id=000016939
 ::
 
 		sudo zypper clean –all
-		sudo zypper addrepo https://repo.radeon.com/rocm/zyp/zypper/ rocm
+		sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo 
 		sudo zypper ref
 		sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
 		sudo zypper --gpg-auto-import-keys install rocm-dkms
