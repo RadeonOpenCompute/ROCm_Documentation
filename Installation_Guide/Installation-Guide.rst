@@ -255,6 +255,16 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
     echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
+**Note**: For ROCm v4.1 and lower, use 'xenial main' as shown below
+
+::
+
+wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+
+echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.1/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+
+
+
 **Note**: For developer systems or Docker containers (where it could be beneficial to use a fixed ROCm version), select a versioned repository from: 
 
 https://repo.radeon.com/rocm/apt/
