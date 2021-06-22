@@ -74,48 +74,48 @@ Build and run test
  
 - Python modules: CppHeaderParser, argparse
  
- **Install**
+1. Install *CppHeaderParser, argparse*
  
  ::
  
         sudo pip install CppHeaderParser argparse
         
 
-- CLone development branch of roctracer:
+2. Clone development branch of roctracer:
  
  ::
  
       git clone -b amd-master https://github.com/ROCm-Developer-Tools/roctracer
 
-- Set environment
+3. Set environment
  
  ::
  
       export CMAKE_PREFIX_PATH=/opt/rocm
       
       
-- Use custom HIP version
+4. Use custom HIP version
  
  ::
  
       export HIP_PATH=/opt/rocm/hip
       
 
-- Build roctracer library
+5. Build roctracer library
  
  ::
  
       export CMAKE_BUILD_TYPE=<debug|release> # release by default
       cd <your path>/roctracer && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm .. && make -j <nproc>
 
-- Build and run test
+6. Build and run test
  
  :: 
      
         make mytest
         run.sh
   
-- Install
+7. Install
  
  ::
  
