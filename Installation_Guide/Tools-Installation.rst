@@ -78,7 +78,7 @@ Build and run test
  
  ::
  
-        sudo pip install CppHeaderParser argparse
+       sudo pip install CppHeaderParser argparse
         
 
 2. Clone development branch of roctracer:
