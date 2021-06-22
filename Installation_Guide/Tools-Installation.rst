@@ -79,6 +79,7 @@ Build and run test
  ::
  
         sudo pip install CppHeaderParser argparse
+        
 
  - CLone development branch of roctracer:
  
@@ -98,6 +99,7 @@ Build and run test
  ::
  
       export HIP_PATH=/opt/rocm/hip
+      
 
  - Build roctracer library
  
@@ -109,13 +111,16 @@ Build and run test
  - Build and run test
  
  :: 
-      make mytest
-      run.sh
+     
+        make mytest
+        run.sh
   
  Install
  
  ::
  
-      make install
+        make install
+        
  or
-      make package && dpkg -i *.deb
+ 
+       make package && dpkg -i *.deb
