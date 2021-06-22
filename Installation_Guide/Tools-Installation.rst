@@ -40,18 +40,18 @@ To use the rocTX API, you need the API header to link your application with roct
 Library source tree
 =====================
 
- - doc - documentation
+- doc - documentation
 
- - inc/roctracer.h - rocTacer library public API header
+- inc/roctracer.h - rocTacer library public API header
  
- - inc/roctx.h - rocTX library puiblic API header
+- inc/roctx.h - rocTX library puiblic API header
  
- - src  - Library sources
+- src  - Library sources
    - core - rocTracer library API sources
    - roctx - rocTX library API sources
    - util - library utils sources
    
- - test - test suit
+- test - test suit
    - MatrixTranspose - test based on HIP MatrixTranspose sample
 
 API Description
@@ -70,9 +70,9 @@ Build and run test
 
 **Prequisites**
 
- - ROCm 
+- ROCm 
  
- - Python modules: CppHeaderParser, argparse
+- Python modules: CppHeaderParser, argparse
  
  **Install**
  
@@ -81,46 +81,48 @@ Build and run test
         sudo pip install CppHeaderParser argparse
         
 
- - CLone development branch of roctracer:
+- CLone development branch of roctracer:
  
  ::
  
       git clone -b amd-master https://github.com/ROCm-Developer-Tools/roctracer
 
- - Set environment
+- Set environment
  
  ::
  
       export CMAKE_PREFIX_PATH=/opt/rocm
       
       
- - Use custom HIP version
+- Use custom HIP version
  
  ::
  
       export HIP_PATH=/opt/rocm/hip
       
 
- - Build roctracer library
+- Build roctracer library
  
  ::
  
       export CMAKE_BUILD_TYPE=<debug|release> # release by default
       cd <your path>/roctracer && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm .. && make -j <nproc>
 
- - Build and run test
+- Build and run test
  
  :: 
      
         make mytest
         run.sh
   
- Install
+- Install
  
  ::
  
         make install
         
  or
+ 
+ ::
  
        make package && dpkg -i *.deb
