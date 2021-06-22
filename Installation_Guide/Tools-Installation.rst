@@ -1,8 +1,11 @@
+.. image:: amdblack.jpg
+
 
 
 ========================
 Tools Installation
 =======================
+
 
 ROCTracer 
 -----------
