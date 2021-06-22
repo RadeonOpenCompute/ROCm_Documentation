@@ -1,8 +1,11 @@
 
 
-===========
+========================
+Tools Installation
+=======================
+
 ROCTracer 
-===========
+-----------
 
 ROC-tracer library: Runtimes Generic Callback/Activity APIs.
 
@@ -12,7 +15,7 @@ The following API provides the functionality to register runtimes API callbacks 
 
 
 ROC-TX library: code annotation events API
--------------------------------------------
+===========================================
 
 **Includes basic API**: roctxMark, roctxRangePush, roctxRangePop.
 
