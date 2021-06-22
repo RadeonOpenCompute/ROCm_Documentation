@@ -1,7 +1,6 @@
 .. image:: amdblack.jpg
 
 
-
 ====================
 Tools Installation
 ====================
