@@ -27,7 +27,7 @@ Usage
 ======
 
 rocTracer API
-==============
+###############
 
 To use the rocTracer API, you need the API header to link your application with roctracer .so librray:
 
@@ -36,7 +36,7 @@ To use the rocTracer API, you need the API header to link your application with 
 - .so library: */opt/rocm/lib/libroctracer64.so*
 
 rocTX API
-==========
+############
 
 To use the rocTX API, you need the API header to link your application with roctx .so librray:
 
@@ -45,7 +45,7 @@ To use the rocTX API, you need the API header to link your application with roct
 - .so library: */opt/rocm/lib/libroctx64.so*
 
 Library source tree
-=====================
+#####################
 
 - doc - documentation
 
@@ -62,18 +62,18 @@ Library source tree
    - MatrixTranspose - test based on HIP MatrixTranspose sample
 
 API Description
-================
+#################
 
 'roctracer' / 'rocTX' profiling C API specification
 
 Code examples
-===============
+###############
 
 - test/MatrixTranspose_test/MatrixTranspose.cpp
 - test/MatrixTranspose/MatrixTranspose.cpp
 
 Build and run test
-====================
+####################
 
 **Prequisites**
 
