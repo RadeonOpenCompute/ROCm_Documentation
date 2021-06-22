@@ -75,7 +75,7 @@ Code examples
 Build and run test
 ####################
 
-**Prequisites**
+Prequisites
 
 - ROCm 
  
