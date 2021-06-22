@@ -20,10 +20,11 @@ The following API provides the functionality to register runtimes API callbacks 
 ROC-TX library: code annotation events API
 ===========================================
 
-**Includes basic API**: roctxMark, roctxRangePush, roctxRangePop.
+**Includes basic API**: roctxMark, roctxRangePush, roctxRangePop
+
 
 Usage
---------
+======
 
 rocTracer API
 ==============
