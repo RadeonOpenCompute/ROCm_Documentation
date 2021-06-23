@@ -25,26 +25,26 @@ ROCm™ Learning Center offers resources to developers looking to tap the power 
 Happy learning!!
 
 Getting Started
------------------
+=================
 
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
 Fundamentals of HIP Programming
----------------------------------
+===================================
 
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
 From CUDA to HIP
------------------
+==================
 
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
 Deep Learning on ROCm
-----------------------------
+===========================
 
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 
 Multi-GPU Programming
--------------------------
+========================
 
 https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
