@@ -111,8 +111,9 @@ Prequisites
  
  ::
  
-      export CMAKE_BUILD_TYPE=<debug|release> # release by default
-      cd <your path>/roctracer && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm .. && make -j <nproc>
+    export CMAKE_BUILD_TYPE=<debug|release> # release by default
+    cd <your path>/roctracer && BUILD_DIR=build HIP_VDI=1 ./build.sh
+
 
 6. Build and run test
  
