@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 |
 
-Welcome to AMD ROCm Platform
+Welcome to AMD ROCm™ Platform
 =============================
 
 AMD ROCm is the first open-source software development platform for HPC/Hyperscale-class GPU computing. AMD ROCm brings the UNIX philosophy of choice, minimalism and modular software development to GPU computing. 
