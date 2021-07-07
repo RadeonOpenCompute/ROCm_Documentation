@@ -45,7 +45,7 @@ Index
 	* :ref:`Compiler-Impact`
 	* :ref:`CU-and-EU-Definitions`
 	* :ref:`Porting-from-CUDA-__launch_bounds`
-	* :ref:`maxregcount`
+	* :ref:`maxrregcount`
 * :ref:`Register-Keyword`
 * :ref:`Pragma-Unroll`
 * :ref:`In-Line-Assembly`
@@ -1815,12 +1815,12 @@ The key differences in the interface are:
 * Warps (rather than blocks): The developer is trying to tell the compiler to control resource utilization to guarantee some amount of active Warps/EU for latency hiding. Specifying active warps in terms of blocks appears to hide the micro-architectural details of the warp size, but makes the interface more confusing since the developer ultimately needs to compute the number of warps to obtain the desired level of control.
 * Execution Units (rather than multiProcessor): The use of execution units rather than multiprocessors provides support for architectures with multiple execution units/multi-processor. For example, the AMD GCN architecture has 4 execution units per multiProcessor. The hipDeviceProps has a field executionUnitsPerMultiprocessor. Platform-specific coding techniques such as #ifdef can be used to specify different launch_bounds for NVCC and HCC platforms, if desired.
 
-.. _maxregcount:
+.. _maxrregcount:
 
-maxregcount
+maxrregcount
 +++++++++++++
 
-Unlike nvcc, hcc does not support the "--maxregcount" option. Instead, users are encouraged to use the hip_launch_bounds directive since the parameters are more intuitive and portable than micro-architecture details like registers, and also the directive allows per-kernel control rather than an entire file. hip_launch_bounds works on both hcc and nvcc targets.
+Unlike nvcc, hcc does not support the "--maxrregcount" option. Instead, users are encouraged to use the hip_launch_bounds directive since the parameters are more intuitive and portable than micro-architecture details like registers, and also the directive allows per-kernel control rather than an entire file. hip_launch_bounds works on both hcc and nvcc targets.
 
 .. _Register-Keyword:
 
