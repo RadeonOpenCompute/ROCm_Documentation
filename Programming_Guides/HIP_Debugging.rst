@@ -91,7 +91,7 @@ HIP provides 3 environment variables in the HIP_*_BLOCKING family. These introdu
 
 These options cause HCC to serialize. Useful if you have libraries or code which is calling HCC kernels directly rather than using HIP.
 
-* HCC_SERIALZIE_KERNELS : 0x1=pre-serialize before each kernel launch, 0x2=post-serialize after each kernel launch., 0x3= pre- and post- serialize.
+* HCC_SERIALIZE_KERNEL : 0x1=pre-serialize before each kernel launch, 0x2=post-serialize after each kernel launch., 0x3= pre- and post- serialize.
 
 * HCC_SERIALIZE_COPY : 0x1=pre-serialize before each async copy, 0x2=post-serialize after each async copy., 0x3= pre- and post- serialize.
 
