@@ -737,7 +737,7 @@ installing a new version of ROCm.
 
 
 \_LAUNCH BOUNDS_Ignored During Kernel Launch
---------------------------------------------
+=============================================
 
 The HIP runtime returns the hipErrorLaunchFailure error code when an application tries to launch kernel with a block size larger than the
 launch bounds mentioned during compile time. If no launch bounds were specified during the compile time, the default value of 1024 is assumed.
@@ -755,16 +755,12 @@ Snippet of the HIP trace
 
 There is no known workaround at this time.
 
-PYCACHE Folder Exists Even After ROCM SMI Library Uninstallation
-----------------------------------------------------------------
+PYCACHE Folder Exists After ROCM SMI Library Uninstallation
+=================================================================
 
 Users may observe that the /opt/rocm-x/bin/**pycache** folder continues to exist even after the rocm_smi_lib uninstallation. 
 
 **Workaround**: Delete the /opt/rocm-x/bin/**pycache** folder manually before uninstalling rocm_smi_lib.
-
-
-
-
 
 
 Deploying ROCm
