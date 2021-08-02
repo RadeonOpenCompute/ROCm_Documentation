@@ -54,7 +54,7 @@ ROCm Repositories
 
 * For major releases - https://repo.radeon.com/rocm/yum/rpm/ 
 
-* For point releases - https://repo.radeon.com/rocm/yum/4.2.x/ 
+* For point releases - https://repo.radeon.com/rocm/yum/4.3.x/ 
 
 
 Base Operating System Kernel Upgrade
@@ -121,7 +121,7 @@ https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:lan
 	
 
 
-Complete Reinstallation OF AMD ROCm V4.2 Recommended
+Complete Reinstallation OF AMD ROCm V4.3 Recommended
 =====================================================
 
 Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.2 is not supported.
@@ -139,18 +139,18 @@ Complete uninstallation of previous ROCm versions is required before installing 
 Multi-version Installation Updates
 ======================================
 
-With the AMD ROCm v4.2 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.3 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
 
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 4.2.0
+* ‘version’ files should be created for each multi-version rocm <= 4.3.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 4.2.0 | sudo tee /opt/rocm-4.2.0/.info/version
+	* example: echo 4.3.0 | sudo tee /opt/rocm-4.3.0/.info/version
 
 * The rock-dkms loadable kernel modules should be installed using a single rock-dkms package. 
 
@@ -635,7 +635,7 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-4.2.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-4.3.x
   repo sync
 
 
