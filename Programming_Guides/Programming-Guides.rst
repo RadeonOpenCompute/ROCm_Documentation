@@ -5,7 +5,7 @@
 
 
 =============================
-HIP Programming Guide v4.2 
+HIP Programming Guide v4.3 
 =============================
 
 Heterogeneous-Computing Interface for Portability (HIP) is a C++ dialect designed to ease conversion of CUDA applications to portable C++ code. It provides a C-style API and a C++ kernel language. The C++ interface can use templates and classes across the host/kernel boundary.
@@ -21,7 +21,7 @@ Programming Guide (PDF)
 
 You can access and download the latest version of the HIP Programming Guide.  
 
-`Download PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20HIP%20Programming%20Guide_v4.2.pdf>`__
+`Download PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf>`__
 
 
 Related Topics
@@ -32,7 +32,7 @@ HIP API Guide
 
 You can access the Doxygen-generated HIP API Guide at the following location:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.3.pdf
 
 
 HIP_Supported_CUDA_API_Reference_Guide
@@ -40,7 +40,7 @@ HIP_Supported_CUDA_API_Reference_Guide
 
 You can access and download the latest version of the HIP-Supported CUDA API Reference Guide.  
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide_v4.3.pdf
 
 
 HIP Installation Instructions
