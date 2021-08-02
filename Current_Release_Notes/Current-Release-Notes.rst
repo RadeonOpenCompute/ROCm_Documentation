@@ -4,9 +4,9 @@
 
 
 =====================================
-AMD ROCm™ Release Notes v4.2
+AMD ROCm™ Release Notes v4.3
 =====================================
-May, 2021
+August, 2021
 
 This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.3 release.
 
