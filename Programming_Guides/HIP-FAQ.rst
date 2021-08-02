@@ -326,4 +326,24 @@ Now, the HIP-Clang compiler provides support for extern shared declarations, and
 
 *extern __shared__ type var[];*
 
+How is the HIP version defined?
+---------------------------------
+
+The HIP version definition is updated from the ROCm v4.2 release as follows: 
+
+::
+
+         HIP_VERSION=HIP_VERSION_MAJOR * 10000000 + HIP_VERSION_MINOR * 100000 + HIP_VERSION_PATCH)
+
+
+The HIP version can be queried from a HIP API call
+
+::
+
+         hipRuntimeGetVersion(&runtimeVersion);
+
+
+**Note**: The version returned will be greater than the version in previous ROCm releases.
+
+
 
