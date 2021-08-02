@@ -8,7 +8,7 @@ AMD ROCm™ Release Notes v4.2
 =====================================
 May, 2021
 
-This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.2.0 release.
+This page describes the features, fixed issues, and information about downloading and installing the ROCm software. It also covers known issues in the ROCm v4.3 release.
 
 `Download AMD ROCm Release Notes PDF <https://github.com/RadeonOpenCompute/ROCm>`__
 
@@ -18,25 +18,23 @@ List of Supported Operating Systems
 
 The AMD ROCm platform is designed to support the following operating systems:
 
--  Ubuntu 20.04.2 HWE (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+The AMD ROCm platform is designed to support the following operating
+systems:
 
--  CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support)
-   
--  CentOS 8.3 (4.18.0-193.el8)and RHEL 8.3 (4.18.0-193.1.1.el8) (devtoolset is not required)
-
--  SLES 15 SP2
+.. figure:: https://github.com/Rmalavally/ROCm/blob/master/images/OSKernel.PNG
+   :alt: Screenshot
 
 
-
-
-Fresh Installation of AMD ROCm v4.2 Recommended
+Fresh Installation of AMD ROCm v4.3 Recommended
 -----------------------------------------------
 
-Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to
-AMD ROCm v4.2 is not supported. 
+Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. 
+
+.. note::
+
+After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade. 
 
 For more information, refer to the AMD ROCm Installation Guide at:
-
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 .. note::
@@ -53,21 +51,23 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 -  For ROCm v3.3 and older releases, the *clinfo* path remains unchanged
    - */opt/rocm/opencl/bin/x86_64/clinfo*.
-   
-   
-.. note::
 
-After an operating system upgrade, AMD ROCm may upgrade automatically and result in an error. This is because AMD ROCm does not support upgrades currently. You must uninstall and reinstall AMD ROCm after an operating system upgrade.
 
    
 ROCm Multi Version Installation Update
 ---------------------------------------
 
-With the AMD ROCm v4.2 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.1 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. For example, rocm-dkms3.8.0, rocm-dkms3.9.0.
 
 -   Multi-version installation of ROCm should be performed by installing rocm-dev using each of the desired ROCm versions. For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.
+
+-  Version files must be created for each multi-version rocm <= 4.1.0
+
+   -  command: echo \| sudo tee /opt/rocm-/.info/version
+
+   -  example: echo 4.1.0 \| sudo tee /opt/rocm-4.1.0/.info/version
 
 -  The rock-dkms loadable kernel modules should be installed using a single rock-dkms package.
 
@@ -76,6 +76,16 @@ The meta packages rocm-dkms are now deprecated for multi-version ROCm installs. 
 .. note::
 
    The single version installation of the ROCm stack remains the same. The rocm-dkms package can be used for single version installs and is not deprecated at this time.
+   
+Support for Enviornment Modules
+-------------------------------
+
+Environment modules are now supported. This enhancement in the ROCm v4.3 release enables users to toggle between ROCm v4.2 and ROCm v4.3 easily
+and efficiently.
+
+For more information about installing environment modules, refer to
+
+https://modules.readthedocs.io/en/latest/
 
 
 
@@ -100,22 +110,23 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 HIP Documentation Updates
 ===========================
 
--  HIP Programming Guide v4.2
+- HIP Programming Guide v4.3 
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20HIP%20Programming%20Guide_v4.2.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
 
+- HIP API Guide v4.3
 
--  HIP API Guide v4.2
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.3.pdf
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
+- HIP-Supported CUDA API Reference Guide v4.3
 
--  HIP-Supported CUDA API Reference Guide v4.2
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide_v4.3.pdf
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/HIP_Supported_CUDA_API_Reference_Guide_v4.2.pdf
+- **NEW** - AMD ROCm Compiler Reference Guide v4.3 
 
--  HIP FAQ
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.3.pdf
 
-   For more information, refer to
+- HIP FAQ
 
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
@@ -125,17 +136,13 @@ ROCm Data Center User and API Guide
 
 -  ROCm Data Center Tool User Guide
 
-   -  Reliability, Accessibility, and Serviceability (RAS) Plugin Integration
+   -  Prometheus (Grafana) Integration with Automatic Node Detection
 
-For more information, refer to the ROCm Data Center User Guide at,
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.2.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
 
 -  ROCm Data Center Tool API Guide
 
-For more information, refer to the ROCm Data Center API Guide at,
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Data_Center_Tool_API_Guide_v4.2.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_RDC_API_Guide_v4.3.pdf
 
    
 ROCm SMI API Documentation Updates
@@ -143,20 +150,19 @@ ROCm SMI API Documentation Updates
    
 -  ROCm SMI API Guide
 
-For more information, refer to the ROCm SMI API Guide at,
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_SMI_Guide_v4.3.pdf
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_4.2.pdf
-
-   
 
 ROC Debugger User and API Guide 
 ===================================
 
--  ROC Debugger User Guide
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Debugger_User_Guide_v4.2.pdf
+- ROCDebugger User Guide 
 
--  Debugger API Guide
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Debugger_API_Guide_v4.2.pdf
+ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+
+- Debugger API Guide 
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_API.pdf 
 
 
 General AMD ROCm Documentation Links
@@ -187,106 +193,259 @@ Access the following links for more information:
 What's New in This Release and Other Features
 ==============================================
 
-HIP Enhancements 
--------------------
+HIP Enhancements
+----------------
 
-HIP Target Platform Macro
-===========================
+HIP Versioning Update
+~~~~~~~~~~~~~~~~~~~~~
 
-The platform macros are updated to target either the AMD or NVIDIA platform in HIP projects. They now include corresponding headers and
-libraries for compilation/linking.
-
--  **HIP_PLATFORM_AMD** is defined if the HIP platform targets AMD. Note, **HIP_PLATFORM_HCC** was used previously if the HIP platform      targeted AMD. This is now deprecated.
-
--  **HIP_PLATFORM_NVIDIA** is defined if the HIP platform targets NVIDIA. Note, \_HIP_PLATFORM_NVCC_\_ was used previously if the HIP platform targeted NVIDIA. This is now deprecated.
-
-For example,
+The HIP version definition is updated from the ROCm v4.2 release as
+follows:
 
 ::
 
-            #if (defined(__HIP_PLATFORM_AMD__)) && !(defined(__HIP_PLATFORM_NVIDIA__))
+       HIP_VERSION=HIP_VERSION_MAJOR * 10000000 + HIP_VERSION_MINOR * 100000 + 
+       HIP_VERSION_PATCH)
 
-            #include <hip/amd_detail/hip_complex.h>
-
-            #elif !(defined(__HIP_PLATFORM_AMD__)) && (defined(__HIP_PLATFORM_NVIDIA__))
-
-            #include <hip/nvidia_detail/hip_complex.h>
+The HIP version can be queried from a HIP API call
 
 ::
 
-Updated HIP 'Include' Directories
-==================================
+       hipRuntimeGetVersion(&runtimeVersion);  
 
-In the ROCm v4.2 release, HIP *include* header directories for platforms are updated as follows:
-
--  *amd_detail/* - includes source header details for the 'amd' platform implementation. In previous releases, the 'hcc_detail' directory was
-   defined, and it it is now deprecated.
-
--  *nvidia_detail/* - includes source header details for the 'nvidia' platform implementation. In previous releases, the 'nvcc_detail'
-   directory was defined, and it is now deprecated.
+.. note::
+   
+   The version returned will be greater than the version in previous ROCm releases.
 
 
-HIP Stream Memory Operations
-=============================
+Support for Managed Memory Allocation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ROCm v4.2 extends support to Stream Memory Operations to enable direct synchronization between Network Nodes and GPU. The following new
-APIs are added:
+HIP now supports and automatically manages Heterogeneous Memory Management (HMM) allocation. The HIP application performs a capability
+check before making the managed memory API call hipMallocManaged.
 
--  hipStreamWaitValue32
--  hipStreamWaitValue64
--  hipStreamWriteValue32
--  hipStreamWriteValue64
+.. note::
 
-For more details, see the HIP API guide at
+   The *managed* keyword is unsupported currently.
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
+::
+
+       int managed_memory = 0;
+       HIPCHECK(hipDeviceGetAttribute(&managed_memory,
+        hipDeviceAttributeManagedMemory,p_gpuDevice));
+       if (!managed_memory ) {
+       printf ("info: managed memory access not supported on the device %d\n Skipped\n", p_gpuDevice);
+       }
+       else {
+        HIPCHECK(hipSetDevice(p_gpuDevice));
+       HIPCHECK(hipMallocManaged(&Hmm, N * sizeof(T)));
+       . . .
+       }
+
+Kernel Enqueue Serialization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Developers can control kernel command serialization from the host using the following environment variable, AMD_SERIALIZE_KERNEL
+
+-  AMD_SERIALIZE_KERNEL = 1, Wait for completion before enqueue,
+
+-  AMD_SERIALIZE_KERNEL = 2, Wait for completion after enqueue,
+
+-  AMD_SERIALIZE_KERNEL = 3, Both.
+
+This environment variable setting enables HIP runtime to wait for GPU idle before/after any GPU command.
+
+NUMA-aware Host Memory Allocation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Non-Uniform Memory Architecture (NUMA) policy determines how memory is allocated and selects a CPU closest to each GPU.
+
+NUMA also measures the distance between the GPU and CPU devices. By default, each GPU selects a Numa CPU node that has the least NUMA
+distance between them; the host memory is automatically allocated closest to the memory pool of the NUMA node of the current GPU device.
+
+Note, using the *hipSetDevice* API with a different GPU provides access to the host allocation. However, it may have a longer NUMA distance.
+
+New Atomic System Scope Atomic Operations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+HIP now provides new APIs with \_system as a suffix to support system scope atomic operations. For example, atomicAnd atomic is dedicated to
+the GPU device, and atomicAnd_system allows developers to extend the atomic operation to system scope from the GPU device to other CPUs and
+GPU devices in the system.
+
+For more information, refer to the HIP Programming Guide at,
+
+Add link
+
+Indirect Function Call and C++ Virtual Functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While the new release of the ROCm compiler supports indirect function calls and C++ virtual functions on a device, there are some known
+limitations and issues.
+
+**Limitations**
+
+-  An address to a function is device specific. Note, a function address taken on the host can not be used on a device, and a function address
+   taken on a device can not be used on the host. On a system with multiple devices, an address taken on one device can not be used on a
+   different device.
+
+-  C++ virtual functions only work on the device where the object was constructed.
+
+-  Indirect call to a device function with function scope shared memory allocation is not supported. For example, LDS.
+
+-  Indirect call to a device function defined in a source file different than the calling function/kernel is only supported when compiling the
+   entire program with -fgpu-rdc.
+
+**Known Issues in This Release**
+
+-  Programs containing kernels with different launch bounds may crash when making an indirect function call. This issue is due to a
+   compiler issue miscalculating the register budget for the callee function.
+
+-  Programs may not work correctly when making an indirect call to a function that uses more resources. For example, scratch memory,
+   shared memory, registers made available by the caller.
+
+-  Compiling a program with objects with pure or deleted virtual functions on the device will result in a linker error. This issue is
+   due to the missing implementation of some C++ runtime functions on the device.
+
+-  Constructing an object with virtual functions in private or shared memory may crash the program due to a compiler issue when generating
+   code for the constructor.
 
 
-HIP Events in Kernel Dispatch
-===============================
-
-HIP events in kernel dispatch using *hipExtLaunchKernelGGL/hipExtLaunchKernel* and passed in the API are not 
-explicitly recorded and should only be used to get elapsed time for that specific launch.
-
-Events used across multiple dispatches, for example, start and stop events from different *hipExtLaunchKernelGGL/hipExtLaunchKernel* calls,
-are treated as invalid unrecorded events. In such scenarios, HIP will display the error *hipErrorInvalidHandle* from *hipEventElapsedTime*.
-
-For more details, refer to the HIP API Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_4.2.pdf
-
-
-Changed Environment Variables for HIP
-======================================
-
-In the ROCm v3.5 release, the Heterogeneous Compute Compiler (HCC) compiler was deprecated, and the HIP-Clang compiler was introduced for
-compiling Heterogeneous-Compute Interface for Portability (HIP) programs. In addition, the HIP runtime API was implemented on top of
-Radeon Open Compute Common Language Runtime (ROCclr). ROCclr is an abstraction layer that provides the ability to interact with different
-runtime backends such as ROCr.
-
-While the HIP_PLATFORM=hcc environment variable was functional in subsequent releases, in the ROCm v4.1 release, the following environment
-variables were changed:
-
--  *HIP_PLATFORM=hcc to HIP_PLATFORM=amd*
-
--  *HIP_PLATFORM=nvcc to HIP_PLATFORM=nvidia*
-
-Therefore, any applications continuing to use the *HIP_PLATFORM=hcc* variable will fail. You must update the environment variables to reflect
-the changes as mentioned above.
-
-       
 
 ROCm Data Center Tool
 ---------------------
+Prometheus (Grafana) Integration with Automatic Node Detection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-RAS Integration
-================
+The ROCm Data Center (RDC) tool enables you to use Consul to discover the rdc_prometheus service automatically. Consul is a service mesh
+solution providing a full-featured control plane with service discovery, configuration, and segmentation functionality. or more information,
+refer to their website at https://www.consul.io/docs/intro.
 
-The ROCm Data Center (RDC) Tool is enhanced with the Reliability, Accessibility, and Serviceability (RAS) plugin.
+The ROCm Data Center Tool uses Consul for health checks of RDC's integration with the Prometheus plug-in (rdc_prometheus), and these
+checks provide information on its efficiency.
 
-For more information about RAS integration and installation, refer to the ROCm Data Center Tool User guide at:
+Previously, when a new compute node was added, users had to change prometheus_targets.json to use Consul manually. Now, with the Consul
+agent integration, a new compute node can be discovered automatically.
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.2.pdf
+Add link
+
+
+Coarse Grain Utilization
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+This feature provides a counter that displays the coarse grain GPU usage information, as shown below.
+
+Sample output
+
+::
+
+           $ rocm_smi.py --showuse
+           ============================== % time GPU is busy =============================
+                  GPU[0] : GPU use (%): 0
+                  GPU[0] : GFX Activity: 3401
+
+
+Add 64-bit Energy Accumulator In-band
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This feature provides an average value of energy consumed over time in a free-flowing RAPL counter, a 64-bit Energy Accumulator.
+
+Sample output
+
+::
+
+       $ rocm_smi.py --showenergycounter
+       =============================== Consumed Energy ================================
+       GPU[0] : Energy counter: 2424868
+       GPU[0] : Accumulated Energy (uJ): 0.0   
+
+
+Support for Continuous Clocks Values
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ROCm SMI will support continuous clock values instead of the previous discrete levels. Moving forward the updated sysfs file will consist of
+only MIN and MAX values and the user can set the clock value in the given range.
+
+Sample output:
+
+::
+
+       $ rocm_smi.py --setsrange 551 1270 
+       Do you accept these terms? [y/N] y                                                                                    
+       ============================= Set Valid sclk Range=======
+       GPU[0]          : Successfully set sclk from 551(MHz) to 1270(MHz)                                                     
+       GPU[1]          : Successfully set sclk from 551(MHz) to 1270(MHz)                                                     
+       =========================================================================
+                          
+       $ rocm_smi.py --showsclkrange                                                                                                                                                                    
+       ============================ Show Valid sclk Range======                     
+
+       GPU[0]          : Valid sclk range: 551Mhz - 1270Mhz                                                                  
+       GPU[1]          : Valid sclk range: 551Mhz - 1270Mhz             
+
+
+Memory Utilization Counters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This feature provides a counter display memory utilization information as shown below.
+
+Sample output
+
+::
+
+          $ rocm_smi.py --showmemuse
+       ========================== Current Memory Use ==============================
+
+       GPU[0] : GPU memory use (%): 0
+       GPU[0] : Memory Activity: 0
+
+Performance Determinism
+~~~~~~~~~~~~~~~~~~~~~~~
+
+ROCm SMI supports performance determinism as a unique mode of operation. Performance variations are minimal as this enhancement allows users to
+control the entry and exit to set a soft maximum (ceiling) for the GFX clock.
+
+Sample output
+
+::
+
+       $ rocm_smi.py --setperfdeterminism 650
+       cat pp_od_clk_voltage
+       GFXCLK:                
+       0: 500Mhz
+       1: 650Mhz *
+       2: 1200Mhz
+       $ rocm_smi.py --resetperfdeterminism    
+
+..note::
+
+The idle clock will not take up higher clock values if no workload is running. After enabling determinism, users can run a GFX
+workload to set performance determinism to the desired clock value in the valid range.
+
+::
+
+   * GFX clock could either be less than or equal to the max value set in this mode. GFX clock will be at the max clock set in this mode only when required by the running workload.
+
+   * VDDGFX will be higher by an offset (75mv or so based on PPTable) in the determinism mode.
+
+
+HBM Temperature Metric Per Stack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This feature will enable ROCm SMI to report all HBM temperature values as shown below.
+
+Sample output
+
+::
+
+       $ rocm_smi.py -showtemp
+       ================================= Temperature =================================
+       GPU[0] : Temperature (Sensor edge) (C): 29.0
+       GPU[0] : Temperature (Sensor junction) (C): 36.0
+       GPU[0] : Temperature (Sensor memory) (C): 45.0
+       GPU[0] : Temperature (Sensor HBM 0) (C): 43.0
+       GPU[0] : Temperature (Sensor HBM 1) (C): 42.0
+       GPU[0] : Temperature (Sensor HBM 2) (C): 44.0
+       GPU[0] : Temperature (Sensor HBM 3) (C): 45.0
 
 
 
@@ -294,105 +453,279 @@ ROCm Math and Communication Libraries
 -------------------------------------
 
 rocBLAS
-=========
+~~~~~~~
 
-Enhancements and fixes:
+**Optimizations**
 
--  Added option to install script to build only rocBLAS clients with a
-   pre-built rocBLAS library
+-  Improved performance of non-batched and batched rocblas_Xgemv for
+   gfx908 when m <= 15000 and n <= 15000
 
--  Supported gemm ext for unpacked int8 input layout on gfx908 GPUs
+-  Improved performance of non-batched and batched rocblas_sgemv and
+   rocblas_dgemv for gfx906 when m <= 6000 and n <= 6000
 
-   -  Added new flags rocblas_gemm_flags::rocblas_gemm_flags_pack_int8x4 to specify if using the packed layout
+-  Improved the overall performance of non-batched and batched
+   rocblas_cgemv for gfx906
 
-      -  Set the rocblas_gemm_flags_pack_int8x4 when using packed int8x;, this should be always set on GPUs before gfx908
-
-      -  For gfx908 GPUs, unpacked int8 is supported. Setting of this flag is no longer required
-
-      -  Notice the default flags 0 uses unpacked int8 and changes the behaviour of int8 gemm from ROCm 4.1.0
-
--  Added a query function rocblas_query_int8_layout_flag to get the preferable layout of int8 for gemm by device
+-  Improved the overall performance of rocblas_Xtrsv
 
 For more information, refer to
 
 https://rocblas.readthedocs.io/en/master/
 
 rocRAND
-=========
+~~~~~~~
 
--  Performance fixes
+**Enhancements**
+
+-  gfx90a support added
+
+-  gfx1030 support added
+
+-  gfx803 supported re-enabled
+
+**Fixed**
+
+-  Memory leaks in Poisson tests has been fixed.
+
+-  Memory leaks when generator has been created but setting
+   seed/offset/dimensions display an exception has been fixed.
 
 For more information, refer to
 
 https://rocrand.readthedocs.io/en/latest/
 
-
 rocSOLVER
-===========
+~~~~~~~~~
 
-Support for:
+**Enhancements**
 
--  Multi-level logging functionality
+Linear solvers for general non-square systems:
 
--  Implementation of the Thin-SVD algorithm
+-  GELS now supports underdetermined and transposed cases
 
--  Reductions of generalized symmetric- and hermitian-definite
-   eigenproblems:
+-  Inverse of triangular matrices
 
-   -  SYGS2, SYGST (with batched and strided_batched versions)
-   -  HEGS2, HEGST (with batched and strided_batched versions)
+-  TRTRI (with batched and strided_batched versions)
 
--  Symmetric and hermitian matrix eigensolvers:
+-  Out-of-place general matrix inversion
 
-   -  SYEV (with batched and strided_batched versions)
-   -  HEEV (with batched and strided_batched versions)
+-  GETRI_OUTOFPLACE (with batched and strided_batched versions)
 
--  Generalized symmetric- and hermitian-definite eigensolvers:
+-  Argument names for the benchmark client now match argument names from
+   the public API
 
-   -  SYGV (with batched and strided_batched versions)
-   -  HEGV (with batched and strided_batched versions)
+**Fixed Issues**
+
+-  Known issues with Thin-SVD. The problem was identified in the test
+   specification, not in the thin-SVD implementation or the rocBLAS
+   gemm_batched routines.
+
+-  Benchmark client longer crashes as a result of leading dimension or
+   stride arguments not being provided on the command line.
+
+**Optimizations**
+
+-  Improved general performance of matrix inversion (GETRI)
 
 For more information, refer to
 
 https://rocsolver.readthedocs.io/en/latest/
 
-
 rocSPARSE
-===========
+~~~~~~~~~
 
-Enhancements:
+**Enhancements**
 
--  SpMM (CSR, COO)
--  Code coverage analysis
+-  (batched) tridiagonal solver with and without pivoting
+
+-  dense matrix sparse vector multiplication (gemvi)
+
+-  support for gfx90a
+
+-  sampled dense-dense matrix multiplication (sddmm)
+
+**Improvements**
+
+-  client matrix download mechanism
+
+-  boost dependency in clients removed
 
 For more information, refer to
 
 https://rocsparse.readthedocs.io/en/latest/usermanual.html#rocsparse-gebsrmv
 
+hipBLAS
+~~~~~~~
 
-hipSPARSE
-==========
+**Enhancements**
 
-Enhancements:
+-  Added *hipblasStatusToString*
 
--  Generic API support, including SpMM (CSR, COO)
--  csru2csr, csr2csru
+**Fixed**
+
+-  Added catch() blocks around API calls to prevent the leak of C++
+   exceptions
+
+rocFFT
+~~~~~~
+
+**Changes**
+
+-  Re-split device code into single-precision, double-precision, and
+   miscellaneous kernels.
+
+**Fixed Issues**
+
+-  double-precision planar->planar transpose.
+
+-  3D transforms with unusual strides, for SBCC-optimized sizes.
+
+-  Improved buffer placement logic.
 
 For more information, refer to
 
-https://rocsparse.readthedocs.io/en/latest/usermanual.html#types
+https://rocfft.readthedocs.io/en/rocm-4.3.0/
+
+hipFFT
+~~~~~~
+
+**Fixed Issues**
+
+-  CMAKE updates
+
+-  Added callback API in hipfftXt.h header.
+
+rocALUTION
+~~~~~~~~~~
+
+**Enhancements**
+
+-  Support for gfx90a target
+
+-  Support for gfx1030 target
+
+**Improvements**
+
+-  Install script
+
+For more information, refer to
+
+rocTHRUST
+~~~~~~~~~
+
+**Enhancements**
+
+-  Updated to match upstream Thrust 1.11
+
+-  gfx90a support added
+
+-  gfx803 support re-enabled
 
 
-Fixed Defects
----------------
+hipCUB
+~~~~~~~~~
 
-Performance Impact for LDS-BOUND Kernels
-==========================================
+Enhancements
 
-The following issue is fixed in the ROCm v4.2 release.
+-  DiscardOutputIterator to backend header
 
-The compiler in ROCm v4.1 generates LDS load and stores instructions that incorrectly assume equal performance between aligned and misaligned
-accesses. While this does not impact code correctness, it may result in sub-optimal performance.
+https://hipcub.readthedocs.io/en/latest/
+
+
+ROCProfiler Enhancements
+------------------------
+
+Tracing Multiple MPI Ranks
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When tracing multiple MPI ranks in ROCm v4.3, users must use the form:
+
+::
+
+       mpirun ... <mpi args> ... rocprof ... <rocprof args> ... application ... <application args>
+       
+
+**NOTE**: This feature differs from ROCm v4.2 (and lower), which used 
+
+*"rocprof...mpirun...application"*
+
+This change was made to enable ROCProfiler to handle process forking better and launching via mpirun (and related) executables.
+
+From a user perspective, this new execution mode requires:
+
+1. Generation of trace data per MPI (or process) rank.
+
+2. Use of a new â€œmerge_traces.shâ€ utility script (see: ) to combine traces from multiple processes into a unified trace for profiling.
+
+For example, to accomplish step #1, ROCm provides a simple bash wrapper that demonstrates how to generate a unique output directory per process:
+
+::
+
+       $ cat wrapper.sh
+       #! /usr/bin/env bash
+       if [[ -n ${OMPI_COMM_WORLD_RANK+z} ]]; then
+        # mpich
+       export MPI_RANK=${OMPI_COMM_WORLD_RANK}
+       elif [[ -n ${MV2_COMM_WORLD_RANK+z} ]]; then
+       # ompi
+       export MPI_RANK=${MV2_COMM_WORLD_RANK}
+       fi
+       args="$*"
+       pid="$$"
+       outdir="rank_${pid}_${MPI_RANK}"
+       outfile="results_${pid}_${MPI_RANK}.csv"
+       eval "rocprof -d ${outdir} -o ${outdir}/${outfile} $*"
+
+This script:
+
+-  Determines the global MPI rank (implemented here for OpenMPI and
+   MPICH only)
+
+-  Determines the process id of the MPI rank
+
+-  Generates a unique output directory using the two
+
+To invoke this wrapper, use the following command:
+
+::
+
+       mpirun <mpi args> ./wrapper.sh --hip-trace <application> <args>
+
+This generates an output directory for each used MPI rank. For example,
+
+::
+
+       $ ls -ld rank_* | awk {'print $5" "$9'}
+       4096 rank_513555_0
+       4096 rank_513556_1
+
+Finally, these traces may be combined using the merge traces script ().
+
+For example,
+
+::
+
+       $  ./merge_traces.sh -h
+       Script for aggregating results from multiple rocprofiler out directries.
+       Full path: /opt/rocm/bin/merge_traces.sh
+       Usage:
+       merge_traces.sh -o <outputdir> [<inputdir>...]
+
+Use the following input arguments to the merge_traces.sh script to control which traces are merged and where the resulting merged trace is
+saved.
+
+-  -o <*outputdir*> - output directory where the results are aggregated.
+
+-  <*inputdir*>â€¦ - space-separated list of rocprofiler directories. If
+   not specified, CWD is used.
+
+The file 'unified/results.json' is generated, and the resulting unified/results.json file contains trace data from both MPI ranks.
+
+**Known issue for ROCProfiler**
+
+Collecting several counter collection passes (multiple "pmc:" lines in an counter input file) is not supported in a single run.
+
+The workaround is to break the multiline counter input file into multiple single-line counter input files and execute runs.
 
 
 
@@ -401,113 +734,38 @@ Known Issues
 
 The following are the known issues in this release.
 
-Upgrade to AMD ROCm v4.2 Not Supported
+Upgrade to AMD ROCm v4.3 Not Supported
 ==========================================
 
-An upgrade from previous releases to AMD ROCm v4.2 is not supported. Complete uninstallation of previous ROCm versions is required before
+An upgrade from previous releases to AMD ROCm v4.3 is not supported. A complete uninstallation of previous ROCm versions is required before
 installing a new version of ROCm.
 
 
-Modulefile Fails to Install Automatically in ROCm Multi-Version Environment
-============================================================================
+\_LAUNCH BOUNDS_Ignored During Kernel Launch
+=============================================
 
-The ROCm v4.2 release includes a preliminary implementation of environment modules to enable switching between multi versions of ROCm
-installation. The modulefile in */opt/rocm-4.2/lib/rocmmod* fails to install automatically in the ROCm multi-version environment.
+The HIP runtime returns the hipErrorLaunchFailure error code when an application tries to launch kernel with a block size larger than the
+launch bounds mentioned during compile time. If no launch bounds were specified during the compile time, the default value of 1024 is assumed.
+Refer to the HIP trace for more information about the failing kernel. A sample error in the trace is shown below:
 
-This is a known limitation for environment modules in ROCm, and the issue is under investigation at this time.
+Snippet of the HIP trace
 
-**Workaround**
+::
 
-Ensure you install the modulefile in */opt/rocm-4.2/lib/rocmmod* manually in a multi-version installation environment.
+       :3:devprogram.cpp           :2504: 2227377746776 us: Using Code Object V4.
+       :3:hip_module.cpp           :361 : 2227377768546 us: 7670 : [7f7c6eddd180] ihipModuleLaunchKernel ( 0x0x16fe080, 2048, 1, 1, 1024, 1, 1, 0, stream:  <null>, 0x7ffded8ad260, char array:<null>, event:0, event:0, 0, 0 )
+       :1:hip_module.cpp           :254 : 2227377768572 us: Launch params (1024, 1, 1) are larger than launch bounds (64) for      kernel _Z8MyKerneliPd
+       :3:hip_platform.cpp         :667 : 2227377768577 us: 7670 : [7f7c6eddd180] ihipLaunchKernel: Returned hipErrorLaunchFailure         :
+       :3:hip_module.cpp           :493 : 2227377768581 us: 7670 : [7f7c6eddd180] hipLaunchKernel: Returned hipErrorLaunchFailure :
 
-For general information about modules, see
+There is no known workaround at this time.
 
-http://modules.sourceforge.net/
-
-
-Issue with Input/Output Types for Scan Algorithms in rocThrust
+PYCACHE Folder Exists After ROCM SMI Library Uninstallation
 =================================================================
 
-As rocThrust is updated to match CUDA Thrust 1.10, the different input/output types for scan algorithms in rocThrust/CUDA Thrust are no
-longer officially supported. In this situation, the current C++ standard does not specify the intermediate accumulator type leading to
-potentially incorrect results and ill-defined behavior.
+Users may observe that the /opt/rocm-x/bin/**pycache** folder continues to exist even after the rocm_smi_lib uninstallation. 
 
-As a workaround, users can:
-
--  Use the same types for input and output
-
-Or
-
--  For exclusive_scan, explicitly specify an *InitialValueType* in the last argument
-
-Or
-
--  For inclusive_scan, which does not have an initial value argument, use a transform_iterator to explicitly cast the input iterators to
-   match the output's value_type
-   
-   
-Precision Issue in AMD RADEON™ PRO VII and AMD RADEON™ VII
-==============================================================
-
-In AMD RADEON™ Pro VII AND AMD RADEON™ VII, a precision issue can occur when using the Tensorflow XLA path.
-
-This issue is currently under investigation.
-
-
-Deprecations
----------------
-
-This section describes deprecations and removals in AMD ROCm.
-
-Compiler Generated Code Object Version 2 Deprecation
-======================================================
-
-Compiler-generated code object version 2 is no longer supported and has been completely removed. Support for loading code object version 2 is
-also deprecated with no announced removal release.
-
-========================================
-Driver Compability Issue in ROCm v4.1
-========================================
-
-In certain scenarios, the ROCm v4.1 or higher run-time and userspace environment are not compatible with ROCm v4.0 and older driver implementations for 7nm-based (Vega 20) hardware (MI50 and MI60). 
-
-To mitigate issues, the ROCm v4.1 or newer userspace prevents running older drivers for these GPUs.
-
-Users are notified in the following scenarios:
-
-* Bare Metal 
-* Containers
- 
-Bare Metal
-------------
-
-In the bare-metal environment, the following error message displays in the console: 
-
-*“HSA Error: Incompatible kernel and userspace, Vega 20 disabled. Upgrade amdgpu.”*
-
-To test the compatibility, run the ROCm v4.1 version of rocminfo using the following instruction: 
-
-*/opt/rocm-4.1.0/bin/rocminfo 2>&1 | less*
-
-Containers
-------------
-
-A container (built with error detection for this issue) using a ROCm v4.1/higher or newer run-time is initiated to execute on an older kernel. The container fails to start and the following warning appears:
-
-*Error: Incompatible ROCm environment. The Docker container requires the latest kernel driver to operate correctly. Upgrade the ROCm kernel to v4.1 or newer, or use a container tagged for v4.0.1 or older.*
-
-To inspect the version of the installed kernel driver,  run either: 
-
-* dpkg --status rock-dkms [Debian-based]
-
-or
-
-* rpm -ql rock-dkms [RHEL, SUSE, and others]
-
-To install or update the driver, follow the installation instructions at:
-
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
-
+**Workaround**: Delete the /opt/rocm-x/bin/**pycache** folder manually before uninstalling rocm_smi_lib.
 
 
 ===============
