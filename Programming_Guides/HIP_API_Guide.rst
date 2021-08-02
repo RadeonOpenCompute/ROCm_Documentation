@@ -110,7 +110,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20HIP%20Programming%20
 
 
 ============================================
-HIP-Supported CUDA API Reference Guide v4.2
+HIP-Supported CUDA API Reference Guide v4.3
 ============================================
 
 You can access the latest HIP-Supported CUDA API Reference Guide at
