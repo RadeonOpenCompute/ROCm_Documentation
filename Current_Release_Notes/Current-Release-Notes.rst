@@ -109,26 +109,25 @@ https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 HIP Documentation Updates
 ===========================
 
--  HIP Programming Guide v4.3
+- HIP Programming Guide v4.3 
 
--  HIP API Guide v4.3
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
 
--  HIP-Supported CUDA API Reference Guide v4.3
+- HIP API Guide v4.3
 
--  AMD ROCm Compiler Reference Guide v4.3 - *NEW*
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.3.pdf
 
--  HIP FAQ
+- HIP-Supported CUDA API Reference Guide v4.3
 
-   For more information, refer to
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide_v4.3.pdf
+
+- **NEW** - AMD ROCm Compiler Reference Guide v4.3 
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.3.pdf
+
+- HIP FAQ
 
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
-
-
--  HIP FAQ
-
-   For more information, refer to
-
-   https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 
 ROCm Data Center User and API Guide
@@ -138,26 +137,31 @@ ROCm Data Center User and API Guide
 
    -  Prometheus (Grafana) Integration with Automatic Node Detection
 
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
 
 -  ROCm Data Center Tool API Guide
 
-   
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_RDC_API_Guide_v4.3.pdf
+
    
 ROCm SMI API Documentation Updates
 ===================================
    
 -  ROCm SMI API Guide
 
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_SMI_Guide_v4.3.pdf
+
 
 ROC Debugger User and API Guide 
 ===================================
 
-- ROC Debugger User Guide 
+- ROCDebugger User Guide 
 
- 
+ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
 
 - Debugger API Guide 
 
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_API.pdf 
 
 
 General AMD ROCm Documentation Links
