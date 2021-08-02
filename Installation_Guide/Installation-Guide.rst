@@ -79,7 +79,7 @@ Prerequisites
 The AMD ROCm platform is designed to support the following operating systems:
 
 .. image:: OSKernel.PNG
-    :align: center	
+    :align: left	
 
 **Note**: Ubuntu versions lower than 18 are no longer supported.
 
