@@ -195,7 +195,7 @@ HIP Enhancements
 ----------------
 
 HIP Versioning Update
-~~~~~~~~~~~~~~~~~~~~~
+======================
 
 The HIP version definition is updated from the ROCm v4.2 release as
 follows:
@@ -217,7 +217,7 @@ The HIP version can be queried from a HIP API call
 
 
 Support for Managed Memory Allocation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 HIP now supports and automatically manages Heterogeneous Memory Management (HMM) allocation. The HIP application performs a capability
 check before making the managed memory API call hipMallocManaged.
@@ -241,7 +241,7 @@ check before making the managed memory API call hipMallocManaged.
        }
 
 Kernel Enqueue Serialization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=============================
 
 Developers can control kernel command serialization from the host using the following environment variable, AMD_SERIALIZE_KERNEL
 
@@ -254,7 +254,7 @@ Developers can control kernel command serialization from the host using the foll
 This environment variable setting enables HIP runtime to wait for GPU idle before/after any GPU command.
 
 NUMA-aware Host Memory Allocation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==================================
 
 The Non-Uniform Memory Architecture (NUMA) policy determines how memory is allocated and selects a CPU closest to each GPU.
 
@@ -264,7 +264,7 @@ distance between them; the host memory is automatically allocated closest to the
 Note, using the *hipSetDevice* API with a different GPU provides access to the host allocation. However, it may have a longer NUMA distance.
 
 New Atomic System Scope Atomic Operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================================
 
 HIP now provides new APIs with \_system as a suffix to support system scope atomic operations. For example, atomicAnd atomic is dedicated to
 the GPU device, and atomicAnd_system allows developers to extend the atomic operation to system scope from the GPU device to other CPUs and
@@ -272,10 +272,10 @@ GPU devices in the system.
 
 For more information, refer to the HIP Programming Guide at,
 
-Add link
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
 
 Indirect Function Call and C++ Virtual Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================================================
 
 While the new release of the ROCm compiler supports indirect function calls and C++ virtual functions on a device, there are some known
 limitations and issues.
@@ -312,7 +312,7 @@ limitations and issues.
 ROCm Data Center Tool
 ---------------------
 Prometheus (Grafana) Integration with Automatic Node Detection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================
 
 The ROCm Data Center (RDC) tool enables you to use Consul to discover the rdc_prometheus service automatically. Consul is a service mesh
 solution providing a full-featured control plane with service discovery, configuration, and segmentation functionality. or more information,
@@ -328,7 +328,7 @@ Add link
 
 
 Coarse Grain Utilization
-~~~~~~~~~~~~~~~~~~~~~~~~
+=========================
 
 This feature provides a counter that displays the coarse grain GPU usage information, as shown below.
 
@@ -343,7 +343,7 @@ Sample output
 
 
 Add 64-bit Energy Accumulator In-band
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 This feature provides an average value of energy consumed over time in a free-flowing RAPL counter, a 64-bit Energy Accumulator.
 
@@ -358,7 +358,7 @@ Sample output
 
 
 Support for Continuous Clocks Values
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+======================================
 
 ROCm SMI will support continuous clock values instead of the previous discrete levels. Moving forward the updated sysfs file will consist of
 only MIN and MAX values and the user can set the clock value in the given range.
@@ -382,7 +382,7 @@ Sample output:
 
 
 Memory Utilization Counters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================
 
 This feature provides a counter display memory utilization information as shown below.
 
@@ -396,8 +396,9 @@ Sample output
        GPU[0] : GPU memory use (%): 0
        GPU[0] : Memory Activity: 0
 
+
 Performance Determinism
-~~~~~~~~~~~~~~~~~~~~~~~
+=========================
 
 ROCm SMI supports performance determinism as a unique mode of operation. Performance variations are minimal as this enhancement allows users to
 control the entry and exit to set a soft maximum (ceiling) for the GFX clock.
@@ -427,7 +428,7 @@ workload to set performance determinism to the desired clock value in the valid 
 
 
 HBM Temperature Metric Per Stack
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==================================
 
 This feature will enable ROCm SMI to report all HBM temperature values as shown below.
 
@@ -451,8 +452,7 @@ ROCm Math and Communication Libraries
 -------------------------------------
 
 rocBLAS
-~~~~~~~
-
+========
 **Optimizations**
 
 -  Improved performance of non-batched and batched rocblas_Xgemv for
@@ -471,7 +471,7 @@ For more information, refer to
 https://rocblas.readthedocs.io/en/master/
 
 rocRAND
-~~~~~~~
+========
 
 **Enhancements**
 
@@ -493,7 +493,7 @@ For more information, refer to
 https://rocrand.readthedocs.io/en/latest/
 
 rocSOLVER
-~~~~~~~~~
+==========
 
 **Enhancements**
 
@@ -530,7 +530,7 @@ For more information, refer to
 https://rocsolver.readthedocs.io/en/latest/
 
 rocSPARSE
-~~~~~~~~~
+===========
 
 **Enhancements**
 
@@ -553,7 +553,7 @@ For more information, refer to
 https://rocsparse.readthedocs.io/en/latest/usermanual.html#rocsparse-gebsrmv
 
 hipBLAS
-~~~~~~~
+=========
 
 **Enhancements**
 
@@ -565,7 +565,7 @@ hipBLAS
    exceptions
 
 rocFFT
-~~~~~~
+=======
 
 **Changes**
 
@@ -585,7 +585,7 @@ For more information, refer to
 https://rocfft.readthedocs.io/en/rocm-4.3.0/
 
 hipFFT
-~~~~~~
+=======
 
 **Fixed Issues**
 
@@ -594,7 +594,7 @@ hipFFT
 -  Added callback API in hipfftXt.h header.
 
 rocALUTION
-~~~~~~~~~~
+============
 
 **Enhancements**
 
@@ -609,7 +609,7 @@ rocALUTION
 For more information, refer to
 
 rocTHRUST
-~~~~~~~~~
+===========
 
 **Enhancements**
 
@@ -621,7 +621,7 @@ rocTHRUST
 
 
 hipCUB
-~~~~~~~~~
+=======
 
 Enhancements
 
@@ -634,7 +634,7 @@ ROCProfiler Enhancements
 ------------------------
 
 Tracing Multiple MPI Ranks
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================
 
 When tracing multiple MPI ranks in ROCm v4.3, users must use the form:
 
