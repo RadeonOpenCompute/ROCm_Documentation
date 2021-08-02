@@ -88,7 +88,7 @@ The AMD ROCm platform is designed to support the following operating systems:
 
 **Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
 
-
+|
 
 
 
