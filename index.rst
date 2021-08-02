@@ -108,8 +108,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    Programming_Guides/Programming-Guides
    Programming_Guides/HIP_API_Guide
    Programming_Guides/openmp_support
-   Programming_Guides/gcn-assembler
-   ROCm_Compiler_SDK/ROCm-Compiler-SDK
+  
       
    
       
