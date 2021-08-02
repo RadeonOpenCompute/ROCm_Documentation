@@ -250,9 +250,7 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
  
 **Note**: The public key has changed to reflect the new location. You must update to the new location as the old key will be removed in a future release.
 
-* Old Key: https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key
-
-* New Key: https://repo.radeon.com/rocm/rocm.gpg.key 
+* Key: https://repo.radeon.com/rocm/rocm.gpg.key 
 
 
 ::
