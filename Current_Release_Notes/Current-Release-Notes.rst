@@ -324,7 +324,7 @@ checks provide information on its efficiency.
 Previously, when a new compute node was added, users had to change prometheus_targets.json to use Consul manually. Now, with the Consul
 agent integration, a new compute node can be discovered automatically.
 
-Add link
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
 
 
 Coarse Grain Utilization
