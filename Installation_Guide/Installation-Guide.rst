@@ -280,7 +280,7 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 ::
 
-  e85a40d1a43453fe37d63aa6899bc96e08f2817a rocm.gpg.key
+	777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
 
 3. Install the ROCm meta-package. Update the appropriate repository list and install the rocm-dkms meta-package:
 
