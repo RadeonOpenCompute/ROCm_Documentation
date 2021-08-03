@@ -126,8 +126,12 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Gui
 
 
 
-HIP API Documentation v3.x 
-=============================
+
+
+
+
+HIP API Documentation v3.x (Obsolete)
+**************************************
 
 
 HIP Language Runtime API
