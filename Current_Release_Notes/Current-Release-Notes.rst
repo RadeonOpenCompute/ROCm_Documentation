@@ -322,7 +322,9 @@ The ROCm Data Center Tool uses Consul for health checks of RDC's integration wit
 checks provide information on its efficiency.
 
 Previously, when a new compute node was added, users had to change prometheus_targets.json to use Consul manually. Now, with the Consul
-agent integration, a new compute node can be discovered automatically.
+agent integration, a new compute node can be discovered automatically. 
+
+For more information, refer to the ROCm Data Center Tool User Guide at,
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
 
