@@ -52,9 +52,11 @@ https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
 ROCm Repositories
 ===================
 
-* For major releases - https://repo.radeon.com/rocm/yum/rpm/ 
+Use the following ROCm repositories for the required major and point releases:
 
-* For point releases - https://repo.radeon.com/rocm/yum/4.3.x/ 
+* Major releases - https://repo.radeon.com/rocm/yum/rpm/ 
+
+* Point releases - https://repo.radeon.com/rocm/yum/4.3.x/ 
 
 
 Base Operating System Kernel Upgrade
