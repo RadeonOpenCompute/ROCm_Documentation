@@ -116,6 +116,14 @@ You can access the latest HIP-Supported CUDA API Reference Guide at
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide_v4.3.pdf
 
+====================================
+AMD ROCm Compiler Reference Guide
+====================================
+
+You can access and download the AMD ROCm Compiler Reference Guide at,
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.3.pdf
+
 
 
 HIP API Documentation v3.x 
