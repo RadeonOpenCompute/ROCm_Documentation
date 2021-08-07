@@ -655,7 +655,9 @@ From a user perspective, this new execution mode requires:
 
 1. Generation of trace data per MPI (or process) rank.
 
-2. Use of a new â€œmerge_traces.shâ€ utility script (see: ) to combine traces from multiple processes into a unified trace for profiling.
+2. Use of the new merge_traces.sh" utility script (see: ) to combine traces from multiple processes into a unified trace for profiling. You access the utility script at,
+
+https://github.com/ROCm-Developer-Tools/rocprofiler/blob/rocm-4.3.x/bin/merge_traces.sh
 
 For example, to accomplish step #1, ROCm provides a simple bash wrapper that demonstrates how to generate a unique output directory per process:
 
@@ -699,7 +701,9 @@ This generates an output directory for each used MPI rank. For example,
        4096 rank_513555_0
        4096 rank_513556_1
 
-Finally, these traces may be combined using the merge traces script ().
+Finally, these traces may be combined using the merge traces script () at,
+
+https://github.com/ROCm-Developer-Tools/rocprofiler/blob/rocm-4.3.x/bin/merge_traces.sh
 
 For example,
 
