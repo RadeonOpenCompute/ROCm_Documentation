@@ -655,7 +655,7 @@ From a user perspective, this new execution mode requires:
 
 1. Generation of trace data per MPI (or process) rank.
 
-2. Use of the new "merge_traces.sh" utility script (see: ) to combine traces from multiple processes into a unified trace for profiling. You access the utility script at,
+2. Use of the new "merge_traces.sh" utility script (see: ) to combine traces from multiple processes into a unified trace for profiling. You can access the utility script at,
 
 https://github.com/ROCm-Developer-Tools/rocprofiler/blob/rocm-4.3.x/bin/merge_traces.sh
 
