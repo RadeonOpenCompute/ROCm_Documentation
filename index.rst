@@ -127,7 +127,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption: ROCm-Tools
+   :caption: ROCm-Tools Documentation
    
       
    ROCm_Tools/ROCm-Tools
