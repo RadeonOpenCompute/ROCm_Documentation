@@ -80,7 +80,7 @@ Prerequisites
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-.. image:: OSKernel.PNG
+.. image:: OSKernelupdated.PNG
     :align: left	
     
     
@@ -277,6 +277,11 @@ For Debian-based systems like Ubuntu, configure the Debian ROCm repository as fo
 https://repo.radeon.com/rocm/apt/
 
 The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository.
+
+::
+
+	wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+
 
 The current rocm.gpg.key is not available in a standard key ring distribution, but has the following sha1sum hash:
 
