@@ -56,7 +56,7 @@ Use the following ROCm repositories for the required major and point releases:
 
 * Major releases - https://repo.radeon.com/rocm/yum/rpm/ 
 
-* Point releases - https://repo.radeon.com/rocm/yum/4.3.x/ 
+* Point releases - https://repo.radeon.com/rocm/yum/4.3/
 
 
 Base Operating System Kernel Upgrade
