@@ -262,7 +262,7 @@ Note: Currently, ROCm install version 3.3 is required.
   sudo apt-get update
   sudo apt-get upgrade
 
-Recommended:Install using published PyTorch ROCm docker image:
+Recommended: Install using published PyTorch ROCm docker image:
 **************************************************************
 
 2. Obtain docker image:
@@ -284,7 +284,7 @@ Recommended:Install using published PyTorch ROCm docker image:
 
 ::
 
-  PYTORCH_TEST_WITH_ROCM=1 python3.6 test/run_test.py –-verbose
+  PYTORCH_TEST_WITH_ROCM=1 python3.6 test/run_test.py --verbose
 
 **Note**:  Compilation and installation must be correct for the tests to be successful.
 
