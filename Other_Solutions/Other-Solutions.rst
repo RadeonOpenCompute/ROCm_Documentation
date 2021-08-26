@@ -103,8 +103,6 @@ HCC Debug Enviroment Variables
 HIP Environment Variables
 *************************
 
-
-
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HIDDEN_FREE_MEM= 256     || Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts   |
 | 			       || hipMemGetInfo										                                                                                               |
@@ -120,10 +118,7 @@ HIP Environment Variables
 |			       || threadfence_system to work but prevents host memory from being cached on GPU which may have                            |
 |			       || performance impact.									                                                                                           |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-|                                                                                                                                    |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-|       |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
+
 
 OpenCL Debug Flags
 ********************
