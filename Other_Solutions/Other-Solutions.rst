@@ -59,64 +59,24 @@ Turn Off Page Retry on GFX9/Vega devices
   * echo 1 > /sys/module/amdkfd/parameters/noretry
   
 
-
-HCC Debug Enviroment Variables
-********************************
-
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_PRINT_ENV=1                     | will print usage and current values for the HCC and HIP env variables.                       |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_PRINT_ENV = 1                   | Print values of HCC environment variables                                                    |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_SERIALIZE_KERNEL= 0             | | 0x1=pre-serialize before each kernel launch, 0x2=post-serialize after each kernel launch,} |
-|				      | | 0x3=both									             |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_SERIALIZE_COPY= 0               | 0x1=pre-serialize before each data copy, 0x2=post-serialize after each data copy, 0x3=both   |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_DB = 0                          | Enable HCC trace debug                                                                       |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_OPT_FLUSH = 1                   | | Perform system-scope acquire/release only at CPU sync boundaries (rather than after each   |
-|                                     | |  kernel)                                                                                   |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_MAX_QUEUES= 20                  | | Set max number of HSA queues this process will use.  accelerator_views will share the      |
-|				      | | allotted queues and steal from each other as necessary                                     |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_UNPINNED_COPY_MODE = 2          | | Select algorithm for unpinned copies. 0=ChooseBest(see thresholds), 1=PinInPlace,          |
-|                                     | | 2=StagingBuffer,3=Memcpy                                                                   |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_CHECK_COPY = 0                  | Check dst == src after each copy operation.  Only works on large-bar systems.                |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_H2D_STAGING_THRESHOLD = 64      | | Min size (in KB) to use staging buffer algorithm for H2D copy if ChooseBest algorithm      |
-|                                     | | selected                                                                                   |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_H2D_PININPLACE_THRESHOLD = 4096 | Min size (in KB) to use pin-in-place algorithm for H2D copy if ChooseBest algorithm selected |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_D2H_PININPLACE_THRESHOLD = 1024 | Min size (in KB) to use pin-in-place for D2H copy if ChooseBest algorithm selected           |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_PROFILE = 0                     | Enable HCC kernel and data profiling.  1=summary, 2=trace                                    |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-| HCC_PROFILE_VERBOSE  = 31           | Bitmark to control profile verbosity and format. 0x1=default, 0x2=show begin/end, 0x4=show   |
-|                                     | barrier                                                                                      |
-+-------------------------------------+----------------------------------------------------------------------------------------------+
-
-
 HIP Environment Variables
 *************************
 
+
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HIDDEN_FREE_MEM= 256     || Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts   |
-| 			       || hipMemGetInfo										                                                                                               |
+| 			                          || hipMemGetInfo										                                                                            |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_DB_START_API =           | Comma-separated list of tid.api_seq_num for when to start debug and profiling.                      |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_VISIBLE_DEVICES = 0      || Only devices whose index is present in the sequence are visible to HIP applications and they are   |
-|			       || enumerated in the order of sequence 							    	                                                                       |
+|			                           || enumerated in the order of sequence 							    	                                                   |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_FORCE_SYNC_COPY =  0     | Force all copies (even hipMemcpyAsync) to use sync copies                                           |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HOST_COHERENT =  1       || If set, all host memory will be allocated as fine-grained system memory.This allows                |
-|			       || threadfence_system to work but prevents host memory from being cached on GPU which may have                            |
-|			       || performance impact.									                                                                                           |
+|			                           || threadfence_system to work but prevents host memory from being cached on GPU which may have        |
+|			                           || performance impact.									                                                                       |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 
 
