@@ -9,7 +9,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_
 System Level Debug
 =====================
 
-ROCm Language & System Level Debug, Flags and Environment Variables 
+ROCm Language & System Level Debug, Flags, and Environment Variables 
 #####################################################################
 
 | Kernel options to avoid Ethernet port getting renamed every time you change graphics cards
@@ -103,60 +103,26 @@ HCC Debug Enviroment Variables
 HIP Environment Variables
 *************************
 
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_PRINT_ENV=1              | Print HIP environment variables.                                                                    |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_LAUNCH_BLOCKING=0        || Make HIP kernel launches 'host-synchronous', so they block until any kernel launches. Alias:       |
-|			       || CUDA_LAUNCH_BLOCKING								                     |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_LAUNCH_BLOCKING_KERNELS= | Comma-separated list of kernel names to make host-synchronous, so they block until completed.       |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_API_BLOCKING= 0          || Make HIP APIs 'host-synchronous', so they block until completed. Impacts hipMemcpyAsync,           |
-|			       || hipMemsetAsync							                             |
+
+
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HIDDEN_FREE_MEM= 256     || Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts   |
-| 			       || hipMemGetInfo										             |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_DB = 0                   | Print debug info.  Bitmask (HIP_DB=0xff) or flags separated by '+' (HIP_DB=api+sync+mem+copy)       |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_TRACE_API=0              | Trace each HIP API call.  Print function name and return code to stderr as program executes.        |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_TRACE_API_COLOR= green   | Color to use for HIP_API.  None/Red/Green/Yellow/Blue/Magenta/Cyan/White                            |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_PROFILE_API =  0         || Add HIP API markers to ATP file generated with CodeXL. 0x1=short API name, 0x2=full API name       |
-| 			       || including args                                                                                     |
+| 			       || hipMemGetInfo										                                                                                               |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_DB_START_API =           | Comma-separated list of tid.api_seq_num for when to start debug and profiling.                      |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_DB_STOP_API =            | Comma-separated list of tid.api_seq_num for when to stop debug and profiling.                       |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_VISIBLE_DEVICES = 0      || Only devices whose index is present in the sequence are visible to HIP applications and they are   |
-|			       || enumerated in the order of sequence 							    	     |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_WAIT_MODE =  0           | Force synchronization mode. 1= force yield, 2=force spin, 0=defaults specified in application       |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_FORCE_P2P_HOST =  0      || Force use of host/staging copy for peer-to-peer copies.1=always use copies, 2=always return false  |
-|			       || for hipDeviceCanAccessPeer								             |
+|			       || enumerated in the order of sequence 							    	                                                                       |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_FORCE_SYNC_COPY =  0     | Force all copies (even hipMemcpyAsync) to use sync copies                                           |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_FAIL_SOC =  0            || Fault on Sub-Optimal-Copy, rather than use a slower but functional implementation.Bit 0x1=Fail on  |
-|			       || async copy with unpinned memory.  Bit 0x2=Fail peer copy rather than use staging buffer copy       |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_SYNC_HOST_ALLOC =  1     | Sync before and after all host memory allocations.  May help stability                              |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_SYNC_NULL_STREAM =  0    | Synchronize on host for null stream submissions                                                     |
-+------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HOST_COHERENT =  1       || If set, all host memory will be allocated as fine-grained system memory.This allows                |
-|			       || threadfence_system to work but prevents host memory from being cached on GPU which may have        |
-|			       || performance impact.									             |
+|			       || threadfence_system to work but prevents host memory from being cached on GPU which may have                            |
+|			       || performance impact.									                                                                                           |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HCC_OPT_FLUSH =  1           || When set, use agent-scope fence operations rather than system-scope fence operationsflush when     |
-|			       || possible. This flag controls both HIP and HCC behavior                                             |
+|                                                                                                                                    |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_EVENT_SYS_RELEASE =  0   || If set, event are created with hipEventReleaseToSystem by default.  If 0, events are created with  |
-|			       || hipEventReleaseToDevice by default.  The defaults can be overridden by specifying                  |
-|			       || hipEventReleaseToSystem or hipEventReleaseToDevice flag when creating the event.                   |
+|       |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 
 OpenCL Debug Flags
