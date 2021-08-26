@@ -64,7 +64,7 @@ HIP Environment Variables
 
 
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_HIDDEN_FREE_MEM= 256     || Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts   |
+| HIP_HIDDEN_FREE_MEM= 256     ||Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts    |
 | 			                          || hipMemGetInfo										                                                                            |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_DB_START_API =           | Comma-separated list of tid.api_seq_num for when to start debug and profiling.                      |
