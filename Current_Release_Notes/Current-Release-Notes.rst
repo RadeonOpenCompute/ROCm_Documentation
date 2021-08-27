@@ -69,7 +69,7 @@ hipRTC may fail, and users may encounter the following error:
 	   
 
       
-Suggested Workarounds
+**Suggested Workarounds**
  
 
 * Set LLVM_PATH in the environment to <path to ROCm llvm>/llvm. Note, if ROCm is installed at the default location, then LLVM_PATH must be set to /opt/rocm/llvm. 
