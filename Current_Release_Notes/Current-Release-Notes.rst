@@ -57,7 +57,7 @@ For some workloads on MI25, general user space and application freeze are observ
 
 This issue is under active investigation, and no workarounds are available currently.
 
-HIPRTC - FILE NOT FOUND ERROR
+hipRTC - File Not Found Error
 ==============================
 
 hipRTC may fail, and users may encounter the following error:
