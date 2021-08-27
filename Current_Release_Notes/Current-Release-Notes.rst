@@ -19,26 +19,26 @@ The AMD ROCm platform supports the following operating systems:
 .. image:: SuppEnv.PNG
    :alt: Screenshot
    
-==============================
+
 What's New in This Release
-==============================
+------------------------------------
 
 The ROCm v4.3.1 release consists of the following enhancements:
 
 Support for RHEL V8.4
------------------------
+======================
 
 This release extends support for RHEL v8.4.
 
 
 Support for SLES V15 Service Pack 3
-------------------------------------
+====================================
 
 This release extends support for SLES v15 SP3.
 
 
 Pass Manager Update 
----------------------
+======================
 
 In the AMD ROCm 4.3.1 release, the ROCm compiler uses the legacy pass manager, by default, to provide a better performance experience with some workloads. 
 
