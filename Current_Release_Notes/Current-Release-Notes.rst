@@ -66,8 +66,11 @@ hipRTC may fail, and users may encounter the following error:
 
       <built-in>:1:10: fatal error: '__clang_hip_runtime_wrapper.h' file not found
 	   #include "__clang_hip_runtime_wrapper.h"
+	   
+	   
       
  **Suggested Workarounds**
+ 
 
 * Set LLVM_PATH in the environment to <path to ROCm llvm>/llvm. Note, if ROCm is installed at the default location, then LLVM_PATH must be set to /opt/rocm/llvm. 
 	
