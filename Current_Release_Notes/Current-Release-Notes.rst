@@ -67,7 +67,10 @@ hipRTC may fail, and users may encounter the following error:
       <built-in>:1:10: fatal error: '__clang_hip_runtime_wrapper.h' file not found
 	   #include "__clang_hip_runtime_wrapper.h"
 	   
-::
+
+
+
+
 
       
  **Suggested Workarounds**
