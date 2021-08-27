@@ -1,6 +1,87 @@
 .. image:: /Current_Release_Notes/amdblack.jpg
 |
 
+======================================
+AMD ROCm™ v4.3.1 Point Release Notes 
+======================================
+August, 2021
+
+
+This document describes the features, fixed issues, and information about downloading and installing the AMD ROCm™ software.
+
+It also covers known issues in this release.
+
+List of Supported Operating Systems
+------------------------------------
+
+The AMD ROCm platform supports the following operating systems:
+
+.. image:: SuppEnv.PNG
+   :alt: Screenshot
+   
+==============================
+What's New in This Release
+==============================
+
+The ROCm v4.3.1 release consists of the following enhancements:
+
+Support for RHEL V8.4
+-----------------------
+
+This release extends support for RHEL v8.4.
+
+
+Support for SLES V15 Service Pack 3
+------------------------------------
+
+This release extends support for SLES v15 SP3.
+
+
+Pass Manager Update 
+---------------------
+
+In the AMD ROCm 4.3.1 release, the ROCm compiler uses the legacy pass manager, by default, to provide a better performance experience with some workloads. 
+
+Previously, in ROCm v4.3, the default choice for the ROCm compiler was the new pass manager. 
+
+For more information about legacy and new pass managers, see http://llvm.org.
+
+
+Known Issues in This Release
+-----------------------------
+
+General Userspace and Application Freeze on MI25
+=================================================
+
+For some workloads on MI25, general user space and application freeze are observed, and the GPU resets intermittently. Note, the freeze may take hours to reproduce.
+
+This issue is under active investigation, and no workarounds are available currently.
+
+HIPRTC - FILE NOT FOUND ERROR
+==============================
+
+hipRTC may fail, and users may encounter the following error:
+
+::
+
+      <built-in>:1:10: fatal error: '__clang_hip_runtime_wrapper.h' file not found
+	   #include "__clang_hip_runtime_wrapper.h"
+      
+ **Suggested Workarounds**
+
+* Set LLVM_PATH in the environment to <path to ROCm llvm>/llvm. Note, if ROCm is installed at the default location, then LLVM_PATH must be set to /opt/rocm/llvm. 
+	
+* Add “-I <path to ROCm>/llvm/lib/clang/13.0.0/include/” to compiler options in the call to hiprtcCompileProgram (). Note, this workaround requires the following changes in the code:
+
+:: 
+
+	   // set NUM_OPTIONS to one more than the number of options that was previously required
+	   const char* options[NUM_OPTIONS];
+	   // fill other options[] here
+	   std::string sarg = "-I/opt/rocm/llvm/lib/clang/13.0.0/include/";
+	   options[NUM_OPTIONS - 1] = sarg.c_str();
+	   hiprtcResult compileResult{hiprtcCompileProgram(prog, NUM_OPTIONS, options)};"
+   
 
 
 =====================================
