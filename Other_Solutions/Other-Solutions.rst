@@ -62,17 +62,16 @@ Turn Off Page Retry on GFX9/Vega devices
 HIP Environment Variables
 *************************
 
-
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HIDDEN_FREE_MEM= 256     ||Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts    |
 | 			                          || hipMemGetInfo										                                                                            |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_DB_START_API =           | Comma-separated list of tid.api_seq_num for when to start debug and profiling.                      |
+| HIP_DB_START_API =           || Comma-separated list of tid.api_seq_num for when to start debug and profiling.                      |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_VISIBLE_DEVICES = 0      || Only devices whose index is present in the sequence are visible to HIP applications and they are   |
 |			                           || enumerated in the order of sequence 							    	                                                   |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
-| HIP_FORCE_SYNC_COPY =  0     | Force all copies (even hipMemcpyAsync) to use sync copies                                           |
+| HIP_FORCE_SYNC_COPY =  0     || Force all copies (even hipMemcpyAsync) to use sync copies                                           |
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HOST_COHERENT =  1       || If set, all host memory will be allocated as fine-grained system memory.This allows                |
 |			                           || threadfence_system to work but prevents host memory from being cached on GPU which may have        |
