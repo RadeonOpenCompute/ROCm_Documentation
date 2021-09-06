@@ -1,7 +1,17 @@
 .. _hip-programming-guide:
 
-HIP Programming Guide
+HIP Programming Guide v4.x
+============================
+
+For the latest version of the HIP Programming Guide for AMD ROCm, refer to
+
+https://github.com/RadeonOpenCompute/ROCm
+
+
+
+HIP Programming Guide v3.x
 ==========================
+
 
 Host Memory
 ------------
