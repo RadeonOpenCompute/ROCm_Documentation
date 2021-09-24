@@ -451,26 +451,28 @@ PyTorch examples
 
 ::
 
-  git clone https://github.com/pytorch/examples.git
+  git clone https://github.com/pytorch/examples.git && cd examples/
 
-2. Run individual example: MNIST
-
-::
-
-  cd examples/mnist
-
-Follow instructions in README.md, in this case:
-::
-
-  pip install -r requirements.txt python main.py
-
-3. Run individual example: Try ImageNet training
+2. Download pip requiremenst:
 
 ::
 
-  cd ../imagenet
+  pip3 install -r mnist/requirements.txt 
 
-Follow instructions in README.md.
+3. Run individual example: Super-resolution training and running
+
+::
+
+  cd super_resolution/
+
+  # download dataset for training and run learning
+  python3 main.py --upscale_factor 3 --batchSize 4 --testBatchSize 100 --nEpochs 30 --lr 0.001
+
+  # test work super resolution effect
+  python3 super_resolve.py --input_image dataset/BSDS300/images/test/16077.jpg \
+  --model model_epoch_30.pth --output_filename out.png
+
+4. Open `out.png` and `dataset/BSDS300/images/test/16077.jpg` files to see result
 
 
 *******
