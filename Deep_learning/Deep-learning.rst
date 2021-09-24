@@ -165,13 +165,14 @@ Install ROCm
    wget <location of WHL file>
    pip3.6 install --user ./tensorflow*linux_x86_64.whl
 
-7. Perform a quick sanity test
+Tensorflow benchmarking
+*************************
 
+Clone the repository of bench test and run it
 ::
 
-     cd ~ && git clone -b cnn_tf_v1.15_compatible https://github.com/tensorflow/benchmarks.git 
-     python3.6 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --
-     model=resnet50  
+     cd ~ && git clone https://github.com/tensorflow/benchmarks.git 
+     python3 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --model=resnet50  
 
 
 Tensorflow More Resources
