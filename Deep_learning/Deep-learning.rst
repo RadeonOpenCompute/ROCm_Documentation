@@ -174,11 +174,31 @@ Clone the repository of bench test and run it
      cd ~ && git clone https://github.com/tensorflow/benchmarks.git 
      python3 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --model=resnet50  
 
+Tensorflow Installation with Docker
+***********************************
+
+**Note**: firstly, configure docker environment for ROCm (information `here <https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/quick-start.md>`_)
+
+Pull the docker images for Tensorflow releases with ROCm backend support. The size of these docker images is about 7 Gb.  
+
+::
+
+  sudo docker pull rocm/tensorflow:latest 
+
+Launch the downloaded docker image
+
+::
+
+     alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx'
+     
+     #Run it
+     drun rocm/tensorflow:latest
+
+
+More information about tensorflow docker images can be found `here <https://hub.docker.com/r/rocm/tensorflow/>`_
 
 Tensorflow More Resources
 *************************
-Tensorflow docker images are also publicly available, more details can be found `here <https://hub.docker.com/r/rocm/tensorflow/>`_
-
 The official github repository is `here <https://github.com/ROCmSoftwarePlatform/tensorflow-upstream>`_
 
 *******
