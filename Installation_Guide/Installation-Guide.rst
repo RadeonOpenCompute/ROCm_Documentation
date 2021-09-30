@@ -249,26 +249,48 @@ To install from a Debian Repository:
 2. Add the ROCm apt repository.
 
 For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
- 
-* Key: https://repo.radeon.com/rocm/rocm.gpg.key 
 
+Key: https://repo.radeon.com/rocm/rocm.gpg.key
+
+::
+	
+		sudo apt install wget gnupg2
+		
+		wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+		
+		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+
+
+For example
+
+For the current version of ROCm, ensure you replace *<ROCm_version#>* with debian. 
 
 ::
 
-    sudo apt install wget gnupg2
+		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+		
 
-    wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+For older versions of ROCm, replace *<ROCm_version#>* with any ROCm versions number like 4.3.1, 4.3 or 4.2.
 
-    echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
-
-
-**Note**: For ROCm v4.1 and lower, use 'xenial main' as shown below
+For example, 
 
 ::
 
-	wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.3/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
-	echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.1/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+
+**Note**: For ROCm v4.1 and lower, use *‘xenial main’*, instead of 'ubuntu main', as shown below.
+
+::
+
+		wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+
+For example,
+
+::
+
+		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.1/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
 
