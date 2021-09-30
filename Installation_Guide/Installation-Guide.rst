@@ -371,6 +371,13 @@ To setup the Devtoolset-7 environment, follow the instructions on this page: htt
 
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
 
+5. Add the ROCm GPG key
+
+::
+
+    sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
+
+
 
 Installing CentOS for DKMS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
