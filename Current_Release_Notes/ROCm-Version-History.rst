@@ -7,6 +7,19 @@ AMD ROCm Version History
 
 This file contains historical information for ROCm releases.
 
+New features and enhancements in ROCm v4.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release Nots: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.2.x
+
+- HIP Target Platform Macro
+- Updated HIP 'Include' Directories
+- HIP Stream Memory Operations
+- HIP Events in Kernel Dispatch
+- Changed Environment Variables for HIP
+- ROCm Data Center Tool - RAS Integration
+- ROCm Math and Communication Libraries Enhancements and Fixes  
+
+
 New features and enhancements in ROCm v4.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.1.x

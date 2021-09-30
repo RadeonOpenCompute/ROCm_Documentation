@@ -75,7 +75,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
   
    Release Notes
    Current_Release_Notes/Current-Release-Notes
-   Current_Release_Notes/Deprecations
+   Current_Release_Notes/Deprecation
    Current_Release_Notes/ROCm-Version-History
    Current_Release_Notes/ROCm-Learning-Center
    Current_Release_Notes/DISCLAIMER
@@ -108,8 +108,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    Programming_Guides/Programming-Guides
    Programming_Guides/HIP_API_Guide
    Programming_Guides/openmp_support
-   Programming_Guides/gcn-assembler
-   ROCm_Compiler_SDK/ROCm-Compiler-SDK
+  
       
    
       
@@ -128,7 +127,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption: ROCm-Tools
+   :caption: ROCm-Tools Documentation
    
       
    ROCm_Tools/ROCm-Tools

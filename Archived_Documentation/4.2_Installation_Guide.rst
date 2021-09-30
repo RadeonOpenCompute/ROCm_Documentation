@@ -52,11 +52,9 @@ https://docs.mellanox.com/display/MLNXOFEDv461000/Installing+Mellanox+OFED
 ROCm Repositories
 ===================
 
-Use the following ROCm repositories for the required major and point releases:
+* For major releases - https://repo.radeon.com/rocm/yum/rpm/ 
 
-* Major releases - https://repo.radeon.com/rocm/yum/rpm/ 
-
-* Point releases - https://repo.radeon.com/rocm/yum/4.3/
+* For point releases - https://repo.radeon.com/rocm/yum/4.2.x/ 
 
 
 Base Operating System Kernel Upgrade
@@ -80,27 +78,18 @@ Prerequisites
 
 The AMD ROCm platform is designed to support the following operating systems:
 
-.. image:: OSKernelupdated.PNG
-    :align: left	
-    
-    
-    
+* Ubuntu 20.04.2 HWE (5.4 and 5.6-oem) and 18.04.5 (Kernel 5.4)
+
+* CentOS 7.9 (3.10.0-1127) & RHEL 7.9 (3.10.0-1160.6.1.el7) (Using devtoolset-7 runtime support) 
+
+* CentOS 8.3 (4.18.0-193.el8)and RHEL 8.3 (4.18.0-193.1.1.el8) (devtoolset is not required) 
+
+* SLES 15 SP2
+	
 
 **Note**: Ubuntu versions lower than 18 are no longer supported.
 
 **Note**: AMD ROCm only supports Long Term Support (LTS) versions of Ubuntu. Versions other than LTS may work with ROCm, however, they are not officially supported. 
-
-|
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -138,10 +127,10 @@ https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:lan
 	
 
 
-Complete Reinstallation OF AMD ROCm V4.3 Recommended
+Complete Reinstallation OF AMD ROCm V4.2 Recommended
 =====================================================
 
-Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.3 is not supported.
+Complete uninstallation of previous ROCm versions is required before installing a new version of ROCm. An upgrade from previous releases to AMD ROCm v4.2 is not supported.
 
 **Note**: AMD ROCm release v3.3 or prior releases are not fully compatible with AMD ROCm v3.5 and higher versions. You must perform a fresh ROCm installation if you want to upgrade from AMD ROCm v3.3 or older to 3.5 or higher versions and vice-versa.
 
@@ -156,18 +145,18 @@ Complete uninstallation of previous ROCm versions is required before installing 
 Multi-version Installation Updates
 ======================================
 
-With the AMD ROCm v4.3 release, the following ROCm multi-version installation changes apply:
+With the AMD ROCm v4.2 release, the following ROCm multi-version installation changes apply:
 
 The meta packages rocm-dkms<version> are now deprecated for multi-version ROCm installs.  For example, rocm-dkms3.7.0, rocm-dkms3.8.0.
 
 * Multi-version installation of ROCm should be performed by installing rocm-dev<version> using each of the desired ROCm versions. 
   For example, rocm-dev3.7.0, rocm-dev3.8.0, rocm-dev3.9.0.   
 
-* ‘version’ files should be created for each multi-version rocm <= 4.3.0
+* ‘version’ files should be created for each multi-version rocm <= 4.2.0
 
 	* command: echo <version> | sudo tee /opt/rocm-<version>/.info/version
 
-	* example: echo 4.3.0 | sudo tee /opt/rocm-4.3.0/.info/version
+	* example: echo 4.2.0 | sudo tee /opt/rocm-4.2.0/.info/version
 
 * The rock-dkms loadable kernel modules should be installed using a single rock-dkms package. 
 
@@ -249,48 +238,30 @@ To install from a Debian Repository:
 2. Add the ROCm apt repository.
 
 For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
+ 
+**Note**: The public key has changed to reflect the new location. You must update to the new location as the old key will be removed in a future release.
 
-Key: https://repo.radeon.com/rocm/rocm.gpg.key
+* Old Key: https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key
 
-::
-	
-		sudo apt install wget gnupg2
-		
-		wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
-		
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+* New Key: https://repo.radeon.com/rocm/rocm.gpg.key 
 
-
-For example
-
-For the current version of ROCm, ensure you replace *<ROCm_version#>* with debian. 
 
 ::
 
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
-		
+    sudo apt install wget gnupg2
 
-For older versions of ROCm, replace *<ROCm_version#>* with any ROCm versions number like 4.3.1, 4.3 or 4.2.
+    wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
 
-For example, 
-
-::
-
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.3/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+    echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
-**Note**: For ROCm v4.1 and lower, use *‘xenial main’*, instead of 'ubuntu main', as shown below.
+**Note**: For ROCm v4.1 and lower, use 'xenial main' as shown below
 
 ::
 
-		wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+	wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
 
-For example,
-
-::
-
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.1/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+	echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.1/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
 
@@ -300,16 +271,11 @@ https://repo.radeon.com/rocm/apt/
 
 The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository.
 
-::
-
-	wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
-
-
 The current rocm.gpg.key is not available in a standard key ring distribution, but has the following sha1sum hash:
 
 ::
 
-	777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+  e85a40d1a43453fe37d63aa6899bc96e08f2817a rocm.gpg.key
 
 3. Install the ROCm meta-package. Update the appropriate repository list and install the rocm-dkms meta-package:
 
@@ -404,13 +370,6 @@ For more details,
 To setup the Devtoolset-7 environment, follow the instructions on this page: https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/
 
 Note: devtoolset-7 is a software collections package and is not supported by AMD.
-
-5. Add the ROCm GPG key
-
-::
-
-    sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
-
 
 
 Installing CentOS for DKMS
@@ -682,8 +641,9 @@ The following example shows how to use the repo binary to download the ROCm sour
 
   mkdir -p ~/ROCm/
   cd ~/ROCm/
-  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-4.3.x
+  ~/bin/repo init -u https://github.com/RadeonOpenCompute/ROCm.git -b roc-4.2.x
   repo sync
 
 
 **Note**: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
+

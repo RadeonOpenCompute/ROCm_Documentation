@@ -4,6 +4,11 @@
 HIP Debugging
 #####################
 
+Refer to the latest version of the HIP Programming Guide for more detailed information about HIP Debugging at,
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
+
+
 Table of Contents
 ##################
 

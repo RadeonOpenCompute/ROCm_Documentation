@@ -62,12 +62,14 @@ HIP-Clang can be built manually:
 
 ::
 
-   	git clone -b rocm-4.2.x https://github.com/RadeonOpenCompute/llvm-project.git
+   	git clone -b rocm-4.3.x https://github.com/RadeonOpenCompute/llvm-project.git
 	cd llvm-project
 	mkdir -p build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 -		  DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" ../llvm
+	cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 - 
+	DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" - DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" ../llvm
 	make -j
 	sudo make install
+
 
 ::
 
@@ -76,7 +78,7 @@ The ROCm device library can be manually built as following,
 ::
 
   	export PATH=/opt/rocm/llvm/bin:$PATH
-	git clone -b rocm-4.2.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
+	git clone -b rocm-4.3.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
 	cd ROCm-Device-Libs
 	mkdir -p build && cd build
 	CC=clang CXX=clang++ cmake -DLLVM_DIR=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_WERROR=1 -DLLVM_ENABLE_ASSERTIONS=1 -DCMAKE_INSTALL_PREFIX=/opt/rocm ..
@@ -121,15 +123,16 @@ See https://github.com/ROCm-Developer-Tools/ROCclr
 
 ::
 
-   	git clone -b rocm-4.2.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+   	git clone -b rocm-4.3.x https://github.com/ROCm-Developer-Tools/ROCclr.git
 	export ROCclr_DIR="$(readlink -f ROCclr)"
-	git clone -b rocm-4.2.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+	git clone -b rocm-4.3.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
 	export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
 	cd "$ROCclr_DIR"
 	mkdir -p build;cd build
 	cmake -DOPENCL_DIR="$OPENCL_DIR" -DCMAKE_INSTALL_PREFIX=/opt/rocm/rocclr ..
 	make -j
-	sudo make install	
+s	udo make install
+	
 
 
 ::
@@ -139,14 +142,14 @@ Build HIP
 
 ::
 
-   	git clone -b rocm-4.2.x https://github.com/ROCm-Developer-Tools/HIP.git
+   	git clone -b rocm-4.3.x https://github.com/ROCm-Developer-Tools/HIP.git
 	export HIP_DIR="$(readlink -f HIP)"
 	cd "$HIP_DIR"
 	mkdir -p build; cd build
-	cmake -DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" -DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
+	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" -DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
 	make -j
 	sudo make install
-	Note: If you don't specify CMAKE_INSTALL_PREFIX, hip-rocclr runtime will be installed to "/opt/rocm/hip".
+
 
 ::
 

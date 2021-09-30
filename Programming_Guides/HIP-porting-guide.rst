@@ -588,8 +588,8 @@ hipLaunchKernel
 ---------------
 
 hipLaunchKernel is a variadic macro which accepts as parameters the
-launch configurations (grid dims, group dims, stream, dynamic shared
-size) followed by a variable number of kernel arguments. This sequence
+launch configurations (grid dims, group dims, dynamic shared size, stream)
+followed by a variable number of kernel arguments. This sequence
 is then expanded into the appropriate kernel launch syntax depending on
 the platform. While this can be a convenient single-line kernel launch
 syntax, the macro implementation can cause issues when nested inside
