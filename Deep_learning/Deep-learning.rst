@@ -473,9 +473,9 @@ Follow instructions in README.md, in this case:
 Follow instructions in README.md.
 
 
-*******
-Caffe2
-*******
+*********************
+Caffe2 (Deprecated)
+**********************
 
 
 Building Caffe2 for ROCm
