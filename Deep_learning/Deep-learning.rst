@@ -474,7 +474,7 @@ Follow instructions in README.md.
 
 
 *********************
-Caffe2 (Deprecated)
+Caffe2 - Deprecated
 **********************
 
 
