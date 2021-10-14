@@ -329,21 +329,26 @@ Now, the HIP-Clang compiler provides support for extern shared declarations, and
 How is the HIP version defined?
 ---------------------------------
 
-The HIP version definition is updated from the ROCm v4.2 release as follows: 
+The HIP version definition is updated since the ROCm v4.2 release as follows:
 
 ::
 
-         HIP_VERSION=HIP_VERSION_MAJOR * 10000000 + HIP_VERSION_MINOR * 100000 + HIP_VERSION_PATCH)
+
+      HIP_VERSION=HIP_VERSION_MAJOR * 10000000 + HIP_VERSION_MINOR * 100000 + HIP_VERSION_PATCH)
 
 
-The HIP version can be queried from a HIP API call
+The HIP version can be queried from the following HIP API call, 
 
 ::
 
-         hipRuntimeGetVersion(&runtimeVersion);
+      hipRuntimeGetVersion(&runtimeVersion);
 
 
-**Note**: The version returned will be greater than the version in previous ROCm releases.
+The version returned will always be greater than the versions in previous ROCm releases.
+
+**NOTE**: The version definition of HIP runtime is different from CUDA. On the AMD platform, the function returns HIP runtime version, while on the NVIDIA platform, it returns CUDA runtime version. There is no mapping or a correlation between HIP version and CUDA version.
+
+
 
 
 
