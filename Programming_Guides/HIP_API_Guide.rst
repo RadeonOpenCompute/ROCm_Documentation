@@ -70,31 +70,6 @@ CUDA supports cuCtx API, the Driver API that defines "Context" and "Devices" as 
 
 * hipCtxDisablePeerAccess
 
-HIP Memory Management APIs
-===========================
-
-hipMallocHost
-**************
-Use "hipHostMalloc"
-
-hipMemAllocHost
-*****************
-Use "hipHostMalloc"
-
-hipHostAlloc
-**************
-Use "hipHostMalloc"
-
-hipFreeHost
-************
-Use "hipHostFree"
-
-Supported HIP Math APIs
-------------------------
-
-You can access the supported HIP Math APIs at:
-
-https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP-MATH.html#hip-math
 
 
 Related Topics
@@ -151,113 +126,7 @@ Supported CUDA APIs
  * `Release Notes <https://github.com/ROCm-Developer-Tools/HIP/blob/master/RELEASE.md>`_
 
     
-    
-    
-Deprecated HIP APIs
-##############################
-
-HIP Memory Management API 
-*************************
-
-
-*hipMallocHost*
-
-.. doxygenfunction:: hipMallocHost
-
-**Recommendation**: Use "hipHostMalloc" 
-
-https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
-
-
-*hipHostAlloc* 
-
-.. doxygenfunction:: hipHostAlloc 
-
-Recommendation: Use "hipHostMalloc" 
-
-https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
-
-
-*hipFreeHost*
-
-.. doxygenfunction:: hipFreeHost
-
-
-**Recommendation**: Use "hipHostFree" 
-
-**Note**: "hipHostFree" has the same input as the deprecated "hipFreeHost" API.
-
-https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipFreeHost#hipfreehost
-
-
-*hipMemAllocHost* 
-
-Recommendation: Use "hipHostMalloc" 
-
-https://rocmdocs.amd.com/en/latest/ROCm_API_References/HIP_API/Memory-Management.html?highlight=hipHostMalloc#hiphostmalloc
-
-
-
-.. _Context-Management:
-
-HIP Context Management APIs 
-***************************
-
-
-*hipCtxPopCurrent*
-
-.. doxygenfunction:: hipCtxPopCurrent
-
-*hipCtxPushCurrent* 
-
-.. doxygenfunction:: hipCtxPushCurrent  
-
-*hipCtxSetCurrent* 
-
-.. doxygenfunction:: hipCtxSetCurrent 
-
-*hipCtxGetCurrent* 
-
-.. doxygenfunction:: hipCtxGetCurrent 
-
-*hipCtxGetDevice* 
-
-.. doxygenfunction:: hipCtxGetDevice 
-
-*hipCtxGetApiVersion* 
-
-.. doxygenfunction:: hipCtxGetApiVersion  
-
-*hipCtxGetCacheConfig* 
-
-.. doxygenfunction:: hipCtxGetCacheConfig 
-
-*hipCtxSetSharedMemConfig*
-
-.. doxygenfunction:: hipCtxSetSharedMemConfig
-
-*hipCtxGetSharedMemConfig*
-
-.. doxygenfunction:: hipCtxGetSharedMemConfig
-
-*hipCtxSynchronize* 
-
-.. doxygenfunction:: hipCtxSynchronize 
-
-*hipCtxGetFlags* 
-
-.. doxygenfunction:: hipCtxGetFlags 
-
-*hipCtxEnablePeerAccess* 
-
-.. doxygenfunction:: hipCtxEnablePeerAccess 
-
-*hipCtxDisablePeerAccess*  
-
-.. doxygenfunction:: hipCtxDisablePeerAccess 
-
-
-
+ 
 ==========================
 OpenCL Programming Guide
 ==========================
