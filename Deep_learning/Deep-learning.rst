@@ -165,19 +165,40 @@ Install ROCm
    wget <location of WHL file>
    pip3.6 install --user ./tensorflow*linux_x86_64.whl
 
-7. Perform a quick sanity test
+Tensorflow benchmarking
+*************************
+
+Clone the repository of bench test and run it
+::
+
+     cd ~ && git clone https://github.com/tensorflow/benchmarks.git 
+     python3 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --model=resnet50  
+
+Tensorflow Installation with Docker
+***********************************
+
+**Note**: firstly, configure docker environment for ROCm (information `here <https://github.com/RadeonOpenCompute/ROCm-docker/blob/master/quick-start.md>`_)
+
+Pull the docker images for Tensorflow releases with ROCm backend support. The size of these docker images is about 7 Gb.  
 
 ::
 
-     cd ~ && git clone -b cnn_tf_v1.15_compatible https://github.com/tensorflow/benchmarks.git 
-     python3.6 ~/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --
-     model=resnet50  
+  sudo docker pull rocm/tensorflow:latest 
 
+Launch the downloaded docker image
+
+::
+
+     alias drun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx'
+     
+     #Run it
+     drun rocm/tensorflow:latest
+
+
+More information about tensorflow docker images can be found `here <https://hub.docker.com/r/rocm/tensorflow/>`_
 
 Tensorflow More Resources
 *************************
-Tensorflow docker images are also publicly available, more details can be found `here <https://hub.docker.com/r/rocm/tensorflow/>`_
-
 The official github repository is `here <https://github.com/ROCmSoftwarePlatform/tensorflow-upstream>`_
 
 *******
@@ -451,26 +472,28 @@ PyTorch examples
 
 ::
 
-  git clone https://github.com/pytorch/examples.git
+  git clone https://github.com/pytorch/examples.git && cd examples/
 
-2. Run individual example: MNIST
-
-::
-
-  cd examples/mnist
-
-Follow instructions in README.md, in this case:
-::
-
-  pip install -r requirements.txt python main.py
-
-3. Run individual example: Try ImageNet training
+2. Download pip requiremenst:
 
 ::
 
-  cd ../imagenet
+  pip3 install -r mnist/requirements.txt 
 
-Follow instructions in README.md.
+3. Run individual example: Super-resolution training and running
+
+::
+
+  cd super_resolution/
+
+  # download dataset for training and run learning
+  python3 main.py --upscale_factor 3 --batchSize 4 --testBatchSize 100 --nEpochs 30 --lr 0.001
+
+  # test work super resolution effect
+  python3 super_resolve.py --input_image dataset/BSDS300/images/test/16077.jpg \
+  --model model_epoch_30.pth --output_filename out.png
+
+4. Open `out.png` and `dataset/BSDS300/images/test/16077.jpg` files to see result
 
 
 *********************
