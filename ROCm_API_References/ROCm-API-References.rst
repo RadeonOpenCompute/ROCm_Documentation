@@ -5,6 +5,13 @@
 ROCm API References
 =====================
 
+For the latest HIP API guide, see https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.3.pdf
+
+
+
+ROCm 3.x API Documentation
+=============================
+
 
 ROCr System Runtime API
 ========================
