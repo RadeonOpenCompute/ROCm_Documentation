@@ -966,7 +966,7 @@ Verifying Package Installation
 Users can use the following commands to ensure the packages are installed successfully.
 
 
-+----------------+----------------------------------------+
++-----------------+---------------------------------------+
 | Linux Distro    |             Command                   | 
 +=================+=======================================+
 | Ubuntu/Debian   | $ sudo apt list --installed           | 
