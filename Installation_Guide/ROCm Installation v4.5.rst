@@ -60,14 +60,8 @@ System Requirements
 
 The system requirements for the ROCm v4.5 installation are as follows:
 
-.. list-table:: Supported  Environments
-   :widths: 25 25 50
-   :header-rows: 1
-
-   * - Ubuntu, column 1
-   
-   * - Row 1, column 1
-     
+.. image:: SuppEnv.PNG
+   :alt: Screenshot     
 
  
  
