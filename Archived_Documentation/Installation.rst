@@ -939,3 +939,28 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
                  777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
 
 
+Verification Process
+======================
+
+Verifying ROCm Installation 
+****************************
+
+After completing the ROCm installation, users can execute the following commands on the system to verify if the installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
+
+*/opt/rocm-<version>/bin/rocminfo
+
+OR
+
+/opt/rocm-<version>/bin/clinfo*
+
+**NOTE**: For convenience, users may add the ROCm binaries in your PATH, as shown in the example below.
+
+::
+
+               $ echo ‘export PATH=$PATH:/opt/rocm-<version>/bin:/opt/rocm-<version>/profiler/bin’
+               
+               
+Verifying Package Installation
+***********************************
+
+Users can use the following commands to ensure the packages are installed successfully.
