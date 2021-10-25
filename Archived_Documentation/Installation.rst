@@ -276,4 +276,53 @@ The following image visualizes the meta-packages and their associated packages i
    :alt: Screenshot 
    
 **NOTE**: The image above is for informational purposes only as the individual packages in a meta-package are subject to change. Users should install meta-packages, and not individual packages, to avoid conflicts.   
+
+
+Installation Methods
+----------------------
+
+You may use the following installation methods to install ROCm:
+
+- Installer Script Method
+
+- Package Manager Method
+
+
+Installer Script Method
+==========================
+
+The Installer script method automates the installation process for the AMDGPU and ROCm stack. The Installer script handles the complete installation process for ROCm, including setting up the repository, cleaning the system, updating and installing the desired drivers and meta-packages. With this approach, the system has more control over the ROCm installation process. Thus, users who are less familiar with the Linux standard commands can choose this method for ROCm installation.
+
+For a fresh AMDGPU and ROCm installation using the Installer script method on Linux distribution, you must:
+
+- Meet Prerequisites - Ensure the Prerequisite Actions are met before downloading and installing the installer using the Installer Script method.
+
+- Download and Install the Installer – Ensure you download and install the installer script from the recommended URL. Note, the installer package is updated periodically to resolve known issues and add new features. The links for each Linux distribution always point to the latest available build.
+
+- Use the Installer Script on Linux Distributions – Ensure you execute the script for installing use cases.
+
+
+Downloading and Installing the Installer Script on Ubuntu
+**********************************************************
+
+Ubuntu 18.04
+^^^^^^^^^^^^^^
+
+Install the wget package on your system using the command below to download the repo installer package:
+
+::
+
+               $ sudo apt-get install wget
+               
+               
+
+Download and install the repo installer package using the following command:
+
+::
+
+               $ wget http://repo.radeon.com/amdgpu-install/21.40/ubuntu/bionic/amdgpu-install-21.40.40500-1_all.deb
+               
+               $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
+ 
+
    
