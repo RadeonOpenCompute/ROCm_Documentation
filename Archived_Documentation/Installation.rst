@@ -568,9 +568,9 @@ Base URLs For AMDGPU and ROCm Stack Repositories
 
 Repositories with Latest Packages
 
-   - amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
+- amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
 
-   - rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
+- rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
 
 
 Repositories for Specific Releases
@@ -635,4 +635,50 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 ::
 
                $ echo 'deb [arch=amd64] <amdgpu baseurl> focal main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
+               
+               
+Install the Kernel Mode Driver and Reboot System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+You may skip this section if you have the kernel-mode driver installed on your system. If you do not have the kernel-mode driver on your system, follow the instructions below. 
+Ensure the system is rebooted after the kernel-mode driver is installed. 
+
+::
+
+               $ sudo apt install amdgpu-dkms
+               
+               $ sudo reboot
+               
+
+Add ROCm Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add the ROCm repository. 
+
+For <rocm baseurl> in the command below, refer to the ROCm base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories
+
+::
+
+               $ echo 'deb [arch=amd64] <rocm baseurl> ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+               
+               
+Install ROCm Meta-packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install ROCm meta-packages. Specify the name of the meta-package you want to install as <package-name>, as shown below:
+
+::
+
+               $ sudo apt install <package-name>
+               
+               
+
+For example:
+
+::
+
+               - $ sudo apt install rocm-hip-sdk
+
+               - $ sudo apt install rocm-hip-sdk rocm-opencl-sdk 
+               
+               
