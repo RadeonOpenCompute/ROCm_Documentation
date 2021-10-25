@@ -682,3 +682,28 @@ For example:
                - $ sudo apt install rocm-hip-sdk rocm-opencl-sdk 
                
                
+Using Package Manager on RHEL/CentOS 
+**************************************
+
+Installation Of Kernel Headers and Development Packages on RHEL/CentOS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROCm installation requires the linux-headers and linux-modules-extra package to be installed with the correct version corresponding to the kernel's version. For example, if the system is running Linux kernel version 4.0-77, the identical versions of linux-headers and development packages must be installed.
+
+Refer to the Kernel Information section to check the kernel version on your system.
+
+To verify you have the supported version of the installed linux-headers and linux-modules-extra package, type the following on the command line:
+
+::
+
+               $ sudo yum list installed | grep linux-headers
+                              
+
+The command mentioned above displays the list of linux headers versions currently present on your system. Verify if the listed linux headers have the same versions as the kernel. 
+
+The following command lists the development packages on your system. Verify if the listed development package's version number matches the kernel version number.
+
+::
+
+               $ sudo yum list installed | grep linux-modules-extra
+
