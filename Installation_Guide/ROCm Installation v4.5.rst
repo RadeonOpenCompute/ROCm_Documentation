@@ -60,7 +60,7 @@ System Requirements
 
 The system requirements for the ROCm v4.5 installation are as follows:
 
-.. image:: Images/SuppEnv.PNG
+.. image:: Images/SuppEnv.png
    :alt: Screenshot     
 
  
