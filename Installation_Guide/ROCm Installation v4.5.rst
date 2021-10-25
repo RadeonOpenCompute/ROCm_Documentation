@@ -49,9 +49,12 @@ About This Document
 
 This document is intended for users familiar with the Linux environments and discusses the installation/uninstallation of ROCm programming models on the various flavors of Linux. 
 
+
 This document also refers to Radeon™ Software for Linux® as AMDGPU stack, including the kernel-mode driver amdgpu-dkms.
 
+
 The guide provides the installation instructions for the following:
+
 
 - ROCm Installation
 
@@ -65,6 +68,7 @@ The guide provides the installation instructions for the following:
 
 System Requirements
 ======================
+
 
 The system requirements for the ROCm v4.5 installation are as follows:
 
@@ -112,10 +116,9 @@ Linux Distribution Information
 
 Ensure you obtain the distribution information of the system by using the following command on your system from the Command Line Interface (CLI),
 
-
 :: 
 
-          $ uname -m && cat /etc/*release
+            $ uname -m && cat /etc/*release
             
             
  For example, running the command above on an Ubuntu system results in the following output: 
@@ -152,4 +155,55 @@ OS and Kernel Version Match
 
 Confirm that the obtained Linux distribution and kernel versions match with System Requirements.
 
- 
+
+Confirm You Have a ROCm-Capable GPU
+=====================================
+
+The ROCm platform is designed to support the following list of GPUs: 
+
+
+ .. image:: Images/ROCmProgMod.png
+   :alt: Screenshot 
+   
+   
+How to Verify Your System Has a ROCm-Capable GPU
+
+**************************************************
+
+To verify that your system has a ROCm-capable GPU, enter the following command from the Command Line Interface (CLI):
+
+::
+
+               $ lshw -class display
+               The command displays the details of detected GPUs on the system in the following format:
+               *-display
+               description: VGA compatible controller
+               product: Vega 20
+               vendor: Advanced Micro Devices, Inc. [AMD/ATI]
+               physical id: 0
+               bus info: pci@0000:43:00.
+               version: c1
+               width: 64 bits
+                      clock: 33MHz
+                      capabilities: vga_controller bus_master cap_list rom
+                      configuration: driver=amdgpu latency=0
+                      resources: irq:66 memory:80000000-8fffffff memory:90000000-901fffff ioport:2000(size=256) memory:9f600000-9f67ffff memory:c0000-dffff
+                      
+                      
+
+.. note::
+
+      Verify from the output that the product field value matches the supported GPU Architecture in the table above.
+      
+      
+Confirm the System Has Compiler and Tools Installed
+======================================================
+
+You must install and configure Devtoolset-7 to use RHEL/CentOS 7.9
+
+
+How to Install and Configure Devtoolset-7
+*******************************************
+
+Refer to the RHEL/CentOS Environment section for more information on the steps necessary for installing and setting up Devtoolset-7. 
+
