@@ -171,7 +171,6 @@ The ROCm platform is designed to support the following list of GPUs:
    
    
 How to Verify Your System Has a ROCm-Capable GPU
-
 **************************************************
 
 To verify that your system has a ROCm-capable GPU, enter the following command from the Command Line Interface (CLI):
