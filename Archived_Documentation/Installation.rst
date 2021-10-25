@@ -6,6 +6,8 @@ Installation Guide
 ==============================================
 
 
+.. contents::
+
 
 Overview of ROCm Installation Methods
 --------------------------------------
@@ -176,7 +178,7 @@ To verify that your system has a ROCm-capable GPU, enter the following command f
 
 ::
 
-               $ lshw -class display
+               $ sudo lshw -class display
                The command displays the details of detected GPUs on the system in the following format:
                *-display
                description: VGA compatible controller
