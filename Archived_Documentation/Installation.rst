@@ -823,3 +823,28 @@ Reboot the system after the completion of driver installation.
 ::
 
                $ sudo reboot
+               
+               
+Add the ROCm Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a */etc/yum.repos.d/rocm.repo* file with the following content. 
+
+For <rocm baseurl> in the command below, refer to the ROCm base URLs documented in Base URLs for AMDGPU and ROCm Stack Repositories.
+
+::
+
+               [ROCm]
+               Name=ROCm
+               baseurl=<rocm baseurl>
+               enabled=1
+               gpgcheck=1
+               gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
+               
+
+**NOTE**: The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm yum repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution, but has the following sha1sum hash:
+
+::
+
+               777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+               
