@@ -40,6 +40,8 @@ Some of the ROCm-specific use cases that the installer currently supports are:
 
 For more information, refer to the Installation Methods section in this guide.
 
+
+
 About This Document
 ====================
 
@@ -56,6 +58,8 @@ The guide provides the installation instructions for the following:
 - OPENCL ™ SDK
 
 - Kernel Mode Driver
+
+
 
 System Requirements
 ======================
@@ -81,6 +85,8 @@ The system requirements for the ROCm v4.5 installation are as follows:
 
 - Confirm the system has standard compilers and tools installed
 
+
+
 Confirm You Have a Supported Linux Distribution Version
 =========================================================
 
@@ -88,8 +94,10 @@ The ROCm installation is supported only on specific Linux distributions and thei
 
 **NOTE**: The ROCm installation is not supported on 32-bit operating systems.
 
+
 How to Check Linux Distribution and Kernel Versions on Your System
 *******************************************************************
+
 
 Linux Distribution Information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,6 +116,7 @@ Ensure you obtain the distribution information of the system by using the follow
          
 
 
+
 Kernel Information
 ^^^^^^^^^^^^^^^^^^^
 
@@ -121,6 +130,7 @@ The output of the command above lists the kernel version in the following format
 
 ::
             Linux 5.4.0-77-generic #86~18.04.5-Ubuntu SMP Fri Jun 18 01:23:22 UTC 2021 x86_64
+
 
 
 OS and Kernel Version Match
