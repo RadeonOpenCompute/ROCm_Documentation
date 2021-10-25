@@ -118,7 +118,7 @@ Ensure you obtain the distribution information of the system by using the follow
 
 :: 
 
-            $ uname -m && cat /etc/*release
+               $ uname -m && cat /etc/*release
             
             
  For example, running the command above on an Ubuntu system results in the following output: 
@@ -206,4 +206,33 @@ How to Install and Configure Devtoolset-7
 *******************************************
 
 Refer to the RHEL/CentOS Environment section for more information on the steps necessary for installing and setting up Devtoolset-7. 
+
+
+Meta-packages in ROCm Programming Models 
+------------------------------------------
+
+This section provides information about the required meta-packages for the following AMD ROCm™ programming models:
+
+- Heterogeneous-Computing Interface for Portability (HIP) 
+
+- OpenCL™
+
+
+ROCm Package Naming Conventions
+================================
+
+A meta-package is a grouping of related packages and dependencies used to support a specific use-case, for example, running HIP applications. All meta-packages exist in both versioned and non-versioned forms.
+
+- Non-versioned packages – For a single installation of the latest version of ROCm
+
+- Versioned packages – For multiple installations of ROCm
+
+
+
+
+
+
+
+
+
 
