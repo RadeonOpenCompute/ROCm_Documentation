@@ -175,5 +175,6 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    :caption: Archived Documentation 
    
    Archived_Documentation/4_1_Installation_Guide.rst
-   Archived_Documentation/Installation.rst
+  
+  
    
