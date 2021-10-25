@@ -325,4 +325,61 @@ Download and install the repo installer package using the following command:
                $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
  
 
-   
+Ubuntu 20.04
+^^^^^^^^^^^^^^
+
+Install the wget package on your system using the following command to download the repo installer package.
+
+::
+
+               $ sudo apt-get install wget
+               
+               
+Download and install the repo installer package.
+
+::
+
+               $ wget http://repo.radeon.com/amdgpu-install/21.40/ubuntu/focal/amdgpu-install-21.40.40500-1_all.deb
+               
+               $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
+
+
+Downloading and Installing the Installer Script on RHEL/CentOS
+****************************************************************
+
+RHEL/CentOS 7.9
+^^^^^^^^^^^^^^^^^
+
+Use the following command to download and install the installer on RHEL/CentOS 7.9.
+
+::
+
+               $ sudo yum install http://repo.radeon.com/amdgpu-install/21.40/rhel/7.9/amdgpu-install-21.40.40500-1.noarch.rpm
+               
+               
+               
+RHEL/CentOS 8.4
+^^^^^^^^^^^^^^^^
+
+Use the following command to download and install the installer on RHEL/CentOS 8.4.
+
+::
+
+               $ sudo yum install http://repo.radeon.com/amdgpu-install/21.40/rhel/8.4/amdgpu-install-21.40.40500-1.noarch.rpm
+               
+               
+
+Downloading and Installing the Installer Script on SLES 15
+**************************************************************
+
+SLES 15 Service Pack 3
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use the following command to download and install the installer on SLES 
+
+::
+
+               $ sudo zypper install http://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
+ 
+
+
