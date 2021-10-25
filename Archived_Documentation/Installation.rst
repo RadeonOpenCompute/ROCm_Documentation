@@ -490,3 +490,58 @@ For a fresh ROCm installation using the Package Manager method on a Linux distri
 8.	Verify installation for the applicable distributions – Verify if the installation is successful.
 
 **NOTE**: Refer to the sections below for specific commands to install each Linux distribution's ROCm and AMDGPU stack.
+
+
+Understanding AMDGPU and ROCm Stack Repositories on Linux Distributions
+***************************************************************************
+
+The AMDGPU and ROCm stack repositories are divided into two categories:
+
+- Repositories with latest release packages
+
+- Repositories for specific releases
+
+Repositories with Latest Packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These repositories contain the latest AMDGPU and ROCm packages available at the time. Based on the operating system's configuration, choosing this repository updates the packages automatically.
+
+Repositories for Specific Releases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The release-specific repositories consist of packages from a specific release of the AMDGPU stack and ROCm stack. The repositories are not updated for the latest packages with subsequent releases. When a new ROCm release is available, the new repository, specific to that release, is added. Users can select a specific release to install, update the previously installed single version to the later available release, or add the latest version of ROCm and currently installed by using the multi-version ROCm packages.
+
+
+Using Package Manager on Ubuntu
+********************************
+
+Installation Of Kernel Headers and Development Packages on Ubuntu
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following instructions to install kernel headers and development packages apply to all versions and kernels of Ubuntu.
+
+The ROCm installation requires the linux-headers and linux-modules-extra package to be installed with the correct version corresponding to the kernel's version. For example, if the system is running the Linux kernel version 4.0-77, the identical versions of linux-headers and development packages must be installed. You may refer to the Kernel Information section to check the kernel version of the system.
+
+For the Ubuntu/Debian environment, execute the following command to verify the kernel headers and development packages are installed with the respective versions. 
+
+::
+
+
+               $ sudo dpkg -l | grep linux-headers
+               
+               
+The command indicates if there are Linux headers installed as shown below:
+
+::
+
+               linux-headers-5.4.0-77-generic  5.4.0-77.86~18.04.1     amd64 Linux kernel headers for version 5.4.0 on 64 bit x86 SMP
+
+
+
+Execute the following command to check whether the development packages are installed,
+
+::
+
+
+               $ sudo dpkg -l | grep linux-modules-extra
+
