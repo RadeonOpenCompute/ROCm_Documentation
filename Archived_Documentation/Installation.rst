@@ -706,4 +706,73 @@ The following command lists the development packages on your system. Verify if t
 ::
 
                $ sudo yum list installed | grep linux-modules-extra
+               
+               
+If the supported version installation of linux headers and development packages does not exist on the system, execute the commands below to install:
+
+::
+
+               $ sudo yum install dkms kernel-headers-`uname -r` kernel-devel-`uname -r`
+
+
+**Preparing RHEL 7.9 for Installation**
+
+You must enable the external repositories to install on the devtoolset-7 environment and the support files.
+
+**NOTE**: Devtoolset is not required for CentOS/RHEL v8.4.
+
+**NOTE**: The subscription for RHEL must be enabled and attached to a pool ID. See the Obtaining an RHEL image and license page for instructions on registering your system with the RHEL subscription server and linking to a pool id.
+
+Enable the following repositories for RHEL v7.9:
+
+::
+
+               $ sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
+               $ sudo subscription-manager repos --enable rhel-7-server-optional-rpms
+               $ sudo subscription-manager repos --enable rhel-7-server-extras-rpms
+
+
+**Preparing CentOS for Installation** 
+
+The following steps help users prepare the CentOS system for the ROCm installation.
+
+Extra Packages for Enterprise Linux (EPEL) provides additional packages for CENTOS that are not available in their standard repositories. Install the EPEL repository configuration package using the following command.
+
+::
+
+               $ sudo yum install epel-release
+             
+
+Base URLs For AMDGPU and ROCm Stack Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**CentOS/RHEL 7.9**
+
+Repositories with Latest Packages
+
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/latest/rhel/7.9/main/x86_64
+
+- rocm base url: https://repo.radeon.com/rocm/yum/rpm
+
+
+Repositories for Specific Releases
+
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/21.40/rhel/7.9/main/x86_64
+
+- rocm baseurl=https://repo.radeon.com/rocm/rpm/4.5/yum/main
+
+**CentOS/RHEL 8.4**
+
+Repositories with Latest Packages
+
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/latest/rhel/8.4/main/x86_64
+
+- rocm base url: https://repo.radeon.com/rocm/centos8/rpm
+
+
+Repositories for Specific Releases
+
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/21.40/rhel/8.4/main/x86_64
+
+- rocm baseurl=https://repo.radeon.com/rocm/rpm/4.5/centos8/main
 
