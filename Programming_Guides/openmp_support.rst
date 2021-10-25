@@ -4,34 +4,57 @@
 OpenMP Support
 ================
 
+Overview
+------------
 
-OpenMP-Extras V12.9-0
-------------------------
+The ROCm installation includes an LLVM-based implementation that fully supports the OpenMP 4.5 standard and a subset of the OpenMP 5.0 standard. Fortran, C/C++ compilers, and corresponding runtime libraries are included. Along with host APIs, the OpenMP compilers support offloading code and data onto GPU devices. The GPUs supported are the same as those supported by this ROCm release. This document briefly describes the installation location of the OpenMP toolchain and example usage of device offloading. 
 
-The openmp-extras auxiliary package supports OpenMP within the ROCm compiler, which is on llvm 12, and is independent of the aomp-amdgpu
-package. It contains OpenMP specific header files, which are installed in */opt/rocm/llvm/include* as well as runtime libraries, fortran runtime
-libraries, and device bitcode files in */opt/rocm/llvm/lib*. The auxiliary package also consists of examples in */opt/rocm/llvm/examples*.
+Installation
+-------------
 
-OpenMP-Extras Installation
---------------------------
+The OpenMP toolchain is automatically installed as part of the standard ROCm installation and is available under /opt/rocm-{version}/llvm. The sub-directories are:
 
-Openmp-extras is automatically installed as a part of the rocm-dkms or rocm-dev package. Refer to the AMD ROCm Installation Guide at
+- bin: Compilers (flang and clang) and other binaries
 
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
+- examples: How to compile and run these programs is shown in the usage section below. 
+
+- include: Header files
+
+- lib: Libraries including those required for target offload
+
+- lib-debug: Debug versions of the above libraries
+
+Usage
+------
+
+The example programs can be compiled and run by pointing the environment variable AOMP to the OpenMP install directory. For example:
+
+::
+
+      % export AOMP=/opt/rocm-{version}/llvm
+      
+      % cd $AOMP/examples/openmp/veccopy
+      
+      % make run
 
 
-1. OpenMP-Extras Source Build
---------------------------
 
-For instructions on building OpenMP-Extras from source, refer to `OPENMPEXTRAS_SOURCE_INSTALL. <https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.x/docs/OPENMPEXTRAS_SOURCE_INSTALL.md>`__
+The above invocation of Make will compile and run the program. Note, the options that are required for target offload from an OpenMP program: 
 
-System package dependencies can be found `here. <https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.0/docs/SOURCEINSTALL.md>`__
+::
 
-
-**NOTE**: The ROCm compiler, which supports OpenMP for AMDGPU, is located in */opt/rocm/llvm/bin/clang*. The AOMP OpenMP support in ROCm
-v3.9 is based on the standalone AOMP v11.9-0, with LLVM v11 as the underlying system. However, the ROCm compiler's OpenMP support is based
-on LLVM v12 (upstream).
+      -target x86_64-pc-linux-gnu -fopenmp -fopenmp-targets=amdgcn-amd-amdhsa -Xopenmp-target=amdgcn-amd-amdhsa -march=<gpu-arch>
 
 
+The value of gpu-arch can be obtained by running the following command:
 
+::
+
+      % /opt/rocm-{version}/bin/rocminfo | grep gfx
+      
+
+Helpful Tips
+-------------
+
+Setting the environment variable LIBOMPTARGET_KERNEL_TRACE while running an OpenMP program produces valuable information. Among other details, a value of 1 will lead the runtime to emit the number of teams and threads for every kernel run on the GPU. A value of 2 leads additionally to a trace of implementation-level APIs and corresponding timing information. 
 
