@@ -443,7 +443,9 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
                amdgpu-install -y --usecase=rocm
                
               
- Package Manager Method
+ 
+
+Package Manager Method
  ========================
  
 The Package Manager method involves a manual set up of the repository, which includes cleaning up the system, updating and installing/uninstalling meta-packages using standard commands such as yum, apt, and others respective to the Linux distribution. 
