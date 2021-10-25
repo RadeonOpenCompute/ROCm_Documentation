@@ -228,10 +228,11 @@ A meta-package is a grouping of related packages and dependencies used to suppor
 - Versioned packages – For multiple installations of ROCm
 
 
+ .. image:: Images/PackName.png
+   :alt: Screenshot 
 
 
-
-
+The image above demonstrates the single and multi-version ROCm packages' naming structure, including examples for various Linux distributions.
 
 
 
