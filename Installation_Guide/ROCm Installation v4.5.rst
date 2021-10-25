@@ -98,23 +98,29 @@ Ensure you obtain the distribution information of the system by using the follow
 
 :: 
 
-         $ uname -m && cat /etc/*release
-         For example, running the command above on an Ubuntu system results in the following output: 
-         x86_64
-         DISTRIB_ID=Ubuntu
-         DISTRIB_RELEASE=18.04
-         DISTRIB_CODENAME=bionic
-         DISTRIB_DESCRIPTION="Ubuntu 18.04.5 LTS"
+            $ uname -m && cat /etc/*release
+            For example, running the command above on an Ubuntu system results in the following output: 
+            x86_64
+            DISTRIB_ID=Ubuntu
+            DISTRIB_RELEASE=18.04
+            DISTRIB_CODENAME=bionic
+            DISTRIB_DESCRIPTION="Ubuntu 18.04.5 LTS"
          
+
+
 Kernel Information
 ^^^^^^^^^^^^^^^^^^^
 
 Type the following command to check the kernel version of your Linux system.
 
 ::
-         $ uname -srmv
-         The output of the command above lists the kernel version in the following format: 
-         Linux 5.4.0-77-generic #86~18.04.5-Ubuntu SMP Fri Jun 18 01:23:22 UTC 2021 x86_64
+            $ uname -srmv
+
+
+The output of the command above lists the kernel version in the following format: 
+
+::
+            Linux 5.4.0-77-generic #86~18.04.5-Ubuntu SMP Fri Jun 18 01:23:22 UTC 2021 x86_64
 
 
 OS and Kernel Version Match
