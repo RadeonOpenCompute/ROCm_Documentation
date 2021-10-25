@@ -544,4 +544,55 @@ Execute the following command to check whether the development packages are inst
 
 
                $ sudo dpkg -l | grep linux-modules-extra
+               
+
+When run, the command mentioned above lists the installed linux-modules-extra packages like the output below:
+
+::
+
+               linux-modules-extra-5.4.0-77-generic 5.4.0-77.86~18.04.1   amd64  Linux kernel extra modules for version 5.4.0 on 64-bit x86 SMP
+               
+
+If the supported version installation of Linux headers and development packages are not installed on the system, execute the following command to install the packages:
+
+::
+
+               $ sudo apt install linux-headers-`uname -r` linux-modules-extra-`uname -r`
+
+
+
+Base URLs For AMDGPU and ROCm Stack Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Ubuntu 18.04**
+
+Repositories with Latest Packages
+
+   - amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
+
+   - rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
+
+
+Repositories for Specific Releases
+
+   - amdgpu baseurl: https://repo.radeon.com/amdgpu/21.40/bionic
+   
+   - rocm base url: https://repo.radeon.com/rocm/apt/4.5   
+
+**Ubuntu 20.04**
+
+Repositories with Latest Packages
+
+    - amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
+    
+    - rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
+
+
+Repositories for Specific Release
+
+   - amdgpu baseurl: https://repo.radeon.com/amdgpu/21.40/focal
+   
+   - rocm base url: https://repo.radeon.com/rocm/apt/4.5   
+
+               
 
