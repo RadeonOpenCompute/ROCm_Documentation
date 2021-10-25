@@ -395,6 +395,7 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
                
                
 ::
+              
                # To install multiple use-cases 
                $ sudo amdgpu-install --usecase=hiplibsdk,rocm 
                
