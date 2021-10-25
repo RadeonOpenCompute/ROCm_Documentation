@@ -74,7 +74,7 @@ System Requirements
 
 The system requirements for the ROCm v4.5 installation are as follows:
 
-.. image:: Images/SuppEnv.png
+.. image:: SuppEnv.png
    :alt: Screenshot     
 
  
@@ -121,7 +121,9 @@ Linux Distribution Information
 Ensure you obtain the distribution information of the system by using the following command on your system from the Command Line Interface (CLI),
 
 :: 
-               $ uname -m && cat /etc/*release
+               
+
+            $ uname -m && cat /etc/*release
             
 
 
@@ -176,7 +178,7 @@ Confirm You Have a ROCm-Capable GPU
 The ROCm platform is designed to support the following list of GPUs: 
 
 
- .. image:: Images/ROCmProgMod.png
+.. image:: ROCmProgMod.png
    :alt: Screenshot 
    
    
