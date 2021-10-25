@@ -79,10 +79,9 @@ The system requirements for the ROCm v4.5 installation are as follows:
 
  
  
-.. note::
- 
+.. note:: 
       
-   Installing ROCm on Linux will require superuser privileges. For systems that have enabled sudo packages, ensure you use the sudo prefix for all required commands.
+      Installing ROCm on Linux will require superuser privileges. For systems that have enabled sudo packages, ensure you use the sudo prefix for all required commands.
  
  
  
@@ -109,7 +108,7 @@ The ROCm installation is supported only on specific Linux distributions and thei
 
 .. note::
 
-   The ROCm installation is not supported on 32-bit operating systems.
+      The ROCm installation is not supported on 32-bit operating systems.
 
 
 How to Check Linux Distribution and Kernel Versions on Your System
@@ -209,7 +208,7 @@ To verify that your system has a ROCm-capable GPU, enter the following command f
 
 .. note::
 
-   Verify from the output that the product field value matches the supported GPU Architecture in the table above.
+      Verify from the output that the product field value matches the supported GPU Architecture in the table above.
       
       
 
