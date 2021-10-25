@@ -848,3 +848,50 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs documented 
 
                777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
                
+               
+Install ROCm Meta-Packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use the following command to install the ROCm packages.
+
+::
+
+               $ sudo yum install <package-name>
+               
+
+Specify the meta-package name as <package-name>, which you want to install, in the command given above.
+
+For example, 
+
+- $ sudo yum install rocm-hip-sdk
+
+- $ sudo yum install rocm-hip-sdk rocm-opencl-sdk 
+
+
+Using Package Manager on SLES/OpenSUSE 
+****************************************
+
+This section introduces the ROCm installation process on SLES/OpenSUSE.
+
+Installation of Kernel Headers and Development Packages 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROCm installation requires linux-headers and linux-modules-extra package to be installed with the correct version corresponding to the kernel's version. For example, if the system is running the Linux kernel version 4.0-77, the same versions of linux-headers and development packages must be installed. 
+
+Refer to the Kernel Information section to check the kernel version on your system.
+
+Ensure that the correct version of the latest kernel-default-devel and kernel-default packages are installed. The following command lists the installed kernel-default-devel and kernel-default package.
+
+::
+
+               $ sudo zypper info kernel-default-devel or kernel-default
+               
+
+**NOTE**: This next step is only required if you find from the above command that the "kernel-default-devel" and "kernel-default" versions of the package, corresponding to the kernel release version, do not exist on your system.
+
+If the required version of packages does not exist on the system, install with the command below:
+
+::
+
+               $ sudo zypper install kernel-default-devel or kernel-default 
+
