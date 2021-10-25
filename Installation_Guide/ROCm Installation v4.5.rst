@@ -171,7 +171,7 @@ Confirm You Have a ROCm-Capable GPU
 The ROCm platform is designed to support the following list of GPUs: 
 
 
- .. image:: Images/ROCmProgMod.png
+ .. image:: ROCmProgMod.png
    :alt: Screenshot 
    
    
@@ -237,7 +237,7 @@ A meta-package is a grouping of related packages and dependencies used to suppor
 - Versioned packages – For multiple installations of ROCm
 
 
- .. image:: Images/PackName.png
+ .. image:: PackName.png
    :alt: Screenshot 
 
 
