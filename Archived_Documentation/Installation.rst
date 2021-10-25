@@ -90,7 +90,7 @@ Prerequisite Actions
 ---------------------
  
 
- You must perform the following steps before installing ROCm programming models and check if the system meets all of the requirements to proceed with the installation.
+You must perform the following steps before installing ROCm programming models and check if the system meets all of the requirements to proceed with the installation.
  
 - Confirm the system has a supported Linux distribution version
 
@@ -148,12 +148,18 @@ Kernel Information
 Type the following command to check the kernel version of your Linux system.
 
 ::
-            $ uname -srmv
+
+
+               $ uname -srmv
+
+
 
 
 The output of the command above lists the kernel version in the following format: 
 
 ::
+           
+           
             Linux 5.4.0-77-generic #86~18.04.5-Ubuntu SMP Fri Jun 18 01:23:22 UTC 2021 x86_64
 
 
