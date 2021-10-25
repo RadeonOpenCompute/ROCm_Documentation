@@ -967,7 +967,7 @@ Users can use the following commands to ensure the packages are installed succes
 
 
 +----------------+----------------------------------------+
-| Linux Distro   | Command                                | 
+| Linux Distro    |             Command                   | 
 +=================+=======================================+
 | Ubuntu/Debian   | $ sudo apt list --installed           | 
 +-----------------+------------+--------------------------+
