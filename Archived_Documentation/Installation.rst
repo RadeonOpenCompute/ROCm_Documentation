@@ -583,16 +583,56 @@ Repositories for Specific Releases
 
 Repositories with Latest Packages
 
-    - amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
+- amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
     
-    - rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
+- rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
 
 
 Repositories for Specific Release
 
-   - amdgpu baseurl: https://repo.radeon.com/amdgpu/21.40/focal
+- amdgpu baseurl: https://repo.radeon.com/amdgpu/21.40/focal
    
-   - rocm base url: https://repo.radeon.com/rocm/apt/4.5   
+- rocm base url: https://repo.radeon.com/rocm/apt/4.5   
 
                
+Adding AMDGPU Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Add GPG Key for AMDGPU and ROCm Stack**
+
+Add the gpg key for AMDGPU and ROCm repositories. For Debian-based systems like Ubuntu, configure the Debian ROCm repository as follows:
+
+::
+
+               $ sudo apt install wget gnupg2
+               
+               $ wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add –
+
+
+**NOTE**: The gpg key may change. Ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution. However, it has the following sha1sum hash:
+
+::
+
+               777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+               
+
+**Add the AMDGPU Stack Repository**
+
+You may skip this section if you have a version of the kernel-mode driver installed. If you do not have a version of the kernel-mode driver installed, follow the commands below to add the AMDGPU stack repository.
+
+For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories
+
+
+**Ubuntu 18.04**
+
+::
+
+               $ echo 'deb [arch=amd64] <amdgpu baseurl> bionic main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
+               
+
+**Ubuntu 20.04**
+
+::
+
+               $ echo 'deb [arch=amd64] <amdgpu baseurl> focal main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
 
