@@ -274,3 +274,6 @@ The following image visualizes the meta-packages and their associated packages i
 
 .. image:: AssoPack.png
    :alt: Screenshot 
+   
+**NOTE**: The image above is for informational purposes only as the individual packages in a meta-package are subject to change. Users should install meta-packages, and not individual packages, to avoid conflicts.   
+   
