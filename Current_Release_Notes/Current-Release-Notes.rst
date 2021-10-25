@@ -16,7 +16,7 @@ List of Supported Operating Systems
 
 The AMD ROCm platform supports the following operating systems:
 
-.. image:: SuppEnv.PNG
+.. image:: SuppEnv.png
    :alt: Screenshot
    
 
