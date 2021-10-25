@@ -75,7 +75,7 @@ System Requirements
 
 The system requirements for the ROCm v4.5 installation are as follows:
 
-.. image:: Images/SuppEnv.png
+.. image:: SuppEnv.png
    :alt: Screenshot     
 
  
@@ -124,6 +124,9 @@ Ensure you obtain the distribution information of the system by using the follow
                $ uname -m && cat /etc/*release
             
             
+ 
+ 
+ 
  For example, running the command above on an Ubuntu system results in the following output: 
  
  ::
@@ -144,6 +147,9 @@ Type the following command to check the kernel version of your Linux system.
 
 ::
             $ uname -srmv
+
+
+
 
 
 The output of the command above lists the kernel version in the following format: 
