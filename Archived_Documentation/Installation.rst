@@ -82,8 +82,10 @@ The system requirements for the ROCm v4.5 installation are as follows:
       Installing ROCm on Linux will require superuser privileges. For systems that have enabled sudo packages, ensure you use the sudo prefix for all required commands.
  
  
- Prerequisite Actions
- ---------------------
+ 
+
+Prerequisite Actions
+---------------------
  
 
  You must perform the following steps before installing ROCm programming models and check if the system meets all of the requirements to proceed with the installation.
