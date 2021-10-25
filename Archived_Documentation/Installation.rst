@@ -776,3 +776,50 @@ Repositories for Specific Releases
 
 - rocm baseurl=https://repo.radeon.com/rocm/rpm/4.5/centos8/main
 
+
+
+Adding AMDGPU Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may skip this section if you have a version of the kernel-mode driver installed. If you do not have a version of the kernel-mode driver installed, follow the commands below to add the AMDGPU stack repository.
+
+**Add the AMDGPU Stack Repository**
+
+Create a /etc/yum.repos.d/amdgpu.repo file with the following contents with right amdgpu base URL as provided above.
+
+For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories
+
+::
+
+               [amdgpu]
+               Name=amdgpu main
+               baseurl=<amdgpu baseurl>
+               enabled=1
+               gpgcheck=1
+               gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
+               
+
+**NOTE**: The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm to the yum repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
+
+::
+
+               777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+
+
+Install the Kernel Mode Driver and Reboot System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may skip this section if the kernel-mode driver is already installed on your system. If you do not have a version of the kernel-mode driver installed, follow the commands below to install the kernel-mode driver:
+
+::
+
+               $ sudo yum update  
+               
+               $ sudo yum install amdgpu-dkms
+               
+
+Reboot the system after the completion of driver installation.
+
+::
+
+               $ sudo reboot
