@@ -468,3 +468,25 @@ The typical functions of a package manager installation system include:
               
                
 
+Installing ROCm on Linux Distributions
+****************************************
+
+For a fresh ROCm installation using the Package Manager method on a Linux distribution, follow the steps below:
+
+1.	Meet prerequisites - Ensure the Prerequisite Actions are met before the ROCm installation
+
+2.	Install kernel headers and development packages - Ensure kernel headers and development packages are installed on the system
+
+3.	Select the base URLs for AMDGPU and ROCm stack repository – Ensure the base URLs for AMDGPU, and ROCm stack repositories are selected
+
+4.	Add AMDGPU stack repository – Ensure AMDGPU stack repository is added
+
+5.	Install the kernel-mode driver and reboot the system – Ensure the kernel-mode driver is installed and the system is rebooted
+
+6.	Add ROCm stack repository – Ensure the ROCm stack repository is added
+
+7.	Install ROCm meta-packages – Users may install the desired meta-packages
+
+8.	Verify installation for the applicable distributions – Verify if the installation is successful.
+
+**NOTE**: Refer to the sections below for specific commands to install each Linux distribution's ROCm and AMDGPU stack.
