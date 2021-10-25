@@ -441,4 +441,28 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
 ::
 
                amdgpu-install -y --usecase=rocm
+               
+              
+ Package Manager Method
+ ========================
+ 
+The Package Manager method involves a manual set up of the repository, which includes cleaning up the system, updating and installing/uninstalling meta-packages using standard commands such as yum, apt, and others respective to the Linux distribution. 
+
+**NOTE**: Users must enter the desired meta-package as the <package-name> in the command. To utilize the newly installed packages, users must install the relevant drivers and restart the system after the installation.
+
+The typical functions of a package manager installation system include:
+
+- Working with file archivers to extract package archives.
+
+- Ensuring the integrity and authenticity of the package by verifying them checksums and digital certificates, respectively.
+
+- Looking up, downloading, installing, or updating existing packages from an online repository. 
+
+- Grouping packages by function to reduce user confusion.
+
+- Managing dependencies to ensure a package is installed with all packages it requires, thus avoiding dependency.
+
+**NOTE**: Users may consult the documentation for their package manager for more details.
+              
+               
 
