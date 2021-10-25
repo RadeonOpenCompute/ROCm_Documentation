@@ -967,7 +967,7 @@ Users can use the following commands to ensure the packages are installed succes
 
 
 +-----------------+---------------------------------------+
-| Linux Distro    |             Command                   | 
+|Linux Distro     |             Command                   | 
 +=================+=======================================+
 | Ubuntu/Debian   | $ sudo apt list --installed           | 
 +-----------------+------------+--------------------------+
@@ -975,4 +975,75 @@ Users can use the following commands to ensure the packages are installed succes
 +-----------------+---------------------------------------+
 | OpenSUSE / SLES | $ sudo zypper search --installed-only | 
 +-----------------+---------------------------------------+
+
+
+ROCm Stack Uninstallation
+---------------------------
+
+Uninstallation of ROCm entails removing ROCm packages, tools, and libraries from the system. 
+
+
+Uninstalling ROCm Stack
+=========================
+
+Removing ROCm Toolkit and Driver
+**********************************
+
+This section describes the uninstallation process in detail. The following methods remove the ROCm stack from the system.
+
+Choosing an Uninstallation Method
+***********************************
+
+You can uninstall using the following methods: 
+
+- Uninstallation using the Uninstall Script
+
+- Package Manager uninstallation
+
+
+Uninstallation Using Uninstall Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following commands uninstall all installed ROCm packages:
+
+::
+
+               $ sudo amdgpu-uninstall
+               
+
+**NOTE**: amdgpu-uninstall ignores all parameters/arguments and uninstalls all ROCm packages. 
+
+Refer to the Uninstall Kernel Mode Driver section to uninstall the kernel-mode driver.
+
+
+Uninstallation Using Package Manager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Package Manager uninstallation offers a method for a clean uninstallation process for ROCm. This section describes how to uninstall the ROCm for various Linux distributions. 
+
+Use the following commands to remove the specific meta-packages from the system.
+
+**Uninstalling Specific Meta-packages**
+
+Use the following command to uninstall specific meta-packages. You may specify the name of the meta-package name as <package-name> you want to uninstall in the command given below.
+
+**UBUNTU/DEBIAN**
+
+::
+
+               $ sudo apt autoremove <package-name>
+               
+               
+**RHEL/CentOS**
+
+::
+
+               $ sudo yum remove <package-name>
+                 
+                 
+**SLES/OPENSUSE**
+
+::
+
+               $ sudo zypper remove <package-name>
 
