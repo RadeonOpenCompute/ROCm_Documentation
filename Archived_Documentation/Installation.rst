@@ -243,3 +243,24 @@ A meta-package is a grouping of related packages and dependencies used to suppor
 
 
 The image above demonstrates the single and multi-version ROCm packages' naming structure, including examples for various Linux distributions.
+
+
+Components of ROCm Programming Models
+------------------------------------------
+
+The following image demonstrates the high-level layered architecture of ROCm programming models and their meta-packages. All meta-packages are a combination of required packages and libraries. For example, 
+
+- rocm-hip-runtime is used to deploy on supported machines to execute HIP applications. 
+
+- rocm-hip-sdk contains runtime components to deploy and execute HIP applications and tools to develop the applications. 
+
+.. image:: MetaPack.png
+   :alt: Screenshot 
+   
+   
+**NOTE**: rocm-llvm is a single package that installs the required ROCm compiler files.
+
+
+.. image:: MetaPackTable.png
+   :alt: Screenshot 
+   
