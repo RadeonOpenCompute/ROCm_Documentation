@@ -26,7 +26,7 @@ The amdgpu-uninstall script allows the removal of the entire ROCm stack by using
 
 Some of the ROCm-specific use cases that the installer currently supports are: 
 
--OpenCL (ROCr/KFD based) runtime
+- OpenCL (ROCr/KFD based) runtime
 
 - HIP runtimes
 
@@ -59,3 +59,10 @@ System Requirements
 ======================
 
  The system requirements for the ROCm v4.5 installation are as follows:
+ 
+ 
+ **NOTE**: Installing ROCm on Linux will require superuser privileges. For systems that have enabled sudo packages, ensure you use the sudo prefix for all required commands.
+ 
+
+ 
+ 
