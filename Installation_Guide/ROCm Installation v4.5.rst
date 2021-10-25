@@ -107,7 +107,7 @@ Ensure you obtain the distribution information of the system by using the follow
 :: 
 
             $ uname -m && cat /etc/*release
-            z
+            
             
  For example, running the command above on an Ubuntu system results in the following output: 
  
