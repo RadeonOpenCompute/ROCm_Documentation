@@ -28,6 +28,7 @@ The amdgpu-uninstall script allows the removal of the entire ROCm stack by using
 
 Some of the ROCm-specific use cases that the installer currently supports are: 
 
+
 - OpenCL (ROCr/KFD based) runtime
 
 - HIP runtimes
@@ -37,6 +38,7 @@ Some of the ROCm-specific use cases that the installer currently supports are:
 - ROCm Compiler and device libraries
 
 - ROCr runtime and thunk
+
 
 For more information, refer to the Installation Methods section in this guide.
 
@@ -78,6 +80,7 @@ The system requirements for the ROCm v4.5 installation are as follows:
  
  Prerequisite Actions
  ---------------------
+ 
 
  You must perform the following steps before installing ROCm programming models and check if the system meets all of the requirements to proceed with the installation.
  
@@ -91,6 +94,7 @@ The system requirements for the ROCm v4.5 installation are as follows:
 
 Confirm You Have a Supported Linux Distribution Version
 =========================================================
+
 
 The ROCm installation is supported only on specific Linux distributions and their kernel versions. 
 
@@ -108,9 +112,10 @@ Linux Distribution Information
 
 Ensure you obtain the distribution information of the system by using the following command on your system from the Command Line Interface (CLI),
 
+
 :: 
 
-            $ uname -m && cat /etc/*release
+          $ uname -m && cat /etc/*release
             
             
  For example, running the command above on an Ubuntu system results in the following output: 
