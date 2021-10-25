@@ -894,4 +894,48 @@ If the required version of packages does not exist on the system, install with t
 ::
 
                $ sudo zypper install kernel-default-devel or kernel-default 
+               
+               
+
+Base URLs For AMDGPU And ROCm Stack Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Repositories with Latest Packages
+
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/latest/sle/15/main/x86_64
+
+- rocm baseurl: https://repo.radeon.com/rocm/zyp/
+
+
+Repositories for Specific Releases
+
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/21.40/sle/15/main/x86_64
+
+- rocm baseurl= https://repo.radeon.com/rocm/rpm/4.5/zyp/main
+
+
+Adding AMDGPU Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may skip this section if you have a version of the kernel-mode driver installed. If you do not have a version of the kernel-mode driver installed, follow the commands below to add the AMDGPU stack repository.
+
+**Add the AMDGPU Stack Repository**
+
+For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories.
+
+::
+
+               $ sudo zypper clean –all
+               $ sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+               $ sudo zypper ref
+               $ sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
+               $ sudo SUSEConnect --product PackageHub/15.2/x86_64
+               $ sudo zypper addrepo <amdgpu baseurl>  amdgpu
+
+**NOTE**: The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypper repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
+
+::
+
+                 777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+
 
