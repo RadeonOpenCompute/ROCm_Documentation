@@ -246,7 +246,7 @@ The image above demonstrates the single and multi-version ROCm packages' naming 
 
 
 Components of ROCm Programming Models
-------------------------------------------
+=======================================
 
 The following image demonstrates the high-level layered architecture of ROCm programming models and their meta-packages. All meta-packages are a combination of required packages and libraries. For example, 
 
@@ -264,3 +264,13 @@ The following image demonstrates the high-level layered architecture of ROCm pro
 .. image:: MetaPackTable.png
    :alt: Screenshot 
    
+   
+Packages in ROCm Programming Models
+======================================
+
+This section discusses the available meta-packages and their packages. In a ROCm programming model, packages refer to a collection of scripts, libraries, text files, a manifest, license, and other associated files that enable you to install a meta-package. 
+
+The following image visualizes the meta-packages and their associated packages in a ROCm programming model.
+
+.. image:: AssoPack.png
+   :alt: Screenshot 
