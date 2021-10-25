@@ -947,11 +947,11 @@ Verifying ROCm Installation
 
 After completing the ROCm installation, users can execute the following commands on the system to verify if the installation is successful. If you see your GPUs listed by both commands, the installation is considered successful.
 
-*/opt/rocm-<version>/bin/rocminfo
+*/opt/rocm-<version>/bin/rocminfo*
 
 OR
 
-/opt/rocm-<version>/bin/clinfo*
+*/opt/rocm-<version>/bin/clinfo*
 
 **NOTE**: For convenience, users may add the ROCm binaries in your PATH, as shown in the example below.
 
@@ -964,3 +964,15 @@ Verifying Package Installation
 ***********************************
 
 Users can use the following commands to ensure the packages are installed successfully.
+
+
++----------------+----------------------------------------+
+| Linux Distro   | Command                                | 
++=================+=======================================+
+| Ubuntu/Debian   | $ sudo apt list --installed           | 
++-----------------+------------+--------------------------+
+| RHEL/CentOS     | $ sudo yum list installed             | 
++-----------------+---------------------------------------+
+| OpenSUSE / SLES | $ sudo zypper search --installed-only | 
++-----------------+---------------------------------------+
+
