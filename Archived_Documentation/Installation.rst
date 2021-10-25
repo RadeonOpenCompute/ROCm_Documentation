@@ -380,6 +380,64 @@ Use the following command to download and install the installer on SLES
 ::
 
                $ sudo zypper install http://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
+               
  
 
+Using the Installer Script on Linux Distributions 
+***************************************************
+
+To install use cases specific to your requirements, use the installer amdgpu-install as follows:
+
+::
+
+               # To install a single use case 
+               $ sudo amdgpu-install --usecase=rocm
+               
+               
+::
+               # To install multiple use-cases 
+               $ sudo amdgpu-install --usecase=hiplibsdk,rocm 
+               
+               
+:: 
+
+               # To display a list of available use cases. Note, the list in this section represents only a sample of available use cases for ROCm.
+               $ sudo amdgpu-install --list-usecase
+               If --usecase option is not present, the default selection is "graphics,opencl,hip"
+
+               Available use cases:
+               rocm(for users and developers requiring full ROCm stack)
+               - OpenCL (ROCr/KFD based) runtime
+               - HIP runtimes
+               - Machine learning framework
+               - All ROCm libraries and applications
+               - ROCm Compiler and device libraries
+               - ROCr runtime and thunk
+               lrt(for users of applications requiring ROCm runtime)
+               - ROCm Compiler and device libraries
+               - ROCr runtime and thunk
+               opencl(for users of applications requiring OpenCL on Vega or       
+               later products)
+               - ROCr based OpenCL
+               - ROCm Language runtime
+
+               openclsdk (for application developers requiring ROCr based OpenCL)
+               - ROCr based OpenCL
+               - ROCm Language runtime
+               - development and SDK files for ROCr based OpenCL
+
+               hip(for users of HIP runtime on AMD products)
+               - HIP runtimes
+               hiplibsdk for application developers requiring HIP on AMD products)
+               - HIP runtimes
+               - ROCm math libraries
+               - HIP development libraries
+
+
+
+**NOTE**: Adding -y as a parameter to amdgpu-install will skip user prompts (for automation). For example, 
+
+::
+
+               amdgpu-install -y --usecase=rocm
 
