@@ -5,6 +5,8 @@
 AMD ROCm Installation Guide v4.5
 ==============================================
 
+
+
 Overview of ROCm Installation Methods
 --------------------------------------
 
@@ -67,6 +69,57 @@ The system requirements for the ROCm v4.5 installation are as follows:
  
 **NOTE**: Installing ROCm on Linux will require superuser privileges. For systems that have enabled sudo packages, ensure you use the sudo prefix for all required commands.
  
-
  
+ Prerequisite Actions
+ ---------------------
+
+ You must perform the following steps before installing ROCm programming models and check if the system meets all of the requirements to proceed with the installation.
+ 
+- Confirm the system has a supported Linux distribution version
+
+- Confirm the system has a ROCm-capable GPU
+
+- Confirm the system has standard compilers and tools installed
+
+Confirm You Have a Supported Linux Distribution Version
+=========================================================
+
+The ROCm installation is supported only on specific Linux distributions and their kernel versions. 
+
+**NOTE**: The ROCm installation is not supported on 32-bit operating systems.
+
+How to Check Linux Distribution and Kernel Versions on Your System
+*******************************************************************
+
+Linux Distribution Information
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ensure you obtain the distribution information of the system by using the following command on your system from the Command Line Interface (CLI),
+
+:: 
+
+         $ uname -m && cat /etc/*release
+         For example, running the command above on an Ubuntu system results in the following output: 
+         x86_64
+         DISTRIB_ID=Ubuntu
+         DISTRIB_RELEASE=18.04
+         DISTRIB_CODENAME=bionic
+         DISTRIB_DESCRIPTION="Ubuntu 18.04.5 LTS"
+         
+Kernel Information
+^^^^^^^^^^^^^^^^^^^
+
+Type the following command to check the kernel version of your Linux system.
+
+::
+         $ uname -srmv
+         The output of the command above lists the kernel version in the following format: 
+         Linux 5.4.0-77-generic #86~18.04.5-Ubuntu SMP Fri Jun 18 01:23:22 UTC 2021 x86_64
+
+
+OS and Kernel Version Match
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Confirm that the obtained Linux distribution and kernel versions match with System Requirements.
+
  
