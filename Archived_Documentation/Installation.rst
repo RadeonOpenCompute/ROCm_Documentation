@@ -1206,3 +1206,50 @@ When the installation is initiated in Docker, the installer tries to install the
 
                $ sudo amdgpu-install --usecase=rocm --no-dkms
  
+ 
+Frequently Asked Questions
+----------------------------
+
+Q. Can users install multiple packages at the same time with the installer script?
+
+Ans: Yes, users can install multiple packages at the same time with the installer script.  Provide package names in the --usecase parameter, separated by a comma, as shown below.
+
+::
+
+               $ sudo amdgpu-install --usecase=hiplibsdk,rocm 
+               
+
+
+Q. How to list all the possible inputs for the --usecase parameter in the amdgpu-install script?
+
+Ans: The following command lists all the possible options for –usecase
+
+::
+
+               amdgpu-install --list-usecase
+
+
+
+Q. What are the available options other than the --usecase in the amdgpu-install script?
+
+Ans: The following command lists all possible options users can provide in the amdgpu-install script.
+
+::
+
+               $ sudo amdgpu-install --help
+
+
+Q. How to check if the kernel module is installed successfully?
+
+Ans:  Type the following command on the system.
+
+::
+
+               $ sudo dkms status
+               
+
+The command displays the output in the following format if the installation of the kernel module is successful.
+
+::
+
+               amdgpu, 4.3-52.el7, 3.10.0-1160.11.1.el7.x86_64, x86_64: installed (original_module exists)
