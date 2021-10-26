@@ -1129,3 +1129,80 @@ Reboot the system.
 
                $ sudo reboot
 
+
+**RHEL/CentOS**
+
+This section describes the process of removing  AMDGPU and ROCm repositories from the RHEL/CentOS environment.
+
+Remove the reference to the AMDGPU and ROCm repository from the system using the following instructions
+
+::
+
+               $ sudo rm -rf /etc/yum.repos.d/<rocm_repository-name> # Remove only rocm repo
+               $ sudo rm -rf /etc/yum.repos.d/<amdgpu_repository-name> # Remove only amdgpu repo
+               
+
+Clear cache and clean the system.
+
+::
+
+               $ sudo rm -rf /var/cache/yum   #Remove the cache
+               $ sudo yum clean all
+               
+
+Restart the system.
+
+::
+
+               $ sudo reboot
+               
+               
+**SLES/OPENSUSE**
+
+This section describes the process of removing AMDGPU and ROCm repositories from the SLES/OPENSUSE environment.
+
+Remove the reference to the amdgpu and ROCm repository from the system with the commands below.
+
+::
+
+               $ sudo zypper removerepo <rocm_repository-name>
+               $ sudo zypper removerepo <amdgpu_repository-name>
+               
+
+Clear cache and clean the system. 
+
+::
+
+               $ sudo zypper clean –all
+               
+
+Restart the system.
+
+::
+
+               $ sudo reboot
+
+
+Troubleshooting
+------------------
+
+**Issue**
+
+If the amdgpu-install script is executed inside Docker, the system may display the following error while installing various use cases.
+
+::
+
+               $ sudo amdgpu-install --usecase=rocm
+
+
+.. image:: TShoot1.png
+   :alt: Screenshot 
+   
+**Resolution**
+
+When the installation is initiated in Docker, the installer tries to install the use case along with the kernel-mode driver. However, the kernel-mode driver cannot be installed in a Docker system. To skip the installation of the kernel-mode driver, proceed with the option --no-dkms, as shown in the command below.
+
+::
+
+               $ sudo amdgpu-install --usecase=rocm --no-dkms
+ 
