@@ -925,7 +925,7 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 
 ::
 
-               $ sudo zypper clean –all
+               $ sudo zypper clean ––all
                $ sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
                $ sudo zypper ref
                $ sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
