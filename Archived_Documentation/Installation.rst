@@ -229,12 +229,12 @@ Verify if the wget package for downloading files from server, is installed on yo
                $ sudo apt list --installed | grep wget gnupg2
 
 **RHEL/CentOS**
-
 ::
 
                $ sudo yum list installed | grep wget 
                
                
+
 **SLES/OPENSUSE**
 
 ::
