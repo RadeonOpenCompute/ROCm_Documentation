@@ -1210,7 +1210,7 @@ When the installation is initiated in Docker, the installer tries to install the
 Frequently Asked Questions
 ----------------------------
 
-Q. Can users install multiple packages at the same time with the installer script?
+Question: Can users install multiple packages at the same time with the installer script?
 
 Ans: Yes, users can install multiple packages at the same time with the installer script.  Provide package names in the --usecase parameter, separated by a comma, as shown below.
 
@@ -1220,7 +1220,7 @@ Ans: Yes, users can install multiple packages at the same time with the installe
                
 
 
-Q. How to list all the possible inputs for the --usecase parameter in the amdgpu-install script?
+Question: How to list all the possible inputs for the --usecase parameter in the amdgpu-install script?
 
 Ans: The following command lists all the possible options for –usecase
 
@@ -1230,7 +1230,7 @@ Ans: The following command lists all the possible options for –usecase
 
 
 
-Q. What are the available options other than the --usecase in the amdgpu-install script?
+Question: What are the available options other than the --usecase in the amdgpu-install script?
 
 Ans: The following command lists all possible options users can provide in the amdgpu-install script.
 
@@ -1239,7 +1239,7 @@ Ans: The following command lists all possible options users can provide in the a
                $ sudo amdgpu-install --help
 
 
-Q. How to check if the kernel module is installed successfully?
+Question: How to check if the kernel module is installed successfully?
 
 Ans:  Type the following command on the system.
 
