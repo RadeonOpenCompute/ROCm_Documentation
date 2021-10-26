@@ -2,7 +2,7 @@
 .. image:: /Installation_Guide/amdblack.jpg
 |
 ==============================================
-Installation Guide 
+ROCm Installation Guide v4.5
 ==============================================
 
 
