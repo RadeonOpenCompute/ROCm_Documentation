@@ -256,6 +256,7 @@ If the wget package not installed , execute the following command to install it:
 **RHEL/CentOS**
 
 ::
+              
                $ sudo yum update 
                
                $ sudo yum install wget 
