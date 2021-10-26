@@ -1077,3 +1077,55 @@ If you want to uninstall all installed ROCm packages, use the following command 
 
 
 Refer to the Uninstall Kernel Mode Driver section below to uninstall the kernel-mode driver uninstallation.
+
+**Uninstall Kernel Mode Driver**
+
+Users can uninstall the kernel-mode driver by entering the following command on the system.
+
+**UBUNTU/DEBIAN**
+
+::
+
+               $ sudo apt autoremove amdgpu-dkms
+               
+               
+**RHEL/CentOS**
+
+::
+
+               $ sudo yum remove amdgpu-dkms
+               
+               
+**SLES/OPENSUSE**
+
+::
+
+               $ sudo zypper remove amdgpu-dkms
+               
+               
+**Remove ROCm and AMDGPU Repositories**
+
+**UBUNTU/DEBIAN**
+
+Use the following commands to remove the AMDGPU and ROCm repository from the Ubuntu/Debian system:
+
+::
+
+               $ sudo rm /etc/apt/sources.list.d/<rocm_repository-name>.list
+               $ sudo rm /etc/apt/sources.list.d/<amdgpu_repository-name>.list
+
+
+Clear cache and clean the system.
+
+::
+
+               $ sudo rm -rf /var/cache/apt/*
+               $ sudo apt-get clean all
+
+
+Reboot the system.
+
+::
+
+               $ sudo reboot
+
