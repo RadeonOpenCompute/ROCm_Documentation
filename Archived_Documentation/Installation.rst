@@ -1012,6 +1012,48 @@ Use the following commands to update the added repository, and add the Perl repo
                $ sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
                $ sudo zypper ref
 
+
+
+Install the Kernel Mode Driver and Reboot System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install the kernel-mode driver. If you already have a version of the kernel-mode driver installed, you may skip this section. If you do not have a version of the kernel-mode driver installed, follow the commands below to install and reboot the system.
+
+::
+
+               $ sudo zypper --gpg-auto-import-keys install amdgpu-dkms
+               $ sudo reboot
+
+
+
+Add the ROCm Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add the ROCm repository by executing the following commands,
+
+Create *a /etc/zypp/repos.d/rocm.repo* file with the following content.
+
+For <rocm baseurl> in the command below, refer to the ROCm base URLs documented in Base URLs for AMDGPU and ROCm Stack Repositories.
+
+::
+
+               [rocm]
+               name=rocm
+               baseurl=<rocm_baseurl>
+               enabled=1
+               gpgcheck=1
+               gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
+               
+               
+**NOTE**: The gpg key may change. Ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypper repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
+777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+
+Use the following command to update the added repository.
+
+::
+
+               $ sudo zypper ref
+
                  
 Install ROCm Meta-Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1347,3 +1389,14 @@ The command displays the output in the following format if the installation of t
 ::
 
                amdgpu, 4.3-52.el7, 3.10.0-1160.11.1.el7.x86_64, x86_64: installed (original_module exists)
+               
+               
+Question. Does the Docker container support command - $ sudo SUSEConnect --product PackageHub/15.2/x86_64 ?
+
+Ans: Users do not need to execute the following command in Docker container.
+
+
+::
+
+               $ sudo SUSEConnect --product PackageHub/15.2/x86_64 
+
