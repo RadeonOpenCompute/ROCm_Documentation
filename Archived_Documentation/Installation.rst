@@ -690,7 +690,7 @@ Ensure the system is rebooted after the kernel-mode driver is installed.
                $ sudo reboot
                
 
-Add ROCm Stack Repository
+Add the ROCm Stack Repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add the ROCm repository. 
