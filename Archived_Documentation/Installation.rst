@@ -358,16 +358,8 @@ Downloading and Installing the Installer Script on Ubuntu
 **********************************************************
 
 Ubuntu 18.04
-^^^^^^^^^^^^^^
-
-Install the wget package on your system using the command below to download the repo installer package:
-
-::
-
-               $ sudo apt-get install wget
+^^^^^^^^^^^^^^            
                
-               
-
 Download and install the repo installer package using the following command:
 
 ::
@@ -378,14 +370,7 @@ Download and install the repo installer package using the following command:
  
 
 Ubuntu 20.04
-^^^^^^^^^^^^^^
-
-Install the wget package on your system using the following command to download the repo installer package.
-
-::
-
-               $ sudo apt-get install wget
-               
+^^^^^^^^^^^^^^            
                
 Download and install the repo installer package.
 
@@ -656,8 +641,7 @@ Add the gpg key for AMDGPU and ROCm repositories. For Debian-based systems like 
 
 ::
 
-               $ sudo apt install wget gnupg2
-               
+                             
               $ wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
 
 
@@ -688,6 +672,10 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 
                $ echo 'deb [arch=amd64] <amdgpu baseurl> focal main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
                
+               $ sudo apt-get update
+               
+               
+               
                
 Install the Kernel Mode Driver and Reboot System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -712,6 +700,9 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs as document
 ::
 
                $ echo 'deb [arch=amd64] <rocm baseurl> ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+               
+               $ sudo apt-get update
+               
                
                
 Install ROCm Meta-packages
@@ -837,14 +828,14 @@ You may skip this section if you have a version of the kernel-mode driver instal
 
 **Add the AMDGPU Stack Repository**
 
-Create a /etc/yum.repos.d/amdgpu.repo file with the following contents with right amdgpu base URL as provided above.
+Create a /etc/yum.repos.d/amdgpu.repo file with the following contents with amdgpu base URL.
 
 For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories
 
 ::
 
                [amdgpu]
-               Name=amdgpu main
+               Name=amdgpu 
                baseurl=<amdgpu baseurl>
                enabled=1
                gpgcheck=1
@@ -856,6 +847,14 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 ::
 
                777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+               
+
+Update the package list using the command below:
+
+::
+
+               $ sudo yum update
+               
 
 
 Install the Kernel Mode Driver and Reboot System
@@ -864,8 +863,7 @@ Install the Kernel Mode Driver and Reboot System
 You may skip this section if the kernel-mode driver is already installed on your system. If you do not have a version of the kernel-mode driver installed, follow the commands below to install the kernel-mode driver:
 
 ::
-
-               $ sudo yum update  
+            
                
                $ sudo yum install amdgpu-dkms
                
@@ -886,8 +884,8 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs documented 
 
 ::
 
-               [ROCm]
-               Name=ROCm
+               [rocm]
+               Name=rocm
                baseurl=<rocm baseurl>
                enabled=1
                gpgcheck=1
@@ -899,6 +897,15 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs documented 
 ::
 
                777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+               
+
+
+Update the packages list using the command below:
+
+::
+
+               $ sudo yum update
+
                
                
 Install ROCm Meta-Packages
@@ -973,23 +980,38 @@ You may skip this section if you have a version of the kernel-mode driver instal
 
 **Add the AMDGPU Stack Repository**
 
-For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories.
+Create a */etc/zypp/repos.d/rocm.repo* file with the following content.
+
+For <amdgpu baseurl> in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories.
+
 
 ::
 
-               $ sudo zypper clean ––all
-               $ sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
-               $ sudo zypper ref
-               $ sudo rpm --import https://repo.radeon.com/rocm/rocm.gpg.key
-               $ sudo SUSEConnect --product PackageHub/15.2/x86_64
-               $ sudo zypper addrepo <amdgpu baseurl>  amdgpu
+               [amdgpu]
+               name=amdgpu
+               baseurl=<amdgpu_basurl> 
+               enabled=1
+               gpgcheck=1
+               gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
+
 
 **NOTE**: The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypper repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
 
 ::
 
-                 777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
-                 
+               777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+
+
+
+Use the following commands to update the added repository, and add the Perl repository:
+
+::
+
+               $ sudo zypper ref
+               $ sudo zypper clean --all
+               $ sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+               $ sudo zypper ref
+
                  
 Install ROCm Meta-Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1000,6 +1022,7 @@ Install the ROCm package by typing the command below:
 
                $ sudo zypper --gpg-auto-import-keys install <package-name>
                
+
 
 Specify the name of the meta-package name as <package-name>, which you want to install, in the command given above.
 For example, 
