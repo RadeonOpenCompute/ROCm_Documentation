@@ -217,6 +217,55 @@ How to Install and Configure Devtoolset-7
 
 Refer to the RHEL/CentOS Environment section for more information on the steps necessary for installing and setting up Devtoolset-7. 
 
+Required packages
+*******************
+
+Verify if the wget package for downloading files from server, is installed on your system using command below:
+
+**UBUNTU/DEBIAN**
+
+::
+
+               $ sudo apt list --installed | grep wget gnupg2
+
+**RHEL/CentOS**
+
+::
+
+               $ sudo yum list installed | grep wget 
+               
+               
+**SLES/OPENSUSE**
+
+::
+
+               $ sudo zypper search --installed-only | grep wget
+               
+               
+               
+If the wget package not installed , execute the following command to install it: 
+
+**UBUNTU/DEBIAN**
+
+::
+
+               $ sudo apt-get update
+               $ sudo apt-get install wget gnupg2
+               
+**RHEL/CentOS**
+
+::
+               $ sudo yum update
+               $ sudo yum install wget 
+               
+               
+**SLES/OPENSUSE**
+
+::
+
+               $ zypper install wget
+
+
 
 Meta-packages in ROCm Programming Models 
 ------------------------------------------
