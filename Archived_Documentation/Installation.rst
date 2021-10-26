@@ -1309,7 +1309,7 @@ Clear cache and clean the system.
 
 ::
 
-               $ sudo zypper clean –all
+             $ sudo zypper clean --all
                
 
 Restart the system.
