@@ -937,6 +937,25 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 ::
 
                  777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+                 
+                 
+Install ROCm Meta-Packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install the ROCm package by typing the command below:
+
+::
+
+               $ sudo zypper --gpg-auto-import-keys install <package-name>
+               
+
+Specify the name of the meta-package name as <package-name>, which you want to install, in the command given above.
+For example, 
+
+- $  sudo zypper --gpg-auto-import-keys install rocm-hip-sdk
+
+- $  sudo zypper --gpg-auto-import-keys install rocm-hip-sdk rocm-opencl-sdk 
+
 
 
 Verification Process
