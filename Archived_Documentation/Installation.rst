@@ -568,31 +568,31 @@ Base URLs For AMDGPU and ROCm Stack Repositories
 
 Repositories with Latest Packages
 
-- amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
+- amdgpu baseurl:https://repo.radeon.com/amdgpu/latest/ubuntu
 
-- rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
+- rocm baseurl:https://repo.radeon.com/rocm/apt/debian/
 
 
 Repositories for Specific Releases
 
-   - amdgpu baseurl: https://repo.radeon.com/amdgpu/21.40/bionic
+   - amdgpu baseurl:https://repo.radeon.com/amdgpu/21.40/bionic
    
-   - rocm base url: https://repo.radeon.com/rocm/apt/4.5   
+   - rocm base url:https://repo.radeon.com/rocm/apt/4.5   
 
 **Ubuntu 20.04**
 
 Repositories with Latest Packages
 
-- amdgpu baseurl: https://repo.radeon.com/amdgpu/latest/ubuntu
+- amdgpu baseurl:https://repo.radeon.com/amdgpu/latest/ubuntu
     
-- rocm baseurl: https://repo.radeon.com/rocm/apt/debian/
+- rocm baseurl:https://repo.radeon.com/rocm/apt/debian/
 
 
 Repositories for Specific Release
 
-- amdgpu baseurl: https://repo.radeon.com/amdgpu/21.40/focal
+- amdgpu baseurl:https://repo.radeon.com/amdgpu/21.40/focal
    
-- rocm base url: https://repo.radeon.com/rocm/apt/4.5   
+- rocm base url:https://repo.radeon.com/rocm/apt/4.5   
 
                
 Adding AMDGPU Stack Repository
@@ -606,7 +606,7 @@ Add the gpg key for AMDGPU and ROCm repositories. For Debian-based systems like 
 
                $ sudo apt install wget gnupg2
                
-               $ wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add –
+              $ wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
 
 
 **NOTE**: The gpg key may change. Ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution. However, it has the following sha1sum hash:
