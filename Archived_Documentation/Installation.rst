@@ -1047,3 +1047,33 @@ Use the following command to uninstall specific meta-packages. You may specify t
 
                $ sudo zypper remove <package-name>
 
+
+**Complete Uninstallation of ROCm Packages**
+
+If you want to uninstall all installed ROCm packages, use the following command as uninstallation of rocm-core package removes all the ROCm specific packages from the system.
+
+**UBUNTU/DEBIAN**
+
+::
+
+               $ sudo apt autoremove rocm-core
+               
+               
+**RHEL/CentOS**
+
+::
+
+               $ sudo yum remove rocm-core
+               
+               
+**SLES/OPENSUSE**
+
+::
+
+               $ sudo zypper remove rocm-core
+               
+
+**NOTE**: The command above removes all ROCm-specific packages. 
+
+
+Refer to the Uninstall Kernel Mode Driver section below to uninstall the kernel-mode driver uninstallation.
