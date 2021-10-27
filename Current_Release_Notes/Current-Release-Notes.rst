@@ -39,10 +39,6 @@ The AMD ROCm platform supports the following operating systems:
 | Guest OS              | Ubuntu 20.04                               |
 +-----------------------+--------------------------------------------+
 
-MIOpen Supports AMD Radeon™ RX 6800
-======================================
-
-MIOpen now extends support to AMD Radeon™ RX 6800.
 
 
 Enhanced Installation Process for ROCm v4.5
@@ -171,6 +167,14 @@ ROC Debugger User and API Guide
 -  Debugger API Guide
 
    https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_API_Guide.pdf
+   
+
+OpenMP Documentation
+--------------------
+
+- Updated OpenMP documentation 
+
+  https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
 
 
 AMD ROCm General Documentation Links
@@ -193,326 +197,300 @@ AMD ROCm General Documentation Links
    https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.html
    
 
-OpenMP Documentation
---------------------
 
-- Updated OpenMP documentation 
-
-  https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
 
 
 What\'s New in This Release
-==========================
+----------------------------
 
 HIP Enhancements
-----------------
+=================
 
 The ROCm v4.5 release consists of the following HIP enhancements:
 
 HIP Direct Dispatch
-~~~~~~~~~~~~~~~~~~~
+#####################
 
-The conventional producer-consumer model where the host thread(producer)
-enqueues commands to a command queue (per stream), which is then
-processed by a separate, per-stream worker thread (consumer) created by
-the runtime, is no longer applicable.
+The conventional producer-consumer model where the host thread(producer) enqueues commands to a command queue (per stream), which is then
+processed by a separate, per-stream worker thread (consumer) created by the runtime, is no longer applicable.
 
-In this release, for Direct Dispatch, the runtime directly queues a
-packet to the AQL queue (user mode queue to GPU) in Dispatch and some of
-the synchronization. This new functionality indicates the total latency
-of the HIP Dispatch API and the latency to launch the first wave on the
+In this release, for Direct Dispatch, the runtime directly queues a packet to the AQL queue (user mode queue to GPU) in Dispatch and some of
+the synchronization. This new functionality indicates the total latency of the HIP Dispatch API and the latency to launch the first wave on the
 GPU.
 
-In addition, eliminating the threads in runtime has reduced the variance
-in the dispatch numbers as the thread scheduling delays and
+In addition, eliminating the threads in runtime has reduced the variance in the dispatch numbers as the thread scheduling delays and
 atomics/locks synchronization latencies are reduced.
 
-This feature can be disabled by setting the following environment
-variable,
+This feature can be disabled by setting the following environment variable,
 
-AMD_DIRECT_DISPATCH=0
+::
+
+            AMD_DIRECT_DISPATCH=0
+            
+            
 
 Support for HIP Graph
-~~~~~~~~~~~~~~~~~~~~~
+=======================
 
-ROCm v4.5 extends support for HIP Graph. For details, refer to the HIP
-API Guide at
+ROCm v4.5 extends support for HIP Graph. For details, refer to the HIP API Guide at,
 
-**Add link**
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+
 
 Enhanced *launch_bounds* Check Error Log Message
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================================================
 
-When a kernel is launched with HIP APIs, for example,
-hipModuleLaunchKernel(), HIP validates to check that input kernel
+When a kernel is launched with HIP APIs, for example, hipModuleLaunchKernel(), HIP validates to check that input kernel
 dimension size is not larger than specified launch_bounds.
 
-If exceeded, HIP returns launch failure if AMD_LOG_LEVEL is set with the
-proper value. Users can find more information in the error log message,
-including launch parameters of kernel dim size, launch bounds, and the
-name of the faulting kernel. It is helpful to figure out the faulting
-kernel. Besides, the kernel dim size and launch bounds values will also
-assist in debugging such failures.
+If exceeded, HIP returns launch failure if AMD_LOG_LEVEL is set with the proper value. Users can find more information in the error log message,
+including launch parameters of kernel dim size, launch bounds, and the name of the faulting kernel. It is helpful to figure out the faulting
+kernel. Besides, the kernel dim size and launch bounds values will also assist in debugging such failures.
 
 For more details, refer to the HIP Programming Guide at
 
-**Add link**
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+
 
 HIP Runtime Compilation
-~~~~~~~~~~~~~~~~~~~~~~~
+=========================
 
-HIP now supports runtime compilation (hipRTC), the usage of which will
-provide the possibility of optimizations and performance improvement
+HIP now supports runtime compilation (hipRTC), the usage of which will provide the possibility of optimizations and performance improvement
 compared with other APIs via regular offline static compilation.
 
-hipRTC APIs accept HIP source files in character string format as input
-parameters and create handles of programs by compiling the HIP source
+hipRTC APIs accept HIP source files in character string format as input parameters and create handles of programs by compiling the HIP source
 files without spawning separate processes.
 
 For more details on hipRTC APIs, refer to the HIP API Guide at
 
-**Add link**
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+
 
 New Flag for Backwards Compatibility on float/double atomicAdd Function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================================================================
 
-In the ROCm4.5 release, a new compilation flag is introduced as an
-option in the CMAKE file. This flag ensures backwards compatibility in
+In the ROCm4.5 release, a new compilation flag is introduced as an option in the CMAKE file. This flag ensures backwards compatibility in
 float/double atomicAdd functions.
 
-\__HIP_USE_CMPXCHG_FOR_FP_ATOMICS
+::
 
-This compilation flag is not set(â€œ0â€) by default, so the HIP runtime
-uses the current float/double atomicAdd functions.
+               \__HIP_USE_CMPXCHG_FOR_FP_ATOMICS
+               
 
-If this compilation flag is set to â€œ1â€ with the CMAKE option, the
-existing float/double atomicAdd functions is used for compatibility with
+This compilation flag is not set(â€œ0â€) by default, so the HIP runtime uses the current float/double atomicAdd functions.
+
+If this compilation flag is set to â€œ1â€ with the CMAKE option, the existing float/double atomicAdd functions is used for compatibility with
 compilers that do not support floating point atomics.
 
-D__HIP_USE_CMPXCHG_FOR_FP_ATOMICS=1
+::
 
-For details on how to build the HIP runtime, refer to the HIP
-Programming Guide at
+               D__HIP_USE_CMPXCHG_FOR_FP_ATOMICS=1
+               
 
-**Add link**
+For details on how to build the HIP runtime, refer to the HIP Programming Guide at
 
-**
-**
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+
+
 
 Updated HIP Version Definition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================
 
 The HIP version definition is updated as follows:
 
-HIP_VERSION=HIP_VERSION_MAJOR \* 10000000 + HIP_VERSION_MINOR \* 100000
-+ HIP_VERSION_PATCH)
+::
+
+               HIP_VERSION=HIP_VERSION_MAJOR \* 10000000 + HIP_VERSION_MINOR \* 100000
+               + HIP_VERSION_PATCH)
+               
 
 The HIP version can be queried from the following HIP API call,
 
 hipRuntimeGetVersion(&runtimeVersion);
 
-The version returned is always greater than the versions in the previous
-ROCm releases.
+The version returned is always greater than the versions in the previous ROCm releases.
 
-**Note:** The version definition of the HIP runtime is different from
-that of CUDA. The function returns the HIP runtime version on the AMD
-platform, while on the NVIDIA platform, it returns the CUDA runtime
-version. There is no mapping or a correlation between the HIP and CUDA
+**Note:** The version definition of the HIP runtime is different from that of CUDA. The function returns the HIP runtime version on the AMD
+platform, while on the NVIDIA platform, it returns the CUDA runtime version. There is no mapping or a correlation between the HIP and CUDA
 versions.
 
-**
-**
+
 
 Planned HIP Enhancements and Fixes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+====================================
 
-changes to hiprtc implementation to match nvrtc behavior
+Changes to hiprtc implementation to match nvrtc behavior
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this release, there are changes to the *hiprtc* implementation to
-match the *nvrtc* behavior.
+In this release, there are changes to the *hiprtc* implementation to match the *nvrtc* behavior.
 
-**Impact:** Applications can no longer explicitly include HIP runtime
-header files. Minor code changes are required to remove the HIP runtime
+**Impact:** Applications can no longer explicitly include HIP runtime header files. Minor code changes are required to remove the HIP runtime
 header files.
 
 HIP device attribute enumeration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In a future release, there will be a breaking change in the HIP device
-attribute enumeration. Enum values are being rearranged to accommodate
+In a future release, there will be a breaking change in the HIP device attribute enumeration. Enum values are being rearranged to accommodate
 future enhancements and additions.
 
-**Impact:** This will require users to rebuild their applications. No
-code changes are required.
+**Impact:** This will require users to rebuild their applications. No code changes are required.
 
-changes to behavior of hipGetLastError() and hipPeekAtLastError() to match CUDA behavior available
+
+Changes to behavior of hipGetLastError() and hipPeekAtLastError() to match CUDA behavior available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In a later release, changes to behavior of hipGetLastError() and
-hipPeekAtLastError() to match CUDA behavior will be available.
+In a later release, changes to behavior of hipGetLastError() and hipPeekAtLastError() to match CUDA behavior will be available.
 
-**Impact:** Applications relying on the previous behavior will be
-impacted and may require some code changes.
+**Impact:** Applications relying on the previous behavior will be impacted and may require some code changes.
 
 Unified Memory Support in ROCm
 ------------------------------
 
-Unified memory allows applications to map and migrate data between CPU
-and GPU seamlessly without explicitly copying it between different
-allocations. This enables a more complete implementation of
-*hipMallocManaged*, *hipMemAdvise*, *hipMemPrefetchAsync* and related
-APIs. Without unified memory, these APIs only support system memory.
-With unified memory, the driver can automatically migrate such memory to
+Unified memory allows applications to map and migrate data between CPU and GPU seamlessly without explicitly copying it between different
+allocations. This enables a more complete implementation of *hipMallocManaged*, *hipMemAdvise*, *hipMemPrefetchAsync* and related
+APIs. Without unified memory, these APIs only support system memory. With unified memory, the driver can automatically migrate such memory to
 GPU memory for faster access.
 
 Supported Operating Systems and Versions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------
 
-This feature is only supported on recent Linux kernels. Currently, it
-works on Ubuntu versions with 5.6 or newer kernels and the DKMS driver
-from ROCm. Current releases of RHEL and SLES do not support this feature
-yet. Future releases of those distributions will add support for this.
-The unified memory feature is also supported in the KFD driver included
-with upstream kernels starting from Linux 5.14.
+This feature is only supported on recent Linux kernels. Currently, it works on Ubuntu versions with 5.6 or newer kernels and the DKMS driver
+from ROCm. Current releases of RHEL and SLES do not support this feature yet. Future releases of those distributions will add support for this.
+The unified memory feature is also supported in the KFD driver included with upstream kernels starting from Linux 5.14.
 
-Unified memory only works on GFXv9 and later GPUs, including Vega10 and
-MI100. Fiji, Polaris and older GPUs are not supported. To check whether
+Unified memory only works on GFXv9 and later GPUs, including Vega10 and MI100. Fiji, Polaris and older GPUs are not supported. To check whether
 unified memory is enabled, look in the kernel log for this message:
 
-$ dmesg \| grep "HMM registered"
+::
 
-If unified memory is enabled, there should be a message like â€œHMM
-registered xyzMB device memoryâ€. If unified memory is not supported on
+               $ dmesg \| grep "HMM registered"
+               
+
+If unified memory is enabled, there should be a "message like registered xyzMB device memory". If unified memory is not supported on
 your GPU or kernel version, this message is missing.
 
 Unified Memory Support and XNACK
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
-Unified memory support comes in two flavours, XNACK-enabled and
-XNACK-disabled. XNACK refers to the ability of the GPU to handle page
-faults gracefully and retry a memory access. In XNACK-enabled mode, the
-GPU can handle retry after page-faults, which enables mapping and
-migrating data on demand, as well as memory overcommitment. In
-XNACK-disabled mode, all memory must be resident and mapped in the GPU
-page tables when the GPU is executing application code. Any migrations
-involve temporary preemption of the GPU queues by the driver. Both page
-fault handling and preemptions, happen automatically and are transparent
-to the applications.
+Unified memory support comes in two flavours, XNACK-enabled and XNACK-disabled. XNACK refers to the ability of the GPU to handle page
+faults gracefully and retry a memory access. In XNACK-enabled mode, the GPU can handle retry after page-faults, which enables mapping and
+migrating data on demand, as well as memory overcommitment. In XNACK-disabled mode, all memory must be resident and mapped in the GPU
+page tables when the GPU is executing application code. Any migrations involve temporary preemption of the GPU queues by the driver. Both page
+fault handling and preemptions, happen automatically and are transparent to the applications.
 
-XNACK-enabled mode only has experimental support. XNACK-enabled mode
-requires compiling shader code differently. By default, the ROCm
-compiler builds code that works in both modes. Code can be optimized for
-one specific mode with compiler options:
+XNACK-enabled mode only has experimental support. XNACK-enabled mode requires compiling shader code differently. By default, the ROCm
+compiler builds code that works in both modes. Code can be optimized for one specific mode with compiler options:
 
 OpenCL:
 
-| clang ... -mcpu=gfx908:**xnack+**:sramecc- ... // xnack on, sramecc
-  off
-| clangÂ ... -mcpu=gfx908:**xnack-**:sramecc+ ... // xnack off, sramecc
-  on
+::
+
+               clang ... -mcpu=gfx908:**xnack+**:sramecc- ... // xnack on, sramecc
+               off
+               clangÂ ... -mcpu=gfx908:**xnack-**:sramecc+ ... // xnack off, sramecc
+                on
+
 
 HIP:
 
-| clang ... --cuda-gpu-arch=gfx906:xnack+ ... // xnack on
-| clang ... --cuda-gpu-arch=gfx906:xnack- ... // xnack off
+::
 
-Not all the math libraries included in ROCm support XNACK-enabled mode
-on current hardware. Applications will fail to run if their shaders are
+               clang ... --cuda-gpu-arch=gfx906:xnack+ ... // xnack on
+               clang ... --cuda-gpu-arch=gfx906:xnack- ... // xnack off
+
+
+Not all the math libraries included in ROCm support XNACK-enabled mode on current hardware. Applications will fail to run if their shaders are
 compiled in the incorrect mode.
 
-On current hardware, the XNACK mode can be chosen at boot-time by a
-module parameter amdgpu.noretry. The default is XNACK-disabled
+On current hardware, the XNACK mode can be chosen at boot-time by a module parameter amdgpu.noretry. The default is XNACK-disabled
 (amdgpu.noretry=1).
 
 System Management Interface
 ---------------------------
 
-Enhanced ROCm SMI â€“setpoweroverdrive Functionality
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Enhanced ROCm SMI *setpoweroverdrive* Functionality
+======================================================
 
-The ROCm System Management Interface (SMI) *â€“setpoweroverdrive*
-functionality is used to lower the power cap on a device without needing
-to enable the OverDrive functionality in the driver. Similarly, even
-with the OverDrive driver functionality enabled, it is possible to
-request a lower power cap than the cardâ€™s default.
+The ROCm System Management Interface (SMI) *setpoweroverdrive* functionality is used to lower the power cap on a device without needing
+to enable the OverDrive functionality in the driver. Similarly, even with the OverDrive driver functionality enabled, it is possible to
+request a lower power cap than the card's default.
 
-Currently, any use of the *â€“setpoweroverdrive* functionality in rocm-smi
-prints an out-of-spec warning to the screen and requires the user to
-agree that using this functionality potentially voids their warranty.
-However, this warning should only be printed when users are trying to
-set the power cap to higher than the cardâ€™s default, which requires the
-OverDrive driver functionality to be enabled.
+Currently, any use of the *â€“setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
+agree that using this functionality potentially voids their warranty. However, this warning should only be printed when users are trying to
+set the power cap to higher than the cardâ€™s default, which requires the OverDrive driver functionality to be enabled.
 
 For example:
 
 The default power cap is 225.0W before any changes.
 
-[atitest@rhel85 smi]$ ./rocm_smi.py â€“resetpoweroverdrive
+::
 
-======================= ROCm System Management Interface
-========================================================
 
-========================== Reset GPU Power OverDrive
-====================================================
+               [atitest@rhel85 smi]$ ./rocm_smi.py â€“resetpoweroverdrive
 
-GPU[0] : Successfully reset Power OverDrive to: 225W
+               ======================= ROCm System Management Interface
+               ========================================================
 
-============================ End of ROCm SMI Log
-================================================
+               ========================== Reset GPU Power OverDrive
+               ====================================================
 
-Now, after using â€“setpoweroverdrive to lower the power cap to 123 watts:
+               GPU[0] : Successfully reset Power OverDrive to: 225W
 
-[atitest@rhel85 smi]$ ./rocm_smi.py â€“setpoweroverdrive 123
+               ============================ End of ROCm SMI Log
+               ================================================
 
-.. _rocm-system-management-interface-1:
+               Now, after using â€“setpoweroverdrive to lower the power cap to 123 watts:
 
-======================= ROCm System Management Interface
-========================================================
+               [atitest@rhel85 smi]$ ./rocm_smi.py â€“setpoweroverdrive 123
 
-=========================== Set GPU Power OverDrive
-===================================================
+               .. _rocm-system-management-interface-1:
 
-GPU[0] : Successfully set power to: 123W
+               ======================= ROCm System Management Interface
+               ========================================================
 
-.. _end-of-rocm-smi-log-1:
+               =========================== Set GPU Power OverDrive
+               ===================================================
 
-======================= End of ROCm SMI Log
-===========================================
+               GPU[0] : Successfully set power to: 123W
 
-Setting a power cap lower than the default of 225.0W (in this case,
-123W) does not give a warning.
+               .. _end-of-rocm-smi-log-1:
 
-To verify that the power is set to the correct value:
+               ======================= End of ROCm SMI Log
+               ===========================================
 
-[atitest@rhel85 smi]$ ./rocm_smi.py â€“showmaxpower
+               Setting a power cap lower than the default of 225.0W (in this case,
+               123W) does not give a warning.
 
-.. _rocm-system-management-interface-2:
+               To verify that the power is set to the correct value:
 
-======================= ROCm System Management Interface
-========================================================
+               [atitest@rhel85 smi]$ ./rocm_smi.py â€“showmaxpower
 
-======================== Power Cap ===================================
+               .. _rocm-system-management-interface-2:
 
-GPU[0] : Max Graphics Package Power (W): 123.0
+               ======================= ROCm System Management Interface
+               ========================================================
 
-.. _end-of-rocm-smi-log-2:
+               ======================== Power Cap ===================================
 
-========================End of ROCm SMI Log
-===========================================
+               GPU[0] : Max Graphics Package Power (W): 123.0
+
+               .. _end-of-rocm-smi-log-2:
+
+               ========================End of ROCm SMI Log
+               ===========================================
+
 
 OpenMP Enhancements
--------------------
+=====================
 
-The ROCm installation includes an LLVM-based implementation, which fully
-supports OpenMP 4.5 standard and a subset of the OpenMP 5.0 standard.
-Fortran and C/C++ compilers and corresponding runtime libraries are
-included. Along with host APIs, the OpenMP compilers support offloading
+The ROCm installation includes an LLVM-based implementation, which fully supports OpenMP 4.5 standard and a subset of the OpenMP 5.0 standard.
+Fortran and C/C++ compilers and corresponding runtime libraries are included. Along with host APIs, the OpenMP compilers support offloading
 code and data onto GPU devices.
 
 For more information, refer to
 
 https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+
 
 ROCm Math and Communication Libraries
 -------------------------------------
@@ -881,62 +859,58 @@ For more information about ROCm Libraries, refer to the documentation at
 
 https://rocmdocs.amd.com/en/latest/ROCm_Libraries/ROCm_Libraries.html
 
+
 Known Issues in This Release
-============================
+-------------------------------
 
 The following are the known issues in this release.
 
 Compiler Support for Function Pointers and Virtual Functions
-------------------------------------------------------------
+=============================================================
 
-A known issue in the compiler support for function pointers and virtual
-functions on the GPU may cause undefined behavior due to register
-corruption.Â 
+A known issue in the compiler support for function pointers and virtual functions on the GPU may cause undefined behavior due to register
+corruption.
 
-A temporary workaround is to compile the affected application with *the
--mllvm -amdgpu-fixed-function-abi=1* option.Â 
+A temporary workaround is to compile the affected application with 
 
-**Note:** This is an internal compiler flag and may be removed without
-notice once the issue is addressed in a future release.
+::
+
+               -mllvm -amdgpu-fixed-function-abi=1* option 
+
+
+**Note:** This is an internal compiler flag and may be removed without notice once the issue is addressed in a future release.
 
 Debugger Process Exit May Cause ROCgdb Internal Error
------------------------------------------------------
+=======================================================
 
-If the debugger process exits during debugging, ROCgdb may report
-internal errors. This issue occurs as it attempts to access the AMD GPU
+If the debugger process exits during debugging, ROCgdb may report internal errors. This issue occurs as it attempts to access the AMD GPU
 state for the exited process. To recover, users must restart ROCgdb.
 
-As a workaround, users can set breakpoints to prevent the debugged
-process from exiting. For example, users can set breakpoints at the last
-statement of the main function and in the abort() and exit() functions.
-This temporary solution allows the application to be re-run without
+As a workaround, users can set breakpoints to prevent the debugged process from exiting. For example, users can set breakpoints at the last
+statement of the main function and in the abort() and exit() functions. This temporary solution allows the application to be re-run without
 restarting ROCgdb.
 
-This issue is currently under investigation and will be fixed in a
-future release.
+This issue is currently under investigation and will be fixed in a future release.
 
 For more information, refer to the ROCgdb User Guide at,
 
 *Add link*
 
 Deprecations
-============
+-------------
 
 AMD Instinct MI25 End of Life
------------------------------
+================================
 
-ROCm release v4.5 is the final release to support AMD Instinct MI25. AMD
-Instinct MI25 has reached End of Life (EOL). ROCm 4.5 represents the
-last certified release for software and driver support. AMD will
-continue to provide technical support and issue resolution for AMD
-Instinct MI25 on ROCm v4.5 for a period of 12 months from the software
-GA date.Â 
+ROCm release v4.5 is the final release to support AMD Instinct MI25. AMD Instinct MI25 has reached End of Life (EOL). ROCm 4.5 represents the
+last certified release for software and driver support. AMD will continue to provide technical support and issue resolution for AMD
+Instinct MI25 on ROCm v4.5 for a period of 12 months from the software GA date.
 
 
 
 
 
-DISCLAIMERs 
+DISCLAIMER 
 ------------
 
 The information presented in this document is for informational purposes only and may contain technical inaccuracies, omissions, and typographical errors. The information contained herein is subject to change and may be rendered inaccurate for many reasons, including but not limited to product and roadmap changes, component and motherboard versionchanges, new model and/or product releases, product differences between differing manufacturers, software changes, BIOS flashes, firmware upgrades, or the like. Any computer system has risks of security vulnerabilities that cannot be completely prevented or mitigated.AMD assumes no obligation to update or otherwise correct or revise this information. However, AMD reserves the right to revise this information and to make changes from time to time to the content hereof without obligation of AMD to notify any person of such revisions or changes.THIS INFORMATION IS PROVIDED ‘AS IS.” AMD MAKES NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE CONTENTS HEREOF AND ASSUMES NO RESPONSIBILITY FOR ANY INACCURACIES, ERRORS, OR OMISSIONS THAT MAY APPEAR IN THIS INFORMATION. AMD SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR ANY PARTICULAR PURPOSE. IN NO EVENT WILL AMD BE LIABLE TO ANY PERSON FOR ANY RELIANCE, DIRECT, INDIRECT, SPECIAL, OR OTHER CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF ANY INFORMATION CONTAINED HEREIN, EVEN IF AMD IS EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.AMD, the AMD Arrow logo,[insert all other AMD trademarks used in the material here perAMD Trademarks]and combinations thereof are trademarks of Advanced Micro Devices, Inc.Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies. [Insert any third party trademark attribution here per AMD'sThird Party Trademark List.]©[Insert year written*]Advanced Micro Devices, Inc.All rights reserved.
