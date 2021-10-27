@@ -980,7 +980,7 @@ You may skip this section if you have a version of the kernel-mode driver instal
 
 **Add the AMDGPU Stack Repository**
 
-Create a */etc/zypp/repos.d/rocm.repo* file with the following content.
+Create a */etc/zypp/repos.d/amdgpu.repo* file with the following content.
 
 For <amdgpu baseurl> in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories.
 
