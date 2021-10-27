@@ -1403,4 +1403,6 @@ Ans: Users do not need to execute the following command in Docker container.
 ::
 
                $ sudo SUSEConnect --product PackageHub/15.2/x86_64 
+               
+               https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
 
