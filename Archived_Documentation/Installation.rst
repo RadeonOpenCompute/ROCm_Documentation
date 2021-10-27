@@ -271,6 +271,7 @@ If the wget package not installed , execute the following command to install it:
                $ sudo apt-get update
                $ sudo apt-get install wget gnupg2
                
+               
 **RHEL/CentOS**
 
 ::
@@ -780,7 +781,7 @@ If the supported version installation of linux headers and development packages 
 
 ::
 
-               $ sudo yum install dkms kernel-headers-`uname -r` kernel-devel-`uname -r`
+               $ sudo yum install kernel-headers-`uname -r` kernel-devel-`uname -r`
 
 
 **Preparing RHEL 7.9 for Installation**
@@ -798,9 +799,10 @@ Enable the following repositories for RHEL v7.9:
                $ sudo subscription-manager repos --enable rhel-server-rhscl-7-rpms
                $ sudo subscription-manager repos --enable rhel-7-server-optional-rpms
                $ sudo subscription-manager repos --enable rhel-7-server-extras-rpms
+               $ sudo subscription-manager repos --enable=rhel-7-server-devtools-rpms
 
 
-**Preparing CentOS for Installation** 
+**Preparing CentOS 7.9 for Installation** 
 
 The following steps help users prepare the CentOS system for the ROCm installation.
 
@@ -809,6 +811,9 @@ Extra Packages for Enterprise Linux (EPEL) provides additional packages for CENT
 ::
 
                $ sudo yum install epel-release
+               
+               $ sudo yum install -y centos-release-scl #Only for CentOS 7.9
+               
              
 
 Base URLs For AMDGPU and ROCm Stack Repositories
