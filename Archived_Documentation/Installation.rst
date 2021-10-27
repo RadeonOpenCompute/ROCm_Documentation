@@ -434,7 +434,7 @@ Use the following command to download and install the installer on SLES
 
 ::
 
-               $ sudo zypper install http://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
+               $ sudo zypper --no-gpg-checks install http://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
                
  
 
