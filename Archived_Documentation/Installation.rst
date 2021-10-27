@@ -88,10 +88,10 @@ The system requirements for the ROCm v4.5 installation are as follows:
 +-----------------------+
 | CentOS 8.3            | 
 +-----------------------+
-| Ubuntu 18.04.5        |
+|Ubuntu 18.04.5        |
 |[5.11 HWE kernel       |  
 +-----------------------+
-| Ubuntu 20.04.3        |
+|Ubuntu 20.04.3        |
 |LTS [5.11 HWE kernel   | 
 +-----------------------+
                           
