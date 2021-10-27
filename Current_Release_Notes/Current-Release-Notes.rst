@@ -45,7 +45,7 @@ Enhanced Installation Process for ROCm v4.5
 -------------------------------------------
 
 In addition to the installation method using the native Package Manager, AMD ROCm v4.5 introduces added methods to install ROCm. With this
-release, the ROCm installation uses the *amdgpu-install* and *amdgpu-uninstall* scripts.Â 
+release, the ROCm installation uses the *amdgpu-install* and *amdgpu-uninstall* scripts. 
 
 The *amdgpu-install* script streamlines the installation process by:
 
