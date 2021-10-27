@@ -74,6 +74,37 @@ System Requirements
 
 The system requirements for the ROCm v4.5 installation are as follows:
 
+
++-----------------------+
+| OS                    | 
++=======================+
+| SLES15 SP3            | 
++-----------------------+
+| RHEL 7.9              | 
++-----------------------+
+| CentOS 7.9            | 
++-----------------------+
+| RHEL 8.4              | 
++-----------------------+
+| CentOS 8.3            | 
++-----------------------+-----------------+
+| Ubuntu 18.04.5 [5.11 HWE kernel         | 
++-----------------------------------------+
+| Ubuntu 20.04.3 LTS [5.11 HWE kernel     | 
++-----------------------------------------+
+                          
+                           
+
+
+OS-Version (64-bit)
+RHEL 8.4
+RHEL 7.9
+CENTOS 7.9
+SLES 15 SP3
+Ubuntu 20.04.3 LTS [5.11 HWE kernel]
+Ubuntu 18.04.5 [5.4 HWE kernel]
+
+
 .. image:: SuppEnv.png
    :alt: Screenshot     
 
@@ -1405,6 +1436,6 @@ Users do not need to execute the following command in Docker container.
 
                $ sudo SUSEConnect --product PackageHub/15.2/x86_64 
                
-               https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+            
                
 
