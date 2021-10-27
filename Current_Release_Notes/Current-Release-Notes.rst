@@ -532,8 +532,8 @@ following enhancements and fixes:
 |           |    .rpm packages). The development package depends on    |
 |           |    runtime. The runtime package suggests the development |
 |           |    package for all supported OSes except CentOS 7 to aid |
-|           |    in the transition. The suggested feature in packaging |
-|           |    is introduced as a deprecated feature and will be     |
+|           |    in the transition. The 'suggests' feature in packaging|
+|           |    is a transitional feature and will be                 |
 |           |    removed in a future ROCm release.                     |
 |           |                                                          |
 |           | **Fixed**                                                |
@@ -567,8 +567,8 @@ following enhancements and fixes:
 |           |    development package depends on runtime. The runtime   |
 |           |    package suggests the development package for all      |
 |           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The suggests feature in packaging is      |
-|           |    introduced as a deprecated feature and will be        |
+|           |    transition. The 'suggests' feature in packaging is    |
+|           |    a transitional feature and will be                    |
 |           |    removed in a future rocm release.                     |
 +-----------+----------------------------------------------------------+
 | rocFFT    | **Optimizations**                                        |
@@ -589,7 +589,7 @@ following enhancements and fixes:
 |           |    package suggests the development package for all      |
 |           |    supported OSes except CentOS 7 to aid in the          |
 |           |    transition. The suggests feature in packaging is      |
-|           |    introduced as a deprecated feature and will be        |
+|           |    a transitional feature and will be                    |
 |           |    removed in a future rocm release.                     |
 |           |                                                          |
 |           | **Fixed**                                                |
@@ -607,8 +607,8 @@ following enhancements and fixes:
 |           |    development package depends on runtime. The runtime   |
 |           |    package suggests the development package for all      |
 |           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The suggests feature in packaging is      |
-|           |    introduced as a deprecated feature and will be        |
+|           |    transition. The 'suggests' feature in packaging is    |
+|           |    a tranistional feature and will be                    |
 |           |    removed in a future rocm release.                     |
 +-----------+----------------------------------------------------------+
 | rocSPARSE | **Added**                                                |
@@ -656,8 +656,8 @@ following enhancements and fixes:
 |           |    rocalution-devel. The development package depends on  |
 |           |    runtime. The runtime package suggests the development |
 |           |    package for all supported OSes except CentOS 7 to aid |
-|           |    in the transition. The suggests feature in packaging  |
-|           |    is introduced as a deprecated feature and will be     |
+|           |    in the transition. The 'suggests' feature in packaging|
+|           |    is a transitional feature and will be                 |
 |           |    removed in a future rocm release.                     |
 |           |                                                          |
 |           | **Improved**                                             |
@@ -731,7 +731,7 @@ following enhancements and fixes:
 |           |    development package depends on the runtime package.   |
 |           |    To aid in the transition, the runtime package         |
 |           |    suggests the development package (except on CentOS    |
-|           |    7). This use of the suggests feature is deprecated    |
+|           |    7). This use of the 'suggests' feature is deprecated  |
 |           |    and will be removed in a future ROCm release.         |
 |           |                                                          |
 |           | **Fixed**                                                |
@@ -794,7 +794,7 @@ following enhancements and fixes:
 |           |    package suggests the development package for all      |
 |           |    supported OSes except CentOS 7 to aid in the          |
 |           |    transition. The suggests feature in packaging is      |
-|           |    introduced as a deprecated feature and will be        |
+|           |    a transitional feature and will be                    |
 |           |    removed in a future rocm release.                     |
 +-----------+----------------------------------------------------------+
 | hipCUB    | **Changed**                                              |
@@ -822,7 +822,7 @@ following enhancements and fixes:
 |           |    package suggests the development package for all      |
 |           |    supported OSes except CentOS 7 to aid in the          |
 |           |    transition. The suggests feature in packaging is      |
-|           |    introduced as a deprecated feature and will be        |
+|           |    a transitional feature and will be                    |
 |           |    removed in a future rocm release.                     |
 |           |                                                          |
 |           | -  As rocPRIM is a header-only library, the runtime      |
@@ -843,8 +843,8 @@ following enhancements and fixes:
 |           |    development package depends on runtime. The runtime   |
 |           |    package suggests the development package for all      |
 |           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The suggests feature in packaging is      |
-|           |    introduced as a deprecated feature and will be        |
+|           |    transition. The 'suggests' feature in packaging is    |
+|           |    a transitional feature and will be                    |
 |           |    removed in a future rocm release.                     |
 |           |                                                          |
 |           | **Fixed**                                                |
