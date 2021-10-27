@@ -923,6 +923,16 @@ clinfo and rocminfo display a blank field for Marketing Name.
 This is due to a missing package that is not yet available from ROCm. This package will be distributed in future ROCm releases.
 
 
+Stability Issue on LAMMPS-KOKKOS Applications
+==============================================
+
+On mGPU machines, lammps-kokkos applications experience a stability issue (AMD Instinct MI100™).
+
+As a workaround, perform a Translation LookAside Buffer (TLB) flush.
+
+The issue is under active investigation and will be resolved in a future release.
+
+
 Deprecations
 -------------
 
