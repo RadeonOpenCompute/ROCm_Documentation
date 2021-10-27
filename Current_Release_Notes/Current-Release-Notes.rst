@@ -944,10 +944,10 @@ last certified release for software and driver support. AMD will continue to pro
 Instinct MI25 on ROCm v4.5 for a period of 12 months from the software GA date.
 
 
-Planned Deprecation for Code Object Version 2 AND 3 
+Planned Deprecation for Code Object Versions 2 AND 3 
 =====================================================
 
-With the ROCm v4.5 release, the generation of code object version 2 and 3 is being deprecated and may be removed in a future release. This deprecation notice does not impact support for the execution of AMD GPU code object versions.
+With the ROCm v4.5 release, the generation of code object versions 2 and 3 is being deprecated and may be removed in a future release. This deprecation notice does not impact support for the execution of AMD GPU code object versions.
 
 The -mcode-object-version Clang option can be used to instruct the compiler to generate a specific AMD GPU code object version. In ROCm v4.5, the compiler can generate AMD GPU code object version 2, 3, and 4, with version 4 being the default if not specified. 
 
