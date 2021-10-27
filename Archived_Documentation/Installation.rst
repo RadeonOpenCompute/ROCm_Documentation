@@ -861,14 +861,14 @@ Repositories for Specific Releases
 
 
 
-Adding AMDGPU Stack Repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adding the AMDGPU Stack Repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You may skip this section if you have a version of the kernel-mode driver installed. If you do not have a version of the kernel-mode driver installed, follow the commands below to add the AMDGPU stack repository.
 
 **Add the AMDGPU Stack Repository**
 
-Create a /etc/yum.repos.d/amdgpu.repo file with the following contents with amdgpu base URL.
+Create a */etc/yum.repos.d/amdgpu.repo* file with the following contents with amdgpu base URL.
 
 For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as documented in Base URLs for AMDGPU and ROCm Stack Repositories
 
@@ -889,11 +889,11 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
                777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
                
 
-Update the package list using the command below:
+Execute the command below to clean the cached files from enabled repositories:
 
 ::
 
-               $ sudo yum update
+               $ sudo yum clean all
                
 
 
@@ -940,11 +940,12 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs documented 
                
 
 
-Update the packages list using the command below:
+Execute the command below to clean the cached files from enabled repositories:
 
 ::
 
-               $ sudo yum update
+          
+          $ sudo yum clean all
 
                
                
