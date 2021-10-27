@@ -87,28 +87,15 @@ The system requirements for the ROCm v4.5 installation are as follows:
 | RHEL 8.4              | 
 +-----------------------+
 | CentOS 8.3            | 
-+-----------------------+-----------------+
-| Ubuntu 18.04.5 [5.11 HWE kernel         | 
-+-----------------------------------------+
-| Ubuntu 20.04.3 LTS [5.11 HWE kernel     | 
-+-----------------------------------------+
++-----------------------+
+| Ubuntu 18.04.5        |
+|[5.11 HWE kernel       |  
++-----------------------+
+| Ubuntu 20.04.3        |
+|LTS [5.11 HWE kernel   | 
++-----------------------+
                           
-                           
 
-
-OS-Version (64-bit)
-RHEL 8.4
-RHEL 7.9
-CENTOS 7.9
-SLES 15 SP3
-Ubuntu 20.04.3 LTS [5.11 HWE kernel]
-Ubuntu 18.04.5 [5.4 HWE kernel]
-
-
-.. image:: SuppEnv.png
-   :alt: Screenshot     
-
- 
  
 **NOTE**: Installing ROCm on Linux will require superuser privileges. For systems that have enabled sudo packages, ensure you use the sudo prefix for all required commands.
  
