@@ -8,16 +8,13 @@ AMD ROCm™ Release Notes v4.5
 October, 2021
 
 
-ROCm Installation Updates
-===========================
-
 This document describes the features, fixed issues, and information
 about downloading and installing the AMD ROCmâ„¢ software.
 
 It also covers known issues and deprecations in this release.
 
 List of Supported Operating Systems
------------------------------------
+-------------------------------------
 
 The AMD ROCm platform supports the following operating systems:
 
@@ -43,19 +40,17 @@ The AMD ROCm platform supports the following operating systems:
 | Guest OS              | Ubuntu 20.04                               |
 +-----------------------+--------------------------------------------+
 
-MIOpen Supports AMD Radeonâ„¢ RX 6800
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MIOpen Supports AMD Radeon™ RX 6800
+======================================
 
-MIOpen now extends support to AMD Radeonâ„¢ RX 6800.
+MIOpen now extends support to AMD Radeon™ RX 6800.
 
 
 Enhanced Installation Process for ROCm v4.5
 -------------------------------------------
 
-In addition to the installation method using the native Package Manager,
-AMD ROCm v4.5 introduces added methods to install ROCm. With this
-release, the ROCm installation uses the *amdgpu-install* and
-*amdgpu-uninstall* scripts.Â 
+In addition to the installation method using the native Package Manager, AMD ROCm v4.5 introduces added methods to install ROCm. With this
+release, the ROCm installation uses the *amdgpu-install* and *amdgpu-uninstall* scripts.Â 
 
 The *amdgpu-install* script streamlines the installation process by:
 
@@ -71,11 +66,9 @@ The *amdgpu-install* script streamlines the installation process by:
 
 -  Installing the uninstallation script
 
-The *amdgpu-uninstall* script allows the removal of the entire ROCm
-stack by using a single command.
+The *amdgpu-uninstall* script allows the removal of the entire ROCm stack by using a single command.
 
-Some of the ROCm-specific use cases that the installer currently
-supports are:
+Some of the ROCm-specific use cases that the installer currently supports are:
 
 -  OpenCL (ROCr/KFD based) runtime
 
@@ -87,8 +80,7 @@ supports are:
 
 -  ROCr runtime and thunk
 
-For more information, refer to the `Installation
-Methods <#_Installation_Methods>`__ section in this guide.
+For more information, refer to the `Installation Methods <#_Installation_Methods>`__ section in this guide.
 
 **Note:** Graphics use cases are not supported in this release.
 
@@ -96,21 +88,24 @@ For more details, refer to the AMD ROCm Installation Guide v4.5 at,
 
 **Add link**
 
-AMD ROCm V4.5 Documentation Updates â€“ WORK in PROGRESS
-======================================================
+
+AMD ROCm V4.5 Documentation Updates
+======================================
 
 AMD ROCm Installation Guide
 ---------------------------
 
-The AMD ROCm Installation Guide in this release includes the following
-updates:
+The AMD ROCm Installation Guide in this release includes the following updates:
 
 -  New - Installation Guide for ROCm v4.5
 
 -  HIP installation instructions
 
+
 HIP Documentation Updates
 -------------------------
+
+For the following updated ROCm v4.5 documentation, see https://github.com/RadeonOpenCompute/ROCm
 
 -  HIP Programming Guide
 
@@ -122,14 +117,13 @@ HIP Documentation Updates
 
 -  HIP FAQ
 
-..
-
    https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 System Interface Management
 ---------------------------
 
 -  System Interface Management (SMI)
+
 
 ROCm SMI API Guide
 ------------------
