@@ -871,6 +871,17 @@ Known Issues in This Release
 
 The following are the known issues in this release.
 
+
+
+
+Cache Issues with ROCProfiler
+==============================
+
+When the same kernel is launched back-to-back multiple times on a GPU, a cache flush is executed each time the kernel finishes when profiler data is collected. The cache flush is inserted by ROCprofiler for each kernel. This prevents kernel from being cached, instead it is being read each time it is launched. As a result the cache hit rate from rocprofiler is reported as 0% or very low.
+
+This issue is under investigation and will be fixed in a future release. 
+
+
 Compiler Support for Function Pointers and Virtual Functions
 =============================================================
 
@@ -902,6 +913,14 @@ This issue is currently under investigation and will be fixed in a future releas
 For more information, refer to the ROCgdb User Guide at,
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+
+
+clinfo and rocminfo Do Not Display Marketing Name
+=======================================================
+
+clinfo and rocminfo display a blank field for Marketing Name. 
+
+This is due to a missing package that is not yet available from ROCm. This package will be distributed in future ROCm releases.
 
 
 Deprecations
