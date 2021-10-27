@@ -1361,9 +1361,9 @@ Yes, users can install multiple packages at the same time with the installer scr
                
 
 
-Question: How to list all the possible inputs for the --usecase parameter in the amdgpu-install script?
+*How to list all the possible inputs for the --usecase parameter in the amdgpu-install script?*
 
-Ans: The following command lists all the possible options for –usecase
+The following command lists all the possible options for –usecase
 
 ::
 
