@@ -85,10 +85,10 @@ For more details, refer to the AMD ROCm Installation Guide v4.5 at,
 
 
 AMD ROCm V4.5 Documentation Updates
-======================================
+---------------------------------------
 
 AMD ROCm Installation Guide
----------------------------
+===============================
 
 The AMD ROCm Installation Guide in this release includes the following updates:
 
@@ -98,7 +98,7 @@ The AMD ROCm Installation Guide in this release includes the following updates:
 
 
 AMD Instinct™ High Performance Computing and Tuning
-----------------------------------------------------
+====================================================
 
 - New - AMD Instinct™ High Performance Computing and Tuning Guide 
 
@@ -106,7 +106,7 @@ AMD Instinct™ High Performance Computing and Tuning
 
 
 HIP Documentation Updates
--------------------------
+============================
 
 For the following updated ROCm v4.5 documentation, see https://github.com/RadeonOpenCompute/ROCm
 
@@ -130,15 +130,17 @@ For the following updated ROCm v4.5 documentation, see https://github.com/Radeon
 
    https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
+
 System Interface Management
----------------------------
+=============================
 
 -  System Interface Management (SMI)
 
    https://rocmdocs.amd.com/en/latest/ROCm_System_Managment/ROCm-System-Managment.html
    
+
 AMD ROCm Data Center Tool
----------------------------
+==========================
 
 - AMD ROCm Data Center Tool API Guide
 
@@ -150,7 +152,7 @@ AMD ROCm Data Center Tool
 
 
 ROCm SMI API Guide
-------------------
+===================
 
 -  ROCm SMI API Guide
 
@@ -158,7 +160,7 @@ ROCm SMI API Guide
    
 
 ROC Debugger User and API Guide
--------------------------------
+================================
 
 -  ROCDebugger User Guide
 
@@ -170,7 +172,7 @@ ROC Debugger User and API Guide
    
 
 OpenMP Documentation
---------------------
+=========================
 
 - Updated OpenMP documentation 
 
@@ -178,7 +180,7 @@ OpenMP Documentation
 
 
 AMD ROCm General Documentation Links
-------------------------------------
+=======================================
 
 -  For AMD ROCm documentation, see
 
@@ -230,7 +232,7 @@ This feature can be disabled by setting the following environment variable,
             
 
 Support for HIP Graph
-=======================
+#######################
 
 ROCm v4.5 extends support for HIP Graph. For details, refer to the HIP API Guide at,
 
@@ -238,7 +240,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
 
 
 Enhanced *launch_bounds* Check Error Log Message
-=================================================
+##################################################
 
 When a kernel is launched with HIP APIs, for example, hipModuleLaunchKernel(), HIP validates to check that input kernel
 dimension size is not larger than specified launch_bounds.
@@ -253,7 +255,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.
 
 
 HIP Runtime Compilation
-=========================
+########################
 
 HIP now supports runtime compilation (hipRTC), the usage of which will provide the possibility of optimizations and performance improvement
 compared with other APIs via regular offline static compilation.
@@ -267,7 +269,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
 
 
 New Flag for Backwards Compatibility on float/double atomicAdd Function
-============================================================================
+########################################################################
 
 In the ROCm4.5 release, a new compilation flag is introduced as an option in the CMAKE file. This flag ensures backwards compatibility in
 float/double atomicAdd functions.
@@ -294,7 +296,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.
 
 
 Updated HIP Version Definition
-================================
+#################################
 
 The HIP version definition is updated as follows:
 
@@ -306,7 +308,10 @@ The HIP version definition is updated as follows:
 
 The HIP version can be queried from the following HIP API call,
 
-hipRuntimeGetVersion(&runtimeVersion);
+::
+
+               hipRuntimeGetVersion(&runtimeVersion);
+               
 
 The version returned is always greater than the versions in the previous ROCm releases.
 
@@ -317,7 +322,7 @@ versions.
 
 
 Planned HIP Enhancements and Fixes
-====================================
+####################################
 
 Changes to hiprtc implementation to match nvrtc behavior
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -344,7 +349,7 @@ In a later release, changes to behavior of hipGetLastError() and hipPeekAtLastEr
 **Impact:** Applications relying on the previous behavior will be impacted and may require some code changes.
 
 Unified Memory Support in ROCm
-------------------------------
+===============================
 
 Unified memory allows applications to map and migrate data between CPU and GPU seamlessly without explicitly copying it between different
 allocations. This enables a more complete implementation of *hipMallocManaged*, *hipMemAdvise*, *hipMemPrefetchAsync* and related
@@ -352,7 +357,7 @@ APIs. Without unified memory, these APIs only support system memory. With unifie
 GPU memory for faster access.
 
 Supported Operating Systems and Versions
------------------------------------------
+#############################################
 
 This feature is only supported on recent Linux kernels. Currently, it works on Ubuntu versions with 5.6 or newer kernels and the DKMS driver
 from ROCm. Current releases of RHEL and SLES do not support this feature yet. Future releases of those distributions will add support for this.
@@ -369,8 +374,9 @@ unified memory is enabled, look in the kernel log for this message:
 If unified memory is enabled, there should be a "message like registered xyzMB device memory". If unified memory is not supported on
 your GPU or kernel version, this message is missing.
 
+
 Unified Memory Support and XNACK
---------------------------------
+####################################
 
 Unified memory support comes in two flavours, XNACK-enabled and XNACK-disabled. XNACK refers to the ability of the GPU to handle page
 faults gracefully and retry a memory access. In XNACK-enabled mode, the GPU can handle retry after page-faults, which enables mapping and
@@ -406,10 +412,10 @@ On current hardware, the XNACK mode can be chosen at boot-time by a module param
 (amdgpu.noretry=1).
 
 System Management Interface
----------------------------
+============================
 
 Enhanced ROCm SMI *setpoweroverdrive* Functionality
-======================================================
+######################################################
 
 The ROCm System Management Interface (SMI) *setpoweroverdrive* functionality is used to lower the power cap on a device without needing
 to enable the OverDrive functionality in the driver. Similarly, even with the OverDrive driver functionality enabled, it is possible to
@@ -880,6 +886,7 @@ A temporary workaround is to compile the affected application with
 
 **Note:** This is an internal compiler flag and may be removed without notice once the issue is addressed in a future release.
 
+
 Debugger Process Exit May Cause ROCgdb Internal Error
 =======================================================
 
@@ -894,7 +901,8 @@ This issue is currently under investigation and will be fixed in a future releas
 
 For more information, refer to the ROCgdb User Guide at,
 
-*Add link*
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+
 
 Deprecations
 -------------
