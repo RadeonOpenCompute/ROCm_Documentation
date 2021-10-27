@@ -112,7 +112,7 @@ For the following updated ROCm v4.5 documentation, see https://github.com/Radeon
 
 -  HIP Programming Guide
 
-    https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
 
 -  HIP API Guide
 
