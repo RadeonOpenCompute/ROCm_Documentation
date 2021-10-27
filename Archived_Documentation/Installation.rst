@@ -1010,6 +1010,7 @@ Use the following commands to update the added repository, and add the Perl repo
                $ sudo zypper ref
                $ sudo zypper clean --all
                $ sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
+               $ sudo SUSEConnect--product PackageHub/15.2/x86_64
                $ sudo zypper ref
 
 
