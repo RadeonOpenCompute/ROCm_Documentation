@@ -690,6 +690,13 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 
                $ echo 'deb [arch=amd64] <amdgpu baseurl> focal main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
                
+
+
+Execute the command below to update the package list
+
+
+::
+               
                $ sudo apt-get update
                
                
