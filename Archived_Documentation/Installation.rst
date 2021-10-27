@@ -1351,9 +1351,9 @@ When the installation is initiated in Docker, the installer tries to install the
 Frequently Asked Questions
 ----------------------------
 
-Question: Can users install multiple packages at the same time with the installer script?
+*Can users install multiple packages at the same time with the installer script?*
 
-Ans: Yes, users can install multiple packages at the same time with the installer script.  Provide package names in the --usecase parameter, separated by a comma, as shown below.
+Yes, users can install multiple packages at the same time with the installer script.  Provide package names in the --usecase parameter, separated by a comma, as shown below.
 
 ::
 
@@ -1371,18 +1371,18 @@ Ans: The following command lists all the possible options for –usecase
 
 
 
-Question: What are the available options other than the --usecase in the amdgpu-install script?
+*What are the available options other than the --usecase in the amdgpu-install script?*
 
-Ans: The following command lists all possible options users can provide in the amdgpu-install script.
+The following command lists all possible options users can provide in the amdgpu-install script.
 
 ::
 
                $ sudo amdgpu-install --help
 
 
-Question: How to check if the kernel module is installed successfully?
+*How to check if the kernel module is installed successfully?*
 
-Ans:  Type the following command on the system.
+Type the following command on the system.
 
 ::
 
@@ -1396,9 +1396,9 @@ The command displays the output in the following format if the installation of t
                amdgpu, 4.3-52.el7, 3.10.0-1160.11.1.el7.x86_64, x86_64: installed (original_module exists)
                
                
-Question. Does the Docker container support command - $ sudo SUSEConnect --product PackageHub/15.2/x86_64 ?
+*Does the Docker container support command - $ sudo SUSEConnect --product PackageHub/15.2/x86_64?*
 
-Ans: Users do not need to execute the following command in Docker container.
+Users do not need to execute the following command in Docker container.
 
 
 ::
