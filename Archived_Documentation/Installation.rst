@@ -142,9 +142,6 @@ Ensure you obtain the distribution information of the system by using the follow
 
 
 
-
-
-
 For example, running the command above on an Ubuntu system results in the following output: 
  
 ::
@@ -1135,13 +1132,13 @@ After completing the ROCm installation, users can execute the following commands
 
 OR
 
-*/opt/rocm-<version>/bin/clinfo*
+*/opt/rocm-<version>/opencl/bin/clinfo*
 
 **NOTE**: For convenience, users may add the ROCm binaries in your PATH, as shown in the example below.
 
 ::
 
-               $ echo ‘export PATH=$PATH:/opt/rocm-<version>/bin:/opt/rocm-<version>/profiler/bin’
+               $ echo ‘export PATH=$PATH:/opt/rocm-<version>/bin:/opt/rocm-<version>/opencl/bin’
                
                
 Verifying Package Installation
