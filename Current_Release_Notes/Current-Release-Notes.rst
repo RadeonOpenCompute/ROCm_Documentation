@@ -8,8 +8,7 @@ AMD ROCm™ Release Notes v4.5
 October, 2021
 
 
-This document describes the features, fixed issues, and information
-about downloading and installing the AMD ROCmâ„¢ software.
+This document describes the features, fixed issues, and information about downloading and installing the AMD ROCm™ software.
 
 It also covers known issues and deprecations in this release.
 
@@ -102,6 +101,14 @@ The AMD ROCm Installation Guide in this release includes the following updates:
 -  HIP installation instructions
 
 
+AMD Instinct™ High Performance Computing and Tuning
+----------------------------------------------------
+
+- New - AMD Instinct™ High Performance Computing and Tuning Guide 
+
+  https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20Instinct%E2%84%A2High%20Performance%20Computing%20and%20Tuning%20Guide.pdf
+
+
 HIP Documentation Updates
 -------------------------
 
@@ -109,11 +116,19 @@ For the following updated ROCm v4.5 documentation, see https://github.com/Radeon
 
 -  HIP Programming Guide
 
+    https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+
 -  HIP API Guide
+
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
 
 -  HIP-Supported CUDA API Reference Guide
 
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
+
 -  AMD ROCm Compiler Reference Guide
+
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.5.pdf
 
 -  HIP FAQ
 
@@ -124,55 +139,69 @@ System Interface Management
 
 -  System Interface Management (SMI)
 
+   https://rocmdocs.amd.com/en/latest/ROCm_System_Managment/ROCm-System-Managment.html
+   
+AMD ROCm Data Center Tool
+---------------------------
+
+- AMD ROCm Data Center Tool API Guide
+
+  https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Manual_4.5.pdf
+  
+- AMD ROCm Data Center Tool User Guide
+
+  https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf
+
 
 ROCm SMI API Guide
 ------------------
 
 -  ROCm SMI API Guide
 
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_4.5.pdf
+   
+
 ROC Debugger User and API Guide
 -------------------------------
 
 -  ROCDebugger User Guide
 
-..
-
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_User_Guide.pdf
 
 -  Debugger API Guide
 
-..
+   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_API_Guide.pdf
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_API.pdf
 
 AMD ROCm General Documentation Links
 ------------------------------------
 
 -  For AMD ROCm documentation, see
 
-..
-
    https://rocmdocs.amd.com/en/latest/
 
 -  For installation instructions on supported platforms, see
-
-..
 
    https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 -  For AMD ROCm binary structure, see
 
-..
-
    https://rocmdocs.amd.com/en/latest/Installation_Guide/Software-Stack-for-AMD-GPU.html
 
 -  For AMD ROCm release history, see
 
-..
-
    https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.html
+   
 
-Whatâ€™s New in This Release
+OpenMP Documentation
+--------------------
+
+- Updated OpenMP documentation 
+
+  https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+
+
+What\'s New in This Release
 ==========================
 
 HIP Enhancements
