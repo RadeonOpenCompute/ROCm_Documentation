@@ -802,7 +802,7 @@ Enable the following repositories for RHEL v7.9:
                $ sudo subscription-manager repos --enable=rhel-7-server-devtools-rpms
 
 
-**Preparing CentOS 7.9 for Installation** 
+**Preparing CentOS for Installation** 
 
 The following steps help users prepare the CentOS system for the ROCm installation.
 
@@ -813,6 +813,16 @@ Extra Packages for Enterprise Linux (EPEL) provides additional packages for CENT
                $ sudo yum install epel-release
                
                $ sudo yum install -y centos-release-scl #Only for CentOS 7.9
+               
+               
+**Installing Devtoolset-7 for RHEL 7.9/CentOS 7.9**
+
+Use the following command to install Devtoolset-7:
+
+::
+
+          $ sudo yum install devtoolset-7 
+
                
              
 
