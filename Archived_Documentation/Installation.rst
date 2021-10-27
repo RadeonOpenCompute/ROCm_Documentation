@@ -360,7 +360,7 @@ Downloading and Installing the Installer Script on Ubuntu
 Ubuntu 18.04
 ^^^^^^^^^^^^^^            
                
-Download and install the repo installer package using the following command:
+Download and install the installer using the following command:
 
 ::
 
@@ -372,7 +372,7 @@ Download and install the repo installer package using the following command:
 Ubuntu 20.04
 ^^^^^^^^^^^^^^            
                
-Download and install the repo installer package.
+Download and install the installer.
 
 ::
 
@@ -995,7 +995,7 @@ For <amdgpu baseurl> in the command below, refer to the AMDGPU base URLs as docu
                gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
 
 
-**NOTE**: The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypper repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
+**NOTE**: The gpg key may change; ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypp repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
 
 ::
 
@@ -1045,8 +1045,12 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs documented 
                gpgkey=https://repo.radeon.com/rocm/rocm.gpg.key
                
                
-**NOTE**: The gpg key may change. Ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypper repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
-777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+**NOTE**: The gpg key may change. Ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm zypp repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution but has the following sha1sum hash:
+
+::
+
+               777947b2579611bf4d377687b5013c69642c5762 rocm.gpg.key
+               
 
 Use the following command to update the added repository.
 
