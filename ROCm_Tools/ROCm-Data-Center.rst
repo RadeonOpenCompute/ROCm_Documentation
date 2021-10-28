@@ -33,7 +33,7 @@ This user guide is intended to:
 Target Audience
 ================
 
- The audience for the AMD ROCm Data Center™ tool consists of: 
+The audience for the AMD ROCm Data Center™ tool consists of: 
  
 •	Administrators: The tool will provide cluster administrator with the capability of monitoring, validating, and configuring policies. 
 •	HPC Users: Provides GPU centric feedback for their workload submissions
@@ -43,10 +43,10 @@ Target Audience
 Download AMD ROCm Data Center Tool User Guide
 ==============================================
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
-
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf  
 
 Download AMD ROCm Data Center Tool API Guide
 ==============================================
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_RDC_API_Guide_v4.3.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Manual_4.5.pdf
+
