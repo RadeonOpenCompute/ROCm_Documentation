@@ -10,8 +10,8 @@ You can access the latest Doxygen-generated HIP API Guide at the following locat
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
 
 
-Supported CUDA APIs v4.5
--------------------------
+Supported CUDA APIs 
+---------------------
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
 
