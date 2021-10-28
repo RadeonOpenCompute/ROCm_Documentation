@@ -1,3 +1,6 @@
+.. image:: /Installation_Guide/amdblack.jpg
+
+
 
 ================================================================
 AMD Instinct™ High Performance Computing and Tuning Guide v4.5
