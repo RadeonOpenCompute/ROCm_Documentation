@@ -105,7 +105,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    :hidden:
    :caption:  Tuning Documentation
    
-   
+   Tuning_Documentation/AMD_Instinct_High_Performance_Computing_and_Tuning
    
    
    
