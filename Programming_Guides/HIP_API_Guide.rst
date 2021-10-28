@@ -12,7 +12,7 @@ https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
 HIP-Supported CUDA API Reference Guide v4.5
 ============================================
 
-You can access the latest `HIP-Supported CUDA API Reference Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf>`__
+You can access the latest `HIP Supported CUDA API Reference Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf>`__
 
 
 ========================================
