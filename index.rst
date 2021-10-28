@@ -89,7 +89,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    :caption:  Install ROCm
    
   
-   Installation_Guide/Installation 
+   Installation_Guide/Installation_new 
    Installation_Guide/HIP-Installation
    Installation_Guide/Installation-Guide
    Installation_Guide/Multiversion-Installation
