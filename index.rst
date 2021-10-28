@@ -97,6 +97,16 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    Installation_Guide/Tools-Installation
    Installation_Guide/Software-Stack-for-AMD-GPU
    
+  
+   
+      
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption:  Tuning Documentation
+   
+   
+   
    
    
 .. toctree::
