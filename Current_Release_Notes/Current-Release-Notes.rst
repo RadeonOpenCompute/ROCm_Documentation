@@ -83,7 +83,7 @@ For more details, refer to the AMD ROCm Installation Guide v4.5 at,
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html
 
 
-AMD ROCm V4.5 Documentation Updates
+AMD ROCm v4.5 Documentation Updates
 ---------------------------------------
 
 AMD ROCm Installation Guide
