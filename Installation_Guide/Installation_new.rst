@@ -784,7 +784,7 @@ If the supported version installation of linux headers and development packages 
 
 You must enable the external repositories to install on the devtoolset-7 environment and the support files.
 
-**NOTE**: Devtoolset is not required for CentOS/RHEL v8.4.
+**NOTE**: Devtoolset is not required for CentOS 8.3/RHEL v8.4.
 
 **NOTE**: The subscription for RHEL must be enabled and attached to a pool ID. See the Obtaining an RHEL image and license page for instructions on registering your system with the RHEL subscription server and linking to a pool id.
 
