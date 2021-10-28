@@ -14,37 +14,6 @@ HIP Prerequisites
 HIP code can be developed either on AMD ROCm platform using HIP-Clang compiler, or a CUDA platform with NVCC installed.
 
 
-**Perl Modules for HIP-Base Package**
-
-The hip-base package has a dependency on Perl modules that some operating systems may not have in their default package repositories.  Use the following commands to add repositories that have the required Perl packages:
-
-
-* For SLES 15 SP2
-
-::
-
-	sudo zypper addrepo 
-
-
-For more information, see
-
-https://download.opensuse.org/repositories/devel:languages:perl/SLE_15/devel:languages:perl.repo
-
-
-
-* For CentOS8.3
-
-::
-
-	sudo yum config-manager --set-enabled powertools
-	
-
-* For RHEL8.3
-
-::
-
-	sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-
 
 AMD Platform
 =============
@@ -55,6 +24,7 @@ AMD Platform
    sudo apt install clang
    sudo apt install comgr
    sudo apt-get -y install rocm-dkms
+   
 
 HIP-Clang is the compiler for compiling HIP programs on AMD platform.
 
@@ -96,11 +66,13 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 -  Add the ROCm package server to your system as per the OS-specific
    guide available
    `here <https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories>`__.
--  Install the 'hip-nvcc' package. This will install CUDA SDK and the HIP porting layer.
+   
+-  Install the "hip-runtime-nvidia" and "hip-devel" package. This will install CUDA SDK and the HIP porting layer.
 
 ::
 
-   apt-get install hip-nvcc
+ 		apt-get install hip-runtime-nvidia hip-devel
+		
 
 -  Default paths and environment variables:
 
@@ -114,67 +86,78 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 Building HIP from Source
 ========================
 
-Build ROCclr
-=============
+
+Get HIP source code
+*********************
+
+::
+
+		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/hipamd.git
+		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/hip.git
+		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+		git clone -b rocm-4.5.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+		
+
+
+Set the environment variables
+******************************
+
+::
+
+		export HIPAMD_DIR="$(readlink -f hipamd)"
+		export HIP_DIR="$(readlink -f hip)"
+		export ROCclr_DIR="$(readlink -f ROCclr)"
+		export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
+		
 
 ROCclr is defined on AMD platform that HIP use Radeon Open Compute Common Language Runtime (ROCclr), which is a virtual device interface that HIP runtimes interact with different backends. 
 
 See https://github.com/ROCm-Developer-Tools/ROCclr
 
-::
+HIPAMD repository provides implementation specifically for AMD platform. See https://github.com/ROCm-Developer-Tools/hipamd
 
-   	git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/ROCclr.git
-	export ROCclr_DIR="$(readlink -f ROCclr)"
-	git clone -b rocm-4.5.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
-	export OPENCL_DIR="$(readlink -f ROCm-OpenCL-Runtime)"
-	cd "$ROCclr_DIR"
-	mkdir -p build;cd build
-	cmake -DOPENCL_DIR="$OPENCL_DIR" -DCMAKE_INSTALL_PREFIX=/opt/rocm/rocclr ..
-	make -j
-s	sudo make install
-	
-
-
-::
 
 Build HIP
-===========
+*********
 
 ::
 
-   	git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/HIP.git
-	export HIP_DIR="$(readlink -f HIP)"
-	cd "$HIP_DIR"
-	mkdir -p build; cd build
-	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$ROCclr_DIR/build;/opt/rocm/" -DCMAKE_INSTALL_PREFIX=</where/to/install/hip> ..
-	make -j
-	sudo make install
+		cd "$HIPAMD_DIR"
+		mkdir -p build; cd build
+		cmake -DHIP_COMMON_DIR=$HIP_DIR -DAMD_OPENCL_PATH=$OPENCL_DIR -DROCCLR_PATH=$ROCCLR_DIR -DCMAKE_PREFIX_PATH="/opt/rocm/" -DCMAKE_INSTALL_PREFIX=$PWD/install ..
+		make -j$(nproc)
+		sudo make install
 
-
-::
+**Note**: If you don't specify CMAKE_INSTALL_PREFIX, hip runtime will be installed to "/opt/rocm/hip". By default, release version of AMDHIP is built.
 
 
 Default paths and environment variables
-=========================================
+******************************************
 
--  By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by setting HSA_PATH environment variable).
--  By default HIP is installed into /opt/rocm/hip (can be overridden by setting HIP_PATH environment variable).
--  By default HIP looks for clang in /opt/rocm/llvm/bin (can be overridden by setting HIP_CLANG_PATH environment variable)
--  By default HIP looks for device library in /opt/rocm/lib (can be overridden by setting DEVICE_LIB_PATH environment variable).
--  Optionally, consider adding /opt/rocm/bin to your PATH to make it easier to use the tools.
--  Optionally, set HIPCC_VERBOSE=7 to output the command line for compilation.
+- By default HIP looks for HSA in /opt/rocm/hsa (can be overridden by setting HSA_PATH environment variable).
 
-After installation, make sure HIP_PATH is pointed to */where/to/install/hip*
+- By default HIP is installed into /opt/rocm/hip (can be overridden by setting HIP_PATH environment variable).
+
+- By default HIP looks for clang in /opt/rocm/llvm/bin (can be overridden by setting HIP_CLANG_PATH environment variable)
+
+- By default HIP looks for device library in /opt/rocm/lib (can be overridden by setting DEVICE_LIB_PATH environment variable)
+
+- Optionally, consider adding /opt/rocm/bin to your PATH to make it easier to use the tools
+
+- Optionally, set HIPCC_VERBOSE=7 to output the command line for compilation
+
+After installation, make sure HIP_PATH is pointed to /where/to/install/hip
 
 
 Verify your installation
-========================
+**************************
 
-Run hipconfig (instructions below assume default installation path) :
+Run hipconfig (instructions below assume default installation path):
 
-.. code:: shell
-	
-	 /opt/rocm/bin/hipconfig --full
+::
 
-Compile and run the `square
-sample <https://github.com/ROCm-Developer-Tools/HIP/tree/master/samples/0_Intro/square>`__.
+		/opt/rocm/bin/hipconfig --full
+
+Compile and run the square sample. You can access the square sample at,
+
+https://github.com/ROCm-Developer-Tools/HIP/tree/main/samples/0_Intro/square
