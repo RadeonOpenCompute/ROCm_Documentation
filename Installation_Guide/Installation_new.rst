@@ -410,10 +410,10 @@ Use the following command to download and install the installer on RHEL/CentOS 7
                
                
                
-RHEL/CentOS 8.3
-^^^^^^^^^^^^^^^^
+RHEL 8.4/CentOS 8.3
+^^^^^^^^^^^^^^^^^^^
 
-Use the following command to download and install the installer on RHEL/CentOS 8.3.
+Use the following command to download and install the installer on RHEL 8.4/CentOS 8.3.
 
 ::
 
