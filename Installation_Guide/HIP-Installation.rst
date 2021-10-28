@@ -8,15 +8,16 @@ HIP Installation
 
 HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
 
+
 HIP Prerequisites
-==================
+====================
 
 HIP code can be developed either on AMD ROCm platform using HIP-Clang compiler, or a CUDA platform with NVCC installed.
 
 
 
 AMD Platform
-=============
+===============
 
 ::
 
@@ -59,7 +60,7 @@ The ROCm device library can be manually built as following,
 
 
 NVIDIA Platform
-================
+=================
 
 HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 
