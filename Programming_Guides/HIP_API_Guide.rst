@@ -2,12 +2,28 @@
 HIP API Documentation v4.5
 ==========================
 
-HIP API Guide 
----------------
 
 You can access the latest Doxygen-generated HIP API Guide at the following location:
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+
+
+============================================
+HIP-Supported CUDA API Reference Guide v4.5
+============================================
+
+You can access the latest HIP-Supported CUDA API Reference Guide at
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
+
+
+========================================
+AMD ROCm Compiler Reference Guide v4.5
+========================================
+
+You can access and download the AMD ROCm Compiler Reference Guide at,
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.5.pdf
 
 
 Supported CUDA APIs 
@@ -74,32 +90,7 @@ CUDA supports cuCtx API, the Driver API that defines "Context" and "Devices" as 
 
 
 
-Related Topics
----------------
 
-HIP Programming Guide 
-======================
-
-For the latest HIP Programming Guide, see
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
-
-
-============================================
-HIP-Supported CUDA API Reference Guide v4.3
-============================================
-
-You can access the latest HIP-Supported CUDA API Reference Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide_v4.3.pdf
-
-====================================
-AMD ROCm Compiler Reference Guide
-====================================
-
-You can access and download the AMD ROCm Compiler Reference Guide at,
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.3.pdf
 
 
    
