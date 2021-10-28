@@ -7,9 +7,30 @@ AMD ROCm Version History
 
 This file contains historical information for ROCm releases.
 
+
+New features and enhancements in ROCm v4.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
+
+- HIP Versioning Update
+- Kernel Enqueue Serialization
+- NUMA-aware Host Memory Allocation
+- New Atomic System Scope Atomic Operations
+- Indirect Function Call and C++ Virtual Functions
+- Prometheus (Grafana) Integration with Automatic Node Detection
+- Coarse Grain Utilization
+- Add 64-bit Energy Accumulator In-band
+- Support for Continuous Clocks Values
+- Memory Utilization Counters
+- Performance Determinism
+- HBM Temperature Metric Per Stack
+- Tracing Multiple MPI Ranks
+- ROCm Math and Communication Libraries Enhancements and Fixes  
+
+
 New features and enhancements in ROCm v4.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Release Nots: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.2.x
+Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.2.x
 
 - HIP Target Platform Macro
 - Updated HIP 'Include' Directories
