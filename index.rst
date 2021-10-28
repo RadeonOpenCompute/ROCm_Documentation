@@ -89,9 +89,10 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    :caption:  Install ROCm
    
   
+    
+   Installation_Guide/HIP-Installation
    Installation_Guide/Installation-Guide
    Installation_Guide/Multiversion-Installation
-   Installation_Guide/HIP-Installation
    Installation_Guide/Using-CMake-with-AMD-ROCm
    Installation_Guide/Mesa-Multimedia-Installation
    Installation_Guide/Tools-Installation
