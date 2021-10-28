@@ -95,8 +95,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    Installation_Guide/Using-CMake-with-AMD-ROCm
    Installation_Guide/Mesa-Multimedia-Installation
    Installation_Guide/Tools-Installation
-   Installation_Guide/Software-Stack-for-AMD-GPU
-   
+   Installation_Guide/Software-Stack-for-AMD-GPU  
   
    
       
@@ -104,6 +103,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    :maxdepth: 6
    :hidden:
    :caption:  Tuning Documentation
+   
    
    Tuning_Documentation/AMD_Instinct_High_Performance_Computing_and_Tuning
    
