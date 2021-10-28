@@ -853,7 +853,7 @@ Repositories for Specific Releases
 
 - amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40/rhel/8.4/main/x86_64
 
-- rocm baseurl=hhttps://repo.radeon.com/rocm/centos8/4.5/
+- rocm baseurl=https://repo.radeon.com/rocm/centos8/4.5/
 
 
 
