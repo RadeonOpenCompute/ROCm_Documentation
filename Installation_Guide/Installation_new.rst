@@ -272,7 +272,7 @@ If the wget package not installed , execute the following command to install it:
 
 ::
               
-               $ sudo yum update with $ sudo yum clean all
+               $ sudo yum clean all
                
                $ sudo yum install wget 
                
