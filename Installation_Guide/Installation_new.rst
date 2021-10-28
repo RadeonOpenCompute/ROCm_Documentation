@@ -840,7 +840,7 @@ Repositories for Specific Releases
 
 - rocm baseurl=https://repo.radeon.com/rocm/rpm/4.5/yum/main
 
-**CentOS/RHEL 8.4**
+**CentOS 8.3/RHEL 8.4**
 
 Repositories with Latest Packages
 
