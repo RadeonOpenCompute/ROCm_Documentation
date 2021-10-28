@@ -93,6 +93,8 @@ The AMD ROCm Installation Guide in this release includes the following updates:
 
 -  New - Installation Guide for ROCm v4.5
 
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html
+
 
 AMD Instinct™ High Performance Computing and Tuning
 ====================================================
