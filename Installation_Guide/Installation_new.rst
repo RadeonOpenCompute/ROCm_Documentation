@@ -627,7 +627,7 @@ Repositories with Latest Packages
 
 Repositories for Specific Releases
 
-- amdgpu baseurl:https://repo.radeon.com/amdgpu/21.40/bionic
+- amdgpu baseurl:https://repo.radeon.com/amdgpu/21.40/ubuntu
    
 - rocm base url:https://repo.radeon.com/rocm/apt/4.5   
 
