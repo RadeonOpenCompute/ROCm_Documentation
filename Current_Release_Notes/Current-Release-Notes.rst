@@ -94,8 +94,6 @@ The AMD ROCm Installation Guide in this release includes the following updates:
 
 -  New - Installation Guide for ROCm v4.5
 
--  HIP installation instructions
-
 
 AMD Instinct™ High Performance Computing and Tuning
 ====================================================
@@ -108,7 +106,9 @@ AMD Instinct™ High Performance Computing and Tuning
 HIP Documentation Updates
 ============================
 
-For the following updated ROCm v4.5 documentation, see https://github.com/RadeonOpenCompute/ROCm
+-  HIP installation instructions
+
+   https://rocmdocs.amd.com/en/latest/Installation_Guide/HIP-Installation.html
 
 -  HIP Programming Guide
 
