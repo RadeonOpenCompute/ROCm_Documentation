@@ -464,10 +464,10 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
                - HIP runtimes
                - ROCm Compiler and device libraries
                - ROCr runtime and thunk
-               lrt(for users of applications requiring ROCm runtime)
+               - lrt(for users of applications requiring ROCm runtime)
                - ROCm Compiler and device libraries
                - ROCr runtime and thunk
-               opencl(for users of applications requiring OpenCL on Vega or       
+               - opencl(for users of applications requiring OpenCL on Vega or       
                later products)
                - ROCr based OpenCL
                - ROCm Language runtime
@@ -479,7 +479,7 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
 
                hip(for users of HIP runtime on AMD products)
                - HIP runtimes
-               hiplibsdk for application developers requiring HIP on AMD products)
+               - hiplibsdk (for application developers requiring HIP on AMD products)
                - HIP runtimes
                - ROCm math libraries
                - HIP development libraries
