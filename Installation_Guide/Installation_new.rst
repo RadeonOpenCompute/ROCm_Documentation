@@ -379,7 +379,7 @@ Download and install the installer using the following command:
 
 ::
 
-               $ wget http://repo.radeon.com/amdgpu-install/21.40/ubuntu/bionic/amdgpu-install-21.40.40500-1_all.deb
+               $ wget https://repo.radeon.com/amdgpu-install/21.40/ubuntu/bionic/amdgpu-install-21.40.40500-1_all.deb
                
                $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
  
@@ -391,7 +391,7 @@ Download and install the installer.
 
 ::
 
-               $ wget http://repo.radeon.com/amdgpu-install/21.40/ubuntu/focal/amdgpu-install-21.40.40500-1_all.deb
+               $ wget https://repo.radeon.com/amdgpu-install/21.40/ubuntu/focal/amdgpu-install-21.40.40500-1_all.deb
                
                $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
 
@@ -406,7 +406,7 @@ Use the following command to download and install the installer on RHEL/CentOS 7
 
 ::
 
-               $ sudo yum install http://repo.radeon.com/amdgpu-install/21.40/rhel/7.9/amdgpu-install-21.40.40500-1.noarch.rpm
+               $ sudo yum install https://repo.radeon.com/amdgpu-install/21.40/rhel/7.9/amdgpu-install-21.40.40500-1.noarch.rpm
                
                
                
@@ -417,7 +417,7 @@ Use the following command to download and install the installer on RHEL 8.4/Cent
 
 ::
 
-               $ sudo yum install http://repo.radeon.com/amdgpu-install/21.40/rhel/8.4/amdgpu-install-21.40.40500-1.noarch.rpm
+               $ sudo yum install https://repo.radeon.com/amdgpu-install/21.40/rhel/8.4/amdgpu-install-21.40.40500-1.noarch.rpm
                
                
 
@@ -431,7 +431,7 @@ Use the following command to download and install the installer on SLES
 
 ::
 
-               $ sudo zypper --no-gpg-checks install http://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
+               $ sudo zypper --no-gpg-checks install https://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
                
  
 
