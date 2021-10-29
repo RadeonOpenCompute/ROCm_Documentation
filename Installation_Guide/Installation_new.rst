@@ -88,10 +88,10 @@ The system requirements for the ROCm v4.5 installation are as follows:
 | CentOS 8.3            | 
 +-----------------------+
 |Ubuntu 18.04.5         |
-|[5.11 HWE kernel       |  
+|[5.11 HWE kernel]      |  
 +-----------------------+
 |Ubuntu 20.04.3         |
-|LTS [5.11 HWE kernel   | 
+|LTS [5.11 HWE kernel]  | 
 +-----------------------+
                           
 
@@ -382,6 +382,8 @@ Download and install the installer using the following command:
                $ wget https://repo.radeon.com/amdgpu-install/21.40/ubuntu/bionic/amdgpu-install-21.40.40500-1_all.deb
                
                $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
+               
+               $ sudo apt-get update
  
 
 Ubuntu 20.04
@@ -394,6 +396,8 @@ Download and install the installer.
                $ wget https://repo.radeon.com/amdgpu-install/21.40/ubuntu/focal/amdgpu-install-21.40.40500-1_all.deb
                
                $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
+               
+               $ sudo apt-get update
 
 
 Downloading and Installing the Installer Script on RHEL/CentOS
