@@ -462,8 +462,6 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
                rocm(for users and developers requiring full ROCm stack)
                - OpenCL (ROCr/KFD based) runtime
                - HIP runtimes
-               - Machine learning framework
-               - All ROCm libraries and applications
                - ROCm Compiler and device libraries
                - ROCr runtime and thunk
                lrt(for users of applications requiring ROCm runtime)
