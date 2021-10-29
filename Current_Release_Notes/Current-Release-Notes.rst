@@ -410,7 +410,7 @@ HIP:
 Not all the math libraries included in ROCm support XNACK-enabled mode on current hardware. Applications will fail to run if their shaders are
 compiled in the incorrect mode.
 
-On current hardware, the XNACK mode can be chosen at boot-time by a module parameter amdgpu.noretry. The default is XNACK-disabled
+On the current hardware, the XNACK mode can be chosen at boot-time by a module parameter amdgpu.noretry. The default is XNACK-disabled
 (amdgpu.noretry=1).
 
 System Management Interface
@@ -423,7 +423,7 @@ The ROCm System Management Interface (SMI) *setpoweroverdrive* functionality is 
 to enable the OverDrive functionality in the driver. Similarly, even with the OverDrive driver functionality enabled, it is possible to
 request a lower power cap than the card's default.
 
-Currently, any use of the *â€“setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
+Currently, any use of the “setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
 agree that using this functionality potentially voids their warranty. However, this warning should only be printed when users are trying to
 set the power cap to higher than the cardâ€™s default, which requires the OverDrive driver functionality to be enabled.
 
