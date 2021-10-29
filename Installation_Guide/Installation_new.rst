@@ -378,6 +378,7 @@ Ubuntu 18.04
 Download and install the installer using the following command:
 
 ::
+              
                $ sudo apt-get update
                
                $ wget https://repo.radeon.com/amdgpu-install/21.40/ubuntu/bionic/amdgpu-install-21.40.40500-1_all.deb
