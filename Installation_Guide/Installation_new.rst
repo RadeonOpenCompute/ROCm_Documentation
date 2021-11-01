@@ -879,7 +879,7 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 ::
 
                [amdgpu]
-               Name=amdgpu 
+               name=amdgpu 
                baseurl=<amdgpu baseurl>
                enabled=1
                gpgcheck=1
