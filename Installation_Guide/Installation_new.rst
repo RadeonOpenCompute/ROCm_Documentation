@@ -229,7 +229,7 @@ You must install and configure Devtoolset-7 to use RHEL/CentOS 7.9
 How to Install and Configure Devtoolset-7
 *******************************************
 
-Refer to the RHEL/CentOS Environment section for more information on the steps necessary for installing and setting up Devtoolset-7. 
+Refer to the RHEL/CentOS Installation section for more information on the steps necessary for installing and setting up Devtoolset-7. 
 
 Required packages
 *******************
