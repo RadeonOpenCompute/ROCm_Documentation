@@ -282,6 +282,38 @@ If the wget package not installed , execute the following command to install it:
 ::
 
                $ zypper install wget
+               
+               
+
+
+Setting Permissions for Groups
+*******************************
+
+This section provides steps to add any current user to a video group to access GPU resources.
+
+1. Issue the following command to check the groups in your system:
+
+::
+          $ groups
+          
+          
+2. Add yourself to the video group using the following instruction:
+
+::
+          $ sudo usermod -a -G video $LOGNAME
+          
+          
+For all ROCm supported operating systems, continue to use the video group. By default, you can add any future users to the video and render groups.
+
+**NOTE**: *render* group is required only for Ubuntu v20.04.
+
+To add future users to the video and render groups, run the following command:
+
+::
+
+          $ echo 'ADD_EXTRA_GROUPS=1' | sudo tee -a /etc/adduser.conf
+          $ echo 'EXTRA_GROUPS=video' | sudo tee -a /etc/adduser.conf
+          $ echo 'EXTRA_GROUPS=render' | sudo tee -a /etc/adduser.conf
 
 
 
@@ -721,7 +753,7 @@ Ensure the system is rebooted after the kernel-mode driver is installed.
                
 
 Add the ROCm Stack Repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add the ROCm repository. 
 
@@ -826,6 +858,8 @@ Use the following command to install Devtoolset-7:
 ::
 
           $ sudo yum install devtoolset-7 
+          
+          $ source scl_source enable devtoolset-7 
 
                
              
