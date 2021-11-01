@@ -929,7 +929,7 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs documented 
 ::
 
                [rocm]
-               Name=rocm
+               name=rocm
                baseurl=<rocm baseurl>
                enabled=1
                gpgcheck=1
