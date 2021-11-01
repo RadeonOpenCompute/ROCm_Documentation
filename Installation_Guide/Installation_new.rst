@@ -294,12 +294,16 @@ This section provides steps to add any current user to a video group to access G
 1. Issue the following command to check the groups in your system:
 
 ::
+
           $ groups
+          
           
           
 2. Add yourself to the video group using the following instruction:
 
+
 ::
+
           $ sudo usermod -a -G video $LOGNAME
           
           
