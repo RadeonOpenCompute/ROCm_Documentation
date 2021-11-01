@@ -220,8 +220,8 @@ To verify that your system has a ROCm-capable GPU, enter the following command f
       
       
 
-Confirm the System Has Compiler and Tools Installed
-======================================================
+Confirm the System Has the Required Tools and Packages Installed
+=================================================================
 
 You must install and configure Devtoolset-7 to use RHEL/CentOS 7.9
 
