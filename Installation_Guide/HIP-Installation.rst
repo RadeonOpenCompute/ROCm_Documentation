@@ -32,7 +32,7 @@ HIP-Clang can be built manually:
 
 ::
 
-   	git clone -b rocm-4.5.x https://github.com/RadeonOpenCompute/llvm-project.git
+   	git clone -b roc-4.5.x https://github.com/RadeonOpenCompute/llvm-project.git
 	cd llvm-project
 	mkdir -p build && cd build
 	cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 - 
@@ -48,7 +48,7 @@ The ROCm device library can be manually built as following,
 ::
 
   	export PATH=/opt/rocm/llvm/bin:$PATH
-	git clone -b rocm-4.5.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
+	git clone -b roc-4.5.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
 	cd ROCm-Device-Libs
 	mkdir -p build && cd build
 	CC=clang CXX=clang++ cmake -DLLVM_DIR=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_WERROR=1 -DLLVM_ENABLE_ASSERTIONS=1 -DCMAKE_INSTALL_PREFIX=/opt/rocm ..
@@ -92,10 +92,10 @@ Get HIP source code
 
 ::
 
-		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/hipamd.git
-		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/hip.git
-		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/ROCclr.git
-		git clone -b rocm-4.5.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+		git clone -b roc-4.5.x https://github.com/ROCm-Developer-Tools/hipamd.git
+		git clone -b roc-4.5.x https://github.com/ROCm-Developer-Tools/hip.git
+		git clone -b roc-4.5.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+		git clone -b roc-4.5.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
 		
 
 
