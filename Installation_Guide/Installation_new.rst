@@ -111,7 +111,7 @@ You must perform the following steps before installing ROCm programming models a
 
 - Confirm the system has a ROCm-capable GPU
 
-- Confirm the system has standard compilers and tools installed
+- Confirm the System Has the Required Tools and Packages Installed
 
 
 
