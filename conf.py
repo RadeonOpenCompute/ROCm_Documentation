@@ -221,7 +221,7 @@ html_css_files = [
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ReadTheDocs-Breathedoc'
+htmlhelp_basename = project + 'Doc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -278,8 +278,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'readthedocs-breathe', 'ReadTheDocs-Breathe Documentation',
-     ['Thomas Edvalson'], 1)
+    ('index', project, project + ' Documentation',
+     ['Advanced Micro Devices, Inc.'], 7)
 ]
 
 # If true, show URL addresses after external links.
@@ -293,8 +293,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'ReadTheDocs-Breathe', 'ReadTheDocs-Breathe Documentation',
-   'Thomas Edvalson', 'ReadTheDocs-Breathe', 'One line description of project.',
+  ('index', project, project + ' Documentation',
+   'Advanced Micro Devices, Inc.', project,
+   'AMD ROCm™ is an open-source software development platform for GPU computing.',
    'Miscellaneous'),
 ]
 
