@@ -82,7 +82,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'ROCm Documentation'
+project = 'ROCm'
 copyright = '2021, Advanced Micro Devices, Inc. All rights reserved.'
 
 # The version info for the project you're documenting, acts as replacement for
