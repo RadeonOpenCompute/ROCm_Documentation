@@ -244,8 +244,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'ReadTheDocs-Breathe.tex', 'ReadTheDocs-Breathe Documentation',
-   'Thomas Edvalson', 'manual'),
+  ('index', project + '.tex', project + ' Documentation',
+   'Advanced Micro Devices, Inc.', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
