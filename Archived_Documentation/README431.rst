@@ -101,32 +101,6 @@ This document describes the features, fixed issues, and information
 about downloading and installing the AMD ROCm™ software. It also covers
 known issues and deprecations in this release.
 
--  `Supported Operating Systems and Documentation
-   Updates <#Supported-Operating-Systems-and-Documentation-Updates>`__
-
-   -  `Supported Operating Systems <#Supported-Operating-Systems>`__
-   -  `ROCm Installation Updates <#ROCm-Installation-Updates>`__
-   -  `AMD ROCm Documentation
-      Updates <#AMD-ROCm-Documentation-Updates>`__
-
--  `What's New in This Release <#Whats-New-in-This-Release>`__
-
-   -  `HIP Enhancements <#HIP-Enhancements>`__
-   -  `ROCm Data Center Tool <#ROCm-Data-Center-Tool>`__
-   -  `ROCm Math and Communication
-      Libraries <#ROCm-Math-and-Communication-Libraries>`__
-   -  `ROCProfiler Enhancements <#ROCProfiler-Enhancements>`__
-
--  `Known Issues in This Release <#Known-Issues-in-This-Release>`__
-
--  `Hardware and Software Support <#Hardware-and-Software-Support>`__
-
--  `Machine Learning and High Performance Computing Software Stack for
-   AMD
-   GPU <#Machine-Learning-and-High-Performance-Computing-Software-Stack-for-AMD-GPU>`__
-
-   -  `ROCm Binary Package Structure <#ROCm-Binary-Package-Structure>`__
-   -  `ROCm Platform Packages <#ROCm-Platform-Packages>`__
 
 ROCm Installation Updates
 -------------------------
