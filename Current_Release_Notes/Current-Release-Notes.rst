@@ -954,6 +954,16 @@ With the ROCm v4.5 release, the generation of code object versions 2 and 3 is be
 The -mcode-object-version Clang option can be used to instruct the compiler to generate a specific AMD GPU code object version. In ROCm v4.5, the compiler can generate AMD GPU code object version 2, 3, and 4, with version 4 being the default if not specified. 
 
 
+============================================
+Hardware and Software Support Information
+============================================
+
+ 
+-  `Hardware and Software Support <https://github.com/RadeonOpenCompute/ROCm#Hardware-and-Software-Support>`__
+
+- `Radeon Instinct™ GPU-Powered HPC Solutions <https://www.amd.com/en/graphics/servers-radeon-instinct-mi-powered-servers>`__
+
+
 
 DISCLAIMER 
 ------------
