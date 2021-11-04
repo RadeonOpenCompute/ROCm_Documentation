@@ -8,6 +8,14 @@ AMD ROCm Version History
 This file contains historical information for ROCm releases.
 
 
+Patch Release - ROCm v4.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Source tree: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
+
+Release Notes: https://rocmdocs.amd.com/en/latest/Archived_Documentation/README431.html
+
+
 New features and enhancements in ROCm v4.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Release Notes: https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
