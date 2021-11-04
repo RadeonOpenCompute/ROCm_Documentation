@@ -181,7 +181,7 @@ For more information about installing environment modules, refer to
 https://modules.readthedocs.io/en/latest/
 
 AMD ROCm Documentation Updates
-==============================
+-------------------------------
 
 AMD ROCm Installation Guide
 ---------------------------
@@ -283,7 +283,7 @@ https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.ht
 .. _whats-new-in-this-release-1:
 
 What's New in This Release
-==========================
+---------------------------
 
 HIP Enhancements
 ----------------
@@ -846,19 +846,19 @@ Known issue for ROCProfiler
 .. _known-issues-in-this-release-1:
 
 Known Issues in This Release
-============================
+------------------------------
 
 The following are the known issues in this release.
 
 Upgrade to AMD ROCm v4.3 Not Supported
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 An upgrade from previous releases to AMD ROCm v4.2 is not supported.
 Complete uninstallation of previous ROCm versions is required before
 installing a new version of ROCm.
 
 \_LAUNCH BOUNDS_Ignored During Kernel Launch
---------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The HIP runtime returns the hipErrorLaunchFailure error code when an
 application tries to launch kernel with a block size larger than the
@@ -880,7 +880,7 @@ Snippet of the HIP trace
 There is no known workaround at this time.
 
 PYCACHE Folder Exists After ROCM SMI Library Uninstallation
------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Users may observe that the /opt/rocm-x/bin/**pycache** folder continues
 to exist even after the rocm_smi_lib uninstallation. Workaround: Delete
@@ -888,7 +888,7 @@ the /opt/rocm-x/bin/**pycache** folder manually before uninstalling
 rocm_smi_lib.
 
 Deploying ROCm
-==============
+----------------
 
 AMD hosts both Debian and RPM repositories for the ROCm packages.
 
@@ -897,7 +897,7 @@ For more information on ROCM installation on all platforms, see
 https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 Machine Learning and High Performance Computing Software Stack for AMD GPU
-==========================================================================
+---------------------------------------------------------------------------
 
 For an updated version of the software stack for AMD GPU, see
 
