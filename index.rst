@@ -70,7 +70,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption:  Release Documentation
+   :caption:  Current Release Documentation
    
   
    Release Notes
