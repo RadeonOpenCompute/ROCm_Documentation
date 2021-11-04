@@ -80,6 +80,19 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    Current_Release_Notes/ROCm-Learning-Center
    Current_Release_Notes/DISCLAIMER
    
+   
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption:  Previous ROCm Release
+   
+    
+   Archived_Documentation/README431.rst
+   Installation_Guide/Installation-Guide
+   Installation_Guide/Multiversion-Installation
+   Installation_Guide/Using-CMake-with-AMD-ROCm
+   Installation_Guide/Mesa-Multimedia-Installation
+   
 
    
    
@@ -91,10 +104,6 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
   
    Installation_Guide/Installation_new 
    Installation_Guide/HIP-Installation
-   Installation_Guide/Installation-Guide
-   Installation_Guide/Multiversion-Installation
-   Installation_Guide/Using-CMake-with-AMD-ROCm
-   Installation_Guide/Mesa-Multimedia-Installation
    Installation_Guide/Tools-Installation
    Installation_Guide/Software-Stack-for-AMD-GPU  
   
@@ -185,8 +194,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
    :hidden:
    :caption: Archived Documentation 
    
-   
-   Archived_Documentation/README431.rst
+  
    Archived_Documentation/4_1_Installation_Guide.rst
   
   
