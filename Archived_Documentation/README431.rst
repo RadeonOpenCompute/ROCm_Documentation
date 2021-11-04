@@ -184,7 +184,7 @@ AMD ROCm Documentation Updates
 -------------------------------
 
 AMD ROCm Installation Guide
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The AMD ROCm Installation Guide in this release includes:
 
@@ -199,7 +199,7 @@ For more information, refer to the ROCm documentation website at:
 https://rocmdocs.amd.com/en/latest/
 
 AMD ROCm - HIP Documentation Updates
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access the following documentation, see
 
@@ -222,7 +222,7 @@ https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 ROCm Data Center User and API Guide
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access the following documentation, see
 
@@ -237,7 +237,7 @@ https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 
 
 ROCm SMI API Documentation Updates
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access the following documentation, see
 
@@ -247,7 +247,7 @@ https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 
 
 ROC Debugger User and API Guide
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access the following documentation, see
 
@@ -260,7 +260,7 @@ https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 
 
 General AMD ROCm Documentation Links
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Access the following links for more information:
 
@@ -286,10 +286,10 @@ What's New in This Release
 ---------------------------
 
 HIP Enhancements
-----------------
+~~~~~~~~~~~~~~~~~~~~
 
 HIP Versioning Update
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The HIP version definition is updated from the ROCm v4.2 release as
 follows:
@@ -309,7 +309,7 @@ The HIP version can be queried from a HIP API call
 previous ROCm releases.
 
 Support for Managed Memory Allocation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 HIP now supports and automatically manages Heterogeneous Memory
 Management (HMM) allocation. The HIP application performs a capability
@@ -332,7 +332,7 @@ check before making the managed memory API call hipMallocManaged.
        }
 
 Kernel Enqueue Serialization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Developers can control kernel command serialization from the host using
 the following environment variable, AMD_SERIALIZE_KERNEL
@@ -347,7 +347,7 @@ This environment variable setting enables HIP runtime to wait for GPU
 idle before/after any GPU command.
 
 NUMA-aware Host Memory Allocation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Non-Uniform Memory Architecture (NUMA) policy determines how memory
 is allocated and selects a CPU closest to each GPU.
@@ -361,7 +361,7 @@ Note, using the *hipSetDevice* API with a different GPU provides access
 to the host allocation. However, it may have a longer NUMA distance.
 
 New Atomic System Scope Atomic Operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 HIP now provides new APIs with \_system as a suffix to support system
 scope atomic operations. For example, atomicAnd atomic is dedicated to
@@ -374,7 +374,7 @@ For more information, refer to the HIP Programming Guide at,
 https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 
 Indirect Function Call and C++ Virtual Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While the new release of the ROCm compiler supports indirect function
 calls and C++ virtual functions on a device, there are some known
