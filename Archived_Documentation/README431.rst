@@ -227,21 +227,21 @@ https://rocmdocs.amd.com/en/latest/
 AMD ROCm - HIP Documentation Updates
 ------------------------------------
 
+To access the following documentation, see
+
+https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
+
 -  HIP Programming Guide v4.3
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
 
 -  HIP API Guide v4.3
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_API_Guide_v4.3.pdf
 
 -  HIP-Supported CUDA API Reference Guide v4.3
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide_v4.3.pdf
 
 -  **NEW** - AMD ROCm Compiler Reference Guide v4.3
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.3.pdf
 
 -  HIP FAQ
 
@@ -250,33 +250,40 @@ https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 ROCm Data Center User and API Guide
 -----------------------------------
 
+To access the following documentation, see
+
+https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
+
 -  ROCm Data Center Tool User Guide
 
    -  Prometheus (Grafana) Integration with Automatic Node Detection
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
 
 -  ROCm Data Center Tool API Guide
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_RDC_API_Guide_v4.3.pdf
 
 ROCm SMI API Documentation Updates
 ----------------------------------
 
+To access the following documentation, see
+
+https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
+
 -  ROCm SMI API Guide
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_SMI_Guide_v4.3.pdf
 
 ROC Debugger User and API Guide
 -------------------------------
 
+To access the following documentation, see
+
+https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
+
 -  ROC Debugger User Guide
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
 
 -  Debugger API Guide
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_API.pdf
 
 General AMD ROCm Documentation Links
 ------------------------------------
@@ -390,7 +397,7 @@ GPU devices in the system.
 
 For more information, refer to the HIP Programming Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide_v4.3.pdf
+https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 
 Indirect Function Call and C++ Virtual Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -457,7 +464,7 @@ Previously, when a new compute node was added, users had to change
 prometheus_targets.json to use Consul manually. Now, with the Consul
 agent integration, a new compute node can be discovered automatically.
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.3.pdf
+https://github.com/RadeonOpenCompute/ROCm/tree/roc-4.3.x
 
 Coarse Grain Utilization
 ~~~~~~~~~~~~~~~~~~~~~~~~
