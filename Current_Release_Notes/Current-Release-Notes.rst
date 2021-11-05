@@ -133,10 +133,10 @@ HIP Documentation Updates
    https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
 
 
-System Interface Management
+System Management  Interface 
 =============================
 
--  System Interface Management (SMI)
+-  System Management  Interface  (SMI)
 
    https://rocmdocs.amd.com/en/latest/ROCm_System_Managment/ROCm-System-Managment.html
    
