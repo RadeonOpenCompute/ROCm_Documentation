@@ -1180,14 +1180,14 @@ OR
 */opt/rocm-<version>/opencl/bin/clinfo*
 
 
-**NOTE**: Users may set LD_LIBRARY_PATH to load the ROCm library version of choice
+**NOTE**: Users can set LD_LIBRARY_PATH to load the ROCm library version of choice.
 
 ::
 
                 export LD_LIBRARY_PATH=/opt/rocm-<ver>/lib;/opt/rocm-<ver>/lib64
 
 
-**NOTE**: For convenience, users may add the ROCm binaries in your PATH, as shown in the example below.
+**NOTE**: For convenience, users can add the ROCm binaries in your PATH, as shown in the example below.
 
 ::
 
