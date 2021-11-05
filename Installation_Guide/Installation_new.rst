@@ -1184,7 +1184,7 @@ OR
 
 ::
 
-                export LD_LIBRARY_PATH=/opt/rocm-<ver>/lib;/opt/rocm-<ver>/lib64
+               $ export LD_LIBRARY_PATH=/opt/rocm-<ver>/lib;/opt/rocm-<ver>/lib64
 
 
 **NOTE**: For convenience, users can add the ROCm binaries in your PATH, as shown in the example below.
