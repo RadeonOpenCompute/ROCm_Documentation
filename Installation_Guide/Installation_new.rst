@@ -1203,11 +1203,11 @@ Users can use the following commands to ensure the packages are installed succes
 +-----------------+---------------------------------------+
 |Linux Distro     |             Command                   | 
 +=================+=======================================+
-| Ubuntu/Debian   | $ sudo apt list ---installed          | 
+| Ubuntu/Debian   | $ sudo apt list - -installed          | 
 +-----------------+------------+--------------------------+
 | RHEL/CentOS     | $ sudo yum list installed             | 
 +-----------------+---------------------------------------+
-| OpenSUSE/SLES   | $ sudo zypper search ---installed-only| 
+| OpenSUSE/SLES   | $ sudo zypper search - -installed-only| 
 +-----------------+---------------------------------------+
 
 
