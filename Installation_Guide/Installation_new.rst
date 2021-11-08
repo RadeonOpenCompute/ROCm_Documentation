@@ -1207,7 +1207,7 @@ Users can use the following commands to ensure the packages are installed succes
 +-----------------+------------+--------------------------+
 | RHEL/CentOS     | $ sudo yum list installed             | 
 +-----------------+---------------------------------------+
-| OpenSUSE / SLES | $ sudo zypper search --installed-only | 
+| OpenSUSE/SLES   | $ sudo zypper search --installed-only | 
 +-----------------+---------------------------------------+
 
 
