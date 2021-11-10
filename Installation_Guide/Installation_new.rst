@@ -1431,29 +1431,6 @@ Restart the system.
 
                $ sudo reboot
 
-
-Troubleshooting
-------------------
-
-**Issue**
-
-If the amdgpu-install script is executed inside Docker, the system may display the following error while installing various use cases.
-
-::
-
-               $ sudo amdgpu-install --usecase=rocm
-
-
-.. image:: TShoot1.png
-   :alt: Screenshot 
-   
-**Resolution**
-
-When the installation is initiated in Docker, the installer tries to install the use case along with the kernel-mode driver. However, the kernel-mode driver cannot be installed in a Docker system. To skip the installation of the kernel-mode driver, proceed with the option --no-dkms, as shown in the command below.
-
-::
-
-               $ sudo amdgpu-install --usecase=rocm --no-dkms
  
  
 Frequently Asked Questions
