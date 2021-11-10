@@ -1165,8 +1165,26 @@ For example,
 
 
 
-Verification Process
-======================
+Post Install Actions and Verification Process
+==============================================
+
+Post Install Actions 
+************************
+
+Users might set LD_LIBRARY_PATH to load the ROCm library version of choice. 
+
+::
+
+          $ export LD_LIBRARY_PATH=/opt/rocm-<version>/lib;/opt/rocm-<version>/lib64 
+          
+          
+
+**NOTE**: For convenience, users may add the ROCm binaries in your PATH, as shown in the example below. 
+
+::
+
+          $ echo ‘export PATH=$PATH:/opt/rocm-<version>/bin:/opt/rocm-<version>/opencl/bin’ 
+          
 
 Verifying ROCm Installation 
 ****************************
