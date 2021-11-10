@@ -538,7 +538,16 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
 
                amdgpu-install -y --usecase=rocm
                
-              
+
+Using the Installer Script Inside Docker 
+=========================================
+
+When the installation is initiated in Docker, the installer tries to install the use case along with the kernel-mode driver. However, the kernel-mode driver cannot be installed in a Docker container. To skip the installation of the kernel-mode driver, proceed with the option *--no-dkms*, as shown in the command below. 
+
+::
+
+          $ sudo amdgpu-install --usecase=rocm --no-dkms          
+          
  
 
 Package Manager Method
@@ -1198,19 +1207,7 @@ OR
 */opt/rocm-<version>/opencl/bin/clinfo*
 
 
-**NOTE**: Users can set LD_LIBRARY_PATH to load the ROCm library version of choice.
-
-::
-
-               $ export LD_LIBRARY_PATH=/opt/rocm-<ver>/lib;/opt/rocm-<ver>/lib64
-
-
-**NOTE**: For convenience, users can add the ROCm binaries in your PATH, as shown in the example below.
-
-::
-
-               $ echo ‘export PATH=$PATH:/opt/rocm-<version>/bin:/opt/rocm-<version>/opencl/bin’
-               
+             
                
 Verifying Package Installation
 ***********************************
