@@ -340,7 +340,6 @@ This will first convert PyTorch sources to be HIP compatible and then build the 
 
 
 Option 3: Install using PyTorch upstream docker file
-
 1.	Clone PyTorch repository on the host:
 cd ~
 git clone https://github.com/pytorch/pytorch.git
@@ -350,13 +349,11 @@ git submodule update --init --recursive
 cd .circleci/docker
 ./build.sh pytorch-linux-bionic-rocm<version>-py3.6 (eg. ./build.sh pytorch-linux-bionic-rocm3.10-py3.6)
 This should complete with a message "Successfully built <image_id>"
-
 3.	Clone PyTorch repository:
 cd ~
 git clone https://github.com/pytorch/pytorch.git
 cd pytorch
 git submodule update --init –recursive
-
 4.	Build PyTorch for ROCm:
 By default, PyTorch will build for gfx900, gfx906 and gfx908 simultaneously. To see which AMD uarch you have, run rocminfo | grep gfx (might need to install rocminfo package). 
 If you want to compile only for your uarch, 
@@ -367,12 +364,12 @@ Then build with
 
 This will first convert PyTorch sources to be HIP compatible and then build the framework.
 
+
 Test the PyTorch installation
 To validate PyTorch installation, run:
 
 1.	Test Command
 cd ~ && python3 -c 'import torch' 2>/dev/null && echo "Success" || echo "Failure"
-
 2.	Running unit tests in PyTorch
 Run the following command from pytorch home directory:
 .jenkins/pytorch/test.sh
@@ -381,7 +378,7 @@ Individual test sets can be run with:
 PYTORCH_TEST_WITH_ROCM=1 python3 test/test_nn.py --verbose
 where test_nn.py can be replaced with any other test set.
 
-	Try PyTorch examples
+Try PyTorch examples
 1.	Clone the PyTorch examples repository:
 git clone https://github.com/pytorch/examples.git
 2.	Run individual example: MNIST
@@ -392,6 +389,7 @@ python3 main.py
 3.	Run individual example: Try ImageNet training
 cd examples/imagenet
 Follow instructions in README.md.
+
 
 *********************
 Caffe2 - Deprecated
