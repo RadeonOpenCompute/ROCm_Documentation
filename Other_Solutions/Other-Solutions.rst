@@ -1,7 +1,7 @@
 
 .. _Other-Solutions:
 
-For the latest HIP Programming Guide documentation and environment variables, refer to the PDF version at:
+For the latest HIP Programming Guide documentation and environment variables, refer to the PDF version of the HIP Programming Guide v4.5 at:
 
 https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
 
