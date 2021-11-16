@@ -58,8 +58,8 @@ Turn Off Page Retry on GFX9/Vega devices
   * echo 1 > /sys/module/amdkfd/parameters/noretry
   
 
-HIP Environment Variables
-*************************
+HIP Environment Variables 3.x
+*******************************
 
 +------------------------------+-----------------------------------------------------------------------------------------------------+
 | HIP_HIDDEN_FREE_MEM= 256     ||Amount of memory to hide from the free memory reported by hipMemGetInfo, specified in MB.Impacts    |
