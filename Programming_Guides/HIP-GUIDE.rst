@@ -25,6 +25,10 @@ You can access and download the latest version of the HIP Programming Guide.
 
 `Download PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf>`__
 
+Access the following link for the guide,
+
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+
 
 Related Topics
 ----------------
