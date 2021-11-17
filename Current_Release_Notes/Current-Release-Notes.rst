@@ -909,7 +909,7 @@ This issue is currently under investigation and will be fixed in a future releas
 
 For more information, refer to the ROCgdb User Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_User_Guide.pdf
 
 
 clinfo and rocminfo Do Not Display Marketing Name
