@@ -276,9 +276,9 @@ float/double atomicAdd functions.
                \__HIP_USE_CMPXCHG_FOR_FP_ATOMICS
                
 
-This compilation flag is not set(â€œ0â€) by default, so the HIP runtime uses the current float/double atomicAdd functions.
+This compilation flag is not set ("0") by default, so the HIP runtime uses the current float/double atomicAdd functions.
 
-If this compilation flag is set to â€œ1â€ with the CMAKE option, the existing float/double atomicAdd functions is used for compatibility with
+If this compilation flag is set to "1" with the CMAKE option, the existing float/double atomicAdd functions is used for compatibility with
 compilers that do not support floating point atomics.
 
 ::
@@ -299,7 +299,7 @@ The HIP version definition is updated as follows:
 
 ::
 
-               HIP_VERSION=HIP_VERSION_MAJOR \* 10000000 + HIP_VERSION_MINOR \* 100000
+               HIP_VERSION=HIP_VERSION_MAJOR * 10000000 + HIP_VERSION_MINOR * 100000
                + HIP_VERSION_PATCH)
                
 
