@@ -388,9 +388,9 @@ OpenCL:
 
 ::
 
-               clang ... -mcpu=gfx908:**xnack+**:sramecc- ... // xnack on, sramecc
+               clang ... -mcpu=gfx908:xnack+:sramecc- ... // xnack on, sramecc
                off
-               clangÂ ... -mcpu=gfx908:**xnack-**:sramecc+ ... // xnack off, sramecc
+               clangÂ ... -mcpu=gfx908:xnack-:sramecc+ ... // xnack off, sramecc
                 on
 
 
@@ -418,9 +418,9 @@ The ROCm System Management Interface (SMI) *setpoweroverdrive* functionality is 
 to enable the OverDrive functionality in the driver. Similarly, even with the OverDrive driver functionality enabled, it is possible to
 request a lower power cap than the card's default.
 
-Currently, any use of the “setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
+Currently, any use of the *setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
 agree that using this functionality potentially voids their warranty. However, this warning should only be printed when users are trying to
-set the power cap to higher than the cardâ€™s default, which requires the OverDrive driver functionality to be enabled.
+set the power cap to higher than the card's default, which requires the OverDrive driver functionality to be enabled.
 
 For example:
 
@@ -889,7 +889,7 @@ A temporary workaround is to compile the affected application with
 
 ::
 
-               -mllvm -amdgpu-fixed-function-abi=1* option 
+               -mllvm -amdgpu-fixed-function-abi=1 option 
 
 
 **Note:** This is an internal compiler flag and may be removed without notice once the issue is addressed in a future release.
