@@ -414,11 +414,11 @@ System Management Interface
 Enhanced ROCm SMI *setpoweroverdrive* Functionality
 ######################################################
 
-The ROCm System Management Interface (SMI) *setpoweroverdrive* functionality is used to lower the power cap on a device without needing
+The ROCm System Management Interface (SMI) *-setpoweroverdrive* functionality is used to lower the power cap on a device without needing
 to enable the OverDrive functionality in the driver. Similarly, even with the OverDrive driver functionality enabled, it is possible to
 request a lower power cap than the card's default.
 
-Currently, any use of the *setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
+Currently, any use of the *-setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
 agree that using this functionality potentially voids their warranty. However, this warning should only be printed when users are trying to
 set the power cap to higher than the card's default, which requires the OverDrive driver functionality to be enabled.
 
@@ -429,7 +429,7 @@ The default power cap is 225.0W before any changes.
 ::
 
 
-               [atitest@rhel85 smi]$ ./rocm_smi.py â€“resetpoweroverdrive
+               [atitest@rhel85 smi]$ ./rocm_smi.py -resetpoweroverdrive
 
                ======================= ROCm System Management Interface
                ========================================================
@@ -442,9 +442,9 @@ The default power cap is 225.0W before any changes.
                ============================ End of ROCm SMI Log
                ================================================
 
-               Now, after using â€“setpoweroverdrive to lower the power cap to 123 watts:
+               Now, after using -setpoweroverdrive to lower the power cap to 123 watts:
 
-               [atitest@rhel85 smi]$ ./rocm_smi.py â€“setpoweroverdrive 123
+               [atitest@rhel85 smi]$ ./rocm_smi.py -setpoweroverdrive 123
 
                .. _rocm-system-management-interface-1:
 
@@ -466,7 +466,7 @@ The default power cap is 225.0W before any changes.
 
                To verify that the power is set to the correct value:
 
-               [atitest@rhel85 smi]$ ./rocm_smi.py â€“showmaxpower
+               [atitest@rhel85 smi]$ ./rocm_smi.py -showmaxpower
 
                .. _rocm-system-management-interface-2:
 
