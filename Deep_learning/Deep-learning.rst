@@ -275,8 +275,7 @@ This is a quick guide to setup PyTorch with ROCm support inside a docker contain
 Note: Currently, ROCm install version 3.3 is required.
 
 
-*********
-Option 1
+Option 1 : Installion using published PyTorch ROCm docker image:
 *********
 1. Install or update rocm-dev on the host system:
 
@@ -286,9 +285,6 @@ Option 1
   or
   sudo apt-get update
   sudo apt-get upgrade
-
-Recommended: Install using published PyTorch ROCm docker image:
-**************************************************************
 
 2. Obtain docker image:
 
@@ -301,15 +297,14 @@ Recommended: Install using published PyTorch ROCm docker image:
 
 ::
   docker run -it --privileged --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G rocm/pytorch:latest
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_pytorch
-
+  
 
 4. Confirm working installation:
 
 ::
 
   PYTORCH_TEST_WITH_ROCM=1 
-  python3.6 pytorch/test/run_test.py 
+  python pytorch/test/run_test.py 
 
 
 **Note**:  Compilation and installation must be correct for the tests to be successful.
@@ -323,7 +318,7 @@ Recommended: Install using published PyTorch ROCm docker image:
 This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
 
 
-Option 2: Install PyTorch using PyTorch ROCm base docker image
+Option 2: Install PyTorch using base docker image
 ****************************************************
 1.	Obtain docker image:
 docker pull rocm/pytorch:latest-base
@@ -384,14 +379,14 @@ Test the PyTorch installation
 To validate PyTorch installation, run:
 
 1.	Test Command
-cd ~ && python3 -c 'import torch' 2>/dev/null && echo "Success" || echo "Failure"
+cd ~ && python -c 'import torch' 2>/dev/null && echo "Success" || echo "Failure"
 
 2.	Running unit tests in PyTorch
 Run the following command from pytorch home directory:
 .jenkins/pytorch/test.sh
 This runs all CI unit tests and skips as appropriate on your system based on ROCm and, e.g., single or multi GPU configuration. No tests will fail if the compilation and installation is correct. Additionally, this step will install/update a supported version of torchvision, which most PyTorch scripts use to load models. 
 Individual test sets can be run with:
-PYTORCH_TEST_WITH_ROCM=1 python3 test/test_nn.py --verbose
+PYTORCH_TEST_WITH_ROCM=1 python test/test_nn.py --verbose
 where test_nn.py can be replaced with any other test set.
 
 
