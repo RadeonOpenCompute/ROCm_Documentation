@@ -539,10 +539,11 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
                amdgpu-install -y --usecase=rocm
                
 
-Using the Installer Script Inside Docker 
-*****************************************
+Using the Installer Script in Docker
+*************************************
 
-When the installation is initiated in Docker, the installer tries to install the use case along with the kernel-mode driver. However, the kernel-mode driver cannot be installed in a Docker container. To skip the installation of the kernel-mode driver, proceed with the option *--no-dkms*, as shown in the command below. 
+When the installation is initiated in Docker using the Installer method, the installer tries to install the use case along with the kernel-mode driver. However, the kernel-mode driver cannot be installed in a Docker container. The update to the ROCm installation Guide in the ROCm v4.5.2 release provides information on how to use the installer script in docker and skip the installation of the kernel mode driver.
+
 
 ::
 
