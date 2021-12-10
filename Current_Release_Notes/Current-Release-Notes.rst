@@ -33,7 +33,8 @@ HIP ENHANCEMENTS
 
 The ROCm v4.5.2 release consists of the following HIP enhancement. 
 
-Changes to the roc-obj-ls Tool 
+Changes to the roc-obj-ls Tool
+===============================
 
 The roc-obj-ls tool is corrected in ROCm v4.5.2, and the command roc-obj-ls <exe> | roc-obj-extract is no longer the preferred syntax.   
 
