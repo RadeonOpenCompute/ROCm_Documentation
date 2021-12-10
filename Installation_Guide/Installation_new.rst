@@ -495,6 +495,13 @@ To install use cases specific to your requirements, use the installer amdgpu-ins
                
                
 ::
+
+                # To install only kernel mode driver 
+                $ sudo amdgpu-install --usecase=dkms
+
+               
+               
+::
               
                # To install multiple use-cases 
                $ sudo amdgpu-install --usecase=hiplibsdk,rocm 
@@ -674,7 +681,7 @@ If the supported version installation of Linux headers and development packages 
 Base URLs For AMDGPU and ROCm Stack Repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ubuntu 18.04**
+**Ubuntu 18.04 and 20.04**
 
 Repositories with Latest Packages
 
@@ -685,24 +692,11 @@ Repositories with Latest Packages
 
 Repositories for Specific Releases
 
-- amdgpu baseurl:https://repo.radeon.com/amdgpu/21.40/ubuntu
-   
-- rocm base url:https://repo.radeon.com/rocm/apt/4.5   
+- amdgpu baseurl= https://repo.radeon.com/amdgpu/21.40.2/ubuntu
 
-**Ubuntu 20.04**
-
-Repositories with Latest Packages
-
-- amdgpu baseurl:https://repo.radeon.com/amdgpu/latest/ubuntu
-    
-- rocm baseurl:https://repo.radeon.com/rocm/apt/debian/
+- rocm baseurl= https://repo.radeon.com/rocm/apt/4.5.2/
 
 
-Repositories for Specific Release
-
-- amdgpu baseurl:https://repo.radeon.com/amdgpu/21.40/ubuntu
-   
-- rocm base url:https://repo.radeon.com/rocm/apt/4.5   
 
                
 Adding AMDGPU Stack Repository
@@ -896,9 +890,10 @@ Repositories with Latest Packages
 
 Repositories for Specific Releases
 
-- amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40/rhel/7.9/main/x86_64
+- amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40.2/rhel/7.9/main/x86_64
 
-- rocm baseurl=https://repo.radeon.com/rocm/yum/4.5
+- rocm baseurl= https://repo.radeon.com/rocm/yum/4.5.2
+
 
 **CentOS 8.3/RHEL 8.4**
 
@@ -911,9 +906,9 @@ Repositories with Latest Packages
 
 Repositories for Specific Releases
 
-- amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40/rhel/8.4/main/x86_64
+- amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40.2/rhel/8.4/main/x86_64
 
-- rocm baseurl=https://repo.radeon.com/rocm/centos8/4.5/
+- rocm baseurl=https://repo.radeon.com/rocm/centos8/4.5.2/
 
 
 
@@ -1065,9 +1060,9 @@ Repositories with Latest Packages
 
 Repositories for Specific Releases
 
-- amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40/sle/15/main/x86_64
+- amdgpu baseurl=https://repo.radeon.com/amdgpu/21.40.2/sle/15/main/x86_64
 
-- rocm baseurl=https://repo.radeon.com/rocm/zyp/4.5/
+- rocm baseurl=https://repo.radeon.com/rocm/zyp/4.5.2/
 
 
 Adding AMDGPU Stack Repository
