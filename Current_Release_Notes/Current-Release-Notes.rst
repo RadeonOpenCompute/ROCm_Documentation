@@ -2,6 +2,101 @@
 |
 
 ================================
+AMD ROCm™ Release Notes v4.5.2
+================================
+December, 2021
+
+INSTALLATION GUIDE UPDATES FOR ROCM V4.5.2 
+-------------------------------------------
+
+In this release, users have the option to install the kernel mode driver using the Installer method. Some of the ROCm-specific use cases that the installer currently supports are:    
+
+- OpenCL (ROCr/KFD based) runtime  
+
+- HIP runtimes  
+
+- ROCm libraries and applications  
+
+- ROCm Compiler and device libraries  
+
+- ROCr runtime and thunk  
+
+- Kernel mode driver  
+
+For more details, refer to the AMD ROCm Installation Guide v4.5.2 at, 
+
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html
+
+
+HIP ENHANCEMENTS 
+-----------------
+
+The ROCm v4.5.2 release consists of the following HIP enhancement. 
+
+Changes to the roc-obj-ls Tool 
+
+The roc-obj-ls tool is corrected in ROCm v4.5.2, and the command roc-obj-ls <exe> | roc-obj-extract is no longer the preferred syntax.   
+
+Use the roc-obj tool with the following correct command:  
+
+::
+
+
+                  roc-obj <exe> 
+
+For example, 
+
+#### Extract all ROCm code objects from a list of executables 
+
+::
+
+    
+                  roc-obj <executable>... 
+                  
+    
+
+#### Extract all ROCm code objects from a list of executables, and disassemble them 
+
+::
+
+                  roc-obj --disassemble <executable>... 
+
+                   # or 
+
+                   roc-obj -d <executable>... 
+
+ 
+#### Extract all ROCm code objects from a list of executables into dir/ 
+
+::
+
+                   roc-obj --outdir dir/ <executable>... 
+
+                   # or 
+
+                   roc-obj -o dir/ <executable>... 
+
+ 
+
+#### Extract only ROCm code objects matching regex over Target ID 
+
+
+::
+
+                     roc-obj --target-id gfx9 <executable>... 
+
+                     # or 
+         
+                     roc-obj -t gfx9 <executable>... 
+
+
+For more information, refer to the HIP Programming Guide at:  
+
+https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html 
+
+
+
+================================
 AMD ROCm™ Release Notes v4.5
 ================================
 October, 2021
