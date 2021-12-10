@@ -46,7 +46,7 @@ Use the roc-obj tool with the following correct command:
 
 For example, 
 
-#### Extract all ROCm code objects from a list of executables 
+Extract all ROCm code objects from a list of executables 
 
 ::
 
@@ -55,7 +55,7 @@ For example,
                   
     
 
-#### Extract all ROCm code objects from a list of executables, and disassemble them 
+Extract all ROCm code objects from a list of executables, and disassemble them 
 
 ::
 
@@ -66,7 +66,7 @@ For example,
                    roc-obj -d <executable>... 
 
  
-#### Extract all ROCm code objects from a list of executables into dir/ 
+Extract all ROCm code objects from a list of executables into dir/ 
 
 ::
 
@@ -78,7 +78,7 @@ For example,
 
  
 
-#### Extract only ROCm code objects matching regex over Target ID 
+Extract only ROCm code objects matching regex over Target ID 
 
 
 ::
@@ -94,6 +94,18 @@ For more information, refer to the HIP Programming Guide at:
 
 https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html 
 
+
+
+OPENMP DEFECT FIX 
+------------------
+
+Previously, ROCProfiler crashed when the following ROCProfiler options were used in OpenMP programs: 
+
+* --stats  
+
+* --hsa-trace 
+
+This issue is fixed in the OpenMP plugin by ensuring that the contents of a kernel dispatch packet are not accessed after publishing it. The issue is also fixed in ROCTracer by ensuring that the registered exit function is called before runtime library is closed. 
 
 
 ================================
