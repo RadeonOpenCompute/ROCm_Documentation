@@ -40,6 +40,8 @@ Some of the ROCm-specific use cases that the installer currently supports are:
 
 - ROCr runtime and thunk
 
+- Kernel mode driver
+
 
 For more information, refer to the Installation Methods section in this guide.
 
@@ -414,14 +416,14 @@ Ubuntu 18.04
 Download and install the installer using the following command:
 
 ::
+              $ sudo apt-get update
               
-               $ sudo apt-get update
-               
-               $ wget https://repo.radeon.com/amdgpu-install/21.40/ubuntu/bionic/amdgpu-install-21.40.40500-1_all.deb
-               
-               $ sudo apt-get install ./amdgpu-install-21.40.40500-1_all.deb
-               
-               $ sudo apt-get update
+              $ wget https://repo.radeon.com/amdgpu-install/21.40.2/ubuntu/bionic/amdgpu-install_21.40.2.40502-1_all.deb
+
+              $ sudo apt-get install ./amdgpu-install_21.40.2.40502-1_all.deb
+
+              $ sudo apt-get update
+
  
 
 Ubuntu 20.04
