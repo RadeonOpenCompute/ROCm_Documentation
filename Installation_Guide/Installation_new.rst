@@ -454,7 +454,7 @@ Use the following command to download and install the installer on RHEL/CentOS 7
 
 ::
 
-               $ sudo yum install https://repo.radeon.com/amdgpu-install/21.40/rhel/7.9/amdgpu-install-21.40.40500-1.noarch.rpm
+               $ sudo yum install https://repo.radeon.com/amdgpu-install/21.40.2/rhel/7.9/amdgpu-install-21.40.2.40502-1.el7.noarch.rpm
                
                
                
@@ -465,7 +465,7 @@ Use the following command to download and install the installer on RHEL 8.4/Cent
 
 ::
 
-               $ sudo yum install https://repo.radeon.com/amdgpu-install/21.40/rhel/8.4/amdgpu-install-21.40.40500-1.noarch.rpm
+               $ sudo yum install https://repo.radeon.com/amdgpu-install/21.40.2/rhel/8.4/amdgpu-install-21.40.2.40502-1.el8.noarch.rpm
                
                
 
@@ -479,7 +479,7 @@ Use the following command to download and install the installer on SLES
 
 ::
 
-               $ sudo zypper --no-gpg-checks install https://repo.radeon.com/amdgpu-install/21.40/sle/15/amdgpu-install-21.40.40500-1.noarch.rpm
+              $ sudo zypper --no-gpg-checks install https://repo.radeon.com/amdgpu-install/21.40.2/sle/15/amdgpu-install-21.40.2.40502-1.noarch.rpm
                
  
 
