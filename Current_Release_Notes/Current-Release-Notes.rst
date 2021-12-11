@@ -106,7 +106,7 @@ Previously, ROCProfiler crashed when the following ROCProfiler options were used
 
 * --hsa-trace 
 
-This issue is fixed in the OpenMP plugin by ensuring that the contents of a kernel dispatch packet are not accessed after publishing it. The issue is also fixed in ROCTracer by ensuring that the registered exit function is called before runtime library is closed. 
+This issue is fixed in the OpenMP plugin by ensuring that the contents of a kernel dispatch packet are not accessed after publishing it. The issue is also fixed in ROCTracer by ensuring that the registered exit function is called before the runtime library is closed. 
 
 
 ================================
