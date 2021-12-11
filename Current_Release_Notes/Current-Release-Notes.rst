@@ -93,7 +93,7 @@ Extract only ROCm code objects matching regex over Target ID
 
 For more information, refer to the HIP Programming Guide at:  
 
-https://rocmdocs.amd.com/en/latest/Programming_Guides/Programming-Guides.html 
+https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
 
 
 
