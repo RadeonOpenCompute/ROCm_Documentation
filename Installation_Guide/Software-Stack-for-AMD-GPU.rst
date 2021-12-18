@@ -8,8 +8,8 @@
 Software Stack for AMD GPU
 ============================
 
-Machine Learning and High Performance Computing Software Stack for AMD GPU v4.1
------------------------------------------------------------------------------------
+Machine Learning and High Performance Computing Software Stack for AMD GPU 
+----------------------------------------------------------------------------
 
 
 .. _ROCm Binary Package Structure:
