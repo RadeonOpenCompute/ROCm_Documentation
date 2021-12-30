@@ -163,7 +163,7 @@ https://developer.amd.com/resources/rocm-resources/rocm-learning-center/
 .. toctree::
    :maxdepth: 6
    :hidden:
-   :caption: System Management Information
+   :caption: System Management Interface
    
       
    ROCm_System_Managment/ROCm-System-Managment
