@@ -14,7 +14,7 @@ AMD Instinct MI25 End of Life
 
 ROCm release v4.5 is the final release to support AMD Instinct MI25. AMD Instinct MI25 has reached End of Life (EOL). ROCm 4.5 represents the last certified release for software and driver support. AMD will continue to provide technical support and issue resolution for AMD Instinct MI25 on ROCm v4.5 for a period of 12 months from the software GA date.
 
-Planned Deprecation for Code Object Versions 2 AND 3
+Planned Deprecation of Code Object Versions 2 AND 3
 ========================================================
 
 With the ROCm v4.5 release, the generation of code object versions 2 and 3 is being deprecated and may be removed in a future release. This deprecation notice does not impact support for the execution of AMD GPU code object versions.
