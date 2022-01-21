@@ -29,20 +29,20 @@ In this release we have the following features enabled on top of upstream TF1.15
     * We integrated ROCm RCCL library for mGPU communication, details in `RCCL github repo <https://github.com/ROCmSoftwarePlatform/rccl>`_
     * XLA backend is enabled for AMD GPUs, the functionality is complete, performance optimization is in progress.  
 
-AMD ROCm Tensorflow v2.2.0-beta1 Release
+AMD ROCm Tensorflow v2.6.2 Release
 *****************************************
-In addition to Tensorflow v1.15 release, we also enabled Tensorflow v2.2.0-beta1 for AMD GPUs. The TF-ROCm 2.2.0-beta1 release supports Tensorflow V2 API.
+In addition to Tensorflow v1.15 release, we also enabled Tensorflow v2.6.2 for AMD GPUs. The TF-ROCm 2.6.2 release supports Tensorflow V2 API.
 Both whl packages and docker containers are available below. 
 
 Tensorflow Installation
 ***********************
 
-1. Install the open-source AMD ROCm 3.3 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
+1. Install the open-source AMD ROCm 4.5 stack. For details, see `here <https://github.com/RadeonOpenCompute/ROCm>`_
 
 2. Install other relevant ROCm packages.
 ::
    sudo apt update
-   sudo apt install rocm-libs miopen-hip cxlactivitylogger rccl
+   sudo apt install rocm-libs miopen-hip rccl
 
 3. Install TensorFlow itself (via the Python Package Index).
 ::
@@ -50,7 +50,7 @@ Tensorflow Installation
    # Pip3 install the whl package from PyPI
    pip3 install --user tensorflow-rocm #works only with python3.8 or prior
 
-Tensorflow v2.2.0 is installed.
+Tensorflow v2.6.2 is installed.
 
 Tensorflow ROCm port: Basic installation on RHEL
 ================================================
