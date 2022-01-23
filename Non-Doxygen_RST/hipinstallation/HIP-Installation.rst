@@ -83,8 +83,8 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
    -  Optionally, consider adding /opt/rocm/bin to your path to make it easier to use the tools.
 
 
-Building HIP from Source
-========================
+Building HIP from Source on AMD Platform
+=========================================
 
 
 Get HIP source code
@@ -92,14 +92,14 @@ Get HIP source code
 
 ::
 
-		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/hipamd.git
-		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/hip.git
-		git clone -b rocm-4.5.x https://github.com/ROCm-Developer-Tools/ROCclr.git
-		git clone -b rocm-4.5.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
+		git clone -b rocm-5.0.x https://github.com/ROCm-Developer-Tools/hipamd.git
+		git clone -b rocm-5.0.x https://github.com/ROCm-Developer-Tools/hip.git
+		git clone -b rocm-5.0.x https://github.com/ROCm-Developer-Tools/ROCclr.git
+		git clone -b rocm-5.0.x https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime.git
 		
 
 
-Set the environment variables
+Set environment variables
 ******************************
 
 ::
@@ -147,6 +147,30 @@ Default paths and environment variables
 - Optionally, set HIPCC_VERBOSE=7 to output the command line for compilation
 
 After installation, make sure HIP_PATH is pointed to /where/to/install/hip
+
+
+Building HIP from Source on NVIDIA Platform
+=============================================
+
+Get HIP source code
+*********************
+
+
+
+
+
+Set environment variables
+****************************
+
+
+
+
+
+Build HIP
+***********
+
+
+
 
 
 Verify your installation
