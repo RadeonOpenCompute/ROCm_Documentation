@@ -165,13 +165,20 @@ Building HIP from Source on NVIDIA Platform
 Get HIP source code
 *********************
 
+::
 
+		git clone -b rocm-5.0.x https://github.com/ROCm-Developer-Tools/hip.git
+		git clone -b rocm-5.0.x https://github.com/ROCm-Developer-Tools/hipamd.git
 
 
 
 Set environment variables
 ****************************
 
+::
+
+		export HIP_DIR="$(readlink -f hip)"
+		export HIPAMD_DIR="$(readlink -f hipamd)"
 
 
 
@@ -179,8 +186,12 @@ Set environment variables
 Build HIP
 ***********
 
-
-
+::
+		cd "$HIPAMD_DIR"
+		mkdir -p build; cd build
+		cmake -DHIP_COMMON_DIR=$HIP_DIR -DHIP_PLATFORM=nvidia -DCMAKE_INSTALL_PREFIX=$PWD/install ..
+		make -j$(nproc)
+		sudo make install
 
 
 Verify your installation
@@ -192,6 +203,13 @@ Run hipconfig (instructions below assume default installation path):
 
 		/opt/rocm/bin/hipconfig --full
 
-Compile and run the square sample. You can access the square sample at,
+or
 
-https://github.com/ROCm-Developer-Tools/HIP/tree/main/samples/0_Intro/square
+::
+
+		shell
+		$PWD/install/bin/hipconfig --full
+
+
+Compile and run the [square sample](https://github.com/ROCm-Developer-Tools/HIP/tree/rocm-5.0.x/samples/0_Intro/square).
+
