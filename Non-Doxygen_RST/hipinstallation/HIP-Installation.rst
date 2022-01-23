@@ -187,11 +187,12 @@ Build HIP
 ***********
 
 ::
-		cd "$HIPAMD_DIR"
-		mkdir -p build; cd build
-		cmake -DHIP_COMMON_DIR=$HIP_DIR -DHIP_PLATFORM=nvidia -DCMAKE_INSTALL_PREFIX=$PWD/install ..
-		make -j$(nproc)
-		sudo make install
+			
+			cd "$HIPAMD_DIR"
+			mkdir -p build; cd build
+			cmake -DHIP_COMMON_DIR=$HIP_DIR -DHIP_PLATFORM=nvidia -DCMAKE_INSTALL_PREFIX=$PWD/install ..
+			make -j$(nproc)
+			sudo make install
 
 
 Verify your installation
