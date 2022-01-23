@@ -2,7 +2,7 @@
 .. image:: amdblack.jpg
 |
 =======================
-HIP Installation v5.0
+HIP Installation v4.5
 =======================
 
 HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
@@ -85,8 +85,8 @@ HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
    -  Optionally, consider adding /opt/rocm/bin to your path to make it easier to use the tools.
 
 
-Building HIP from Source
-========================
+Building HIP from Source on the AMD Platform
+=============================================
 
 
 Get HIP source code
@@ -101,7 +101,7 @@ Get HIP source code
 		
 
 
-Set the environment variables
+Set environment variables
 ******************************
 
 ::
