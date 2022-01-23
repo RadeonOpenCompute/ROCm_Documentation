@@ -5,6 +5,8 @@ HIP Installation v5.0
 
 HIP can be easily installed using the pre-built binary packages with the package manager for your platform.
 
+**Note**: The version definition for the HIP runtime is different from CUDA. On the AMD platform, the function returns the HIP runtime version, while on the NVIDIA platform, it returns the CUDA runtime version. There is no mapping or correlation between the HIP version and CUDA version.
+
 
 HIP Prerequisites
 ====================
