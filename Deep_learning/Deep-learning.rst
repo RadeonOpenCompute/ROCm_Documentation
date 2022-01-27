@@ -352,7 +352,7 @@ where <uarch> is the architecture reported by the rocminfo command.
 
 Build PyTorch using following command :
 
-./jenkins/pytorch/build.sh
+./.jenkins/pytorch/build.sh
 
 This will first convert PyTorch sources for HIP compatibility and build the PyTorch framework. 
 
@@ -418,6 +418,7 @@ This will first convert PyTorch sources to by HIP compatible and then, build the
 python3 tools/amd_build/build_amd.py
 USE_ROCM=1 MAX_JOBS=4 python3 setup.py install –user
 
+******************************
 Test the PyTorch installation
 ******************************
 
@@ -435,7 +436,7 @@ python3 -c 'import torch; print(torch.cuda.is_available())'
 
 3.Run the unit tests to validate the PyTorch installation fully. Run the following command from the PyTorch home directory
 
-   ./jenkins/pytorch/test.sh
+   ./.jenkins/pytorch/test.sh
    
    This will first install some dependencies, such as a supported TorchVision version for PyTorch. TorchVision is used in some PyTorch tests for loading models. 
    
@@ -550,7 +551,7 @@ Evaluating a pre-trained model
 With the Inception-v3 model, a simple image classification task with the pretrained model is introduced. This does not involve training but utilizes an already pre-trained model from torchvision. 
 This example is adapted from the PyTorch research hub page on Inception-v3 
 
-1.Run the Pytorch ROCm- based Docker image or refer to section 3.1.1 for setting up a PyTorch environment on ROCm.
+1.Run the Pytorch ROCm- based Docker image  for setting up a PyTorch environment on ROCm.
 
 docker run -it -v $HOME:/data --privileged --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G rocm/pytorch:latest
 
