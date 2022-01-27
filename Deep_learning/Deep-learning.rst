@@ -409,7 +409,7 @@ where <uarch> is the architecture reported by the rocminfo command.
 
 6. Build PyTorch using 
 
-ins/pytorch/build.sh
+./.jenkins/pytorch/build.sh
 
 This will first convert PyTorch sources to by HIP compatible and then, build the PyTorch framework. 
 
