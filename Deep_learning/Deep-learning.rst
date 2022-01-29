@@ -286,21 +286,16 @@ Note: Currently, ROCm install version 3.3 is required.
 Recommended: Install using published PyTorch ROCm docker image:
 **************************************************************
 
-2. Obtain docker image:
+2	Pull the latest public PyTorch docker image:
+docker pull rocm/pytorch:latest
+Optionally, you may download a specific supported configuration from https://hub.docker.com/r/rocm/pytorch.
 
-::
+This option provides a docker image which has PyTorch pre-installed. Users can launch the docker container and train/run deep learning models directly. 
 
-   docker pull rocm/pytorch:rocm4.0_ubuntu18.04_py3.6_pytorch    
-   
-
-
-3. Start a docker container using the downloaded image:
-
-::
-
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video rocm/pytorch:rocm3.7_ubuntu16.04_py3.6_pytorch
-
-
+3.	Start a docker container using the downloaded image:
+docker run -it --privileged --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G rocm/pytorch:latest
+This will automatically download the image if it does not exist on the host. You can also pass -v argument to mount any data directories on to the container.
+ 
 4. Confirm working installation:
 
 ::
@@ -318,182 +313,82 @@ Recommended: Install using published PyTorch ROCm docker image:
 This step is optional but most PyTorch scripts will use torchvision to load models. E.g., running the pytorch examples requires torchvision.
 
 
-Option 2: Install using PyTorch upstream docker file
-****************************************************
-
-1. Clone PyTorch repository on the host:
-
-::
-
-  cd ~
-  git clone https://github.com/pytorch/pytorch.git
-  cd pytorch
-  git submodule init
-  git submodule update
-
-2. Build PyTorch docker image:
-
-::
-  
-  cd pytorch/docker/caffe2/jenkins
-  ./build.sh py2-clang7-rocmdeb-ubuntu16.04
-
- A message "Successfully built <image_id>" indicates a successful completion of this step.
-
-**Note**: These steps are not tested and validated on other software versions.
-
-3. Start a docker container using the new image:
-
-::
-
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video <image_id>
-
-Note: This will mount your host home directory on /data in the container.
-
-4. Change to previous PyTorch checkout from within the running docker:
-
-::
-
-  cd /data/pytorch
-
-5. Build PyTorch for ROCm:
-
-Unless you are running a gfx900/Vega10-type GPU (MI25, Vega56, Vega64,...), explicitly export the GPU architecture to build for, e.g.:
-export HCC_AMDGPU_TARGET=gfx906
-
-then
-::
-
-  .jenkins/pytorch/build.sh
-
-This will hipify the PyTorch sources first, and then compile using 4 concurrent jobs. Note, the docker image requires 16 GB of RAM.
-
-6. Confirm working installation:
-
-::
-
-  PYTORCH_TEST_WITH_ROCM=1 python test/run_test.py --verbose
-
-No tests will fail if the compilation and installation is correct.
-
-7. Install torchvision:
-
-::
-
-  pip install torchvision
-
-This step is optional; however, most PyTorch scripts use torchvision to load models. For example, running the pytorch examples requires torchvision.
-
-8. Commit the container to preserve the pytorch install (from the host):
-
-::
-
-  sudo docker commit <container_id> -m 'pytorch installed'
-
-Option 3: Install using minimal ROCm docker file
-************************************************
-
-1. Download dockerfile based on the OS choose:
-Recommend to use - Dockerfile-<OS distro>-complete to get all the ROCm Math libs installed which are required for PyTorch.
-
-`Dockerfile <https://github.com/RadeonOpenCompute/ROCm-docker/tree/master/dev>`_
-
-2. Build docker image:
-
-::
-
-  sudo docker build -f ./Dockerfile-<OS distro>-complete .
-
-The message "Successfully built <image_id>" indicates a successful completion of this step.
-
-3. Start a docker container using the new image:
-
-::
-
-  sudo docker run -it -v $HOME:/data --privileged --rm --device=/dev/kfd --device=/dev/dri --group-add video <image_id>
-
-Note: This will mount your host home directory on /data in the container.
-
-4. Clone pytorch master (on to the host):
-
-::
-  
-  cd ~
-  git clone https://github.com/pytorch/pytorch.git or git clone https://github.com/ROCmSoftwarePlatform/pytorch.git
-  cd pytorch
-  git submodule init
-  git submodule update --init --recursive'
-
-5. Run "hipify" to prepare source code (in the container):
-
-::
-
-  python3 tools/amd_build/build_amd.py
-
-6. Build and install pytorch:
-
-By default pytorch is built for all supported AMD GPU targets like gfx900/gfx906/gfx908 (MI25, MI50, MI60, MI100, ...)
-This can be overwritten using
-export PYTORCH_ROCM_ARCH=gfx900;gfx906;gfx908
-
-then
-::
-
-  USE_ROCM=1 MAX_JOBS=4 python3 setup.py install --user
-
-UseMAX_JOBS=n to limit peak memory usage. If building fails try falling back to fewer jobs. 4 jobs assume available main memory of 16 GB or larger.
-
-7. Confirm working installation:
-
-::
-
-  PYTORCH_TEST_WITH_ROCM=1 python3 test/run_test.py --verbose
-
-No tests will fail if the compilation and installation is correct.
-
-8. Install torchvision:
-
-::
-
-  pip3 install --user "git+https://github.com/pytorch/vision.git"
-
-This step is optional. However, most PyTorch scripts will use torchvision to load models. For example, running the PyTorch examples requires torchvision.
-
-9. Commit the container to preserve the pytorch install (from the host):
-
-::
-
-  sudo docker commit <container_id> -m 'pyTorch installed'
-
-PyTorch examples
-*****************
-
-1. Clone the PyTorch examples repository:
-
-::
-
-  git clone https://github.com/pytorch/examples.git && cd examples/
-
-2. Download pip requiremenst:
-
-::
-
-  pip3 install -r mnist/requirements.txt 
-
-3. Run individual example: Super-resolution training and running
-
-::
-
-  cd super_resolution/
-
-  # download dataset for training and run learning
-  python3 main.py --upscale_factor 3 --batchSize 4 --testBatchSize 100 --nEpochs 30 --lr 0.001
-
-  # test work super resolution effect
-  python3 super_resolve.py --input_image dataset/BSDS300/images/test/16077.jpg \
-  --model model_epoch_30.pth --output_filename out.png
-
-4. Open `out.png` and `dataset/BSDS300/images/test/16077.jpg` files to see result
+1.	Obtain docker image:
+docker pull rocm/pytorch:latest-base
+This will download the base container, without PyTorch, to base the build upon. 
+
+2.	Start a docker container using the image:
+docker run -it --privileged --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G rocm/pytorch:latest-base
+You can also pass -v argument to mount any data directories on to the container.
+
+
+3.	Clone PyTorch repository:
+cd ~
+git clone https://github.com/pytorch/pytorch.git
+cd pytorch
+git submodule update --init –recursive
+
+4.	Build PyTorch for ROCm:
+By default, PyTorch will build for gfx900, gfx906 and gfx908 simultaneously. To see which AMD uarch you have, run rocminfo | grep gfx (might need to install rocminfo package). 
+If you want to compile only for your uarch, 
+export PYTORCH_ROCM_ARCH=<uarch> 
+where <uarch> is the architecture reported by the rocminfo command. 
+Then build with
+.jenkins/pytorch/build.sh
+
+This will first convert PyTorch sources to be HIP compatible and then build the framework.
+
+
+Option 3: Install using PyTorch upstream docker file
+1.	Clone PyTorch repository on the host:
+cd ~
+git clone https://github.com/pytorch/pytorch.git
+cd pytorch
+git submodule update --init --recursive
+2.	Build PyTorch docker image:
+cd .circleci/docker
+./build.sh pytorch-linux-bionic-rocm<version>-py3.6 (eg. ./build.sh pytorch-linux-bionic-rocm3.10-py3.6)
+This should complete with a message "Successfully built <image_id>"
+3.	Clone PyTorch repository:
+cd ~
+git clone https://github.com/pytorch/pytorch.git
+cd pytorch
+git submodule update --init –recursive
+4.	Build PyTorch for ROCm:
+By default, PyTorch will build for gfx900, gfx906 and gfx908 simultaneously. To see which AMD uarch you have, run rocminfo | grep gfx (might need to install rocminfo package). 
+If you want to compile only for your uarch, 
+export PYTORCH_ROCM_ARCH=<uarch> 
+where <uarch> is the architecture reported by the rocminfo command. 
+Then build with
+.jenkins/pytorch/build.sh
+
+This will first convert PyTorch sources to be HIP compatible and then build the framework.
+
+
+Test the PyTorch installation
+To validate PyTorch installation, run:
+
+1.	Test Command
+cd ~ && python3 -c 'import torch' 2>/dev/null && echo "Success" || echo "Failure"
+2.	Running unit tests in PyTorch
+Run the following command from pytorch home directory:
+.jenkins/pytorch/test.sh
+This runs all CI unit tests and skips as appropriate on your system based on ROCm and, e.g., single or multi GPU configuration. No tests will fail if the compilation and installation is correct. Additionally, this step will install/update a supported version of torchvision, which most PyTorch scripts use to load models. 
+Individual test sets can be run with:
+PYTORCH_TEST_WITH_ROCM=1 python3 test/test_nn.py --verbose
+where test_nn.py can be replaced with any other test set.
+
+Try PyTorch examples
+1.	Clone the PyTorch examples repository:
+git clone https://github.com/pytorch/examples.git
+2.	Run individual example: MNIST
+cd examples/mnist
+Follow instructions in README.md, in this case:
+pip3 install -r requirements.txt
+python3 main.py
+3.	Run individual example: Try ImageNet training
+cd examples/imagenet
+Follow instructions in README.md.
 
 
 *********************
