@@ -31,7 +31,7 @@ HIP-Clang can be built manually:
 
 ::
 
-   	git clone -b roc-5.0.x https://github.com/RadeonOpenCompute/llvm-project.git
+   	git clone -b rocm-5.0.x https://github.com/RadeonOpenCompute/llvm-project.git
 	cd llvm-project
 	mkdir -p build && cd build
 	cmake -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=1 - 
@@ -47,7 +47,7 @@ The ROCm device library can be manually built as following,
 ::
 
   	export PATH=/opt/rocm/llvm/bin:$PATH
-	git clone -b roc-5.0.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
+	git clone -b rocm-5.0.x https://github.com/RadeonOpenCompute/ROCm-Device-Libs.git
 	cd ROCm-Device-Libs
 	mkdir -p build && cd build
 	CC=clang CXX=clang++ cmake -DLLVM_DIR=/opt/rocm/llvm -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_WERROR=1 -DLLVM_ENABLE_ASSERTIONS=1 -DCMAKE_INSTALL_PREFIX=/opt/rocm ..
@@ -62,25 +62,25 @@ NVIDIA Platform
 
 HIP-nvcc is the compiler for HIP program compilation on NVIDIA platform.
 
-::
+Install NVIDIA Driver
+-----------------------
 
+::
 		sudo apt-get install ubuntu-drivers-common && sudo ubuntu-drivers autoinstall
 		sudo reboot
 
 
 Or download the latest cuda-toolkit at https://developer.nvidia.com/cuda-downloads
 
-The driver is installed automatically.
+The driver will be installed automatically.
 
-- Add the ROCm package server to your system as per the OS-specific guide available [here](https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories).
-
-- Install the "hip-runtime-nvidia" and "hip-dev" package.  This will install CUDA SDK and the HIP porting layer.
-
+* Add the ROCm package server to your system as per the OS-specific guide available [here](https://rocm.github.io/ROCmInstall.html#installing-from-amd-rocm-repositories).
+* Install the "hip-runtime-nvidia" and "hip-dev" package.  This will install CUDA SDK and the HIP porting layer.
 
 ::
 
 		apt-get install hip-runtime-nvidia hip-dev
-
+		
  			
 
 -  Default paths and environment variables:
