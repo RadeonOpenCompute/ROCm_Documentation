@@ -94,7 +94,8 @@ While no user action is required, users are encouraged to switch to hipcc.bin an
 **Note**: The deprecated Perl scripts will be made available for a limited duration for users who prefer to use the Perl scripts.
 Subsequently, Perl scripts will no longer be available in ROCm in a future release.
 
-**Warning - Compiler-Generated Code Object Version 4 Deprecation**
+Warning - Compiler-Generated Code Object Version 4 Deprecation
+================================================================
 
 Support for loading compiler-generated code object version 4 will be deprecated in a future release with no release announcement and replaced with code object 5 as the default version. 
 
