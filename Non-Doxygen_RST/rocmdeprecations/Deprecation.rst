@@ -1,10 +1,107 @@
-.. image:: amdblack.jpg
-
 
 
 ===============
 Deprecations
 ===============
+
+ROCm Release 5.0
+-------------------
+
+Deprecations and Warnings in This Release
+=============================================
+
+ROCM LIBRARIES CHANGES – DEPRECATIONS AND DEPRECATION REMOVAL
+
+* The hipFFT.h header is now provided only by the hipFFT package.  Up to ROCm 5.0, users would get hipFFT.h in the rocFFT package too.
+* The GlobalPairwiseAMG class is now entirely removed, users should use the PairwiseAMG class instead.
+* The rocsparse_spmm signature in 5.0 was changed to match that of rocsparse_spmm_ex.  In 5.0, rocsparse_spmm_ex is still present, but deprecated.  Signature diff for    rocsparse_spmm
+
+rocsparse_spmm in 5.0
+
+::
+
+          
+          rocsparse_status rocsparse_spmm(rocsparse_handle            handle,
+                                          rocsparse_operation         trans_A,
+                                          rocsparse_operation         trans_B,
+                                          const void*                 alpha,
+                                          const rocsparse_spmat_descr mat_A,
+                                          const rocsparse_dnmat_descr mat_B,
+                                          const void*                 beta,
+                                          const rocsparse_dnmat_descr mat_C,
+                                          rocsparse_datatype          compute_type,
+                                          rocsparse_spmm_alg          alg,
+                                          rocsparse_spmm_stage        stage,
+                                          size_t*                     buffer_size,
+                                          void*                       temp_buffer);
+                                          
+                                          
+
+
+
+
+rocSPARSE_spmm in 4.0
+
+::
+
+
+          rocsparse_status rocsparse_spmm(rocsparse_handle            handle,
+                                          rocsparse_operation         trans_A,
+                                          rocsparse_operation         trans_B,
+                                          const void*                 alpha,
+                                          const rocsparse_spmat_descr mat_A,
+                                          const rocsparse_dnmat_descr mat_B,
+                                          const void*                 beta,
+                                          const rocsparse_dnmat_descr mat_C,
+                                          rocsparse_datatype          compute_type,
+                                          rocsparse_spmm_alg          alg,
+                                          size_t*                     buffer_size,
+                                          void*                       temp_buffer); 
+
+
+
+
+
+HIP API DEPRECATIONS AND WARNINGS
+====================================
+
+**Warning - Arithmetic Operators of HIP Complex and Vector Types**
+
+In this release, arithmetic operators of HIP complex and vector types are deprecated. 
+
+* As alternatives to arithmetic operators of HIP complex types, users can use arithmetic operators of std::complex types. 
+
+* As alternatives to arithmetic operators of HIP vector types, users can use the operators of the native clang vector type associated with the data member of HIP vector types.
+
+During the deprecation, two macros_HIP_ENABLE_COMPLEX_OPERATORS and_HIP_ENABLE_VECTOR_OPERATORS are provided to allow users to conditionally enable arithmetic operators of HIP complex or vector types. 
+
+Note, the two macros are mutually exclusive and, by default, set to Off. 
+
+The arithmetic operators of HIP complex and vector types will be removed in a future release.
+
+Refer to the HIP API Guide for more information.  
+
+
+
+**Refactor of HIPCC/HIPCONFIG**
+
+In prior ROCm releases, by default, the hipcc/hipconfig Perl scripts were used to identify and set target compiler options, target platform, compiler, and runtime appropriately.
+
+However, in ROCm v5.0, these Perl scripts are renamed to hipcc.pl and hipconfig.pl, and a soft link from hipcc/hipconfig is added to the respective Perl scripts as a convenience. The compiled binaries are now available as hipcc.bin and hipconfig.bin. Users can use the existing Perl scripts or the newly-added compiled binaries. Note, there is no functional difference between the Perl scripts and their compiled binary counterparts.
+
+While no user action is required, users are encouraged to switch to hipcc.bin and hipconfig.bin. This is because, in a future ROCm release, the hipcc/hipconfig soft link will be assimilated to point from hipcc/hipconfig to the respective compiled binaries as the default option.
+
+**Note**: The deprecated Perl scripts will be made available for a limited duration for users who prefer to use the Perl scripts.
+Subsequently, Perl scripts will no longer be available in ROCm in a future release.
+
+**Warning - Compiler-Generated Code Object Version 4 Deprecation**
+
+Support for loading compiler-generated code object version 4 will be deprecated in a future release with no release announcement and replaced with code object 5 as the default version. 
+
+The current default is code object version 4.
+
+
+
 
 ROCm Release v4.5
 -------------------
