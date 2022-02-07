@@ -1,16 +1,15 @@
 
 
-===============
-Deprecations
-===============
+===========================
+Deprecations and Warnings 
+============================
 
 ROCm Release 5.0
 -------------------
 
-Deprecations and Warnings in This Release
-=============================================
 
 ROCM LIBRARIES CHANGES – DEPRECATIONS AND DEPRECATION REMOVAL
+===============================================================
 
 * The hipFFT.h header is now provided only by the hipFFT package.  Up to ROCm 5.0, users would get hipFFT.h in the rocFFT package too.
 * The GlobalPairwiseAMG class is now entirely removed, users should use the PairwiseAMG class instead.
@@ -102,6 +101,10 @@ Support for loading compiler-generated code object version 4 will be deprecated 
 The current default is code object version 4.
 
 
+MIOpenTensile
+===============
+
+MIOpenTensile is now deprecated in ROCm.
 
 
 ROCm Release v4.5
