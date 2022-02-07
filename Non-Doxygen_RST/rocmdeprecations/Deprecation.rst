@@ -87,7 +87,7 @@ Refer to the HIP API Guide for more information.  
 
 In prior ROCm releases, by default, the hipcc/hipconfig Perl scripts were used to identify and set target compiler options, target platform, compiler, and runtime appropriately.
 
-However, in ROCm v5.0, these Perl scripts are renamed to hipcc.pl and hipconfig.pl, and a soft link from hipcc/hipconfig is added to the respective Perl scripts as a convenience. The compiled binaries are now available as hipcc.bin and hipconfig.bin. Users can use the existing Perl scripts or the newly-added compiled binaries. Note, there is no functional difference between the Perl scripts and their compiled binary counterparts.
+In ROCm v5.0, hipcc.bin and hipconfig.bin have been added as the compiled binary implementations of the hipcc and hipconfig. These new binaries are currently work in progress and marked as experimental with plan to fully transition in the future ROCm release. The existing hipcc and hipconfig Perl scripts are renamed to hipcc.pl and hipconfig.pl respectively. The new top level hipcc and hipconfig Perl scripts are created and can switch between the Perl script or the compiled binary based on environment variable HIPCC_USE_PERL_SCRIPT. In ROCm v5.0, by default, this environment variable is set to use hipcc and hipconfig through Perl scripts.
 
 While no user action is required, users are encouraged to switch to hipcc.bin and hipconfig.bin. This is because, in a future ROCm release, the hipcc/hipconfig soft link will be assimilated to point from hipcc/hipconfig to the respective compiled binaries as the default option.
 
