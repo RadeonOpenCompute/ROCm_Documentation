@@ -207,7 +207,7 @@ Run hipconfig (instructions below assume default installation path):
 		<ROCM_PATH>/bin/hipconfig --full
 
 
-or
+		or
 
 ::
 
