@@ -86,12 +86,12 @@ Refer to the HIP API Guide for more information.  
 
 In prior ROCm releases, by default, the hipcc/hipconfig Perl scripts were used to identify and set target compiler options, target platform, compiler, and runtime appropriately.
 
-In ROCm v5.0, hipcc.bin and hipconfig.bin have been added as the compiled binary implementations of the hipcc and hipconfig. These new binaries are currently work in progress and marked as experimental with plan to fully transition in the future ROCm release. The existing hipcc and hipconfig Perl scripts are renamed to hipcc.pl and hipconfig.pl respectively. The new top level hipcc and hipconfig Perl scripts are created and can switch between the Perl script or the compiled binary based on environment variable HIPCC_USE_PERL_SCRIPT. In ROCm v5.0, by default, this environment variable is set to use hipcc and hipconfig through Perl scripts.
+In ROCm v5.0, hipcc.bin and hipconfig.bin have been added as the compiled binary implementations of the hipcc and hipconfig. These new binaries are currently a work-in-progress, considered, and marked as experimental. ROCm plans to fully transition to hipcc.bin and hipconfig.bin in the a future ROCm release. The existing hipcc and hipconfig Perl scripts are renamed to hipcc.pl and hipconfig.pl respectively. New top-level hipcc and hipconfig Perl scripts are created, which can switch between the Perl script or the compiled binary based on the environment variable HIPCC_USE_PERL_SCRIPT. 
 
-While no user action is required, users are encouraged to switch to hipcc.bin and hipconfig.bin. This is because, in a future ROCm release, the hipcc/hipconfig soft link will be assimilated to point from hipcc/hipconfig to the respective compiled binaries as the default option.
+In ROCm 5.0, by default, this environment variable is set to use hipcc and hipconfig through the Perl scripts.
 
-**Note**: The deprecated Perl scripts will be made available for a limited duration for users who prefer to use the Perl scripts.
 Subsequently, Perl scripts will no longer be available in ROCm in a future release.
+
 
 Warning - Compiler-Generated Code Object Version 4 Deprecation
 ================================================================
