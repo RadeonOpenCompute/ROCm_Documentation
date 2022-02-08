@@ -206,10 +206,7 @@ Run hipconfig (instructions below assume default installation path):
 		shell
 		<ROCM_PATH>/bin/hipconfig --full
 
-
 		or
-
-::
 
 		shell
 		$PWD/install/bin/hipconfig --full
