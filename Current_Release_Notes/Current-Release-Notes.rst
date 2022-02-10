@@ -362,7 +362,7 @@ The following new environment variable is added in this release:
 ROCm Math and Communication Libraries
 -------------------------------------
 
-.. image:: Lib1.png
+.. image:: lib1.png
 .. image:: lib2.png
 .. image:: lib3.png
 .. image:: lib4.png
