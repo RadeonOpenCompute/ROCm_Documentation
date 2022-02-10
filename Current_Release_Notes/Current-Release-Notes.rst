@@ -20,8 +20,7 @@ February, 2022
 ROCm Installation Updates
 =========================
 
-This document describes the features, fixed issues, and information
-about downloading and installing the AMD ROCmâ„¢ software.
+This document describes the features, fixed issues, and information about downloading and installing the AMD ROCm™ software.
 
 It also covers known issues and deprecations in this release.
 
