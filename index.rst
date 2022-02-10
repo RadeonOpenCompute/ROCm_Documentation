@@ -6,7 +6,7 @@
    contain the root `toctree` directive.
 |
 
-New AMD ROCm Information Portal ROCm v4.5 and Above
+New AMD ROCm™ Information Portal ROCm v4.5 and Above
 -----------------------------------------------------
 
 Beginning ROCm release v5.0, AMD ROCm documentation has a new portal at `https://docs.amd.com <https://docs.amd.com/>`__. This portal consists
