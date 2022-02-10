@@ -374,7 +374,7 @@ Clock Throttling for GPU Events
 This feature lists GPU events as they occur in real-time and can be used
 with *kfdtest* to produce *vm_fault* events for testing.
 
-The command can be called with either " **-e**" or " **â€“showevents**"
+The command can be called with either " **-e**" or " **-“showevents**"
 like this:
 
 ::
@@ -383,7 +383,7 @@ like this:
      **-e** [EVENT [EVENT ...]], **--showevents** [EVENT [EVENT ...]]  Show event list
      
 
-Where â€œEVENTâ€ is any list combination of ' **VM_FAULT**', '
+Where "EVENT" is any list combination of ' **VM_FAULT**', '
 **THERMAL_THROTTLE**', or ' **GPU_RESET**' and is NOT case sensitive.
 
 **Note:** If no event arguments are passed, all events will be watched
@@ -447,14 +447,14 @@ The Command Line Interface (CLI) command can be called as follows:
     Format: min-max; Units: mps
     
 
-**Note:**\ â€œ0-0â€ min-max bandwidth indicates devices are not connected
+**Note:**\ "0-0" min-max bandwidth indicates devices are not connected
 directly.
 
 P2P Connection Status
 ~~~~~~~~~~~~~~~~~~~~~
 
-The *rsmi_is_p2p_accessible* API returns â€œTrueâ€ if P2P can be
-implemented between two nodes, and returns â€œFalseâ€ if P2P cannot be
+The *rsmi_is_p2p_accessible* API returns "True" if P2P can be
+implemented between two nodes, and returns "False" if P2P cannot be
 implemented between the two nodes.
 
 The Command Line Interface command can be called as follows:
@@ -462,7 +462,7 @@ The Command Line Interface command can be called as follows:
 ::
 
 
-   ./rocm-smi â€“showtopoaccess
+   ./rocm-smi -showtopoaccess
 
    Sample Output:
 
@@ -906,7 +906,7 @@ incorrectly shows an earlier time than the Dispatch timestamp.
 
 To reproduce the issue,
 
-1. Enable timing using the *â€“timestamp on* flag_.\_
+1. Enable timing using the --timestamp on* flag_.\_
 2. Use the *-i* option with the input filename that contains the name of
    the counter(s) to monitor.
 3. Run the program.
@@ -930,7 +930,7 @@ because of the incorrect timestamp with counter collection enabled.
 Users are recommended to collect kernel execution timestamps without
 monitoring counters, as follows:
 
-1. â€‹Enable timing using the *â€“timestamp on* flag, and run the
+1. Enable timing using the *â€“timestamp on* flag, and run the
    application.
 2. Rerun the application using the *-i* option with the input filename
    that contains the name of the counter(s) to monitor, and save this to
@@ -958,7 +958,7 @@ Systems Management Interface documentation.
 Deprecations and Warnings in This Release
 =========================================
 
-ROCm Libraries Changes â€“ Deprecations and Deprecation Removal
+ROCm Libraries Changes Deprecations and Deprecation Removal
 -------------------------------------------------------------
 
 -  The hipFFT.h header is now provided only by the hipFFT package. Up to
