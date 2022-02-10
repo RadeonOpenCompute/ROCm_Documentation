@@ -6,10 +6,8 @@
 Deprecations
 ===============
 
-ROCm Release v5.0
---------------------
 
-Deprecations and Warnings in This Release
+Deprecations and Warnings in ROCm v5.0
 =========================================
 
 ROCm Libraries Changes Deprecations and Deprecation Removal
