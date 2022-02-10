@@ -2,1082 +2,1142 @@
 |
 
 ================================
-AMD ROCm™ Release Notes v4.5.2
+AMD ROCm™ Release Notes v5.0
 ================================
-December, 2021
-
-INSTALLATION GUIDE UPDATES FOR ROCM V4.5.2 
--------------------------------------------
-
-In this release, users have the option to install the kernel mode driver using the Installer method. Some of the ROCm-specific use cases that the installer currently supports are:    
-
-- OpenCL (ROCr/KFD based) runtime  
-
-- HIP runtimes  
-
-- ROCm libraries and applications  
-
-- ROCm Compiler and device libraries  
-
-- ROCr runtime and thunk  
-
-- Kernel mode driver  
-
-For more details, refer to the AMD ROCm Installation Guide v4.5.2 at, 
-
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html
+February, 2022
 
 
-HIP ENHANCEMENTS 
------------------
+AMD ROCm v5.0 Release Notes
+============================
 
-The ROCm v4.5.2 release consists of the following HIP enhancement. 
+ROCm Installation Updates
+=========================
 
-Changes to the roc-obj-ls Tool
-===============================
-
-The roc-obj-ls tool is corrected in ROCm v4.5.2, and the command roc-obj-ls <exe> | roc-obj-extract is no longer the preferred syntax.   
-
-Use the roc-obj tool with the following correct command:  
-
-::
-
-
-                  roc-obj <exe> 
-
-For example, 
-
-Extract all ROCm code objects from a list of executables 
-
-::
-
-    
-                  roc-obj <executable>... 
-                  
-    
-
-Extract all ROCm code objects from a list of executables, and disassemble them 
-
-::
-
-                  roc-obj --disassemble <executable>... 
-
-                   # or 
-
-                   roc-obj -d <executable>... 
-
- 
-Extract all ROCm code objects from a list of executables into dir/ 
-
-::
-
-                   roc-obj --outdir dir/ <executable>... 
-
-                   # or 
-
-                   roc-obj -o dir/ <executable>... 
-
- 
-
-Extract only ROCm code objects matching regex over Target ID 
-
-
-::
-
-                     roc-obj --target-id gfx9 <executable>... 
-
-                     # or 
-         
-                     roc-obj -t gfx9 <executable>... 
-
-
-For more information, refer to the HIP Programming Guide at:  
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
-
-
-
-OPENMP DEFECT FIX 
-------------------
-
-Previously, ROCProfiler crashed when the following ROCProfiler options were used in OpenMP programs: 
-
-* --stats  
-
-* --hsa-trace 
-
-This issue is fixed in the OpenMP plugin by ensuring that the contents of a kernel dispatch packet are not accessed after publishing it. The issue is also fixed in ROCTracer by ensuring that the registered exit function is called before the runtime library is closed. 
-
-
-================================
-AMD ROCm™ Release Notes v4.5
-================================
-October, 2021
-
-
-This document describes the features, fixed issues, and information about downloading and installing the AMD ROCm™ software.
+This document describes the features, fixed issues, and information
+about downloading and installing the AMD ROCmâ„¢ software.
 
 It also covers known issues and deprecations in this release.
 
+Notice for Open-source and Closed-source ROCm Repositories in Future Releases
+-----------------------------------------------------------------------------
+
+To make a distinction between open-source and closed-source components,
+all ROCm repositories will consist of sub-folders in future releases.
+
+-  All open-source components will be placed in the
+   *base-url/&lt;rocm-ver&gt;/main* sub-folder
+-  All closed-source components will reside in the
+   *base-url/&lt;rocm-ver&gt;/ proprietary* sub-folder
+
 List of Supported Operating Systems
--------------------------------------
+-----------------------------------
 
 The AMD ROCm platform supports the following operating systems:
 
-+-----------------------+--------------------------------------------+
-| OS                    | Kernel                                     |
-+=======================+============================================+
-| SLES15 SP3            | 5.3.18-24.49                               |
-+-----------------------+--------------------------------------------+
-| RHEL 7.9              | 3.10.0-1160.6.1.el7                        |
-+-----------------------+--------------------------------------------+
-| CentOS 7.9            | 3.10.0-1127                                |
-+-----------------------+--------------------------------------------+
-| RHEL 8.4              | 4.18.0-193.1.1.el8                         |
-+-----------------------+--------------------------------------------+
-| CentOS 8.3            | 4.18.0-193.el8                             |
-+-----------------------+--------------------------------------------+
-| Ubuntu 18.04.5        | 5.4.0-71-generic                           |
-+-----------------------+--------------------------------------------+
-| Ubuntu 20.04.3HWE     | 5.8.0-48-generic                           |
-+-----------------------+--------------------------------------------+
+=============================== ===========================
+**OS-Version (64-bit)**         **Kernel Versions**
+=============================== ===========================
+CentOS 8.3                      4.18.0-193.el8
+CentOS 7.9                      3.10.0-1127
+RHEL 8.5                        4.18.0-348.7.1.el8_5.x86_64
+RHEL 8.4                        4.18.0-305.el8.x86_64
+RHEL 7.9                        3.10.0-1160.6.1.el7
+SLES 15 SP3                     5.3.18-59.16-default
+Ubuntu 20.04.3                  5.8.0 LTS / 5.11 HWE
+Ubuntu 18.04.5 [5.4 HWE kernel] 5.4.0-71-generic
+=============================== ===========================
 
+Support for RHEL v8.5
+~~~~~~~~~~~~~~~~~~~~~
 
-Enhanced Installation Process for ROCm v4.5
--------------------------------------------
+This release extends support for RHEL v8.5.
 
-In addition to the installation method using the native Package Manager, AMD ROCm v4.5 introduces added methods to install ROCm. With this
-release, the ROCm installation uses the *amdgpu-install* and *amdgpu-uninstall* scripts. 
+Supported GPUs
+~~~~~~~~~~~~~~
 
-The *amdgpu-install* script streamlines the installation process by:
+Radeon Pro V620 and W6800 Workstation GPUs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Abstracting the distribution-specific package installation logic
+This release extends ROCm support for Radeon Pro V620 and W6800
+Workstation GPUs.
 
--  Performing the repository set-up
+-  SRIOV virtualization support for Radeon Pro V620
 
--  Allowing user to specify the use case and automating the installation
-   of all the required packages,
+-  KVM Hypervisor (1VF support only) on Ubuntu Host OS with Ubuntu,
+   CentOs, and RHEL Guest
 
--  Performing post-install checks to verify whether the installation was
-   performed successfully
+-  Support for ROCm-SMI in an SRIOV environment. For more details, refer
+   to the ROCm SMI API documentation.
 
--  Installing the uninstallation script
+**Note:** Radeon Pro v620 is not supported on SLES.
 
-The *amdgpu-uninstall* script allows the removal of the entire ROCm stack by using a single command.
-
-Some of the ROCm-specific use cases that the installer currently supports are:
-
--  OpenCL (ROCr/KFD based) runtime
-
--  HIP runtimes
-
--  ROCm libraries and applications
-
--  ROCm Compiler and device libraries
-
--  ROCr runtime and thunk
-
-For more information, refer to the `Installation Methods <#_Installation_Methods>`__ section in this guide.
-
-**Note:** Graphics use cases are not supported in this release.
-
-For more details, refer to the AMD ROCm Installation Guide v4.5 at,
-
-https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html
-
-
-AMD ROCm v4.5 Documentation Updates
+ROCm Installation Updates for ROCm v5.0
 ---------------------------------------
 
-AMD ROCm Installation Guide
-===============================
+This release has the following ROCm installation enhancements.
 
-The AMD ROCm Installation Guide in this release includes the following updates:
+Support for Kernel Mode Driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  New - Installation Guide for ROCm v4.5
+In this release, users can install the kernel-mode driver using the
+Installer method. Some of the ROCm-specific use cases that the installer
+currently supports are:
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html
+-  OpenCL (ROCr/KFD based) runtime
+-  HIP runtimes
+-  ROCm libraries and applications
+-  ROCm Compiler and device libraries
+-  ROCr runtime and thunk
+-  Kernel-mode driver
 
+Support for Multi-version ROCm Installation and Uninstallation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD Instinct™ High Performance Computing and Tuning
-====================================================
+Users now can install multiple ROCm releases simultaneously on a system
+using the newly introduced installer script and package manager install
+mechanism.
 
-- New - AMD Instinct™ High Performance Computing and Tuning Guide 
+Users can also uninstall multi-version ROCm releases using the
+*amdgpu-uninstall* script and package manager.
 
-  see `AMD Instinct™ High Performance Computing and Tuning Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20Instinct%E2%84%A2High%20Performance%20Computing%20and%20Tuning%20Guide.pdf>`__
+Support for Updating Information on Local Repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In this release, the *amdgpu-install* script automates the process of
+updating local repository information before proceeding to ROCm
+installation.
 
+Support for Release Upgrades
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-HIP Documentation Updates
-============================
+Users can now upgrade the existing ROCm installation to specific or
+latest ROCm releases.
 
--  HIP installation instructions
+For more details, refer to the AMD ROCm Installation Guide v5.0.
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/HIP-Installation.html
+AMD ROCm V5.0 Documentation Updates
+===================================
 
--  HIP Programming Guide
+New AMD ROCm Information Portal ROCm v4.5 and Above
+-----------------------------------------------------
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+Beginning ROCm release v5.0, AMD ROCm documentation has a new portal at
+`https://docs.amd.com <https://docs.amd.com/>`__. This portal consists
+of ROCm documentation v4.5 and above.
 
--  HIP API Guide
+For documentation prior to ROCm v4.5, you may continue to access
+`http://rocmdocs.amd.com <http://rocmdocs.amd.com/>`__.
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+Documentation Updates for ROCm 5.0
+----------------------------------
 
--  HIP-Supported CUDA API Reference Guide
+Deployment Tools
+~~~~~~~~~~~~~~~~
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
+ROCm Data Center Tool Documentation Updates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  AMD ROCm Compiler Reference Guide
+-  ROCm Data Center Tool User Guide
+-  ROCm Data Center Tool API Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.5.pdf
+ROCm System Management Interface Updates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  HIP FAQ
+-  System Management Interface Guide
+-  System Management Interface API Guide
 
-   https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP-FAQ.html#hip-faq
+ROCm Command Line Interface Updates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+-  Command Line Interface Guide
 
-System Management  Interface 
-=============================
+Machine Learning/AI Documentation Updates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  System Management  Interface  (SMI)
+-  Deep Learning Guide
+-  MIGraphX API Guide
+-  MIOpen API Guide
+-  MIVisionX API Guide
 
-   https://rocmdocs.amd.com/en/latest/ROCm_System_Managment/ROCm-System-Managment.html
-   
+ROCm Libraries Documentation Updates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AMD ROCm Data Center Tool
-==========================
+-  hipSOLVER User Guide
+-  RCCL User Guide
+-  rocALUTION User Guide
+-  rocBLAS User Guide
+-  rocFFT User Guide
+-  rocRAND User Guide
+-  rocSOLVER User Guide
+-  rocSPARSE User Guide
+-  rocThrust User Guide
 
-- AMD ROCm Data Center Tool API Guide
+Compilers and Tools
+~~~~~~~~~~~~~~~~~~~
 
-  https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Manual_4.5.pdf
-  
-- AMD ROCm Data Center Tool User Guide
-
-  https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf
-
-
-ROCm SMI API Guide
-===================
-
--  ROCm SMI API Guide
-
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_4.5.pdf
-   
-
-ROC Debugger User and API Guide
-================================
+ROCDebugger Documentation Updates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  ROCDebugger User Guide
+-  ROCDebugger API Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_User_Guide.pdf
+ROCTracer
+^^^^^^^^^
 
--  Debugger API Guide
+-  ROCTracer User Guide
+-  ROCTracer API Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_API_Guide.pdf
-   
+Compilers
+^^^^^^^^^
+
+-  AMD Instinct High Performance Computing and Tuning Guide
+-  AMD Compiler Reference Guide
+
+HIPify Documentation
+^^^^^^^^^^^^^^^^^^^^
+
+-  HIPify User Guide
+-  HIP Supported CUDA API Reference Guide
+
+ROCm Debug Agent
+^^^^^^^^^^^^^^^^
+
+-  ROCm Debug Agent Guide
+-  System Level Debug Guide
+-  ROCm Validation Suite
+
+Programming Models Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+HIP Documentation
+^^^^^^^^^^^^^^^^^
+
+-  HIP Programming Guide
+-  HIP API Guide
+-  HIP FAQ Guide
 
 OpenMP Documentation
-=========================
+^^^^^^^^^^^^^^^^^^^^
 
-- Updated OpenMP documentation 
+-  OpenMP Support Guide
 
-  https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
+ROCm Glossary
+~~~~~~~~~~~~~
 
+-  ROCm Glossary - Terms and Definitions
 
-AMD ROCm General Documentation Links
-=======================================
+AMD ROCm Legacy Documentation Links ROCm v4.3 and Prior
+---------------------------------------------------------
 
 -  For AMD ROCm documentation, see
 
-   https://rocmdocs.amd.com/en/latest/
+https://rocmdocs.amd.com/en/latest/
 
 -  For installation instructions on supported platforms, see
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html
 
 -  For AMD ROCm binary structure, see
 
-   https://rocmdocs.amd.com/en/latest/Installation_Guide/Software-Stack-for-AMD-GPU.html
+https://rocmdocs.amd.com/en/latest/Installation_Guide/Software-Stack-for-AMD-GPU.html
 
 -  For AMD ROCm release history, see
 
-   https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.html
-   
+*https://rocmdocs.amd.com/en/latest/Current_Release_Notes/ROCm-Version-History.html*
 
-
-
-
-What\'s New in This Release
-----------------------------
+What's New in This Release
+==========================
 
 HIP Enhancements
-=================
+----------------
 
-The ROCm v4.5 release consists of the following HIP enhancements:
+The ROCm v5.0 release consists of the following HIP enhancements.
 
-HIP Direct Dispatch
-#####################
+HIP Installation Guide Updates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The conventional producer-consumer model where the host thread(producer) enqueues commands to a command queue (per stream), which is then
-processed by a separate, per-stream worker thread (consumer) created by the runtime, is no longer applicable.
+The HIP Installation Guide is updated to include building HIP from
+source on the NVIDIA platform.
 
-In this release, for Direct Dispatch, the runtime directly queues a packet to the AQL queue (user mode queue to GPU) in Dispatch and some of
-the synchronization. This new functionality indicates the total latency of the HIP Dispatch API and the latency to launch the first wave on the
-GPU.
+Refer to the HIP Installation Guide v5.0 for more details.
 
-In addition, eliminating the threads in runtime has reduced the variance in the dispatch numbers as the thread scheduling delays and
-atomics/locks synchronization latencies are reduced.
+Managed Memory Allocation
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This feature can be disabled by setting the following environment variable,
+Managed memory, including the ``__managed__`` keyword, is now supported
+in the HIP combined host/device compilation. Through unified memory
+allocation, managed memory allows data to be shared and accessible to
+both the CPU and GPU using a single pointer. The allocation is managed
+by the AMD GPU driver using the Linux Heterogeneous Memory Management
+(HMM) mechanism. The user can call managed memory API hipMallocManaged
+to allocate a large chunk of HMM memory, execute kernels on a device,
+and fetch data between the host and device as needed.
 
-::
-
-            AMD_DIRECT_DISPATCH=0
-            
-            
-
-Support for HIP Graph
-#######################
-
-ROCm v4.5 extends support for HIP Graph. For details, refer to the HIP API Guide at,
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
-
-
-Enhanced *launch_bounds* Check Error Log Message
-##################################################
-
-When a kernel is launched with HIP APIs, for example, hipModuleLaunchKernel(), HIP validates to check that input kernel
-dimension size is not larger than specified launch_bounds.
-
-If exceeded, HIP returns launch failure if AMD_LOG_LEVEL is set with the proper value. Users can find more information in the error log message,
-including launch parameters of kernel dim size, launch bounds, and the name of the faulting kernel. It is helpful to figure out the faulting
-kernel. Besides, the kernel dim size and launch bounds values will also assist in debugging such failures.
-
-For more details, refer to the HIP Programming Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
-
-
-HIP Runtime Compilation
-########################
-
-HIP now supports runtime compilation (hipRTC), the usage of which will provide the possibility of optimizations and performance improvement
-compared with other APIs via regular offline static compilation.
-
-hipRTC APIs accept HIP source files in character string format as input parameters and create handles of programs by compiling the HIP source
-files without spawning separate processes.
-
-For more details on hipRTC APIs, refer to the HIP API Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
-
-
-New Flag for Backwards Compatibility on float/double atomicAdd Function
-########################################################################
-
-In the ROCm4.5 release, a new compilation flag is introduced as an option in the CMAKE file. This flag ensures backwards compatibility in
-float/double atomicAdd functions.
+**Note:** In a HIP application, it is recommended to do a capability
+check before calling the managed memory APIs. For example,
 
 ::
 
-               \__HIP_USE_CMPXCHG_FOR_FP_ATOMICS
-               
 
-This compilation flag is not set ("0") by default, so the HIP runtime uses the current float/double atomicAdd functions.
-
-If this compilation flag is set to "1" with the CMAKE option, the existing float/double atomicAdd functions is used for compatibility with
-compilers that do not support floating point atomics.
-
-::
-
-               D__HIP_USE_CMPXCHG_FOR_FP_ATOMICS=1
-               
-
-For details on how to build the HIP runtime, refer to the HIP Programming Guide at
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
-
-
-
-Updated HIP Version Definition
-#################################
-
-The HIP version definition is updated as follows:
-
-::
-
-               HIP_VERSION=HIP_VERSION_MAJOR * 10000000 + HIP_VERSION_MINOR * 100000
-               + HIP_VERSION_PATCH)
-               
-
-The HIP version can be queried from the following HIP API call,
-
-::
-
-               hipRuntimeGetVersion(&runtimeVersion);
-               
-
-The version returned is always greater than the versions in the previous ROCm releases.
-
-**Note:** The version definition of the HIP runtime is different from that of CUDA. The function returns the HIP runtime version on the AMD
-platform, while on the NVIDIA platform, it returns the CUDA runtime version. There is no mapping or a correlation between the HIP and CUDA
-versions.
-
-
-
-Planned HIP Enhancements and Fixes
-####################################
-
-Changes to hiprtc implementation to match nvrtc behavior
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In this release, there are changes to the *hiprtc* implementation to match the *nvrtc* behavior.
-
-**Impact:** Applications can no longer explicitly include HIP runtime header files. Minor code changes are required to remove the HIP runtime
-header files.
-
-HIP device attribute enumeration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In a future release, there will be a breaking change in the HIP device attribute enumeration. Enum values are being rearranged to accommodate
-future enhancements and additions.
-
-**Impact:** This will require users to rebuild their applications. No code changes are required.
-
-
-Changes to behavior of hipGetLastError() and hipPeekAtLastError() to match CUDA behavior available
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In a later release, changes to behavior of hipGetLastError() and hipPeekAtLastError() to match CUDA behavior will be available.
-
-**Impact:** Applications relying on the previous behavior will be impacted and may require some code changes.
-
-Unified Memory Support in ROCm
-===============================
-
-Unified memory allows applications to map and migrate data between CPU and GPU seamlessly without explicitly copying it between different
-allocations. This enables a more complete implementation of *hipMallocManaged*, *hipMemAdvise*, *hipMemPrefetchAsync* and related
-APIs. Without unified memory, these APIs only support system memory. With unified memory, the driver can automatically migrate such memory to
-GPU memory for faster access.
-
-Supported Operating Systems and Versions
-#############################################
-
-This feature is only supported on recent Linux kernels. Currently, it works on Ubuntu versions with 5.6 or newer kernels and the DKMS driver
-from ROCm. Current releases of RHEL and SLES do not support this feature yet. Future releases of those distributions will add support for this.
-The unified memory feature is also supported in the KFD driver included with upstream kernels starting from Linux 5.14.
-
-Unified memory only works on GFXv9 and later GPUs, including Vega10 and MI100. Fiji, Polaris and older GPUs are not supported. To check whether
-unified memory is enabled, look in the kernel log for this message:
-
-::
-
-               $ dmesg \| grep "HMM registered"
-               
-
-If unified memory is enabled, there should be a "message like registered xyzMB device memory". If unified memory is not supported on
-your GPU or kernel version, this message is missing.
-
-
-Unified Memory Support and XNACK
-####################################
-
-Unified memory support comes in two flavours, XNACK-enabled and XNACK-disabled. XNACK refers to the ability of the GPU to handle page
-faults gracefully and retry a memory access. In XNACK-enabled mode, the GPU can handle retry after page-faults, which enables mapping and
-migrating data on demand, as well as memory overcommitment. In XNACK-disabled mode, all memory must be resident and mapped in the GPU
-page tables when the GPU is executing application code. Any migrations involve temporary preemption of the GPU queues by the driver. Both page
-fault handling and preemptions, happen automatically and are transparent to the applications.
-
-XNACK-enabled mode only has experimental support. XNACK-enabled mode requires compiling shader code differently. By default, the ROCm
-compiler builds code that works in both modes. Code can be optimized for one specific mode with compiler options:
-
-OpenCL:
-
-::
-
-               clang ... -mcpu=gfx908:xnack+:sramecc- ... // xnack on, sramecc
-               off
-               clangÂ ... -mcpu=gfx908:xnack-:sramecc+ ... // xnack off, sramecc
-                on
-
-
-HIP:
-
-::
-
-               clang ... --cuda-gpu-arch=gfx906:xnack+ ... // xnack on
-               clang ... --cuda-gpu-arch=gfx906:xnack- ... // xnack off
-
-
-Not all the math libraries included in ROCm support XNACK-enabled mode on current hardware. Applications will fail to run if their shaders are
-compiled in the incorrect mode.
-
-On the current hardware, the XNACK mode can be chosen at boot-time by a module parameter amdgpu.noretry. The default is XNACK-disabled
-(amdgpu.noretry=1).
-
-System Management Interface
-============================
-
-Enhanced ROCm SMI *setpoweroverdrive* Functionality
-######################################################
-
-The ROCm System Management Interface (SMI) *-setpoweroverdrive* functionality is used to lower the power cap on a device without needing
-to enable the OverDrive functionality in the driver. Similarly, even with the OverDrive driver functionality enabled, it is possible to
-request a lower power cap than the card's default.
-
-Currently, any use of the *-setpoweroverdrive* functionality in rocm-smi prints an out-of-spec warning to the screen and requires the user to
-agree that using this functionality potentially voids their warranty. However, this warning should only be printed when users are trying to
-set the power cap to higher than the card's default, which requires the OverDrive driver functionality to be enabled.
-
-For example:
-
-The default power cap is 225.0W before any changes.
-
-::
-
-
-               [atitest@rhel85 smi]$ ./rocm_smi.py -resetpoweroverdrive
-
-               ======================= ROCm System Management Interface
-               ========================================================
-
-               ========================== Reset GPU Power OverDrive
-               ====================================================
-
-               GPU[0] : Successfully reset Power OverDrive to: 225W
-
-               ============================ End of ROCm SMI Log
-               ================================================
-
-               Now, after using -setpoweroverdrive to lower the power cap to 123 watts:
-
-               [atitest@rhel85 smi]$ ./rocm_smi.py -setpoweroverdrive 123
-
-               .. _rocm-system-management-interface-1:
-
-               ======================= ROCm System Management Interface
-               ========================================================
-
-               =========================== Set GPU Power OverDrive
-               ===================================================
-
-               GPU[0] : Successfully set power to: 123W
-
-               .. _end-of-rocm-smi-log-1:
-
-               ======================= End of ROCm SMI Log
-               ===========================================
-
-               Setting a power cap lower than the default of 225.0W (in this case,
-               123W) does not give a warning.
-
-               To verify that the power is set to the correct value:
-
-               [atitest@rhel85 smi]$ ./rocm_smi.py -showmaxpower
-
-               .. _rocm-system-management-interface-2:
-
-               ======================= ROCm System Management Interface
-               ========================================================
-
-               ======================== Power Cap ===================================
-
-               GPU[0] : Max Graphics Package Power (W): 123.0
-
-               .. _end-of-rocm-smi-log-2:
-
-               ========================End of ROCm SMI Log
-               ===========================================
-
-
-OpenMP Enhancements
-=====================
-
-The ROCm installation includes an LLVM-based implementation, which fully supports OpenMP 4.5 standard and a subset of the OpenMP 5.0 standard.
-Fortran and C/C++ compilers and corresponding runtime libraries are included. Along with host APIs, the OpenMP compilers support offloading
-code and data onto GPU devices.
-
-For more information, refer to
-
-https://rocmdocs.amd.com/en/latest/Programming_Guides/openmp_support.html
-
+   int managed\_memory = 0;
+
+   HIPCHECK(hipDeviceGetAttribute(&amp;managed\_memory,
+
+   hipDeviceAttributeManagedMemory,p\_gpuDevice));
+
+   if (!managed\_memory ) {
+
+   printf (&quot;info: managed memory access not supported on the device %d\n Skipped\n&quot;, p\_gpuDevice);
+
+   }
+
+   else {
+
+   HIPCHECK(hipSetDevice(p\_gpuDevice));
+
+   HIPCHECK(hipMallocManaged(&amp;Hmm, N \* sizeof(T)));
+
+   . . .
+
+   }
+
+**Note:** The managed memory capability check may not be necessary;
+however, if HMM is not supported, managed malloc will fall back to using
+system memory. Other managed memory API calls will, then, have
+
+Refer to the HIP API documentation for more details on managed memory
+APIs.
+
+For the application, see
+
+https://github.com/ROCm-Developer-Tools/HIP/blob/rocm-4.5.x/tests/src/runtimeApi/memory/hipMallocManaged.cpp
+
+New Environment Variable
+------------------------
+
+The following new environment variable is added in this release:
+
++-----------------------+-----------------------+-----------------------+
+| **Environment         | **Value**             | **Description**       |
+| Variable**            |                       |                       |
++=======================+=======================+=======================+
+| **HSA_COOP_CU_COUNT** | 0 or 1 (default is 0) | Some processors       |
+|                       |                       | support more CUs than |
+|                       |                       | can reliably be used  |
+|                       |                       | in a cooperative      |
+|                       |                       | dispatch. Setting the |
+|                       |                       | environment variable  |
+|                       |                       | HSA_COOP_CU_COUNT to  |
+|                       |                       | 1 will cause ROCr to  |
+|                       |                       | return the correct CU |
+|                       |                       | count for cooperative |
+|                       |                       | groups through the    |
+|                       |                       | HSA_AMD               |
+|                       |                       | _AGENT_INFO_COOPERATI |
+|                       |                       | VE_COMPUTE_UNIT_COUNT |
+|                       |                       | attribute of          |
+|                       |                       | hsa_agent_get_info(). |
+|                       |                       | Setting               |
+|                       |                       | HSA_COOP_CU_COUNT to  |
+|                       |                       | other values, or      |
+|                       |                       | leaving it unset,     |
+|                       |                       | will cause ROCr to    |
+|                       |                       | return the same CU    |
+|                       |                       | count for the         |
+|                       |                       | attributes            |
+|                       |                       | HSA_AMD               |
+|                       |                       | _AGENT_INFO_COOPERATI |
+|                       |                       | VE_COMPUTE_UNIT_COUNT |
+|                       |                       | and                   |
+|                       |                       | HSA_AMD_AGENT_INF     |
+|                       |                       | O_COMPUTE_UNIT_COUNT. |
+|                       |                       | Future ROCm releases  |
+|                       |                       | will make             |
+|                       |                       | HSA_COOP_CU_COUNT=1   |
+|                       |                       | the default.          |
++-----------------------+-----------------------+-----------------------+
+|                       |                       |                       |
++-----------------------+-----------------------+-----------------------+
 
 ROCm Math and Communication Libraries
 -------------------------------------
 
-In this release, ROCm Math and Communication Libraries consists of the
-following enhancements and fixes:
-
-+-----------+----------------------------------------------------------+
-| Library   | Changes                                                  |
-+===========+==========================================================+
-| rocBLAS   | **Optimizations**                                        |
-|           |                                                          |
-|           | -  Improved performance of non-batched and batched syr   |
-|           |    for all sizes and data types                          |
-|           |                                                          |
-|           | -  Improved performance of non-batched and batched hemv  |
-|           |    for all sizes and data types                          |
-|           |                                                          |
-|           | -  Improved performance of non-batched and batched symv  |
-|           |    for all sizes and data types                          |
-|           |                                                          |
-|           | -  Improved memory utilization in rocblas-bench,         |
-|           |    rocblas-test gemm functions, increasing possible      |
-|           |    runtime sizes.                                        |
-|           |                                                          |
-|           | **Changes**                                              |
-|           |                                                          |
-|           | -  Update from C++14 to C++17.                           |
-|           |                                                          |
-|           | -  Packaging split into a runtime package (called        |
-|           |    rocblas) and a development package (called            |
-|           |    rocblas-dev for .deb packages, and rocblas-devel for  |
-|           |    .rpm packages). The development package depends on    |
-|           |    runtime. The runtime package suggests the development |
-|           |    package for all supported OSes except CentOS 7 to aid |
-|           |    in the transition. The 'suggests' feature in packaging|
-|           |    is a transitional feature and will be                 |
-|           |    removed in a future ROCm release.                     |
-|           |                                                          |
-|           | **Fixed**                                                |
-|           |                                                          |
-|           | -  For function geam avoid overflow in offset            |
-|           |    calculation.                                          |
-|           |                                                          |
-|           | -  For function syr avoid overflow in offset             |
-|           |    calculation.                                          |
-|           |                                                          |
-|           | -  For function gemv (Transpose-case) avoid overflow in  |
-|           |    offset calculation.                                   |
-|           |                                                          |
-|           | -  For functions ssyrk and dsyrk, allow                  |
-|           |    conjugate-transpose case to match legacy BLAS.        |
-|           |    Behavior is the same as the transpose case.           |
-+-----------+----------------------------------------------------------+
-| hipBLAS   | **Added**                                                |
-|           |                                                          |
-|           | -  More support for hipblas-bench                        |
-|           |                                                          |
-|           | **Fixed**                                                |
-|           |                                                          |
-|           | -  Avoid large offset overflow for gemv and hemv in      |
-|           |    hipblas-test                                          |
-|           |                                                          |
-|           | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging split into a runtime package called hipblas |
-|           |    and a development package called hipblas-devel. The   |
-|           |    development package depends on runtime. The runtime   |
-|           |    package suggests the development package for all      |
-|           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The 'suggests' feature in packaging is    |
-|           |    a transitional feature and will be                    |
-|           |    removed in a future rocm release.                     |
-+-----------+----------------------------------------------------------+
-| rocFFT    | **Optimizations**                                        |
-|           |                                                          |
-|           | -  Optimized SBCC kernels of length 52, 60, 72, 80, 84,  |
-|           |    96, 104, 108, 112, 160, 168, 208, 216, 224, 240 with  |
-|           |    new kernel generator.                                 |
-|           |                                                          |
-|           | **Added**                                                |
-|           |                                                          |
-|           | -  Split 2D device code into separate libraries.         |
-|           |                                                          |
-|           | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging split into a runtime package called rocfft  |
-|           |    and a development package called rocfft-devel. The    |
-|           |    development package depends on runtime. The runtime   |
-|           |    package suggests the development package for all      |
-|           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The suggests feature in packaging is      |
-|           |    a transitional feature and will be                    |
-|           |    removed in a future rocm release.                     |
-|           |                                                          |
-|           | **Fixed**                                                |
-|           |                                                          |
-|           | -  Fixed a few validation failures of even-length R2C    |
-|           |    inplace. 2D, 3D cubics sizes such as 100^2 (or ^3),   |
-|           |    200^2 (or ^3), 256^2 (or ^3)...etc. We don't combine  |
-|           |    the three kernels (stockham-r2c-transpose). We only   |
-|           |    combine two kernels (r2c-transpose) instead.          |
-+-----------+----------------------------------------------------------+
-| hipFFT    | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging split into a runtime package called hipfft  |
-|           |    and a development package called hipfft-devel. The    |
-|           |    development package depends on runtime. The runtime   |
-|           |    package suggests the development package for all      |
-|           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The 'suggests' feature in packaging is    |
-|           |    a tranistional feature and will be                    |
-|           |    removed in a future rocm release.                     |
-+-----------+----------------------------------------------------------+
-| rocSPARSE | **Added**                                                |
-|           |                                                          |
-|           | -  Triangular solve for multiple right-hand sides using  |
-|           |    BSR format                                            |
-|           |                                                          |
-|           | -  SpMV for BSRX format                                  |
-|           |                                                          |
-|           | -  SpMM in CSR format enhanced to work with transposed A |
-|           |                                                          |
-|           | -  Matrix coloring for CSR matrices                      |
-|           |                                                          |
-|           | -  Added batched tridiagonal solve (gtsv_strided_batch)  |
-|           |                                                          |
-|           | **Improved**                                             |
-|           |                                                          |
-|           | -  Fixed a bug with gemvi on Navi21                      |
-|           |                                                          |
-|           | -  Optimization for pivot based gtsv                     |
-+-----------+----------------------------------------------------------+
-| hipSPARSE | **Added**                                                |
-|           |                                                          |
-|           | -  Triangular solve for multiple right-hand sides using  |
-|           |    BSR format                                            |
-|           |                                                          |
-|           | -  SpMV for BSRX format                                  |
-|           |                                                          |
-|           | -  SpMM in CSR format enhanced to work with transposed A |
-|           |                                                          |
-|           | -  Matrix coloring for CSR matrices                      |
-|           |                                                          |
-|           | -  Added batched tridiagonal solve (gtsv_strided_batch)  |
-|           |                                                          |
-|           | **Improved**                                             |
-|           |                                                          |
-|           | -  Fixed a bug with gemvi on Navi21                      |
-|           |                                                          |
-|           | -  Optimization for pivot based gtsv                     |
-+-----------+----------------------------------------------------------+
-| r         | **Changed**                                              |
-| ocALUTION |                                                          |
-|           | -  Packaging split into a runtime package called         |
-|           |    rocalution and a development package called           |
-|           |    rocalution-devel. The development package depends on  |
-|           |    runtime. The runtime package suggests the development |
-|           |    package for all supported OSes except CentOS 7 to aid |
-|           |    in the transition. The 'suggests' feature in packaging|
-|           |    is a transitional feature and will be                 |
-|           |    removed in a future rocm release.                     |
-|           |                                                          |
-|           | **Improved**                                             |
-|           |                                                          |
-|           | -  (A)MG solving phase optimization                      |
-+-----------+----------------------------------------------------------+
-| rocTHRUST | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging changed to a development package (called    |
-|           |    rocthrust-dev for .deb packages, and rocthrust-devel  |
-|           |    for .rpm packages). As rocThrust is a header-only     |
-|           |    library, there is no runtime package. To aid in the   |
-|           |    transition, the development package sets the          |
-|           |    "provides" field to provide the package rocthrust, so |
-|           |    that existing packages depending on rocthrust can     |
-|           |    continue to work. This provides feature is introduced |
-|           |    as a deprecated feature and will be removed in a      |
-|           |    future ROCm release.                                  |
-+-----------+----------------------------------------------------------+
-| rocSOLVER | **Added**                                                |
-|           |                                                          |
-|           | -  RQ factorization routines:                            |
-|           |                                                          |
-|           | -  GERQ2, GERQF (with batched and strided_batched        |
-|           |    versions)                                             |
-|           |                                                          |
-|           | -  Linear solvers for general square systems:            |
-|           |                                                          |
-|           | -  GESV (with batched and strided_batched versions)      |
-|           |                                                          |
-|           | -  Linear solvers for symmetric/hermitian positive       |
-|           |    definite systems:                                     |
-|           |                                                          |
-|           | -  POTRS (with batched and strided_batched versions)     |
-|           |                                                          |
-|           | -  POSV (with batched and strided_batched versions)      |
-|           |                                                          |
-|           | -  Inverse of symmetric/hermitian positive definite      |
-|           |    matrices:                                             |
-|           |                                                          |
-|           | -  POTRI (with batched and strided_batched versions)     |
-|           |                                                          |
-|           | -  General matrix inversion without pivoting:            |
-|           |                                                          |
-|           | -  GETRI_NPVT (with batched and strided_batched          |
-|           |    versions)                                             |
-|           |                                                          |
-|           | -  GETRI_NPVT_OUTOFPLACE (with batched and               |
-|           |    strided_batched versions)                             |
-|           |                                                          |
-|           | **Optimized**                                            |
-|           |                                                          |
-|           | -  Improved performance of LU factorization (especially  |
-|           |    for large matrix sizes)                               |
-|           |                                                          |
-|           | -  Changed                                               |
-|           |                                                          |
-|           | -  Raised reference LAPACK version used for rocSOLVER    |
-|           |    test and benchmark clients to v3.9.1                  |
-|           |                                                          |
-|           | -  Minor CMake improvements for users building from      |
-|           |    source without install.sh:                            |
-|           |                                                          |
-|           | -  Removed fmt::fmt from rocsolver's public usage        |
-|           |    requirements                                          |
-|           |                                                          |
-|           | -  Enabled small-size optimizations by default           |
-|           |                                                          |
-|           | -  Split packaging into a runtime package ('rocsolver')  |
-|           |    and a development package ('rocsolver-devel'). The    |
-|           |    development package depends on the runtime package.   |
-|           |    To aid in the transition, the runtime package         |
-|           |    suggests the development package (except on CentOS    |
-|           |    7). This use of the 'suggests' feature is deprecated  |
-|           |    and will be removed in a future ROCm release.         |
-|           |                                                          |
-|           | **Fixed**                                                |
-|           |                                                          |
-|           | -  Use of the GCC / Clang                                |
-|           |    \__attribute__((deprecated(...))) extension is now    |
-|           |    guarded by compiler detection macros.                 |
-+-----------+----------------------------------------------------------+
-| hipSOLVER | The following functions were added in this release:      |
-|           |                                                          |
-|           | -  gesv                                                  |
-|           |                                                          |
-|           |    -  hipsolverSSgesv_bufferSize,                        |
-|           |       hipsolverDDgesv_bufferSize,                        |
-|           |       hipsolverCCgesv_bufferSize,                        |
-|           |       hipsolverZZgesv_bufferSize                         |
-|           |                                                          |
-|           |    -  hipsolverSSgesv, hipsolverDDgesv, hipsolverCCgesv, |
-|           |       hipsolverZZgesv                                    |
-|           |                                                          |
-|           | -  potrs                                                 |
-|           |                                                          |
-|           |    -  hipsolverSpotrs_bufferSize,                        |
-|           |       hipsolverDpotrs_bufferSize,                        |
-|           |       hipsolverCpotrs_bufferSize,                        |
-|           |       hipsolverZpotrs_bufferSize                         |
-|           |                                                          |
-|           |    -  hipsolverSpotrs, hipsolverDpotrs, hipsolverCpotrs, |
-|           |       hipsolverZpotrs                                    |
-|           |                                                          |
-|           | -  potrsBatched                                          |
-|           |                                                          |
-|           |    -  hipsolverSpotrsBatched_bufferSize,                 |
-|           |       hipsolverDpotrsBatched_bufferSize,                 |
-|           |       hipsolverCpotrsBatched_bufferSize,                 |
-|           |       hipsolverZpotrsBatched_bufferSize                  |
-|           |                                                          |
-|           |    -  hipsolverSpotrsBatched, hipsolverDpotrsBatched,    |
-|           |       hipsolverCpotrsBatched, hipsolverZpotrsBatched     |
-|           |                                                          |
-|           | -  potri                                                 |
-|           |                                                          |
-|           |    -  hipsolverSpotri_bufferSize,                        |
-|           |       hipsolverDpotri_bufferSize,                        |
-|           |       hipsolverCpotri_bufferSize,                        |
-|           |       hipsolverZpotri_bufferSize                         |
-|           |                                                          |
-|           |    -  hipsolverSpotri, hipsolverDpotri, hipsolverCpotri, |
-|           |       hipsolverZpotri                                    |
-+-----------+----------------------------------------------------------+
-| RCCL      | **Added**                                                |
-|           |                                                          |
-|           | -  Compatibility with NCCL 2.9.9                         |
-|           |                                                          |
-|           | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging split into a runtime package called rccl    |
-|           |    and a development package called rccl-devel. The      |
-|           |    development package depends on runtime. The runtime   |
-|           |    package suggests the development package for all      |
-|           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The suggests feature in packaging is      |
-|           |    a transitional feature and will be                    |
-|           |    removed in a future rocm release.                     |
-+-----------+----------------------------------------------------------+
-| hipCUB    | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging changed to a development package (called    |
-|           |    hipcub-dev for .deb packages, and hipcub-devel for    |
-|           |    .rpm packages). As hipCUB is a header-only library,   |
-|           |    there is no runtime package. To aid in the            |
-|           |    transition, the development package sets the          |
-|           |    "provides" field to provide the package hipcub, so    |
-|           |    that existing packages depending on hipcub can        |
-|           |    continue to work. This provides feature is introduced |
-|           |    as a deprecated feature and will be removed in a      |
-|           |    future ROCm release.                                  |
-+-----------+----------------------------------------------------------+
-| rocPRIM   | **Added**                                                |
-|           |                                                          |
-|           | -  bfloat16 support added.                               |
-|           |                                                          |
-|           | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging split into a runtime package called rocprim |
-|           |    and a development package called rocprim-devel. The   |
-|           |    development package depends on runtime. The runtime   |
-|           |    package suggests the development package for all      |
-|           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The suggests feature in packaging is      |
-|           |    a transitional feature and will be                    |
-|           |    removed in a future rocm release.                     |
-|           |                                                          |
-|           | -  As rocPRIM is a header-only library, the runtime      |
-|           |    package is an empty placeholder used to aid in the    |
-|           |    transition. This package is also a deprecated feature |
-|           |    and will be removed in a future rocm release.         |
-|           |                                                          |
-|           | **Deprecated**                                           |
-|           |                                                          |
-|           | -  The warp_size() function is now deprecated; please    |
-|           |    switch to host_warp_size() and device_warp_size() for |
-|           |    host and device references respectively.              |
-+-----------+----------------------------------------------------------+
-| rocRAND   | **Changed**                                              |
-|           |                                                          |
-|           | -  Packaging split into a runtime package called rocrand |
-|           |    and a development package called rocrand-devel. The   |
-|           |    development package depends on runtime. The runtime   |
-|           |    package suggests the development package for all      |
-|           |    supported OSes except CentOS 7 to aid in the          |
-|           |    transition. The 'suggests' feature in packaging is    |
-|           |    a transitional feature and will be                    |
-|           |    removed in a future rocm release.                     |
-|           |                                                          |
-|           | **Fixed**                                                |
-|           |                                                          |
-|           | -  Fix for mrg_uniform_distribution_double generating    |
-|           |    incorrect range of values                             |
-|           |                                                          |
-|           | -  Fix for order of state calls for log_normal, normal,  |
-|           |    and uniform                                           |
-|           |                                                          |
-|           | **Known issues**                                         |
-|           |                                                          |
-|           | -  kernel_xorwow test is failing for certain GPU         |
-|           |    architectures.                                        |
-+-----------+----------------------------------------------------------+
-
-For more information about ROCm Libraries, refer to the documentation at
-
-https://rocmdocs.amd.com/en/latest/ROCm_Libraries/ROCm_Libraries.html
-
-
-Known Issues in This Release
--------------------------------
-
-The following are the known issues in this release.
+.. image:: Lib1.png
+.. image:: lib2.png
+.. image:: lib3.png
+.. image:: lib4.png
+.. image:: lib5.png
+.. image:: lib6.png
 
 
 
+System Management Interface
+---------------------------
 
-Cache Issues with ROCProfiler
-==============================
+Clock Throttling for GPU Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When the same kernel is launched back-to-back multiple times on a GPU, a cache flush is executed each time the kernel finishes when profiler data is collected. The cache flush is inserted by ROCprofiler for each kernel. This prevents kernel from being cached, instead it is being read each time it is launched. As a result the cache hit rate from rocprofiler is reported as 0% or very low.
+This feature lists GPU events as they occur in real-time and can be used
+with *kfdtest* to produce *vm_fault* events for testing.
 
-This issue is under investigation and will be fixed in a future release. 
-
-
-Compiler Support for Function Pointers and Virtual Functions
-=============================================================
-
-A known issue in the compiler support for function pointers and virtual functions on the GPU may cause undefined behavior due to register
-corruption.
-
-A temporary workaround is to compile the affected application with 
+The command can be called with either " **-e**" or " **-“showevents**"
+like this:
 
 ::
 
-               -mllvm -amdgpu-fixed-function-abi=1 option 
+
+     **-e** [EVENT [EVENT ...]], **--showevents** [EVENT [EVENT ...]]  Show event list
+     
+
+Where "EVENT" is any list combination of ' **VM_FAULT**', '
+**THERMAL_THROTTLE**', or ' **GPU_RESET**' and is NOT case sensitive.
+
+**Note:** If no event arguments are passed, all events will be watched
+by default.
+
+CLI Commands
+^^^^^^^^^^^^
+
+::
 
 
-**Note:** This is an internal compiler flag and may be removed without notice once the issue is addressed in a future release.
+   ./rocm-smi --showevents vm\_fault thermal\_throttle gpu\_reset
+
+   =========== ROCm System Management Interface ======================
+
+   ========================== Show Events ============================
+
+   press &#39;q&#39; or &#39;ctrl + c&#39; to quit
+
+   DEVICE          TIME            TYPE            DESCRIPTION
+
+   ========================= End of ROCm SMI Log =====================
+
+   \*run kfdtest in another window to test for vm\_fault events
+
+**Note:** Unlike other rocm-smi CLI commands, this command does not quit
+unless specified by the user. Users may press either ' **q**' or '
+**ctrl + c**' to quit.
+
+Display XGMI Bandwidth Between Nodes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The *rsmi_minmax_bandwidth_get* API reads the HW Topology file and
+displays bandwidth (min-max) between any two NUMA nodes in a matrix
+format.
+
+The Command Line Interface (CLI) command can be called as follows:
+
+::
 
 
-Debugger Process Exit May Cause ROCgdb Internal Error
-=======================================================
+   ./rocm-smi --shownodesbw
 
-If the debugger process exits during debugging, ROCgdb may report internal errors. This issue occurs as it attempts to access the AMD GPU
-state for the exited process. To recover, users must restart ROCgdb.
+   CLI ---shownodesbw
 
-As a workaround, users can set breakpoints to prevent the debugged process from exiting. For example, users can set breakpoints at the last
-statement of the main function and in the abort() and exit() functions. This temporary solution allows the application to be re-run without
-restarting ROCgdb.
+   usage- We show maximum theoretical xgmi bandwidth between 2 numa nodes
 
-This issue is currently under investigation and will be fixed in a future release.
+   sample output-
 
-For more information, refer to the ROCgdb User Guide at,
+   ================= ROCm System Management Interface ================
+    ================= Bandwidth ===================================
+    GPU0 GPU1 GPU2 GPU3 GPU4 GPU5 GPU6 GPU7
+    GPU0 N/A 50000-200000 50000-50000 0-0 0-0 0-0 50000-100000 0-0
+    GPU1 50000-200000 N/A 0-0 50000-50000 0-0 50000-50000 0-0 0-0
+    GPU2 50000-50000 0-0 N/A 50000-200000 50000-100000 0-0 0-0 0-0
+    GPU3 0-0 50000-50000 50000-200000 N/A 0-0 0-0 0-0 50000-50000
+    GPU4 0-0 0-0 50000-100000 0-0 N/A 50000-200000 50000-50000 0-0
+    GPU5 0-0 50000-50000 0-0 0-0 50000-200000 N/A 0-0 50000-50000
+    GPU6 50000-100000 0-0 0-0 0-0 50000-50000 0-0 N/A 50000-200000
+    GPU7 0-0 0-0 0-0 50000-50000 0-0 50000-50000 50000-200000 N/A
+    Format: min-max; Units: mps
+    
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+**Note:**\ "0-0" min-max bandwidth indicates devices are not connected
+directly.
 
+P2P Connection Status
+~~~~~~~~~~~~~~~~~~~~~
 
-clinfo and rocminfo Do Not Display Marketing Name
-=======================================================
+The *rsmi_is_p2p_accessible* API returns "True" if P2P can be
+implemented between two nodes, and returns "False" if P2P cannot be
+implemented between the two nodes.
 
-clinfo and rocminfo display a blank field for Marketing Name. 
+The Command Line Interface command can be called as follows:
 
-This is due to a missing package that is not yet available from ROCm. This package will be distributed in future ROCm releases.
-
-
-Stability Issue on LAMMPS-KOKKOS Applications
-==============================================
-
-On mGPU machines, lammps-kokkos applications experience a stability issue (AMD Instinct MI100™).
-
-As a workaround, perform a Translation LookAside Buffer (TLB) flush.
-
-The issue is under active investigation and will be resolved in a future release.
-
-
-Deprecations
--------------
-
-AMD Instinct MI25 End of Life
-================================
-
-ROCm release v4.5 is the final release to support AMD Instinct MI25. AMD Instinct MI25 has reached End of Life (EOL). ROCm 4.5 represents the
-last certified release for software and driver support. AMD will continue to provide technical support and issue resolution for AMD
-Instinct MI25 on ROCm v4.5 for a period of 12 months from the software GA date.
+::
 
 
-Planned Deprecation for Code Object Versions 2 AND 3 
-=====================================================
+   ./rocm-smi -showtopoaccess
 
-With the ROCm v4.5 release, the generation of code object versions 2 and 3 is being deprecated and may be removed in a future release. This deprecation notice does not impact support for the execution of AMD GPU code object versions.
+   Sample Output:
 
-The -mcode-object-version Clang option can be used to instruct the compiler to generate a specific AMD GPU code object version. In ROCm v4.5, the compiler can generate AMD GPU code object version 2, 3, and 4, with version 4 being the default if not specified. 
+   ./rocm-smi --showtopoaccess
+
+   ====================== ROCm System Management Interface =======================
+
+   ==================== Link accessibility between two GPUs ======================
+
+   GPU0 GPU1
+
+   GPU0 True True
+
+   GPU1 True True
+
+   ============================= End of ROCm SMI Log ============================
+
+   # Breaking Changes
+
+   ## Runtime Breaking Change
+
+   Re-ordering of the enumerated type in hip\_runtime\_api.h to better match NV.  See below for the difference in enumerated types.
+
+   ROCm software will be affected if any of the defined enums listed below are used in the code.  Applications built with ROCm v5.0 enumerated types will work with a ROCm 4.5.2 driver. However, an undefined behavior error will occur with a ROCm v4.5.2 application that uses these enumerated types with a ROCm 5.0 runtime.
+
+   typedef enum hipDeviceAttribute\_t {
+
+   - hipDeviceAttributeMaxThreadsPerBlock, ///\&lt; Maximum number of threads per block.
+
+   - hipDeviceAttributeMaxBlockDimX, ///\&lt; Maximum x-dimension of a block.
+
+   - hipDeviceAttributeMaxBlockDimY, ///\&lt; Maximum y-dimension of a block.
+
+   - hipDeviceAttributeMaxBlockDimZ, ///\&lt; Maximum z-dimension of a block.
+
+   - hipDeviceAttributeMaxGridDimX, ///\&lt; Maximum x-dimension of a grid.
+
+   - hipDeviceAttributeMaxGridDimY, ///\&lt; Maximum y-dimension of a grid.
+
+   - hipDeviceAttributeMaxGridDimZ, ///\&lt; Maximum z-dimension of a grid.
+
+   - hipDeviceAttributeMaxSharedMemoryPerBlock, ///\&lt; Maximum shared memory available per block in
+
+   - ///\&lt; bytes.
+
+   - hipDeviceAttributeTotalConstantMemory, ///\&lt; Constant memory size in bytes.
+
+   - hipDeviceAttributeWarpSize, ///\&lt; Warp size in threads.
+
+   - hipDeviceAttributeMaxRegistersPerBlock, ///\&lt; Maximum number of 32-bit registers available to a
+
+   - ///\&lt; thread block. This number is shared by all thread
+
+   - ///\&lt; blocks simultaneously resident on a
+
+   - ///\&lt; multiprocessor.
+
+   - hipDeviceAttributeClockRate, ///\&lt; Peak clock frequency in kilohertz.
+
+   - hipDeviceAttributeMemoryClockRate, ///\&lt; Peak memory clock frequency in kilohertz.
+
+   - hipDeviceAttributeMemoryBusWidth, ///\&lt; Global memory bus width in bits.
+
+   - hipDeviceAttributeMultiprocessorCount, ///\&lt; Number of multiprocessors on the device.
+
+   - hipDeviceAttributeComputeMode, ///\&lt; Compute mode that device is currently in.
+
+   - hipDeviceAttributeL2CacheSize, ///\&lt; Size of L2 cache in bytes. 0 if the device doesn&#39;t have L2
+
+   - ///\&lt; cache.
+
+   - hipDeviceAttributeMaxThreadsPerMultiProcessor, ///\&lt; Maximum resident threads per
+
+   - ///\&lt; multiprocessor.
+
+   - hipDeviceAttributeComputeCapabilityMajor, ///\&lt; Major compute capability version number.
+
+   - hipDeviceAttributeComputeCapabilityMinor, ///\&lt; Minor compute capability version number.
+
+   - hipDeviceAttributeConcurrentKernels, ///\&lt; Device can possibly execute multiple kernels
+
+   - ///\&lt; concurrently.
+
+   - hipDeviceAttributePciBusId, ///\&lt; PCI Bus ID.
+
+   - hipDeviceAttributePciDeviceId, ///\&lt; PCI Device ID.
+
+   - hipDeviceAttributeMaxSharedMemoryPerMultiprocessor, ///\&lt; Maximum Shared Memory Per
+
+   - ///\&lt; Multiprocessor.
+
+   - hipDeviceAttributeIsMultiGpuBoard, ///\&lt; Multiple GPU devices.
+
+   - hipDeviceAttributeIntegrated, ///\&lt; iGPU
+
+   - hipDeviceAttributeCooperativeLaunch, ///\&lt; Support cooperative launch
+
+   - hipDeviceAttributeCooperativeMultiDeviceLaunch, ///\&lt; Support cooperative launch on multiple devices
+
+   - hipDeviceAttributeMaxTexture1DWidth, ///\&lt; Maximum number of elements in 1D images
+
+   - hipDeviceAttributeMaxTexture2DWidth, ///\&lt; Maximum dimension width of 2D images in image elements
+
+   - hipDeviceAttributeMaxTexture2DHeight, ///\&lt; Maximum dimension height of 2D images in image elements
+
+   - hipDeviceAttributeMaxTexture3DWidth, ///\&lt; Maximum dimension width of 3D images in image elements
+
+   - hipDeviceAttributeMaxTexture3DHeight, ///\&lt; Maximum dimensions height of 3D images in image elements
+
+   - hipDeviceAttributeMaxTexture3DDepth, ///\&lt; Maximum dimensions depth of 3D images in image elements
+
+   + hipDeviceAttributeCudaCompatibleBegin = 0,
+
+   - hipDeviceAttributeHdpMemFlushCntl, ///\&lt; Address of the HDP\_MEM\_COHERENCY\_FLUSH\_CNTL register
+
+   - hipDeviceAttributeHdpRegFlushCntl, ///\&lt; Address of the HDP\_REG\_COHERENCY\_FLUSH\_CNTL register
+
+   + hipDeviceAttributeEccEnabled = hipDeviceAttributeCudaCompatibleBegin, ///\&lt; Whether ECC support is enabled.
+
+   + hipDeviceAttributeAccessPolicyMaxWindowSize, ///\&lt; Cuda only. The maximum size of the window policy in bytes.
+
+   + hipDeviceAttributeAsyncEngineCount, ///\&lt; Cuda only. Asynchronous engines number.
+
+   + hipDeviceAttributeCanMapHostMemory, ///\&lt; Whether host memory can be mapped into device address space
+
+   + hipDeviceAttributeCanUseHostPointerForRegisteredMem,///\&lt; Cuda only. Device can access host registered memory
+
+   + ///\&lt; at the same virtual address as the CPU
+
+   + hipDeviceAttributeClockRate, ///\&lt; Peak clock frequency in kilohertz.
+
+   + hipDeviceAttributeComputeMode, ///\&lt; Compute mode that device is currently in.
+
+   + hipDeviceAttributeComputePreemptionSupported, ///\&lt; Cuda only. Device supports Compute Preemption.
+
+   + hipDeviceAttributeConcurrentKernels, ///\&lt; Device can possibly execute multiple kernels concurrently.
+
+   + hipDeviceAttributeConcurrentManagedAccess, ///\&lt; Device can coherently access managed memory concurrently with the CPU
+
+   + hipDeviceAttributeCooperativeLaunch, ///\&lt; Support cooperative launch
+
+   + hipDeviceAttributeCooperativeMultiDeviceLaunch, ///\&lt; Support cooperative launch on multiple devices
+
+   + hipDeviceAttributeDeviceOverlap, ///\&lt; Cuda only. Device can concurrently copy memory and execute a kernel.
+
+   + ///\&lt; Deprecated. Use instead asyncEngineCount.
+
+   + hipDeviceAttributeDirectManagedMemAccessFromHost, ///\&lt; Host can directly access managed memory on
+
+   + ///\&lt; the device without migration
+
+   + hipDeviceAttributeGlobalL1CacheSupported, ///\&lt; Cuda only. Device supports caching globals in L1
+
+   + hipDeviceAttributeHostNativeAtomicSupported, ///\&lt; Cuda only. Link between the device and the host supports native atomic operations
+
+   + hipDeviceAttributeIntegrated, ///\&lt; Device is integrated GPU
+
+   + hipDeviceAttributeIsMultiGpuBoard, ///\&lt; Multiple GPU devices.
+
+   + hipDeviceAttributeKernelExecTimeout, ///\&lt; Run time limit for kernels executed on the device
+
+   + hipDeviceAttributeL2CacheSize, ///\&lt; Size of L2 cache in bytes. 0 if the device doesn&#39;t have L2 cache.
+
+   + hipDeviceAttributeLocalL1CacheSupported, ///\&lt; caching locals in L1 is supported
+
+   + hipDeviceAttributeLuid, ///\&lt; Cuda only. 8-byte locally unique identifier in 8 bytes. Undefined on TCC and non-Windows platforms
+
+   + hipDeviceAttributeLuidDeviceNodeMask, ///\&lt; Cuda only. Luid device node mask. Undefined on TCC and non-Windows platforms
+
+   + hipDeviceAttributeComputeCapabilityMajor, ///\&lt; Major compute capability version number.
+
+   + hipDeviceAttributeManagedMemory, ///\&lt; Device supports allocating managed memory on this system
+
+   + hipDeviceAttributeMaxBlocksPerMultiProcessor, ///\&lt; Cuda only. Max block size per multiprocessor
+
+   + hipDeviceAttributeMaxBlockDimX, ///\&lt; Max block size in width.
+
+   + hipDeviceAttributeMaxBlockDimY, ///\&lt; Max block size in height.
+
+   + hipDeviceAttributeMaxBlockDimZ, ///\&lt; Max block size in depth.
+
+   + hipDeviceAttributeMaxGridDimX, ///\&lt; Max grid size in width.
+
+   + hipDeviceAttributeMaxGridDimY, ///\&lt; Max grid size in height.
+
+   + hipDeviceAttributeMaxGridDimZ, ///\&lt; Max grid size in depth.
+
+   + hipDeviceAttributeMaxSurface1D, ///\&lt; Maximum size of 1D surface.
+
+   + hipDeviceAttributeMaxSurface1DLayered, ///\&lt; Cuda only. Maximum dimensions of 1D layered surface.
+
+   + hipDeviceAttributeMaxSurface2D, ///\&lt; Maximum dimension (width, height) of 2D surface.
+
+   + hipDeviceAttributeMaxSurface2DLayered, ///\&lt; Cuda only. Maximum dimensions of 2D layered surface.
+
+   + hipDeviceAttributeMaxSurface3D, ///\&lt; Maximum dimension (width, height, depth) of 3D surface.
+
+   + hipDeviceAttributeMaxSurfaceCubemap, ///\&lt; Cuda only. Maximum dimensions of Cubemap surface.
+
+   + hipDeviceAttributeMaxSurfaceCubemapLayered, ///\&lt; Cuda only. Maximum dimension of Cubemap layered surface.
+
+   + hipDeviceAttributeMaxTexture1DWidth, ///\&lt; Maximum size of 1D texture.
+
+   + hipDeviceAttributeMaxTexture1DLayered, ///\&lt; Cuda only. Maximum dimensions of 1D layered texture.
+
+   + hipDeviceAttributeMaxTexture1DLinear, ///\&lt; Maximum number of elements allocatable in a 1D linear texture.
+
+   + ///\&lt; Use cudaDeviceGetTexture1DLinearMaxWidth() instead on Cuda.
+
+   + hipDeviceAttributeMaxTexture1DMipmap, ///\&lt; Cuda only. Maximum size of 1D mipmapped texture.
+
+   + hipDeviceAttributeMaxTexture2DWidth, ///\&lt; Maximum dimension width of 2D texture.
+
+   + hipDeviceAttributeMaxTexture2DHeight, ///\&lt; Maximum dimension hight of 2D texture.
+
+   + hipDeviceAttributeMaxTexture2DGather, ///\&lt; Cuda only. Maximum dimensions of 2D texture if gather operations performed.
+
+   + hipDeviceAttributeMaxTexture2DLayered, ///\&lt; Cuda only. Maximum dimensions of 2D layered texture.
+
+   + hipDeviceAttributeMaxTexture2DLinear, ///\&lt; Cuda only. Maximum dimensions (width, height, pitch) of 2D textures bound to pitched memory.
+
+   + hipDeviceAttributeMaxTexture2DMipmap, ///\&lt; Cuda only. Maximum dimensions of 2D mipmapped texture.
+
+   + hipDeviceAttributeMaxTexture3DWidth, ///\&lt; Maximum dimension width of 3D texture.
+
+   + hipDeviceAttributeMaxTexture3DHeight, ///\&lt; Maximum dimension height of 3D texture.
+
+   + hipDeviceAttributeMaxTexture3DDepth, ///\&lt; Maximum dimension depth of 3D texture.
+
+   + hipDeviceAttributeMaxTexture3DAlt, ///\&lt; Cuda only. Maximum dimensions of alternate 3D texture.
+
+   + hipDeviceAttributeMaxTextureCubemap, ///\&lt; Cuda only. Maximum dimensions of Cubemap texture
+
+   + hipDeviceAttributeMaxTextureCubemapLayered, ///\&lt; Cuda only. Maximum dimensions of Cubemap layered texture.
+
+   + hipDeviceAttributeMaxThreadsDim, ///\&lt; Maximum dimension of a block
+
+   + hipDeviceAttributeMaxThreadsPerBlock, ///\&lt; Maximum number of threads per block.
+
+   + hipDeviceAttributeMaxThreadsPerMultiProcessor, ///\&lt; Maximum resident threads per multiprocessor.
+
+   + hipDeviceAttributeMaxPitch, ///\&lt; Maximum pitch in bytes allowed by memory copies
+
+   + hipDeviceAttributeMemoryBusWidth, ///\&lt; Global memory bus width in bits.
+
+   + hipDeviceAttributeMemoryClockRate, ///\&lt; Peak memory clock frequency in kilohertz.
+
+   + hipDeviceAttributeComputeCapabilityMinor, ///\&lt; Minor compute capability version number.
+
+   + hipDeviceAttributeMultiGpuBoardGroupID, ///\&lt; Cuda only. Unique ID of device group on the same multi-GPU board
+
+   + hipDeviceAttributeMultiprocessorCount, ///\&lt; Number of multiprocessors on the device.
+
+   + hipDeviceAttributeName, ///\&lt; Device name.
+
+   + hipDeviceAttributePageableMemoryAccess, ///\&lt; Device supports coherently accessing pageable memory
+
+   + ///\&lt; without calling hipHostRegister on it
+
+   + hipDeviceAttributePageableMemoryAccessUsesHostPageTables, ///\&lt; Device accesses pageable memory via the host&#39;s page tables
+
+   + hipDeviceAttributePciBusId, ///\&lt; PCI Bus ID.
+
+   + hipDeviceAttributePciDeviceId, ///\&lt; PCI Device ID.
+
+   + hipDeviceAttributePciDomainID, ///\&lt; PCI Domain ID.
+
+   + hipDeviceAttributePersistingL2CacheMaxSize, ///\&lt; Cuda11 only. Maximum l2 persisting lines capacity in bytes
+
+   + hipDeviceAttributeMaxRegistersPerBlock, ///\&lt; 32-bit registers available to a thread block. This number is shared
+
+   + ///\&lt; by all thread blocks simultaneously resident on a multiprocessor.
+
+   + hipDeviceAttributeMaxRegistersPerMultiprocessor, ///\&lt; 32-bit registers available per block.
+
+   + hipDeviceAttributeReservedSharedMemPerBlock, ///\&lt; Cuda11 only. Shared memory reserved by CUDA driver per block.
+
+   + hipDeviceAttributeMaxSharedMemoryPerBlock, ///\&lt; Maximum shared memory available per block in bytes.
+
+   + hipDeviceAttributeSharedMemPerBlockOptin, ///\&lt; Cuda only. Maximum shared memory per block usable by special opt in.
+
+   + hipDeviceAttributeSharedMemPerMultiprocessor, ///\&lt; Cuda only. Shared memory available per multiprocessor.
+
+   + hipDeviceAttributeSingleToDoublePrecisionPerfRatio, ///\&lt; Cuda only. Performance ratio of single precision to double precision.
+
+   + hipDeviceAttributeStreamPrioritiesSupported, ///\&lt; Cuda only. Whether to support stream priorities.
+
+   + hipDeviceAttributeSurfaceAlignment, ///\&lt; Cuda only. Alignment requirement for surfaces
+
+   + hipDeviceAttributeTccDriver, ///\&lt; Cuda only. Whether device is a Tesla device using TCC driver
+
+   + hipDeviceAttributeTextureAlignment, ///\&lt; Alignment requirement for textures
+
+   + hipDeviceAttributeTexturePitchAlignment, ///\&lt; Pitch alignment requirement for 2D texture references bound to pitched memory;
+
+   + hipDeviceAttributeTotalConstantMemory, ///\&lt; Constant memory size in bytes.
+
+   + hipDeviceAttributeTotalGlobalMem, ///\&lt; Global memory available on devicice.
+
+   + hipDeviceAttributeUnifiedAddressing, ///\&lt; Cuda only. An unified address space shared with the host.
+
+   + hipDeviceAttributeUuid, ///\&lt; Cuda only. Unique ID in 16 byte.
+
+   + hipDeviceAttributeWarpSize, ///\&lt; Warp size in threads.
+
+   - hipDeviceAttributeMaxPitch, ///\&lt; Maximum pitch in bytes allowed by memory copies
+
+   - hipDeviceAttributeTextureAlignment, ///\&lt;Alignment requirement for textures
+
+   - hipDeviceAttributeTexturePitchAlignment, ///\&lt;Pitch alignment requirement for 2D texture references bound to pitched memory;
+
+   - hipDeviceAttributeKernelExecTimeout, ///\&lt;Run time limit for kernels executed on the device
+
+   - hipDeviceAttributeCanMapHostMemory, ///\&lt;Device can map host memory into device address space
+
+   - hipDeviceAttributeEccEnabled, ///\&lt;Device has ECC support enabled
+
+   + hipDeviceAttributeCudaCompatibleEnd = 9999,
+
+   + hipDeviceAttributeAmdSpecificBegin = 10000,
+
+   - hipDeviceAttributeCooperativeMultiDeviceUnmatchedFunc, ///\&lt; Supports cooperative launch on multiple
+
+   - ///devices with unmatched functions
+
+   - hipDeviceAttributeCooperativeMultiDeviceUnmatchedGridDim, ///\&lt; Supports cooperative launch on multiple
+
+   - ///devices with unmatched grid dimensions
+
+   - hipDeviceAttributeCooperativeMultiDeviceUnmatchedBlockDim, ///\&lt; Supports cooperative launch on multiple
+
+   - ///devices with unmatched block dimensions
+
+   - hipDeviceAttributeCooperativeMultiDeviceUnmatchedSharedMem, ///\&lt; Supports cooperative launch on multiple
+
+   - ///devices with unmatched shared memories
+
+   - hipDeviceAttributeAsicRevision, ///\&lt; Revision of the GPU in this device
+
+   - hipDeviceAttributeManagedMemory, ///\&lt; Device supports allocating managed memory on this system
+
+   - hipDeviceAttributeDirectManagedMemAccessFromHost, ///\&lt; Host can directly access managed memory on
+
+   - /// the device without migration
+
+   - hipDeviceAttributeConcurrentManagedAccess, ///\&lt; Device can coherently access managed memory
+
+   - /// concurrently with the CPU
+
+   - hipDeviceAttributePageableMemoryAccess, ///\&lt; Device supports coherently accessing pageable memory
+
+   - /// without calling hipHostRegister on it
+
+   - hipDeviceAttributePageableMemoryAccessUsesHostPageTables, ///\&lt; Device accesses pageable memory via
+
+   - /// the host&#39;s page tables
+
+   - hipDeviceAttributeCanUseStreamWaitValue ///\&lt; &#39;1&#39; if Device supports hipStreamWaitValue32() and
+
+   - ///\&lt; hipStreamWaitValue64() , &#39;0&#39; otherwise.
+
+   + hipDeviceAttributeClockInstructionRate = hipDeviceAttributeAmdSpecificBegin, ///\&lt; Frequency in khz of the timer used by the device-side &quot;clock\*&quot;
+
+   + hipDeviceAttributeArch, ///\&lt; Device architecture
+
+   + hipDeviceAttributeMaxSharedMemoryPerMultiprocessor, ///\&lt; Maximum Shared Memory PerMultiprocessor.
+
+   + hipDeviceAttributeGcnArch, ///\&lt; Device gcn architecture
+
+   + hipDeviceAttributeGcnArchName, ///\&lt; Device gcnArch name in 256 bytes
+
+   + hipDeviceAttributeHdpMemFlushCntl, ///\&lt; Address of the HDP\_MEM\_COHERENCY\_FLUSH\_CNTL register
+
+   + hipDeviceAttributeHdpRegFlushCntl, ///\&lt; Address of the HDP\_REG\_COHERENCY\_FLUSH\_CNTL register
+
+   + hipDeviceAttributeCooperativeMultiDeviceUnmatchedFunc, ///\&lt; Supports cooperative launch on multiple
+
+   + ///\&lt; devices with unmatched functions
+
+   + hipDeviceAttributeCooperativeMultiDeviceUnmatchedGridDim, ///\&lt; Supports cooperative launch on multiple
+
+   + ///\&lt; devices with unmatched grid dimensions
+
+   + hipDeviceAttributeCooperativeMultiDeviceUnmatchedBlockDim, ///\&lt; Supports cooperative launch on multiple
+
+   + ///\&lt; devices with unmatched block dimensions
+
+   + hipDeviceAttributeCooperativeMultiDeviceUnmatchedSharedMem, ///\&lt; Supports cooperative launch on multiple
+
+   + ///\&lt; devices with unmatched shared memories
+
+   + hipDeviceAttributeIsLargeBar, ///\&lt; Whether it is LargeBar
+
+   + hipDeviceAttributeAsicRevision, ///\&lt; Revision of the GPU in this device
+
+   + hipDeviceAttributeCanUseStreamWaitValue, ///\&lt; &#39;1&#39; if Device supports hipStreamWaitValue32() and
+
+   + ///\&lt; hipStreamWaitValue64() , &#39;0&#39; otherwise.
+
+   + hipDeviceAttributeAmdSpecificEnd = 19999,
+
+   + hipDeviceAttributeVendorSpecificBegin = 20000,
+
+   + // Extended attributes for vendors
+
+   } hipDeviceAttribute\_t;
+
+   enum hipComputeMode {
+
+Known Issues in This Release
+============================
+
+Incorrect dGPU Behavior When Using AMDVBFlash Tool
+--------------------------------------------------
+
+The AMDVBFlash tool, used for flashing the VBIOS image to dGPU, does not
+communicate with the ROM Controller specifically when the driver is
+present. This is because the driver, as part of its runtime power
+management feature, puts the dGPU to a sleep state.
+
+As a workaround, users can run *amdgpu.runpm=0*, which temporarily
+disables the runtime power management feature from the driver and
+dynamically changes some power control-related sysfs files.
+
+Issue with START Timestamp in ROCProfiler
+-----------------------------------------
+
+Users may encounter an issue with the enabled timestamp functionality
+for monitoring one or multiple counters. ROCProfiler outputs the
+following four timestamps for each kernel:
+
+-  Dispatch
+-  Start
+-  End
+-  Complete
+
+**Issue**
+
+This defect is related to the Start timestamp functionality, which
+incorrectly shows an earlier time than the Dispatch timestamp.
+
+To reproduce the issue,
+
+1. Enable timing using the --timestamp on* flag_.\_
+2. Use the *-i* option with the input filename that contains the name of
+   the counter(s) to monitor.
+3. Run the program.
+4. Check the output result file.
+
+**Current behavior**
+
+BeginNS is lower than DispatchNS, which is incorrect.
+
+**Expected behavior**
+
+The correct order is:
+
+*Dispatch &lt; Start &lt; End &lt; Complete*
+
+Users cannot use ROCProfiler to measure the time spent on each kernel
+because of the incorrect timestamp with counter collection enabled.
+
+**Recommended Workaround**
+
+Users are recommended to collect kernel execution timestamps without
+monitoring counters, as follows:
+
+1. Enable timing using the *â€“timestamp on* flag, and run the
+   application.
+2. Rerun the application using the *-i* option with the input filename
+   that contains the name of the counter(s) to monitor, and save this to
+   a different output file using the *-o* flag.
+3. Check the output result file from step 1.
+4. The order of timestamps correctly displays as:
+
+*DispathNS &lt; BeginNS &lt; EndNS &lt; CompleteNS*
+
+1. Users can find the values of the collected counters in the output
+   file generated in step 2.
+
+.. _radeon-pro-v620-and-w6800-workstation-gpus-1:
+
+Radeon Pro V620 and W6800 Workstation GPUs
+------------------------------------------
+
+No Support for SMI and ROCDebugger on SRIOV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+System Management Interface (SMI) and ROCDebugger are not supported in
+the SRIOV environment on any GPU. For more information, refer to the
+Systems Management Interface documentation.
+
+Deprecations and Warnings in This Release
+=========================================
+
+ROCm Libraries Changes Deprecations and Deprecation Removal
+-------------------------------------------------------------
+
+-  The hipFFT.h header is now provided only by the hipFFT package. Up to
+   ROCm 5.0, users would get hipFFT.h in the rocFFT package too.
+-  The GlobalPairwiseAMG class is now entirely removed, users should use
+   the PairwiseAMG class instead.
+-  The rocsparse_spmm signature in 5.0 was changed to match that of
+   rocsparse_spmm_ex. In 5.0, rocsparse_spmm_ex is still present, but
+   deprecated. Signature diff for rocsparse_spmm
+
+*rocsparse_spmm in 5.0*
+~~~~~~~~~~~~~~~~~~~~~~~
+
+rocsparse_status rocsparse_spmm(rocsparse_handle handle,
+
+::
+
+                               rocsparse\_operation         trans\_A,
+
+                               rocsparse\_operation         trans\_B,
+
+                               const void\*                 alpha,
+
+                               const rocsparse\_spmat\_descr mat\_A,
+
+                               const rocsparse\_dnmat\_descr mat\_B,
+
+                               const void\*                 beta,
+
+                               const rocsparse\_dnmat\_descr mat\_C,
+
+                               rocsparse\_datatype          compute\_type,
+
+                               rocsparse\_spmm\_alg          alg,
+
+                               rocsparse\_spmm\_stage        stage,
+
+                               size\_t\*                     buffer\_size,
+
+                               void\*                       temp\_buffer);
+
+*rocSPARSE_spmm in 4.0*
+~~~~~~~~~~~~~~~~~~~~~~~
+
+rocsparse_status rocsparse_spmm(rocsparse_handle handle,
+
+::
+
+                               rocsparse\_operation         trans\_A,
+
+                               rocsparse\_operation         trans\_B,
+
+                               const void\*                 alpha,
+
+                               const rocsparse\_spmat\_descr mat\_A,
+
+                               const rocsparse\_dnmat\_descr mat\_B,
+
+                               const void\*                 beta,
+
+                               const rocsparse\_dnmat\_descr mat\_C,
+
+                               rocsparse\_datatype          compute\_type,
+
+                               rocsparse\_spmm\_alg          alg,
+
+                               size\_t\*                     buffer\_size,
+
+                               void\*                       temp\_buffer);
+
+HIP API Deprecations and Warnings
+---------------------------------
+
+Warning - Arithmetic Operators of HIP Complex and Vector Types
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this release, arithmetic operators of HIP complex and vector types
+are deprecated.
+
+-  As alternatives to arithmetic operators of HIP complex types, users
+   can use arithmetic operators of std::complex types.
+-  As alternatives to arithmetic operators of HIP vector types, users
+   can use the operators of the native clang vector type associated with
+   the data member of HIP vector types.
+
+During the deprecation, two macros_HIP_ENABLE_COMPLEX_OPERATORS
+and_HIP_ENABLE_VECTOR_OPERATORS are provided to allow users to
+conditionally enable arithmetic operators of HIP complex or vector
+types.
+
+Note, the two macros are mutually exclusive and, by default, set to
+*Off*.
+
+The arithmetic operators of HIP complex and vector types will be removed
+in a future release.
+
+Refer to the HIP API Guide for more information.
+
+Refactor of HIPCC/HIPCONFIG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In prior ROCm releases, by default, the hipcc/hipconfig Perl scripts
+were used to identify and set target compiler options, target platform,
+compiler, and runtime appropriately.
+
+In ROCm v5.0, hipcc.bin and hipconfig.bin have been added as the
+compiled binary implementations of the hipcc and hipconfig. These new
+binaries are currently a work-in-progress, considered, and marked as
+experimental. ROCm plans to fully transition to hipcc.bin and
+hipconfig.bin in the a future ROCm release. The existing hipcc and
+hipconfig Perl scripts are renamed to hipcc.pl and hipconfig.pl
+respectively. New top-level hipcc and hipconfig Perl scripts are
+created, which can switch between the Perl script or the compiled binary
+based on the environment variable HIPCC_USE_PERL_SCRIPT.
+
+In ROCm 5.0, by default, this environment variable is set to use hipcc
+and hipconfig through the Perl scripts.
+
+Subsequently, Perl scripts will no longer be available in ROCm in a
+future release.
+
+Warning - Compiler-Generated Code Object Version 4 Deprecation
+--------------------------------------------------------------
+
+Support for loading compiler-generated code object version 4 will be
+deprecated in a future release with no release announcement and replaced
+with code object 5 as the default version.
+
+The current default is code object version 4.
+
+Warning - MIOpenTensile Deprecation
+-----------------------------------
+
+MIOpenTensile will be deprecated in a future release.
 
 
-============================================
-Hardware and Software Support Information
-============================================
+Disclaimer
+==========
 
- 
--  `Hardware and Software Support <https://github.com/RadeonOpenCompute/ROCm#Hardware-and-Software-Support>`__
-
-- `Radeon Instinct™ GPU-Powered HPC Solutions <https://www.amd.com/en/graphics/servers-radeon-instinct-mi-powered-servers>`__
-
-
-
-DISCLAIMER 
-------------
-
-The information presented in this document is for informational purposes only and may contain technical inaccuracies, omissions, and typographical errors. The information contained herein is subject to change and may be rendered inaccurate for many reasons, including but not limited to product and roadmap changes, component and motherboard versionchanges, new model and/or product releases, product differences between differing manufacturers, software changes, BIOS flashes, firmware upgrades, or the like. Any computer system has risks of security vulnerabilities that cannot be completely prevented or mitigated.AMD assumes no obligation to update or otherwise correct or revise this information. However, AMD reserves the right to revise this information and to make changes from time to time to the content hereof without obligation of AMD to notify any person of such revisions or changes.THIS INFORMATION IS PROVIDED ‘AS IS.” AMD MAKES NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE CONTENTS HEREOF AND ASSUMES NO RESPONSIBILITY FOR ANY INACCURACIES, ERRORS, OR OMISSIONS THAT MAY APPEAR IN THIS INFORMATION. AMD SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR ANY PARTICULAR PURPOSE. IN NO EVENT WILL AMD BE LIABLE TO ANY PERSON FOR ANY RELIANCE, DIRECT, INDIRECT, SPECIAL, OR OTHER CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF ANY INFORMATION CONTAINED HEREIN, EVEN IF AMD IS EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.AMD, the AMD Arrow logo,and combinations thereof are trademarks of Advanced Micro Devices, Inc.Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.©[2021]Advanced Micro Devices, Inc.All rights reserved.
-
-
+The information presented in this document is for informational purposes
+only and may contain technical inaccuracies, omissions, and
+typographical errors. The information contained herein is subject to
+change and may be rendered inaccurate for many reasons, including but
+not limited to product and roadmap changes, component and motherboard
+versionchanges, new model and/or product releases, product differences
+between differing manufacturers, software changes, BIOS flashes,
+firmware upgrades, or the like. Any computer system has risks of
+security vulnerabilities that cannot be completely prevented or
+mitigated.AMD assumes no obligation to update or otherwise correct or
+revise this information. However, AMD reserves the right to revise this
+information and to make changes from time to time to the content hereof
+without obligation of AMD to notify any person of such revisions or
+changes.THIS INFORMATION IS PROVIDED â€˜AS IS.â€ AMD MAKES NO
+REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE CONTENTS HEREOF AND
+ASSUMES NO RESPONSIBILITY FOR ANY INACCURACIES, ERRORS, OR OMISSIONS
+THAT MAY APPEAR IN THIS INFORMATION. AMD SPECIFICALLY DISCLAIMS ANY
+IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR
+ANY PARTICULAR PURPOSE. IN NO EVENT WILL AMD BE LIABLE TO ANY PERSON FOR
+ANY RELIANCE, DIRECT, INDIRECT, SPECIAL, OR OTHER CONSEQUENTIAL DAMAGES
+ARISING FROM THE USE OF ANY INFORMATION CONTAINED HEREIN, EVEN IF AMD IS
+EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.AMD, the AMD Arrow
+logo, and combinations thereof are trademarks of Advanced Micro Devices,
+Inc.Other product names used in this publication are for identification
+purposes only and may be trademarks of their respective companies.
+Â©[2021]Advanced Micro Devices, Inc.All rights reserved.
 
 Third-party Disclaimer
+----------------------
 
-Third-party content is licensed to you directly by the third party that owns the content and is not licensed to you by AMD. ALL LINKED THIRD-PARTY CONTENT IS PROVIDED “AS IS” WITHOUT A WARRANTY OF ANY KIND. USE OF SUCH THIRD-PARTY CONTENT IS DONE AT YOUR SOLE DISCRETION AND UNDER NO CIRCUMSTANCES WILL AMD BE LIABLE TO YOU FOR ANY THIRD-PARTY CONTENT. YOU ASSUME ALL RISK AND ARE SOLELY RESPONSIBLE FOR ANY DAMAGES THAT MAY ARISE FROM YOUR USE OF THIRD-PARTY CONTENT.
-
-
-
+Third-party content is licensed to you directly by the third party that
+owns the content and is not licensed to you by AMD. ALL LINKED
+THIRD-PARTY CONTENT IS PROVIDED â€œAS ISâ€ WITHOUT A WARRANTY OF ANY KIND.
+USE OF SUCH THIRD-PARTY CONTENT IS DONE AT YOUR SOLE DISCRETION AND
+UNDER NO CIRCUMSTANCES WILL AMD BE LIABLE TO YOU FOR ANY THIRD-PARTY
+CONTENT. YOU ASSUME ALL RISK AND ARE SOLELY RESPONSIBLE FOR ANY DAMAGES
+THAT MAY ARISE FROM YOUR USE OF THIRD-PARTY CONTENT.
