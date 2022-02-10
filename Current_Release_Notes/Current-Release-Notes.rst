@@ -17,9 +17,6 @@ AMD ROCm™ Release Notes v5.0
 February, 2022
 
 
-AMD ROCm v5.0 Release Notes
-============================
-
 ROCm Installation Updates
 =========================
 
