@@ -952,7 +952,7 @@ monitoring counters, as follows:
 
 *DispathNS &lt; BeginNS &lt; EndNS &lt; CompleteNS*
 
-1. Users can find the values of the collected counters in the output
+5. Users can find the values of the collected counters in the output
    file generated in step 2.
 
 .. _radeon-pro-v620-and-w6800-workstation-gpus-1:
