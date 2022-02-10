@@ -119,7 +119,7 @@ For more details, refer to the AMD ROCm Installation Guide v5.0.
 AMD ROCm V5.0 Documentation Updates
 ===================================
 
-New AMD ROCm Information Portal â€“ ROCm v4.5 and Above
+New AMD ROCm Information Portal ROCm v4.5 and Above
 -----------------------------------------------------
 
 Beginning ROCm release v5.0, AMD ROCm documentation has a new portal at
@@ -225,9 +225,9 @@ OpenMP Documentation
 ROCm Glossary
 ~~~~~~~~~~~~~
 
--  ROCm Glossary â€“ Terms and Definitions
+-  ROCm Glossary - Terms and Definitions
 
-AMD ROCm Legacy Documentation Links â€“ ROCm v4.3 and Prior
+AMD ROCm Legacy Documentation Links ROCm v4.3 and Prior
 ---------------------------------------------------------
 
 -  For AMD ROCm documentation, see
