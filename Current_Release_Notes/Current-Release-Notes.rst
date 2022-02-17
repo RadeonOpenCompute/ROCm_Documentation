@@ -12,6 +12,38 @@ For documentation prior to ROCm v4.5, you may continue to access `http://rocmdoc
 
 
 ================================
+AMD ROCm™ Release Notes v5.0.1
+================================
+February, 2022
+
+Deprecations and Warnings
+==========================
+
+Refactor of HIPCC/HIPCONFIG
+-----------------------------
+
+In prior ROCm releases, by default, the hipcc/hipconfig Perl scripts were used to identify and set target compiler options, target platform, compiler, and runtime appropriately.
+
+In ROCm v5.0.1, hipcc.bin and hipconfig.bin have been added as the compiled binary implementations of the hipcc and hipconfig. These new binaries are currently a work-in-progress, considered, and marked as experimental. ROCm plans to fully transition to hipcc.bin and hipconfig.bin in the a future ROCm release. The existing hipcc and hipconfig Perl scripts are renamed to hipcc.pl and hipconfig.pl respectively. New top-level hipcc and hipconfig Perl scripts are created, which can switch between the Perl script or the compiled binary based on the environment variable HIPCC_USE_PERL_SCRIPT. 
+
+In ROCm 5.0.1, by default, this environment variable is set to use hipcc and hipconfig through the Perl scripts.
+
+Subsequently, Perl scripts will no longer be available in ROCm in a future release.
+
+
+ROCM DOCUMENTATION UPDATES FOR ROCM 5.0.1
+------------------------------------------
+
+* ROCm Downloads Guide
+
+* ROCm Installation Guide
+
+* ROCm Release Notes
+
+For more information, see  `https://docs.amd.com <https://docs.amd.com/>`__.
+
+
+================================
 AMD ROCm™ Release Notes v5.0
 ================================
 February, 2022
