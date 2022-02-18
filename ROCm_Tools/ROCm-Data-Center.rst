@@ -43,10 +43,10 @@ The audience for the AMD ROCm Data Center™ tool consists of:
 Download AMD ROCm Data Center Tool User Guide
 ==============================================
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf  
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf
 
 Download AMD ROCm Data Center Tool API Guide
 ==============================================
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Manual_4.5.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/RDC_API_Manual_4.5.pdf
 
