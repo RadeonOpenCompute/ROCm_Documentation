@@ -93,7 +93,7 @@ Extract only ROCm code objects matching regex over Target ID
 
 For more information, refer to the HIP Programming Guide at:  
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Programming_Guide.pdf
 
 
 
@@ -204,7 +204,7 @@ AMD Instinct™ High Performance Computing and Tuning
 
 - New - AMD Instinct™ High Performance Computing and Tuning Guide 
 
-  see `AMD Instinct™ High Performance Computing and Tuning Guide <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD%20Instinct%E2%84%A2High%20Performance%20Computing%20and%20Tuning%20Guide.pdf>`__
+  see `AMD Instinct™ High Performance Computing and Tuning Guide <https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD%20Instinct%E2%84%A2High%20Performance%20Computing%20and%20Tuning%20Guide.pdf>`__
 
 
 
@@ -217,19 +217,19 @@ HIP Documentation Updates
 
 -  HIP Programming Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Programming_Guide.pdf
 
 -  HIP API Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD-HIP-API-4.5.pdf
 
 -  HIP-Supported CUDA API Reference Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
 
 -  AMD ROCm Compiler Reference Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.5.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_Compiler_Reference_Guide_v4.5.pdf
 
 -  HIP FAQ
 
@@ -249,11 +249,11 @@ AMD ROCm Data Center Tool
 
 - AMD ROCm Data Center Tool API Guide
 
-  https://github.com/RadeonOpenCompute/ROCm/blob/master/RDC_API_Manual_4.5.pdf
+  https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/RDC_API_Manual_4.5.pdf
   
 - AMD ROCm Data Center Tool User Guide
 
-  https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf
+  https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_ROCm_DataCenter_Tool_User_Guide_v4.5.pdf
 
 
 ROCm SMI API Guide
@@ -261,7 +261,7 @@ ROCm SMI API Guide
 
 -  ROCm SMI API Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_SMI_Manual_4.5.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/ROCm_SMI_Manual_4.5.pdf
    
 
 ROC Debugger User and API Guide
@@ -269,11 +269,11 @@ ROC Debugger User and API Guide
 
 -  ROCDebugger User Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_User_Guide.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/ROCDebugger_User_Guide.pdf
 
 -  Debugger API Guide
 
-   https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_API_Guide.pdf
+   https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/ROCDebugger_API_Guide.pdf
    
 
 OpenMP Documentation
@@ -341,7 +341,7 @@ Support for HIP Graph
 
 ROCm v4.5 extends support for HIP Graph. For details, refer to the HIP API Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD-HIP-API-4.5.pdf
 
 
 Enhanced *launch_bounds* Check Error Log Message
@@ -356,7 +356,7 @@ kernel. Besides, the kernel dim size and launch bounds values will also assist i
 
 For more details, refer to the HIP Programming Guide at
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Programming_Guide.pdf
 
 
 HIP Runtime Compilation
@@ -370,7 +370,7 @@ files without spawning separate processes.
 
 For more details on hipRTC APIs, refer to the HIP API Guide at
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD-HIP-API-4.5.pdf
 
 
 New Flag for Backwards Compatibility on float/double atomicAdd Function
@@ -396,7 +396,7 @@ compilers that do not support floating point atomics.
 
 For details on how to build the HIP runtime, refer to the HIP Programming Guide at
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Programming_Guide.pdf
 
 
 
@@ -1017,7 +1017,7 @@ This issue is currently under investigation and will be fixed in a future releas
 
 For more information, refer to the ROCgdb User Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_ROCDebugger_User_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/ROCDebugger_User_Guide.pdf
 
 
 clinfo and rocminfo Do Not Display Marketing Name

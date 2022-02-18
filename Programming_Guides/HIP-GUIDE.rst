@@ -23,13 +23,13 @@ Programming Guide (PDF)
 
 You can access and download the latest version of the HIP Programming Guide.  
 
-`Download PDF <https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf>`__
+`Download PDF <https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Programming_Guide.pdf>`__
 
 Or
 
 Access the following link for the online version of the guide,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Programming_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Programming_Guide.pdf
 
 
 Related Topics
@@ -40,7 +40,7 @@ HIP API Guide
 
 You can access the Doxygen-generated HIP API Guide at the following location:
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD-HIP-API-4.5.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD-HIP-API-4.5.pdf
 
 
 HIP_Supported_CUDA_API_Reference_Guide
@@ -48,7 +48,7 @@ HIP_Supported_CUDA_API_Reference_Guide
 
 You can access and download the latest version of the HIP-Supported CUDA API Reference Guide.  
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_HIP_Supported_CUDA_API_Reference_Guide.pdf
 
 
 AMD ROCm Compiler Reference Guide 
@@ -56,7 +56,7 @@ AMD ROCm Compiler Reference Guide
 
 You can access and download the AMD ROCm Compiler Reference Guide at,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/AMD_Compiler_Reference_Guide_v4.5.pdf
+https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/AMD_Compiler_Reference_Guide_v4.5.pdf
 
 
 HIP Installation Instructions
