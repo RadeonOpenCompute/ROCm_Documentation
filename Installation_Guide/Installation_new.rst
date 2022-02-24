@@ -7,7 +7,7 @@ ROCm Downloads Guide v5.0
 
 Use the following link for ROCm downloads,
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Downloads_v5.0.pdf
+https://docs.amd.com/bundle/ROCm-Downloads-Guide-v5.0/page/ROCm_Installation.html
 
 
 ===============================
@@ -16,7 +16,7 @@ ROCm Installation Guide v5.0
 
 Use the following link to download the ROCm Installation Guide v5.0
 
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCm_Installation_Guide%20v5.0.pdf
+https://docs.amd.com/bundle/ROCm_Installation_Guidev5.0/page/Overview_of_ROCm_Installation_Methods.html
 
 
 |
