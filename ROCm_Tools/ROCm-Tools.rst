@@ -72,7 +72,8 @@ An example of profiling command line for ‘MatrixTranspose’ application
    Device name Ellesmere [Radeon RX 470/480/570/570X/580/580X]
    PASSED!
 
-   ROCProfiler: 1 contexts collected, output directory /tmp/rpl_data_191018_011134_9695/input0_results_191018_011134
+   ROCProfiler: 1 contexts collected, output directory
+                /tmp/rpl_data_191018_011134_9695/input0_results_191018_011134
    RPL: '/…./MatrixTranspose/input.csv' is generated
 
 Counters and metrics
@@ -138,7 +139,8 @@ expressions. Examples:
          . . .
 
    $ rocprof --list-derived
-   RPL: on '191018_015911' from '/opt/rocm/rocprofiler' in '/home/evgeny/work/BUILD/0_MatrixTranspose'
+   RPL: on '191018_015911' from '/opt/rocm/rocprofiler' in
+        '/home/evgeny/work/BUILD/0_MatrixTranspose'
    ROCProfiler: rc-file '/home/evgeny/rpl_rc.xml'
    Derived metrics:
      gpu-agent0 : TCC_HIT_sum : Number of cache hits. Sum over TCC instances.
@@ -194,12 +196,17 @@ be different for different blocks and can be queried, see 2.1.1.1.
       kernel =
       range =
       20 metrics
-        Wavefronts, VALUInsts, SALUInsts, SFetchInsts, FlatVMemInsts, LDSInsts, FlatLDSInsts, GDSInsts, VALUUtilization, FetchSize, WriteSize, L2CacheHit, VWriteInsts, GPUBusy, VALUBusy, SALUBusy, MemUnitStalled, WriteUnitStalled, LDSBankConflict, MemUnitBusy
+        Wavefronts, VALUInsts, SALUInsts, SFetchInsts, FlatVMemInsts, LDSInsts,
+        FlatLDSInsts, GDSInsts, VALUUtilization, FetchSize, WriteSize, L2CacheHit,
+        VWriteInsts, GPUBusy, VALUBusy, SALUBusy, MemUnitStalled, WriteUnitStalled,
+        LDSBankConflict, MemUnitBusy
       0 traces
     Device name Ellesmere [Radeon RX 470/480/570/570X/580/580X]
 
     Input metrics out of HW limit. Proposed metrics group set:
-      group1: L2CacheHit VWriteInsts MemUnitStalled WriteUnitStalled MemUnitBusy FetchSize FlatVMemInsts LDSInsts VALUInsts SALUInsts SFetchInsts FlatLDSInsts GPUBusy Wavefronts
+      group1: L2CacheHit VWriteInsts MemUnitStalled WriteUnitStalled MemUnitBusy
+              FetchSize FlatVMemInsts LDSInsts VALUInsts SALUInsts SFetchInsts
+              FlatLDSInsts GPUBusy Wavefronts
       group2: WriteSize GDSInsts VALUUtilization VALUBusy SALUBusy LDSBankConflict
 
     ERROR: rocprofiler_open(), Construct(), Metrics list exceeds HW limits
@@ -273,7 +280,8 @@ rocTX basic markers API
    // A marker created by given ASCII message
    void roctxMark(const char* message);
 
-   // Returns the 0 based level of a nested range being started by given message associated to this range.
+   // Returns the 0 based level of a nested range being
+   // started by given message associated to this range.
    // A negative value is returned on the error.
    int roctxRangePush(const char* message);
 
@@ -377,7 +385,8 @@ The command line options can be printed with option ‘-h’:
 
 ::
 
-  rocprof [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>] [-o <output CSV file>] <app command line>
+  rocprof [-h] [--list-basic] [--list-derived] [-i <input .txt/.xml file>]
+          [-o <output CSV file>] <app command line>
 
   Options:
   -h - this help
@@ -390,7 +399,8 @@ The command line options can be printed with option ‘-h’:
       Input file .txt format, automatically rerun application for every pmc line:
 
         # Perf counters group 1
-        pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts FlatLDSInsts GDSInsts FetchSize
+        pmc : Wavefronts VALUInsts SALUInsts SFetchInsts FlatVMemInsts LDSInsts
+              FlatLDSInsts GDSInsts FetchSize
         # Perf counters group 2
         pmc : VALUUtilization,WriteSize L2CacheHit
         # Filter by dispatches range, GPU index and kernel names
@@ -403,7 +413,7 @@ The command line options can be printed with option ‘-h’:
 
         # Metrics list definition, also the form "<block-name>:<event-id>" can be used
         # All defined metrics can be found in the 'metrics.xml'
-        # There are basic metrics for raw HW counters and high-level metrics for derived counters
+        # There are basic metrics for raw HW counters & high-level metrics for derived counters
         <metric name=SQ:4,SQ_WAVES,VFetchInsts
         ></metric>
 
@@ -436,18 +446,25 @@ The command line options can be printed with option ‘-h’:
       ... - The columns with the counters values per kernel dispatch
       DispatchNs/BeginNs/EndNs/CompleteNs - timestamp columns if time-stamping was enabled
 
-  -d <data directory> - directory where profiler store profiling data including thread treaces [/tmp]
-      The data directory is renoving autonatically if the directory is matching the temporary one, which is the default.
+  -d <data directory> - directory where profiler store profiling data including
+                        thread treaces [/tmp] The data directory is renoving
+                        autonatically if the directory is matching the temporary
+                        one, which is the default.
   -t <temporary directory> - to change the temporary directory [/tmp]
-      By changing the temporary directory you can prevent removing the profiling data from /tmp or enable removing from not '/tmp' directory.
+                             By changing the temporary directory you can prevent
+                             removing the profiling data from /tmp or enable
+                             removing from not '/tmp' directory.
 
-  --basenames <on|off> - to turn on/off truncating of the kernel full function names till the base ones [off]
-  --timestamp <on|off> - to turn on/off the kernel dispatches timestamps, dispatch/begin/end/complete [off]
+  --basenames <on|off> - to turn on/off truncating of the kernel full function
+                         names till the base ones [off]
+  --timestamp <on|off> - to turn on/off the kernel dispatches timestamps,
+                         dispatch/begin/end/complete [off]
     Four kernel timestamps in nanoseconds are reported:
         DispatchNs - the time when the kernel AQL dispatch packet was written to the queue
         BeginNs - the kernel execution begin time
         EndNs - the kernel execution end time
-        CompleteNs - the time when the completion signal of the AQL dispatch packet was received
+        CompleteNs - the time when the completion signal of the AQL dispatch
+                     packet was received
 
   --ctx-limit <max number> - maximum number of outstanding contexts [0 - unlimited]
   --heartbeat <rate sec> - to print progress heartbeats [0 - disabled]
@@ -455,10 +472,14 @@ The command line options can be printed with option ‘-h’:
   --stats - generating kernel execution stats, file <output name>.stats.csv
   --roctx-trace - to enable rocTX applicatin code annotation trace
     Will show the application code annotation in JSON trace "Markers and Ranges" section.
-  --sys-trace - to trace HIP/HSA APIs and GPU activity, generates stats and JSON trace chrome-tracing compatible
-  --hip-trace - to trace HIP, generates API execution stats and JSON file chrome-tracing compatible
-  --hsa-trace - to trace HSA, generates API execution stats and JSON file chrome-tracing compatible
-  --kfd-trace - to trace KFD, generates API execution stats and JSON file chrome-tracing compatible
+  --sys-trace - to trace HIP/HSA APIs and GPU activity, generates stats and JSON
+                trace chrome-tracing compatible
+  --hip-trace - to trace HIP, generates API execution stats and JSON file
+                chrome-tracing compatible
+  --hsa-trace - to trace HSA, generates API execution stats and JSON file
+                chrome-tracing compatible
+  --kfd-trace - to trace KFD, generates API execution stats and JSON file
+                chrome-tracing compatible
     Generated files: <output name>.<domain>_stats.txt <output name>.json
     Traced API list can be set by input .txt or .xml files.
     Input .txt:
@@ -470,15 +491,17 @@ The command line options can be printed with option ‘-h’:
       </trace>
 
   --trace-start <on|off> - to enable tracing on start [on]
-  --trace-period <dealy:length:rate> - to enable trace with initial delay, with periodic sample length and rate
-    Supported time formats: <number(m|s|ms|us)>
+  --trace-period <dealy:length:rate> - to enable trace with initial delay, with
+    periodic sample length and rate Supported time formats: <number(m|s|ms|us)>
   --obj-tracking <on|off> - to turn on/off kernels code objects tracking [off]
     To support V3 code objects.
 
   Configuration file:
-  You can set your parameters defaults preferences in the configuration file 'rpl_rc.xml'. The search path sequence: .:/home/      evgeny:<package path>
-  First the configuration file is looking in the current directory, then in your home, and then in the package directory.
-  Configurable options: 'basenames', 'timestamp', 'ctx-limit', 'heartbeat', 'obj-tracking'.
+  You can set your parameters defaults preferences in the configuration file
+  'rpl_rc.xml'. The search path sequence: .:/home/      evgeny:<package path>
+  First the configuration file is looking in the current directory, then in your
+  home, and then in the package directory. Configurable options: 'basenames',
+  'timestamp', 'ctx-limit', 'heartbeat', 'obj-tracking'.
   An example of 'rpl_rc.xml':
     <defaults
       basenames=off
@@ -503,26 +526,44 @@ Counters:
    •   GRBM_GUI_ACTIVE : The GUI is Active
    •   SQ_WAVES : Count number of waves sent to SQs. (per-simd, emulated, global)
    •   SQ_INSTS_VALU : Number of VALU instructions issued. (per-simd, emulated)
-   •   SQ_INSTS_VMEM_WR : Number of VMEM write instructions issued (including FLAT). (per-simd, emulated)
-   •   SQ_INSTS_VMEM_RD : Number of VMEM read instructions issued (including FLAT). (per-simd, emulated)
+   •   SQ_INSTS_VMEM_WR : Number of VMEM write instructions issued (including FLAT).
+                          (per-simd, emulated)
+   •   SQ_INSTS_VMEM_RD : Number of VMEM read instructions issued (including FLAT).
+                          (per-simd, emulated)
    •   SQ_INSTS_SALU : Number of SALU instructions issued. (per-simd, emulated)
    •   SQ_INSTS_SMEM : Number of SMEM instructions issued. (per-simd, emulated)
    •   SQ_INSTS_FLAT : Number of FLAT instructions issued. (per-simd, emulated)
-   •   SQ_INSTS_FLAT_LDS_ONLY : Number of FLAT instructions issued that read/wrote only from/to LDS (only works if EARLY_TA_DONE is enabled). (per-simd, emulated)
-   •   SQ_INSTS_LDS : Number of LDS instructions issued (including FLAT). (per-simd, emulated)
+   •   SQ_INSTS_FLAT_LDS_ONLY : Number of FLAT instructions issued that read/wrote
+                                only from/to LDS (only works if EARLY_TA_DONE is
+                                enabled). (per-simd, emulated)
+   •   SQ_INSTS_LDS : Number of LDS instructions issued (including FLAT).
+                      (per-simd, emulated)
    •   SQ_INSTS_GDS : Number of GDS instructions issued. (per-simd, emulated)
-   •   SQ_WAIT_INST_LDS : Number of wave-cycles spent waiting for LDS instruction issue. In units of 4 cycles. (per-simd, nondeterministic)
-   •   SQ_ACTIVE_INST_VALU : regspec 71? Number of cycles the SQ instruction arbiter is working on a VALU instruction. (per-simd, nondeterministic)
-   •   SQ_INST_CYCLES_SALU : Number of cycles needed to execute non-memory read scalar operations. (per-simd, emulated)
-   •   SQ_THREAD_CYCLES_VALU : Number of thread-cycles used to execute VALU operations (similar to INST_CYCLES_VALU but multiplied by # of active threads). (per-simd)
-   •   SQ_LDS_BANK_CONFLICT : Number of cycles LDS is stalled by bank conflicts. (emulated)
-   •   TA_TA_BUSY[0-15] : TA block is busy. Perf_Windowing not supported for this counter.
+   •   SQ_WAIT_INST_LDS : Number of wave-cycles spent waiting for LDS instruction
+                          issue. In units of 4 cycles. (per-simd, nondeterministic)
+   •   SQ_ACTIVE_INST_VALU : regspec 71? Number of cycles the SQ instruction
+                             arbiter is working on a VALU instruction. (per-simd,
+                             nondeterministic)
+   •   SQ_INST_CYCLES_SALU : Number of cycles needed to execute non-memory read
+                             scalar operations. (per-simd, emulated)
+   •   SQ_THREAD_CYCLES_VALU : Number of thread-cycles used to execute VALU
+                               operations (similar to INST_CYCLES_VALU but
+                               multiplied by # of active threads). (per-simd)
+   •   SQ_LDS_BANK_CONFLICT : Number of cycles LDS is stalled by bank conflicts.
+                              (emulated)
+   •   TA_TA_BUSY[0-15] : TA block is busy. Perf_Windowing not supported for
+                          this counter.
    •   TA_FLAT_READ_WAVEFRONTS[0-15] : Number of flat opcode reads processed by the TA.
    •   TA_FLAT_WRITE_WAVEFRONTS[0-15] : Number of flat opcode writes processed by the TA.
    •   TCC_HIT[0-15] : Number of cache hits.
    •   TCC_MISS[0-15] : Number of cache misses. UC reads count as misses.
-   •   TCC_EA_WRREQ[0-15] : Number of transactions (either 32-byte or 64-byte) going over the TC_EA_wrreq interface. Atomics may travel over the same interface and are generally classified as write requests. This does not include probe commands.
-   •   TCC_EA_WRREQ_64B[0-15] : Number of 64-byte transactions going (64-byte write or CMPSWAP) over the TC_EA_wrreq interface.
+   •   TCC_EA_WRREQ[0-15] : Number of transactions (either 32-byte or 64-byte)
+                            going over the TC_EA_wrreq interface. Atomics may
+                            travel over the same interface and are generally
+                            classified as write requests. This does not include
+                            probe commands.
+   •   TCC_EA_WRREQ_64B[0-15] : Number of 64-byte transactions going (64-byte
+                                write or CMPSWAP) over the TC_EA_wrreq interface.
    •   TCC_EA_WRREQ_STALL[0-15] : Number of cycles a write request was stalled.
    •   TCC_EA_RDREQ[0-15] : Number of TCC/EA read requests (either 32-byte or 64-byte)
    •   TCC_EA_RDREQ_32B[0-15] : Number of 32-byte TCC/EA read requests
@@ -539,41 +580,85 @@ Metrics:
    •   TA_BUSY_avr : TA block is busy. Average over TA instances.
    •   TA_BUSY_max : TA block is busy. Max over TA instances.
    •   TA_BUSY_min : TA block is busy. Min over TA instances.
-   •   TA_FLAT_READ_WAVEFRONTS_sum : Number of flat opcode reads processed by the TA. Sum over TA instances.
-   •   TA_FLAT_WRITE_WAVEFRONTS_sum : Number of flat opcode writes processed by the TA. Sum over TA instances.
+   •   TA_FLAT_READ_WAVEFRONTS_sum : Number of flat opcode reads processed by
+                                     the TA. Sum over TA instances.
+   •   TA_FLAT_WRITE_WAVEFRONTS_sum : Number of flat opcode writes processed by
+                                      the TA. Sum over TA instances.
    •   TCC_HIT_sum : Number of cache hits. Sum over TCC instances.
    •   TCC_MISS_sum : Number of cache misses. Sum over TCC instances.
-   •   TCC_EA_RDREQ_32B_sum : Number of 32-byte TCC/EA read requests. Sum over TCC instances.
-   •   TCC_EA_RDREQ_sum : Number of TCC/EA read requests (either 32-byte or 64-byte). Sum over TCC instances.
-   •   TCC_EA_WRREQ_sum : Number of transactions (either 32-byte or 64-byte) going over the TC_EA_wrreq interface. Sum over TCC instances.
-   •   TCC_EA_WRREQ_64B_sum : Number of 64-byte transactions going (64-byte write or CMPSWAP) over the TC_EA_wrreq interface. Sum over TCC instances.
-   •   TCC_WRREQ_STALL_max : Number of cycles a write request was stalled. Max over TCC instances.
+   •   TCC_EA_RDREQ_32B_sum : Number of 32-byte TCC/EA read requests. Sum over
+                              TCC instances.
+   •   TCC_EA_RDREQ_sum : Number of TCC/EA read requests (either 32-byte or
+                          64-byte). Sum over TCC instances.
+   •   TCC_EA_WRREQ_sum : Number of transactions (either 32-byte or 64-byte)
+                          going over the TC_EA_wrreq interface. Sum over TCC instances.
+   •   TCC_EA_WRREQ_64B_sum : Number of 64-byte transactions going (64-byte write
+                              or CMPSWAP) over the TC_EA_wrreq interface. Sum over
+                              TCC instances.
+   •   TCC_WRREQ_STALL_max : Number of cycles a write request was stalled. Max over
+                             TCC instances.
    •   TCC_MC_WRREQ_sum : Number of 32-byte effective writes. Sum over TCC instaces.
-   •   FETCH_SIZE : The total kilobytes fetched from the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   •   WRITE_SIZE : The total kilobytes written to the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
+   •   FETCH_SIZE : The total kilobytes fetched from the video memory. This is
+                    measured with all extra fetches and any cache or memory effects
+                    taken into account.
+   •   WRITE_SIZE : The total kilobytes written to the video memory. This is measured
+                    with all extra fetches and any cache or memory effects taken
+                    into account.
    •   GPUBusy : The percentage of time GPU was busy.
    •   Wavefronts : Total wavefronts.
-   •   VALUInsts : The average number of vector ALU instructions executed per work-item (affected by flow control).
-   •   SALUInsts : The average number of scalar ALU instructions executed per work-item (affected by flow control).
-   •   VFetchInsts : The average number of vector fetch instructions from the video memory executed per work-item (affected by flow control). Excludes FLAT instructions that fetch from video memory.
-   •   SFetchInsts : The average number of scalar fetch instructions from the video memory executed per work-item (affected by flow control).
-   •   VWriteInsts : The average number of vector write instructions to the video memory executed per work-item (affected by flow control). Excludes FLAT instructions that write to video memory.
-   •   FlatVMemInsts : The average number of FLAT instructions that read from or write to the video memory executed per work item (affected by flow control). Includes FLAT instructions that read from or write to scratch.
-   •   LDSInsts : The average number of LDS read or LDS write instructions executed per work item (affected by flow control).  Excludes FLAT instructions that read from or write to LDS.
-   •   FlatLDSInsts : The average number of FLAT instructions that read or write to LDS executed per work item (affected by flow control).
-   •   GDSInsts : The average number of GDS read or GDS write instructions executed per work item (affected by flow control).
-   •   VALUUtilization : The percentage of active vector ALU threads in a wave. A lower number can mean either more thread divergence in a wave or that the work-group size is not a multiple of 64. Value range: 0% (bad), 100% (ideal - no thread divergence).
-   •   VALUBusy : The percentage of GPUTime vector ALU instructions are processed. Value range: 0% (bad) to 100% (optimal).
-   •   SALUBusy : The percentage of GPUTime scalar ALU instructions are processed. Value range: 0% (bad) to 100% (optimal).
+   •   VALUInsts : The average number of vector ALU instructions executed per work-item
+                   (affected by flow control).
+   •   SALUInsts : The average number of scalar ALU instructions executed per work-item
+                   (affected by flow control).
+   •   VFetchInsts : The average number of vector fetch instructions from the video
+                     memory executed per work-item (affected by flow control). Excludes
+                     FLAT instructions that fetch from video memory.
+   •   SFetchInsts : The average number of scalar fetch instructions from the video
+                     memory executed per work-item (affected by flow control).
+   •   VWriteInsts : The average number of vector write instructions to the video
+                     memory executed per work-item (affected by flow control).
+                     Excludes FLAT instructions that write to video memory.
+   •   FlatVMemInsts : The average number of FLAT instructions that read from or write
+                       to the video memory executed per work item (affected by flow control).
+                       Includes FLAT instructions that read from or write to scratch.
+   •   LDSInsts : The average number of LDS read or LDS write instructions executed
+                  per work item (affected by flow control).  Excludes FLAT instructions
+                  that read from or write to LDS.
+   •   FlatLDSInsts : The average number of FLAT instructions that read or write
+                      to LDS executed per work item (affected by flow control).
+   •   GDSInsts : The average number of GDS read or GDS write instructions executed
+                  per work item (affected by flow control).
+   •   VALUUtilization : The percentage of active vector ALU threads in a wave. A
+                         lower number can mean either more thread divergence in a
+                         wave or that the work-group size is not a multiple of 64.
+                         Value range: 0% (bad), 100% (ideal - no thread divergence).
+   •   VALUBusy : The percentage of GPUTime vector ALU instructions are processed.
+                  Value range: 0% (bad) to 100% (optimal).
+   •   SALUBusy : The percentage of GPUTime scalar ALU instructions are processed.
+                  Value range: 0% (bad) to 100% (optimal).
    •   Mem32Bwrites :
-   •   FetchSize : The total kilobytes fetched from the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   •   WriteSize : The total kilobytes written to the video memory. This is measured with all extra fetches and any cache or memory effects taken into account.
-   •   L2CacheHit : The percentage of fetch, write, atomic, and other instructions that hit the data in L2 cache. Value range: 0% (no hit) to 100% (optimal).
-   •   MemUnitBusy : The percentage of GPUTime the memory unit is active. The result includes the stall time (MemUnitStalled). This is measured with all extra fetches and writes and any cache or memory effects taken into account. Value range: 0% to 100% (fetch-bound).
-   •   MemUnitStalled : The percentage of GPUTime the memory unit is stalled. Try reducing the number or size of fetches and writes if possible. Value range: 0% (optimal) to 100% (bad).
-   •   WriteUnitStalled : The percentage of GPUTime the Write unit is stalled. Value range: 0% to 100% (bad).
-   •   ALUStalledByLDS : The percentage of GPUTime ALU units are stalled by the LDS input queue being full or the output queue being not ready. If there are LDS bank conflicts, reduce them. Otherwise, try reducing the number of LDS accesses if possible. Value range: 0% (optimal) to 100% (bad).
-   •   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value range: 0% (optimal) to 100% (bad).
+   •   FetchSize : The total kilobytes fetched from the video memory. This is measured
+                   with all extra fetches and any cache or memory effects taken into account.
+   •   WriteSize : The total kilobytes written to the video memory. This is measured
+                   with all extra fetches and any cache or memory effects taken into account.
+   •   L2CacheHit : The percentage of fetch, write, atomic, and other instructions that
+                    hit the data in L2 cache. Value range: 0% (no hit) to 100% (optimal).
+   •   MemUnitBusy : The percentage of GPUTime the memory unit is active. The result
+                     includes the stall time (MemUnitStalled). This is measured with all
+                     extra fetches and writes and any cache or memory effects taken into
+                     account. Value range: 0% to 100% (fetch-bound).
+   •   MemUnitStalled : The percentage of GPUTime the memory unit is stalled. Try
+                        reducing the number or size of fetches and writes if possible.
+                        Value range: 0% (optimal) to 100% (bad).
+   •   WriteUnitStalled : The percentage of GPUTime the Write unit is stalled.
+                          Value range: 0% to 100% (bad).
+   •   ALUStalledByLDS : The percentage of GPUTime ALU units are stalled by the LDS input
+                         queue being full or the output queue being not ready. If there
+                         are LDS bank conflicts, reduce them. Otherwise, try reducing the
+                         number of LDS accesses if possible. Value range: 0% (optimal) to
+                         100% (bad).
+   •   LDSBankConflict : The percentage of GPUTime LDS is stalled by bank conflicts. Value
+                         range: 0% (optimal) to 100% (bad).
 
 
 ======================
