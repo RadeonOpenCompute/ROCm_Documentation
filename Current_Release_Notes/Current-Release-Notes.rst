@@ -10,6 +10,33 @@ of ROCm documentation v4.5 and above.
 
 For documentation prior to ROCm v4.5, you may continue to access `http://rocmdocs.amd.com <http://rocmdocs.amd.com/>`__.
 
+================================
+AMD ROCm™ v5.0.2 Release Notes
+================================
+March, 2022
+
+Fixed Defects in This Release
+===============================
+
+The following defects are fixed in the ROCm v5.0.2 release.
+
+Issue with hostcall Facility in HIP Runtime
+------------------------------------------------
+
+In ROCm v5.0, when using the “assert()” call in a HIP kernel, the compiler may sometimes fail to emit kernel metadata related to the hostcall facility, which results in incomplete initialization of the hostcall facility in the HIP runtime. This can cause the HIP kernel to crash when it attempts to execute the “assert()” call. 
+The root cause was an incorrect check in the compiler to determine whether the hostcall facility is required by the kernel. This is fixed in the ROCm v5.0.2 release. 
+The resolution includes a compiler change, which emits the required metadata by default, unless the compiler can prove that the hostcall facility is not required by the kernel. This ensures that the “assert()” call never fails. 
+
+**Note**: This fix may lead to breakage in some OpenMP offload use cases, which use print inside a target region and result in an abort in device code. The issue will be fixed in a future release. 
+
+Compatibility Matrix Updates to ROCm Deep Learning Guide
+----------------------------------------------------------
+
+The compatibility matrix in the AMD Deep Learning Guide is updated for ROCm v5.0.2.
+
+For more information and documentation updates, refer to https://docs.amd.com.
+
+
 
 ================================
 AMD ROCm™ Release Notes v5.0.1
