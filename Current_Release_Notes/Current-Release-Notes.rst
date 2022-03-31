@@ -11,6 +11,14 @@ of ROCm documentation v4.5 and above.
 For documentation prior to ROCm v4.5, you may continue to access `http://rocmdocs.amd.com <http://rocmdocs.amd.com/>`__.
 
 ================================
+AMD ROCm™ v5.1 Release Notes
+================================
+March, 2022
+
+AMD ROCm™ v5.1 is released. The release documentation is available at https://docs.amd.com.
+
+
+================================
 AMD ROCm™ v5.0.2 Release Notes
 ================================
 March, 2022
