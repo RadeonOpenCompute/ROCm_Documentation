@@ -17,8 +17,8 @@ Installation steps:
 
 Install the ROCm compute firmware and rock-dkms kernel modules, **reboot required**
 ::
- wget -qO - https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
- echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main | sudo tee /etc/apt/sources.list.d/rocm.list
+ curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
+ echo deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] http://repo.radeon.com/rocm/apt/debian/ xenial main | sudo tee /etc/apt/sources.list.d/rocm.list
  sudo apt-get update && sudo apt-get install compute-firmware rock-dkms
  sudo update-initramfs -u
  sudo reboot

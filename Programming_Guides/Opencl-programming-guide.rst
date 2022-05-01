@@ -1766,7 +1766,7 @@ Either install the tar archive, or install the .deb package.
 
 **Debian package :**
 
-1. Download the ``amdcodexl-*.deb 64-bit Linux Debian package.``
+1. Download the ``amdcodexl-*.deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg]4-bit Linux Debian package.``
 
 2. Run: ``$ sudo dpkg -i amdcodexl_x.x.x-1_amd64.deb ``
    
