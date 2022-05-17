@@ -6,6 +6,9 @@ MXNet
 
 .. image:: MXNet_image1.png
 
+This page is obsolete, and MXNet is not officially supported.
+---------------------------------------------------------------
+
 MXNet is a deep learning framework that has been ported to the HIP port of MXNet. It works both on HIP/ROCm and HIP/CUDA platforms.
 Mxnet makes use of rocBLAS,rocRAND,hcFFT and MIOpen APIs.
  It allows you to mix `symbolic and imperative programming <https://mxnet.incubator.apache.org/architecture/index.html#deep-learning-system-design-concepts>`_ to **maximize** efficiency and productivity. At its core, MXNet contains a dynamic dependency scheduler that automatically parallelizes both symbolic and imperative operations on the fly. A graph optimization layer on top of that makes symbolic execution fast and memory efficient. MXNet is portable and lightweight, scaling effectively to multiple GPUs and multiple machines.
