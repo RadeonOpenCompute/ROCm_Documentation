@@ -26,14 +26,3 @@ Libraries are listed alphabetically below.
 #########
 `rocThrust  <https://rocthrust.readthedocs.io/>`_
 #########
-
-*********************
-Deprecated Libraries
-*********************
-
-hipeigen
-#########
-
-Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms. hipeigen has been upstream to the main project at https://eigen.tuxfamily.org/.
-
-
