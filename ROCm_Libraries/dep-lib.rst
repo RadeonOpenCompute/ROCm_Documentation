@@ -124,8 +124,8 @@ Refer `Here <http://rocm-documentation.readthedocs.io/en/latest/Installation_Gui
 
 Follow Steps to install rocm package
 ::
-  wget -qO - https://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-  sudo sh -c 'echo deb [arch=amd64] https://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+  curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
+  sudo sh -c 'echo deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] https://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
   sudo apt-get update
   sudo apt-get install rocm
 
@@ -292,8 +292,8 @@ For Debian based systems, like Ubuntu, configure the Debian ROCm repository as f
 
 ::
 
-  wget -qO - https://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
-  sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+  curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
+  sudo sh -c 'echo deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 
 The gpg key might change, so it may need to be updated when installing a new release.
 
@@ -1060,9 +1060,9 @@ Steps to install rocm package are,
 
 ::
 
-  wget -qO - http://packages.amd.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
+  curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
 
-  sudo sh -c 'echo deb [arch=amd64] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+  sudo sh -c 'echo deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] http://packages.amd.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
 
   sudo apt-get update
 

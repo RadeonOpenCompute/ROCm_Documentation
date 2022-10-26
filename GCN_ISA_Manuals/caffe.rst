@@ -31,9 +31,9 @@ Installing ROCm Debian packages:
 
   PKG_REPO="http://repo.radeon.com/rocm/apt/debian/"
    
-  wget -qO - $PKG_REPO/rocm.gpg.key | sudo apt-key add -
+  curl -fsSL /rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
   
-  sudo sh -c "echo deb [arch=amd64] $PKG_REPO xenial main > /etc/apt/sources.list.d/rocm.list"
+  sudo sh -c "echo deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] $PKG_REPO xenial main > /etc/apt/sources.list.d/rocm.list"
  
   sudo apt-get update
   

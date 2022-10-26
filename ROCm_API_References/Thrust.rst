@@ -23,8 +23,8 @@ Installation
 ****************
 AMD ROCm Installation
 ::
- $ wget -qO - https://repo.radeon.com/rocm/apt/debian/rocm.gpg.key | sudo apt-key add -
- $ sudo sh -c 'echo deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
+ $ curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
+ $ sudo sh -c 'echo deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] http://repo.radeon.com/rocm/apt/debian/ xenial main > /etc/apt/sources.list.d/rocm.list'
  $ sudo apt-get update
  $ sudo apt install rocm-dkms
  

@@ -256,9 +256,9 @@ Key: https://repo.radeon.com/rocm/rocm.gpg.key
 	
 		sudo apt install wget gnupg2
 		
-		wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+		curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
 		
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
 For example
@@ -267,7 +267,7 @@ For the current version of ROCm, ensure you replace *<ROCm_version#>* with debia
 
 ::
 
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] https://repo.radeon.com/rocm/apt/debian/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 		
 
 For older versions of ROCm, replace *<ROCm_version#>* with any ROCm versions number like 4.3.1, 4.3 or 4.2.
@@ -276,21 +276,21 @@ For example,
 
 ::
 
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.3/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] https://repo.radeon.com/rocm/apt/4.3/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
 **Note**: For ROCm v4.1 and lower, use *‘xenial main’*, instead of 'ubuntu main', as shown below.
 
 ::
 
-		wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
+		curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
+		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] https://repo.radeon.com/rocm/apt/<ROCm_version#>/ xenial main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 For example,
 
 ::
 
-		echo 'deb [arch=amd64] https://repo.radeon.com/rocm/apt/4.1/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] https://repo.radeon.com/rocm/apt/4.1/ ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
 
 
 
@@ -302,7 +302,7 @@ The gpg key may change; ensure it is updated when installing a new release. If t
 
 ::
 
-	wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+	curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
 
 
 The current rocm.gpg.key is not available in a standard key ring distribution, but has the following sha1sum hash:

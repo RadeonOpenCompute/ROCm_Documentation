@@ -729,7 +729,7 @@ Add the gpg key for AMDGPU and ROCm repositories. For Debian-based systems like 
 ::
 
                              
-              $ wget -q -O - https://repo.radeon.com/rocm/rocm.gpg.key | sudo apt-key add -
+              $ curl -fsSL https://repo.radeon.com/rocm/rocm.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/rocm-archive-keyring.gpg
 
 
 **NOTE**: The gpg key may change. Ensure it is updated when installing a new release. If the key signature verification fails while updating, re-add the key from the ROCm apt repository as mentioned above. The current rocm.gpg.key is not available in a standard key ring distribution. However, it has the following sha1sum hash:
@@ -750,14 +750,14 @@ For <amdgpu baseurl>  in the command below, refer to the AMDGPU base URLs as doc
 
 ::
 
-               $ echo 'deb [arch=amd64] <amdgpu baseurl> bionic main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
+               $ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] <amdgpu baseurl> bionic main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
                
 
 **Ubuntu 20.04**
 
 ::
 
-               $ echo 'deb [arch=amd64] <amdgpu baseurl> focal main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
+               $ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] <amdgpu baseurl> focal main' | sudo tee /etc/apt/sources.list.d/amdgpu.list
                
 
 
@@ -793,7 +793,7 @@ For <rocm baseurl> in the command below, refer to the ROCm base URLs as document
 
 ::
 
-               $ echo 'deb [arch=amd64] <rocm baseurl> ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
+               $ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/rocm-archive-keyring.gpg] <rocm baseurl> ubuntu main' | sudo tee /etc/apt/sources.list.d/rocm.list
                
                $ sudo apt-get update
                
