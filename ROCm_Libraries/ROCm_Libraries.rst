@@ -6,26 +6,26 @@ ROCm Libraries
 
 Libraries are listed alphabetically below.
 
-`hipSOLVER User Guide <https://hipsolver.readthedocs.io/>`_
-
-`MIGraphX User Guide <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`_
-
-`RCCL User Guide <https://rccl.readthedocs.io/>`_
-
-`rocALUTION User Guide <https://rocalution.readthedocs.io/>`_
-
-`rocBLAS User Guide <https://rocblas.readthedocs.io/>`_
-
-`rocFFT User Guide <https://rocfft.readthedocs.io/>`_
-
-`rocRAND User Guide <https://rocrand.readthedocs.io/>`_
-
-`rocSOLVER User Guide <https://rocsolver.readthedocs.io/>`_
-
-`rocSPARSE User Guide <https://rocsparse.readthedocs.io/>`_
-
-`rocThrust User Guide <https://rocthrust.readthedocs.io/>`_
-
+`hipSOLVER <https://hipsolver.readthedocs.io/>`_
+#########
+`MIGraphX <https://rocmsoftwareplatform.github.io/AMDMIGraphX/doc/html/>`_
+#########
+`RCCL <https://rccl.readthedocs.io/>`_
+#########
+`rocALUTION <https://rocalution.readthedocs.io/>`_
+#########
+`rocBLAS  <https://rocblas.readthedocs.io/>`_
+#########
+`rocFFT  <https://rocfft.readthedocs.io/>`_
+#########
+`rocRAND  <https://rocrand.readthedocs.io/>`_
+#########
+`rocSOLVER  <https://rocsolver.readthedocs.io/>`_
+#########
+`rocSPARSE  <https://rocsparse.readthedocs.io/>`_
+#########
+`rocThrust  <https://rocthrust.readthedocs.io/>`_
+#########
 
 *********************
 Deprecated Libraries
