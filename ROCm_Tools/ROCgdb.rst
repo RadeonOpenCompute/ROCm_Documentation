@@ -22,7 +22,7 @@ installed at:
 
 * /opt/rocm/share/doc/gdb/gdb.pdf as a PDF file
 
-To access the latest ROCDebugger User and API Guide documentation, refer to https://docs.amd.com.
+To access the latest ROCDebugger User Guide documentation, refer to https://docs.amd.com.
 
 For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
 
@@ -39,17 +39,10 @@ Introduction
 The AMD Debugger API (ROCdbgapi) is a library that provides all the support necessary for a debugger and other tools to perform low level control of
 the execution and inspection of execution state of AMD™ commercially available GPU architectures.
 
-For the AMD Debugger API Guide, see
+For the latest ROCDebugger API Guide, see https://docs.amd.com.
 
 
-
-For more information about the AMD ROCm ecosystem, see:
-
--  https://rocmdocs.amd.com/
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_API_Guide.pdf
-
-Build the AMD Debugger API Library
+Build the ROCDebugger API Library
 ----------------------------------
 
 The ROCdbgapi library can be built on Ubuntu 16.04, Ubuntu 18.04, Centos
@@ -207,5 +200,5 @@ registered trademarks of Red Hat, Inc. www.redhat.com in the U.S. and other cou
 United Stated and other countries. Ubuntu® and the Ubuntu logo are registered trademarks of Canonical Ltd. Other product names used in this
 publication are for identification purposes only and may be trademarks of their respective companies.
 
-Copyright (c) 2019-2021 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2019-2022 Advanced Micro Devices, Inc. All rights reserved.
 
