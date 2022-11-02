@@ -22,10 +22,7 @@ installed at:
 
 * /opt/rocm/share/doc/gdb/gdb.pdf as a PDF file
 
-
-The AMD ROCm Debugger User Guide is available as a PDF at:
-
-https://github.com/RadeonOpenCompute/ROCm/blob/master/ROCDebugger_User_Guide.pdf
+To access the latest ROCDebugger User and API Guide documentation, refer to https://docs.amd.com.
 
 For more information about GNU Debugger (GDB), refer to the GNU Debugger (GDB) web site at: http://www.gnu.org/software/gdb
 
