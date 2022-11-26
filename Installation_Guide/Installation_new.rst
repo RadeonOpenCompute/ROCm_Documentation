@@ -1,15 +1,6 @@
 .. image:: /Installation_Guide/amdblack.jpg
 
 
-============================
-ROCm Downloads Guide v5.0
-============================
-
-Use the following link for ROCm downloads,
-
-https://docs.amd.com/bundle/ROCm-Downloads-Guide-v5.0/page/ROCm_Installation.html
-
-
 ===============================
 ROCm Installation Guide v5.0
 ===============================
