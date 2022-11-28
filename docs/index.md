@@ -18,7 +18,7 @@ Coming Soon!
 
 ::::
 
-## Bulleting Board
+## Notice Board
 
 ::::{grid} 1 1 2 2
 :class-container: rocm-doc-grid
