@@ -1,11 +1,11 @@
 root: index
 subtrees:
-- caption: Release Info
+- caption: Technical Documentation
   entries:
-    - title: Release Notes
+    - title: Latest Linux
       url: https://
 
-- caption: Deploy ROCm
+- caption: Latest  ROCm
   entries:
 
     - title: Quick Start

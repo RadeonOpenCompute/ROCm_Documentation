@@ -18,14 +18,14 @@ Coming Soon!
 
 ::::
 
-
+## Bulleting Board
 
 ::::{grid} 1 1 2 2
 :class-container: rocm-doc-grid
 
 :::{grid-item-card}
 :padding: 2
-## Announcements
+** Announcements **
 ^^^
  * ROCm 5.3.3 was released
  * A new library hipBLASlt is available now
@@ -34,7 +34,7 @@ Coming Soon!
 
 :::{grid-item-card}
 :padding: 2
-## General Information
+** General Information **
 ^^^
  * What is ROCm? 
  * How do I get Support?
