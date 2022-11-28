@@ -18,14 +18,14 @@ Coming Soon!
 
 ::::
 
-## Notice Board
+## Announcement, Links and Info
 
-::::{grid} 1 1 2 2
+::::{grid} 1 1 3 3
 :class-container: rocm-doc-grid
 
 :::{grid-item-card}
 :padding: 2
-** Announcements **
+Announcements
 ^^^
  * ROCm 5.3.3 was released
  * A new library hipBLASlt is available now
@@ -34,7 +34,17 @@ Coming Soon!
 
 :::{grid-item-card}
 :padding: 2
-** General Information **
+Quick Links 
+^^^
+ * Quick Start Guide (Linux)
+ * HIP API (Latest)
+ * Developer.amd.com
+ * ROCm Github Discussions 
+:::
+
+:::{grid-item-card}
+:padding: 2
+General Information 
 ^^^
  * What is ROCm? 
  * How do I get Support?
@@ -42,6 +52,8 @@ Coming Soon!
  * How do I provide feedback and participate in the ROCm Community?
  * How does ROCm versioning work? 
 :::
+
+
 
 ::::
 
