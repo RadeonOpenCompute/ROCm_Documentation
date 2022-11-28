@@ -1,0 +1,39 @@
+root: index
+subtrees:
+- caption: Release Info
+  entries:
+    - title: Release Notes
+      url: https://
+
+- caption: Deploy ROCm
+  entries:
+
+    - title: Quick Start
+      url: https://
+
+
+- caption: APIs and Reference
+  entries:
+    - title: HIP API
+      url: https://github.com/
+    - title: rocBLAS API
+      url: https://github.com/      
+      
+- caption: Understand ROCm
+  entries:
+    - title: What is ROCm?
+      url: https://github.com/
+    - title: What compiler should I choose?
+      url: https://github.com/        
+      
+- caption: Step by Step Guides
+  entries:
+    - title: How to Isolate GPUs in Docker
+      url: https://github.com/
+           
+      
+- caption: Examples
+  entries:
+    - title: rocm-examples
+      url: https://github.com/
+              
