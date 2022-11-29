@@ -8,9 +8,9 @@ subtrees:
 
 - caption: Announcements
   entries:
-    - title: HIP API
+    - title: ROCm 5.3.3 release
       url: https://github.com/
-    - title: rocBLAS API
+    - title: HIP Textbook Available
       url: https://github.com/      
       
 - caption: Quick Links
