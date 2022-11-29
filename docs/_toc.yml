@@ -2,38 +2,28 @@ root: index
 subtrees:
 - caption: Technical Documentation
   entries:
-    - title: Latest Linux
-      url: https://
-
-- caption: Latest  ROCm
-  entries:
-
-    - title: Quick Start
-      url: https://
+    - title: Quick Start (Linux)
+      url: https://rocmdocs.amd.com/projects/overview/en/rtd/quick_start.html
 
 
-- caption: APIs and Reference
+- caption: Announcements
   entries:
     - title: HIP API
       url: https://github.com/
     - title: rocBLAS API
       url: https://github.com/      
       
-- caption: Understand ROCm
+- caption: Quick Links
+  entries:
+    - title: Quick Start (Linux)
+      url: https://github.com/
+    - title: HIP API (Latest)
+      url: https://github.com/        
+      
+- caption: General Information
   entries:
     - title: What is ROCm?
       url: https://github.com/
-    - title: What compiler should I choose?
-      url: https://github.com/        
-      
-- caption: Step by Step Guides
-  entries:
-    - title: How to Isolate GPUs in Docker
-      url: https://github.com/
            
       
-- caption: Examples
-  entries:
-    - title: rocm-examples
-      url: https://github.com/
               
