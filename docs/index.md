@@ -1,4 +1,9 @@
 # AMD ROCm Software
+```{article-info}
+:date: "Jul 24, 2021"
+:read-time: "5 min read"
+:class-container: sd-p-2 sd-outline-muted sd-rounded-1
+```
 
 Welcome to AMD ROCm Software's website! ROCm is AMD's software stack for GPU based computation and communication. 
 From exascale supercomputers to your desktop, ROCm is the open source software to power your computational needs.
@@ -8,7 +13,7 @@ From exascale supercomputers to your desktop, ROCm is the open source software t
 ::::{tab-set}
 
 :::{tab-item} Linux 
-Latest (5.3.3)
+[Latest (5.3.3)](https://rocmdocs.amd.com/projects/overview/en/rtd/)
 
 All versions
 :::
@@ -31,6 +36,7 @@ Announcements
  * ROCm 5.3.3 was released
  * A new library hipBLASlt is available now
  * A textbook on HIP is published and is available for download
+ * All Announcements
 :::
 
 :::{grid-item-card}
