@@ -286,7 +286,7 @@ Yes. Most HIP data structures (hipStream_t, hipEvent_t) are typedefs to CUDA equ
 
 hipErrorToCudaError hipCUDAErrorTohipError hipCUResultTohipError
 
-If platform portability is important, use #ifdef **HIP_PLATFORM_NVCC** to guard the CUDA-specific code.
+If platform portability is important, use `#ifdef __HIP_PLATFORM_NVIDIA__` to guard the CUDA-specific code.
 
 
 
