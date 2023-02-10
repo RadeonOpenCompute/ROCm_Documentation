@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 
 ================
@@ -66,6 +70,3 @@ See `ROCM_AOMP_SOURCE_INSTALL <https://github.com/ROCm-Developer-Tools/aomp/blob
 for instructions on building AOMP from source. 
 
 System package dependencies can be found `here. <https://github.com/ROCm-Developer-Tools/aomp/blob/rocm-3.9.0/docs/SOURCEINSTALL.md>`__
-
-
-

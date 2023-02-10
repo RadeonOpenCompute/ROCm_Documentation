@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _sysfsclasskfdtopologynodes0:
 
@@ -105,4 +109,3 @@ system)
 |  KernelVersion:	4.13
 |  Description:	Maximum engine clock speed of the CPU
 | 
-

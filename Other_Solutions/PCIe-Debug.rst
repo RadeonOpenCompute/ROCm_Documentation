@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _PCIe-Debug:
 
 ROCm PCIe Debug
@@ -253,6 +257,3 @@ Example
              +-1b.5  Advanced Micro Devices, Inc. [AMD] Device 1465
              +-1b.6  Advanced Micro Devices, Inc. [AMD] Device 1466
              \-1b.7  Advanced Micro Devices, Inc. [AMD] Device 1467
-
-
-

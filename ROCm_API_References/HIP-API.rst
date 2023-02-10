@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-API:
 
 HIP API Documentation
@@ -17,5 +21,3 @@ HIP API Documentation
     HIP_API/Initialization-and-Version
     HIP_API/Context-Management
     HIP_API/Control
-
-

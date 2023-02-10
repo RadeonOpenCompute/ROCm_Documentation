@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. image:: amdblack.jpg
 
 
@@ -166,5 +170,3 @@ ROCm CMake Packages
 |           |          | migraphx::migraphx_cpu, migraphx::migraphx_gpu,       |
 |           |          | migraphx::migraphx_onnx, migraphx::migraphx_tf        |
 +-----------+----------+-------------------------------------------------------+
-
-

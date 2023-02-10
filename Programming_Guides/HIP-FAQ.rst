@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-FAQ:
 
 
@@ -347,8 +351,3 @@ The HIP version can be queried from the following HIP API call,
 The version returned will always be greater than the versions in previous ROCm releases.
 
 **NOTE**: The version definition of HIP runtime is different from CUDA. On the AMD platform, the function returns HIP runtime version, while on the NVIDIA platform, it returns CUDA runtime version. There is no mapping or a correlation between HIP version and CUDA version.
-
-
-
-
-

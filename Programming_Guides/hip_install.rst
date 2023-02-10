@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-IN:
 
 Installing pre-built packages
@@ -117,4 +121,3 @@ Here's a richer command-line that overrides the default paths:
   make install
 
     * After installation, make sure HIP_PATH is pointed to /where/to/install/hip.
-

@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _ROC-smi:
 
 ROCm System Management Interface
@@ -125,4 +129,3 @@ The information contained herein is for informational purposes only, and is subj
 AMD, the AMD Arrow logo, and combinations thereof are trademarks of Advanced Micro Devices, Inc. Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
 Copyright (c) 2014-2017 Advanced Micro Devices, Inc. All rights reserved.
-

@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _mxnet:
 
 =========
@@ -151,5 +155,3 @@ Install the MXNet Python binding
 
 ::
  $ python bdk_demo.py
-
-

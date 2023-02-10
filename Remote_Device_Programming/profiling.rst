@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _profiling:
 
 ==========
@@ -66,4 +70,3 @@ Read profile output file:
      0.332      printf 15.316 {                        profiling.c:13   my_func_inner()
     15.316      }
      0.236  }
-

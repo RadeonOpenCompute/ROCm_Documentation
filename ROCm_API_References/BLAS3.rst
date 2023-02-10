@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _BLAS3:
 
 BLAS-3 functions
@@ -105,8 +109,3 @@ HER2K - Hermitian rank-2k update to a matrix
 
 
 .. doxygenfunction:: clblasZher2k()
-
-
-
-
-

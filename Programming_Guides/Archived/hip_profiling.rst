@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _hip_profiling: 
 
@@ -318,5 +322,3 @@ These can be combined. For example, HIP_TRACE_API=6 shows a concise view of the 
 Color
 +++++++
 Note this trace mode uses colors. "less -r" can handle raw control characters and will display the debug output in proper colors. You can change the color used for the trace mode with the HIP_TRACE_API_COLOR environment variable. Possible values are None/Red/Green/Yellow/Blue/Magenta/Cyan/White. None will disable use of color control codes for both the opening and closing and may be useful when saving the trace file or when a pure text trace is desired.
-
-

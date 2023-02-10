@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 =====================
 AMD ROCm Debugger
@@ -201,4 +205,3 @@ United Stated and other countries. Ubuntu® and the Ubuntu logo are registered t
 publication are for identification purposes only and may be trademarks of their respective companies.
 
 Copyright (c) 2019-2022 Advanced Micro Devices, Inc. All rights reserved.
-

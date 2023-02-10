@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _BLAS2:
 
 BLAS 2 functions
@@ -219,4 +223,3 @@ TBSV - Solving triangular banded matrix
 .. doxygenfunction:: clblasStbsv()
 
 .. doxygenfunction:: clblasZtbsv()
-

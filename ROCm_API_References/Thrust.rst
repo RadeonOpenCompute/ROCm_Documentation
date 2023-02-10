@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _HIP-thrust:
 
@@ -398,4 +402,3 @@ A list of `Thrust API's supported on HIP/CUDA and HIP/ROCm.
 Github
 *******
 For Github repository click here : `Thrust <https://github.com/ROCmSoftwarePlatform/Thrust>`_
-

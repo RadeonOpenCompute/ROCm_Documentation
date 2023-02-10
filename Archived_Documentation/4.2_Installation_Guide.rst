@@ -1,3 +1,12 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
+
 .. image:: /Installation_Guide/amdblack.jpg
 |
 =====================
@@ -646,4 +655,3 @@ The following example shows how to use the repo binary to download the ROCm sour
 
 
 **Note**: Using this sample code will cause the repo to download the open source code associated with this ROCm release. Ensure that you have ssh-keys configured on your machine for your GitHub ID prior to the download.
-

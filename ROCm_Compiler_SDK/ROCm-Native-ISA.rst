@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _ROCm-Native-ISA:
 
@@ -2879,4 +2883,3 @@ Additional Documentation
 [`HRF <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id12>`_]`Heterogeneous-race-free Memory Models <http://benedictgaster.org/wp-content/uploads/2014/01/asplos269-FINAL.pdf>`_
 
 [CLANG-ATTR]	(`1 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id14>`_, `2 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id15>`_, `3 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id16>`_, `4 <http://releases.llvm.org/8.0.1/docs/AMDGPUUsage.html#id17>`_) `Attributes in Clang <http://clang.llvm.org/docs/AttributeReference.html>`_
-

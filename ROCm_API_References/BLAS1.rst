@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _BLAS1:
 
 BLAS1 functions
@@ -134,5 +138,3 @@ ASUM - Sum of absolute values
 .. doxygenfunction:: clblasSasum()
 
 .. doxygenfunction:: clblasScasum()
-
-

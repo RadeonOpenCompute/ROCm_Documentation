@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP_Debugging:
 
 #####################
@@ -198,5 +202,3 @@ Print env var state
 +++++++++++++++++++++
 
 Setting HIP_PRINT_ENV=1 and then running a HIP application will print the HIP environment variables, their current values, and usage info. Setting HCC_PRINT_ENV=1 and then running a HCC application will print the HCC environment variables, their current values, and usage info.
-
-

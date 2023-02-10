@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HCC-Native-GCN-ISA:
 
 ================================
@@ -194,4 +198,3 @@ Or alternatively, you could generate a .deb or .rpm package
 ::
 
   make package
-

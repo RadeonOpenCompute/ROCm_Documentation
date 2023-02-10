@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _More-about-how-ROCm-uses-PCIe-Atomics:
 
 ======================================
@@ -147,5 +151,3 @@ Improve performance by avoiding stalls caused by ordering rules. For example, po
 This only has meaning for memory requests, and is reserved for Configuration or IO requests. Completers are not required to copy this bit into a completion, and only use the bit if their enable bit is set for this operation.
 
 To read more on PCIe Gen 3 new options https://www.mindshare.com/files/resources/PCIe%203-0.pdf
-
-

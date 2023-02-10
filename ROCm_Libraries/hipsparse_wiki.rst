@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _hipsparsewiki:
 
@@ -459,5 +463,3 @@ To run specific tests, use --gtest_filter=match where match is a ':'-separated l
   ./hipsparse-test --gtest_filter=*coo2csr*
 
 Please note, that tests are only supported when configured with rocSPARSE backend.
-
-

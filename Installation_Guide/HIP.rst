@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _ROCm-Developer-Tool-HIP:
 
 =====
@@ -145,5 +149,3 @@ Reporting an issue
 Use the `GitHub issue tracker <https://github.com/ROCm-Developer-Tools/HIP/issues>`_. If reporting a bug, include the output of "hipconfig --full" and samples/1_hipInfo/hipInfo (if possible).
 
 For More Info checkout GitHub Link `here <https://github.com/ROCm-Developer-Tools/HIP/tree/roc-1.7.x>`_
-
-

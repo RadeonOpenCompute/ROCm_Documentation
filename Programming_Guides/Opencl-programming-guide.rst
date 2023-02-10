@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _Opencl-programming-guide:
 
 OpenCL Programming Guide
@@ -4293,5 +4297,3 @@ Deprecated runtimes
  | clCreateCommandQueue
  | clCreateSampler
  | clEnqueueTask
-
-

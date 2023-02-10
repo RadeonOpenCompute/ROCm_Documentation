@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _sideprogresscompletion:
 
 ==============================
@@ -55,4 +59,3 @@ We can either use the non-blocking functions, or just progress everything from w
 SHMEM
 **********
 Since we have only blocking calls, we can just repeatedly call the transport send function, until it finally sends.
-

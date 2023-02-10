@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _hcc-profile:
 
 
@@ -118,5 +122,3 @@ Additional Details and tips
 * Commands are logged in the order they are removed from the internal HCC command tracker. Typically this is the same order that commands are dispatched, though sometimes these may diverge. For example, commands from different devices,queues, or cpu threads may be interleaved on the hcc trace display to stderr. If a single view in timeline order is required, enable and sort by the profiler START timestamps (HCC_PROFILE_VERBOSE=0x2)
 * If the application keeps a reference to a completion_future, then the command timestamp may be reported significantly after it occurs.
 * HCC_PROFILE has an (untested) feature to write to a log file.
-
-

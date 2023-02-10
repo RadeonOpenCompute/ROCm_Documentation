@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _ROCm-Codeobj-format:
 
@@ -977,5 +981,3 @@ References
        * `amd_hsa_signal.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_signal.h>`_
        * `amd_hsa_common.h <https://github.com/RadeonOpenCompute/ROCR-Runtime/blob/master/src/inc/amd_hsa_common.h>`_
    * `PCI Express Atomic Operations <https://pcisig.com/specifications/pciexpress/specifications/ECN_Atomic_Ops_080417.pdf>`_
-
-

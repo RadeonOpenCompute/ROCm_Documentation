@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. image:: amdblack.jpg
 
@@ -49,4 +53,3 @@ Download AMD ROCm Data Center Tool API Guide
 ==============================================
 
 https://github.com/RadeonOpenCompute/ROCm/blob/rocm-4.5.2/RDC_API_Manual_4.5.pdf
-

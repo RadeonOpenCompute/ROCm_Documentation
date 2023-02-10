@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _ocml:
 
 documentation
@@ -294,4 +298,3 @@ For the functions supporting specific roundings, the rounding mode {rm} can be o
   * rtp – round towards positive infinity
   * rtn – round towards negative infinity
   * rtz – round towards zero
-

@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-terminology:
 
 ==============================================================
@@ -21,8 +25,3 @@ HIP-Supported CUDA API Reference Guide
 =======================================
 
 https://rocmdocs.amd.com/en/latest/Programming_Guides/HIP_API_Guide.html#hip-supported-cuda-api-reference-guide-v4-2
-
-
-
-
-

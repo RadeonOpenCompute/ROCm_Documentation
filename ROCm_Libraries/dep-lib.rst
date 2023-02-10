@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HCRG:
 
 **********
@@ -1274,4 +1278,3 @@ This sections enumerates the list of tested combinations of Hardware and system 
  * Supermicro SYS 2028GR-THT 6 R9 NANO
  * Supermicro SYS-1028GQ-TRT 4 R9 NANO
  * Supermicro SYS-7048GR-TR Tower 4 R9 NANO
-

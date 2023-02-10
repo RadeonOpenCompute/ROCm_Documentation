@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _Async:
 
 Infrastructure for asynchronous event delivery
@@ -27,4 +31,3 @@ Further improvements (TODO):
 
  * Use timerfd in progress thread to handle smaller timer resolution (if kernel supports).
  * Use eventfd instead of pipe() for notifications (if kernel supports). Update: Cannot do it because eventfd does not support SIGIO.
-

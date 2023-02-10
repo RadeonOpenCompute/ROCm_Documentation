@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _PCIe-features:
 
 PCIe Features
@@ -148,4 +152,3 @@ This only has meaning for memory requests, and is reserved for Configuration or 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 To read more on PCIe Gen 3 new options http://www.mindshare.com/files/resources/PCIe%203-0.pdf
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-

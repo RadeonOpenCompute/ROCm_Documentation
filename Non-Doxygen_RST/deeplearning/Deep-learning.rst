@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _Deep-learning:
 
 
@@ -1095,29 +1099,3 @@ Release Notes
     * Protobuf - `V3.5.2 <https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.2>`_
     * OpenCV - `3.4.0 <https://github.com/opencv/opencv/releases/tag/3.4.0>`_
     * Dependencies for all the above packages
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

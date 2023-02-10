@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _sysfsclasskfdtopologynodes0iolinks01:
 
@@ -63,4 +67,3 @@ sysfs-class-kfd-topology-nodes-N-io_links-X
 | Date:		May 2018
 | KernelVersion:	4.13
 | Description:	Local use flags count used in CPU
-

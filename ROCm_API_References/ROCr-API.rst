@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _ROCr-API:
 
 ROCr API Documentation
@@ -507,33 +511,3 @@ Finalization Program
 
 .. doxygenfunction:: hsa_ext_program_iterate_modules()
    :project: rocr
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

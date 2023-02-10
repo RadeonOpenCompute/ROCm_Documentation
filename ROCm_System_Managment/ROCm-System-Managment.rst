@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _ROCm-System-Management:
 
 
@@ -992,5 +996,3 @@ Refer to the Linux kernel's cgroup documentation for information on how to creat
 For cgroup-v1, refer https://www.kernel.org/doc/Documentation/cgroup-v1/devices.txt 
 
 For cgroup-v2, refer https://www.kernel.org/doc/Documentation/cgroup-v2.txt
-
-

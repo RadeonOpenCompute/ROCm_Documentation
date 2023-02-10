@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _List-of-ROCm-Packages-for-Ubuntu-Fedora:
 
 ============================================
@@ -51,5 +55,3 @@ List of ROCm Packages for Ubuntu and Fedora
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |ROCm Utilities 	            |   rocm-utils 	    |  rocm-utils-1.0.0-Linux.rpm			      |
 +-----------------------------------+-----------------------+---------------------------------------------------------+
-
-

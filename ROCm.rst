@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _GuidedIntro:
 
 .. image:: amdblack.jpg
@@ -258,5 +262,3 @@ This section provides information on AMD’s graph optimization engine.
 `ROCm Glossary <http://rocm-documentation.readthedocs.io/en/latest/ROCm_Glossary/ROCm-Glossary.html#rocm-glossary>`_
 
 | ROCm Glossary gives highlight concept and their main concept of how they work.
-
-

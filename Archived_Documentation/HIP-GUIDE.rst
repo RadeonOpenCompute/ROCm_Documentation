@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-GUIDE:
 
 HIP Programming Guide
@@ -1360,5 +1364,3 @@ hipcc now supports compiling C++/HIP kernels to binary code objects. The user ca
 
 
 Note that one important fact to remember when using binary code objects is that the number of arguments to the kernel are different on HCC and NVCC path. Refer to the sample in samples/0_Intro/module_api for differences in the arguments to be passed to the kernel.
-
-

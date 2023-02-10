@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-FAQ:
 
 ********************
@@ -195,5 +199,3 @@ Can I develop HIP code on an AMD HCC platform?
 Yes. HIP's HCC path only exposes the APIs and functions that work on both NVCC and HCC back ends. "Extra" APIs, parameters and features that appear in HCC but not CUDA will typically cause compile* or run*time errors. Developers must use the HIP API for most accelerator code and bracket any HCC*specific code with preprocessor conditionals. 
 
 Those concerned about portability should, of course, test their code on both platforms and should tune it for performance. Typically, HCC supports a more modern set of C++11/C++14/C++17 features, so HIP developers who want portability should be careful when using advanced C++ features on the hc path.
-
-

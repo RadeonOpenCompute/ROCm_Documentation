@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. image:: amdblack.jpg
 
 
@@ -379,7 +383,3 @@ Meta Packages
 +-----------------------------------+-----------------------+---------------------------------------------------------+
 |ROCm Utilities 	            |   rocm-utils 	    |  rocm-utils-1.0.0-Linux.rpm			      |
 +-----------------------------------+-----------------------+---------------------------------------------------------+
-
-
-
-

@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _logging:
 
 ==========
@@ -29,4 +33,3 @@ Features:
 
  * It's possible to define maximal log level during compile time, to avoid checks in release mode.
  * It's possible to install custom log message handler.
-

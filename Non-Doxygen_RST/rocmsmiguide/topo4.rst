@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _sysfsclasskfdtopologynodes0membanks0:
 
 sysfs-class-kfd-topology-nodes-N-membanks-X
@@ -27,4 +31,3 @@ sysfs-class-kfd-topology-nodes-N-membanks-X
 | Date:		May 2018
 | KernelVersion:	4.13
 | Description:	Indicates Maximum memory running speed in MHz
-

@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _sysfsclasskfdtopology:
 
 sysfs-class-kfd-topology
@@ -23,8 +27,3 @@ sysfs-class-kfd-topology
 | Date:             may 2018
 | KernelVersion:    4.13
 | description:      Provides HSA platform revision, reflects Platform Table Revision ID
-
-
-
-
-

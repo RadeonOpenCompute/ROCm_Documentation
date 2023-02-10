@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _CUDAAPIHIP:
 
 CUDA Driver API functions supported by HIP
@@ -1625,7 +1629,3 @@ CUDA Driver API functions supported by HIP
 +-----------------------------------------+-----------------------------------------------------------------+
 |   cuGraphicsResourceGetMappedEglFrame   |                                                                 |
 +-----------------------------------------+-----------------------------------------------------------------+
-
-
-
-

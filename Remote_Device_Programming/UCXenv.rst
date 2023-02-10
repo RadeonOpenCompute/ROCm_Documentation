@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _UCXenv:
 
 ===========================
@@ -54,4 +58,3 @@ For these specific ones:
   UCX_NET_DEVICES=all
   UCX_SHM_DEVICES=all
   UCX_ACC_DEVICES=all
-

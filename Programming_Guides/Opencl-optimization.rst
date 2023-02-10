@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 
 .. _Optimization-Opencl:
@@ -3373,7 +3377,3 @@ Because the GPU is a Vector ALU architecture, there is a cost to executing an if
 ##################################
 
 The native hardware I/O transaction size is four words (float4, int4 types). Avoid I/Os with smaller data, and rewrite the kernel to use the native size data. Kernel performance increases, and only 25% as many work items need to be dispatched.
-
-
-
-

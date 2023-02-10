@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HIP-porting-guide:
 
 
@@ -981,6 +985,3 @@ Editor Highlighting
 
 See the utils/vim or utils/gedit directories to add handy highlighting
 to hip files.
-
-
-

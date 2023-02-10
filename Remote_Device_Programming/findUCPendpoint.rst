@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _findUCPendpoint:
 
 ========================================================================
@@ -21,4 +25,3 @@ For example, to find short/bcopy/zcopy/rndv thresholds of the open mpi rank 0 th
   #
   #                tag_send: 0..<egr/short>..180..<egr/bcopy>..1076..<egr/zcopy>..32954..<rndv>..(inf)
   #           tag_send_sync: 0..<egr/short>..180..<egr/bcopy>..1076..<egr/zcopy>..32954..<rndv>..(inf)
-

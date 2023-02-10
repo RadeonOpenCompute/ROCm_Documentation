@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _DesignDiscuss:
 
 =================
@@ -22,4 +26,3 @@ Notes by Pasha and Yossi:
 **************************
  * consider separating memory managers from transports
  * consider CUDA support with the unified memory model
-

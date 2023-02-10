@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _HCCwiki:
  
 HCC WIKI (Deprecated)
@@ -179,4 +183,3 @@ If you plan to use a work-group size more than 256, use this attribute to specif
 API documentation
 
 `API reference of HCC <https://doc-july-11.readthedocs.io/en/latest/ROCm_API_References/HCC-API.html#hcc-api>`_
-

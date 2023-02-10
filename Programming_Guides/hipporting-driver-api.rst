@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _hipporting-driver-api:
 
 Porting CUDA Driver API
@@ -299,4 +303,3 @@ HIP supports texture driver APIs however texture reference should be declared in
 
    // ...
   }
-

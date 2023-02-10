@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _mininbody:
 
 ==================================
@@ -45,5 +49,3 @@ Each directory below includes scripts for building and running a "shmoo" of five
    3. nbody-soa.cu + ftz : Enable flush denorms to zero (shmoo-mic-nbody-ftz.sh)
    4. nbody-block.c : cache blocking via loop splitting (shmoo-mic-nbody-block.sh)
    5. nbody-align.c : aligned memory allocation and vector access (shmoo-mic-nbody-align.sh)
-
-

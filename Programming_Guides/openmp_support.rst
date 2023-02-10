@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 
 ================
@@ -57,4 +61,3 @@ Helpful Tips
 -------------
 
 Setting the environment variable LIBOMPTARGET_KERNEL_TRACE while running an OpenMP program produces valuable information. Among other details, a value of 1 will lead the runtime to emit the number of teams and threads for every kernel run on the GPU. A value of 2 leads additionally to a trace of implementation-level APIs and corresponding timing information. 
-

@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 ==========================
 HIP API Documentation v4.5
 ==========================
@@ -110,4 +114,3 @@ OpenCL Best Practices
    
 
    
-

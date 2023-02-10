@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 
 .. _Other-Solutions:
 
@@ -92,5 +96,3 @@ Refer here for :ref:`PCIe-Debug`
 
 * `HIP-Debugging <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/HIP_Debugging.html#hip-debugging>`_
 * `HIP-Profiling <http://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/hip_profiling.html#hip-profiling>`_
-
-

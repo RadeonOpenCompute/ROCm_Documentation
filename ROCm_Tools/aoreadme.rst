@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _AOMP developers README:
 
 AOMP Developer README.md (Deprecated)
@@ -178,5 +182,3 @@ Once you have a successful development build, individual components can be incre
 The default out-of-source build directory for each component is $HOME/git/aomp/build/.
 
 WARNING: When the build scripts are run with NO arguments (that is, you do not specify "install" or "nocmake"), the build scripts will rebuild the entire component by DELETING THE BUILD DIRECTORY before running cmake and make.
-
-

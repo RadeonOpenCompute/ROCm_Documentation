@@ -1,3 +1,7 @@
+# ROCm Documentation has moved to docs.amd.com
+
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. _statistic:
 
 ==============
@@ -39,4 +43,3 @@ Each counter will be an accumulation of all instances within its class. For exam
               bytes_bcopy: 130
 
 The list of counters or regular expressions is defined in the UCX_STATS_FILTER environment variable. If UCX_STATS_FILTER=* then full report will be provided. Otherwize a summary.
-
