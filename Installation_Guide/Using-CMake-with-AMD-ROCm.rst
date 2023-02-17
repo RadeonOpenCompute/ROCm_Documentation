@@ -1,5 +1,3 @@
-.. meta::
-   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. image:: amdblack.jpg
 
 
