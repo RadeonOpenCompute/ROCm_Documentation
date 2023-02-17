@@ -1,7 +1,3 @@
-# ROCm Documentation has moved to docs.amd.com
-
-.. meta::
-   :http-equiv=Refresh: 0; url='https://docs.amd.com'
 .. image:: /Current_Release_Notes/amdblack.jpg
 
 .. rocm documentation master file, created by
