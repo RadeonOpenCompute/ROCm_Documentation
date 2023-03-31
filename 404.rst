@@ -1,0 +1,10 @@
+==================
+404 Page Not Found
+==================
+
+Page could not be found.
+
+Return to index_ or use the links from the sidebar to find what
+you are looking for.
+
+.. _index:
