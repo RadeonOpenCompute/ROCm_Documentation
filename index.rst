@@ -1,5 +1,8 @@
 .. image:: /Current_Release_Notes/amdblack.jpg
 
+.. meta::
+   :http-equiv=Refresh: 0; url='https://docs.amd.com'
+
 .. rocm documentation master file, created by
    sphinx-quickstart on Tue Jul 11 20:12:28 2017.
    You can adapt this file completely to your liking, but it should at least
