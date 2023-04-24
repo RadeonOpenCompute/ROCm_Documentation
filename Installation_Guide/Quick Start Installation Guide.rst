@@ -25,7 +25,7 @@ AMD ROCm Installation Guide v3.1.0
 Deploying ROCm
 ~~~~~~~~~~~~~~~~
 
-AMD hosts both Debian and RPM repositories for the ROCm v3.0x packages.
+AMD hosts both Debian and RPM repositories for the ROCm v4.1x packages.
 
 The following directions show how to install ROCm on supported Debian-based systems such as Ubuntu 18.04.x
 
@@ -117,14 +117,14 @@ The current rocm.gpg.key is not available in a standard key ring distribution, b
 
 ::
 
-     /opt/rocm/bin/rocminfo
-     /opt/rocm/opencl/bin/x86_64/clinfo
+     /opt/rocm-4.1.0/bin/rocminfo
+     /opt/rocm-4.1.0/opencl/bin/x86_64/clinfo
 
 Note: To run the ROCm programs more efficiently, add the ROCm binaries in your PATH.
 
 ::
 
-	echo 'export PATH=$PATH:/opt/rocm/bin:/opt/rocm/profiler/bin:/opt/rocm/opencl/bin/x86_64' | 
+	echo 'export PATH=$PATH:/opt/rocm-4.1.0/bin:/opt/rocm-4.1.0/profiler/bin:/opt/rocm-4.1.0/opencl/bin/x86_64' | 
 	sudo tee -a /etc/profile.d/rocm.sh
 
 
