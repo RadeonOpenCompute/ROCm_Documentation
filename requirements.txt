@@ -1,4 +1,0 @@
-breathe==4.26.0
-sphinxcontrib-bibtex
-sphinx_rtd_theme==0.5.2
-

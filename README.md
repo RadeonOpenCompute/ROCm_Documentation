@@ -1,5 +1,3 @@
+# Legacy ROCm Documentation GitHub Repo
 
- ## ROCm Documentation 
- 
- Repository for ROCm documentation rendered by ReadtheDocs 
-
+This repository is archived. Please see the [ROCm repository](https://github.com/RadeonOpenCompute/ROCm) for the lastest documetentation source.
